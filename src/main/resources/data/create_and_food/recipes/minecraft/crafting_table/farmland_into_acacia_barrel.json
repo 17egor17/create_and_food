@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "131",
+    "121",
+    "101"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:acacia_slab"
+    },
+    "1": {
+      "item": "minecraft:acacia_planks"
+    },
+    "2": {
+      "item": "minecraft:dirt"
+    },
+    "3": {
+      "tag": "forge:plates/steel"
+    }
+  },
+  "result": {
+    "item": "create_and_food:farmland_into_acacia_barrel",
+    "count": 1
+  }
+}

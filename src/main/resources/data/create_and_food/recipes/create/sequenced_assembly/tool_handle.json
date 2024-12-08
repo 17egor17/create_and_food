@@ -1,0 +1,62 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create:iron_sheet"
+  },
+  "transitionalItem": {
+    "item": "create_and_food:incomplete_tool_handle"
+  },
+  "sequence": [
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_tool_handle"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_tool_handle"
+        }
+      ],
+      "processingTime": 100
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_tool_handle"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_tool_handle"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_tool_handle"
+        },
+        [
+          {
+            "item": "minecraft:iron_nugget"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_tool_handle"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:tool_handle"
+    }
+  ],
+  "loops": 2
+}

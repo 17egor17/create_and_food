@@ -1,0 +1,13 @@
+{
+  "variants": {
+  "type=top": {
+    "model": "create_and_food:block/farmlands/farmland_sump_rich_soil"
+  },
+  "type=bottom": {
+    "model": "create_and_food:block/farmlands/farmland_sump_rich_soil_bottom"
+  },
+  "type=double": {
+    "model": "create_and_food:block/farmlands/farmland_sump_rich_soil_double"
+  }
+}
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "block/pressure_plate_down",
+	"textures": {
+		"texture": "create_and_food:block/almond_planks"
+	}
+}

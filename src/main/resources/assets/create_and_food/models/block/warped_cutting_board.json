@@ -1,0 +1,6 @@
+{
+  "parent": "create_and_food:custom/cutting_board",
+  "textures": {
+    "board": "create_and_food:block/cutting_boards/warped_cutting_board"
+  }
+}

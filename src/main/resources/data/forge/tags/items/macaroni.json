@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "create_and_food:macaroni",
+    "create_and_food:pink_macaroni",
+    "create_and_food:red_macaroni",
+    "create_and_food:white_macaroni"
+  ]
+}

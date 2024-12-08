@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "create_and_food:base_of_dough"
+    },
+    {
+      "fluid": "create:chocolate",
+      "nbt": {},
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:dough_base_with_chocolate"
+    }
+  ]
+}

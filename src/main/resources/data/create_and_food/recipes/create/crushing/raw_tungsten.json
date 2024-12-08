@@ -1,0 +1,18 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "create_and_food:raw_tungsten"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:crushed_raw_tungsten"
+    },
+    {
+      "item": "create:experience_nugget",
+      "chance": 0.75
+    }
+  ],
+  "processingTime": 400
+}

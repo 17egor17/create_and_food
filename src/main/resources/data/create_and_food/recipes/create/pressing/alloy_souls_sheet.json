@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "create_and_food:alloy_souls"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:alloy_souls_sheet"
+    }
+  ]
+}

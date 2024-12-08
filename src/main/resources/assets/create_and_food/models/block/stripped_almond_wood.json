@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:block/cube_column",
+	"textures": {
+		"end": "create_and_food:block/stripped_almond_log",
+		"side": "create_and_food:block/stripped_almond_log"
+	}
+}

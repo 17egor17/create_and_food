@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "create_and_food:incomplete_mozzarella_cheese"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:mozzarella_cheese"
+    }
+  ]
+}

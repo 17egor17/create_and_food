@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "create_and_food:pastry_table",
+    "#create_and_food:almond",
+    "#create_and_food:farmland_into_barrel",
+    "#create_and_food:framed_walls",
+    "create_and_food:kitchen_table",
+    "create_and_food:kitchen_table_inner",
+    "create_and_food:kitchen_table_outer"
+  ]
+}

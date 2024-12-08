@@ -1,0 +1,23 @@
+{
+  "type": "create_and_food:blasting",
+  "ingredients": [
+    {
+      "item": "create_and_food:iron_coin"
+    },
+    {
+      "item": "create_and_food:iron_coin"
+    },
+    {
+      "item": "create_and_food:iron_coin"
+    }
+  ],
+  "result": {
+    "item": "minecraft:iron_nugget",
+    "count": 3
+  },
+  "comment_time": "min 200 time",
+  "time": 600,
+  "comment": "min 100 deg, max 9000 deg",
+  "degree": 1538,
+  "experience": 0.3
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "create_and_food:custom/block/farmland_into_barrel",
+  "textures": {
+    "top": "create_and_food:block/farmlands/farmland_into_acacia_barrel",
+    "side": "create_and_food:block/farmlands/acacia_barrel_side",
+    "bottom": "create_and_food:block/farmlands/acacia_barrel_bottom"
+  }
+}

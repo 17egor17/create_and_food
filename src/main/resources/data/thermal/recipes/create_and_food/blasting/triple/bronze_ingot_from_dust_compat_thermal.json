@@ -1,0 +1,23 @@
+{
+  "type": "create_and_food:blasting",
+  "ingredients": [
+    {
+      "tag": "forge:dusts/bronze"
+    },
+    {
+      "tag": "forge:dusts/bronze"
+    },
+    {
+      "tag": "forge:dusts/bronze"
+    }
+  ],
+  "result": {
+    "item": "thermal:bronze_ingot",
+    "count": 3
+  },
+  "comment_time": "min 200 time",
+  "time": 1200,
+  "comment": "min 100 deg, max 9000 deg",
+  "degree": 1000,
+  "experience": 1.5
+}

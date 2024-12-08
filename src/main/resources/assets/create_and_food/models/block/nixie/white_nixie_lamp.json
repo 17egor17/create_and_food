@@ -1,0 +1,8 @@
+{
+  "parent": "create_and_food:custom/block/nixie/nixie_lamp",
+  "textures": {
+		"0": "create_and_food:block/nixie_lamp/white/nixie_lamp",
+		"1": "create_and_food:block/nixie_lamp/white/nixie_glow",
+		"particle": "create_and_food:block/nixie_lamp/white/nixie_lamp"
+	}
+}

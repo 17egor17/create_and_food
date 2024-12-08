@@ -1,0 +1,7 @@
+{
+  "type": "create_and_food:fueling",
+  "ingredients": {
+    "tag": "minecraft:boats"
+  },
+  "degree": 75
+}

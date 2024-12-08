@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "create_and_food:almond_wall_sign",
+    "create_and_food:almond_sign",
+    "create_and_food:almond_door",
+    "create_and_food:almond_trapdoor",
+    "create_and_food:almond_button",
+    "create_and_food:almond_pressure_plate",
+    "create_and_food:almond_fence",
+    "create_and_food:almond_fence_gate",
+    "create_and_food:almond_log",
+    "create_and_food:stripped_almond_log",
+    "create_and_food:almond_wood",
+    "create_and_food:stripped_almond_wood",
+    "create_and_food:almond_planks",
+    "create_and_food:almond_stairs",
+    "create_and_food:almond_slab"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "replace": false ,
+  "values": [
+    "create_and_food:apple_vinegar_flowing",
+    "create_and_food:apple_vinegar",
+    "create_and_food:cocoa_oil_flowing",
+    "create_and_food:cocoa_oil",
+    "create_and_food:white_chocolate_flowing",
+    "create_and_food:white_chocolate",
+    "create_and_food:nixie_flowing",
+    "create_and_food:nixie_fluid"
+  ]
+}

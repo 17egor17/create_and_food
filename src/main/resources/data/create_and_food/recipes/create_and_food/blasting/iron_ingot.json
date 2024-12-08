@@ -1,0 +1,16 @@
+{
+  "type": "create_and_food:blasting",
+  "ingredients": [
+    {
+      "item": "minecraft:raw_iron"
+    }
+  ],
+  "result": {
+    "item": "minecraft:iron_ingot"
+  },
+  "comment_time": "min 200 time",
+  "time": 400,
+  "comment": "min 100 deg, max 9000 deg",
+  "degree": 1538,
+  "experience": 0.7
+}

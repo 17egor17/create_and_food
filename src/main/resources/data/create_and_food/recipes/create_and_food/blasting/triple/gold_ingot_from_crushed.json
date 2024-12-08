@@ -1,0 +1,23 @@
+{
+  "type": "create_and_food:blasting",
+  "ingredients": [
+    {
+      "item": "create:crushed_raw_gold"
+    },
+    {
+      "item": "create:crushed_raw_gold"
+    },
+    {
+      "item": "create:crushed_raw_gold"
+    }
+  ],
+  "result": {
+    "item": "minecraft:gold_ingot",
+    "count": 3
+  },
+  "comment_time": "min 200 time",
+  "time": 1200,
+  "comment": "min 100 deg, max 9000 deg",
+  "degree": 1064,
+  "experience": 0.3
+}

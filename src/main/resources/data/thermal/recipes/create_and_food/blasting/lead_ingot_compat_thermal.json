@@ -1,0 +1,16 @@
+{
+  "type": "create_and_food:blasting",
+  "ingredients": [
+    {
+      "item": "create:crushed_raw_lead"
+    }
+  ],
+  "result": {
+    "item": "thermal:lead_ingot"
+  },
+  "comment_time": "min 200 time",
+  "time": 400,
+  "comment": "min 100 deg, max 9000 deg",
+  "degree": 327,
+  "experience": 0.1
+}

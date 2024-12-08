@@ -1,0 +1,17 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "create:cinder_flour"
+    },
+    {
+      "item": "create_and_food:alloy_souls"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:nether_alloy"
+    }
+  ],
+  "heatRequirement": "superheated"
+}

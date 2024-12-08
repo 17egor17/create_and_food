@@ -1,0 +1,20 @@
+{
+  "type": "create_and_food:blasting",
+  "ingredients": [
+    {
+      "item": "create_and_food:crushed_raw_tungsten"
+    },
+    {
+      "item": "create_and_food:crushed_raw_tungsten"
+    }
+  ],
+  "result": {
+    "item": "create_and_food:tungsten_ingot",
+    "count": 2
+  },
+  "comment_time": "min 200 time",
+  "time": 800,
+  "comment": "min 100 deg, max 9000 deg",
+  "degree": 3421,
+  "experience": 0.1
+}

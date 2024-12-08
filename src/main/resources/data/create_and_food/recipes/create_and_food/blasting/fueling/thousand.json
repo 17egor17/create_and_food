@@ -1,0 +1,9 @@
+{
+  "type": "create_and_food:blasting",
+  "fuel": [
+    {
+      "tag": "#create_and_food:fuel_thousand_degrees"
+    }
+  ],
+  "degree": 1000
+}

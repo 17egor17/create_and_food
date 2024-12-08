@@ -1,0 +1,19 @@
+{
+    "replace":false,
+    "values": [
+      "#forge:dusts/coal",
+      "minecraft:stick",
+      "minecraft:bowl",
+      "minecraft:bow",
+      "#minecraft:signs",
+      "#minecraft:wooden_pressure_plates",
+      "#minecraft:wooden_buttons",
+      "minecraft:wooden_axe",
+      "minecraft:wooden_hoe",
+      "minecraft:wooden_shovel",
+      "minecraft:wooden_sword",
+      "minecraft:wooden_pickaxe",
+      "minecraft:fishing_rod",
+      "#minecraft:wool"
+    ]
+}

@@ -1,0 +1,23 @@
+{
+  "type": "create_and_food:blasting",
+  "ingredients": [
+    {
+      "item": "create_and_food:broken_copper_coin"
+    },
+    {
+      "item": "create_and_food:broken_copper_coin"
+    },
+    {
+      "item": "create_and_food:broken_copper_coin"
+    }
+  ],
+  "result": {
+    "item": "create:copper_nugget",
+    "count": 3
+  },
+  "comment_time": "min 200 time",
+  "time": 600,
+  "comment": "min 100 deg, max 9000 deg",
+  "degree": 1085,
+  "experience": 0.3
+}

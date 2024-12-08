@@ -1,0 +1,23 @@
+{
+  "type": "create_and_food:blasting",
+  "ingredients": [
+    {
+      "item": "create:raw_zinc"
+    },
+    {
+      "item": "create:raw_zinc"
+    },
+    {
+      "item": "create:raw_zinc"
+    }
+  ],
+  "result": {
+    "item": "create:zinc_ingot",
+    "count": 3
+  },
+  "comment_time": "min 200 time",
+  "time": 1200,
+  "comment": "min 100 deg, max 9000 deg",
+  "degree": 419,
+  "experience": 2.1
+}

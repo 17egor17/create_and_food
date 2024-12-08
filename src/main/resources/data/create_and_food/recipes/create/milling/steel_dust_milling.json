@@ -1,0 +1,14 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "create_and_food:steel_ingot"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:steel_dust"
+    }
+  ],
+  "processingTime": 150
+}

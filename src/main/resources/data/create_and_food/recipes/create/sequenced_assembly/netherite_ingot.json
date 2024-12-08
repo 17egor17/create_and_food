@@ -1,0 +1,119 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create_and_food:nether_alloy"
+  },
+  "transitionalItem": {
+    "item": "create_and_food:incomplete_netherite_ingot"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_netherite_ingot"
+        },
+        [
+          {
+            "item": "minecraft:gold_nugget"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_netherite_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_netherite_ingot"
+        },
+        [
+          {
+            "item": "minecraft:gold_nugget"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_netherite_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_netherite_ingot"
+        },
+        [
+          {
+            "item": "minecraft:gold_nugget"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_netherite_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_netherite_ingot"
+        },
+        [
+          {
+            "item": "minecraft:gold_nugget"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_netherite_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_netherite_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_netherite_ingot"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:netherite_ingot",
+      "chance": 50.0
+    },
+    {
+      "item": "minecraft:gold_nugget",
+      "chance": 20.0
+    },
+    {
+      "item": "create_and_food:nether_alloy",
+      "chance": 5.0
+    },
+    {
+      "item": "create_and_food:alloy_souls",
+      "chance": 15.0
+    },
+    {
+      "item": "create_and_food:piece_of_gold",
+      "chance": 10.0
+    }
+  ],
+  "loops": 1
+}

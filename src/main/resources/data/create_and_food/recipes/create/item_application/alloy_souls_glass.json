@@ -1,0 +1,16 @@
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "tag": "forge:glass/colorless"
+    },
+    {
+      "item": "create_and_food:alloy_souls"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:alloy_souls_glass"
+    }
+  ]
+}

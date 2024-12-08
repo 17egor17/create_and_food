@@ -1,0 +1,19 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "create_and_food:roasted_cocoa_beans"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "create_and_food:cocoa_oil",
+      "nbt": {},
+      "amount": 250
+    },
+    {
+      "item": "create_and_food:cocoa_powder",
+      "chance": 0.75
+    }
+  ]
+}

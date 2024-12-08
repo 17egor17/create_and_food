@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "create_and_food:cream"
+    },
+    "title": {
+      "translate": "advancement.whipped"
+    },
+    "description": {
+      "translate": "advancement.whipped.desc"
+    },
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "create_and_food:create_and_food",
+  "criteria": {
+    "0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create_and_food:cream"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

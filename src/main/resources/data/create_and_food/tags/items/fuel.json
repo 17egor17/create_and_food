@@ -1,0 +1,13 @@
+{
+    "replace":false,
+    "values": [
+      "#create_and_food:fuel_five_degrees",
+      "#create_and_food:fuel_ten_degrees",
+      "#create_and_food:fuel_fifteen_degrees",
+      "#create_and_food:fuel_ninety_degrees",
+      "#create_and_food:fuel_hundred_degrees",
+      "#create_and_food:fuel_thousand_degrees",
+      "#create_and_food:fuel_bucket",
+      "#minecraft:boats"
+    ]
+}

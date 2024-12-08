@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "side": "create_and_food:block/palettes/stone_types/pillar/lime_baked_clay_cut_pillar",
+    "end": "create_and_food:block/palettes/stone_types/cap/lime_baked_clay_cut_cap"
+  }
+}

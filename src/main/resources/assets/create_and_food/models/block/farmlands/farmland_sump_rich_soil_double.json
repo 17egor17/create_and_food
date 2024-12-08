@@ -1,0 +1,7 @@
+{
+  "parent": "create_and_food:custom/block/farmland_sump_double",
+  "textures": {
+    "material": "farmersdelight:block/rich_soil",
+    "top": "create_and_food:block/farmlands/farmland_sump_end_rich_soil"
+  }
+}

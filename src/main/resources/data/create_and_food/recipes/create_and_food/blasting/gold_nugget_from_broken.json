@@ -1,0 +1,16 @@
+{
+  "type": "create_and_food:blasting",
+  "ingredients": [
+    {
+      "item": "create_and_food:broken_golden_coin"
+    }
+  ],
+  "result": {
+    "item": "minecraft:gold_nugget"
+  },
+  "comment_time": "min 200 time",
+  "time": 200,
+  "comment": "min 100 deg, max 9000 deg",
+  "degree": 1064,
+  "experience": 0.1
+}

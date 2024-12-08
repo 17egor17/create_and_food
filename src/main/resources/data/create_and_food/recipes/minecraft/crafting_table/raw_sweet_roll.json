@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "1",
+    "0"
+
+  ],
+  "key": {
+    "0": {
+      "item": "create:dough"
+    },
+    "1": {
+      "tag": "forge:creams"
+    }
+  },
+  "result": {
+    "item": "create_and_food:raw_sweet_roll"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "moisture=0": { "model": "create_and_food:block/farmlands/red_sand_farmland" },
+    "moisture=1": { "model": "create_and_food:block/farmlands/red_sand_farmland" },
+    "moisture=2": { "model": "create_and_food:block/farmlands/red_sand_farmland" },
+    "moisture=3": { "model": "create_and_food:block/farmlands/red_sand_farmland" },
+    "moisture=4": { "model": "create_and_food:block/farmlands/red_sand_farmland" },
+    "moisture=5": { "model": "create_and_food:block/farmlands/red_sand_farmland" },
+    "moisture=6": { "model": "create_and_food:block/farmlands/red_sand_farmland" },
+    "moisture=7": { "model": "create_and_food:block/farmlands/red_sand_farmland_moist" }
+  }
+}

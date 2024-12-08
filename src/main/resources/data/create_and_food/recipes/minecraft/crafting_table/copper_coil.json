@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "202",
+    "131",
+    "202"
+  ],
+  "key": {
+    "0": {
+      "tag": "minecraft:wooden_buttons"
+    },
+    "1": {
+      "tag": "forge:plates/copper"
+    },
+    "2": {
+      "tag": "forge:nuggets/copper"
+    },
+    "3": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "create_and_food:copper_coil",
+    "count": 2
+  }
+}

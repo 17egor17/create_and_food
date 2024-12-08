@@ -1,0 +1,19 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "create_and_food:raw_protein"
+    },
+    {
+      "item": "create_and_food:powdered_sugar"
+    },
+    {
+      "item": "create_and_food:powdered_sugar"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:glaze"
+    }
+  ]
+}

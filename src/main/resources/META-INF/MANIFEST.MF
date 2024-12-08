@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Specification-Title: create_and_food
+Specification-Vendor: EgorPlayTv
+Specification-Version: 1
+Implementation-Title: create_and_food-1.18.2
+Implementation-Version: 0.0.0.a-2
+Implementation-Vendor: EgorPlayTv
+Implementation-Timestamp: 2024-01-20T22:50:53+0300
+

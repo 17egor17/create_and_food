@@ -1,0 +1,25 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "fluid": "minecraft:milk",
+      "amount": 250
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "create_and_food:cocoa_powder"
+    },
+    {
+      "item": "create_and_food:cocoa_butter_briquette"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "create:chocolate",
+      "amount": 500
+    }
+  ],
+  "heatRequirement": "heated"
+}

@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "lit=false": { "model": "create_and_food:block/lamps/steel_ruby_lamp_block_off" },
+    "lit=true": { "model": "create_and_food:block/lamps/steel_ruby_lamp_block_on" }
+  }
+}

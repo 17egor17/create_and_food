@@ -1,0 +1,16 @@
+{
+  "type": "create:haunting",
+  "ingredients": [
+    {
+      "item": "create_and_food:glowing_brass_sheet"
+    }
+  ],
+  "results": [
+    {
+      "item": "create:brass_nugget"
+    },
+    {
+      "item": "create:polished_rose_quartz"
+    }
+  ]
+}

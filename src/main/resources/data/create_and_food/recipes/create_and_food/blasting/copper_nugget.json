@@ -1,0 +1,16 @@
+{
+  "type": "create_and_food:blasting",
+  "ingredients": [
+    {
+      "item": "create_and_food:copper_coin"
+    }
+  ],
+  "result": {
+    "item": "create:copper_nugget"
+  },
+  "comment_time": "min 200 time",
+  "time": 200,
+  "comment": "min 100 deg, max 9000 deg",
+  "degree": 1085,
+  "experience": 0.1
+}

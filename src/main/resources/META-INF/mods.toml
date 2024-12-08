@@ -1,0 +1,51 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="MIT"
+
+[[mods]]
+modId="create_and_food"
+# The Implementation-Version property in the jar's MANIFEST.MF file will be used as the mod version at runtime
+version= "${file.jarVersion}"
+displayName="Create And Food"
+#updateJSONURL=""
+displayURL="https://legacy.curseforge.com/minecraft/mc-mods/create-and-food"
+logoFile="create_and_food_logo.png"
+#credits=""
+authors="EgorPlayTv"
+description='''
+Baking that inspires players'''
+
+[[dependencies.create_and_food]]
+    modId="forge"
+    mandatory=true
+    versionRange="[40,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.create_and_food]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2,1.19)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.create_and_food]]
+    modId="dynamictrees"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.create_and_food]]
+    modId="create"
+    mandatory=true
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.create_and_food]]
+    modId="farmersdelight"
+    mandatory=true
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"

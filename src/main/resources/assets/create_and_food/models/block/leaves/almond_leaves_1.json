@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "create_and_food:block/palettes/stone_types/natural/almond_leaves_1"
+  }
+}

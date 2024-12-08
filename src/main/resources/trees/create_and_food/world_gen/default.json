@@ -1,0 +1,265 @@
+[
+  {
+    "__comment" : "Rivers and oceans have no trees but we can still set density and chance for addons to use",
+    "select": {"OR": [{ "category": "river" },{ "category": "ocean" }]},
+    "apply": {
+      "density": [ 1.0 ],
+      "chance": 0.02
+    }
+  },
+  {
+    "__comment" : "Rivers and oceans have no trees but we can still set density and chance for addons to use",
+    "select": { "category": "beach" },
+    "apply": {
+      "density": [ 1.0 ],
+      "chance": 0.02
+    }
+  },
+  {
+    "__comment" : "Default for a Forest which generates a Birch Tree 1/5 of the time.",
+    "select": { "category": "forest", "name": "minecraft:.*" },
+    "apply": {
+      "species" : {
+        "random" : {
+          "create_and_food:almond_tree": 3,
+          "oak" : 4,
+          "birch" : 1
+        }
+      },
+      "density": [ 1 ],
+      "chance": 1.0,
+      "forestness" : 1.0
+    }
+  },
+  {
+    "select": "minecraft:flower_forest",
+    "apply": {
+      "density": [ 0.6 ]
+    }
+  },
+  {
+    "__comment" : "Generates an alternative oak style in swamps",
+    "select": { "category": "swamp", "name": "minecraft:.*" },
+    "apply": {
+      "species" : "swamp_oak",
+      "density": [ 0.2 ],
+      "chance": 0.75
+    }
+  },
+  {
+    "select": { "category": "savanna", "name": "minecraft:.*" },
+    "apply": {
+      "species" : {
+        "random": {
+          "acacia": 2,
+          "create_and_food:almond_tree": 2
+        }
+      },
+      "density": [ 0.1 ],
+      "chance" : "standard"
+    }
+  },
+  {
+    "select": { "name": "minecraft:windswept_savanna.*" },
+    "apply": {
+      "density": [ 0.2 ]
+    }
+  },
+  {
+    "select": { "category": "jungle", "name": "minecraft:.*" },
+    "apply": {
+      "species" : {
+        "random" : {
+          "create_and_food:almond_tree": 5,
+          "jungle" : 15,
+          "mega_jungle" : 3,
+          "cocoa" : 1
+        }
+      },
+      "density": [ 2 ],
+      "forestness" : 1.0,
+      "chance" : "standard"
+    }
+  },
+  {
+    "select": { "name": "minecraft:.*sparse_jungle" },
+    "apply": {
+      "species" : {
+        "random" : {
+          "jungle" : 6,
+          "jungle_undergrowth" : 4,
+          "cocoa" : 1
+        }
+      },
+      "density": [ 0.2 ],
+      "chance": 0.5
+    }
+  },
+  {
+    "__comment" : "Mushroom Islands",
+    "select": { "name": "minecraft:mushroom_fields" },
+    "apply": {
+      "species" : {
+        "random" : {
+          "red_mushroom" : 4,
+          "brown_mushroom" : 3
+        }
+      },
+      "chance": 0.66
+    }
+  },
+  {
+    "select": { "OR": [ { "type": "coniferous", "name": "minecraft:.*" }, { "name": "minecraft:old_growth_spruce_taiga" } ] },
+    "apply": {
+      "species" : "spruce",
+      "density": [ 1 ],
+      "chance": 1,
+      "forestness": 1
+    }
+  },
+  {
+    "__comment" : "Roofed forests are handled specially. Multipass tries to close canopy as much as possible",
+    "select": { "type": "spooky", "name": "minecraft:.*" },
+    "apply": {
+      "species" : "dark_oak",
+      "density" : { "math": { "div" : [ "noise", 3.0 ] } },
+      "multipass" : true
+    }
+  },
+  {
+    "__comment": "Any biome with 'birch' in the name is 100% birch",
+    "select": { "name": "minecraft:.*birch.*" },
+    "apply": {
+      "species" : "birch"
+    }
+  },
+  {
+    "__comment": "Old growth birch forest has tall birch trees",
+    "select": { "name": "minecraft:old_growth_birch_forest" },
+    "apply": {
+      "species" : "tall_birch"
+    }
+  },
+  {
+    "__comment": "1/25 chance to spawn apple trees in any minecraft biome that ends in 'plains'",
+    "select": { "name": "minecraft:.*plains" },
+    "apply": {
+      "species" : {
+        "random" : {
+          "oak": 24,
+          "apple_oak": 1
+        }
+      },
+      "density": 0,
+      "chance": 0.03
+    }
+  },
+  {
+    "__comment": "Spawn spruce trees in snowy plains, and with slightly higher chance.",
+    "select": { "name": "minecraft:snowy_plains" },
+    "apply": {
+      "species": "spruce",
+      "chance": 0.06
+    }
+  },
+  {
+    "__comment": "All meadow biomes rarely generate an oak or tall birch tree",
+    "select": { "name": "minecraft:meadow" },
+    "apply": {
+      "species": {
+        "random": {
+          "oak": 1,
+          "tall_birch": 1
+        }
+      },
+      "density": [ 0.1 ],
+      "chance": 0.002
+    }
+  },
+  {
+    "__comment" : "Generate azaleas or flowering azaleas above lush caves",
+    "_note": "Application of cave rooted trees requires the selector NOT to use tag filters and it CANNOT be used in dimensional databases.",
+    "select": { "name": "minecraft:lush_caves" },
+    "apply": {
+      "cave_rooted": {
+        "species" : "azalea",
+        "chance": 0.66
+      }
+    }
+  },
+  {
+    "_comment": "Windswept Forests are denser and spawn more trees.",
+    "select": "minecraft:windswept_forest",
+    "apply": {
+      "density": [ 0.7 ],
+      "chance": 0.6
+    }
+  },
+  {
+    "__comment": "Giant tree taiga has giant spruce trees, but also is less leaf-dense than giant spruce taiga.",
+    "select": { "name": "minecraft:old_growth_(pine|spruce)_taiga" },
+    "apply": {
+      "species" : {
+        "random" : {
+          "mega_spruce" : 2,
+          "spruce" : 1
+        }
+      }
+    }
+  },
+  {
+    "__comment" : "Wooded Mesas have a chance of generating oak on the dirt patches.",
+    "select": { "name": "minecraft:wooded_badlands" },
+    "apply": {
+      "species" : "oak",
+      "density": [ 0.5 ],
+      "chance": 0.7
+    }
+  },
+
+  {
+    "select": { "name": "minecraft:.*", "category": "nether" },
+    "apply": {
+      "chance": 0.4
+    }
+  },
+  {
+    "select": { "name": "minecraft:((warped)|(crimson))_forest" },
+    "apply": {
+      "chance": 1.0,
+      "density": [ 2.0, 0.3 ]
+    }
+  },
+  {
+    "select": { "name": "minecraft:crimson_forest" },
+    "apply": {
+      "species" : {
+        "random" : {
+          "crimson" : 4,
+          "mega_crimson" : 1
+        }
+      },
+      "chance" : "standard"
+    }
+  },
+  {
+    "select": { "name": "minecraft:warped_forest" },
+    "apply": {
+      "species" : {
+        "random" : {
+          "warped" : 4,
+          "mega_warped" : 1
+        }
+      },
+      "chance" : "standard"
+    }
+  },
+  {
+    "__comment" : "Any wasteland will be treeless",
+    "select": { "type": "wasteland", "name": "minecraft:.*" },
+    "apply": {
+      "species" : "...",
+      "chance" : 0
+    }
+  }
+]

@@ -1,0 +1,20 @@
+{
+  "type": "create_and_food:blasting",
+  "ingredients": [
+    {
+      "tag": "forge:dusts/osmium"
+    },
+    {
+      "tag": "forge:dusts/osmium"
+    }
+  ],
+  "result": {
+    "item": "mekanism:ingot_osmium",
+    "count": 2
+  },
+  "comment_time": "min 200 time",
+  "time": 800,
+  "comment": "min 100 deg, max 9000 deg",
+  "degree": 3033,
+  "experience": 0.1
+}

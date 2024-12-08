@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:block/cube_all",
+	"textures": {
+		"all": "create_and_food:block/palettes/stone_types/natural/marble_0"
+	}
+}

@@ -1,0 +1,7 @@
+{
+  "loader": "dynamictrees:branch",
+  "textures": {
+    "bark": "create_and_food:block/stripped_almond_log",
+    "rings": "create_and_food:block/stripped_almond_log_top"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "experience": 1,
+  "cookingtime": 200,
+  "ingredient": {
+    "item": "create_and_food:raw_berry_cake"
+  },
+  "result": "create_and_food:berry_cake"
+}

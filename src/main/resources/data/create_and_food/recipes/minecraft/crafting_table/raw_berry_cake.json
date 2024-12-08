@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "2",
+    "1",
+    "0"
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:small_base"
+    },
+    "1": {
+      "tag": "forge:creams"
+      },
+    "2": {
+      "item": "minecraft:sweet_berries"
+    }
+  },
+    "result": {
+      "item": "create_and_food:raw_berry_cake"
+    }
+}

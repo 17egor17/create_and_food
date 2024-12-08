@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "create_and_food:block/almond_slab"
+    },
+    "type=double": {
+      "model": "create_and_food:block/almond_planks"
+    },
+    "type=top": {
+      "model": "create_and_food:block/almond_slab_top"
+    }
+  }
+}

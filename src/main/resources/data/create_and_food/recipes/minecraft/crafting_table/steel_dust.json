@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "10",
+    "01"
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:dusts/coal"
+    },
+    "1": {
+      "tag": "forge:dusts/iron"
+    }
+  },
+  "result": {
+    "item": "create_and_food:steel_dust"
+  }
+}

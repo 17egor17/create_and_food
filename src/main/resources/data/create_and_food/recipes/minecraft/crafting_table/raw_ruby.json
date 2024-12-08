@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "item": "create_and_food:raw_ruby_block"
+    }
+  ],
+  "result": {
+    "item": "create_and_food:raw_ruby",
+    "count": 9
+  }
+}

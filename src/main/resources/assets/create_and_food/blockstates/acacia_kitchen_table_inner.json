@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "create_and_food:block/kitchen/acacia_kitchen_table_inner"},
+    "facing=east": { "model": "create_and_food:block/kitchen/acacia_kitchen_table_inner", "y": 90 },
+    "facing=south": { "model": "create_and_food:block/kitchen/acacia_kitchen_table_inner", "y": 180 },
+    "facing=west": { "model": "create_and_food:block/kitchen/acacia_kitchen_table_inner", "y": 270 }
+  }
+}

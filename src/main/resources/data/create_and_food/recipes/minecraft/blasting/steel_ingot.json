@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 1,
+  "cookingtime": 300,
+  "ingredient": {
+    "item": "create_and_food:steel_dust"
+  },
+  "result": "create_and_food:steel_ingot"
+}

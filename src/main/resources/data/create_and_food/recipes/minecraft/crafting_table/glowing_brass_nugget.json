@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0"
+  ],
+  "key": {
+    "0": {
+      "item": "create_and_food:glowing_brass_ingot"
+    }
+  },
+  "result": {
+    "item": "create_and_food:glowing_brass_nugget",
+    "count": 9
+  }
+}

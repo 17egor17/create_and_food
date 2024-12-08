@@ -1,0 +1,6 @@
+{
+  "parent": "create_and_food:custom/block/crop_into_barrel",
+  "textures": {
+    "crop": "minecraft:block/wheat_stage6"
+  }
+}

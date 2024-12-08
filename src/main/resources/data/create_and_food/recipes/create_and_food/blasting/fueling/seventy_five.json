@@ -1,0 +1,9 @@
+{
+  "type": "create_and_food:blasting",
+  "fuel": [
+    {
+      "tag": "#minecraft:boats"
+    }
+  ],
+  "degree": 75
+}
