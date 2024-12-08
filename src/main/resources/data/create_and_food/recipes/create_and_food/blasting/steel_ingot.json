@@ -1,0 +1,22 @@
+{
+  "type": "create_and_food:blasting",
+  "ingredients": [
+    {
+      "tag": "forge:dusts/coal"
+    },
+    {
+      "tag": "forge:dusts/coal"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "result": {
+    "item": "create_and_food:steel_ingot"
+  },
+  "comment_time": "min 200 time",
+  "time": 400,
+  "comment": "min 100 deg, max 9000 deg",
+  "degree": 1538,
+  "experience": 0.9
+}

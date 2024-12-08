@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "create_and_food:rye",
+    "create_and_food:almond_nut",
+    "create_and_food:rye_seeds",
+    "create_and_food:almond_sapling"
+  ]
+}
