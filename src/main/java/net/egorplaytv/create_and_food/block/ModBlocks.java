@@ -277,10 +277,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> RED_SAND_FARMLAND = registryBlock("red_sand_farmland",
             () -> new RedSandFarmBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND).sound(SoundType.SAND).strength(0.6F)
                     .isViewBlocking(ModBlocks::always).isSuffocating(ModBlocks::always)), CreativeModeTab.TAB_SEARCH);
-    public static final RegistryObject<Block> FARMLAND_INTO_ACACIA_BARREL = registryBlock("farmland_into_acacia_barrel",
-            () -> new FarmBlockIntoAcaciaBarrel(BlockBehaviour.Properties.copy(Blocks.FARMLAND).sound(SoundType.WOOD).strength(0.6F)
-                    .isViewBlocking(ModBlocks::always).isSuffocating(ModBlocks::always)), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-
 
 
     public static final RegistryObject<Block> ALMOND_SAPLING = registryBlock("almond_sapling",

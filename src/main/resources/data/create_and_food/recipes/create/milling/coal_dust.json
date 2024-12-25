@@ -2,13 +2,18 @@
   "type": "create:milling",
   "ingredients": [
     {
-      "item": "minecraft:coal_block"
+      "item": "minecraft:coal"
     }
   ],
   "results": [
     {
       "item": "create_and_food:coal_dust",
-      "count": 6
+      "count": 1
+    },
+    {
+      "item": "create_and_food:coal_dust",
+      "count": 1,
+      "chance": 0.25
     }
   ],
   "processingTime": 100

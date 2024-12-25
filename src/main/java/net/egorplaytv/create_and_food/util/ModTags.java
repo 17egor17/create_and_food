@@ -6,6 +6,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import org.lwjgl.system.CallbackI;
 
 public class ModTags {
 
@@ -73,6 +74,8 @@ public class ModTags {
         public static final TagKey<Item> FUEL_1000 = modTag("fuel_thousand_degrees");
 
         public static final TagKey<Item> FUEL_HUNDRED = modTag("fuel_hundred");
+
+        public static final TagKey<Item> BARRELS = modTag("barrels");
 
 
         private static TagKey<Item> modTag(String name) {
