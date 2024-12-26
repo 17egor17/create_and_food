@@ -23,6 +23,8 @@ public class ModTags {
         public static final TagKey<Block> WARPED_NYLIUM_ORE_REPLACEABLE = modTag("warped_nylium_ore_replaceable");
         public static final TagKey<Block> NETHERRACK_ORE_REPLACEABLE = modTag("netherrack_ore_replaceable");
 
+        public static final TagKey<Block> BARRELS = modTag("barrels");
+
 
         private static TagKey<Block> modTag(String name) {
             return BlockTags.create(new ResourceLocation("create_and_food", name));
