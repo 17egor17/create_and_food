@@ -33,7 +33,6 @@ public class render {
         ItemBlockRenderTypes.setRenderLayer(ModFluids.COCOA_OIL_FLOWING.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.TORN_SOUL_LANTERN.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.TORN_SOUL_CHAIN.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.FARMLAND_INTO_ACACIA_BARREL.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.FRAMED_CALCITE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLOWING_BRASS_STEEL_LANTERN.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLOWING_BRASS_COPPER_LANTERN.get(), RenderType.cutout());

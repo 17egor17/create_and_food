@@ -1,5 +1,13 @@
 {
   "replace":false,
   "values": [
+    "create_and_food:acacia_barrel",
+    "create_and_food:almond_barrel",
+    "create_and_food:birch_barrel",
+    "create_and_food:crimson_barrel",
+    "create_and_food:dark_oak_barrel",
+    "create_and_food:jungle_barrel",
+    "create_and_food:oak_barrel",
+    "create_and_food:warped_barrel"
   ]
 }

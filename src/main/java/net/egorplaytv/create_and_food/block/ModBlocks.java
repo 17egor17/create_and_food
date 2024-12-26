@@ -10,9 +10,9 @@ import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.block.custom.*;
+import net.egorplaytv.create_and_food.block.custom.BarrelBlock;
 import net.egorplaytv.create_and_food.block.custom.LanternBlock;
 import net.egorplaytv.create_and_food.block.custom.connect.*;
-import net.egorplaytv.create_and_food.block.custom.farmland_into_barrel.FarmBlockIntoAcaciaBarrel;
 import net.egorplaytv.create_and_food.block.entity.ModWoodTypes;
 import net.egorplaytv.create_and_food.item.ModCreativeModeTab;
 import net.egorplaytv.create_and_food.item.ModItems;
@@ -146,6 +146,34 @@ public class ModBlocks {
             () -> new MarbleBlastFurnaceBlock(BlockBehaviour.Properties.of(Material.STONE).strength(2.0F)
                     .sound(SoundType.STONE).requiresCorrectToolForDrops().lightLevel(litBlockEmission(13))),
             ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> ACACIA_BARREL = registryBlock("acacia_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> ALMOND_BARREL = registryBlock("almond_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> BIRCH_BARREL = registryBlock("birch_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> CRIMSON_BARREL = registryBlock("crimson_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> DARK_OAK_BARREL = registryBlock("dark_oak_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> JUNGLE_BARREL = registryBlock("jungle_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> OAK_BARREL = registryBlock("oak_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> SPRUCE_BARREL = registryBlock("spruce_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> WARPED_BARREL = registryBlock("warped_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+
     public static final RegistryObject<Block> TABLET = registryBlock("tablet",
             () -> new TabletBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2.0F)
                     .sound(SoundType.METAL).requiresCorrectToolForDrops()), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);

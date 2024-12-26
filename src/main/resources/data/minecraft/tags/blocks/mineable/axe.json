@@ -7,6 +7,7 @@
     "#create_and_food:framed_walls",
     "create_and_food:kitchen_table",
     "create_and_food:kitchen_table_inner",
-    "create_and_food:kitchen_table_outer"
+    "create_and_food:kitchen_table_outer",
+    "#create_and_food:barrels"
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "barrel",
+  "ingredients": [
+    {
+      "tag": "create_and_food:barrels"
+    }
+  ],
+  "result": {
+    "item": "minecraft:barrel"
+  }
+}
