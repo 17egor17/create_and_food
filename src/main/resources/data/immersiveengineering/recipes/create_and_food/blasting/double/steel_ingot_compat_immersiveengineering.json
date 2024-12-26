@@ -2,10 +2,10 @@
   "type": "create_and_food:blasting",
   "ingredients": [
     {
-      "tag": "forge:dusts/steel"
+      "item": "immersiveengineering:dust_steel"
     },
     {
-      "tag": "forge:dusts/steel"
+      "item": "immersiveengineering:dust_steel"
     }
   ],
   "result": {

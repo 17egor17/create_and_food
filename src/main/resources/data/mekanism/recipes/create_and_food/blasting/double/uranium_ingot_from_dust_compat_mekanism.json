@@ -2,10 +2,10 @@
   "type": "create_and_food:blasting",
   "ingredients": [
     {
-      "tag": "forge:dusts/uranium"
+      "item": "mekanism:dust_uranium"
     },
     {
-      "tag": "forge:dusts/uranium"
+      "item": "mekanism:dust_uranium"
     }
   ],
   "result": {

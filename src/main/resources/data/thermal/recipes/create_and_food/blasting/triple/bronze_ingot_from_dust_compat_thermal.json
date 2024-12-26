@@ -2,13 +2,13 @@
   "type": "create_and_food:blasting",
   "ingredients": [
     {
-      "tag": "forge:dusts/bronze"
+      "item": "thermal:bronze_dust"
     },
     {
-      "tag": "forge:dusts/bronze"
+      "item": "thermal:bronze_dust"
     },
     {
-      "tag": "forge:dusts/bronze"
+      "item": "thermal:bronze_dust"
     }
   ],
   "result": {

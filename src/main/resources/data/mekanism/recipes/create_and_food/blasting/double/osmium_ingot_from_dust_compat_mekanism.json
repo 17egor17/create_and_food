@@ -2,10 +2,10 @@
   "type": "create_and_food:blasting",
   "ingredients": [
     {
-      "tag": "forge:dusts/osmium"
+      "item": "mekanism:dust_osmium"
     },
     {
-      "tag": "forge:dusts/osmium"
+      "item": "mekanism:dust_osmium"
     }
   ],
   "result": {

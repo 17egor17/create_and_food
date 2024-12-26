@@ -2,7 +2,7 @@
   "type": "create_and_food:blasting",
   "ingredients": [
     {
-      "tag": "forge:dusts/aluminum"
+      "item": "immersiveengineering:dust_aluminum"
     }
   ],
   "result": {

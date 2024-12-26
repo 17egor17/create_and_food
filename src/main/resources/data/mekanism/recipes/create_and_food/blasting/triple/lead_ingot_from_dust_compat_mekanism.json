@@ -2,10 +2,10 @@
   "type": "create_and_food:blasting",
   "ingredients": [
     {
-      "tag": "forge:dusts/lead"
+      "item": "mekanism:dust_lead"
     },
     {
-      "tag": "forge:dusts/lead"
+      "item": "mekanism:dust_lead"
     }
   ],
   "result": {

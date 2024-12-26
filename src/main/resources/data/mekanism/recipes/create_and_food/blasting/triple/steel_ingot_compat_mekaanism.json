@@ -2,13 +2,13 @@
   "type": "create_and_food:blasting",
   "ingredients": [
     {
-      "tag": "forge:dusts/steel"
+      "item": "mekanism:dust_steel"
     },
     {
-      "tag": "forge:dusts/steel"
+      "item": "mekanism:dust_steel"
     },
     {
-      "tag": "forge:dusts/steel"
+      "item": "mekanism:dust_steel"
     }
   ],
   "result": {

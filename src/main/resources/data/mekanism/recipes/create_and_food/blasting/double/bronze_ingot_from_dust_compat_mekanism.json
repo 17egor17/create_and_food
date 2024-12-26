@@ -2,10 +2,10 @@
   "type": "create_and_food:blasting",
   "ingredients": [
     {
-      "tag": "forge:dusts/bronze"
+      "item": "mekanism:dust_bronze"
     },
     {
-      "tag": "forge:dusts/bronze"
+      "item": "mekanism:dust_bronze"
     }
   ],
   "result": {
