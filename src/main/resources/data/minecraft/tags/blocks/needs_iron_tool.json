@@ -2,6 +2,9 @@
   "replace": false,
   "values": [
     "create_and_food:ruby_ore",
-    "create_and_food:deepslate_ruby_ore"
+    "create_and_food:deepslate_ruby_ore",
+    "create_and_food:steel_ruby_lamp_block",
+    "create_and_food:ruby_block",
+    "create_and_food:raw_ruby_block"
   ]
 }

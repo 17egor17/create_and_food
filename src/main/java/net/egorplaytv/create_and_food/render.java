@@ -48,10 +48,6 @@ public class render {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRIMSON_CUTTING_BOARD.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WARPED_CUTTING_BOARD.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.ALMOND_CUTTING_BOARD.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.STONE_TANTALUM_ORE.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.DEEPSLATE_TANTALUM_ORE.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.TANTALUM_ORE.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLACKSTONE_TANTALUM_ORE.get(), RenderType.cutout());
 
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.FARMLAND_SUMP_DIRT.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.FARMLAND_SUMP_RED_SAND.get(), RenderType.cutoutMipped());

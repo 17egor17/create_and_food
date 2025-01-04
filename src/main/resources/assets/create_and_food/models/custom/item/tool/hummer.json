@@ -1,10 +1,6 @@
 {
 	"credit": "Made with Blockbench",
 	"texture_size": [20, 20],
-	"textures": {
-		"particle": "create_and_food:item/tools/steel_hummer",
-		"material": "create_and_food:item/tools/steel_hummer"
-	},
 	"elements": [
 		{
 			"from": [2, 11, 5],

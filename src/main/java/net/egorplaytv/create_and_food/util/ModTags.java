@@ -26,6 +26,12 @@ public class ModTags {
         public static final TagKey<Block> BARRELS = modTag("barrels");
         public static final TagKey<Block> CUTTING_BOARDS = modTag("cutting_boards");
 
+        public static final TagKey<Block> MINEABLE_WITH_HAMMER = modTag("mineable/hammer");
+
+        public static final TagKey<Block> NEEDS_STEEL_TOOL = forgeTag("needs_steel_tool");
+        public static final TagKey<Block> NEEDS_TANTALUM_TOOL = forgeTag("needs_tantalum_tool");
+        public static final TagKey<Block> NEEDS_TUNGSTEN_TOOL = forgeTag("needs_tungsten_tool");
+
         private static TagKey<Block> modTag(String name) {
             return BlockTags.create(new ResourceLocation("create_and_food", name));
         }

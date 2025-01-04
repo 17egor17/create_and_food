@@ -225,14 +225,17 @@ public class ModItems {
     public static final RegistryObject<Item> STEEL_HOE = registerItem("steel_hoe",
             () -> new HoeItem(ModTiers.STEEL, 4, -1F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
-    public static final RegistryObject<Item> STEEL_KNIFE = registerItem("steel_knife", () -> {
-        return new KnifeItem(ModTiers.STEEL, 0.5F, -2.0F,
-                (new Item.Properties()).tab(ModCreativeModeTab.CREATE_AND_FOOD));
-    });
 
-    public static final RegistryObject<Item> KITCHEN_HUMMER = registerItem("kitchen_hummer",
+    public static final RegistryObject<Item> STEEL_HAMMER = registerItem("steel_hammer",
+            () -> new HammerItem(ModTiers.STEEL, 6, -3.1F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> STEEL_KNIFE = registerItem("steel_knife",
+            () -> new KnifeItem(ModTiers.STEEL, 0.5F, -2.0F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> KITCHEN_HAMMER = registerItem("kitchen_hammer",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD).durability(1500)));
-
 
     public static final RegistryObject<Item> COPPER_SWORD = registerItem("copper_sword",
             () -> new SwordItem(ModTiers.COPPER, 3, -2.4F,
