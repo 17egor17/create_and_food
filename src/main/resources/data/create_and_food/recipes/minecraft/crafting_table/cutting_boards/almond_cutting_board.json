@@ -1,8 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "110",
-    "110"
+    "011",
+    "011"
   ],
   "key": {
     "0": {

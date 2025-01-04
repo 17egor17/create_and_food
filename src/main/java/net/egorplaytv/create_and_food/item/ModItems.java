@@ -230,6 +230,9 @@ public class ModItems {
                 (new Item.Properties()).tab(ModCreativeModeTab.CREATE_AND_FOOD));
     });
 
+    public static final RegistryObject<Item> KITCHEN_HUMMER = registerItem("kitchen_hummer",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD).durability(1500)));
+
 
     public static final RegistryObject<Item> COPPER_SWORD = registerItem("copper_sword",
             () -> new SwordItem(ModTiers.COPPER, 3, -2.4F,

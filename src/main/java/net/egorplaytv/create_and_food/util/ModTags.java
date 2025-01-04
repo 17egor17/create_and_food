@@ -24,7 +24,7 @@ public class ModTags {
         public static final TagKey<Block> NETHERRACK_ORE_REPLACEABLE = modTag("netherrack_ore_replaceable");
 
         public static final TagKey<Block> BARRELS = modTag("barrels");
-
+        public static final TagKey<Block> CUTTING_BOARDS = modTag("cutting_boards");
 
         private static TagKey<Block> modTag(String name) {
             return BlockTags.create(new ResourceLocation("create_and_food", name));
@@ -78,6 +78,7 @@ public class ModTags {
         public static final TagKey<Item> FUEL_HUNDRED = modTag("fuel_hundred");
 
         public static final TagKey<Item> BARRELS = modTag("barrels");
+        public static final TagKey<Item> CUTTING_BOARDS = modTag("cutting_boards");
 
 
         private static TagKey<Item> modTag(String name) {

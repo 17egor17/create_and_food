@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "/##",
+    "/##"
+  ],
+  "key": {
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "#": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "farmersdelight:cutting_board"
+  },
+  "conditions": [
+  {
+    "type": "forge:not",
+    "value": {
+      "type": "create_and_food:flag",
+      "flag": "variant_recipe"
+    }
+  }
+]
+}
