@@ -34,6 +34,8 @@ public class CAFPonders {
         HELPER.addStoryBoard(FERMENTATION_BARREL.getId(), "fermentation/item_in_fermentation_barrel", FermentationBarrelScene::item_in_fermentation_barrel, AllPonderTags.LOGISTICS);
 
         PonderRegistry.TAGS.forTag(CREATE_AND_FOOD).add(TABLET.getId()).add(MARBLE_BLAST_FURNACE.getId()).add(FERMENTATION_BARREL.getId());
+        PonderRegistry.TAGS.forTag(AllPonderTags.FLUIDS).add(FERMENTATION_BARREL.getId());
+        PonderRegistry.TAGS.forTag(AllPonderTags.LOGISTICS).add(FERMENTATION_BARREL.getId());
     }
 
     static {

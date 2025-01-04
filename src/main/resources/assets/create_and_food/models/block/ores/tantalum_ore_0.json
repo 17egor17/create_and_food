@@ -1,7 +1,6 @@
 {
-	"parent": "create_and_food:custom/ore_block",
+	"parent": "minecraft:block/cube_all",
 	"textures": {
-		"stone_type": "minecraft:block/netherrack",
-		"ore_type": "create_and_food:block/ores/tantalum_ore_0"
+		"all": "create_and_food:block/ores/tantalum_ore_0"
 	}
 }

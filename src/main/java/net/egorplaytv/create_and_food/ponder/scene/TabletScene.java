@@ -10,9 +10,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
 
 public class TabletScene {
-    public TabletScene(){
-    }
-
 
     public static void tablet(SceneBuilder scene, SceneBuildingUtil util){
         scene.title("tablet", "Metal Sample Tablet");

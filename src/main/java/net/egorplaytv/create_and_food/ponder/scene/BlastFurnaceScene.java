@@ -15,8 +15,6 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class BlastFurnaceScene {
-    public BlastFurnaceScene(){
-    }
 
     public static void blast_furnace(SceneBuilder scene, SceneBuildingUtil util){
         scene.title("blast_furnace", "Black Marble Blast Furnace");

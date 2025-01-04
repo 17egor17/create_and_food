@@ -14,9 +14,6 @@ import net.minecraft.world.item.Items;
 
 public class FermentationBarrelScene {
 
-    public FermentationBarrelScene(){
-    }
-
     public static void non_connectable(SceneBuilder scene, SceneBuildingUtil util){
         scene.title("fermentation_barrel_connect", "Connect Fermentation Barrel");
         scene.configureBasePlate(0, 0, 9);
@@ -46,6 +43,7 @@ public class FermentationBarrelScene {
         scene.idle(140);
         scene.overlay.showText(60).text("As you may have noticed Fermentation Barrel does not connect 3x3")
                 .attachKeyFrame().placeNearTarget().pointAt(util.vector.topOf(fermentationPos3));
+        scene.idle(60);
     }
 
     public static void tube_in_up(SceneBuilder scene, SceneBuildingUtil util){
@@ -92,6 +90,7 @@ public class FermentationBarrelScene {
         scene.idle(70);
         scene.overlay.showText(60).text("You can only pour in liquid, but you can't pump it out")
                 .attachKeyFrame().placeNearTarget().pointAt(util.vector.topOf(fermentationPos));
+        scene.idle(60);
     }
 
     public static void item_in_fermentation_barrel(SceneBuilder scene, SceneBuildingUtil util){
@@ -120,5 +119,6 @@ public class FermentationBarrelScene {
         scene.overlay.showControls((new InputWindowElement(util.vector.topOf(fermentationPos), Pointing.DOWN)).withItem(stack), 57);
         scene.overlay.showText(60).text("You can see the item fits into Fermentation Barrel")
                 .attachKeyFrame().placeNearTarget().pointAt(util.vector.topOf(fermentationPos));
+        scene.idle(60);
     }
 }
