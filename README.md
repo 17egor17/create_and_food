@@ -1,4 +1,4 @@
-<p align="center"><img src="https://imgur.com/ZuADlkI" alt="Logo" width="200"></p>
+<p align="center"><img src="https://imgur.com/dwtYEZ2" alt="Logo" width="200"></p>
 <h1 align="center">Create and Food  <br>
     <a href="https://www.curseforge.com/minecraft/mc-mods/create-and-food/files"><img src="https://img.shields.io/badge/Available%20for-MC%20to%201.18-c70039" alt="Supported Versions"></a>
     <a href="https://github.com/17egor17/create_and_food/blob/master/LICENSE"><img src="https://img.shields.io/github/license/17egor17/create_and_food?style=flat&color=900c3f" alt="License"></a>
