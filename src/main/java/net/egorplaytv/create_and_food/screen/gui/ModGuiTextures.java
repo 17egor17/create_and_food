@@ -24,13 +24,13 @@ public enum ModGuiTextures implements ScreenElement {
     public final int width, height;
     public final int startX, startY;
 
-    private ModGuiTextures(String location, int x, int y) {
+    ModGuiTextures(String location, int x, int y) {
         this(location, 0, 0, x, y);
     }
-    private ModGuiTextures(String location, int startX, int startY, int width, int height) {
+    ModGuiTextures(String location, int startX, int startY, int width, int height) {
         this(CreateAndFood.MOD_ID, location, startX, startY, width, height);
     }
-    private ModGuiTextures(String namespace, String location, int startX, int startY, int width, int height) {
+    ModGuiTextures(String namespace, String location, int startX, int startY, int width, int height) {
         this.location = new ResourceLocation(namespace, "textures/gui/" + location + ".png");
         this.width = width;
         this.height = height;
