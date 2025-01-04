@@ -11,4 +11,4 @@
 <p>With the Create and Food mod you will have the ability to create a variety of food and blocks for decoration. Also added new metals and of course tools from these metals.</p>
 
 <h1></h1>
-<h4 align="center">Find out more about Create and Food on our <a href="https://www.curseforge.com/minecraft/mc-mods/create-and-food">Curseforge</a></h4>>
+<h4 align="center">Find out more about Create and Food on our <a href="https://www.curseforge.com/minecraft/mc-mods/create-and-food">Curseforge</a> Page</h4>
