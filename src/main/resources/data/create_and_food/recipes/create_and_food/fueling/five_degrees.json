@@ -1,7 +1,0 @@
-{
-  "type": "create_and_food:fueling",
-  "ingredients": {
-    "tag": "create_and_food:fuel_fife_degrees"
-  },
-  "degree": 5
-}

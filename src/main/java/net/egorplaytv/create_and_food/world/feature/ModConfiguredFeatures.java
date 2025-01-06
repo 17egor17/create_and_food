@@ -57,10 +57,14 @@ public class ModConfiguredFeatures {
 
     public static final List<OreConfiguration.TargetBlockState> OVERWORLD_MARBLE = List.of(
             OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.MARBLE.get().defaultBlockState()),
+            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.MARBLE.get().defaultBlockState()));
+
+    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_MARBLE_BLACK_GALAXY = List.of(
             OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.MARBLE_BLACK_GALAXY.get().defaultBlockState()),
+            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.MARBLE_BLACK_GALAXY.get().defaultBlockState()));
+
+    public static final List<OreConfiguration.TargetBlockState> OVERWORLD_MARBLE_PERLIN_PINK = List.of(
             OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.MARBLE_PERLIN_PINK.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.MARBLE.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.MARBLE_BLACK_GALAXY.get().defaultBlockState()),
             OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.MARBLE_PERLIN_PINK.get().defaultBlockState()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> RUBY_ORE = FeatureUtils.register("ruby_ore",
@@ -69,9 +73,15 @@ public class ModConfiguredFeatures {
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> MARBLE = FeatureUtils.register("marble",
             Feature.ORE, new OreConfiguration(OVERWORLD_MARBLE, CreateAndFoodCommonConfigs.MARBLE_VEINS_SIZE.get()));
 
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> MARBLE_BLACK_GALAXY = FeatureUtils.register("marble_black_galaxy",
+            Feature.ORE, new OreConfiguration(OVERWORLD_MARBLE_BLACK_GALAXY, CreateAndFoodCommonConfigs.MARBLE_VEINS_SIZE.get()));
+
+    public static final Holder<ConfiguredFeature<OreConfiguration, ?>> MARBLE_PERLIN_PINK = FeatureUtils.register("marble_perlin_pink",
+            Feature.ORE, new OreConfiguration(OVERWORLD_MARBLE_PERLIN_PINK, CreateAndFoodCommonConfigs.MARBLE_VEINS_SIZE.get()));
+
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> OVERWORLD_TANTALUM_ORE = FeatureUtils.register("tantalum_ore",
-        Feature.ORE, new OreConfiguration(OVERWORLD_TANTALUM_ORES, CreateAndFoodCommonConfigs.TUNTAL_ORE_VEINS_SIZE.get()));
+        Feature.ORE, new OreConfiguration(OVERWORLD_TANTALUM_ORES, CreateAndFoodCommonConfigs.TANTALUM_ORE_VEINS_SIZE.get()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> NETHER_TANTALUM_ORE = FeatureUtils.register("nether_tantalum_ore",
-            Feature.ORE, new OreConfiguration(NETHER_TANTALUM_ORES, CreateAndFoodCommonConfigs.TUNTAL_ORE_VEINS_SIZE.get()));
+            Feature.ORE, new OreConfiguration(NETHER_TANTALUM_ORES, CreateAndFoodCommonConfigs.TANTALUM_ORE_VEINS_SIZE.get()));
 }

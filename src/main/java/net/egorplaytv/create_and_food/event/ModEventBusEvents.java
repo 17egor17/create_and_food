@@ -3,7 +3,6 @@ package net.egorplaytv.create_and_food.event;
 import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.particle.ModParticles;
 import net.egorplaytv.create_and_food.particle.custom.SoulParticles;
-import net.egorplaytv.create_and_food.recipe.BlastFurnaceFuelRecipe;
 import net.egorplaytv.create_and_food.recipe.FermentationBarrelRecipe;
 import net.egorplaytv.create_and_food.recipe.MarbleFurnaceRecipe;
 import net.minecraft.client.Minecraft;
@@ -33,7 +32,6 @@ public class ModEventBusEvents {
     public static void registerRecipeTypes(final RegistryEvent.Register<RecipeSerializer<?>> event) {
         Registry.register(Registry.RECIPE_TYPE, FermentationBarrelRecipe.Type.ID, FermentationBarrelRecipe.Type.INSTANCE);
         Registry.register(Registry.RECIPE_TYPE, MarbleFurnaceRecipe.Type.ID, MarbleFurnaceRecipe.Type.INSTANCE);
-        Registry.register(Registry.RECIPE_TYPE, BlastFurnaceFuelRecipe.Type.ID, BlastFurnaceFuelRecipe.Type.INSTANCE);
     }
     @SubscribeEvent
     public static void registerParticleFactories(final ParticleFactoryRegisterEvent event) {

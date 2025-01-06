@@ -10,7 +10,13 @@ import org.lwjgl.system.CallbackI;
 
 public class ModTags {
 
+    public static void init(){
+        Blocks.init();
+        Items.init();
+    }
+
     public static class Blocks {
+        private static void init(){}
 
         public static final TagKey<Block> ALMOND = forgeTag("almond");
         public static final TagKey<Block> ALMOND_LOGS = modTag("almond_logs");
@@ -28,7 +34,6 @@ public class ModTags {
 
         public static final TagKey<Block> MINEABLE_WITH_HAMMER = modTag("mineable/hammer");
 
-        public static final TagKey<Block> NEEDS_STEEL_TOOL = forgeTag("needs_steel_tool");
         public static final TagKey<Block> NEEDS_TANTALUM_TOOL = forgeTag("needs_tantalum_tool");
         public static final TagKey<Block> NEEDS_TUNGSTEN_TOOL = forgeTag("needs_tungsten_tool");
 
@@ -45,6 +50,8 @@ public class ModTags {
     }
 
     public static class Items {
+        private static void init(){}
+
         public static final TagKey<Item> STEEL = forgeTag("ingots/steel");
         public static final TagKey<Item> BRASS = forgeTag("ingots/brass");
         public static final TagKey<Item> ZINC = forgeTag("ingots/zinc");

@@ -1,20 +1,18 @@
 package net.egorplaytv.create_and_food.block.entity.custom;
 
 import com.google.common.collect.Lists;
-import com.simibubi.create.AllItems;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
+import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.block.custom.MarbleBlastFurnaceBlock;
 import net.egorplaytv.create_and_food.block.entity.ModBlockEntities;
 import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
 import net.egorplaytv.create_and_food.entity.WrappedHandler;
-import net.egorplaytv.create_and_food.item.ModItems;
 import net.egorplaytv.create_and_food.recipe.MarbleFurnaceRecipe;
 import net.egorplaytv.create_and_food.screen.MarbleBlastFurnaceMenu;
 import net.egorplaytv.create_and_food.util.ModTags;
 import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.TagTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
@@ -41,7 +39,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -137,6 +134,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
             }
         };
     }
+
 
     @Override
     public Component getDisplayName() {

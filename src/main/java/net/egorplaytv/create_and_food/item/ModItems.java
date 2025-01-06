@@ -206,6 +206,62 @@ public class ModItems {
     public static final RegistryObject<Item> TOOL_HANDLE = registerItem("tool_handle",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
+    public static final RegistryObject<Item> TANTALUM_SWORD = registerItem("tantalum_sword",
+            () -> new SwordItem(ModTiers.TANTALUM, 5, -2.0F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> TANTALUM_PICKAXE = registerItem("tantalum_pickaxe",
+            () -> new PickaxeItem(ModTiers.TANTALUM, 5, -2.2F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> TANTALUM_SHOVEL = registerItem("tantalum_shovel",
+            () -> new ShovelItem(ModTiers.TANTALUM, 5, -2.4F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> TANTALUM_AXE = registerItem("tantalum_axe",
+            () -> new AxeItem(ModTiers.TANTALUM, 5, -2.5F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> TANTALUM_HOE = registerItem("tantalum_hoe",
+            () -> new HoeItem(ModTiers.TANTALUM, 5, -0.6F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> TANTALUM_HAMMER = registerItem("tantalum_hammer",
+            () -> new HammerItem(ModTiers.TANTALUM, 5, -2.5F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> TANTALUM_KNIFE = registerItem("tantalum_knife",
+            () -> new KnifeItem(ModTiers.TANTALUM, 0.5F, -2.0F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> TUNGSTEN_SWORD = registerItem("tungsten_sword",
+            () -> new SwordItem(ModTiers.TUNGSTEN, (int)5.5, -2.0F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> TUNGSTEN_PICKAXE = registerItem("tungsten_pickaxe",
+            () -> new PickaxeItem(ModTiers.TUNGSTEN, (int)5.5, -2.2F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> TUNGSTEN_SHOVEL = registerItem("tungsten_shovel",
+            () -> new ShovelItem(ModTiers.TUNGSTEN, (int)5.5, -2.4F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> TUNGSTEN_AXE = registerItem("tungsten_axe",
+            () -> new AxeItem(ModTiers.TUNGSTEN, (int)5.5, -2.5F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> TUNGSTEN_HOE = registerItem("tungsten_hoe",
+            () -> new HoeItem(ModTiers.TUNGSTEN, (int)5.5, -0.6F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> TUNGSTEN_HAMMER = registerItem("tungsten_hammer",
+            () -> new HammerItem(ModTiers.TUNGSTEN, (int)5.5, -2.5F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> TUNGSTEN_KNIFE = registerItem("tungsten_knife",
+            () -> new KnifeItem(ModTiers.TUNGSTEN, 0.5F, -2.0F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
     public static final RegistryObject<Item> STEEL_SWORD = registerItem("steel_sword",
             () -> new SwordItem(ModTiers.STEEL, 4, -2.4F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));

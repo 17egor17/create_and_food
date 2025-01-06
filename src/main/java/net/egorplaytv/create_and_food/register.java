@@ -9,6 +9,7 @@ import net.egorplaytv.create_and_food.particle.ModParticles;
 import net.egorplaytv.create_and_food.recipe.ModRecipes;
 import net.egorplaytv.create_and_food.screen.ModMenuTypes;
 import net.egorplaytv.create_and_food.sound.ModSounds;
+import net.egorplaytv.create_and_food.util.ModTags;
 import net.egorplaytv.create_and_food.villager.ModVillagers;
 import net.egorplaytv.create_and_food.world.structure.ModStructures;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -26,6 +27,7 @@ public class register {
         ModVillagers.register(eventBus);
         ModRecipes.register(eventBus);
         ModStructures.register(eventBus);
+        ModTags.init();
 
 //        for 1.19.2
 //        ModCreativeModeTab.register(eventBus);

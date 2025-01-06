@@ -16,5 +16,7 @@ public class ModOreGeneration {
         base.add(ModPlacedFeatures.OVERWORLD_TANTALUM_ORE_PLACED);
         base.add(ModPlacedFeatures.NETHER_TANTALUM_ORE_PLACED);
         base.add(ModPlacedFeatures.MARBLE_PLACED);
+        base.add(ModPlacedFeatures.MARBLE_BLACK_GALAXY_PLACED);
+        base.add(ModPlacedFeatures.MARBLE_PERLIN_PINK_PLACED);
     }
 }

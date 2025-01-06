@@ -193,6 +193,15 @@ public class ModBlocks {
     public static final RegistryObject<Block> MARBLE_PERLIN_PINK = registryBlock("marble_perlin_pink",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(1.5F)
                     .requiresCorrectToolForDrops().sound(SoundType.STONE)), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> COBBLED_MARBLE = registryBlock("cobbled_marble",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(1.5F)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> COBBLED_MARBLE_BLACK_GALAXY = registryBlock("cobbled_marble_black_galaxy",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(1.5F)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> COBBLED_MARBLE_PERLIN_PINK = registryBlock("cobbled_marble_perlin_pink",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(1.5F)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
     public static final RegistryObject<Block> FRAMED_CALCITE = registryBlock("framed_calcite",
             () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).strength(0.75F)
                     .requiresCorrectToolForDrops().sound(SoundType.WOOD).noOcclusion()), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);

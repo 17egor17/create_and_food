@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#forge:ores/ruby"
+    "#forge:ores/ruby",
+    "#forge:ores/tantalum"
   ]
 }

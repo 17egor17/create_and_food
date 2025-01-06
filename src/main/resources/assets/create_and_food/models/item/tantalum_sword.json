@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "create_and_food:item/tools/tantalum/tantalum_sword"
+  }
+}

@@ -2,8 +2,8 @@ package net.egorplaytv.create_and_food;
 
 import com.ferreusveritas.dynamictrees.api.registry.RegistryHandler;
 import com.simibubi.create.foundation.data.CreateRegistrate;
-import com.simibubi.create.infrastructure.data.CreateDatagen;
 import net.egorplaytv.create_and_food.block.entity.ModWoodTypes;
+import net.egorplaytv.create_and_food.block.entity.custom.MarbleBlastFurnaceBlockEntity;
 import net.egorplaytv.create_and_food.config.CreateAndFoodClientConfigs;
 import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
 import net.egorplaytv.create_and_food.networking.ModMessages;
@@ -50,6 +50,7 @@ public class CreateAndFood{
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;
         REGISTRATE.registerEventListeners(FMLJavaModLoadingContext.get().getModEventBus());
+
 
         new register(eventBus);
 

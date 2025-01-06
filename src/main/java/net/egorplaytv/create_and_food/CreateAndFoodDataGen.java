@@ -2,6 +2,7 @@ package net.egorplaytv.create_and_food;
 
 
 import com.tterrag.registrate.providers.ProviderType;
+import net.egorplaytv.create_and_food.block.entity.custom.MarbleBlastFurnaceBlockEntity;
 import net.egorplaytv.create_and_food.ponder.CAFPonders;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 

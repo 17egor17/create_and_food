@@ -11,6 +11,4 @@ public class CreateAndFoodClient {
         ModPartialModels.init();
         eventBus.register(this);
     }
-
-
 }

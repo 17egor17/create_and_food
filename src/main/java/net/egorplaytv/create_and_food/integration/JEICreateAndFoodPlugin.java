@@ -1,10 +1,12 @@
 package net.egorplaytv.create_and_food.integration;
 
+import blusunrize.immersiveengineering.api.crafting.cache.CachedRecipeList;
 import cofh.thermal.expansion.compat.jei.machine.FurnaceRecipeCategory;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.helpers.IJeiHelpers;
+import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
@@ -21,6 +23,7 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import vectorwing.farmersdelight.integration.jei.FDRecipeTypes;
 
@@ -44,12 +47,12 @@ public class JEICreateAndFoodPlugin implements IModPlugin {
 
         registration.addRecipeCategories(new FermentationBarrelRecipeCategory(guiHelper));
         registration.addRecipeCategories(new MarbleBlastFurnaceRecipeCategory(guiHelper));
-        registration.addRecipeCategories(new BlastFurnaceFuelRecipeCategory(guiHelper));
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager rm = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
+        IIngredientManager ingredientManager = registration.getIngredientManager();
 
         List<FermentationBarrelRecipe> fermentation = rm.getAllRecipesFor(FermentationBarrelRecipe.Type.INSTANCE);
         registration.addRecipes(FermentationBarrelRecipeCategory.FERMENTATION_TYPE, fermentation);
@@ -57,17 +60,15 @@ public class JEICreateAndFoodPlugin implements IModPlugin {
         List<MarbleFurnaceRecipe> blasting = rm.getAllRecipesFor(MarbleFurnaceRecipe.Type.INSTANCE);
         registration.addRecipes(MarbleBlastFurnaceRecipeCategory.BLASTING_TYPE, blasting);
 
-        List<BlastFurnaceFuelRecipe> fueling = rm.getAllRecipesFor(BlastFurnaceFuelRecipe.Type.INSTANCE);
-        registration.addRecipes(RecipeTypes.FUELING, fueling);
-
 
 
         new ingredientInfo(registration);
     }
+
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.FERMENTATION_BARREL.get()), RecipeTypes.FERMENTATION);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.MARBLE_BLAST_FURNACE.get()), RecipeTypes.BLASTING, RecipeTypes.FUELING);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.MARBLE_BLAST_FURNACE.get()), RecipeTypes.BLASTING);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.OAK_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SPRUCE_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.BIRCH_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
@@ -84,6 +85,6 @@ public class JEICreateAndFoodPlugin implements IModPlugin {
         registration.addRecipeClickArea(FermentationBarrelScreen.class, 74, 39, 24, 12,
                 FermentationBarrelRecipeCategory.FERMENTATION_TYPE);
         registration.addRecipeClickArea(MarbleBlastFurnaceScreen.class, 55,51,30,10,
-                MarbleBlastFurnaceRecipeCategory.BLASTING_TYPE, RecipeTypes.FUELING);
+                MarbleBlastFurnaceRecipeCategory.BLASTING_TYPE);
     }
 }

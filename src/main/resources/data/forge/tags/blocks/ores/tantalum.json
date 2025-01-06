@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "create_and_food:stone_tantalum_ore",
+    "create_and_food:deepslate_tantalum_ore",
+    "create_and_food:tantalum_ore",
+    "create_and_food:blackstone_tantalum_ore"
+  ]
+}

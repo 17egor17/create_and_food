@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "create_and_food:steel_knife"
+    "create_and_food:steel_knife",
+    "create_and_food:tantalum_knife",
+    "create_and_food:tungsten_knife"
   ]
 }

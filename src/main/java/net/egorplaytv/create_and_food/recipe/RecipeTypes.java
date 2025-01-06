@@ -9,8 +9,5 @@ public class RecipeTypes {
     public static final RecipeType<MarbleFurnaceRecipe> BLASTING =
             RecipeType.create(CreateAndFood.MOD_ID, "blasting", MarbleFurnaceRecipe.class);
 
-    public static final RecipeType<BlastFurnaceFuelRecipe> FUELING =
-            RecipeType.create(CreateAndFood.MOD_ID, "fueling", BlastFurnaceFuelRecipe.class);
-
     private RecipeTypes() {}
 }

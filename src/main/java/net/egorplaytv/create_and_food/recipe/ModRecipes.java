@@ -19,9 +19,6 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<MarbleFurnaceRecipe>> BLASTING_SERIALIZER =
             SERIALIZERS.register("blasting", () -> MarbleFurnaceRecipe.Serializer.INSTANCE);
 
-    public static final RegistryObject<RecipeSerializer<BlastFurnaceFuelRecipe>> FUELING_SERIALIZER =
-            SERIALIZERS.register("fueling", () -> BlastFurnaceFuelRecipe.Serializer.INSTANCE);
-
     public static final RegistryObject<RecipeSerializer<LegacyRecipe>> LEGACY_RECIPE =
             SERIALIZERS.register("legacy_recipe", () -> {
                 return new SimpleRecipeSerializer<>(LegacyRecipe::new);
