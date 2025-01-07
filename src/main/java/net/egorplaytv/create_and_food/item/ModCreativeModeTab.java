@@ -2,8 +2,12 @@ package net.egorplaytv.create_and_food.item;
 
 import net.egorplaytv.create_and_food.block.ModBlocks;
 //import net.minecraft.core.registries.Registries;
+import net.egorplaytv.create_and_food.util.ModTags;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 
 public class ModCreativeModeTab {
 //    for 1.19.2
@@ -34,6 +38,12 @@ public class ModCreativeModeTab {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(ModBlocks.GOLDEN_WALL.get());
+        }
+    };
+    public static final CreativeModeTab CREATE_AND_FOOD_KNIFE_AND_TIP = new CreativeModeTab("create_and_food_knife_and_tip") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModItems.TANTALUM_KNIFE.get());
         }
     };
     public static final CreativeModeTab CREATE_AND_FOOD_KITCHEN = new CreativeModeTab("create_and_food_kitchen") {

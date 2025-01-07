@@ -1,0 +1,55 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create_and_food:marble_perlin_pink"
+  },
+  "transitionalItem": {
+    "item": "create_and_food:incomplete_marble_perlin_pink_brick"
+  },
+  "sequence": [
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_marble_perlin_pink_brick"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_marble_perlin_pink_brick"
+        }
+      ],
+      "processingTime": 100
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_marble_perlin_pink_brick"
+        },
+        {
+          "fluid": "minecraft:water",
+          "nbt": {},
+          "amount": 250
+        }
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_marble_perlin_pink_brick"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:marble_perlin_pink_brick",
+      "count": 9,
+      "chance": 80.0
+    },
+    {
+      "item": "create_and_food:cobbled_marble_perlin_pink",
+      "chance": 20.0
+    }
+  ],
+  "loops": 4
+}

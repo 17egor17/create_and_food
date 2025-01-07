@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01"
+  ],
+  "key": {
+    "0": {
+      "item": "create_and_food:brick_dust"
+    },
+    "1": {
+      "item": "minecraft:clay"
+    }
+  },
+  "result": {
+    "item": "create_and_food:fireclay_clay_ball"
+  }
+}

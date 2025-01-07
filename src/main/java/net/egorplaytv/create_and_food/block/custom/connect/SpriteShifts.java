@@ -54,6 +54,8 @@ public class SpriteShifts {
             SECURE_BLOCK = omniCasing("secure_block"),
             STONE_WALKWAY = omniCasing("stone_walkway"),
             DEEPSLATE_WALKWAY = omniCasing("deepslate_walkway"),
+            SANDSTONE_WALKWAY = omniCasing("sandstone_walkway"),
+            RED_SANDSTONE_WALKWAY = omniCasing("red_sandstone_walkway"),
             GOLDEN_WALL_TOP = omni("golden_wall_top");
 
     public static final CTSpriteShiftEntry

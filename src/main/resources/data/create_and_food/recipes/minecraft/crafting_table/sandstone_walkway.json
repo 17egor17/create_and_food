@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "00",
+    "00"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:cut_sandstone"
+    }
+  },
+  "result": {
+    "item": "create_and_food:sandstone_walkway",
+    "count": 4
+  }
+}

@@ -202,6 +202,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> COBBLED_MARBLE_PERLIN_PINK = registryBlock("cobbled_marble_perlin_pink",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(1.5F)
                     .requiresCorrectToolForDrops().sound(SoundType.STONE)), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> FIRECLAY_BRICKS = registryBlock("fireclay_bricks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.BRICKS).strength(2.0F, 6.0F)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE)), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
     public static final RegistryObject<Block> FRAMED_CALCITE = registryBlock("framed_calcite",
             () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).strength(0.75F)
                     .requiresCorrectToolForDrops().sound(SoundType.WOOD).noOcclusion()), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
@@ -244,6 +247,8 @@ public class ModBlocks {
     public static BlockEntry<CasingBlock> SECURE_BLOCK;
     public static BlockEntry<CTFramedWall> STONE_WALKWAY;
     public static BlockEntry<CTFramedWall> DEEPSLATE_WALKWAY;
+    public static BlockEntry<CTFramedWall> SANDSTONE_WALKWAY;
+    public static BlockEntry<CTFramedWall> RED_SANDSTONE_WALKWAY;
     public static BlockEntry<CTFramedWall> STEEL_BLOCK;
     public static final BlockEntry<SlidingDoorBlock> STEEL_DOOR;
     public static final RegistryObject<Block> STEEL_LAMP_BLOCK = registryBlock("steel_ruby_lamp_block",
@@ -440,6 +445,8 @@ public class ModBlocks {
                 .properties(p -> p.color(MaterialColor.METAL))
                 .transform(BuilderTransformers.walkway(() -> {
                     return SpriteShifts.STONE_WALKWAY;
+                })).transform(BuilderTransformers.walkway(() -> {
+                    return SpriteShifts.DEEPSLATE_WALKWAY;
                 }))
         ).register();
 
@@ -447,10 +454,28 @@ public class ModBlocks {
                 .properties(p -> p.color(MaterialColor.METAL))
                 .transform(BuilderTransformers.walkway(() -> {
                     return SpriteShifts.DEEPSLATE_WALKWAY;
+                })).transform(BuilderTransformers.walkway(() -> {
+                    return SpriteShifts.STONE_WALKWAY;
                 })).properties(p -> p.sound(SoundType.DEEPSLATE))
         ).register();
 
+    SANDSTONE_WALKWAY = (CreateAndFood.REGISTRATE.block("sandstone_walkway", CTFramedWall::new)
+            .properties(p -> p.color(MaterialColor.METAL))
+            .transform(BuilderTransformers.walkway(() -> {
+                return SpriteShifts.SANDSTONE_WALKWAY;
+            })).transform(BuilderTransformers.walkway(() -> {
+                return SpriteShifts.RED_SANDSTONE_WALKWAY;
+            }))
+    ).register();
 
+    RED_SANDSTONE_WALKWAY = (CreateAndFood.REGISTRATE.block("red_sandstone_walkway", CTFramedWall::new)
+            .properties(p -> p.color(MaterialColor.METAL))
+            .transform(BuilderTransformers.walkway(() -> {
+                return SpriteShifts.RED_SANDSTONE_WALKWAY;
+            })).transform(BuilderTransformers.walkway(() -> {
+                return SpriteShifts.SANDSTONE_WALKWAY;
+            }))
+    ).register();
 
         new framedWall(CreateAndFood.REGISTRATE);
         new framedWallBrick(CreateAndFood.REGISTRATE);

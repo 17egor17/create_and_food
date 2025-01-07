@@ -1,7 +1,5 @@
 {
   "variants": {
-    "": [
-      { "model": "create_and_food:block/marbles/cobbled_marble" }
-    ]
+    "": { "model": "create_and_food:block/marbles/cobbled_marble" }
   }
 }

@@ -48,6 +48,12 @@
     "create_and_food:blackstone_tantalum_ore",
     "create_and_food:marble",
     "create_and_food:marble_black_galaxy",
-    "create_and_food:marble_perlin_pink"
+    "create_and_food:marble_perlin_pink",
+    "create_and_food:cobbled_marble",
+    "create_and_food:cobbled_marble_black_galaxy",
+    "create_and_food:cobbled_marble_perlin_pink",
+    "create_and_food:fireclay_bricks",
+    "create_and_food:sandstone_walkway",
+    "create_and_food:red_sandstone_walkway"
   ]
 }

@@ -43,9 +43,9 @@ public class CreateAndFoodCommonConfigs {
                 .translation("config.create_and_food.marble_veins_size")
                 .defineInRange("Marble Vein Size", 20, 20, 40);
 
-        SPEED_ATTENUATION_FURNACE = BUILDER.comment("Speed Attenuation Furnace")
+        SPEED_ATTENUATION_FURNACE = BUILDER.comment("Time in seconds")
                 .translation("config.create_and_food.furnace_speed")
-                .defineInRange("Time in seconds", 50, 10, 100);
+                .defineInRange("Speed Attenuation Blast Furnace", 50, 10, 100);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

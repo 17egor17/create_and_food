@@ -338,10 +338,34 @@ public class ModItems {
     public static final RegistryObject<Item> STEEL_DUST = registerItem("steel_dust",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
+    public static final RegistryObject<Item> BRICK_DUST = registerItem("brick_dust",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
     public static final RegistryObject<Item> RAW_RUBY = registerItem("raw_ruby",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> RUBY = registerItem("ruby",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> FIRECLAY_BRICK = registerItem("fireclay_brick",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> FIRECLAY_CLAY_BALL = registerItem("fireclay_clay_ball",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> INCOMPLETE_MARBLE_BRICK = registerItem("incomplete_marble_brick",
+            () -> new SequencedAssemblyItem(new Item.Properties()));
+    public static final RegistryObject<Item> MARBLE_BRICK = registerItem("marble_brick",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> INCOMPLETE_MARBLE_BLACK_GALAXY_BRICK = registerItem("incomplete_marble_black_galaxy_brick",
+            () -> new SequencedAssemblyItem(new Item.Properties()));
+    public static final RegistryObject<Item> MARBLE_BLACK_GALAXY_BRICK = registerItem("marble_black_galaxy_brick",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> INCOMPLETE_MARBLE_PERLIN_PINK_BRICK = registerItem("incomplete_marble_perlin_pink_brick",
+            () -> new SequencedAssemblyItem(new Item.Properties()));
+    public static final RegistryObject<Item> MARBLE_PERLIN_PINK_BRICK = registerItem("marble_perlin_pink_brick",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> RAW_TANTALUM = registerItem("raw_tantalum",
