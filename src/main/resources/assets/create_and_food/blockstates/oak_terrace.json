@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "attachment=single": {
+      "model": "create_and_food:block/terrace/oak_terrace_block"
+    },
+    "attachment=low": {
+      "model": "create_and_food:block/terrace/oak_terrace_bottom"
+    },
+    "attachment=middle": {
+      "model": "create_and_food:block/terrace/oak_terrace_medium"
+    },
+    "attachment=up": {
+      "model": "create_and_food:block/terrace/oak_terrace_top"
+    }
+  }
+}

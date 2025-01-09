@@ -14,12 +14,14 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.util.RecipeMatcher;
 import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class MarbleFurnaceRecipe implements Recipe<SimpleContainer> {
+    public static final Serializer SERIALIZER = new Serializer();
     protected final ResourceLocation id;
     protected final NonNullList<Ingredient> inputItems;
     protected final ItemStack output;

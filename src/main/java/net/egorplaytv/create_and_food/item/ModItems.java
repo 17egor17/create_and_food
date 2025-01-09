@@ -230,10 +230,6 @@ public class ModItems {
             () -> new HammerItem(ModTiers.TANTALUM, 5, -2.5F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
-    public static final RegistryObject<Item> TANTALUM_KNIFE = registerItem("tantalum_knife",
-            () -> new KnifeItem(ModTiers.TANTALUM, 0.5F, -2.0F,
-                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
-
     public static final RegistryObject<Item> TUNGSTEN_SWORD = registerItem("tungsten_sword",
             () -> new SwordItem(ModTiers.TUNGSTEN, (int)5.5, -2.0F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
@@ -258,10 +254,6 @@ public class ModItems {
             () -> new HammerItem(ModTiers.TUNGSTEN, (int)5.5, -2.5F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
-    public static final RegistryObject<Item> TUNGSTEN_KNIFE = registerItem("tungsten_knife",
-            () -> new KnifeItem(ModTiers.TUNGSTEN, 0.5F, -2.0F,
-                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
-
     public static final RegistryObject<Item> STEEL_SWORD = registerItem("steel_sword",
             () -> new SwordItem(ModTiers.STEEL, 4, -2.4F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
@@ -284,10 +276,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> STEEL_HAMMER = registerItem("steel_hammer",
             () -> new HammerItem(ModTiers.STEEL, 6, -3.1F,
-                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
-
-    public static final RegistryObject<Item> STEEL_KNIFE = registerItem("steel_knife",
-            () -> new KnifeItem(ModTiers.STEEL, 0.5F, -2.0F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> KITCHEN_HAMMER = registerItem("kitchen_hammer",
@@ -386,6 +374,70 @@ public class ModItems {
     public static final RegistryObject<Item> TUNGSTEN_NUGGET = registerItem("tungsten_nugget",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
+
+
+
+
+
+
+//________________________Create and Food: Knives and Tips________________________\\
+    public static final RegistryObject<Item> GREAT_DAMAGE_IRON_KNIFE = registerItem("great_damage_iron_knife",
+            () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F,
+                    new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)));
+
+    public static final RegistryObject<Item> MEDIUM_DAMAGE_IRON_KNIFE = registerItem("medium_damage_iron_knife",
+            () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F,
+                    new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)
+                            .craftRemainder(ModItems.GREAT_DAMAGE_IRON_KNIFE.get())));
+
+    public static final RegistryObject<Item> SLIGHT_DAMAGE_IRON_KNIFE = registerItem("slight_damage_iron_knife",
+            () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F,
+                    new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)
+                            .craftRemainder(ModItems.MEDIUM_DAMAGE_IRON_KNIFE.get())));
+
+    public static final RegistryObject<Item> IRON_KNIFE = registerItem("iron_knife",
+            () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)
+                            .craftRemainder(ModItems.SLIGHT_DAMAGE_IRON_KNIFE.get())));
+
+    public static final RegistryObject<Item> DIAMOND_KNIFE = registerItem("diamond_knife",
+            () -> new KnifeItem(Tiers.DIAMOND, 0.5F, -2.0F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)));
+
+    public static final RegistryObject<Item> NETHERITE_KNIFE = registerItem("netherite_knife",
+            () -> new KnifeItem(Tiers.NETHERITE, 0.5F, -2.0F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP).fireResistant()));
+
+    public static final RegistryObject<Item> GREAT_DAMAGE_GOLDEN_KNIFE = registerItem("great_damage_golden_knife",
+            () -> new KnifeItem(Tiers.GOLD, 0.5F, -2.0F,
+                    new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)));
+
+    public static final RegistryObject<Item> MEDIUM_DAMAGE_GOLDEN_KNIFE = registerItem("medium_damage_golden_knife",
+            () -> new KnifeWithDamageItem(Tiers.GOLD, ModItems.GREAT_DAMAGE_GOLDEN_KNIFE.get().getDefaultInstance(),
+                    0.5F, -2.0F, new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)
+                            .craftRemainder(ModItems.GREAT_DAMAGE_GOLDEN_KNIFE.get())));
+
+    public static final RegistryObject<Item> SLIGHT_DAMAGE_GOLDEN_KNIFE = registerItem("slight_damage_golden_knife",
+            () -> new KnifeWithDamageItem(Tiers.GOLD, ModItems.MEDIUM_DAMAGE_GOLDEN_KNIFE.get().getDefaultInstance(),
+                    0.5F, -2.0F, new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)
+                            .craftRemainder(ModItems.MEDIUM_DAMAGE_GOLDEN_KNIFE.get())));
+
+    public static final RegistryObject<Item> GOLDEN_KNIFE = registerItem("golden_knife",
+            () -> new KnifeWithDamageItem(Tiers.GOLD, ModItems.SLIGHT_DAMAGE_GOLDEN_KNIFE.get().getDefaultInstance(),
+                    0.5F, -2.0F, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)
+                            .craftRemainder(ModItems.SLIGHT_DAMAGE_GOLDEN_KNIFE.get())));
+
+    public static final RegistryObject<Item> STEEL_KNIFE = registerItem("steel_knife",
+            () -> new KnifeItem(ModTiers.STEEL, 0.5F, -2.0F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)));
+
+    public static final RegistryObject<Item> TANTALUM_KNIFE = registerItem("tantalum_knife",
+            () -> new KnifeItem(ModTiers.TANTALUM, 0.5F, -2.0F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)));
+
+    public static final RegistryObject<Item> TUNGSTEN_KNIFE = registerItem("tungsten_knife",
+            () -> new KnifeItem(ModTiers.TUNGSTEN, 0.5F, -2.0F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)));
 
 
 

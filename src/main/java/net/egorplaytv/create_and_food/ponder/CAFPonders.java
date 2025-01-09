@@ -11,6 +11,7 @@ import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.ponder.scene.BlastFurnaceScene;
 import net.egorplaytv.create_and_food.ponder.scene.FermentationBarrelScene;
 import net.egorplaytv.create_and_food.ponder.scene.TabletScene;
+import net.egorplaytv.create_and_food.ponder.scene.TerraceScene;
 import net.minecraft.world.level.ItemLike;
 
 import static net.egorplaytv.create_and_food.block.ModBlocks.*;
@@ -32,8 +33,13 @@ public class CAFPonders {
         HELPER.addStoryBoard(FERMENTATION_BARREL.getId(),"fermentation/non_connectable", FermentationBarrelScene::non_connectable, CAFPonders.CREATE_AND_FOOD);
         HELPER.addStoryBoard(FERMENTATION_BARREL.getId(), "fermentation/tube_in_up", FermentationBarrelScene::tube_in_up, AllPonderTags.FLUIDS);
         HELPER.addStoryBoard(FERMENTATION_BARREL.getId(), "fermentation/item_in_fermentation_barrel", FermentationBarrelScene::item_in_fermentation_barrel, AllPonderTags.LOGISTICS);
+        HELPER.addStoryBoard(OAK_TERRACE.getId(), "terrace/terrace", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(OAK_TERRACE_STAIRS.getId(), "terrace/terrace", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(OAK_TERRACE.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(OAK_TERRACE_STAIRS.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
 
-        PonderRegistry.TAGS.forTag(CREATE_AND_FOOD).add(TABLET.getId()).add(MARBLE_BLAST_FURNACE.getId()).add(FERMENTATION_BARREL.getId());
+        PonderRegistry.TAGS.forTag(CREATE_AND_FOOD).add(TABLET.getId()).add(MARBLE_BLAST_FURNACE.getId()).add(FERMENTATION_BARREL.getId())
+                .add(OAK_TERRACE.getId());
         PonderRegistry.TAGS.forTag(AllPonderTags.FLUIDS).add(FERMENTATION_BARREL.getId());
         PonderRegistry.TAGS.forTag(AllPonderTags.LOGISTICS).add(FERMENTATION_BARREL.getId());
     }

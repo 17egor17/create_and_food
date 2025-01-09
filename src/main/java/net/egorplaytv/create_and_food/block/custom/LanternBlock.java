@@ -172,7 +172,6 @@ public class LanternBlock extends Block implements SimpleWaterloggedBlock {
             }
         }
 
-
         return null;
     }
 

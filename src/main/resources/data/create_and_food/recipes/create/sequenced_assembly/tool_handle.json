@@ -8,19 +8,6 @@
   },
   "sequence": [
     {
-      "type": "create:pressing",
-      "ingredients": [
-        {
-          "item": "create_and_food:incomplete_tool_handle"
-        }
-      ],
-      "results": [
-        {
-          "item": "create_and_food:incomplete_tool_handle"
-        }
-      ]
-    },
-    {
       "type": "create:deploying",
       "ingredients": [
         {
@@ -31,6 +18,19 @@
             "item": "minecraft:iron_nugget"
           }
         ]
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_tool_handle"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_tool_handle"
+        }
       ],
       "results": [
         {

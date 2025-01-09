@@ -8,13 +8,12 @@
   "results": [
     {
       "item": "create_and_food:brick_dust",
-      "count": 4,
-      "chance": 70.0
+      "count": 4
     },
     {
       "item": "create_and_food:brick_dust",
       "count": 1,
-      "chance": 30.0
+      "chance": 0.3
     }
   ],
   "processingTime": 100

@@ -205,6 +205,15 @@ public class ModBlocks {
     public static final RegistryObject<Block> FIRECLAY_BRICKS = registryBlock("fireclay_bricks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.BRICKS).strength(2.0F, 6.0F)
                     .requiresCorrectToolForDrops().sound(SoundType.STONE)), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+
+    public static final RegistryObject<Block> OAK_TERRACE = registryBlock("oak_terrace",
+            () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD)
+                    .requiresCorrectToolForDrops().sound(SoundType.WOOD)), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+
+    public static final RegistryObject<Block> OAK_TERRACE_STAIRS = registryBlock("oak_terrace_stairs",
+            () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD)
+                    .requiresCorrectToolForDrops().sound(SoundType.WOOD)), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+
     public static final RegistryObject<Block> FRAMED_CALCITE = registryBlock("framed_calcite",
             () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).strength(0.75F)
                     .requiresCorrectToolForDrops().sound(SoundType.WOOD).noOcclusion()), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);

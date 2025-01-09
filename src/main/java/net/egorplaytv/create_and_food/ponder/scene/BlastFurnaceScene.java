@@ -50,5 +50,6 @@ public class BlastFurnaceScene {
                 .attachKeyFrame().placeNearTarget().pointAt(util.vector.topOf(furnacePos));
         scene.overlay.showControls((new InputWindowElement(util.vector.topOf(furnacePos), Pointing.DOWN)).withItem(air), 57);
         scene.world.setBlocks(util.select.position(2, 1, 2), (BlockState) ((BlockState) furnace.defaultBlockState().setValue(MarbleBlastFurnaceBlock.LIT, false)), false);
+        scene.idle(60);
     }
 }

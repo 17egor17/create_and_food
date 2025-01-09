@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=north,attachment=single": {
+      "model": "create_and_food:block/terrace/oak_terrace_stairs_north"
+    },
+    "facing=south,attachment=single": {
+      "model": "create_and_food:block/terrace/oak_terrace_stairs_south"
+    },
+    "facing=west,attachment=single": {
+      "model": "create_and_food:block/terrace/oak_terrace_stairs_west"
+    },
+    "facing=east,attachment=single": {
+      "model": "create_and_food:block/terrace/oak_terrace_stairs_east"
+    },
+    "attachment=low": {
+      "model": "create_and_food:block/terrace/oak_terrace_bottom"
+    },
+    "attachment=middle": {
+      "model": "create_and_food:block/terrace/oak_terrace_medium"
+    },
+    "facing=north,attachment=up": {
+      "model": "create_and_food:block/terrace/oak_terrace_top_stairs_north"
+    },
+    "facing=south,attachment=up": {
+      "model": "create_and_food:block/terrace/oak_terrace_top_stairs_south"
+    },
+    "facing=west,attachment=up": {
+      "model": "create_and_food:block/terrace/oak_terrace_top_stairs_west"
+    },
+    "facing=east,attachment=up": {
+      "model": "create_and_food:block/terrace/oak_terrace_top_stairs_east"
+    }
+  }
+}

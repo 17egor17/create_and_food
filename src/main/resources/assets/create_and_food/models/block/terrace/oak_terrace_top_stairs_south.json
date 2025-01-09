@@ -1,0 +1,6 @@
+{
+  "parent": "create_and_food:custom/block/terrace_top_stairs_south",
+  "textures": {
+    "terrace": "create_and_food:block/oak_decking_board"
+  }
+}
