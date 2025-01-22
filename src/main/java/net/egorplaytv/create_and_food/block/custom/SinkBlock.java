@@ -61,7 +61,8 @@ public class SinkBlock extends Block {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player player, InteractionHand pHand, BlockHitResult pHit) {
         entity = player;
 
-        if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == Items.BUCKET) {
+        LivingEntity _livEnt = (LivingEntity) entity;
+        if (_livEnt.getMainHandItem().getItem() == Items.BUCKET) {
             if (entity instanceof Player _player) {
                 ItemStack _stktoremove = new ItemStack(Items.BUCKET);
                 _player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1,
@@ -73,7 +74,7 @@ public class SinkBlock extends Block {
                 ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
             }
         }
-        if ((entity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == Items.GLASS_BOTTLE) {
+        if (_livEnt.getMainHandItem().getItem() == Items.GLASS_BOTTLE) {
             if (entity instanceof Player _player) {
                 ItemStack _stktoremove = new ItemStack(Items.GLASS_BOTTLE);
                 _player.getInventory().clearOrCountMatchingItems(p -> _stktoremove.getItem() == p.getItem(), 1,
@@ -85,10 +86,6 @@ public class SinkBlock extends Block {
                 ItemHandlerHelper.giveItemToPlayer(_player, _setstack);
             }
         }
-
-
-
-
 
         return super.use(pState, pLevel, pPos, player, pHand, pHit);
     }

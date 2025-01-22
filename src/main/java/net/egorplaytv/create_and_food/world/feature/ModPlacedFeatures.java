@@ -5,13 +5,20 @@ import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
+import net.minecraft.world.level.levelgen.placement.*;
 
 public class ModPlacedFeatures {
     public static final Holder<PlacedFeature> ALMOND_PLACED = PlacementUtils.register("almond_placed",
             ModConfiguredFeatures.ALMOND_SPAWN, VegetationPlacements.treePlacement(
             PlacementUtils.countExtra(3,01f,2)));
+
+    public static final Holder<PlacedFeature> WILD_BLUEBERRY_BUSH_PLACED = PlacementUtils.register("wild_blueberry_bush_placed",
+            ModConfiguredFeatures.WILD_BLUEBERRY_BUSH, RarityFilter.onAverageOnceEvery(CreateAndFoodCommonConfigs.CHANCE_WILD_BLUEBERRY_BUSH.get()),
+            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
+    public static final Holder<PlacedFeature> WILD_CRANBERRY_BUSH_PLACED = PlacementUtils.register("wild_cranberry_bush_placed",
+            ModConfiguredFeatures.WILD_CRANBERRY_BUSH, RarityFilter.onAverageOnceEvery(CreateAndFoodCommonConfigs.CHANCE_WILD_CRANBERRY_BUSH.get()),
+            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
     public static final Holder<PlacedFeature> RUBY_ORE_PLACED = PlacementUtils.register("ruby_ore_placed",
             ModConfiguredFeatures.RUBY_ORE, ModOrePlacement.commonOrePlacement(CreateAndFoodCommonConfigs.RUBY_ORE_VEINS_PER_CHUNK.get(),

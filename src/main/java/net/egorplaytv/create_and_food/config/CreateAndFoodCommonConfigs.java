@@ -9,6 +9,9 @@ public class CreateAndFoodCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Integer> RUBY_ORE_VEINS_PER_CHUNK;
     public static final ForgeConfigSpec.ConfigValue<Integer> RUBY_ORE_VEINS_SIZE;
 
+    public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_BLUEBERRY_BUSH;
+    public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_CRANBERRY_BUSH;
+
     public static final ForgeConfigSpec.ConfigValue<Integer> TANTALUM_ORE_VEINS_PER_CHUNK;
     public static final ForgeConfigSpec.ConfigValue<Integer> TANTALUM_ORE_VEINS_SIZE;
     public static final ForgeConfigSpec.ConfigValue<Integer> MARBLE_PER_CHUNK;
@@ -18,6 +21,14 @@ public class CreateAndFoodCommonConfigs {
 
     static {
         BUILDER.push("Configs for Create And Food");
+
+        CHANCE_WILD_BLUEBERRY_BUSH = BUILDER.comment("Chance of generating clusters. Smaller value = more frequent.")
+                .translation("config.create_and_food.chance_wild_berry_bush")
+                .defineInRange("Chance", 16, 0, Integer.MAX_VALUE);
+
+        CHANCE_WILD_CRANBERRY_BUSH = BUILDER.comment("Chance of generating clusters. Smaller value = more frequent.")
+                .translation("config.create_and_food.chance_wild_berry_bush")
+                .defineInRange("Chance", 16, 0, Integer.MAX_VALUE);
 
         RUBY_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Ruby Ore Veins spawn per chunk!")
                 .translation("config.create_and_food.ruby_ore_veins_per_chunk")

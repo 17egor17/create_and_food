@@ -6,15 +6,15 @@ import net.egorplaytv.create_and_food.block.entity.ModWoodTypes;
 import net.egorplaytv.create_and_food.block.entity.renderer.*;
 import net.egorplaytv.create_and_food.fluid.ModFluids;
 import net.egorplaytv.create_and_food.screen.*;
+import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
-import net.minecraft.client.renderer.blockentity.ChestRenderer;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
-import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 public class render {
@@ -23,6 +23,10 @@ public class render {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.RYE_PLANT.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.ALMOND_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.ALMOND_LEAVES.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLUEBERRY_BUSH.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WILD_BLUEBERRY_BUSH.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRANBERRY_BUSH.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.WILD_CRANBERRY_BUSH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.ALMOND_DOOR.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.ALMOND_TRAPDOOR.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModFluids.APPLE_VINEGAR_BLOCK.get(), RenderType.translucent());

@@ -16,6 +16,8 @@ import net.minecraft.world.level.levelgen.RandomSource;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import java.util.Random;
+
 public class CropDoubleBlock extends CropBlock {
     public static final int FIRST_STAGE_MAX_AGE = 2;
     public static final int SECOND_STAGE_MAX_AGE = 2;
@@ -26,11 +28,11 @@ public class CropDoubleBlock extends CropBlock {
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D),
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 5.0D, 16.0D),
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D),};
-    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 0);
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 3);
 
-    public CropDoubleBlock(Properties pProperties, ItemLike item) {
+    public CropDoubleBlock(ItemLike seedItem, Properties pProperties) {
         super(pProperties);
-        this.item = item;
+        this.item = seedItem;
     }
 
     @Override
@@ -53,7 +55,8 @@ public class CropDoubleBlock extends CropBlock {
         }
     }
 
-    public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, RandomSource pRandom) {
+    @Override
+    public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
         if (!pLevel.isAreaLoaded(pPos, 1)) return;
         if (pLevel.getRawBrightness(pPos, 0) >= 9) {
             int currentAge = this.getAge(pState);
@@ -80,7 +83,7 @@ public class CropDoubleBlock extends CropBlock {
     @Override
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         return super.canSurvive(pState, pLevel, pPos) || (pLevel.getBlockState(pPos.below(1)).is(this) &&
-                pLevel.getBlockState(pPos.below(1)).getValue(AGE) == 4);
+                pLevel.getBlockState(pPos.below(1)).getValue(AGE) == 3);
     }
 
     @Override

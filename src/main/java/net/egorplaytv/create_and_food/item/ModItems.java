@@ -32,6 +32,9 @@ public class ModItems {
     public static final RegistryObject<Item> PIZZA = registerItem("pizza",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).food(ModFoods.PIZZA)));
 
+    public static final RegistryObject<Item> PIZZA_SLICE = registerItem("pizza_slice",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).food(ModFoods.PIZZA_SLICE)));
+
     public static final RegistryObject<Item> RAW_GLOW_BERRY_CAKE = registerItem("raw_glow_berry_cake",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
     public static final RegistryObject<Item> GLOW_BERRY_CAKE = registerItem("glow_berry_cake",
@@ -107,7 +110,16 @@ public class ModItems {
 
     //Berries//
     public static final RegistryObject<Item> BLUEBERRY = registerItem("blueberry",
-            () -> new Item(new Item.Properties().food(ModFoods.BERRYS)));
+            () -> new Item(new Item.Properties().food(ModFoods.BERRIES).tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+    public static final RegistryObject<Item> BLUEBERRY_SAPLING = registerItem("blueberry_sapling",
+            () -> new ItemNameBlockItem(ModBlocks.BLUEBERRY_BUSH.get(),
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+
+    public static final RegistryObject<Item> CRANBERRY = registerItem("cranberry",
+            () -> new Item(new Item.Properties().food(ModFoods.BERRIES).tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+    public static final RegistryObject<Item> CRANBERRY_SAPLING = registerItem("cranberry_sapling",
+            () -> new ItemNameBlockItem(ModBlocks.CRANBERRY_BUSH.get(),
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
 
     public static final RegistryObject<Item> APPLE_VINEGAR_BUCKET = registerItem("apple_vinegar_bucket",
             () -> new BucketItem(ModFluids.APPLE_VINEGAR_FLUID, new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
@@ -469,6 +481,8 @@ public class ModItems {
     public static final RegistryObject<Item> ALMOND_SIGN = registerItem("almond_sign",
             () -> new SignItem(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE).stacksTo(16),
                     ModBlocks.ALMOND_SIGN.get(), ModBlocks.ALMOND_WALL_SIGN.get()));
+
+
 
     private static <T extends Item> RegistryObject<T> registerItem(String name, Supplier<T> item){
         return ITEMS.register(name, item);

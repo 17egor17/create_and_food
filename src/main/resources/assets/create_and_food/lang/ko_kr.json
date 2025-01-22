@@ -1,5 +1,5 @@
 {
-  "_": "_______________________________Advancement_______________________________",
+  "_comment": "_______________________________Advancement_______________________________",
   "advancement.create_and_food.create_and_food": "Create and Food",
   "advancement.create_and_food.create_and_food.desc": "Create and Food 모드에 오신 것을 환영합니다",
   "advancement.they_burned_out": "그들은 불타 버렸습니다",
@@ -7,7 +7,7 @@
   "advancement.whipped": "치세요!",
   "advancement.whipped.desc": "달걀흰자와 설탕을 믹서에 넣고 휘핑해주세요",
 
-  "_": "_______________________________Blocks_______________________________",
+  "_comment": "_______________________________Blocks_______________________________",
   "block.create_and_food.acacia_cutting_board": "아카시아나무 도마",
   "block.create_and_food.alloy_souls_glass": "영혼의 유리",
   "block.create_and_food.almond_button": "아몬드나무 버튼",
@@ -31,6 +31,15 @@
   "block.create_and_food.baked_clay": "어도비",
 
   "block.create_and_food.baked_clay_pillar": "어도비 기둥",
+  "block.create_and_food.black_baked_clay_pillar": "Колонна из черного самана",
+  "block.create_and_food.blue_baked_clay_pillar": "Колонна из синего самана",
+  "block.create_and_food.cyan_baked_clay_pillar": "Колонна из бирюзового самана",
+  "block.create_and_food.gray_baked_clay_pillar": "Колонна из серого самана",
+  "block.create_and_food.green_baked_clay_pillar": "Колонна из зеленого самана",
+  "block.create_and_food.orange_baked_clay_pillar": "Колонна из оранжевого самана",
+  "block.create_and_food.red_baked_clay_pillar": "Колонна из кранного самана",
+  "block.create_and_food.white_baked_clay_pillar": "Колонна из белого самана",
+  "block.create_and_food.yellow_baked_clay_pillar": "Колонна из желтого самана",
 
   "block.create_and_food.birch_cutting_board": "자작나무 도마",
   "block.create_and_food.black_baked_clay": "검은색 어도비",
@@ -261,7 +270,7 @@
   "block.create_and_food.white_baked_clay": "하얀색 어도비",
   "block.create_and_food.yellow_baked_clay": "노란색 어도비",
 
-  "_": "_______________________________Config_______________________________",
+  "_comment": "_______________________________Config_______________________________",
   "config.create_and_food.furnace_speed": "발열 감소율",
   "config.create_and_food.marble_per_chunk": "한 덩어리에 얼마나 많은 대리석 정맥이 나타나는지!",
   "config.create_and_food.marble_veins_size": "한 광맥에 얼마나 많은 대리석 블록이 나타나는가!",
@@ -270,10 +279,10 @@
   "config.create_and_food.tuntal_ore_veins_per_chunk": "한 덩어리에 얼마나 많은 탄탈륨 광맥이 나타나는가!",
   "config.create_and_food.tuntal_ore_veins_size": "한 광맥에 몇 개의 탄탈륨 광석 블록이 나타나는지!",
 
-  "_": "_______________________________Entities_______________________________",
+  "_comment": "_______________________________Entities_______________________________",
   "entity.minecraft.villager.create_and_food.confectioner": "페이스트리 셰프의",
 
-  "_": "_______________________________Fluids_______________________________",
+  "_comment": "_______________________________Fluids_______________________________",
   "fluid.create_and_food.apple_vinegar": "사과식초",
   "fluid.create_and_food.apple_vinegar_flowing": "사과식초",
   "fluid.create_and_food.cocoa_oil": "코코아 버터",
@@ -285,16 +294,17 @@
   "fluid.minecraft.milk": "밀크",
   "fluid.minecraft.flowing_milk": "밀크",
 
-  "_": "_______________________________Gamerule_______________________________",
+  "_comment": "_______________________________Gamerule_______________________________",
   "gamerule.doSeasonCycle": "계절의 변화",
 
-  "_": "_______________________________ItemGroup_______________________________",
+  "_comment": "_______________________________ItemGroup_______________________________",
   "itemGroup.create_and_food": "Create and Food",
   "itemGroup.create_and_food_decorative": "Create/Food: 장식 블록",
   "itemGroup.create_and_food_food": "Create/Food: 음식",
   "itemGroup.create_and_food_kitchen": "Create/Food: 주방",
+  "itemGroup.create_and_food_knife_and_tip": "Create/Food: Ножи и наконечники",
 
-  "_": "_______________________________Items_______________________________",
+  "_comment": "_______________________________Items_______________________________",
   "item.create_and_food.alloy_souls": "합금 영혼의",
   "item.create_and_food.alloy_souls_ingot": "합금 영혼의 주괴",
   "item.create_and_food.alloy_souls_nugget": "합금 영혼의 조각",
@@ -393,7 +403,7 @@
   "item.create_and_food.white_chocolate_bucket": "양동이 하얀색 초콜릿",
   "item.create_and_food.white_macaroni": "하얀색 마카롱",
 
-  "_": "_______________________________JEI_______________________________",
+  "_comment": "_______________________________JEI_______________________________",
   "jei.create_and_food.blasting": "녹는",
   "jei.create_and_food.blasting.deg": "%s°C",
   "jei.create_and_food.day_time": "%s 하루",
@@ -406,7 +416,7 @@
   "jei.create_and_food.tooltip.liquid.amount": "%s мВ",
   "jei.create_and_food.tooltip.liquid.amount.with.capacity": "%s / %s мВ",
 
-  "_": "_______________________________Other_______________________________",
+  "_comment": "_______________________________Other_______________________________",
   "color.create_and_food.black": "§8색상: §0검은색§r",
   "color.create_and_food.blue": "§8색상: §1파란색§r",
   "color.create_and_food.cyan": "§8색상: §3청록색§r",
@@ -425,7 +435,7 @@
   "ui.inventory": "목록",
   "ui.marble_furnace.deg": "%s°C",
 
-  "_": "_______________________________Ponder_______________________________",
+  "_comment": "_______________________________Ponder_______________________________",
   "create_and_food.ponder.blast_furnace.header": "검은색 대리석 난로",
   "create_and_food.ponder.blast_furnace.text_1": "이 제련로는 Minecraft와 다른 방식으로 작동하므로 작동 원리는 다음과 같습니다:",
   "create_and_food.ponder.blast_furnace.text_2": "연료전지에 연료를 넣으면 열온도가 일정 수준까지 올라갑니다. 예를 들어 블레이즈 케이크 열 수준을 1000°C",
@@ -446,10 +456,20 @@
   "create_and_food.ponder.tablet.header": "금속 샘플 태블릿",
   "create_and_food.ponder.tablet.text_1": "금속 샘플 태블릿에 잉곳을 넣으면 해당 잉곳에 대한 자세한 정보를 알 수 있습니다",
   "create_and_food.ponder.tablet.text_2": "식별된 금속은 모두 금속 샘플 태블릿에 배치할 수 있습니다",
+  "create_and_food.ponder.terrace_all.header": "Террасами и террасными ступеньками",
+  "create_and_food.ponder.terrace_all.text_1": "Террасы и террасные ступени изготавливаются из разных пород дерева",
+  "create_and_food.ponder.terrace_connect.header": "Соединением террас и террасных ступеней",
+  "create_and_food.ponder.terrace_connect.text_1": "Можно соединить в 2 блока по высоте",
+  "create_and_food.ponder.terrace_connect.text_2": "Можно объединить в 3 блока по высоте, но можно сделать больше",
+  "create_and_food.ponder.terrace_connect.text_3": "Здесь мы видим террасные ступени",
+  "create_and_food.ponder.terrace_connect.text_4": "Можно соединить в 2 блока по высоте",
+  "create_and_food.ponder.terrace_connect.text_5": "Можно объединить в 3 блока по высоте, но можно сделать больше",
+  "create_and_food.ponder.terrace_connect.text_6": "Они могут соединяться",
+  "create_and_food.ponder.terrace_connect.text_7": "Если у вас ограниченное количество террасных ступеней, то вы можете использовать блоки таким образом",
   "create_and_food.ponder.tag.create_and_food": "Create And Food",
   "create_and_food.ponder.tag.create_and_food.description": "의 구성 요소 Create And Food",
 
-  "_": "_______________________________Sample_______________________________",
+  "_comment": "_______________________________Sample_______________________________",
   "create_and_food.sample.aluminum.desc.line.1": "금속",
   "create_and_food.sample.aluminum.desc.line.2": "구성 요소 없음",
   "create_and_food.sample.aluminum.desc.line.3": "녹는다: §e660°C",
@@ -660,10 +680,10 @@
   "create_and_food.sample.zinc.desc.line.8": "전기전도도: §e28%",
   "create_and_food.sample.zinc.desc.line.9": "산화성: 금속이 있어요",
 
-  "_": "_______________________________Species_______________________________",
+  "_comment": "_______________________________Species_______________________________",
   "species.create_and_food.almond_tree": "아몬드나무",
 
-  "_": "_______________________________Tooltip_______________________________",
+  "_comment": "_______________________________Tooltip_______________________________",
   "tooltip.create_and_food.block.next_time.desc": "이 모드 구성요소는 향후 업데이트에서 사용할 수 있습니다.",
   "tooltip.create_and_food.control": "§8자세한 내용을 보려면 [§eControl§8]을 누르세요!",
   "tooltip.create_and_food.control_down": "§8자세한 내용을 보려면 [§7Control§8]을 누르세요!",

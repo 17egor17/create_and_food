@@ -1,5 +1,5 @@
 {
-  "_": "_______________________________Advancement_______________________________",
+  "_comment": "_______________________________Advancement_______________________________",
   "advancement.create_and_food.create_and_food": "Create and Food",
   "advancement.create_and_food.create_and_food.desc": "Bienvenue dans le mod Create and Food",
   "advancement.they_burned_out": "Ils ont brûlé",
@@ -7,7 +7,7 @@
   "advancement.whipped": "Fouetté!",
   "advancement.whipped.desc": "Battez les blancs d'oeufs et le sucre au batteur",
 
-  "_": "_______________________________Blocks_______________________________",
+  "_comment": "_______________________________Blocks_______________________________",
   "block.create_and_food.acacia_cutting_board": "Planche à découper en acacia",
   "block.create_and_food.alloy_souls_glass": "Fenêtre d'âmes",
   "block.create_and_food.almond_button": "Bouton amande",
@@ -31,6 +31,15 @@
   "block.create_and_food.baked_clay": "Samân",
 
   "block.create_and_food.baked_clay_pillar": "Pilier d'samân",
+  "block.create_and_food.black_baked_clay_pillar": "Колонна из черного самана",
+  "block.create_and_food.blue_baked_clay_pillar": "Колонна из синего самана",
+  "block.create_and_food.cyan_baked_clay_pillar": "Колонна из бирюзового самана",
+  "block.create_and_food.gray_baked_clay_pillar": "Колонна из серого самана",
+  "block.create_and_food.green_baked_clay_pillar": "Колонна из зеленого самана",
+  "block.create_and_food.orange_baked_clay_pillar": "Колонна из оранжевого самана",
+  "block.create_and_food.red_baked_clay_pillar": "Колонна из кранного самана",
+  "block.create_and_food.white_baked_clay_pillar": "Колонна из белого самана",
+  "block.create_and_food.yellow_baked_clay_pillar": "Колонна из желтого самана",
 
   "block.create_and_food.birch_cutting_board": "Planche à découper en bouleau",
   "block.create_and_food.black_baked_clay": "Samân noir",
@@ -261,7 +270,7 @@
   "block.create_and_food.white_baked_clay": "Samân blanc",
   "block.create_and_food.yellow_baked_clay": "Samân jaune",
 
-  "_": "_______________________________Config_______________________________",
+  "_comment": "_______________________________Config_______________________________",
   "config.create_and_food.furnace_speed": "Taux de diminution de température",
   "config.create_and_food.marble_per_chunk": "Combien de veines de marbre apparaissent dans une même pièce !",
   "config.create_and_food.marble_veins_size": "Combien de blocs de marbre apparaissent dans une veine !",
@@ -270,10 +279,10 @@
   "config.create_and_food.tuntal_ore_veins_per_chunk": "Combien de veines de minerai de tantale apparaissent dans un morceau !",
   "config.create_and_food.tuntal_ore_veins_size": "Combien de blocs de minerai de tantale apparaissent dans une veine !",
 
-  "_": "_______________________________Entities_______________________________",
+  "_comment": "_______________________________Entities_______________________________",
   "entity.minecraft.villager.create_and_food.confectioner": "Pâtisserie",
 
-  "_": "_______________________________Fluids_______________________________",
+  "_comment": "_______________________________Fluids_______________________________",
   "fluid.create_and_food.apple_vinegar": "Vinaigre de cidre",
   "fluid.create_and_food.apple_vinegar_flowing": "Vinaigre de cidre",
   "fluid.create_and_food.cocoa_oil": "Beurre de cacao",
@@ -285,16 +294,17 @@
   "fluid.minecraft.milk": "Lait",
   "fluid.minecraft.flowing_milk": "Lait",
 
-  "_": "_______________________________Gamerule_______________________________",
+  "_comment": "_______________________________Gamerule_______________________________",
   "gamerule.doSeasonCycle": "Changement de saisons",
 
-  "_": "_______________________________ItemGroup_______________________________",
+  "_comment": "_______________________________ItemGroup_______________________________",
   "itemGroup.create_and_food": "Create and Food",
   "itemGroup.create_and_food_decorative": "Create/Food: Blocs décoratifs",
   "itemGroup.create_and_food_food": "Create/Food: Nourriture",
   "itemGroup.create_and_food_kitchen": "Create/Food: Cuisine",
+  "itemGroup.create_and_food_knife_and_tip": "Create/Food: Ножи и наконечники",
 
-  "_": "_______________________________Items_______________________________",
+  "_comment": "_______________________________Items_______________________________",
   "item.create_and_food.alloy_souls": "Alliage d'âmes",
   "item.create_and_food.alloy_souls_ingot": "Lingot de alliage d'âmes",
   "item.create_and_food.alloy_souls_nugget": "Pépite de alliage d'âmes",
@@ -393,7 +403,7 @@
   "item.create_and_food.white_chocolate_bucket": "Seau de chocolat blanc",
   "item.create_and_food.white_macaroni": "Macaron blanc",
 
-  "_": "_______________________________JEI_______________________________",
+  "_comment": "_______________________________JEI_______________________________",
   "jei.create_and_food.blasting": "Dynamitage",
   "jei.create_and_food.blasting.deg": "%s°C",
   "jei.create_and_food.day_time": "%s Jour",
@@ -406,7 +416,7 @@
   "jei.create_and_food.tooltip.liquid.amount": "%s мВ",
   "jei.create_and_food.tooltip.liquid.amount.with.capacity": "%s / %s мВ",
 
-  "_": "_______________________________Other_______________________________",
+  "_comment": "_______________________________Other_______________________________",
   "color.create_and_food.black": "§8Couleur: §0Noir§r",
   "color.create_and_food.blue": "§8Couleur: §1Bleu§r",
   "color.create_and_food.cyan": "§8Couleur: §3Cyan§r",
@@ -425,7 +435,7 @@
   "ui.inventory": "Inventaire",
   "ui.marble_furnace.deg": "%s°C",
 
-  "_": "_______________________________Ponder_______________________________",
+  "_comment": "_______________________________Ponder_______________________________",
   "create_and_food.ponder.blast_furnace.header": "Плавильней из черного мрамора",
   "create_and_food.ponder.blast_furnace.text_1": "Так как эта плавильная печь работает по другой схеме, отличной от Minecraft, то принцип ее работы следующий:",
   "create_and_food.ponder.blast_furnace.text_2": "Положив топливо в ячейку для топлива вы поднимете градус тепла на определённый уровень. Например, торт всполоха поднимет уровень тепла на 1000°C",
@@ -446,10 +456,20 @@
   "create_and_food.ponder.tablet.header": "Планшетом для металлических проб",
   "create_and_food.ponder.tablet.text_1": "Поместив слиток в планшет для металлических проб, вы можете узнать больше информации о слитке",
   "create_and_food.ponder.tablet.text_2": "В планшет для металлических проб можно поместить любой идентифицированный металл",
+  "create_and_food.ponder.terrace_all.header": "Террасами и террасными ступеньками",
+  "create_and_food.ponder.terrace_all.text_1": "Террасы и террасные ступени изготавливаются из разных пород дерева",
+  "create_and_food.ponder.terrace_connect.header": "Соединением террас и террасных ступеней",
+  "create_and_food.ponder.terrace_connect.text_1": "Можно соединить в 2 блока по высоте",
+  "create_and_food.ponder.terrace_connect.text_2": "Можно объединить в 3 блока по высоте, но можно сделать больше",
+  "create_and_food.ponder.terrace_connect.text_3": "Здесь мы видим террасные ступени",
+  "create_and_food.ponder.terrace_connect.text_4": "Можно соединить в 2 блока по высоте",
+  "create_and_food.ponder.terrace_connect.text_5": "Можно объединить в 3 блока по высоте, но можно сделать больше",
+  "create_and_food.ponder.terrace_connect.text_6": "Они могут соединяться",
+  "create_and_food.ponder.terrace_connect.text_7": "Если у вас ограниченное количество террасных ступеней, то вы можете использовать блоки таким образом",
   "create_and_food.ponder.tag.create_and_food": "Create And Food",
   "create_and_food.ponder.tag.create_and_food.description": "Компоненты в Create And Food",
 
-  "_": "_______________________________Sample_______________________________",
+  "_comment": "_______________________________Sample_______________________________",
   "create_and_food.sample.aluminum.desc.line.1": "Métal",
   "create_and_food.sample.aluminum.desc.line.2": "Aucun ingrédient",
   "create_and_food.sample.aluminum.desc.line.3": "Fond à : §e660°C",
@@ -660,10 +680,10 @@
   "create_and_food.sample.zinc.desc.line.8": "Conductivité électrique : §e28%",
   "create_and_food.sample.zinc.desc.line.9": "Oxidabilité : Oui",
 
-  "_": "_______________________________Species_______________________________",
+  "_comment": "_______________________________Species_______________________________",
   "species.create_and_food.almond_tree": "Amande",
 
-  "_": "_______________________________Tooltip_______________________________",
+  "_comment": "_______________________________Tooltip_______________________________",
   "tooltip.create_and_food.block.next_time.desc": "Ce composant mod sera disponible dans les futures mises à jour",
   "tooltip.create_and_food.control": "§8Appuyez sur [§eCONTROL§8] pour plus d'informations !",
   "tooltip.create_and_food.control_down": "§8Appuyez sur [§7CONTROL§8] pour plus d'informations !",

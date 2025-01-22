@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "age=0,cut=true": { "model": "create_and_food:block/berries/berry_bush/wild_berry_bush_0" },
+        "age=1,cut=true": { "model": "create_and_food:block/berries/blueberry/wild_blueberry_bush_1" },
+        "age=2,cut=true": { "model": "create_and_food:block/berries/blueberry/wild_blueberry_bush_2" },
+        "age=0,cut=false": { "model": "create_and_food:block/berries/berry_bush/wild_berry_uncut_bush_0" },
+        "age=1,cut=false": { "model": "create_and_food:block/berries/blueberry/wild_blueberry_uncut_bush_1" },
+        "age=2,cut=false": { "model": "create_and_food:block/berries/blueberry/wild_blueberry_uncut_bush_2" }
+    }
+}

@@ -11,6 +11,9 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.block.custom.*;
 import net.egorplaytv.create_and_food.block.custom.LanternBlock;
+import net.egorplaytv.create_and_food.block.custom.berry.BlueberryBlock;
+import net.egorplaytv.create_and_food.block.custom.berry.CranberryBlock;
+import net.egorplaytv.create_and_food.block.custom.berry.WildBlueberryBlock;
 import net.egorplaytv.create_and_food.block.custom.connect.*;
 import net.egorplaytv.create_and_food.block.entity.ModWoodTypes;
 import net.egorplaytv.create_and_food.item.ModCreativeModeTab;
@@ -335,6 +338,16 @@ public class ModBlocks {
             ModCreativeModeTab.CREATE_AND_FOOD);
     public static final RegistryObject<Block> RYE_PLANT = registryBlockWithoutBlockItem("rye_plant",
             () -> new RyePlantBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()));
+
+    public static final RegistryObject<Block> BLUEBERRY_BUSH = registryBlockWithoutBlockItem("blueberry_bush",
+            () -> new BlueberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+    public static final RegistryObject<Block> WILD_BLUEBERRY_BUSH = registryBlockWithoutBlockItem("wild_blueberry_bush",
+            () -> new WildBlueberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+
+    public static final RegistryObject<Block> CRANBERRY_BUSH = registryBlockWithoutBlockItem("cranberry_bush",
+            () -> new CranberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+    public static final RegistryObject<Block> WILD_CRANBERRY_BUSH = registryBlockWithoutBlockItem("wild_cranberry_bush",
+            () -> new CranberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
 
     //BAKED CLAY//
     public static final RegistryObject<Block> UNBAKED_CLAY = registryBlock("unbaked_clay",

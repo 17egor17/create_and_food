@@ -87,6 +87,7 @@ public class ModTags {
         public static final TagKey<Item> FUEL_90 = modTag("fuel_ninety_degrees");
         public static final TagKey<Item> FUEL_100 = modTag("fuel_hundred_degrees");
         public static final TagKey<Item> FUEL_1000 = modTag("fuel_thousand_degrees");
+        public static final TagKey<Item> CUT_TOOLS = forgeTag("cut_tools");
 
         public static final TagKey<Item> FUEL_HUNDRED = modTag("fuel_hundred");
 

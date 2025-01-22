@@ -28,11 +28,17 @@ public class TextUtils {
     public TextUtils() {
     }
 
-    public static MutableComponent getTranslation(String key, Object... args) {
+    public static MutableComponent getJeiTranslation(String key, Object... args) {
         return new TranslatableComponent("jei.create_and_food." + key, args);
     }
     public static MutableComponent getModTranslation(String key, Object... args) {
         return new TranslatableComponent("create_and_food." + key, args);
+    }
+    public static MutableComponent getBerryBushTranslation(String key, Object... args) {
+        return new TranslatableComponent("create_and_food.berry_bush." + key, args);
+    }
+    public static MutableComponent getWildBerryBushTranslation(String key, Object... args) {
+        return new TranslatableComponent("create_and_food.wild_berry_bush." + key, args);
     }
 
     @OnlyIn(Dist.CLIENT)

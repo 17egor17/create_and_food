@@ -1,6 +1,7 @@
 package net.egorplaytv.create_and_food.block.custom;
 
 import net.egorplaytv.create_and_food.block.praperties.TerraceAttachType;
+import net.egorplaytv.create_and_food.block.praperties.TerraceEncasedType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -12,7 +13,9 @@ import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.BooleanOp;
@@ -22,6 +25,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class TerraceStairsBlock extends TerraceBlock implements SimpleWaterloggedBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final BooleanProperty ENCASED = net.egorplaytv.create_and_food.block.praperties.BlockStateProperties.TERRACE_ENCASED;
     public TerraceStairsBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH)
@@ -154,11 +158,11 @@ public class TerraceStairsBlock extends TerraceBlock implements SimpleWaterlogge
 
     /* FACING */
     @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        FluidState fluidstate = pContext.getLevel().getFluidState(pContext.getClickedPos());
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
         boolean flag = fluidstate.getType() == Fluids.WATER;
-        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite())
-                .setValue(WATERLOGGED, Boolean.valueOf(flag));
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite())
+                .setValue(WATERLOGGED, Boolean.valueOf(flag)).setValue(ENCASED, Boolean.valueOf(false));
     }
     @Override
     public BlockState rotate(BlockState pState, Rotation pRotation) {
@@ -170,6 +174,6 @@ public class TerraceStairsBlock extends TerraceBlock implements SimpleWaterlogge
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING, ATTACHMENT, WATERLOGGED);
+        pBuilder.add(FACING, ATTACHMENT, ENCASED, WATERLOGGED);
     }
 }

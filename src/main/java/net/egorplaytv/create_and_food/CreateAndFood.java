@@ -2,6 +2,7 @@ package net.egorplaytv.create_and_food;
 
 import com.ferreusveritas.dynamictrees.api.registry.RegistryHandler;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.block.entity.ModWoodTypes;
 import net.egorplaytv.create_and_food.block.entity.custom.MarbleBlastFurnaceBlockEntity;
 import net.egorplaytv.create_and_food.config.CreateAndFoodClientConfigs;
@@ -12,6 +13,7 @@ import net.egorplaytv.create_and_food.villager.ModVillagers;
 import net.egorplaytv.create_and_food.world.VillageStructures;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.FoliageColor;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.EventPriority;

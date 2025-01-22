@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cross",
-  "textures": {
-    "cross": "create_and_food:block/berry/blueberry/blueberry_stage3"
-  }
-}

@@ -33,8 +33,8 @@ public class CAFPonders {
         HELPER.addStoryBoard(FERMENTATION_BARREL.getId(),"fermentation/non_connectable", FermentationBarrelScene::non_connectable, CAFPonders.CREATE_AND_FOOD);
         HELPER.addStoryBoard(FERMENTATION_BARREL.getId(), "fermentation/tube_in_up", FermentationBarrelScene::tube_in_up, AllPonderTags.FLUIDS);
         HELPER.addStoryBoard(FERMENTATION_BARREL.getId(), "fermentation/item_in_fermentation_barrel", FermentationBarrelScene::item_in_fermentation_barrel, AllPonderTags.LOGISTICS);
-        HELPER.addStoryBoard(OAK_TERRACE.getId(), "terrace/terrace", TerraceScene::terrace_all, CREATE_AND_FOOD);
-        HELPER.addStoryBoard(OAK_TERRACE_STAIRS.getId(), "terrace/terrace", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(OAK_TERRACE.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(OAK_TERRACE_STAIRS.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
         HELPER.addStoryBoard(OAK_TERRACE.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
         HELPER.addStoryBoard(OAK_TERRACE_STAIRS.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
 

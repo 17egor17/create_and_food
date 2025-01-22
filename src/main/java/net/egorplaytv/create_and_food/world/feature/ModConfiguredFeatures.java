@@ -2,17 +2,19 @@ package net.egorplaytv.create_and_food.world.feature;
 
 import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
 import net.minecraft.data.worldgen.features.OreFeatures;
 import net.minecraft.data.worldgen.placement.PlacementUtils;
 import net.minecraft.util.valueproviders.ConstantInt;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.WeightedPlacedFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomFeatureConfiguration;
-import net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration;
+import net.minecraft.world.level.levelgen.feature.configurations.*;
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
@@ -24,6 +26,7 @@ import java.util.List;
 
 
 public class ModConfiguredFeatures {
+    public static final BlockPos BLOCK_BELOW = new BlockPos(0, -1, 0);
     public static final Holder<ConfiguredFeature<TreeConfiguration, ?>> ALMOND_TREE =
             FeatureUtils.register("almond", Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                     BlockStateProvider.simple(ModBlocks.ALMOND_LOG.get()),
@@ -39,6 +42,19 @@ public class ModConfiguredFeatures {
             FeatureUtils.register("almond_spawn", Feature.RANDOM_SELECTOR,
                     new RandomFeatureConfiguration(List.of(new WeightedPlacedFeature(ALMOND_CHECKED,
                             0.5F)), ALMOND_CHECKED));
+
+
+
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_BLUEBERRY_BUSH =
+            FeatureUtils.register("wild_blueberry_bush", Feature.RANDOM_PATCH,
+                    getWildCropConfiguration(ModBlocks.WILD_BLUEBERRY_BUSH.get(), 32, 6,
+                            BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
+
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_CRANBERRY_BUSH =
+            FeatureUtils.register("wild_cranberry_bush", Feature.RANDOM_PATCH,
+                    getWildCropConfiguration(ModBlocks.WILD_CRANBERRY_BUSH.get(), 32, 6,
+                            BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
+
 
 
     public static final List<OreConfiguration.TargetBlockState> OVERWORLD_TANTALUM_ORES = List.of(
@@ -84,4 +100,9 @@ public class ModConfiguredFeatures {
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> NETHER_TANTALUM_ORE = FeatureUtils.register("nether_tantalum_ore",
             Feature.ORE, new OreConfiguration(NETHER_TANTALUM_ORES, CreateAndFoodCommonConfigs.TANTALUM_ORE_VEINS_SIZE.get()));
+
+
+    public static RandomPatchConfiguration getWildCropConfiguration(Block block, int tries, int xzSpread, BlockPredicate plantedOn) {
+        return new RandomPatchConfiguration(tries, xzSpread, 3, PlacementUtils.filtered(Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(block)), BlockPredicate.allOf(BlockPredicate.ONLY_IN_AIR_PREDICATE, plantedOn)));
+    }
 }

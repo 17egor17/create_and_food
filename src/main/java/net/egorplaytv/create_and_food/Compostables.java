@@ -41,6 +41,7 @@ public class Compostables {
         ComposterBlock.COMPOSTABLES.put(ModItems.MOZZARELLA_CHEESE.get(), 0.65F);
         ComposterBlock.COMPOSTABLES.put(ModItems.GLOW_BERRY_CAKE.get(), 0.85F);
         ComposterBlock.COMPOSTABLES.put(ModItems.PIZZA.get(), 0.85F);
+        ComposterBlock.COMPOSTABLES.put(ModItems.PIZZA_SLICE.get(), 0.1F);
         ComposterBlock.COMPOSTABLES.put(ModItems.BERRY_CAKE.get(), 0.85F);
         ComposterBlock.COMPOSTABLES.put(ModItems.RYE_BREAD.get(), 0.85F);
 
