@@ -3,6 +3,9 @@
   "values": [
     "create_and_food:blueberry",
     "create_and_food:cranberry",
-    "create_and_food:blue_grape"
+    "create_and_food:blue_grape",
+    "create_and_food:green_grape",
+    "create_and_food:purple_grape",
+    "create_and_food:red_grape"
   ]
 }
