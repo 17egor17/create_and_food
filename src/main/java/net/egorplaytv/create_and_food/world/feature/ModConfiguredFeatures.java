@@ -55,6 +55,11 @@ public class ModConfiguredFeatures {
                     getWildCropConfiguration(ModBlocks.WILD_CRANBERRY_BUSH.get(), 32, 6,
                             BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
 
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_BLUE_GRAPE_BUSH =
+            FeatureUtils.register("wild_blue_grape_bush", Feature.RANDOM_PATCH,
+                    getWildCropConfiguration(ModBlocks.WILD_BLUE_GRAPE_BUSH.get(), 32, 6,
+                            BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
+
 
 
     public static final List<OreConfiguration.TargetBlockState> OVERWORLD_TANTALUM_ORES = List.of(

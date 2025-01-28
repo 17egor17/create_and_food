@@ -121,6 +121,31 @@ public class ModItems {
             () -> new ItemNameBlockItem(ModBlocks.CRANBERRY_BUSH.get(),
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
 
+    public static final RegistryObject<Item> BLUE_GRAPE = registerItem("blue_grape",
+            () -> new Item(new Item.Properties().food(ModFoods.BERRIES).tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+    public static final RegistryObject<Item> BLUE_GRAPE_SAPLING = registerItem("blue_grape_sapling",
+            () -> new ItemNameBlockItem(ModBlocks.BLUE_GRAPE_BUSH.get(),
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+
+    public static final RegistryObject<Item> GREEN_GRAPE = registerItem("green_grape",
+            () -> new Item(new Item.Properties().food(ModFoods.BERRIES).tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+    public static final RegistryObject<Item> GREEN_GRAPE_SAPLING = registerItem("green_grape_sapling",
+            () -> new ItemNameBlockItem(ModBlocks.GREEN_GRAPE_BUSH.get(),
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+
+    public static final RegistryObject<Item> PURPLE_GRAPE = registerItem("purple_grape",
+            () -> new Item(new Item.Properties().food(ModFoods.BERRIES).tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+    public static final RegistryObject<Item> PURPLE_GRAPE_SAPLING = registerItem("purple_grape_sapling",
+            () -> new ItemNameBlockItem(ModBlocks.PURPLE_GRAPE_BUSH.get(),
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+
+    public static final RegistryObject<Item> RED_GRAPE = registerItem("red_grape",
+            () -> new Item(new Item.Properties().food(ModFoods.BERRIES).tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+    public static final RegistryObject<Item> RED_GRAPE_SAPLING = registerItem("red_grape_sapling",
+            () -> new ItemNameBlockItem(ModBlocks.RED_GRAPE_BUSH.get(),
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+    //Berries//
+
     public static final RegistryObject<Item> APPLE_VINEGAR_BUCKET = registerItem("apple_vinegar_bucket",
             () -> new BucketItem(ModFluids.APPLE_VINEGAR_FLUID, new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
     public static final RegistryObject<Item> COCOA_OIL_BUCKET = registerItem("cocoa_oil_bucket",

@@ -40,7 +40,7 @@ public class BerryBushBlock extends BushBlock implements BonemealableBlock {
     public static final BooleanProperty CUT = BooleanProperty.create("cut");
     private static final VoxelShape[] SHAPE = new VoxelShape[]{
             Shapes.or(Block.box(6.0D, 0.0D, 6.0D, 10.0D, 5.0D, 10.0D)),
-            Shapes.or(Block.box(7.0D, 2.0D, 7.0D, 9.0D, 3.0D, 9.0D), Block.box(5, 2, 5, 11, 8, 11)),
+            Shapes.or(Block.box(7.0D, 0.0D, 7.0D, 9.0D, 3.0D, 9.0D), Block.box(5, 2, 5, 11, 8, 11)),
             Shapes.or(Block.box(7.0D, 0.0D, 7.0D, 9.0D, 3.0D, 9.0D), Block.box(4, 2, 4, 12, 10, 12)),
             Shapes.or(Block.box(7.0D, 0.0D, 7.0D, 9.0D, 3.0D, 9.0D), Block.box(3, 2, 3, 13, 12, 13)),
             Shapes.or(Block.box(7.0D, 0.0D, 7.0D, 9.0D, 3.0D, 9.0D), Block.box(2, 2, 2, 14, 14, 14)),
@@ -64,12 +64,8 @@ public class BerryBushBlock extends BushBlock implements BonemealableBlock {
                 .setValue(CUT, Boolean.valueOf(false)));
     }
 
-    public IntegerProperty getAgeProperty() {
-        return AGE;
-    }
-
     protected int getAge(BlockState pState) {
-        return pState.getValue(this.getAgeProperty());
+        return pState.getValue(AGE);
     }
 
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {

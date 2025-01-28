@@ -26,7 +26,7 @@ public class CranberryBlock extends BerryBushBlock {
 
     @Override
     public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter level, BlockPos pos, Player player) {
-        return ModItems.CRANBERRY_SAPLING.get().getDefaultInstance();
+        return ModItems.CRANBERRY.get().getDefaultInstance();
     }
 
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {

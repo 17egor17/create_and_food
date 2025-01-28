@@ -11,9 +11,7 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.block.custom.*;
 import net.egorplaytv.create_and_food.block.custom.LanternBlock;
-import net.egorplaytv.create_and_food.block.custom.berry.BlueberryBlock;
-import net.egorplaytv.create_and_food.block.custom.berry.CranberryBlock;
-import net.egorplaytv.create_and_food.block.custom.berry.WildBlueberryBlock;
+import net.egorplaytv.create_and_food.block.custom.berry.*;
 import net.egorplaytv.create_and_food.block.custom.connect.*;
 import net.egorplaytv.create_and_food.block.entity.ModWoodTypes;
 import net.egorplaytv.create_and_food.item.ModCreativeModeTab;
@@ -347,7 +345,27 @@ public class ModBlocks {
     public static final RegistryObject<Block> CRANBERRY_BUSH = registryBlockWithoutBlockItem("cranberry_bush",
             () -> new CranberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
     public static final RegistryObject<Block> WILD_CRANBERRY_BUSH = registryBlockWithoutBlockItem("wild_cranberry_bush",
-            () -> new CranberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new WildCranberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+
+    public static final RegistryObject<Block> BLUE_GRAPE_BUSH = registryBlockWithoutBlockItem("blue_grape_bush",
+            () -> new BlueGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+    public static final RegistryObject<Block> WILD_BLUE_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_blue_grape_bush",
+            () -> new WildBlueGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+
+    public static final RegistryObject<Block> GREEN_GRAPE_BUSH = registryBlockWithoutBlockItem("green_grape_bush",
+            () -> new GreenGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+    public static final RegistryObject<Block> WILD_GREEN_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_green_grape_bush",
+            () -> new WildGreenGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+
+    public static final RegistryObject<Block> PURPLE_GRAPE_BUSH = registryBlockWithoutBlockItem("purple_grape_bush",
+            () -> new PurpleGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+    public static final RegistryObject<Block> WILD_PURPLE_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_purple_grape_bush",
+            () -> new WildPurpleGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+
+    public static final RegistryObject<Block> RED_GRAPE_BUSH = registryBlockWithoutBlockItem("red_grape_bush",
+            () -> new RedGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+    public static final RegistryObject<Block> WILD_RED_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_red_grape_bush",
+            () -> new WildRedGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
 
     //BAKED CLAY//
     public static final RegistryObject<Block> UNBAKED_CLAY = registryBlock("unbaked_clay",

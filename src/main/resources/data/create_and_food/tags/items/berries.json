@@ -1,0 +1,8 @@
+{
+  "replace":false,
+  "values": [
+    "create_and_food:blueberry",
+    "create_and_food:cranberry",
+    "create_and_food:blue_grape"
+  ]
+}

@@ -20,6 +20,10 @@ public class ModPlacedFeatures {
             ModConfiguredFeatures.WILD_CRANBERRY_BUSH, RarityFilter.onAverageOnceEvery(CreateAndFoodCommonConfigs.CHANCE_WILD_CRANBERRY_BUSH.get()),
             InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
+    public static final Holder<PlacedFeature> WILD_BLUE_GRAPE_BUSH_PLACED = PlacementUtils.register("wild_blue_grape_bush_placed",
+            ModConfiguredFeatures.WILD_BLUE_GRAPE_BUSH, RarityFilter.onAverageOnceEvery(CreateAndFoodCommonConfigs.CHANCE_WILD_BLUE_GRAPE_BUSH.get()),
+            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
     public static final Holder<PlacedFeature> RUBY_ORE_PLACED = PlacementUtils.register("ruby_ore_placed",
             ModConfiguredFeatures.RUBY_ORE, ModOrePlacement.commonOrePlacement(CreateAndFoodCommonConfigs.RUBY_ORE_VEINS_PER_CHUNK.get(),
                     HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-64), VerticalAnchor.aboveBottom(80))));

@@ -22,12 +22,12 @@
 			"to": [15, 2, 15],
 			"rotation": {"angle": 0, "axis": "y", "origin": [1, 16, 1]},
 			"faces": {
-				"north": {"uv": [0, 0, 14, 14], "texture": "#leaves"},
-				"east": {"uv": [0, 0, 14, 14], "texture": "#leaves"},
-				"south": {"uv": [0, 0, 14, 14], "texture": "#leaves"},
-				"west": {"uv": [0, 0, 14, 14], "texture": "#leaves"},
-				"up": {"uv": [0, 0, 14, 14], "texture": "#leaves"},
-				"down": {"uv": [0, 0, 14, 14], "texture": "#leaves"}
+				"north": {"uv": [1, 15, 15, 1], "texture": "#leaves"},
+				"east": {"uv": [1, 15, 15, 1], "texture": "#leaves"},
+				"south": {"uv": [1, 15, 15, 1], "texture": "#leaves"},
+				"west": {"uv": [1, 15, 15, 1], "texture": "#leaves"},
+				"up": {"uv": [1, 15, 15, 1], "texture": "#leaves"},
+				"down": {"uv": [1, 15, 15, 1], "texture": "#leaves"}
 			}
 		},
 		{

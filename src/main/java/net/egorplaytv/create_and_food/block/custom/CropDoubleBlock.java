@@ -27,8 +27,8 @@ public class CropDoubleBlock extends CropBlock {
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 15.0D, 16.0D),
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D),
             Block.box(0.0D, 0.0D, 0.0D, 16.0D, 5.0D, 16.0D),
-            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D),};
-    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 3);
+            Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D)};
+    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 4);
 
     public CropDoubleBlock(ItemLike seedItem, Properties pProperties) {
         super(pProperties);

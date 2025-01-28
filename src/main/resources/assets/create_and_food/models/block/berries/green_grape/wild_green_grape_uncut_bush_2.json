@@ -1,0 +1,7 @@
+{
+  "parent": "create_and_food:custom/block/berrybush/wild_berrybush_uncut",
+  "textures": {
+    "leaves": "create_and_food:block/berrybush/green_grape_leaves_7",
+    "branches": "create_and_food:block/berrybush/grape_branches"
+  }
+}

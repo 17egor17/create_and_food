@@ -28,6 +28,7 @@ public class ModTags {
         public static final TagKey<Block> END_ORE_REPLACEABLE = modTag("end_ore_replaceable");
         public static final TagKey<Block> WARPED_NYLIUM_ORE_REPLACEABLE = modTag("warped_nylium_ore_replaceable");
         public static final TagKey<Block> NETHERRACK_ORE_REPLACEABLE = modTag("netherrack_ore_replaceable");
+        public static final TagKey<Block> BERRY_BUSHES = modTag("berry_bushes");
 
         public static final TagKey<Block> BARRELS = modTag("barrels");
         public static final TagKey<Block> CUTTING_BOARDS = modTag("cutting_boards");
@@ -79,6 +80,7 @@ public class ModTags {
         public static final TagKey<Item> ALMOND_LOGS = modTag("almond_logs");
         public static final TagKey<Item> FENCE_GATES = tag("fence_gates");
         public static final TagKey<Item> COAL_DUST = forgeTag("dusts/coal");
+        public static final TagKey<Item> BERRIES = modTag("berries");
         public static final TagKey<Item> FUEL = modTag("fuel");
         public static final TagKey<Item> FUEL_BUCKET = modTag("fuel_bucket");
         public static final TagKey<Item> FUEL_5 = modTag("fuel_five_degrees");

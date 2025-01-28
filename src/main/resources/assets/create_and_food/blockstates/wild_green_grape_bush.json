@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "age=0,cut=true": { "model": "create_and_food:block/berries/grape/wild_grape_bush_0" },
+        "age=1,cut=true": { "model": "create_and_food:block/berries/green_grape/wild_green_grape_bush_1" },
+        "age=2,cut=true": { "model": "create_and_food:block/berries/green_grape/wild_green_grape_bush_2" },
+        "age=0,cut=false": { "model": "create_and_food:block/berries/grape/wild_grape_uncut_bush_0" },
+        "age=1,cut=false": { "model": "create_and_food:block/berries/green_grape/wild_green_grape_uncut_bush_1" },
+        "age=2,cut=false": { "model": "create_and_food:block/berries/green_grape/wild_green_grape_uncut_bush_2" }
+    }
+}

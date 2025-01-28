@@ -23,6 +23,7 @@ public class ModWildBerryBushGeneration {
                     event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
             base.add(ModPlacedFeatures.WILD_BLUEBERRY_BUSH_PLACED);
             base.add(ModPlacedFeatures.WILD_CRANBERRY_BUSH_PLACED);
+            base.add(ModPlacedFeatures.WILD_BLUE_GRAPE_BUSH_PLACED);
         }
     }
 }

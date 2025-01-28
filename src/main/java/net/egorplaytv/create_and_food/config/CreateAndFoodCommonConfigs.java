@@ -11,6 +11,7 @@ public class CreateAndFoodCommonConfigs {
 
     public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_BLUEBERRY_BUSH;
     public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_CRANBERRY_BUSH;
+    public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_BLUE_GRAPE_BUSH;
 
     public static final ForgeConfigSpec.ConfigValue<Integer> TANTALUM_ORE_VEINS_PER_CHUNK;
     public static final ForgeConfigSpec.ConfigValue<Integer> TANTALUM_ORE_VEINS_SIZE;
@@ -20,32 +21,37 @@ public class CreateAndFoodCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Integer> SPEED_ATTENUATION_FURNACE;
 
     static {
-        BUILDER.push("Configs for Create And Food");
-
+        BUILDER.comment("World generation").push("world");
+        BUILDER.comment("Wild blueberry bush generation").push("wild_blueberry_bush");
         CHANCE_WILD_BLUEBERRY_BUSH = BUILDER.comment("Chance of generating clusters. Smaller value = more frequent.")
                 .translation("config.create_and_food.chance_wild_berry_bush")
                 .defineInRange("Chance", 16, 0, Integer.MAX_VALUE);
-
+        BUILDER.pop();
+        BUILDER.comment("Wild cranberry bush generation").push("wild_cranberry_bush");
         CHANCE_WILD_CRANBERRY_BUSH = BUILDER.comment("Chance of generating clusters. Smaller value = more frequent.")
                 .translation("config.create_and_food.chance_wild_berry_bush")
                 .defineInRange("Chance", 16, 0, Integer.MAX_VALUE);
-
+        BUILDER.pop();
+        BUILDER.comment("Wild blue grape bush generation").push("wild_blue_grape_bush");
+        CHANCE_WILD_BLUE_GRAPE_BUSH = BUILDER.comment("Chance of generating clusters. Smaller value = more frequent.")
+                .translation("config.create_and_food.chance_wild_berry_bush")
+                .defineInRange("Chance", 16, 0, Integer.MAX_VALUE);
+        BUILDER.pop();
+        BUILDER.comment("Ore generation").push("ore");
         RUBY_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Ruby Ore Veins spawn per chunk!")
                 .translation("config.create_and_food.ruby_ore_veins_per_chunk")
                 .define("Ruby Ore Veins Per Chunk", 7);
-
         RUBY_ORE_VEINS_SIZE = BUILDER.comment("How many Ruby Ore Blocks spawn in one Vein!")
                 .translation("config.create_and_food.ruby_ore_veins_size")
                 .defineInRange("Ruby Ore Vein Size", 9, 4, 20);
-
         TANTALUM_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Tantalum Ore Veins spawn per chunk!")
                 .translation("config.create_and_food.tantalum_ore_veins_per_chunk")
                 .define("Tantalum Veins Per Chunk", 7);
-
         TANTALUM_ORE_VEINS_SIZE = BUILDER.comment("How many Tantalum Ore Blocks spawn in one Vein!")
                 .translation("config.create_and_food.tantalum_ore_veins_size")
                 .defineInRange("Tantalum Vein Size", 9, 4, 20);
-
+        BUILDER.pop();
+        BUILDER.comment("Marble generation").push("marble");
         MARBLE_PER_CHUNK = BUILDER.comment("How many Marble Veins spawn per chunk!")
                 .translation("config.create_and_food.marble_per_chunk")
                 .define("Marble Veins Per Chunk", 7);
@@ -53,7 +59,9 @@ public class CreateAndFoodCommonConfigs {
         MARBLE_VEINS_SIZE = BUILDER.comment("How many Marble Blocks spawn in one Vein!")
                 .translation("config.create_and_food.marble_veins_size")
                 .defineInRange("Marble Vein Size", 20, 20, 40);
-
+        BUILDER.pop();
+        BUILDER.pop();
+        BUILDER.comment("Game settings").push("configs");
         SPEED_ATTENUATION_FURNACE = BUILDER.comment("Time in seconds")
                 .translation("config.create_and_food.furnace_speed")
                 .defineInRange("Speed Attenuation Blast Furnace", 50, 10, 100);
