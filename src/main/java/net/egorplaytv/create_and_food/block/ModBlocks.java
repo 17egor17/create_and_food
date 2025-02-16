@@ -347,6 +347,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> WILD_CRANBERRY_BUSH = registryBlockWithoutBlockItem("wild_cranberry_bush",
             () -> new WildCranberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
 
+    public static final RegistryObject<Block> RASPBERRY_BUSH = registryBlockWithoutBlockItem("raspberry_bush",
+            () -> new RaspberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+    public static final RegistryObject<Block> WILD_RASPBERRY_BUSH = registryBlockWithoutBlockItem("wild_raspberry_bush",
+            () -> new WildRaspberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+
     public static final RegistryObject<Block> BLUE_GRAPE_BUSH = registryBlockWithoutBlockItem("blue_grape_bush",
             () -> new BlueGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
     public static final RegistryObject<Block> WILD_BLUE_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_blue_grape_bush",

@@ -1,5 +1,5 @@
 {
-  "type": "create_and_food:fermentation",
+  "type": "create_and_food:fermentation_item",
   "ingredients": [
     {
       "item": "create_and_food:rye_flour"
@@ -8,12 +8,12 @@
       "item": "create_and_food:rye"
     },
     {
-      "item": "create_and_food:raw_egg"
+      "item": "create_and_food:raw_protein"
     }
   ],
-  "fluid_ingredient": {
-    "FluidName": "minecraft:water",
-    "Amount": 250
+  "fluid": {
+    "fluid": "minecraft:water",
+    "amount": 250
   },
   "result": {
     "item": "create:dough",
@@ -22,5 +22,5 @@
   "tool": {
     "item": "minecraft:bowl"
   },
-  "time": 36000
+  "time": 1180
 }

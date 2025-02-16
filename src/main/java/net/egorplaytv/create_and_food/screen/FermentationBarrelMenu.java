@@ -2,11 +2,8 @@ package net.egorplaytv.create_and_food.screen;
 
 import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.block.entity.custom.FermentationBarrelBlockEntity;
-import net.egorplaytv.create_and_food.recipe.MarbleFurnaceRecipe;
 import net.egorplaytv.create_and_food.screen.slot.ModResultSlot;
-import net.egorplaytv.create_and_food.util.ModTags;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -14,9 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.fluids.FluidStack;
-import net.minecraftforge.fluids.capability.CapabilityFluidHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class FermentationBarrelMenu extends AbstractContainerMenu {
@@ -24,6 +19,7 @@ public class FermentationBarrelMenu extends AbstractContainerMenu {
     private final Level level;
     private final ContainerData data;
     private FluidStack fluidStack;
+    private FluidStack fluidStackOut;
     public FermentationBarrelMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
         this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
     }
@@ -35,6 +31,7 @@ public class FermentationBarrelMenu extends AbstractContainerMenu {
         level = inv.player.level;
         this.data = data;
         this.fluidStack = blockEntity.getFluid();
+        this.fluidStackOut = blockEntity.getFluidOut();
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
@@ -66,6 +63,14 @@ public class FermentationBarrelMenu extends AbstractContainerMenu {
 
     public FluidStack getFluidStack() {
         return fluidStack;
+    }
+
+    public void setFluidOut(FluidStack stack) {
+        this.fluidStackOut = stack;
+    }
+
+    public FluidStack getFluidStackOut() {
+        return fluidStackOut;
     }
 
     public int getScaledProgress() {

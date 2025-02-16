@@ -18,12 +18,30 @@ public class ModWildBerryBushGeneration {
         ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, event.getName());
         Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
 
-        if (types.contains(BiomeDictionary.Type.OVERWORLD)) {
+        if (types.contains(BiomeDictionary.Type.SWAMP) || types.contains(BiomeDictionary.Type.FOREST)
+        || types.contains(BiomeDictionary.Type.SAVANNA) || types.contains(BiomeDictionary.Type.SNOWY)) {
             List<Holder<PlacedFeature>> base =
                     event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
             base.add(ModPlacedFeatures.WILD_BLUEBERRY_BUSH_PLACED);
+        }
+        if (types.contains(BiomeDictionary.Type.SWAMP) || types.contains(BiomeDictionary.Type.SNOWY)){
+            List<Holder<PlacedFeature>> base =
+                    event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
             base.add(ModPlacedFeatures.WILD_CRANBERRY_BUSH_PLACED);
+        }
+        if (types.contains(BiomeDictionary.Type.FOREST) || types.contains(BiomeDictionary.Type.PLAINS)){
+            List<Holder<PlacedFeature>> base =
+                    event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
+            base.add(ModPlacedFeatures.WILD_RASPBERRY_BUSH_PLACED);
+        }
+        if (types.contains(BiomeDictionary.Type.SAVANNA) || types.contains(BiomeDictionary.Type.PLAINS)
+        || types.contains(BiomeDictionary.Type.JUNGLE) || types.contains(BiomeDictionary.Type.HILLS)){
+            List<Holder<PlacedFeature>> base =
+                    event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
             base.add(ModPlacedFeatures.WILD_BLUE_GRAPE_BUSH_PLACED);
+            base.add(ModPlacedFeatures.WILD_GREEN_GRAPE_BUSH_PLACED);
+            base.add(ModPlacedFeatures.WILD_PURPLE_GRAPE_BUSH_PLACED);
+            base.add(ModPlacedFeatures.WILD_RED_GRAPE_BUSH_PLACED);
         }
     }
 }

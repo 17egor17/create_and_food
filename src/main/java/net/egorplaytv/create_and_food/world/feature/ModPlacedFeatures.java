@@ -20,8 +20,24 @@ public class ModPlacedFeatures {
             ModConfiguredFeatures.WILD_CRANBERRY_BUSH, RarityFilter.onAverageOnceEvery(CreateAndFoodCommonConfigs.CHANCE_WILD_CRANBERRY_BUSH.get()),
             InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
+    public static final Holder<PlacedFeature> WILD_RASPBERRY_BUSH_PLACED = PlacementUtils.register("wild_raspberry_bush_placed",
+            ModConfiguredFeatures.WILD_RASPBERRY_BUSH, RarityFilter.onAverageOnceEvery(CreateAndFoodCommonConfigs.CHANCE_WILD_RASPBERRY_BUSH.get()),
+            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
     public static final Holder<PlacedFeature> WILD_BLUE_GRAPE_BUSH_PLACED = PlacementUtils.register("wild_blue_grape_bush_placed",
             ModConfiguredFeatures.WILD_BLUE_GRAPE_BUSH, RarityFilter.onAverageOnceEvery(CreateAndFoodCommonConfigs.CHANCE_WILD_BLUE_GRAPE_BUSH.get()),
+            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
+    public static final Holder<PlacedFeature> WILD_GREEN_GRAPE_BUSH_PLACED = PlacementUtils.register("wild_green_grape_bush_placed",
+            ModConfiguredFeatures.WILD_GREEN_GRAPE_BUSH, RarityFilter.onAverageOnceEvery(CreateAndFoodCommonConfigs.CHANCE_WILD_GREEN_GRAPE_BUSH.get()),
+            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
+    public static final Holder<PlacedFeature> WILD_PURPLE_GRAPE_BUSH_PLACED = PlacementUtils.register("wild_purple_grape_bush_placed",
+            ModConfiguredFeatures.WILD_PURPLE_GRAPE_BUSH, RarityFilter.onAverageOnceEvery(CreateAndFoodCommonConfigs.CHANCE_WILD_PURPLE_GRAPE_BUSH.get()),
+            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
+    public static final Holder<PlacedFeature> WILD_RED_GRAPE_BUSH_PLACED = PlacementUtils.register("wild_red_grape_bush_placed",
+            ModConfiguredFeatures.WILD_RED_GRAPE_BUSH, RarityFilter.onAverageOnceEvery(CreateAndFoodCommonConfigs.CHANCE_WILD_RED_GRAPE_BUSH.get()),
             InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
     public static final Holder<PlacedFeature> RUBY_ORE_PLACED = PlacementUtils.register("ruby_ore_placed",

@@ -11,7 +11,11 @@ public class CreateAndFoodCommonConfigs {
 
     public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_BLUEBERRY_BUSH;
     public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_CRANBERRY_BUSH;
+    public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_RASPBERRY_BUSH;
     public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_BLUE_GRAPE_BUSH;
+    public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_GREEN_GRAPE_BUSH;
+    public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_PURPLE_GRAPE_BUSH;
+    public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_RED_GRAPE_BUSH;
 
     public static final ForgeConfigSpec.ConfigValue<Integer> TANTALUM_ORE_VEINS_PER_CHUNK;
     public static final ForgeConfigSpec.ConfigValue<Integer> TANTALUM_ORE_VEINS_SIZE;
@@ -32,8 +36,28 @@ public class CreateAndFoodCommonConfigs {
                 .translation("config.create_and_food.chance_wild_berry_bush")
                 .defineInRange("Chance", 16, 0, Integer.MAX_VALUE);
         BUILDER.pop();
+        BUILDER.comment("Wild raspberry bush generation").push("wild_raspberry_bush");
+        CHANCE_WILD_RASPBERRY_BUSH = BUILDER.comment("Chance of generating clusters. Smaller value = more frequent.")
+                .translation("config.create_and_food.chance_wild_berry_bush")
+                .defineInRange("Chance", 16, 0, Integer.MAX_VALUE);
+        BUILDER.pop();
         BUILDER.comment("Wild blue grape bush generation").push("wild_blue_grape_bush");
         CHANCE_WILD_BLUE_GRAPE_BUSH = BUILDER.comment("Chance of generating clusters. Smaller value = more frequent.")
+                .translation("config.create_and_food.chance_wild_berry_bush")
+                .defineInRange("Chance", 16, 0, Integer.MAX_VALUE);
+        BUILDER.pop();
+        BUILDER.comment("Wild green grape bush generation").push("wild_green_grape_bush");
+        CHANCE_WILD_GREEN_GRAPE_BUSH = BUILDER.comment("Chance of generating clusters. Smaller value = more frequent.")
+                .translation("config.create_and_food.chance_wild_berry_bush")
+                .defineInRange("Chance", 16, 0, Integer.MAX_VALUE);
+        BUILDER.pop();
+        BUILDER.comment("Wild purple grape bush generation").push("wild_purple_grape_bush");
+        CHANCE_WILD_PURPLE_GRAPE_BUSH = BUILDER.comment("Chance of generating clusters. Smaller value = more frequent.")
+                .translation("config.create_and_food.chance_wild_berry_bush")
+                .defineInRange("Chance", 16, 0, Integer.MAX_VALUE);
+        BUILDER.pop();
+        BUILDER.comment("Wild red grape bush generation").push("wild_red_grape_bush");
+        CHANCE_WILD_RED_GRAPE_BUSH = BUILDER.comment("Chance of generating clusters. Smaller value = more frequent.")
                 .translation("config.create_and_food.chance_wild_berry_bush")
                 .defineInRange("Chance", 16, 0, Integer.MAX_VALUE);
         BUILDER.pop();

@@ -7,8 +7,6 @@ import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.screen.gui.ModGuiTextures;
 import net.egorplaytv.create_and_food.screen.renderer.FluidTankRenderer;
 import net.egorplaytv.create_and_food.util.MouseUtil;
-import net.minecraft.client.MouseHandler;
-import net.minecraft.client.gui.screens.MouseSettingsScreen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
@@ -38,7 +36,7 @@ public class FermentationBarrelScreen extends AbstractContainerScreen<Fermentati
     }
 
     private void assingFluidRenderer() {
-        renderer = new FluidTankRenderer(2000, true, 16, 56);
+        renderer = new FluidTankRenderer(4000, true, 16, 56);
     }
 
     @Override
@@ -51,14 +49,17 @@ public class FermentationBarrelScreen extends AbstractContainerScreen<Fermentati
 
         this.blit(pPoseStack, x, y,0,0, 175, 127);
 
-        blit(pPoseStack, x + 126, y + 17, 235, 1, 20, 60);
+//        blit(pPoseStack, x + 126, y + 17, 235, 1, 20, 60);
 
         renderer.render(pPoseStack, x + 32, y + 19, menu.getFluidStack());
+
+        renderer.render(pPoseStack, x + 128, y + 19, menu.getFluidStackOut());
 
         ModGuiTextures.COPPER_INVENTORY_LEFT.render(pPoseStack, x + 24, y + 83);
 
         RenderSystem.setShaderTexture(0, WIDGETS);
         blit(pPoseStack, x + 32, y + 19, 0, 49, 16, 56);
+        blit(pPoseStack, x + 128, y + 19, 16, 49, 16, 56);
         if (menu.isCrafting()) {
             blit(pPoseStack, x + 75, y + 40, 177, 0, menu.getScaledProgress(), 12);
         }
@@ -72,11 +73,18 @@ public class FermentationBarrelScreen extends AbstractContainerScreen<Fermentati
         this.font.draw(poseStack, new TranslatableComponent("ui.inventory"), 28, 86, 0xFF606060);
 
         renderFluidAreaInputTooltips(poseStack, mouseX, mouseY, x, y);
+        renderFluidAreaOutputTooltips(poseStack, mouseX, mouseY, x, y);
     }
 
     private void renderFluidAreaInputTooltips(PoseStack poseStack, int mouseX, int mouseY, int x, int y) {
         if (isMouseAboveArea(mouseX, mouseY, x, y, 32, 19)) {
             renderTooltip(poseStack, renderer.getTooltip(menu.getFluidStack(), TooltipFlag.Default.NORMAL),
+                    Optional.empty(), mouseX - x, mouseY - y);
+        }
+    }
+    private void renderFluidAreaOutputTooltips(PoseStack poseStack, int mouseX, int mouseY, int x, int y) {
+        if (isMouseAboveArea(mouseX, mouseY, x, y, 128, 19)) {
+            renderTooltip(poseStack, renderer.getTooltip(menu.getFluidStackOut(), TooltipFlag.Default.NORMAL),
                     Optional.empty(), mouseX - x, mouseY - y);
         }
     }

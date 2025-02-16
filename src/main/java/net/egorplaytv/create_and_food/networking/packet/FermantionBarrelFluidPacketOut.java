@@ -10,16 +10,16 @@ import net.minecraftforge.network.NetworkEvent;
 
 import java.util.function.Supplier;
 
-public class FluidSyncS2CPacketFBIn {
+public class FermantionBarrelFluidPacketOut {
     private final FluidStack fluid;
     private final BlockPos pos;
 
-    public FluidSyncS2CPacketFBIn(FluidStack fluid, BlockPos pos) {
+    public FermantionBarrelFluidPacketOut(FluidStack fluid, BlockPos pos) {
         this.fluid = fluid;
         this.pos = pos;
     }
 
-    public FluidSyncS2CPacketFBIn(FriendlyByteBuf buf) {
+    public FermantionBarrelFluidPacketOut(FriendlyByteBuf buf) {
         this.fluid = buf.readFluidStack();
         this.pos = buf.readBlockPos();
     }
@@ -33,11 +33,11 @@ public class FluidSyncS2CPacketFBIn {
         NetworkEvent.Context context = supplier.get();
         context.enqueueWork(() -> {
             if (Minecraft.getInstance().level.getBlockEntity(pos) instanceof FermentationBarrelBlockEntity blockEntity) {
-                blockEntity.setFluid(fluid);
+                blockEntity.setFluidOut(fluid);
 
                 if (Minecraft.getInstance().player.containerMenu instanceof FermentationBarrelMenu menu &&
                     menu.getBlockEntity().getBlockPos().equals(pos)) {
-                    menu.setFluid(this.fluid);
+                    menu.setFluidOut(this.fluid);
                 }
             }
         });

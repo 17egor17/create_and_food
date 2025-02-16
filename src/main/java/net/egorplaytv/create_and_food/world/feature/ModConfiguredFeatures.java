@@ -32,8 +32,8 @@ public class ModConfiguredFeatures {
                     BlockStateProvider.simple(ModBlocks.ALMOND_LOG.get()),
                     new StraightTrunkPlacer(5,6,3),
                     BlockStateProvider.simple(ModBlocks.ALMOND_LEAVES.get()),
-                    new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0),4),
-                    new TwoLayersFeatureSize(1,0,2)).build());
+                    new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0),3),
+                    new TwoLayersFeatureSize(1,0,1)).build());
 
     public static final Holder<PlacedFeature> ALMOND_CHECKED = PlacementUtils.register("almond_checked", ALMOND_TREE,
                     PlacementUtils.filteredByBlockSurvival(ModBlocks.ALMOND_SAPLING.get()));
@@ -55,9 +55,29 @@ public class ModConfiguredFeatures {
                     getWildCropConfiguration(ModBlocks.WILD_CRANBERRY_BUSH.get(), 32, 6,
                             BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
 
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_RASPBERRY_BUSH =
+            FeatureUtils.register("wild_raspberry_bush", Feature.RANDOM_PATCH,
+                    getWildCropConfiguration(ModBlocks.WILD_RASPBERRY_BUSH.get(), 32, 6,
+                            BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
+
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_BLUE_GRAPE_BUSH =
             FeatureUtils.register("wild_blue_grape_bush", Feature.RANDOM_PATCH,
                     getWildCropConfiguration(ModBlocks.WILD_BLUE_GRAPE_BUSH.get(), 32, 6,
+                            BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
+
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_GREEN_GRAPE_BUSH =
+            FeatureUtils.register("wild_green_grape_bush", Feature.RANDOM_PATCH,
+                    getWildCropConfiguration(ModBlocks.WILD_GREEN_GRAPE_BUSH.get(), 32, 6,
+                            BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
+
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_PURPLE_GRAPE_BUSH =
+            FeatureUtils.register("wild_purple_grape_bush", Feature.RANDOM_PATCH,
+                    getWildCropConfiguration(ModBlocks.WILD_PURPLE_GRAPE_BUSH.get(), 32, 6,
+                            BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
+
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_RED_GRAPE_BUSH =
+            FeatureUtils.register("wild_red_grape_bush", Feature.RANDOM_PATCH,
+                    getWildCropConfiguration(ModBlocks.WILD_RED_GRAPE_BUSH.get(), 32, 6,
                             BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
 
 

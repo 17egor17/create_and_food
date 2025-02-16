@@ -2,11 +2,14 @@ package net.egorplaytv.create_and_food.block.entity.custom;
 
 import net.egorplaytv.create_and_food.block.custom.FermentationBarrelBlock;
 import net.egorplaytv.create_and_food.block.entity.ModBlockEntities;
-import net.egorplaytv.create_and_food.entity.WrappedFluidHandler;
+import net.egorplaytv.create_and_food.entity.WrappedFluidHandlerIn;
+import net.egorplaytv.create_and_food.entity.WrappedFluidHandlerOut;
 import net.egorplaytv.create_and_food.entity.WrappedHandler;
 import net.egorplaytv.create_and_food.networking.ModMessages;
-import net.egorplaytv.create_and_food.networking.packet.FluidSyncS2CPacketFBIn;
-import net.egorplaytv.create_and_food.recipe.FermentationBarrelRecipe;
+import net.egorplaytv.create_and_food.networking.packet.FermantionBarrelFluidPacket;
+import net.egorplaytv.create_and_food.networking.packet.FermantionBarrelFluidPacketOut;
+import net.egorplaytv.create_and_food.recipe.FermentationFluidBarrelRecipe;
+import net.egorplaytv.create_and_food.recipe.FermentationItemBarrelRecipe;
 import net.egorplaytv.create_and_food.screen.FermentationBarrelMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -60,12 +63,12 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
 
     private final SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
 
-    private final FluidTank FLUID_TANK_IN = new FluidTank(2000){
+    private final FluidTank FLUID_TANK_IN = new FluidTank(4000){
         @Override
         protected void onContentsChanged() {
             setChanged();
             if (!level.isClientSide()) {
-                ModMessages.sendToClients(new FluidSyncS2CPacketFBIn(this.fluid, worldPosition));
+                ModMessages.sendToClients(new FermantionBarrelFluidPacket(this.fluid, worldPosition));
             }
         }
     };
@@ -78,10 +81,28 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
         return this.FLUID_TANK_IN.getFluid();
     }
 
+    private final FluidTank FLUID_TANK_OUT = new FluidTank(4000){
+        @Override
+        protected void onContentsChanged() {
+            setChanged();
+            if (!level.isClientSide()) {
+                ModMessages.sendToClients(new FermantionBarrelFluidPacketOut(this.fluid, worldPosition));
+            }
+        }
+    };
+
+    public void setFluidOut(FluidStack stack) {
+        this.FLUID_TANK_OUT.setFluid(stack);
+    }
+
+    public FluidStack getFluidOut() {
+        return this.FLUID_TANK_OUT.getFluid();
+    }
+
     public ItemStack getItem(int index){
         return itemHandler.getStackInSlot(index);
     }
-    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+    private final LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.of(() -> itemHandler);
     private final Map<Direction, LazyOptional<WrappedHandler>> directionWrappedHandlerMap =
             Map.of(Direction.DOWN, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> i == 5, (i, s) -> false)),
                     Direction.SOUTH, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> i == 2,
@@ -92,11 +113,20 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
                                     (index, stack) -> itemHandler.isItemValid(3, stack))),
                     Direction.EAST, LazyOptional.of(() -> new WrappedHandler(itemHandler, (i) -> i == 1,
                                     (index, stack) -> itemHandler.isItemValid(1, stack))));
-    private LazyOptional<IFluidHandler> lazyFluidHandler = LazyOptional.empty();
+    private final LazyOptional<IFluidHandler> lazyFluidHandler = LazyOptional.of(() -> FLUID_TANK_IN);
+    private final LazyOptional<IFluidHandler> lazyFluidOutHandler = LazyOptional.of(() -> FLUID_TANK_OUT);
 
-    private final Map<Direction, LazyOptional<WrappedFluidHandler>> directionWrappedFluidHandlerInMap =
-            Map.of(Direction.UP, LazyOptional.of(() -> new WrappedFluidHandler(FLUID_TANK_IN)),
+    private final Map<Direction, LazyOptional<WrappedFluidHandlerIn>> directionWrappedFluidHandlerInMap =
+            Map.of(Direction.UP, LazyOptional.of(() -> new WrappedFluidHandlerIn(FLUID_TANK_IN)),
                     Direction.DOWN, LazyOptional.empty(),
+                    Direction.WEST, LazyOptional.empty(),
+                    Direction.SOUTH, LazyOptional.empty(),
+                    Direction.EAST, LazyOptional.empty(),
+                    Direction.NORTH, LazyOptional.empty());
+
+    private final Map<Direction, LazyOptional<WrappedFluidHandlerOut>> directionWrappedFluidHandlerOutMap =
+            Map.of(Direction.UP, LazyOptional.empty(),
+                    Direction.DOWN, LazyOptional.of(() -> new WrappedFluidHandlerOut(FLUID_TANK_OUT)),
                     Direction.WEST, LazyOptional.empty(),
                     Direction.SOUTH, LazyOptional.empty(),
                     Direction.EAST, LazyOptional.empty(),
@@ -142,7 +172,8 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        ModMessages.sendToClients(new FluidSyncS2CPacketFBIn(this.getFluid(), worldPosition));
+        ModMessages.sendToClients(new FermantionBarrelFluidPacket(this.getFluid(), worldPosition));
+        ModMessages.sendToClients(new FermantionBarrelFluidPacketOut(this.getFluidOut(), worldPosition));
         return new FermentationBarrelMenu(pContainerId, pInventory, this, this.data);
     }
 
@@ -173,10 +204,16 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
         if (cap == CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY) {
             if (side == null) {
                 return lazyFluidHandler.cast();
+            } else if (side == null){
+                return lazyFluidOutHandler.cast();
             }
 
             if (side == Direction.UP) {
                 return directionWrappedFluidHandlerInMap.get(side).cast();
+            }
+
+            if (side == Direction.DOWN){
+                return directionWrappedFluidHandlerOutMap.get(side).cast();
             }
         }
 
@@ -184,17 +221,11 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
     }
 
     @Override
-    public void onLoad() {
-        super.onLoad();
-        lazyItemHandler = LazyOptional.of(() -> itemHandler);
-        lazyFluidHandler = LazyOptional.of(() -> FLUID_TANK_IN);
-    }
-
-    @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
+    public void setRemoved() {
+        super.setRemoved();
         lazyItemHandler.invalidate();
         lazyFluidHandler.invalidate();
+        lazyFluidOutHandler.invalidate();
     }
 
     @Override
@@ -202,7 +233,8 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
         tag.put("inventory", itemHandler.serializeNBT());
         tag.putInt("fermentation_barrel.progress", progress);
         tag.putInt("fermentation_barrel.time", time);
-        tag = FLUID_TANK_IN.writeToNBT(tag);
+        FLUID_TANK_IN.writeToNBT(tag);
+        FLUID_TANK_OUT.writeToNBT(tag);
 
         super.saveAdditional(tag);
     }
@@ -214,6 +246,7 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
         progress = tag.getInt("fermentation_barrel.progress");
         time = tag.getInt("fermentation_barrel.time");
         FLUID_TANK_IN.readFromNBT(tag);
+        FLUID_TANK_OUT.readFromNBT(tag);
     }
 
     public void drops() {
@@ -233,10 +266,17 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
                 for (int i = 0; i < pBlockEntity.itemHandler.getSlots(); i++) {
                     pBlockEntity.inventory.setItem(i, pBlockEntity.itemHandler.getStackInSlot(i));
                 }
-                Optional<FermentationBarrelRecipe> recipe = pLevel.getRecipeManager()
-                        .getRecipeFor(FermentationBarrelRecipe.Type.INSTANCE, pBlockEntity.inventory, pLevel);
+                Optional<FermentationItemBarrelRecipe> math = pLevel.getRecipeManager()
+                        .getRecipeFor(FermentationItemBarrelRecipe.Type.INSTANCE, pBlockEntity.inventory, pLevel);
+
+                Optional<FermentationFluidBarrelRecipe> recipe = pLevel.getRecipeManager()
+                        .getRecipeFor(FermentationFluidBarrelRecipe.Type.INSTANCE, pBlockEntity.inventory, pLevel);
                 pBlockEntity.progress++;
-                pBlockEntity.time = recipe.map(FermentationBarrelRecipe::getTime).orElse(1000);
+                if (math.isPresent()){
+                    pBlockEntity.time = math.map(FermentationItemBarrelRecipe::getTime).orElse(1000);
+                } else if (recipe.isPresent()){
+                    pBlockEntity.time = recipe.map(FermentationFluidBarrelRecipe::getTime).orElse(1000);
+                }
                 setChanged(pLevel, pPos, pState);
                 if (pBlockEntity.progress > pBlockEntity.time) {
                     craftItem(pBlockEntity, pLevel);
@@ -289,13 +329,39 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
             entity.inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
-        Optional<FermentationBarrelRecipe> match = level.getRecipeManager()
-                .getRecipeFor(FermentationBarrelRecipe.Type.INSTANCE, entity.inventory, level);
+        Optional<FermentationFluidBarrelRecipe> match = level.getRecipeManager()
+                .getRecipeFor(FermentationFluidBarrelRecipe.Type.INSTANCE, entity.inventory, level);
 
-        return match.isPresent() && canInsertAmountIntoOutputSlot(entity.inventory, match.get().getResultItem())
-                && canInsertItemIntoOutputSlot(entity.inventory, match.get().getResultItem())
-                && canToolInSlot(entity, match.get().getInputTool()) && match.get().getInputFluid()
-                .equals(entity.FLUID_TANK_IN.getFluid());
+        Optional<FermentationItemBarrelRecipe> recipe = level.getRecipeManager()
+                .getRecipeFor(FermentationItemBarrelRecipe.Type.INSTANCE, entity.inventory, level);
+
+
+        if (match.isPresent()){
+            if (!match.get().getInputTool().isEmpty()) {
+                return canInsertAmountIntoOutputFluid(entity, match.get().getResultFluid())
+                        && canInsertItemIntoOutputFluid(entity, match.get().getResultFluid())
+                        && canToolInSlot(entity, recipe.get().getInputTool())
+                        && match.get().getInputFluid().equals(entity.FLUID_TANK_IN.getFluid());
+            } else {
+                return canInsertAmountIntoOutputFluid(entity, match.get().getResultFluid())
+                        && canInsertItemIntoOutputFluid(entity, match.get().getResultFluid())
+                        && match.get().getInputFluid().equals(entity.FLUID_TANK_IN.getFluid());
+            }
+        }
+
+        if (recipe.isPresent()) {
+            if (!recipe.get().getInputTool().isEmpty()) {
+                return canInsertAmountIntoOutputSlot(entity.inventory, recipe.get().getResultItem())
+                        && canInsertItemIntoOutputSlot(entity.inventory, recipe.get().getResultItem())
+                        && canToolInSlot(entity, recipe.get().getInputTool()) && recipe.get().getInputFluid()
+                        .equals(entity.FLUID_TANK_IN.getFluid());
+            } else {
+                return canInsertAmountIntoOutputSlot(entity.inventory, recipe.get().getResultItem())
+                        && canInsertItemIntoOutputSlot(entity.inventory, recipe.get().getResultItem())
+                        && recipe.get().getInputFluid().equals(entity.FLUID_TANK_IN.getFluid());
+            }
+        }
+        return false;
     }
 
     private static boolean canToolInSlot(FermentationBarrelBlockEntity entity, ItemStack inputTool) {
@@ -307,21 +373,39 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
             entity.inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
 
-        Optional<FermentationBarrelRecipe> match = level.getRecipeManager()
-                .getRecipeFor(FermentationBarrelRecipe.Type.INSTANCE, entity.inventory, level);
+        Optional<FermentationFluidBarrelRecipe> match = level.getRecipeManager()
+                .getRecipeFor(FermentationFluidBarrelRecipe.Type.INSTANCE, entity.inventory, level);
+
+        Optional<FermentationItemBarrelRecipe> recipe = level.getRecipeManager()
+                .getRecipeFor(FermentationItemBarrelRecipe.Type.INSTANCE, entity.inventory, level);
+
+        if (recipe.isPresent()){
+            entity.FLUID_TANK_IN.drain(recipe.get().getInputFluid().getAmount(), IFluidHandler.FluidAction.EXECUTE);
+            entity.itemHandler.extractItem(1, 1, false);
+            entity.itemHandler.extractItem(2, 1, false);
+            entity.itemHandler.extractItem(3, 1, false);
+            if (entity.itemHandler.getStackInSlot(4).isDamageableItem()) {
+                entity.itemHandler.getStackInSlot(4).hurt(1, level.random, (ServerPlayer) null);
+            } else {
+                entity.itemHandler.extractItem(4, 1, false);
+            }
+            entity.itemHandler.setStackInSlot(5, new ItemStack(recipe.get().getResultItem().getItem(),
+                    entity.itemHandler.getStackInSlot(5).getCount() + recipe.get().getResultItem().getCount()));
+
+            entity.resetProgress();
+        }
 
         if (match.isPresent()) {
             entity.FLUID_TANK_IN.drain(match.get().getInputFluid().getAmount(), IFluidHandler.FluidAction.EXECUTE);
             entity.itemHandler.extractItem(1, 1, false);
             entity.itemHandler.extractItem(2, 1, false);
             entity.itemHandler.extractItem(3, 1, false);
-            if(entity.itemHandler.getStackInSlot(4).isDamageableItem()){
-                entity.itemHandler.getStackInSlot(4).hurt(1, level.random, (ServerPlayer)null);
+            if (entity.itemHandler.getStackInSlot(4).isDamageableItem()) {
+                entity.itemHandler.getStackInSlot(4).hurt(1, level.random, (ServerPlayer) null);
             } else {
                 entity.itemHandler.extractItem(4, 1, false);
             }
-            entity.itemHandler.setStackInSlot(5, new ItemStack(match.get().getResultItem().getItem(),
-                    entity.itemHandler.getStackInSlot(5).getCount() + match.get().getResultItem().getCount()));
+            entity.FLUID_TANK_OUT.fill(match.get().getResultFluid(), IFluidHandler.FluidAction.EXECUTE);
 
             entity.resetProgress();
         }
@@ -334,5 +418,11 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
     }
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
         return inventory.getItem(5).getMaxStackSize() >= inventory.getItem(5).getCount() + output.getCount();
+    }
+    private static boolean canInsertItemIntoOutputFluid(FermentationBarrelBlockEntity entity, FluidStack output) {
+        return entity.FLUID_TANK_OUT.getFluid().isFluidEqual(output) || entity.FLUID_TANK_OUT.isEmpty();
+    }
+    private static boolean canInsertAmountIntoOutputFluid(FermentationBarrelBlockEntity entity, FluidStack output) {
+        return entity.FLUID_TANK_OUT.getSpace() >= entity.FLUID_TANK_OUT.getFluidAmount() + output.getAmount();
     }
 }

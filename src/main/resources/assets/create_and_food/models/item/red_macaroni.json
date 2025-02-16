@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "create_and_food:item/macaroni/macaroni_red"
+    "layer0": "create_and_food:item/macaroni/macaroni_sweet_berries"
   }
 }

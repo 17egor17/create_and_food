@@ -1,7 +1,8 @@
 package net.egorplaytv.create_and_food.networking;
 
 import net.egorplaytv.create_and_food.CreateAndFood;
-import net.egorplaytv.create_and_food.networking.packet.FluidSyncS2CPacketFBIn;
+import net.egorplaytv.create_and_food.networking.packet.FermantionBarrelFluidPacket;
+import net.egorplaytv.create_and_food.networking.packet.FermantionBarrelFluidPacketOut;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.NetworkDirection;
@@ -26,10 +27,15 @@ public class ModMessages {
 
         INSTANCE = net;
 
-        net.messageBuilder(FluidSyncS2CPacketFBIn.class, id(), NetworkDirection.PLAY_TO_CLIENT)
-                .decoder(FluidSyncS2CPacketFBIn::new)
-                .encoder(FluidSyncS2CPacketFBIn::toBytes)
-                .consumer(FluidSyncS2CPacketFBIn::handle)
+        net.messageBuilder(FermantionBarrelFluidPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(FermantionBarrelFluidPacket::new)
+                .encoder(FermantionBarrelFluidPacket::toBytes)
+                .consumer(FermantionBarrelFluidPacket::handle)
+                .add();
+        net.messageBuilder(FermantionBarrelFluidPacketOut.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+                .decoder(FermantionBarrelFluidPacketOut::new)
+                .encoder(FermantionBarrelFluidPacketOut::toBytes)
+                .consumer(FermantionBarrelFluidPacketOut::handle)
                 .add();
     }
 

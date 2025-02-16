@@ -1,0 +1,20 @@
+{
+  "type": "create_and_food:fermentation_fluid",
+  "ingredients": [
+    {
+      "item": "create_and_food:rye_flour"
+    }
+  ],
+  "fluid": {
+    "fluid": "minecraft:water",
+    "amount": 250
+  },
+  "result": {
+    "fluid": "minecraft:lava",
+    "amount": 250
+  },
+  "tool": {
+    "item": "minecraft:bowl"
+  },
+  "time": 200
+}

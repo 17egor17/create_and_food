@@ -121,6 +121,12 @@ public class ModItems {
             () -> new ItemNameBlockItem(ModBlocks.CRANBERRY_BUSH.get(),
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
 
+    public static final RegistryObject<Item> RASPBERRY = registerItem("raspberry",
+            () -> new Item(new Item.Properties().food(ModFoods.BERRIES).tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+    public static final RegistryObject<Item> RASPBERRY_SAPLING = registerItem("raspberry_sapling",
+            () -> new ItemNameBlockItem(ModBlocks.RASPBERRY_BUSH.get(),
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+
     public static final RegistryObject<Item> BLUE_GRAPE = registerItem("blue_grape",
             () -> new Item(new Item.Properties().food(ModFoods.BERRIES).tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
     public static final RegistryObject<Item> BLUE_GRAPE_SAPLING = registerItem("blue_grape_sapling",

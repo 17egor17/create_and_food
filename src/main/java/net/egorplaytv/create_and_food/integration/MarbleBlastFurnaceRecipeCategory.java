@@ -35,7 +35,7 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
             new RecipeType<>(UID, MarbleFurnaceRecipe.class);
 
     public MarbleBlastFurnaceRecipeCategory(IGuiHelper helper) {
-        this.background = helper.createDrawable(TEXTURE, 0, 161, 136, 83);
+        this.background = helper.createDrawable(TEXTURE, 0, 91, 136, 90);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.MARBLE_BLAST_FURNACE.get()));
         this.arrow = helper.drawableBuilder(WIDGETS, 225,3,30,10).buildAnimated(200, IDrawableAnimated.StartDirection.LEFT, false);
         this.deg = helper.drawableBuilder(WIDGETS, 177,29, 35, 5).buildAnimated(200, IDrawableAnimated.StartDirection.LEFT, false);
@@ -43,7 +43,7 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
 
     @Override
     public void draw(MarbleFurnaceRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
-        drawTimeSecond(recipe, stack, 54, 67);
+        drawTimeSecond(recipe, stack, 57, 78);
         degrees(recipe, stack, 13,56);
         this.arrow.draw(stack,40,36);
         this.deg.draw(stack, 13, 66);
@@ -56,13 +56,13 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
             TranslatableComponent timeString = new TranslatableComponent("jei.create_and_food.minute_time", cookTimeMinutes);
             Minecraft minecraft = Minecraft.getInstance();
             Font fontRenderer = minecraft.font;
-            fontRenderer.draw(poseStack, timeString, x, y, 0xFF808080);
+            fontRenderer.draw(poseStack, timeString, x, y, 0xFF424242);
         } else if (time <= 1180){
             int cookTimeSeconds = time / 20;
             TranslatableComponent timeString = new TranslatableComponent("jei.create_and_food.second_time", cookTimeSeconds);
             Minecraft minecraft = Minecraft.getInstance();
             Font fontRenderer = minecraft.font;
-            fontRenderer.draw(poseStack, timeString, x, y, 0xFF808080);
+            fontRenderer.draw(poseStack, timeString, x, y, 0xFF424242);
         }
     }
     private void degrees(MarbleFurnaceRecipe recipe, PoseStack stack, int x, int y) {
@@ -70,7 +70,7 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
         TranslatableComponent timeString = new TranslatableComponent("jei.create_and_food.blasting.deg", deg);
         Minecraft minecraft = Minecraft.getInstance();
         Font fontRenderer = minecraft.font;
-        fontRenderer.draw(stack, timeString, x, y, 0xFF606060);
+        fontRenderer.draw(stack, timeString, x, y, 0xFF424242);
     }
 
     @Override

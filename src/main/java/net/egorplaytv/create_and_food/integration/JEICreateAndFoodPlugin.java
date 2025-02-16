@@ -1,13 +1,9 @@
 package net.egorplaytv.create_and_food.integration;
 
-import blusunrize.immersiveengineering.api.crafting.cache.CachedRecipeList;
-import cofh.thermal.expansion.compat.jei.machine.FurnaceRecipeCategory;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.helpers.IJeiHelpers;
-import mezz.jei.api.recipe.RecipeType;
-import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
@@ -23,7 +19,6 @@ import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import vectorwing.farmersdelight.integration.jei.FDRecipeTypes;
 
@@ -45,7 +40,8 @@ public class JEICreateAndFoodPlugin implements IModPlugin {
         IJeiHelpers jeiHelpers = registration.getJeiHelpers();
         IGuiHelper guiHelper = jeiHelpers.getGuiHelper();
 
-        registration.addRecipeCategories(new FermentationBarrelRecipeCategory(guiHelper));
+        registration.addRecipeCategories(new FermentationFluidBarrelRecipeCategory(guiHelper));
+        registration.addRecipeCategories(new FermentationItemBarrelRecipeCategory(guiHelper));
         registration.addRecipeCategories(new MarbleBlastFurnaceRecipeCategory(guiHelper));
     }
 
@@ -54,8 +50,11 @@ public class JEICreateAndFoodPlugin implements IModPlugin {
         RecipeManager rm = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
         IIngredientManager ingredientManager = registration.getIngredientManager();
 
-        List<FermentationBarrelRecipe> fermentation = rm.getAllRecipesFor(FermentationBarrelRecipe.Type.INSTANCE);
-        registration.addRecipes(FermentationBarrelRecipeCategory.FERMENTATION_TYPE, fermentation);
+        List<FermentationFluidBarrelRecipe> fermentationFluid = rm.getAllRecipesFor(FermentationFluidBarrelRecipe.Type.INSTANCE);
+        registration.addRecipes(FermentationFluidBarrelRecipeCategory.FERMENTATION_FLUID_TYPE, fermentationFluid);
+
+        List<FermentationItemBarrelRecipe> fermentationItem = rm.getAllRecipesFor(FermentationItemBarrelRecipe.Type.INSTANCE);
+        registration.addRecipes(FermentationItemBarrelRecipeCategory.FERMENTATION_ITEM_TYPE, fermentationItem);
 
         List<MarbleFurnaceRecipe> blasting = rm.getAllRecipesFor(MarbleFurnaceRecipe.Type.INSTANCE);
         registration.addRecipes(MarbleBlastFurnaceRecipeCategory.BLASTING_TYPE, blasting);
@@ -67,7 +66,7 @@ public class JEICreateAndFoodPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.FERMENTATION_BARREL.get()), RecipeTypes.FERMENTATION);
+        registration.addRecipeCatalyst(new ItemStack(ModBlocks.FERMENTATION_BARREL.get()), RecipeTypes.FERMENTATION_FLUID, RecipeTypes.FERMENTATION_ITEM);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.MARBLE_BLAST_FURNACE.get()), RecipeTypes.BLASTING);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.OAK_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
         registration.addRecipeCatalyst(new ItemStack(ModBlocks.SPRUCE_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
@@ -83,7 +82,7 @@ public class JEICreateAndFoodPlugin implements IModPlugin {
     @Override
     public void registerGuiHandlers(IGuiHandlerRegistration registration) {
         registration.addRecipeClickArea(FermentationBarrelScreen.class, 74, 39, 24, 12,
-                FermentationBarrelRecipeCategory.FERMENTATION_TYPE);
+                FermentationFluidBarrelRecipeCategory.FERMENTATION_FLUID_TYPE, FermentationItemBarrelRecipeCategory.FERMENTATION_ITEM_TYPE);
         registration.addRecipeClickArea(MarbleBlastFurnaceScreen.class, 55,51,30,10,
                 MarbleBlastFurnaceRecipeCategory.BLASTING_TYPE);
     }

@@ -189,8 +189,13 @@ public class FluidTankRenderer {
                 MutableComponent amountString = new TranslatableComponent("jei.create_and_food.tooltip.liquid.amount.with.capacity", nf.format(milliBuckets), nf.format(capacity));
                 tooltip.add(amountString.withStyle(ChatFormatting.GRAY));
             } else if (tooltipMode == TooltipMode.SHOW_AMOUNT) {
-                MutableComponent amountString = new TranslatableComponent("jei.create_and_food.tooltip.liquid.amount", nf.format(milliBuckets));
-                tooltip.add(amountString.withStyle(ChatFormatting.GRAY));
+                if (fluidStack.getAmount() > 0) {
+                    MutableComponent amountString = new TranslatableComponent("jei.create_and_food.tooltip.liquid.amount", nf.format(milliBuckets));
+                    tooltip.add(amountString.withStyle(ChatFormatting.GRAY));
+                } else if (fluidStack.getAmount() == 0){
+                    MutableComponent amountString = new TranslatableComponent("jei.create_and_food.tooltip.liquid.amount.empty", nf.format(milliBuckets));
+                    tooltip.add(amountString.withStyle(ChatFormatting.GRAY));
+                }
             }
         } catch (RuntimeException e) {
             LOGGER.error("Failed to get tooltip for fluid: " + e);

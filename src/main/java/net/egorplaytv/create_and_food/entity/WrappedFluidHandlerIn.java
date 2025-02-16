@@ -9,10 +9,10 @@ import org.jetbrains.annotations.NotNull;
 *  under https://github.com/ModdingX/LibX/blob/1.18.2/LICENSE
 *
 */
-public class WrappedFluidHandler implements IFluidHandler {
+public class WrappedFluidHandlerIn implements IFluidHandler {
     private final IFluidHandler handler;
 
-    public WrappedFluidHandler(IFluidHandler handler) {
+    public WrappedFluidHandlerIn(IFluidHandler handler) {
         this.handler = handler;
     }
 
@@ -45,12 +45,12 @@ public class WrappedFluidHandler implements IFluidHandler {
     @NotNull
     @Override
     public FluidStack drain(FluidStack resource, FluidAction action) {
-        return this.handler.drain(resource, action);
+        return FluidStack.EMPTY;
     }
 
     @NotNull
     @Override
     public FluidStack drain(int maxDrain, FluidAction action) {
-        return this.handler.drain(maxDrain, action);
+        return FluidStack.EMPTY;
     }
 }
