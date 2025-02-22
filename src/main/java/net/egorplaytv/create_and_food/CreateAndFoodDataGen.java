@@ -2,23 +2,22 @@ package net.egorplaytv.create_and_food;
 
 
 import com.tterrag.registrate.providers.ProviderType;
-import net.egorplaytv.create_and_food.block.entity.custom.MarbleBlastFurnaceBlockEntity;
+import net.egorplaytv.create_and_food.data.DataGenerators;
 import net.egorplaytv.create_and_food.ponder.CAFPonders;
-import net.egorplaytv.create_and_food.recipe.recipe.Recipes;
-import net.minecraft.data.DataGenerator;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 import java.util.function.BiConsumer;
 
+import static net.egorplaytv.create_and_food.CreateAndFood.REGISTRATE;
+
 public class CreateAndFoodDataGen {
     public static void gatherData(GatherDataEvent event) {
-        DataGenerator generator = event.getGenerator();
         addExtraRegistrateData();
-        generator.addProvider(new Recipes(generator));
+        DataGenerators.gatherData(event);
     }
 
     private static void addExtraRegistrateData() {
-        CreateAndFood.REGISTRATE.addDataGenerator(ProviderType.LANG, provider -> {
+        REGISTRATE.addDataGenerator(ProviderType.LANG, provider -> {
             BiConsumer<String, String> langConsumer = provider::add;
 
             providePonderLang(langConsumer);

@@ -38,7 +38,7 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
         this.background = helper.createDrawable(TEXTURE, 0, 91, 136, 90);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.MARBLE_BLAST_FURNACE.get()));
         this.arrow = helper.drawableBuilder(WIDGETS, 225,3,30,10).buildAnimated(200, IDrawableAnimated.StartDirection.LEFT, false);
-        this.deg = helper.drawableBuilder(WIDGETS, 177,29, 35, 5).buildAnimated(200, IDrawableAnimated.StartDirection.LEFT, false);
+        this.deg = helper.drawableBuilder(WIDGETS, 177,35, 51, 5).buildAnimated(200, IDrawableAnimated.StartDirection.LEFT, false);
     }
 
     @Override

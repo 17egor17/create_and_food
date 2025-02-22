@@ -199,6 +199,7 @@
   "block.create_and_food.marble_black_galaxy_blast_furnace": "溶鉱炉黒い大理石",
   "block.create_and_food.marble_black_galaxy": "大理石の黒い銀河",
   "block.create_and_food.marble_perlin_pink": "大理石ピンクパール",
+  "block.create_and_food.mechanical_blender": "Механический блендер",
   "block.create_and_food.oak_barrel": "オークの樽",
   "block.create_and_food.oak_cutting_board": "オークのまな板",
   "block.create_and_food.oak_terrace": "オークテラス",
@@ -483,6 +484,8 @@
   "item.create_and_food.white_macaroni": "ホワイトマカロン",
 
   "_comment": "_______________________________JEI_______________________________",
+  "create.recipe.beating": "Взбивание",
+  "create.recipe.chopping": "Рубление",
   "jei.create_and_food.blasting": "発破",
   "jei.create_and_food.blasting.deg": "%s°C",
   "jei.create_and_food.day_time": "%s 日",

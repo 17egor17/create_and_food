@@ -4,6 +4,8 @@ import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.block.entity.custom.*;
+import net.egorplaytv.create_and_food.block.entity.renderer.BlenderInstance;
+import net.egorplaytv.create_and_food.block.entity.renderer.MechanicalBlenderRenderer;
 import net.egorplaytv.create_and_food.block.entity.renderer.SlidingDoorRenderer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -80,10 +82,17 @@ public class ModBlockEntities {
             });
 
     public static final BlockEntityEntry<SlidingDoorBlockEntity> SLIDING_DOOR =
-    CreateAndFood.REGISTRATE.blockEntity("sliding_door", SlidingDoorBlockEntity::new)
+            CreateAndFood.REGISTRATE.blockEntity("sliding_door", SlidingDoorBlockEntity::new)
                     .renderer(() -> SlidingDoorRenderer::new)
                     .validBlock(ModBlocks.STEEL_DOOR)
                     .register();
+
+    public static final BlockEntityEntry<MechanicalBlenderBlockEntity> MECHANICAL_BLENDER =
+            CreateAndFood.REGISTRATE.blockEntity("mechanical_blender", MechanicalBlenderBlockEntity::new)
+            .instance(() -> BlenderInstance::new)
+            .validBlocks(ModBlocks.MECHANICAL_BLENDER)
+            .renderer(() -> MechanicalBlenderRenderer::new)
+            .register();
 
 
     public static void register(IEventBus eventBus) {

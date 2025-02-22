@@ -48,6 +48,10 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
         return new BlastingRecipeBuilder(mainResult, count, blastingTime, blastingDeg, experience);
     }
 
+    public static BlastingRecipeBuilder blastingRecipe(ItemLike mainResult, int blastingTime, int blastingDeg, float experience){
+        return new BlastingRecipeBuilder(mainResult, 1, blastingTime, blastingDeg, experience);
+    }
+
     public BlastingRecipeBuilder addIngredient(TagKey<Item> tagIn) {
         return this.addIngredient(Ingredient.of(tagIn));
     }
@@ -83,12 +87,12 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void build(Consumer<FinishedRecipe> consumer, String recipeName) {
-        RecipeBuilder.super.build(consumer, "blasting");
+        RecipeBuilder.super.build(consumer, "blasting/" + recipeName);
     }
 
     @Override
     public void build(Consumer<FinishedRecipe> consumer, String recipeName, String pRecipeId) {
-        RecipeBuilder.super.build(consumer, "blasting", pRecipeId);
+        RecipeBuilder.super.build(consumer, "blasting/" + recipeName , pRecipeId);
     }
 
     public static class Result implements FinishedRecipe {
@@ -128,7 +132,9 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
             }
 
             json.add("result", objectResult);
+            json.addProperty("comment_time", "min 200 time");
             json.addProperty("time", this.blastingTime);
+            json.addProperty("comment", "min 100 deg, max 10000 deg");
             json.addProperty("degree", this.blastingDeg);
             if (this.experience > 0.0F) {
                 json.addProperty("experience", this.experience);

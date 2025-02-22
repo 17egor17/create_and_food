@@ -86,12 +86,16 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                             (index, stack) -> itemHandler.isItemValid(0, stack))));
 
     protected final ContainerData data;
-    private int progress_deg = 0;
+    public int progress_deg = 0;
     private int progress_tick = 0;
     private int progress = 0;
     private int deg;
     private int time;
     private final Object2IntOpenHashMap<ResourceLocation> experience;
+
+    public int getDeg() {
+        return progress_deg;
+    }
 
     public MarbleBlastFurnaceBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.MARBLE_BLAST_FURNACE_ENTITY.get(), pPos, pBlockState);
@@ -248,10 +252,31 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         }
 
         if (hasRecipe(pBlockEntity, pLevel) && hasDegree(pBlockEntity, recipe.get().getDeg())) {
-            if (pBlockEntity.progress_deg > recipe.get().getDeg() + 4000){
-                int time = 10;
+            if (pBlockEntity.progress_deg > recipe.get().getDeg() + 8000){
+                int time = 80;
+                pBlockEntity.progress = pBlockEntity.progress + time;
+            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 7000){
+                int time = 70;
+                pBlockEntity.progress = pBlockEntity.progress + time;
+            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 6000){
+                int time = 60;
+                pBlockEntity.progress = pBlockEntity.progress + time;
+            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 5000){
+                int time = 50;
+                pBlockEntity.progress = pBlockEntity.progress + time;
+            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 4000){
+                int time = 40;
+                pBlockEntity.progress = pBlockEntity.progress + time;
+            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 3000){
+                int time = 30;
+                pBlockEntity.progress = pBlockEntity.progress + time;
+            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 2000){
+                int time = 20;
                 pBlockEntity.progress = pBlockEntity.progress + time;
             } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 1000){
+                int time = 10;
+                pBlockEntity.progress = pBlockEntity.progress + time;
+            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 500){
                 int time = 5;
                 pBlockEntity.progress = pBlockEntity.progress + time;
             } else if (pBlockEntity.progress_deg < recipe.get().getDeg() ||
@@ -410,19 +435,19 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         return pBlockEntity.progress_deg >= deg;
     }
     private static boolean hasFuel(MarbleBlastFurnaceBlockEntity pBlockEntity) {
-        if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_1000) && pBlockEntity.progress_deg <= 8000){
+        if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_1000) && pBlockEntity.progress_deg <= 9000){
             return true;
-        } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_BUCKET) ||
-                pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_100) && pBlockEntity.progress_deg <= 8900){
+        } else if ((pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_BUCKET) ||
+                pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_100)) && pBlockEntity.progress_deg <= 9900){
             return true;
-        } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_90) && pBlockEntity.progress_deg <= 8910) {
+        } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_90) && pBlockEntity.progress_deg <= 9910) {
             return true;
-        } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_15) && pBlockEntity.progress_deg <= 8985){
+        } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_15) && pBlockEntity.progress_deg <= 9985){
             return true;
-        } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_10) && pBlockEntity.progress_deg <= 8990){
+        } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_10) && pBlockEntity.progress_deg <= 9990){
             return true;
         } else
-            return pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_5) && pBlockEntity.progress_deg <= 8995;
+            return pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_5) && pBlockEntity.progress_deg <= 9995;
     }
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack resultItem) {
         return inventory.getItem(4).getItem() == resultItem.getItem() || inventory.getItem(4).isEmpty();

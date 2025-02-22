@@ -1,0 +1,19 @@
+{
+  "type": "create_and_food:beating",
+  "ingredients": [
+    {
+      "fluid": "minecraft:milk",
+      "amount": 250
+    },
+    {
+      "item": "minecraft:porkchop"
+    }
+  ],
+  "results": [
+    {
+      "item": "farmersdelight:minced_beef",
+      "count": 2
+    }
+  ],
+  "heatRequirement": "heated"
+}

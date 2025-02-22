@@ -7,6 +7,7 @@ import net.egorplaytv.create_and_food.block.entity.ModWoodTypes;
 import net.egorplaytv.create_and_food.block.entity.custom.MarbleBlastFurnaceBlockEntity;
 import net.egorplaytv.create_and_food.config.CreateAndFoodClientConfigs;
 import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
+import net.egorplaytv.create_and_food.data.CAFRegistrate;
 import net.egorplaytv.create_and_food.networking.ModMessages;
 import net.egorplaytv.create_and_food.ponder.CAFPonders;
 import net.egorplaytv.create_and_food.villager.ModVillagers;
@@ -34,10 +35,10 @@ import java.util.Random;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(CreateAndFood.MOD_ID)
-public class CreateAndFood{
+public class CreateAndFood {
     // Directly reference a slf4j logger
     public static final String MOD_ID = "create_and_food";
-    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID);
+    public static final CAFRegistrate REGISTRATE = CAFRegistrate.create();
     public static final Logger LOGGER = LogManager.getLogger();
     private static final String PROTOCOL_VERSION = "1";
     public static final SimpleChannel PACKET_HANDLER =

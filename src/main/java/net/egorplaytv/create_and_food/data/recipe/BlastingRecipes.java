@@ -1,5 +1,6 @@
 package net.egorplaytv.create_and_food.data.recipe;
 
+import com.simibubi.create.AllItems;
 import net.egorplaytv.create_and_food.data.recipe.builders.BlastingRecipeBuilder;
 import net.egorplaytv.create_and_food.item.ModItems;
 import net.minecraft.data.recipes.FinishedRecipe;
@@ -24,7 +25,6 @@ public class BlastingRecipes {
     }
 
     private static void blastingCrashedRawOres(Consumer<FinishedRecipe> consumer) {
-
     }
 
     private static void blastingRawOres(Consumer<FinishedRecipe> consumer) {

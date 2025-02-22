@@ -9,6 +9,7 @@
     "create_and_food:kitchen_table_inner",
     "create_and_food:kitchen_table_outer",
     "#create_and_food:barrels",
-    "#create_and_food:berry_bushes"
+    "#create_and_food:berry_bushes",
+    "create_and_food:mechanical_blender"
   ]
 }

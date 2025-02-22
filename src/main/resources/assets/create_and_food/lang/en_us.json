@@ -199,6 +199,7 @@
   "block.create_and_food.marble_black_galaxy_blast_furnace": "Black Marble Blast Furnace",
   "block.create_and_food.marble_black_galaxy": "Marble Black Galaxy",
   "block.create_and_food.marble_perlin_pink": "Marble Perlin Pink",
+  "block.create_and_food.mechanical_blender": "Mechanical Blender",
   "block.create_and_food.oak_barrel": "Oak Barrel",
   "block.create_and_food.oak_cutting_board": "Oak Cutting Board",
   "block.create_and_food.oak_terrace": "Oak Terrace",
@@ -483,6 +484,8 @@
   "item.create_and_food.white_macaroni": "White Macaroni",
 
   "_comment": "_______________________________JEI_______________________________",
+  "create.recipe.beating": "Beating",
+  "create.recipe.chopping": "Chopping",
   "jei.create_and_food.blasting": "Blasting",
   "jei.create_and_food.blasting.deg": "%s°C",
   "jei.create_and_food.day_time": "%s Day(s)",

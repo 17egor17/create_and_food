@@ -199,6 +199,7 @@
   "block.create_and_food.marble_black_galaxy_blast_furnace": "Плавильня из черного мрамора",
   "block.create_and_food.marble_black_galaxy": "Мрамор черная галактика",
   "block.create_and_food.marble_perlin_pink": "Мрамор жемчужно-розовый",
+  "block.create_and_food.mechanical_blender": "Механический блендер",
   "block.create_and_food.oak_barrel": "Бочка из дуба",
   "block.create_and_food.oak_cutting_board": "Разделочная доска из дуба",
   "block.create_and_food.oak_terrace": "Терраса из дуба",
@@ -483,6 +484,8 @@
   "item.create_and_food.white_macaroni": "Белый макарон",
 
   "_comment": "_______________________________JEI_______________________________",
+  "create.recipe.beating": "Взбивание",
+  "create.recipe.chopping": "Рубление",
   "jei.create_and_food.blasting": "Плавление",
   "jei.create_and_food.blasting.deg": "%s°C",
   "jei.create_and_food.day_time": "%s День(ей)",

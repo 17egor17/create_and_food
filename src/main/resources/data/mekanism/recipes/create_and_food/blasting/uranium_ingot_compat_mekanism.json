@@ -10,7 +10,7 @@
   },
   "comment_time": "min 200 time",
   "time": 400,
-  "comment": "min 100 deg, max 9000 deg",
+  "comment": "min 100 deg, max 10000 deg",
   "degree": 1132,
   "experience": 0.1
 }

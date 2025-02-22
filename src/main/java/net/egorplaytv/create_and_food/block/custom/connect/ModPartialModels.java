@@ -11,7 +11,8 @@ import java.util.Map;
 
 public class ModPartialModels {
     public static final Map<ResourceLocation, Couple<PartialModel>> FOLDING_DOORS = new HashMap<>();
-    public static final PartialModel CANON_HEAD = block("canon/head");
+    public static final PartialModel
+    MECHANICAL_BLENDER_HEAD = block("mechanical_blender/head");
 
     static {
         FluidTransportBehaviour.AttachmentTypes.ComponentPartials[] var0 = FluidTransportBehaviour.AttachmentTypes.ComponentPartials.values();

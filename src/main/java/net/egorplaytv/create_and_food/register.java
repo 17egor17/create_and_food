@@ -6,6 +6,7 @@ import net.egorplaytv.create_and_food.entity.ModEntityTypes;
 import net.egorplaytv.create_and_food.fluid.ModFluids;
 import net.egorplaytv.create_and_food.item.ModItems;
 import net.egorplaytv.create_and_food.particle.ModParticles;
+import net.egorplaytv.create_and_food.recipe.AllRecipeTypes;
 import net.egorplaytv.create_and_food.recipe.ModRecipes;
 import net.egorplaytv.create_and_food.screen.ModMenuTypes;
 import net.egorplaytv.create_and_food.sound.ModSounds;
@@ -26,6 +27,7 @@ public class register {
         ModParticles.register(eventBus);
         ModVillagers.register(eventBus);
         ModRecipes.register(eventBus);
+        AllRecipeTypes.register(eventBus);
         ModStructures.register(eventBus);
         ModTags.init();
 
