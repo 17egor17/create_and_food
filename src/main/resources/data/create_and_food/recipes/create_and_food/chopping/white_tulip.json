@@ -1,0 +1,14 @@
+{
+  "type": "create_and_food:chopping",
+  "ingredients": [
+    {
+      "item": "minecraft:white_tulip"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:light_gray_dye",
+      "count": 2
+    }
+  ]
+}

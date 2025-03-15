@@ -1,8 +1,0 @@
-{
-    "variants": {
-      "facing=north": { "model": "create_and_food:block/tablet/tablet_block" },
-      "facing=east": { "model": "create_and_food:block/tablet/tablet_block", "y": 90 },
-      "facing=south": { "model": "create_and_food:block/tablet/tablet_block", "y": 180 },
-      "facing=west": { "model": "create_and_food:block/tablet/tablet_block", "y": 270 }
-    }
-}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "create_and_food:stone_types/green_baked_clay"
+  },
+  "result": "create_and_food:layered_green_baked_clay",
+  "count": 1
+}

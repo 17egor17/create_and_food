@@ -7,10 +7,10 @@
   ],
   "key": {
     "C": {
-      "item": "create:andesite_casing"
+      "item": "create_and_food:steel_block"
     },
     "S": {
-      "item": "create:cogwheel"
+      "item": "create_and_food:steel_cogwheel"
     },
     "I": {
       "item": "create:propeller"

@@ -40,6 +40,9 @@ public class TextUtils {
     public static MutableComponent getWildBerryBushTranslation(String key, Object... args) {
         return new TranslatableComponent("create_and_food.wild_berry_bush." + key, args);
     }
+    public static MutableComponent getPumpkinAndMelonBushTranslation(String key, Object... args) {
+        return new TranslatableComponent("create_and_food.pumpkin_and_melon_bush." + key, args);
+    }
 
     @OnlyIn(Dist.CLIENT)
     public static void addFoodEffectTooltip(ItemStack itemIn, List<Component> lores, float durationFactor) {

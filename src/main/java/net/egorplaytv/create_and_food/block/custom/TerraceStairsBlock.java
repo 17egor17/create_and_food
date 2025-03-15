@@ -25,7 +25,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class TerraceStairsBlock extends TerraceBlock implements SimpleWaterloggedBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
-    public static final BooleanProperty ENCASED = net.egorplaytv.create_and_food.block.praperties.BlockStateProperties.TERRACE_ENCASED;
     public TerraceStairsBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH)
@@ -162,7 +161,7 @@ public class TerraceStairsBlock extends TerraceBlock implements SimpleWaterlogge
         FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
         boolean flag = fluidstate.getType() == Fluids.WATER;
         return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite())
-                .setValue(WATERLOGGED, Boolean.valueOf(flag)).setValue(ENCASED, Boolean.valueOf(false));
+                .setValue(WATERLOGGED, Boolean.valueOf(flag));
     }
     @Override
     public BlockState rotate(BlockState pState, Rotation pRotation) {
@@ -174,6 +173,6 @@ public class TerraceStairsBlock extends TerraceBlock implements SimpleWaterlogge
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING, ATTACHMENT, ENCASED, WATERLOGGED);
+        pBuilder.add(FACING, ATTACHMENT, WATERLOGGED);
     }
 }

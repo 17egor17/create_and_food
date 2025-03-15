@@ -2,7 +2,10 @@ package net.egorplaytv.create_and_food.block.custom;
 
 import net.egorplaytv.create_and_food.item.ModItems;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
@@ -21,5 +24,14 @@ public class RyePlantBlock extends CropBlock {
     @Override
     protected ItemLike getBaseSeedId() {
         return ModItems.RYE_SEEDS.get();
+    }
+
+    @Override
+    public IntegerProperty getAgeProperty() {
+        return AGE;
+    }
+
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+        pBuilder.add(AGE);
     }
 }

@@ -1,0 +1,16 @@
+{
+  "type": "create_and_food:chopping",
+  "ingredients": [
+    {
+      "item": "farmersdelight:wild_beetroots"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:beetroot_seeds"
+    },
+    {
+      "item": "minecraft:red_dye"
+    }
+  ]
+}

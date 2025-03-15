@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "create_and_food:block/palettes/stone_types/brick/blue_baked_clay_cut_brick"
+  }
+}

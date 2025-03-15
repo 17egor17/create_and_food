@@ -1,7 +1,10 @@
 package net.egorplaytv.create_and_food.world.feature;
 
 import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.custom.berry.WildPumpkinAndMelonBlock;
+import net.egorplaytv.create_and_food.block.custom.berry.WildPumpkinBushBlock;
 import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
+import net.egorplaytv.create_and_food.util.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -80,6 +83,21 @@ public class ModConfiguredFeatures {
                     getWildCropConfiguration(ModBlocks.WILD_RED_GRAPE_BUSH.get(), 32, 6,
                             BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
 
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_PUMPKIN_BUSH =
+            FeatureUtils.register("wild_pumpkin_bush", Feature.RANDOM_PATCH,
+                    getWildCropConfiguration(ModBlocks.WILD_PUMPKIN_BUSH.get(), 96, 6,
+                            BlockPredicate.matchesBlocks(List.of(Blocks.GRASS_BLOCK), BLOCK_BELOW)));
+
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_PUMPKIN_BUSH_IN_JUNGLE =
+            FeatureUtils.register("wild_pumpkin_bush_in_jungle", Feature.RANDOM_PATCH,
+                    getWildCropConfiguration(ModBlocks.WILD_PUMPKIN_BUSH.get().defaultBlockState()
+                                    .setValue(WildPumpkinAndMelonBlock.IN_JUNGLE, true).getBlock(), 96, 6,
+                            BlockPredicate.matchesBlocks(List.of(Blocks.GRASS_BLOCK), BLOCK_BELOW)));
+
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_MELON_BUSH =
+            FeatureUtils.register("wild_melon_bush", Feature.RANDOM_PATCH,
+                    getWildCropConfiguration(ModBlocks.WILD_MELON_BUSH.get(), 64, 6,
+                            BlockPredicate.matchesBlocks(List.of(Blocks.GRASS_BLOCK), BLOCK_BELOW)));
 
 
     public static final List<OreConfiguration.TargetBlockState> OVERWORLD_TANTALUM_ORES = List.of(
@@ -110,6 +128,7 @@ public class ModConfiguredFeatures {
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> RUBY_ORE = FeatureUtils.register("ruby_ore",
           Feature.ORE, new OreConfiguration(OVERWORLD_RUBY_ORES, CreateAndFoodCommonConfigs.RUBY_ORE_VEINS_SIZE.get()));
+
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> MARBLE = FeatureUtils.register("marble",
             Feature.ORE, new OreConfiguration(OVERWORLD_MARBLE, CreateAndFoodCommonConfigs.MARBLE_VEINS_SIZE.get()));

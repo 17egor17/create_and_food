@@ -12,7 +12,12 @@ import java.util.Map;
 public class ModPartialModels {
     public static final Map<ResourceLocation, Couple<PartialModel>> FOLDING_DOORS = new HashMap<>();
     public static final PartialModel
-    MECHANICAL_BLENDER_HEAD = block("mechanical_blender/head");
+            MECHANICAL_BLENDER_HEAD = block("mechanical_blender/head"),
+            MECHANICAL_BLENDER_POLE = block("mechanical_blender/pole"),
+            STEEL_COGWHEEL = block("steel_cogwheel_shaftless"),
+            LARGE_STEEL_COGWHEEL = block("large_steel_cogwheel_shaftless"),
+            COGWHEEL_STEEL_SHAFT = block("cogwheel_steel_shaft"),
+            STEEL_SHAFT_HALF = block("steel_shaft_half");
 
     static {
         FluidTransportBehaviour.AttachmentTypes.ComponentPartials[] var0 = FluidTransportBehaviour.AttachmentTypes.ComponentPartials.values();

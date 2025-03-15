@@ -39,8 +39,6 @@ public class TerraceBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED =
             net.minecraft.world.level.block.state.properties.BlockStateProperties.WATERLOGGED;
     public static final EnumProperty<TerraceAttachType> ATTACHMENT = BlockStateProperties.TERRACE_ATTACHMENT;
-    public static final BooleanProperty ENCASED = BlockStateProperties.TERRACE_ENCASED;
-    Entity entity;
     public TerraceBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(ATTACHMENT, TerraceAttachType.SINGLE)
@@ -84,29 +82,16 @@ public class TerraceBlock extends Block implements SimpleWaterloggedBlock {
     }
 
 
-    @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer,
-                                 InteractionHand pHand, BlockHitResult pHit) {
-        entity = pPlayer;
-        LivingEntity _livEnt = (LivingEntity) entity;
-        if (_livEnt.getMainHandItem().getItem() == AllItems.WRENCH.get()) {
-            pLevel.setBlock(pPos, pState.setValue(ENCASED, !pState.getValue(ENCASED)), 3);
-            return InteractionResult.SUCCESS;
-        }
-
-        return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
-    }
 
     private VoxelShape getVoxelShape(BlockState pState) {
         TerraceAttachType terraceattachtype = pState.getValue(ATTACHMENT);
-        boolean encased = pState.getValue(ENCASED);
-        if (terraceattachtype == TerraceAttachType.SINGLE && !encased){
+        if (terraceattachtype == TerraceAttachType.SINGLE){
             return SIMPLE();
-        } else if (terraceattachtype == TerraceAttachType.LOW && !encased){
+        } else if (terraceattachtype == TerraceAttachType.LOW){
             return LOW();
-        } else if (terraceattachtype == TerraceAttachType.MIDDLE && !encased){
+        } else if (terraceattachtype == TerraceAttachType.MIDDLE){
             return MIDDLE();
-        } else if (terraceattachtype == TerraceAttachType.UP && !encased){
+        } else if (terraceattachtype == TerraceAttachType.UP){
             return UP();
         } else {
             return SHAPE;
@@ -119,7 +104,7 @@ public class TerraceBlock extends Block implements SimpleWaterloggedBlock {
         BlockState state = super.getStateForPlacement(context);
         FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
         boolean flag = fluidstate.getType() == Fluids.WATER;
-        return state.setValue(WATERLOGGED, Boolean.valueOf(flag)).setValue(ENCASED, Boolean.valueOf(false));
+        return state.setValue(WATERLOGGED, Boolean.valueOf(flag));
     }
 
     @Override
@@ -175,7 +160,7 @@ public class TerraceBlock extends Block implements SimpleWaterloggedBlock {
     }
 
     protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {
-        builder.add(ATTACHMENT, ENCASED, WATERLOGGED);
+        builder.add(ATTACHMENT, WATERLOGGED);
     }
 
     @Override

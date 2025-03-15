@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "create_and_food:block/cut_blue_baked_clay_slab_top"
+    },
+    "type=bottom": {
+      "model": "create_and_food:block/cut_blue_baked_clay_slab"
+    },
+    "type=double": {
+      "model": "create_and_food:block/cut_blue_baked_clay"
+    }
+  }
+}

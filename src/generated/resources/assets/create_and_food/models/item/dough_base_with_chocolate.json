@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "create_and_food:item/dough/dough_base_with_chocolate"
+  }
+}

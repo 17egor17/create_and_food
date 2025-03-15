@@ -1,8 +1,0 @@
-{
-  "variants": {
-    "facing=north": { "model": "create_and_food:block/furniture_cutter"},
-    "facing=east": { "model": "create_and_food:block/furniture_cutter", "y": 90 },
-    "facing=south": { "model": "create_and_food:block/furniture_cutter", "y": 180 },
-    "facing=west": { "model": "create_and_food:block/furniture_cutter", "y": 270 }
-  }
-}

@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "create_and_food:block/steel_shaft",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "create_and_food:block/steel_shaft"
+    },
+    "axis=z": {
+      "model": "create_and_food:block/steel_shaft",
+      "x": 90,
+      "y": 180
+    }
+  }
+}

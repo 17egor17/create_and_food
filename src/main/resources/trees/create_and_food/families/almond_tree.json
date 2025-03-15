@@ -1,7 +1,0 @@
-{
-  "common_species": "create_and_food:almond_tree",
-  "common_leaves": "create_and_food:almond_tree",
-  "primitive_log": "create_and_food:almond_log",
-  "primitive_stripped_log": "create_and_food:stripped_almond_log",
-  "max_branch_radius": 8
-}

@@ -4,7 +4,7 @@
 	"ambientocclusion": false,
 	"textures": {
 		"wheel": "create:block/waterwheel_metal",
-		"pole": "create:block/mechanical_press_pole"
+		"pole": "create_and_food:block/mechanical_blender_pole"
 	},
 	"elements": [
 		{

@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "age=0": { "model": "create_and_food:block/berries/pumpkin/pumpkin_0" },
+        "age=1": { "model": "create_and_food:block/berries/pumpkin/pumpkin_1" },
+        "age=2": { "model": "create_and_food:block/berries/pumpkin/pumpkin_2" },
+        "age=3": { "model": "create_and_food:block/berries/pumpkin/pumpkin_3" },
+        "age=4": { "model": "create_and_food:block/berries/pumpkin/pumpkin_4" },
+        "age=5": { "model": "create_and_food:block/berries/pumpkin/pumpkin_5" },
+        "age=6": { "model": "create_and_food:block/berries/pumpkin/pumpkin_6" },
+        "age=7": { "model": "create_and_food:block/berries/pumpkin/pumpkin_7" }
+    }
+}

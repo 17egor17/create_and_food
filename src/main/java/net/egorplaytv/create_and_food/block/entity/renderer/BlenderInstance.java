@@ -30,7 +30,7 @@ public class BlenderInstance extends EncasedCogInstance implements DynamicInstan
         blenderHead.setRotationAxis(Direction.Axis.Y);
 
         blenderPole = getOrientedMaterial()
-                .getModel(AllPartialModels.MECHANICAL_MIXER_POLE, blockState)
+                .getModel(ModPartialModels.MECHANICAL_BLENDER_POLE, blockState)
                 .createInstance();
 
 
@@ -44,7 +44,7 @@ public class BlenderInstance extends EncasedCogInstance implements DynamicInstan
     protected Instancer<RotatingData> getCogModel() {
         return materialManager.defaultSolid()
                 .material(AllMaterialSpecs.ROTATING)
-                .getModel(AllPartialModels.SHAFTLESS_COGWHEEL, blockEntity.getBlockState());
+                .getModel(ModPartialModels.STEEL_COGWHEEL, blockEntity.getBlockState());
     }
 
     @Override

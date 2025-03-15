@@ -59,6 +59,10 @@ public class SpriteShifts {
             GOLDEN_WALL_TOP = omni("golden_wall_top");
 
     public static final CTSpriteShiftEntry
+            STEEL_ENCASED_COGWHEEL_SIDE = vertical("steel_encased_cogwheel_side"),
+            STEEL_ENCASED_COGWHEEL_OTHERSIDE = horizontal("steel_encased_cogwheel_side"),
+            ALLOY_SOULS_ENCASED_COGWHEEL_SIDE = vertical("alloy_souls_encased_cogwheel_side"),
+            ALLOY_SOULS_ENCASED_COGWHEEL_OTHERSIDE = horizontal("alloy_souls_encased_cogwheel_side"),
             GOLDEN_WALL = vertical("golden_wall"),
             ALMOND_GLASS = omni( "almond_glass"),
             ALLOY_SOULS_GLASS = omni("alloy_souls_glass");
@@ -88,8 +92,8 @@ public class SpriteShifts {
     }
 
     private static CTSpriteShiftEntry getCasingCT(CTType type, String blockTextureName, String connectedTextureName) {
-        return CTSpriteShifter.getCT(type, CreateAndFood.asResource("block/palettes/casing/" + blockTextureName),
-                CreateAndFood.asResource("block/palettes/casing/" + connectedTextureName + "_connected"));
+        return CTSpriteShifter.getCT(type, CreateAndFood.asResource("block/" + blockTextureName),
+                CreateAndFood.asResource("block/" + connectedTextureName + "_connected"));
     }
 
     private static CTSpriteShiftEntry getCasingCT(CTType type, String blockTextureName) {

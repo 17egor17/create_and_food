@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "create_and_food:stone_types/red_baked_clay"
+  },
+  "result": "create_and_food:red_baked_clay_pillar",
+  "count": 1
+}

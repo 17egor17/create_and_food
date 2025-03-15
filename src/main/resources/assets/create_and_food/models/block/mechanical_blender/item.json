@@ -1,11 +1,11 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"log": "minecraft:block/spruce_log_top",
-		"cogwheel": "create:block/cogwheel",
-		"pole": "create:block/mechanical_press_pole",
-		"top": "create:block/mechanical_press_top",
-		"side": "create:block/mixer_base_side",
+		"log": "create_and_food:block/steel",
+		"cogwheel": "create_and_food:block/steel_cogwheel",
+		"pole": "create_and_food:block/mechanical_blender_pole",
+		"top": "create_and_food:block/mechanical_blender_top",
+		"side": "create_and_food:block/blender_base_side",
 		"wheel": "create:block/waterwheel_metal",
 		"head": "create_and_food:block/blender_head"
 	},

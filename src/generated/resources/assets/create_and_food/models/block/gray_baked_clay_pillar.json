@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "create_and_food:block/palettes/stone_types/pillar/gray_baked_clay_cut_pillar",
+    "end": "create_and_food:block/palettes/stone_types/cap/gray_baked_clay_cut_cap"
+  }
+}

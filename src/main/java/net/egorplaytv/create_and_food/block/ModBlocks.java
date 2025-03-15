@@ -3,12 +3,19 @@ package net.egorplaytv.create_and_food.block;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.decoration.MetalScaffoldingBlock;
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
+import com.simibubi.create.content.decoration.encasing.EncasingRegistry;
 import com.simibubi.create.content.decoration.palettes.ConnectedGlassBlock;
 import com.simibubi.create.content.kinetics.BlockStressDefaults;
+import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockModel;
+import com.simibubi.create.content.kinetics.simpleRelays.encased.EncasedCogCTBehaviour;
+import com.simibubi.create.content.processing.AssemblyOperatorBlockItem;
 import com.simibubi.create.foundation.block.connected.HorizontalCTBehaviour;
 import com.simibubi.create.foundation.block.connected.SimpleCTBehaviour;
 import com.simibubi.create.foundation.data.AssetLookup;
 import com.simibubi.create.foundation.data.BlockStateGen;
+import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.simibubi.create.foundation.data.SharedProperties;
+import com.simibubi.create.foundation.utility.Couple;
 import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.egorplaytv.create_and_food.CreateAndFood;
@@ -19,8 +26,8 @@ import net.egorplaytv.create_and_food.block.custom.connect.*;
 import net.egorplaytv.create_and_food.block.entity.ModWoodTypes;
 import net.egorplaytv.create_and_food.item.ModCreativeModeTab;
 import net.egorplaytv.create_and_food.item.ModItems;
+import net.egorplaytv.create_and_food.item.custom.CAFCogwheelBlockItem;
 import net.egorplaytv.create_and_food.sound.ModSounds;
-import net.egorplaytv.create_and_food.util.ModTags;
 import net.egorplaytv.create_and_food.world.feature.tree.AlmondTreeGrower;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.renderer.RenderType;
@@ -29,7 +36,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -51,9 +57,10 @@ import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
-import static com.simibubi.create.foundation.data.TagGen.axeOrPickaxe;
+import static com.simibubi.create.foundation.data.TagGen.*;
 import static net.egorplaytv.create_and_food.CreateAndFood.REGISTRATE;
 import static net.egorplaytv.create_and_food.block.custom.connect.CTBlocks.*;
+import static net.egorplaytv.create_and_food.block.custom.connect.EncasedCogwheelBlock.steel;
 
 
 public class ModBlocks {
@@ -216,13 +223,60 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.BRICKS).strength(2.0F, 6.0F)
                     .requiresCorrectToolForDrops().sound(SoundType.STONE)), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
+    public static final RegistryObject<Block> ACACIA_TERRACE = registryBlock("acacia_terrace",
+            () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> ACACIA_TERRACE_STAIRS = registryBlock("acacia_terrace_stairs",
+            () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> ALMOND_TERRACE = registryBlock("almond_terrace",
+            () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> ALMOND_TERRACE_STAIRS = registryBlock("almond_terrace_stairs",
+            () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> BIRCH_TERRACE = registryBlock("birch_terrace",
+            () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> BIRCH_TERRACE_STAIRS = registryBlock("birch_terrace_stairs",
+            () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> CRIMSON_TERRACE = registryBlock("crimson_terrace",
+            () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> CRIMSON_TERRACE_STAIRS = registryBlock("crimson_terrace_stairs",
+            () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> DARK_OAK_TERRACE = registryBlock("dark_oak_terrace",
+            () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> DARK_OAK_TERRACE_STAIRS = registryBlock("dark_oak_terrace_stairs",
+            () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> JUNGLE_TERRACE = registryBlock("jungle_terrace",
+            () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> JUNGLE_TERRACE_STAIRS = registryBlock("jungle_terrace_stairs",
+            () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
     public static final RegistryObject<Block> OAK_TERRACE = registryBlock("oak_terrace",
-            () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD)
-                    .requiresCorrectToolForDrops().sound(SoundType.WOOD)), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-
+            () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
     public static final RegistryObject<Block> OAK_TERRACE_STAIRS = registryBlock("oak_terrace_stairs",
-            () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD)
-                    .requiresCorrectToolForDrops().sound(SoundType.WOOD)), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+            () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> SPRUCE_TERRACE = registryBlock("spruce_terrace",
+            () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> SPRUCE_TERRACE_STAIRS = registryBlock("spruce_terrace_stairs",
+            () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> WARPED_TERRACE = registryBlock("warped_terrace",
+            () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> WARPED_TERRACE_STAIRS = registryBlock("warped_terrace_stairs",
+            () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
     public static final RegistryObject<Block> FRAMED_CALCITE = registryBlock("framed_calcite",
             () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).strength(0.75F)
@@ -268,7 +322,10 @@ public class ModBlocks {
     public static BlockEntry<CTFramedWall> DEEPSLATE_WALKWAY;
     public static BlockEntry<CTFramedWall> SANDSTONE_WALKWAY;
     public static BlockEntry<CTFramedWall> RED_SANDSTONE_WALKWAY;
-    public static BlockEntry<CTFramedWall> STEEL_BLOCK;
+    public static BlockEntry<CasingBlock> STEEL_BLOCK;
+    public static BlockEntry<CAFShaftBlock> STEEL_SHAFT;
+    public static BlockEntry<CAFCogWheelBlock> STEEL_COGWHEEL;
+    public static BlockEntry<CAFCogWheelBlock> LARGE_STEEL_COGWHEEL;
     public static final BlockEntry<SlidingDoorBlock> STEEL_DOOR;
     public static final RegistryObject<Block> STEEL_LAMP_BLOCK = registryBlock("steel_ruby_lamp_block",
             () -> new RedstoneLampBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2.0F)
@@ -381,6 +438,16 @@ public class ModBlocks {
     public static final RegistryObject<Block> WILD_RED_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_red_grape_bush",
             () -> new WildRedGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
 
+    public static final RegistryObject<Block> PUMPKIN_BUSH = registryBlockWithoutBlockItem("pumpkin_bush",
+            () -> new PumpkinBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+    public static final RegistryObject<Block> WILD_PUMPKIN_BUSH = registryBlockWithoutBlockItem("wild_pumpkin_bush",
+            () -> new WildPumpkinBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+
+    public static final RegistryObject<Block> MELON_BUSH = registryBlockWithoutBlockItem("melon_bush",
+            () -> new MelonBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+    public static final RegistryObject<Block> WILD_MELON_BUSH = registryBlockWithoutBlockItem("wild_melon_bush",
+            () -> new WildMelonBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+
     //BAKED CLAY//
     public static final RegistryObject<Block> UNBAKED_CLAY = registryBlock("unbaked_clay",
             () -> new Block(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).strength(1.5F)),
@@ -451,19 +518,49 @@ public class ModBlocks {
     static {
         REGISTRATE.creativeModeTab(() -> ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
+        STEEL_SHAFT = REGISTRATE.block("steel_shaft", CAFShaftBlock::new)
+                .initialProperties(SharedProperties::stone)
+                .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
+                .transform(BlockStressDefaults.setNoImpact())
+                .transform(pickaxeOnly())
+                .blockstate(BlockStateGen.axisBlockProvider(false))
+                .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
+                .simpleItem()
+                .register();
+
+        STEEL_COGWHEEL = REGISTRATE.block("steel_cogwheel", CAFCogWheelBlock::small)
+                .initialProperties(SharedProperties::stone)
+                .properties(p -> p.sound(SoundType.METAL).color(MaterialColor.TERRACOTTA_GRAY))
+                .transform(BlockStressDefaults.setNoImpact())
+                .transform(pickaxeOnly())
+                .blockstate(BlockStateGen.axisBlockProvider(false))
+                .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
+                .item(CAFCogwheelBlockItem::new)
+                .build()
+                .register();
+
+        LARGE_STEEL_COGWHEEL = REGISTRATE.block("large_steel_cogwheel", CAFCogWheelBlock::large)
+                .initialProperties(SharedProperties::stone)
+                .properties(p -> p.sound(SoundType.METAL).color(MaterialColor.TERRACOTTA_GRAY))
+                .transform(pickaxeOnly())
+                .transform(BlockStressDefaults.setNoImpact())
+                .blockstate(BlockStateGen.axisBlockProvider(false))
+                .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
+                .item(CAFCogwheelBlockItem::new)
+                .build()
+                .register();
+
         ALLOY_SOULS_CASING = REGISTRATE.block("alloy_souls_casing", CasingBlock::new)
                 .properties(p -> p.color(MaterialColor.PODZOL))
-                .transform(BuilderTransformers.casing(() -> {
-                    return SpriteShifts.ALLOY_SOULS_CASING;
-                })).properties(p -> p.lightLevel($ -> 10))
-        .register();
+                .transform(com.simibubi.create.foundation.data.BuilderTransformers.casing(() -> SpriteShifts.ALLOY_SOULS_CASING))
+                .properties(p -> p.lightLevel($ -> 10))
+                .register();
 
-        STEEL_BLOCK = REGISTRATE.block("steel_block", CTFramedWall::new)
-            .properties(p -> p.color(MaterialColor.METAL))
-            .transform(BuilderTransformers.walkway(() -> {
-                return SpriteShifts.STEEL_BLOCK;
-            })).properties(p -> p.sound(SoundType.METAL))
-        .register();
+        STEEL_BLOCK = REGISTRATE.block("steel_block", CasingBlock::new)
+                .properties(p -> p.color(MaterialColor.METAL))
+                .transform(com.simibubi.create.foundation.data.BuilderTransformers.casing(() -> SpriteShifts.STEEL_BLOCK))
+                .properties(p -> p.sound(SoundType.METAL))
+                .register();
 
         STEEL_DOOR = REGISTRATE.block("steel_door", p -> new SlidingDoorBlock(p, true))
                 .transform(BuilderTransformers.slidingDoor("steel"))
@@ -473,7 +570,7 @@ public class ModBlocks {
                 ).register();
 
         STEEL_SCAFFOLD = REGISTRATE.block("steel_scaffolding", MetalScaffoldingBlock::new)
-                .transform(BuilderTransformers.scaffold("steel",
+                .transform(BuilderTransformers.steelScaffold("steel",
                         () -> DataIngredient.tag(AllTags.forgeItemTag("ingots/steel")), MaterialColor.TERRACOTTA_YELLOW,
                         SpriteShifts.STEEL_SCAFFOLD, SpriteShifts.STEEL_SCAFFOLD_INSIDE, SpriteShifts.STEEL_BLOCK))
                 .register();
@@ -489,46 +586,35 @@ public class ModBlocks {
 
         SECURE_BLOCK = (REGISTRATE.block("secure_block", CasingBlock::new)
                 .properties(p -> p.color(MaterialColor.METAL))
-                .transform(BuilderTransformers.casing(() -> {
-                    return SpriteShifts.SECURE_BLOCK;
-                })).properties(p -> p.sound(SoundType.METAL))
-        ).register();
+                .transform(com.simibubi.create.foundation.data.BuilderTransformers.casing(() -> SpriteShifts.SECURE_BLOCK))
+                .properties(p -> p.sound(SoundType.METAL)))
+                .register();
 
         STONE_WALKWAY = (REGISTRATE.block("stone_walkway", CTFramedWall::new)
                 .properties(p -> p.color(MaterialColor.METAL))
-                .transform(BuilderTransformers.walkway(() -> {
-                    return SpriteShifts.STONE_WALKWAY;
-                })).transform(BuilderTransformers.walkway(() -> {
-                    return SpriteShifts.DEEPSLATE_WALKWAY;
-                }))
-        ).register();
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.STONE_WALKWAY))
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.DEEPSLATE_WALKWAY)))
+                .register();
 
         DEEPSLATE_WALKWAY = (REGISTRATE.block("deepslate_walkway", CTFramedWall::new)
                 .properties(p -> p.color(MaterialColor.METAL))
-                .transform(BuilderTransformers.walkway(() -> {
-                    return SpriteShifts.DEEPSLATE_WALKWAY;
-                })).transform(BuilderTransformers.walkway(() -> {
-                    return SpriteShifts.STONE_WALKWAY;
-                })).properties(p -> p.sound(SoundType.DEEPSLATE))
-        ).register();
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.DEEPSLATE_WALKWAY))
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.STONE_WALKWAY))
+                .properties(p -> p.sound(SoundType.DEEPSLATE)))
+                .register();
 
-    SANDSTONE_WALKWAY = (REGISTRATE.block("sandstone_walkway", CTFramedWall::new)
-            .properties(p -> p.color(MaterialColor.METAL))
-            .transform(BuilderTransformers.walkway(() -> {
-                return SpriteShifts.SANDSTONE_WALKWAY;
-            })).transform(BuilderTransformers.walkway(() -> {
-                return SpriteShifts.RED_SANDSTONE_WALKWAY;
-            }))
-    ).register();
+        SANDSTONE_WALKWAY = (REGISTRATE.block("sandstone_walkway", CTFramedWall::new)
+                .properties(p -> p.color(MaterialColor.METAL))
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.SANDSTONE_WALKWAY))
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.RED_SANDSTONE_WALKWAY)))
+                .register();
 
-    RED_SANDSTONE_WALKWAY = (REGISTRATE.block("red_sandstone_walkway", CTFramedWall::new)
-            .properties(p -> p.color(MaterialColor.METAL))
-            .transform(BuilderTransformers.walkway(() -> {
-                return SpriteShifts.RED_SANDSTONE_WALKWAY;
-            })).transform(BuilderTransformers.walkway(() -> {
-                return SpriteShifts.SANDSTONE_WALKWAY;
-            }))
-    ).register();
+        RED_SANDSTONE_WALKWAY = (REGISTRATE.block("red_sandstone_walkway", CTFramedWall::new)
+                .properties(p -> p.color(MaterialColor.METAL))
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.RED_SANDSTONE_WALKWAY))
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.SANDSTONE_WALKWAY)))
+                .register();
+
 
         new framedWall(REGISTRATE);
         new framedWallBrick(REGISTRATE);
@@ -538,17 +624,43 @@ public class ModBlocks {
 
     }
 
+    public static final BlockEntry<EncasedShaftBlock> STEEL_ENCASED_STEEL_SHAFT =
+            REGISTRATE.block("steel_encased_steel_shaft", p -> new EncasedShaftBlock(p, ModBlocks.STEEL_BLOCK::get))
+                    .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
+                    .transform(BuilderTransformers.encasedShaft("steel", () -> SpriteShifts.STEEL_BLOCK))
+                    .transform(EncasingRegistry.addVariantTo(ModBlocks.STEEL_SHAFT))
+                    .transform(pickaxeOnly())
+                    .register();
+    public static final BlockEntry<EncasedCogwheelBlock> STEEL_ENCASED_STEEL_COGWHEEL =
+            REGISTRATE.block("steel_encased_steel_cogwheel", p -> steel(p, false, ModBlocks.STEEL_BLOCK::get))
+                    .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
+                    .transform(BuilderTransformers.encasedSteelCogwheel("steel_block", () -> SpriteShifts.STEEL_BLOCK))
+                    .transform(EncasingRegistry.addVariantTo(ModBlocks.STEEL_COGWHEEL))
+                    .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCogCTBehaviour(SpriteShifts.STEEL_BLOCK,
+                            Couple.create(SpriteShifts.STEEL_ENCASED_COGWHEEL_SIDE,
+                                    SpriteShifts.STEEL_ENCASED_COGWHEEL_OTHERSIDE))))
+                    .transform(pickaxeOnly())
+                    .register();
+    public static final BlockEntry<EncasedCogwheelBlock> STEEL_ENCASED_LARGE_STEEL_COGWHEEL =
+            REGISTRATE.block("steel_encased_large_steel_cogwheel", p -> steel(p, true, ModBlocks.STEEL_BLOCK::get))
+                    .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
+                    .transform(BuilderTransformers.encasedSteelLargeCogwheel("steel_block", () -> SpriteShifts.STEEL_BLOCK))
+                    .transform(EncasingRegistry.addVariantTo(ModBlocks.LARGE_STEEL_COGWHEEL))
+                    .transform(pickaxeOnly())
+                    .register();
+
     static {
         REGISTRATE.creativeModeTab(() -> ModCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
 
         MECHANICAL_BLENDER = REGISTRATE.block("mechanical_blender", MechanicalBlenderBlock::new)
-                .initialProperties(() -> Blocks.STONE)
+                .initialProperties(SharedProperties::stone)
                 .properties(p -> p.noOcclusion().color(MaterialColor.STONE))
-                .transform(axeOrPickaxe())
-                .blockstate((c, p) -> p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
+                .transform(pickaxeOnly())
+                .blockstate((c, p) ->
+                        p.simpleBlock(c.getEntry(), AssetLookup.partialBaseModel(c, p)))
                 .addLayer(() -> RenderType::cutoutMipped)
                 .transform(BlockStressDefaults.setImpact(4.0))
-                .item()
+                .item(AssemblyOperatorBlockItem::new)
                 .transform(customItemModel())
                 .register();
     }

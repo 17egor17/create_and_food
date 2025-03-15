@@ -65,6 +65,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> SMALL_DOUGH = registerItem("small_dough",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+
     public static final RegistryObject<Item> CREAM = registerItem("cream",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
 
@@ -91,9 +92,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> RYE_BREAD = registerItem("rye_bread",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).food(ModFoods.RYE_BREAD)));
-
-    public static final RegistryObject<Item> INCOMPLETE_MOZZARELLA_CHEESE = registerItem("incomplete_mozzarella_cheese",
-            () -> new SequencedAssemblyItem(new Item.Properties()));
 
     public static final RegistryObject<Item> MOZZARELLA_CHEESE = registerItem("mozzarella_cheese",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
@@ -150,18 +148,27 @@ public class ModItems {
     public static final RegistryObject<Item> RED_GRAPE_SAPLING = registerItem("red_grape_sapling",
             () -> new ItemNameBlockItem(ModBlocks.RED_GRAPE_BUSH.get(),
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+
+    public static final RegistryObject<Item> PUMPKIN_SEEDS = registerItem("pumpkin_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.PUMPKIN_BUSH.get(),
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+
+    public static final RegistryObject<Item> MELON_SEEDS = registerItem("melon_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.MELON_BUSH.get(),
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
     //Berries//
 
     public static final RegistryObject<Item> APPLE_VINEGAR_BUCKET = registerItem("apple_vinegar_bucket",
             () -> new BucketItem(ModFluids.APPLE_VINEGAR_FLUID, new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
+
     public static final RegistryObject<Item> COCOA_OIL_BUCKET = registerItem("cocoa_oil_bucket",
             () -> new BucketItem(ModFluids.COCOA_OIL_FLUID, new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
+
     public static final RegistryObject<Item> WHITE_CHOCOLATE_BUCKET = registerItem("white_chocolate_bucket",
             () -> new BucketItem(ModFluids.WHITE_CHOCOLATE_FLUID, new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
 
     public static final RegistryObject<Item> HONEY_MILK = registerItem("honey_milk",
             () -> new DrinkableItem(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).food(ModFoods.HONEY_MILK).craftRemainder(Items.GLASS_BOTTLE), true,false));
-
 
     public static final RegistryObject<Item> ALMOND_NUT = registerItem("almond_nut",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
@@ -224,10 +231,10 @@ public class ModItems {
     public static final RegistryObject<Item> ALLOY_SOULS_INGOT = registerItem("alloy_souls_ingot",
             () -> new MeltItem(1400, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
-    public static final RegistryObject<Item> ALLOY_SOULS_SHEET = registerItem("alloy_souls_sheet",
+    public static final RegistryObject<Item> ALLOY_SOULS_NUGGET = registerItem("alloy_souls_nugget",
             () -> new MeltItem(1400, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
-    public static final RegistryObject<Item> ALLOY_SOULS_NUGGET = registerItem("alloy_souls_nugget",
+    public static final RegistryObject<Item> ALLOY_SOULS_SHEET = registerItem("alloy_souls_sheet",
             () -> new MeltItem(1400, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> INCOMPLETE_NETHERITE_INGOT = registerItem("incomplete_netherite_ingot",
@@ -424,24 +431,9 @@ public class ModItems {
 
 
 //________________________Create and Food: Knives and Tips________________________\\
-    public static final RegistryObject<Item> GREAT_DAMAGE_IRON_KNIFE = registerItem("great_damage_iron_knife",
-            () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F,
-                    new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)));
-
-    public static final RegistryObject<Item> MEDIUM_DAMAGE_IRON_KNIFE = registerItem("medium_damage_iron_knife",
-            () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F,
-                    new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)
-                            .craftRemainder(ModItems.GREAT_DAMAGE_IRON_KNIFE.get())));
-
-    public static final RegistryObject<Item> SLIGHT_DAMAGE_IRON_KNIFE = registerItem("slight_damage_iron_knife",
-            () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F,
-                    new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)
-                            .craftRemainder(ModItems.MEDIUM_DAMAGE_IRON_KNIFE.get())));
-
     public static final RegistryObject<Item> IRON_KNIFE = registerItem("iron_knife",
             () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F,
-                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)
-                            .craftRemainder(ModItems.SLIGHT_DAMAGE_IRON_KNIFE.get())));
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)));
 
     public static final RegistryObject<Item> DIAMOND_KNIFE = registerItem("diamond_knife",
             () -> new KnifeItem(Tiers.DIAMOND, 0.5F, -2.0F,
@@ -451,24 +443,9 @@ public class ModItems {
             () -> new KnifeItem(Tiers.NETHERITE, 0.5F, -2.0F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP).fireResistant()));
 
-    public static final RegistryObject<Item> GREAT_DAMAGE_GOLDEN_KNIFE = registerItem("great_damage_golden_knife",
-            () -> new KnifeItem(Tiers.GOLD, 0.5F, -2.0F,
-                    new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)));
-
-    public static final RegistryObject<Item> MEDIUM_DAMAGE_GOLDEN_KNIFE = registerItem("medium_damage_golden_knife",
-            () -> new KnifeWithDamageItem(Tiers.GOLD, ModItems.GREAT_DAMAGE_GOLDEN_KNIFE.get().getDefaultInstance(),
-                    0.5F, -2.0F, new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)
-                            .craftRemainder(ModItems.GREAT_DAMAGE_GOLDEN_KNIFE.get())));
-
-    public static final RegistryObject<Item> SLIGHT_DAMAGE_GOLDEN_KNIFE = registerItem("slight_damage_golden_knife",
-            () -> new KnifeWithDamageItem(Tiers.GOLD, ModItems.MEDIUM_DAMAGE_GOLDEN_KNIFE.get().getDefaultInstance(),
-                    0.5F, -2.0F, new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)
-                            .craftRemainder(ModItems.MEDIUM_DAMAGE_GOLDEN_KNIFE.get())));
-
     public static final RegistryObject<Item> GOLDEN_KNIFE = registerItem("golden_knife",
-            () -> new KnifeWithDamageItem(Tiers.GOLD, ModItems.SLIGHT_DAMAGE_GOLDEN_KNIFE.get().getDefaultInstance(),
-                    0.5F, -2.0F, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)
-                            .craftRemainder(ModItems.SLIGHT_DAMAGE_GOLDEN_KNIFE.get())));
+            () -> new KnifeItem(Tiers.GOLD, 0.5F, -2.0F,
+                    new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)));
 
     public static final RegistryObject<Item> STEEL_KNIFE = registerItem("steel_knife",
             () -> new KnifeItem(ModTiers.STEEL, 0.5F, -2.0F,

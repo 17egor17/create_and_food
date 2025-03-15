@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "create_and_food:nether_alloy"
+    ]
+  },
+  "criteria": {
+    "has_cinder_flour": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create:cinder_flour"
+            ]
+          }
+        ]
+      }
+    },
+    "has_alloy_souls": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create_and_food:alloy_souls"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "create_and_food:nether_alloy"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cinder_flour",
+      "has_alloy_souls",
+      "has_the_recipe"
+    ]
+  ]
+}

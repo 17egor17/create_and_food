@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/outer_stairs",
-	"textures": {
-		"bottom": "create_and_food:block/almond_planks",
-		"top": "create_and_food:block/almond_planks",
-		"side": "create_and_food:block/almond_planks"
-	}
-}

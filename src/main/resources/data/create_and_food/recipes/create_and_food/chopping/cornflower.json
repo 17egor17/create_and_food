@@ -1,0 +1,14 @@
+{
+  "type": "create_and_food:chopping",
+  "ingredients": [
+    {
+      "item": "minecraft:cornflower"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:blue_dye",
+      "count": 2
+    }
+  ]
+}

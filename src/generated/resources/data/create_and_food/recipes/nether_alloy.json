@@ -1,0 +1,19 @@
+{
+  "type": "create_and_food:blasting",
+  "ingredients": [
+    {
+      "item": "create:cinder_flour"
+    },
+    {
+      "item": "create_and_food:alloy_souls"
+    }
+  ],
+  "result": {
+    "item": "create_and_food:nether_alloy"
+  },
+  "comment_time": "min 200 time",
+  "time": 200,
+  "comment": "min 100 deg, max 10000 deg",
+  "degree": 1000,
+  "experience": 0.1
+}

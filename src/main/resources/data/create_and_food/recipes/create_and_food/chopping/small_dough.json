@@ -1,0 +1,14 @@
+{
+  "type": "create_and_food:chopping",
+  "ingredients": [
+    {
+      "item": "create:dough"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:small_dough",
+      "count": 4
+    }
+  ]
+}

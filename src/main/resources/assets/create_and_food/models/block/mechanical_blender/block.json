@@ -1,10 +1,10 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"top": "create:block/mechanical_press_top",
-		"side": "create:block/mixer_base_side",
-		"log": "minecraft:block/spruce_log_top",
-		"particle": "#side"
+		"top": "create_and_food:block/mechanical_blender_top",
+		"particle": "create_and_food:block/palettes/casing/steel_block",
+		"side": "create_and_food:block/blender_base_side",
+		"log": "create_and_food:block/steel"
 	},
 	"elements": [
 		{

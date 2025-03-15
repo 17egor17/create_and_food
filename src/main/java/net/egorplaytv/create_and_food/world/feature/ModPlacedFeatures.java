@@ -40,6 +40,18 @@ public class ModPlacedFeatures {
             ModConfiguredFeatures.WILD_RED_GRAPE_BUSH, RarityFilter.onAverageOnceEvery(CreateAndFoodCommonConfigs.CHANCE_WILD_RED_GRAPE_BUSH.get()),
             InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
+    public static final Holder<PlacedFeature> WILD_PUMPKIN_PLACED = PlacementUtils.register("wild_pumpkin_placed",
+            ModConfiguredFeatures.WILD_PUMPKIN_BUSH, RarityFilter.onAverageOnceEvery(CreateAndFoodCommonConfigs.CHANCE_WILD_PUMPKIN_BUSH.get()),
+            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
+    public static final Holder<PlacedFeature> WILD_PUMPKIN_IN_JUNGLE_PLACED = PlacementUtils.register("wild_pumpkin_in_jungle_placed",
+            ModConfiguredFeatures.WILD_PUMPKIN_BUSH_IN_JUNGLE, RarityFilter.onAverageOnceEvery(CreateAndFoodCommonConfigs.CHANCE_WILD_PUMPKIN_BUSH.get()),
+            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
+    public static final Holder<PlacedFeature> WILD_MELON_PLACED = PlacementUtils.register("wild_melon_placed",
+            ModConfiguredFeatures.WILD_MELON_BUSH, RarityFilter.onAverageOnceEvery(CreateAndFoodCommonConfigs.CHANCE_WILD_MELON_BUSH.get()),
+            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
     public static final Holder<PlacedFeature> RUBY_ORE_PLACED = PlacementUtils.register("ruby_ore_placed",
             ModConfiguredFeatures.RUBY_ORE, ModOrePlacement.commonOrePlacement(CreateAndFoodCommonConfigs.RUBY_ORE_VEINS_PER_CHUNK.get(),
                     HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-64), VerticalAnchor.aboveBottom(80))));
@@ -65,4 +77,5 @@ public class ModPlacedFeatures {
     public static final Holder<PlacedFeature> MARBLE_PERLIN_PINK_PLACED = PlacementUtils.register("marble_perlin_pink_placed",
             ModConfiguredFeatures.MARBLE_PERLIN_PINK, ModOrePlacement.commonOrePlacement(CreateAndFoodCommonConfigs.MARBLE_PER_CHUNK.get(),
                     HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-10), VerticalAnchor.aboveBottom(319))));
+
 }

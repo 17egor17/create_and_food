@@ -10,10 +10,6 @@ public class BlockStateProperties {
 
     public static final EnumProperty<TerraceAttachType> TERRACE_ATTACHMENT =
             EnumProperty.create("attachment", TerraceAttachType.class);
-    public static final BooleanProperty TERRACE_ENCASED = BooleanProperty.create("encased");
-
-    public static final int MAX_AGE_8 = 9;
-    public static final IntegerProperty AGE_8 = IntegerProperty.create("age",0,8);
 
     public static final int MAX_AGE_14 = 14;
     public static final IntegerProperty AGE_14 = IntegerProperty.create("age",0,14);

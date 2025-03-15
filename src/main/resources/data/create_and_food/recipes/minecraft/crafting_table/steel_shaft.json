@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "S",
+    "S"
+  ],
+  "key": {
+    "S": {
+      "item": "create_and_food:steel_ingot"
+    }
+  },
+  "result": {
+    "item": "create_and_food:steel_shaft",
+    "count": 36
+  }
+}

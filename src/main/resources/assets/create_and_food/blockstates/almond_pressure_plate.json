@@ -1,6 +1,0 @@
-{
-  "variants": {
-    "powered=false": { "model": "create_and_food:block/almond_pressure_plate" },
-    "powered=true": { "model": "create_and_food:block/almond_pressure_plate_down" }
-  }
-}

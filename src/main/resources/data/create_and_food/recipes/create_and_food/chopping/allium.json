@@ -1,0 +1,14 @@
+{
+  "type": "create_and_food:chopping",
+  "ingredients": [
+    {
+      "item": "minecraft:allium"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:magenta_dye",
+      "count": 2
+    }
+  ]
+}

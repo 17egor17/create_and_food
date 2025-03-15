@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "create_and_food:block/marble_0"
+      },
+      {
+        "model": "create_and_food:block/marble_1"
+      },
+      {
+        "model": "create_and_food:block/marble_2"
+      },
+      {
+        "model": "create_and_food:block/marble_3"
+      }
+    ]
+  }
+}

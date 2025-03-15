@@ -1,6 +1,0 @@
-{
-  "parent": "create_and_food:custom/item/tool/hummer",
-  "textures": {
-    "material": "create_and_food:item/tools/tantalum/tantalum_hammer"
-  }
-}

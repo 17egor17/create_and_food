@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "type=top,waterlogged=false": {
+      "model": "create_and_food:block/farmland_sump_dirt"
+    },
+    "type=bottom,waterlogged=false": {
+      "model": "create_and_food:block/farmland_sump_dirt_bottom"
+    },
+    "type=double,waterlogged=false": {
+      "model": "create_and_food:block/farmland_sump_dirt_double"
+    },
+    "type=top,waterlogged=true": {
+      "model": "create_and_food:block/farmland_sump_dirt"
+    },
+    "type=bottom,waterlogged=true": {
+      "model": "create_and_food:block/farmland_sump_dirt_bottom"
+    },
+    "type=double,waterlogged=true": {
+      "model": "create_and_food:block/farmland_sump_dirt_double"
+    }
+  }
+}

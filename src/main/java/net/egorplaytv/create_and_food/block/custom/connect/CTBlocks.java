@@ -46,10 +46,10 @@ public class CTBlocks {
                 .onRegister(connectedTextures(behaviour))
                 .initialProperties(() -> Blocks.GOLD_BLOCK)
                 .loot((t, g) -> t.dropWhenSilkTouch(g))
-                .blockstate((c, p) -> BlockStateGen.cubeAll(c, p, "connect_blocks/", "golden_wall"))
+                .blockstate((c, p) -> BlockStateGen.cubeAll(c, p, "palettes/", "golden_wall"))
                 .item()
                 .model((c, p) -> p.cubeColumn(c.getName(), p.modLoc(palettesDir() + c.getName()),
-                        p.modLoc("block/connect_blocks/golden_wall")))
+                        p.modLoc(palettesDir() + c.getName() + "_top")))
                 .build()
                 .register();
     }

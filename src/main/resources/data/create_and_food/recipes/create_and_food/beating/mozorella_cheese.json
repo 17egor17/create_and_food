@@ -1,0 +1,21 @@
+{
+  "type": "create_and_food:beating",
+  "ingredients": [
+    {
+      "fluid": "create_and_food:apple_vinegar",
+      "nbt": {},
+      "amount": 1000
+    },
+    {
+      "fluidTag": "forge:milk",
+      "amount": 1000
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:mozzarella_cheese",
+      "count": 4
+    }
+  ],
+  "heatRequirement": "heated"
+}

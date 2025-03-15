@@ -38,6 +38,8 @@ public class ModTags {
         public static final TagKey<Block> NEEDS_TANTALUM_TOOL = forgeTag("needs_tantalum_tool");
         public static final TagKey<Block> NEEDS_TUNGSTEN_TOOL = forgeTag("needs_tungsten_tool");
 
+        public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_FREEZING = modTag("fan_processing_catalysts/freezing");
+
         private static TagKey<Block> modTag(String name) {
             return BlockTags.create(new ResourceLocation("create_and_food", name));
         }

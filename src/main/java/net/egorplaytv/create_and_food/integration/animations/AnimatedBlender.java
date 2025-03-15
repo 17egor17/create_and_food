@@ -19,7 +19,7 @@ public class AnimatedBlender extends AnimatedKinetics {
         matrixStack.mulPose(Vector3f.YP.rotationDegrees(22.5f));
         int scale = 23;
 
-        blockElement(cogwheel())
+        blockElement(ModPartialModels.STEEL_COGWHEEL)
                 .rotateBlock(0, getCurrentAngle() * 2, 0)
                 .atLocal(0, 0, 0)
                 .scale(scale)
@@ -32,7 +32,7 @@ public class AnimatedBlender extends AnimatedKinetics {
 
         float animation = ((Mth.sin(AnimationTickHolder.getRenderTime() / 32f) + 1) / 5) + .5f;
 
-        blockElement(AllPartialModels.MECHANICAL_MIXER_POLE)
+        blockElement(ModPartialModels.MECHANICAL_BLENDER_POLE)
                 .atLocal(0, animation, 0)
                 .scale(scale)
                 .render(matrixStack);

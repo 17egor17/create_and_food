@@ -1,0 +1,10 @@
+{
+  "parent": "create_and_food:block/scaffold/block",
+  "textures": {
+    "top": "create_and_food:block/scaffold/steel_funnel_frame",
+    "inside": "create_and_food:block/scaffold/steel_scaffold_inside",
+    "side": "create_and_food:block/scaffold/steel_scaffold",
+    "casing": "create_and_food:block/steel_block",
+    "particle": "create_and_food:block/scaffold/steel_scaffold"
+  }
+}

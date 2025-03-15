@@ -1,18 +1,22 @@
 package net.egorplaytv.create_and_food.block.entity;
 
+import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
+import com.simibubi.create.content.kinetics.belt.BeltInstance;
+import com.simibubi.create.content.kinetics.belt.BeltRenderer;
+import com.simibubi.create.content.kinetics.simpleRelays.SimpleKineticBlockEntity;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.block.entity.custom.*;
-import net.egorplaytv.create_and_food.block.entity.renderer.BlenderInstance;
-import net.egorplaytv.create_and_food.block.entity.renderer.MechanicalBlenderRenderer;
-import net.egorplaytv.create_and_food.block.entity.renderer.SlidingDoorRenderer;
+import net.egorplaytv.create_and_food.block.entity.renderer.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import static com.simibubi.create.Create.REGISTRATE;
 
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
@@ -92,6 +96,34 @@ public class ModBlockEntities {
             .instance(() -> BlenderInstance::new)
             .validBlocks(ModBlocks.MECHANICAL_BLENDER)
             .renderer(() -> MechanicalBlenderRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<SimpleKineticBlockEntity> CAF_COGWHEEL = REGISTRATE
+            .blockEntity("caf_simple_kinetic", SimpleKineticBlockEntity::new)
+            .instance(() -> CAFCogwheelInstance::new, false)
+            .validBlocks(ModBlocks.STEEL_SHAFT, ModBlocks.STEEL_COGWHEEL, ModBlocks.LARGE_STEEL_COGWHEEL)
+            .renderer(() -> CAFCogwheelRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<KineticBlockEntity> ENCASED_STEEL_SHAFT = REGISTRATE
+            .blockEntity("encased_steel_shaft", KineticBlockEntity::new)
+            .instance(() -> SteelShaftInstance::new, false)
+            .validBlocks(ModBlocks.STEEL_ENCASED_STEEL_SHAFT)
+            .renderer(() -> SteelShaftRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<SimpleKineticBlockEntity> ENCASED_STEEL_COGWHEEL = REGISTRATE
+            .blockEntity("encased_steel_cogwheel", SimpleKineticBlockEntity::new)
+            .instance(() -> EncasedSteelCogInstance::small, false)
+            .validBlocks(ModBlocks.STEEL_ENCASED_STEEL_COGWHEEL)
+            .renderer(() -> EncasedSteelCogRenderer::small)
+            .register();
+
+    public static final BlockEntityEntry<SimpleKineticBlockEntity> ENCASED_LARGE_STEEL_COGWHEEL = REGISTRATE
+            .blockEntity("encased_large_steel_cogwheel", SimpleKineticBlockEntity::new)
+            .instance(() -> EncasedSteelCogInstance::large, false)
+            .validBlocks(ModBlocks.STEEL_ENCASED_LARGE_STEEL_COGWHEEL)
+            .renderer(() -> EncasedSteelCogRenderer::large)
             .register();
 
 

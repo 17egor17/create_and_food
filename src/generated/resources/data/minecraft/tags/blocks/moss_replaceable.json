@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "create_and_food:baked_clay",
+    "create_and_food:black_baked_clay",
+    "create_and_food:blue_baked_clay",
+    "create_and_food:cyan_baked_clay",
+    "create_and_food:gray_baked_clay",
+    "create_and_food:green_baked_clay",
+    "create_and_food:orange_baked_clay",
+    "create_and_food:red_baked_clay",
+    "create_and_food:white_baked_clay",
+    "create_and_food:yellow_baked_clay"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "create_and_food:block/marble_perlin_pink_0"
+      },
+      {
+        "model": "create_and_food:block/marble_perlin_pink_1"
+      },
+      {
+        "model": "create_and_food:block/marble_perlin_pink_2"
+      },
+      {
+        "model": "create_and_food:block/marble_perlin_pink_3"
+      }
+    ]
+  }
+}

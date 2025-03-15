@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "create_and_food:block/marble_black_galaxy_0"
+      },
+      {
+        "model": "create_and_food:block/marble_black_galaxy_1"
+      },
+      {
+        "model": "create_and_food:block/marble_black_galaxy_2"
+      },
+      {
+        "model": "create_and_food:block/marble_black_galaxy_3"
+      }
+    ]
+  }
+}

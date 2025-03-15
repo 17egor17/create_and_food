@@ -16,6 +16,8 @@ public class CreateAndFoodCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_GREEN_GRAPE_BUSH;
     public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_PURPLE_GRAPE_BUSH;
     public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_RED_GRAPE_BUSH;
+    public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_PUMPKIN_BUSH;
+    public static final ForgeConfigSpec.ConfigValue<Integer> CHANCE_WILD_MELON_BUSH;
 
     public static final ForgeConfigSpec.ConfigValue<Integer> TANTALUM_ORE_VEINS_PER_CHUNK;
     public static final ForgeConfigSpec.ConfigValue<Integer> TANTALUM_ORE_VEINS_SIZE;
@@ -74,6 +76,16 @@ public class CreateAndFoodCommonConfigs {
         TANTALUM_ORE_VEINS_SIZE = BUILDER.comment("How many Tantalum Ore Blocks spawn in one Vein!")
                 .translation("config.create_and_food.tantalum_ore_veins_size")
                 .defineInRange("Tantalum Vein Size", 9, 4, 20);
+        BUILDER.pop();
+        BUILDER.comment("Wild pumpkin bush generation").push("wild_pumpkin_bush");
+        CHANCE_WILD_PUMPKIN_BUSH = BUILDER.comment("Chance of generating clusters. Smaller value = more frequent.")
+                .translation("config.create_and_food.chance_wild_berry_bush")
+                .defineInRange("Chance", 300, 200, Integer.MAX_VALUE);
+        BUILDER.pop();
+        BUILDER.comment("Wild melon bush generation").push("wild_melon_bush");
+        CHANCE_WILD_MELON_BUSH = BUILDER.comment("Chance of generating clusters. Smaller value = more frequent.")
+                .translation("config.create_and_food.chance_wild_berry_bush")
+                .defineInRange("Chance", 6, 6, Integer.MAX_VALUE);
         BUILDER.pop();
         BUILDER.comment("Marble generation").push("marble");
         MARBLE_PER_CHUNK = BUILDER.comment("How many Marble Veins spawn per chunk!")
