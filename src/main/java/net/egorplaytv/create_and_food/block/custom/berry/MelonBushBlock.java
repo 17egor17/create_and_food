@@ -38,7 +38,7 @@ public class MelonBushBlock extends PumpkinAndMelonBlock{
         if (!flag && pPlayer.getItemInHand(pHand).is(Items.BONE_MEAL)) {
             return InteractionResult.PASS;
         } else if (i < MAX_AGE && pPlayer.getItemInHand(pHand).is(ModTags.Items.CUT_TOOLS)) {
-            pPlayer.displayClientMessage(TextUtils.getPumpkinAndMelonBushTranslation("cut", new Object[0]), true);
+            pPlayer.displayClientMessage(TextUtils.getPumpkinAndMelonBushTranslation("cut"), true);
         } else if (i == MAX_AGE && pPlayer.getItemInHand(pHand).is(ModTags.Items.CUT_TOOLS)) {
             ItemStack setPumpkin = Blocks.MELON.asItem().getDefaultInstance();
             setPumpkin.setCount(1);

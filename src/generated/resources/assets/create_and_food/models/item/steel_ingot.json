@@ -2,5 +2,19 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "create_and_food:item/metals/steel_ingot"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "create_and_food:degree": 800.0
+      },
+      "model": "create_and_food:item/steel_ingot_red_hot"
+    },
+    {
+      "predicate": {
+        "create_and_food:degree": 1300.0
+      },
+      "model": "create_and_food:item/steel_ingot_white_hot"
+    }
+  ]
 }

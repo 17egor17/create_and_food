@@ -2,58 +2,63 @@ package net.egorplaytv.create_and_food.screen;
 
 import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.block.entity.custom.MarbleBlastFurnaceBlockEntity;
-import net.egorplaytv.create_and_food.recipe.MarbleFurnaceRecipe;
 import net.egorplaytv.create_and_food.screen.slot.ModFurnaceResultSlot;
-import net.egorplaytv.create_and_food.screen.slot.ModResultSlot;
-import net.egorplaytv.create_and_food.util.ModTags;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
-import java.util.Optional;
+import java.util.Objects;
 
 public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
     public MarbleBlastFurnaceBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
+    public final ItemStackHandler inventory;
 
     public MarbleBlastFurnaceMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
+        this(pContainerId, inv, getTileEntity(inv, extraData), new SimpleContainerData(4));
     }
-    public MarbleBlastFurnaceMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
+
+    public MarbleBlastFurnaceMenu(int pContainerId, Inventory inv, MarbleBlastFurnaceBlockEntity entity, ContainerData data) {
         super(ModMenuTypes.BLASTING_MENU.get(), pContainerId);
-    // DON'T FORGET TO CHANGE THE NUMBER\/
-        checkContainerSize(inv, 5);
-        blockEntity = (MarbleBlastFurnaceBlockEntity) entity;
+//    // DON'T FORGET TO CHANGE THE NUMBER\/
+//        checkContainerSize(inv, 5);
+        blockEntity = entity;
+        inventory = entity.getItemHandler();
         level = inv.player.level;
         this.data = data;
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 26,86));
-            this.addSlot(new SlotItemHandler(handler, 1, 16,28));
-            this.addSlot(new SlotItemHandler(handler, 2, 36,28));
-            this.addSlot(new SlotItemHandler(handler, 3, 26,48));
-            this.addSlot(new ModFurnaceResultSlot(inv.player ,handler, 4, 120,48));
 
-        });
+        this.addSlot(new SlotItemHandler(this.inventory, 0, 26,86));
+        this.addSlot(new SlotItemHandler(this.inventory, 1, 16,28));
+        this.addSlot(new SlotItemHandler(this.inventory, 2, 36,28));
+        this.addSlot(new SlotItemHandler(this.inventory, 3, 26,48));
+        this.addSlot(new ModFurnaceResultSlot(inv.player, this.inventory, 4, 120,48));
 
-        addDataSlots(data);
+        this.addDataSlots(data);
     }
+
+    private static MarbleBlastFurnaceBlockEntity getTileEntity(Inventory playerInventory, FriendlyByteBuf data) {
+        Objects.requireNonNull(playerInventory, "playerInventory cannot be null");
+        Objects.requireNonNull(data, "data cannot be null");
+        BlockEntity tileAtPos = playerInventory.player.level.getBlockEntity(data.readBlockPos());
+        if (tileAtPos instanceof MarbleBlastFurnaceBlockEntity) {
+            return (MarbleBlastFurnaceBlockEntity)tileAtPos;
+        } else {
+            throw new IllegalStateException("Tile entity is not correct! " + tileAtPos);
+        }
+    }
+
     public boolean isCrafting() {
         return data.get(0) > 0;
     }
@@ -104,31 +109,32 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
         int vanilla_all_slots_count = te_inventory_first_slot_index + te_inventory_slot_count;
 
 
-        Slot slot = slots.get(index);
-        if (slot == null || !slot.hasItem()) return ItemStack.EMPTY;
+        Slot slot = (Slot) slots.get(index);
         ItemStack sourceStack = slot.getItem();
         ItemStack itemstack = sourceStack.copy();
-
-        if (index < te_inventory_first_slot_index) {
-            if (!moveItemStackTo(sourceStack, te_inventory_first_slot_index, vanilla_all_slots_count, false)) {
+        if (slot != null && slot.hasItem()) {
+            if (index < te_inventory_first_slot_index) {
+                if (!moveItemStackTo(sourceStack, te_inventory_first_slot_index, vanilla_all_slots_count, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (index < vanilla_all_slots_count) {
+                if (!moveItemStackTo(sourceStack, vanilla_first_slot_index, te_inventory_first_slot_index, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else {
+                System.out.println("Invalid slotIndex:" + index);
                 return ItemStack.EMPTY;
             }
-        } else if (index < vanilla_all_slots_count) {
-            if (!moveItemStackTo(sourceStack, vanilla_first_slot_index, te_inventory_first_slot_index, false)) {
-                return ItemStack.EMPTY;
+
+            if (sourceStack.getCount() == 0) {
+                slot.set(ItemStack.EMPTY);
+            } else {
+                slot.setChanged();
             }
-        } else {
-            System.out.println("Invalid slotIndex:" + index);
-            return ItemStack.EMPTY;
+
+            slot.onTake(playerIn, sourceStack);
         }
 
-        if (sourceStack.getCount() == 0) {
-            slot.set(ItemStack.EMPTY);
-        } else {
-            slot.setChanged();
-        }
-
-        slot.onTake(playerIn, sourceStack);
         return itemstack;
     }
 

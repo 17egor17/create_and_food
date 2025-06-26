@@ -2,9 +2,9 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"top": "create_and_food:block/mechanical_blender_top",
-		"particle": "create_and_food:block/palettes/casing/steel_block",
 		"side": "create_and_food:block/blender_base_side",
-		"log": "create_and_food:block/steel"
+		"log": "create_and_food:block/steel",
+		"particle": "create_and_food:block/steel_block"
 	},
 	"elements": [
 		{

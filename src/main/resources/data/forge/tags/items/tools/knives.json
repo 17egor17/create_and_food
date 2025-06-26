@@ -1,18 +1,6 @@
 {
   "replace": false,
   "values": [
-    "create_and_food:steel_knife",
-    "create_and_food:tantalum_knife",
-    "create_and_food:tungsten_knife",
-    "create_and_food:iron_knife",
-    "create_and_food:diamond_knife",
-    "create_and_food:netherite_knife",
-    "create_and_food:golden_knife",
-    "create_and_food:great_damage_iron_knife",
-    "create_and_food:medium_damage_iron_knife",
-    "create_and_food:slight_damage_iron_knife",
-    "create_and_food:great_damage_golden_knife",
-    "create_and_food:medium_damage_golden_knife",
-    "create_and_food:slight_damage_golden_knife"
+    "#farmersdelight:tools/knives"
   ]
 }

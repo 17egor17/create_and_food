@@ -1,7 +1,6 @@
 {
-  "parent": "minecraft:block/cube_column",
+  "parent": "minecraft:block/cube_all",
   "textures": {
-    "side": "create_and_food:block/palettes/almond_glass",
-    "end": "create_and_food:block/palettes/almond_glass"
+    "all": "create_and_food:block/palettes/almond_glass"
   }
 }

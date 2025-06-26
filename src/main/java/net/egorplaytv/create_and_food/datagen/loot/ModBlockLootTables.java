@@ -58,13 +58,7 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(OAK_BARREL.get());
         this.dropSelf(SPRUCE_BARREL.get());
         this.dropSelf(WARPED_BARREL.get());
-        this.dropSelf(TABLET.get());
-        this.add(MARBLE.get(), (block) ->
-                createSingleItemTableWithSilkTouch(block, COBBLED_MARBLE.get()));
-        this.add(MARBLE_BLACK_GALAXY.get(), (block) ->
-                createSingleItemTableWithSilkTouch(block, COBBLED_MARBLE_BLACK_GALAXY.get()));
-        this.add(MARBLE_PERLIN_PINK.get(), (block) ->
-                createSingleItemTableWithSilkTouch(block, COBBLED_MARBLE_PERLIN_PINK.get()));
+        this.dropSelf(TERMINAL.get());
         this.dropSelf(COBBLED_MARBLE.get());
         this.dropSelf(COBBLED_MARBLE_BLACK_GALAXY.get());
         this.dropSelf(COBBLED_MARBLE_PERLIN_PINK.get());
@@ -104,6 +98,8 @@ public class ModBlockLootTables extends BlockLoot {
         this.add(BLACKSTONE_TANTALUM_ORE.get(),
                 (block) -> createOreDrop(BLACKSTONE_TANTALUM_ORE.get(), ModItems.RAW_TANTALUM.get()));
         this.dropSelf(RAW_TANTALUM_BLOCK.get());
+        this.add(TUNGSTEN_ORE.get(),
+                (block) -> createOreDrop(TUNGSTEN_ORE.get(), ModItems.RAW_TUNGSTEN.get()));
         this.dropSelf(RAW_TUNGSTEN_BLOCK.get());
         this.add(FARMLAND_SUMP_SAND.get(), BlockLoot::createSlabItemTable);
         this.add(FARMLAND_SUMP_RED_SAND.get(), BlockLoot::createSlabItemTable);
@@ -113,6 +109,9 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropOther(SAND_FARMLAND.get(), Blocks.SAND);
         this.dropSelf(FERTILIZED_RED_SAND.get());
         this.dropOther(RED_SAND_FARMLAND.get(), Blocks.RED_SAND);
+        this.dropSelf(NIXIE_VASE.get());
+        this.dropSelf(NIXIE_VASE_PERLIN_PINK.get());
+        this.dropSelf(NIXIE_VASE_BLACK_GALAXY.get());
         this.dropSelf(ALMOND_SAPLING.get());
         LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
                 .hasBlockStateProperties(RYE_PLANT.get())
@@ -287,6 +286,7 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(KITCHEN_TABLE_INNER.get());
         this.dropSelf(KITCHEN_TABLE_OUTER.get());
         this.dropSelf(FERMENTATION_BARREL.get());
+        this.dropSelf(SCALES.get());
         this.dropSelf(OAK_CUTTING_BOARD.get());
         this.dropSelf(SPRUCE_CUTTING_BOARD.get());
         this.dropSelf(BIRCH_CUTTING_BOARD.get());

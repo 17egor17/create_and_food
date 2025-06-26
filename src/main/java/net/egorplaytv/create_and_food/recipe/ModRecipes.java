@@ -12,11 +12,8 @@ public class ModRecipes {
     public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS =
             DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, CreateAndFood.MOD_ID);
 
-    public static final RegistryObject<RecipeSerializer<FermentationFluidBarrelRecipe>> FERMENTATION_FLUID_SERIALIZER =
-            SERIALIZERS.register("fermentation_fluid", () -> FermentationFluidBarrelRecipe.Serializer.INSTANCE);
-
-    public static final RegistryObject<RecipeSerializer<FermentationItemBarrelRecipe>> FERMENTATION_ITEM_SERIALIZER =
-            SERIALIZERS.register("fermentation_item", () -> FermentationItemBarrelRecipe.Serializer.INSTANCE);
+    public static final RegistryObject<RecipeSerializer<FermentationBarrelRecipe>> FERMENTATION_SERIALIZER =
+            SERIALIZERS.register("fermentation", () -> FermentationBarrelRecipe.Serializer.INSTANCE);
 
     public static final RegistryObject<RecipeSerializer<MarbleFurnaceRecipe>> BLASTING_SERIALIZER =
             SERIALIZERS.register("blasting", () -> MarbleFurnaceRecipe.Serializer.INSTANCE);

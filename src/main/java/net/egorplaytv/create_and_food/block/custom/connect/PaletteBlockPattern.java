@@ -38,8 +38,6 @@ public class PaletteBlockPattern {
 
     public static final PaletteBlockPattern
 
-    COBBLED = create("cobbled", PREFIX, FOR_MARBLE),
-
     CUT = create("cut", PREFIX, ALL_PARTIALS),
 
     BRICKS = create("cut_bricks", WRAP, ALL_PARTIALS).textures("brick"),
@@ -61,7 +59,7 @@ public class PaletteBlockPattern {
 
     public static final PaletteBlockPattern[] STANDARD_RANGE = { CUT, POLISHED, BRICKS, SMALL_BRICKS, LAYERED, PILLAR };
     public static final PaletteBlockPattern[] BAKED_CLAY_RANGE = { CUT, BRICKS, SMALL_BRICKS, LAYERED, PILLAR };
-    public static final PaletteBlockPattern[] MARBLE_RANGE = { COBBLED , CUT, POLISHED, BRICKS, SMALL_BRICKS, PILLAR };
+    public static final PaletteBlockPattern[] MARBLE_RANGE = { CUT, POLISHED, BRICKS, SMALL_BRICKS }; // , PILLAR
 
     static final String TEXTURE_LOCATION = "block/palettes/stone_types/%s/%s";
 
@@ -127,7 +125,7 @@ public class PaletteBlockPattern {
     public void addRecipes(NonNullSupplier<Block> baseBlock, DataGenContext<Block, ? extends Block> c,
                            RegistrateRecipeProvider p) {
         additionalRecipes.apply(baseBlock)
-                .accept(c, p);
+                    .accept(c, p);
     }
 
     public Optional<Supplier<ConnectedTextureBehaviour>> createCTBehaviour(String variant) {
@@ -219,7 +217,15 @@ public class PaletteBlockPattern {
 
     protected static ResourceLocation toLocation(String variant, String texture) {
         return CreateAndFood.asResource(
-                String.format(TEXTURE_LOCATION, texture, variant + (texture.equals("cut") ? "_" : "_cut_") + texture));
+                String.format(TEXTURE_LOCATION, texture, variant + cobbled(texture) + texture));
+    }
+
+    protected static String cobbled(String texture){
+        if (texture.equals("cut") || texture.equals("cobbled")){
+            return "_";
+        } else {
+            return "_cut_";
+        }
     }
 
     protected static CTSpriteShiftEntry ct(String variant, PaletteBlockPattern.CTs texture) {

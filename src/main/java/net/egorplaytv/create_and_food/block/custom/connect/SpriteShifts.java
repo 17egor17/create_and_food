@@ -12,6 +12,7 @@ public class SpriteShifts {
 
     public static final CTSpriteShiftEntry ALLOY_SOULS_CASING = omniCasing("alloy_souls_casing"),
             STEEL_BLOCK = omniCasing("steel_block"),
+            STEEL_CASING = omniCasing("steel_casing"),
             STEEL_SCAFFOLD = horizontal("steel_scaffold"),
             STEEL_SCAFFOLD_INSIDE = horizontal("steel_scaffold_inside"),
 
@@ -85,7 +86,7 @@ public class SpriteShifts {
     }
 
     public static CTSpriteShiftEntry horizontal(String name) {
-        return getScaffoldCT(AllCTTypes.HORIZONTAL_KRYPPERS, name);
+        return getScaffoldCT(AllCTTypes.HORIZONTAL, name);
     }
     private static CTSpriteShiftEntry vertical(String name) {
         return getCT(AllCTTypes.VERTICAL, name);

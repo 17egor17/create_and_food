@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "create_and_food:cut_marble_perlin_pink",
+    "create_and_food:cut_marble_perlin_pink_stairs",
+    "create_and_food:cut_marble_perlin_pink_wall",
+    "create_and_food:polished_cut_marble_perlin_pink",
+    "create_and_food:polished_cut_marble_perlin_pink_stairs",
+    "create_and_food:polished_cut_marble_perlin_pink_wall",
+    "create_and_food:cut_marble_perlin_pink_bricks",
+    "create_and_food:cut_marble_perlin_pink_brick_stairs",
+    "create_and_food:cut_marble_perlin_pink_brick_wall",
+    "create_and_food:small_marble_perlin_pink_bricks",
+    "create_and_food:small_marble_perlin_pink_brick_stairs",
+    "create_and_food:small_marble_perlin_pink_brick_wall",
+    "create_and_food:marble_perlin_pink"
+  ]
+}

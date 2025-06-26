@@ -1,14 +1,13 @@
 package net.egorplaytv.create_and_food.block.entity;
 
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
-import com.simibubi.create.content.kinetics.belt.BeltInstance;
-import com.simibubi.create.content.kinetics.belt.BeltRenderer;
 import com.simibubi.create.content.kinetics.simpleRelays.SimpleKineticBlockEntity;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.block.entity.custom.*;
 import net.egorplaytv.create_and_food.block.entity.renderer.*;
+import net.egorplaytv.create_and_food.content.kinetics.grinder.GrinderInstance;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -29,10 +28,10 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("marble_blast_furnace_entity", () ->
                     BlockEntityType.Builder.of(MarbleBlastFurnaceBlockEntity::new,
                             ModBlocks.MARBLE_BLAST_FURNACE.get()).build(null));
-    public static final RegistryObject<BlockEntityType<TabletBlockEntity>> TABLET_ENTITY =
+    public static final RegistryObject<BlockEntityType<TerminalBlockEntity>> TABLET_ENTITY =
             BLOCK_ENTITIES.register("tablet_entity", () ->
-                    BlockEntityType.Builder.of(TabletBlockEntity::new,
-                            ModBlocks.TABLET.get()).build(null));
+                    BlockEntityType.Builder.of(TerminalBlockEntity::new,
+                            ModBlocks.TERMINAL.get()).build(null));
     public static final RegistryObject<BlockEntityType<ModSignBlockEntity>> SIGN_BLOCK_ENTITIES =
             BLOCK_ENTITIES.register("sign_block_entity", () ->
                     BlockEntityType.Builder.of(ModSignBlockEntity::new,
@@ -85,6 +84,17 @@ public class ModBlockEntities {
                             new Block[]{(Block)ModBlocks.ALMOND_CUTTING_BOARD.get()}).build(null);
             });
 
+    public static final RegistryObject<BlockEntityType<ScalesBlockEntity>> SCALES_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("scales", () ->
+                    BlockEntityType.Builder.of(ScalesBlockEntity::new,
+                            ModBlocks.SCALES.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<VaseBlockEntity>> VASE_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("vase_block_entity", () ->
+                    BlockEntityType.Builder.of(VaseBlockEntity::new,
+                            ModBlocks.NIXIE_VASE.get(), ModBlocks.NIXIE_VASE_PERLIN_PINK.get(),
+                            ModBlocks.NIXIE_VASE_BLACK_GALAXY.get()).build(null));
+
     public static final BlockEntityEntry<SlidingDoorBlockEntity> SLIDING_DOOR =
             CreateAndFood.REGISTRATE.blockEntity("sliding_door", SlidingDoorBlockEntity::new)
                     .renderer(() -> SlidingDoorRenderer::new)
@@ -96,6 +106,13 @@ public class ModBlockEntities {
             .instance(() -> BlenderInstance::new)
             .validBlocks(ModBlocks.MECHANICAL_BLENDER)
             .renderer(() -> MechanicalBlenderRenderer::new)
+            .register();
+
+    public static final BlockEntityEntry<GrinderBlockEntity> GRINDER = CreateAndFood.REGISTRATE
+            .blockEntity("grinder", GrinderBlockEntity::new)
+            .instance(() -> GrinderInstance::new)
+            .validBlocks(ModBlocks.MECHANICAL_GRINDER)
+            .renderer(() -> GrinderRenderer::new)
             .register();
 
     public static final BlockEntityEntry<SimpleKineticBlockEntity> CAF_COGWHEEL = REGISTRATE

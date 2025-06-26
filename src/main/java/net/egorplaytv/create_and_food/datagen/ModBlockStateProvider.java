@@ -83,39 +83,36 @@ public class ModBlockStateProvider extends BlockStateProvider {
         barrelBlock(OAK_BARREL.get(), "block/barrels");
         barrelBlock(SPRUCE_BARREL.get(), "block/barrels");
         barrelBlock(WARPED_BARREL.get(), "block/barrels");
-        getVariantBuilder(TABLET.get()).forAllStates(state ->{
-            Direction direction = state.getValue(TabletBlock.FACING);
+        getVariantBuilder(TERMINAL.get()).forAllStates(state ->{
+            Direction direction = state.getValue(TerminalBlock.FACING);
             if (direction.equals(Direction.NORTH)){
                 return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(TABLET.get().getRegistryName().getPath(),
-                                new ResourceLocation(MOD_ID, "block/tablet/" + TABLET.get().getRegistryName().getPath() + "_block")))
+                        .modelFile(models().withExistingParent(TERMINAL.get().getRegistryName().getPath(),
+                                new ResourceLocation(MOD_ID, "block/terminal/" + TERMINAL.get().getRegistryName().getPath() + "_block")))
                         .build();
             } else if (direction.equals(Direction.EAST)){
                 return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(TABLET.get().getRegistryName().getPath(),
-                                new ResourceLocation(MOD_ID, "block/tablet/" + TABLET.get().getRegistryName().getPath() + "_block")))
+                        .modelFile(models().withExistingParent(TERMINAL.get().getRegistryName().getPath(),
+                                new ResourceLocation(MOD_ID, "block/terminal/" + TERMINAL.get().getRegistryName().getPath() + "_block")))
                         .rotationY(90)
                         .build();
             } else if (direction.equals(Direction.SOUTH)){
                 return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(TABLET.get().getRegistryName().getPath(),
-                                new ResourceLocation(MOD_ID, "block/tablet/" + TABLET.get().getRegistryName().getPath() + "_block")))
+                        .modelFile(models().withExistingParent(TERMINAL.get().getRegistryName().getPath(),
+                                new ResourceLocation(MOD_ID, "block/terminal/" + TERMINAL.get().getRegistryName().getPath() + "_block")))
                         .rotationY(180)
                         .build();
             } else {
                 return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(TABLET.get().getRegistryName().getPath(),
-                                new ResourceLocation(MOD_ID, "block/tablet/" + TABLET.get().getRegistryName().getPath() + "_block")))
+                        .modelFile(models().withExistingParent(TERMINAL.get().getRegistryName().getPath(),
+                                new ResourceLocation(MOD_ID, "block/terminal/" + TERMINAL.get().getRegistryName().getPath() + "_block")))
                         .rotationY(270)
                         .build();
             }
         });
-        marbleBlock(MARBLE.get());
-        marbleBlock(MARBLE_BLACK_GALAXY.get());
-        marbleBlock(MARBLE_PERLIN_PINK.get());
-        marbleBlock(COBBLED_MARBLE.get(), "cobbled");
-        marbleBlock(COBBLED_MARBLE_BLACK_GALAXY.get(), "cobbled");
-        marbleBlock(COBBLED_MARBLE_PERLIN_PINK.get(), "cobbled");
+        customBlock(COBBLED_MARBLE.get(), "block/marbles");
+        customBlock(COBBLED_MARBLE_BLACK_GALAXY.get(), "block/marbles");
+        customBlock(COBBLED_MARBLE_PERLIN_PINK.get(), "block/marbles");
         getVariantBuilder(FIRECLAY_BRICKS.get()).partialState().setModels(new ConfiguredModel(models().cubeAll(FIRECLAY_BRICKS.get().getRegistryName().getPath() + "_0",
                         new ResourceLocation(MOD_ID, "block/" + FIRECLAY_BRICKS.get().getRegistryName().getPath() + "_0"))),
                 new ConfiguredModel(models().cubeAll(FIRECLAY_BRICKS.get().getRegistryName().getPath() + "_1",
@@ -160,11 +157,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(DEEPSLATE_RUBY_ORE.get(), "block/ruby");
         simpleBlock(RAW_RUBY_BLOCK.get(), "block/ruby", "rough_ruby_block");
         simpleBlock(RUBY_BLOCK.get(), "block/ruby");
-        oreVariantBlock(STONE_TANTALUM_ORE.get(), "block/ores");
-        oreVariantBlock(DEEPSLATE_TANTALUM_ORE.get(), "block/ores");
-        oreVariantBlock(TANTALUM_ORE.get(), "block/ores");
-        oreVariantBlock(BLACKSTONE_TANTALUM_ORE.get(), "block/ores");
+        oreVariantBlock(STONE_TANTALUM_ORE.get());
+        oreVariantBlock(DEEPSLATE_TANTALUM_ORE.get());
+        oreVariantBlock(TANTALUM_ORE.get());
+        oreVariantBlock(BLACKSTONE_TANTALUM_ORE.get());
         simpleBlock(RAW_TANTALUM_BLOCK.get());
+        oreVariantBlock(TUNGSTEN_ORE.get());
         simpleBlock(RAW_TUNGSTEN_BLOCK.get());
         sumpBlock(FARMLAND_SUMP_SAND.get(), "block/farmlands");
         sumpBlock(FARMLAND_SUMP_RED_SAND.get(), "block/farmlands");
@@ -174,6 +172,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
         farmlandBlock(SAND_FARMLAND.get(), "block/farmlands");
         simpleBlock(FERTILIZED_RED_SAND.get(), "block/farmlands");
         farmlandBlock(RED_SAND_FARMLAND.get(), "block/farmlands");
+        nixieVaseBlock(NIXIE_VASE.get(), "custom/vases", "vase_nixie_fluid",
+                "vase_nixie_fluid_open", "vase/marble_vase_side", "vase/marble_vase_inner",
+                "palettes/stone_types/natural/marble_0");
+        nixieVaseBlock(NIXIE_VASE_PERLIN_PINK.get(), "custom/vases", "vase_nixie_fluid",
+                "vase_nixie_fluid_open", "vase/marble_perlin_pink_vase_side", "vase/marble_perlin_pink_vase_inner",
+                "palettes/stone_types/natural/marble_perlin_pink_0");
+        nixieVaseBlock(NIXIE_VASE_BLACK_GALAXY.get(), "custom/vases", "vase_nixie_fluid",
+                "vase_nixie_fluid_open", "vase/marble_black_galaxy_vase_side", "vase/marble_black_galaxy_vase_inner",
+                "palettes/stone_types/natural/marble_black_galaxy_0");
         simpleBlock(ALMOND_SAPLING.get(), models().cross(ALMOND_SAPLING.get().getRegistryName().getPath(),
                 blockTexture(ALMOND_SAPLING.get())));
         makeRye((RyePlantBlock) RYE_PLANT.get(), "rye_stage", "rye_stage");
@@ -182,6 +189,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         rotatingBlock(KITCHEN_TABLE_INNER.get(), "block/kitchen");
         rotatingBlock(KITCHEN_TABLE_OUTER.get(), "block/kitchen");
         customBlock(FERMENTATION_BARREL.get(), "block/item");
+        rotatingBlock(SCALES.get(), "block/kitchen_scales", "block");
         rotatingBlock(OAK_CUTTING_BOARD.get(), "block/cutting_board");
         rotatingBlock(SPRUCE_CUTTING_BOARD.get(), "block/cutting_board");
         rotatingBlock(BIRCH_CUTTING_BOARD.get(), "block/cutting_board");
@@ -205,30 +213,112 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(block, pathTexture, block.getRegistryName().getPath());
     }
 
-    public void rotatingBlock(Block block, String pathModel){
+    public void rotatingBlock(Block block, String pathModel, String modelName){
         getVariantBuilder(block).forAllStates(state ->{
             Direction direction = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
             if (direction.equals(Direction.NORTH)){
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath(),
-                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath())))
+                                new ResourceLocation(MOD_ID, pathModel + "/" + modelName)))
                         .build();
             } else if (direction.equals(Direction.EAST)){
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath(),
-                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath())))
+                                new ResourceLocation(MOD_ID, pathModel + "/" + modelName)))
                         .rotationY(90)
                         .build();
             } else if (direction.equals(Direction.SOUTH)){
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath(),
-                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath())))
+                                new ResourceLocation(MOD_ID, pathModel + "/" + modelName)))
                         .rotationY(180)
                         .build();
             } else {
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath(),
-                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath())))
+                                new ResourceLocation(MOD_ID, pathModel + "/" + modelName)))
+                        .rotationY(270)
+                        .build();
+            }
+        });
+    }
+
+    public void rotatingBlock(Block block, String pathModel){
+        rotatingBlock(block, pathModel, block.getRegistryName().getPath());
+    }
+
+    public void nixieVaseBlock(Block block, String pathModel, String closeModelName, String openModelName, String outside, String inside, String particle){
+        getVariantBuilder(block).forAllStates(state ->{
+            Direction direction = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+            boolean isOpen = state.getValue(VaseBlock.isOpen);
+            if (direction.equals(Direction.NORTH) && !isOpen){
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_close",
+                                new ResourceLocation(MOD_ID, pathModel + "/" + closeModelName))
+                                .texture("outside", "create_and_food:block/" + outside)
+                                .texture("inside", "create_and_food:block/" + inside)
+                                .texture("particle", "create_and_food:block/" + particle))
+                        .build();
+            } else if (direction.equals(Direction.EAST) && !isOpen){
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_close",
+                                new ResourceLocation(MOD_ID, pathModel + "/" + closeModelName))
+                                .texture("outside", "create_and_food:block/" + outside)
+                                .texture("inside", "create_and_food:block/" + inside)
+                                .texture("particle", "create_and_food:block/" + particle))
+                        .rotationY(90)
+                        .build();
+            } else if (direction.equals(Direction.SOUTH) && !isOpen){
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_close",
+                                new ResourceLocation(MOD_ID, pathModel + "/" + closeModelName))
+                                .texture("outside", "create_and_food:block/" + outside)
+                                .texture("inside", "create_and_food:block/" + inside)
+                                .texture("particle", "create_and_food:block/" + particle))
+                        .rotationY(180)
+                        .build();
+            } else if (direction.equals(Direction.WEST) && !isOpen){
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_close",
+                                new ResourceLocation(MOD_ID, pathModel + "/" + closeModelName))
+                                .texture("outside", "create_and_food:block/" + outside)
+                                .texture("inside", "create_and_food:block/" + inside)
+                                .texture("particle", "create_and_food:block/" + particle))
+                        .rotationY(270)
+                        .build();
+            } else if (direction.equals(Direction.NORTH) && isOpen){
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_open",
+                                new ResourceLocation(MOD_ID, pathModel + "/" + openModelName))
+                                .texture("outside", "create_and_food:block/" + outside)
+                                .texture("inside", "create_and_food:block/" + inside)
+                                .texture("particle", "create_and_food:block/" + particle))
+                        .build();
+            } else if (direction.equals(Direction.EAST) && isOpen){
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_open",
+                                new ResourceLocation(MOD_ID, pathModel + "/" + openModelName))
+                                .texture("outside", "create_and_food:block/" + outside)
+                                .texture("inside", "create_and_food:block/" + inside)
+                                .texture("particle", "create_and_food:block/" + particle))
+                        .rotationY(90)
+                        .build();
+            } else if (direction.equals(Direction.SOUTH) && isOpen){
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_open",
+                                new ResourceLocation(MOD_ID, pathModel + "/" + openModelName))
+                                .texture("outside", "create_and_food:block/" + outside)
+                                .texture("inside", "create_and_food:block/" + inside)
+                                .texture("particle", "create_and_food:block/" + particle))
+                        .rotationY(180)
+                        .build();
+            } else {
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_open",
+                                new ResourceLocation(MOD_ID, pathModel + "/" + openModelName))
+                                .texture("outside", "create_and_food:block/" + outside)
+                                .texture("inside", "create_and_food:block/" + inside)
+                                .texture("particle", "create_and_food:block/" + particle))
                         .rotationY(270)
                         .build();
             }
@@ -278,15 +368,22 @@ public class ModBlockStateProvider extends BlockStateProvider {
         sumpBlock(block, pathModel, block.getRegistryName().getPath());
     }
 
-    public void oreVariantBlock(Block block, String pathModel){
-        getVariantBuilder(block).partialState().setModels(new ConfiguredModel(models().cubeAll(block.getRegistryName().getPath() + "_0",
-                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath() + "_0"))),
-                new ConfiguredModel(models().cubeAll(block.getRegistryName().getPath() + "_1",
-                        new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath() + "_1"))),
-                new ConfiguredModel(models().cubeAll(block.getRegistryName().getPath() + "_2",
-                        new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath() + "_2"))),
-                new ConfiguredModel(models().cubeAll(block.getRegistryName().getPath() + "_3",
-                        new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath() + "_3"))));
+    public void oreVariantBlock(Block block, String pathModels, String modelsName){
+        getVariantBuilder(block).partialState().setModels(new ConfiguredModel(models().cubeAll(modelsName + "_0",
+                new ResourceLocation(MOD_ID, pathModels + "/" + modelsName + "_0"))),
+                new ConfiguredModel(models().cubeAll(modelsName + "_1",
+                        new ResourceLocation(MOD_ID, pathModels + "/" + modelsName + "_1"))),
+                new ConfiguredModel(models().cubeAll(modelsName + "_2",
+                        new ResourceLocation(MOD_ID, pathModels + "/" + modelsName + "_2"))),
+                new ConfiguredModel(models().cubeAll(modelsName + "_3",
+                        new ResourceLocation(MOD_ID, pathModels + "/" + modelsName + "_3"))));
+    }
+    public void oreVariantBlock(Block block, String modelsName){
+        oreVariantBlock(block, "block/ores", modelsName);
+    }
+
+    public void oreVariantBlock(Block block){
+        oreVariantBlock(block, "block/ores", block.getRegistryName().getPath());
     }
 
     public void lanternBlock(Block block, String pathModel){

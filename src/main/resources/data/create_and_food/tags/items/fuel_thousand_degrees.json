@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "create:blaze_cake",
-    "create_and_food:alloy_souls",
-    "create_and_food:alloy_souls_ingot",
-    "create_and_food:alloy_souls_sheet"
-  ]
-}

@@ -6,6 +6,7 @@ import com.simibubi.create.content.contraptions.behaviour.DoorMovingInteraction;
 import com.simibubi.create.content.decoration.MetalScaffoldingBlock;
 import com.simibubi.create.content.decoration.MetalScaffoldingBlockItem;
 import com.simibubi.create.content.decoration.MetalScaffoldingCTBehaviour;
+import com.simibubi.create.content.decoration.encasing.CasingBlock;
 import com.simibubi.create.content.decoration.encasing.EncasedCTBehaviour;
 import com.simibubi.create.content.decoration.slidingDoor.SlidingDoorMovementBehaviour;
 import com.simibubi.create.content.kinetics.BlockStressDefaults;
@@ -13,12 +14,12 @@ import com.simibubi.create.content.kinetics.base.RotatedPillarKineticBlock;
 import com.simibubi.create.content.kinetics.simpleRelays.encased.EncasedCogCTBehaviour;
 import com.simibubi.create.foundation.block.connected.CTSpriteShiftEntry;
 import com.simibubi.create.foundation.data.AssetLookup;
-import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
 import net.egorplaytv.create_and_food.CreateAndFood;
+import net.egorplaytv.create_and_food.data.CAFRegistrate;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Direction;
 import net.minecraft.data.loot.BlockLoot;
@@ -44,21 +45,21 @@ import static com.simibubi.create.foundation.data.TagGen.*;
 import static net.egorplaytv.create_and_food.data.CAFRegistrate.*;
 
 public class BuilderTransformers {
-//    public static <B extends CasingBlock> NonNullUnaryOperator<BlockBuilder<B, CreateRegistrate>> casing(
-//            Supplier<CTSpriteShiftEntry> ct) {
-//        return b -> b.initialProperties(SharedProperties::stone)
-//                .properties(p -> p.sound(SoundType.WOOD))
-//                .transform(axeOrPickaxe())
-//                .blockstate((c, p) -> p.simpleBlock(c.get()))
-//                .onRegister(connectedTextures(() -> new EncasedCTBehaviour(ct.get())))
-//                .onRegister(casingConnectivity((block, cc) -> cc.makeCasing(block, ct.get())))
-//                .tag(AllTags.AllBlockTags.CASING.tag)
-//                .item()
-//                .tag(AllTags.AllItemTags.CASING.tag)
-//                .build();
-//    }
+    public static <B extends CasingBlock> NonNullUnaryOperator<BlockBuilder<B, CAFRegistrate>> casing(
+            Supplier<CTSpriteShiftEntry> ct) {
+        return b -> b.initialProperties(SharedProperties::stone)
+                .properties(p -> p.sound(SoundType.WOOD))
+                .transform(axeOrPickaxe())
+                .blockstate((c, p) -> p.simpleBlock(c.get()))
+                .onRegister(connectedTextures(() -> new EncasedCTBehaviour(ct.get())))
+                .onRegister(casingConnectivity((block, cc) -> cc.makeCasing(block, ct.get())))
+                .tag(AllTags.AllBlockTags.CASING.tag)
+                .item()
+                .tag(AllTags.AllItemTags.CASING.tag)
+                .build();
+    }
 
-    public static <B extends CTFramedWall> NonNullUnaryOperator<BlockBuilder<B, CreateRegistrate>> walkway(
+    public static <B extends CTFramedWall> NonNullUnaryOperator<BlockBuilder<B, CAFRegistrate>> walkway(
             Supplier<CTSpriteShiftEntry> ct) {
         return b -> b.initialProperties(SharedProperties::stone)
                 .properties(p -> p.sound(SoundType.STONE))
@@ -70,7 +71,7 @@ public class BuilderTransformers {
                 .build();
     }
 
-    public static <B extends CTFramedWall> NonNullUnaryOperator<BlockBuilder<B, CreateRegistrate>> framedWall(
+    public static <B extends CTFramedWall> NonNullUnaryOperator<BlockBuilder<B, CAFRegistrate>> framedWall(
             Supplier<CTSpriteShiftEntry> ct) {
         return b -> b.initialProperties(SharedProperties::stone)
                 .properties(p -> p.sound(SoundType.WOOD))
@@ -111,8 +112,8 @@ public class BuilderTransformers {
     public static <B extends EncasedShaftBlock, P> NonNullUnaryOperator<BlockBuilder<B, P>> encasedShaft(String casing,
                                                                                                          Supplier<CTSpriteShiftEntry> casingShift) {
         return builder -> encasedBase(builder, AllBlocks.SHAFT::get)
-                .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCTBehaviour(casingShift.get())))
-                .onRegister(CreateRegistrate.casingConnectivity((block, cc) -> cc.make(block, casingShift.get(),
+                .onRegister(CAFRegistrate.connectedTextures(() -> new EncasedCTBehaviour(casingShift.get())))
+                .onRegister(CAFRegistrate.casingConnectivity((block, cc) -> cc.make(block, casingShift.get(),
                         (s, f) -> f.getAxis() != s.getValue(EncasedShaftBlock.AXIS))))
                 .blockstate((c, p) -> axisBlock(c, p, blockState -> p.models()
                         .getExistingFile(p.modLoc("block/encased_shaft/block_" + casing)), true))
@@ -129,18 +130,17 @@ public class BuilderTransformers {
     public static <B extends EncasedCogwheelBlock, P> NonNullUnaryOperator<BlockBuilder<B, P>> encasedSteelLargeCogwheel(
             String casing, Supplier<CTSpriteShiftEntry> casingShift) {
         return b -> encasedSteelCogwheelBase(b, casing, casingShift, AllBlocks.LARGE_COGWHEEL::get, true)
-                .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCogCTBehaviour(casingShift.get())));
+                .onRegister(CAFRegistrate.connectedTextures(() -> new EncasedCogCTBehaviour(casingShift.get())));
     }
 
     private static <B extends EncasedCogwheelBlock, P> BlockBuilder<B, P> encasedSteelCogwheelBase(BlockBuilder<B, P> b,
                                                                                                    String casing, Supplier<CTSpriteShiftEntry> casingShift, Supplier<ItemLike> drop, boolean large) {
         String encasedSuffix = "_encased_cogwheel_side" + (large ? "_connected" : "");
         String blockFolder = large ? "encased_large_cogwheel" : "encased_cogwheel";
-        String wood = casing.equals("brass") ? "dark_oak" : "spruce";
-        String gearbox = casing.equals("steel_block") ? "steel_gearbox" : "gearbox";
-        String side = casing.equals("steel_block") ? "steel" : "brass";
+        String gearbox = casing.equals("steel") ? "steel_gearbox" : "gearbox";
+        String side = casing.equals("steel") ? "steel" : "brass";
         return encasedBase(b, drop).addLayer(() -> RenderType::cutoutMipped)
-                .onRegister(CreateRegistrate.casingConnectivity((block, cc) -> cc.make(block, casingShift.get(),
+                .onRegister(CAFRegistrate.casingConnectivity((block, cc) -> cc.make(block, casingShift.get(),
                         (s, f) -> f.getAxis() == s.getValue(EncasedCogwheelBlock.AXIS)
                                 && !s.getValue(f.getAxisDirection() == Direction.AxisDirection.POSITIVE ? EncasedCogwheelBlock.TOP_SHAFT
                                 : EncasedCogwheelBlock.BOTTOM_SHAFT))))
@@ -150,17 +150,15 @@ public class BuilderTransformers {
                     String modelName = c.getName() + suffix;
                     return p.models()
                             .withExistingParent(modelName, p.modLoc("block/" + blockFolder + "/block" + suffix))
-                            .texture("casing", CreateAndFood.asResource("block/" + casing))
-                            .texture("particle", CreateAndFood.asResource("block/" + casing))
-                            .texture("4", CreateAndFood.asResource("block/" + gearbox))
-                            .texture("1", CreateAndFood.asResource("block/" + casing))
+                            .texture("casing", CreateAndFood.asResource("block/" + casing + "_casing"))
+                            .texture("cog", CreateAndFood.asResource("block/" + gearbox))
+                            .texture("end", CreateAndFood.asResource("block/" + casing))
                             .texture("side", CreateAndFood.asResource("block/" + side + encasedSuffix));
                 }, false))
                 .item()
                 .model((c, p) -> p.withExistingParent(c.getName(), p.modLoc("block/" + blockFolder + "/item"))
-                        .texture("casing", CreateAndFood.asResource("block/" + casing))
-                        .texture("particle", CreateAndFood.asResource("block/" + casing))
-                        .texture("1", CreateAndFood.asResource("block/" + casing))
+                        .texture("casing", CreateAndFood.asResource("block/" + casing + "_casing"))
+                        .texture("end", CreateAndFood.asResource("block/" + casing))
                         .texture("side", CreateAndFood.asResource("block/" + side + encasedSuffix)))
                 .build();
     }
@@ -181,7 +179,7 @@ public class BuilderTransformers {
                                             .texture("top", p.modLoc("block/scaffold/" + name + "_funnel_frame"))
                                             .texture("inside", p.modLoc("block/scaffold/" + name + "_scaffold_inside"))
                                             .texture("side", p.modLoc("block/scaffold/" + name + "_scaffold"))
-                                            .texture("casing", p.modLoc("block/" + name + "_block"))
+                                            .texture("casing", p.modLoc("block/" + name + "_casing"))
                                             .texture("particle", p.modLoc("block/scaffold/" + name + "_scaffold")))
                                     .build();
                         }, MetalScaffoldingBlock.WATERLOGGED, MetalScaffoldingBlock.DISTANCE))

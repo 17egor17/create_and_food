@@ -1,8 +1,6 @@
 package net.egorplaytv.create_and_food.block.custom.connect;
 
 import com.simibubi.create.Create;
-import com.simibubi.create.content.decoration.palettes.AllPaletteStoneTypes;
-import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.utility.Lang;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.builders.ItemBuilder;
@@ -14,6 +12,7 @@ import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonnullType;
 import net.egorplaytv.create_and_food.CreateAndFood;
+import net.egorplaytv.create_and_food.data.CAFRegistrate;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -51,18 +50,18 @@ public abstract class PaletteBlockPartial<B extends Block> {
         this.name = name;
     }
 
-    public @NonnullType BlockBuilder<B, CreateRegistrate> create(String variantName, PaletteBlockPattern pattern,
-                                                                 BlockEntry<? extends Block> block, PaletteStoneTypes variant) {
+    public @NonnullType BlockBuilder<B, CAFRegistrate> create(String variantName, PaletteBlockPattern pattern,
+                                                              BlockEntry<? extends Block> block, PaletteStoneTypes variant) {
         String patternName = Lang.nonPluralId(pattern.createName(variantName));
         String blockName = patternName + "_" + this.name;
 
-        BlockBuilder<B, CreateRegistrate> blockBuilder = CreateAndFood.REGISTRATE
+        BlockBuilder<B, CAFRegistrate> blockBuilder = CreateAndFood.REGISTRATE
                 .block(blockName, p -> createBlock(block))
                 .blockstate((c, p) -> generateBlockState(c, p, variantName, pattern, block))
                 .recipe((c, p) -> createRecipes(variant, block, c, p))
                 .transform(b -> transformBlock(b, variantName, pattern));
 
-        ItemBuilder<BlockItem, BlockBuilder<B, CreateRegistrate>> itemBuilder = blockBuilder.item()
+        ItemBuilder<BlockItem, BlockBuilder<B, CAFRegistrate>> itemBuilder = blockBuilder.item()
                 .transform(b -> transformItem(b, variantName, pattern));
 
         if (canRecycle())
@@ -75,14 +74,14 @@ public abstract class PaletteBlockPartial<B extends Block> {
         return PaletteBlockPattern.toLocation(variantName, pattern.getTexture(index));
     }
 
-    protected BlockBuilder<B, CreateRegistrate> transformBlock(BlockBuilder<B, CreateRegistrate> builder,
+    protected BlockBuilder<B, CAFRegistrate> transformBlock(BlockBuilder<B, CAFRegistrate> builder,
                                                                String variantName, PaletteBlockPattern pattern) {
         getBlockTags().forEach(builder::tag);
         return builder.transform(pickaxeOnly());
     }
 
-    protected ItemBuilder<BlockItem, BlockBuilder<B, CreateRegistrate>> transformItem(
-            ItemBuilder<BlockItem, BlockBuilder<B, CreateRegistrate>> builder, String variantName,
+    protected ItemBuilder<BlockItem, BlockBuilder<B, CAFRegistrate>> transformItem(
+            ItemBuilder<BlockItem, BlockBuilder<B, CAFRegistrate>> builder, String variantName,
             PaletteBlockPattern pattern) {
         getItemTags().forEach(builder::tag);
         return builder;
@@ -208,8 +207,8 @@ public abstract class PaletteBlockPartial<B extends Block> {
         }
 
         @Override
-        protected BlockBuilder<SlabBlock, CreateRegistrate> transformBlock(
-                BlockBuilder<SlabBlock, CreateRegistrate> builder, String variantName, PaletteBlockPattern pattern) {
+        protected BlockBuilder<SlabBlock, CAFRegistrate> transformBlock(
+                BlockBuilder<SlabBlock, CAFRegistrate> builder, String variantName, PaletteBlockPattern pattern) {
             builder.loot((lt, block) -> lt.add(block, RegistrateBlockLootTables.createSlabItemTable(block)));
             return super.transformBlock(builder, variantName, pattern);
         }
@@ -228,8 +227,8 @@ public abstract class PaletteBlockPartial<B extends Block> {
         }
 
         @Override
-        protected ItemBuilder<BlockItem, BlockBuilder<WallBlock, CreateRegistrate>> transformItem(
-                ItemBuilder<BlockItem, BlockBuilder<WallBlock, CreateRegistrate>> builder, String variantName,
+        protected ItemBuilder<BlockItem, BlockBuilder<WallBlock, CAFRegistrate>> transformItem(
+                ItemBuilder<BlockItem, BlockBuilder<WallBlock, CAFRegistrate>> builder, String variantName,
                 PaletteBlockPattern pattern) {
             builder.model((c, p) -> p.wallInventory(c.getName(), getTexture(variantName, pattern, 0)));
             return super.transformItem(builder, variantName, pattern);

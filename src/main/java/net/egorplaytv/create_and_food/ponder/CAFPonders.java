@@ -1,13 +1,10 @@
 package net.egorplaytv.create_and_food.ponder;
 
-import com.simibubi.create.AllParticleTypes;
 import com.simibubi.create.foundation.ponder.PonderRegistrationHelper;
 import com.simibubi.create.foundation.ponder.PonderRegistry;
 import com.simibubi.create.foundation.ponder.PonderTag;
 import com.simibubi.create.infrastructure.ponder.AllPonderTags;
-import com.tterrag.registrate.util.entry.ItemProviderEntry;
 import net.egorplaytv.create_and_food.CreateAndFood;
-import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.ponder.scene.*;
 import net.minecraft.world.level.ItemLike;
 
@@ -25,15 +22,49 @@ public class CAFPonders {
     }
 
     public static void register(){
-        HELPER.addStoryBoard(TABLET.getId(), "tablet", TabletScene::tablet, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(TERMINAL.getId(), "terminal", TerminalScene::terminal, CREATE_AND_FOOD);
         HELPER.addStoryBoard(MARBLE_BLAST_FURNACE.getId(), "blast_furnace", BlastFurnaceScene::blast_furnace, CREATE_AND_FOOD);
         HELPER.addStoryBoard(FERMENTATION_BARREL.getId(),"fermentation/non_connectable", FermentationBarrelScene::non_connectable, CAFPonders.CREATE_AND_FOOD);
         HELPER.addStoryBoard(FERMENTATION_BARREL.getId(), "fermentation/tube_in_up", FermentationBarrelScene::tube_in_up, AllPonderTags.FLUIDS);
         HELPER.addStoryBoard(FERMENTATION_BARREL.getId(), "fermentation/item_in_fermentation_barrel", FermentationBarrelScene::item_in_fermentation_barrel, AllPonderTags.LOGISTICS);
+        HELPER.addStoryBoard(ACACIA_TERRACE.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(ACACIA_TERRACE.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(ACACIA_TERRACE_STAIRS.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(ACACIA_TERRACE_STAIRS.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(ALMOND_TERRACE.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(ALMOND_TERRACE.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(ALMOND_TERRACE_STAIRS.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(ALMOND_TERRACE_STAIRS.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(BIRCH_TERRACE.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(BIRCH_TERRACE.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(BIRCH_TERRACE_STAIRS.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(BIRCH_TERRACE_STAIRS.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(CRIMSON_TERRACE.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(CRIMSON_TERRACE.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(CRIMSON_TERRACE_STAIRS.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(CRIMSON_TERRACE_STAIRS.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(DARK_OAK_TERRACE.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(DARK_OAK_TERRACE.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(DARK_OAK_TERRACE_STAIRS.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(DARK_OAK_TERRACE_STAIRS.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(JUNGLE_TERRACE.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(JUNGLE_TERRACE.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(JUNGLE_TERRACE_STAIRS.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(JUNGLE_TERRACE_STAIRS.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
         HELPER.addStoryBoard(OAK_TERRACE.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
         HELPER.addStoryBoard(OAK_TERRACE.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
         HELPER.addStoryBoard(OAK_TERRACE_STAIRS.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
         HELPER.addStoryBoard(OAK_TERRACE_STAIRS.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(SPRUCE_TERRACE.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(SPRUCE_TERRACE.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(SPRUCE_TERRACE_STAIRS.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(SPRUCE_TERRACE_STAIRS.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(WARPED_TERRACE.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(WARPED_TERRACE.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(WARPED_TERRACE_STAIRS.getId(), "terrace/terrace_all", TerraceScene::terrace_all, CREATE_AND_FOOD);
+        HELPER.addStoryBoard(WARPED_TERRACE_STAIRS.getId(), "terrace/terrace_connect", TerraceScene::terrace_connect, CREATE_AND_FOOD);
+
+        HELPER.addStoryBoard(SCALES.getId(), "scales", ScalesScene::scales, CREATE_AND_FOOD);
 
         HELPER.addStoryBoard(MECHANICAL_BLENDER, "blender", MechanicalBlenderScene::blender, CREATE_AND_FOOD, AllPonderTags.KINETIC_APPLIANCES);
         HELPER.forComponents(STEEL_SHAFT)
@@ -49,9 +80,9 @@ public class CAFPonders {
                 .addStoryBoard("cog/large", SteelCogwheelScene::large, CREATE_AND_FOOD, AllPonderTags.KINETIC_RELAYS)
                 .addStoryBoard("cog/encasing", SteelCogwheelScene::encasing);
 
-        PonderRegistry.TAGS.forTag(CREATE_AND_FOOD).add(TABLET.getId()).add(MARBLE_BLAST_FURNACE.getId()).add(FERMENTATION_BARREL.getId())
-                .add(OAK_TERRACE.getId()).add(MECHANICAL_BLENDER.getId()).add(STEEL_COGWHEEL.getId()).add(LARGE_STEEL_COGWHEEL.getId())
-                        .add(STEEL_SHAFT.getId());
+        PonderRegistry.TAGS.forTag(CREATE_AND_FOOD).add(TERMINAL.getId()).add(MARBLE_BLAST_FURNACE.getId()).add(FERMENTATION_BARREL.getId())
+                .add(OAK_TERRACE.getId()).add(OAK_TERRACE_STAIRS.getId()).add(MECHANICAL_BLENDER.getId()).add(STEEL_COGWHEEL.getId()).add(LARGE_STEEL_COGWHEEL.getId())
+                        .add(STEEL_SHAFT.getId()).add(SCALES.getId());
         PonderRegistry.TAGS.forTag(AllPonderTags.FLUIDS).add(FERMENTATION_BARREL.getId());
         PonderRegistry.TAGS.forTag(AllPonderTags.LOGISTICS).add(FERMENTATION_BARREL.getId());
         PonderRegistry.TAGS.forTag(AllPonderTags.KINETIC_APPLIANCES).add(MECHANICAL_BLENDER.getId());

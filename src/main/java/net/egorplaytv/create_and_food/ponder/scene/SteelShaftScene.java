@@ -71,7 +71,7 @@ public class SteelShaftScene {
         scene.idle(20);
 
         BlockEntry<EncasedShaftBlock> steelEncased = ModBlocks.STEEL_ENCASED_STEEL_SHAFT;
-        ItemStack steelCasingItem = ModBlocks.STEEL_BLOCK.asStack();
+        ItemStack steelCasingItem = ModBlocks.STEEL_CASING.asStack();
 
         scene.overlay.showControls(new InputWindowElement(util.vector.topOf(3, 1, 2), Pointing.DOWN).rightClick()
                 .withItem(steelCasingItem), 60);

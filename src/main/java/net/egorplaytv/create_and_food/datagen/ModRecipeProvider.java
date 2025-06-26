@@ -3,6 +3,8 @@ package net.egorplaytv.create_and_food.datagen;
 import com.simibubi.create.AllItems;
 import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.datagen.custom.BlastingRecipeBuilder;
+import net.egorplaytv.create_and_food.datagen.custom.FermentationRecipeBuilder;
+import net.egorplaytv.create_and_food.fluid.ModFluids;
 import net.egorplaytv.create_and_food.item.ModItems;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
@@ -56,6 +58,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         .of(AllItems.CINDER_FLOUR.get()).build()))
                 .unlockedBy("has_alloy_souls", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModItems.ALLOY_SOULS.get()).build()))
+                .save(pFinishedRecipeConsumer);
+
+        FermentationRecipeBuilder.fermentationRecipe(ModFluids.RED_GRAPE_JUICE.get(), 250, ModFluids.COCOA_OIL_FLUID.get(), 250)
+                .addIngredient(ModItems.ALLOY_SOULS.get()).addIngredient(ModItems.COPPER_COIN.get()).addTimeInSeconds(10)
+                .unlockedBy("juice_bucket", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.RED_GRAPE_JUICE_BUCKET.get()).build()))
+                .unlockedBy("alloy_souls", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.ALLOY_SOULS.get()).build()))
+                .unlockedBy("copper_coin", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ModItems.COPPER_COIN.get()).build()))
                 .save(pFinishedRecipeConsumer);
     }
 }

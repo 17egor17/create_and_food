@@ -167,6 +167,9 @@ public class ModItems {
     public static final RegistryObject<Item> WHITE_CHOCOLATE_BUCKET = registerItem("white_chocolate_bucket",
             () -> new BucketItem(ModFluids.WHITE_CHOCOLATE_FLUID, new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
 
+    public static final RegistryObject<Item> RED_GRAPE_JUICE_BUCKET = registerItem("red_grape_juice_bucket",
+            () -> new BucketItem(ModFluids.RED_GRAPE_JUICE, new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
+
     public static final RegistryObject<Item> HONEY_MILK = registerItem("honey_milk",
             () -> new DrinkableItem(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).food(ModFoods.HONEY_MILK).craftRemainder(Items.GLASS_BOTTLE), true,false));
 
@@ -205,7 +208,7 @@ public class ModItems {
 
 //________________________Create and Food________________________\\
     public static final RegistryObject<Item> STEEL_INGOT = registerItem("steel_ingot",
-            () -> new MeltItem(1530, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new IngotItem(1530, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> STEEL_NUGGET = registerItem("steel_nugget",
             () -> new MeltItem(1530, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
@@ -214,7 +217,7 @@ public class ModItems {
             () -> new MeltItem(1530, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> GLOWING_BRASS_INGOT = registerItem("glowing_brass_ingot",
-            () -> new MeltItem(950, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new IngotItem(950, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> GLOWING_BRASS_NUGGET = registerItem("glowing_brass_nugget",
             () -> new MeltItem(950, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
@@ -229,7 +232,7 @@ public class ModItems {
             () -> new MeltItem(1400, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> ALLOY_SOULS_INGOT = registerItem("alloy_souls_ingot",
-            () -> new MeltItem(1400, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new IngotItem(1400, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> ALLOY_SOULS_NUGGET = registerItem("alloy_souls_nugget",
             () -> new MeltItem(1400, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
@@ -368,7 +371,7 @@ public class ModItems {
             () -> new MeltItem(1064, new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)));
 
     public static final RegistryObject<Item> COAL_DUST = registerItem("coal_dust",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new FuelItem(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD), 1600));
 
     public static final RegistryObject<Item> IRON_DUST = registerItem("iron_dust",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
@@ -407,22 +410,22 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> RAW_TANTALUM = registerItem("raw_tantalum",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MeltItem(3016, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<Item> CRASHED_RAW_TANTALUM = registerItem("crushed_raw_tantalum",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MeltItem(3016, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<Item> TANTALUM_INGOT = registerItem("tantalum_ingot",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new IngotItem(3016, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<Item> TANTALUM_NUGGET = registerItem("tantalum_nugget",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MeltItem(3016, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> RAW_TUNGSTEN = registerItem("raw_tungsten",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MeltItem(3421, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<Item> CRASHED_RAW_TUNGSTEN = registerItem("crushed_raw_tungsten",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MeltItem(3421, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<Item> TUNGSTEN_INGOT = registerItem("tungsten_ingot",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new IngotItem(3421, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<Item> TUNGSTEN_NUGGET = registerItem("tungsten_nugget",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MeltItem(3421, new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
 
 
@@ -435,29 +438,50 @@ public class ModItems {
             () -> new KnifeItem(Tiers.IRON, 0.5F, -2.0F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)));
 
+    public static final RegistryObject<Item> INCOMPLETE_IRON_KNIFE = registerItem("incomplete_iron_knife",
+            () -> new SequencedAssemblyItem(new Item.Properties()));
+
     public static final RegistryObject<Item> DIAMOND_KNIFE = registerItem("diamond_knife",
             () -> new KnifeItem(Tiers.DIAMOND, 0.5F, -2.0F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)));
+
+    public static final RegistryObject<Item> INCOMPLETE_DIAMOND_KNIFE = registerItem("incomplete_diamond_knife",
+            () -> new SequencedAssemblyItem(new Item.Properties()));
 
     public static final RegistryObject<Item> NETHERITE_KNIFE = registerItem("netherite_knife",
             () -> new KnifeItem(Tiers.NETHERITE, 0.5F, -2.0F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP).fireResistant()));
 
+    public static final RegistryObject<Item> INCOMPLETE_NETHERITE_KNIFE = registerItem("incomplete_netherite_knife",
+            () -> new SequencedAssemblyItem(new Item.Properties()));
+
     public static final RegistryObject<Item> GOLDEN_KNIFE = registerItem("golden_knife",
             () -> new KnifeItem(Tiers.GOLD, 0.5F, -2.0F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)));
+
+    public static final RegistryObject<Item> INCOMPLETE_GOLDEN_KNIFE = registerItem("incomplete_golden_knife",
+            () -> new SequencedAssemblyItem(new Item.Properties()));
 
     public static final RegistryObject<Item> STEEL_KNIFE = registerItem("steel_knife",
             () -> new KnifeItem(ModTiers.STEEL, 0.5F, -2.0F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)));
 
+    public static final RegistryObject<Item> INCOMPLETE_STEEL_KNIFE = registerItem("incomplete_steel_knife",
+            () -> new SequencedAssemblyItem(new Item.Properties()));
+
     public static final RegistryObject<Item> TANTALUM_KNIFE = registerItem("tantalum_knife",
             () -> new KnifeItem(ModTiers.TANTALUM, 0.5F, -2.0F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)));
 
+    public static final RegistryObject<Item> INCOMPLETE_TANTALUM_KNIFE = registerItem("incomplete_tantalum_knife",
+            () -> new SequencedAssemblyItem(new Item.Properties()));
+
     public static final RegistryObject<Item> TUNGSTEN_KNIFE = registerItem("tungsten_knife",
             () -> new KnifeItem(ModTiers.TUNGSTEN, 0.5F, -2.0F,
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_KNIFE_AND_TIP)));
+
+    public static final RegistryObject<Item> INCOMPLETE_TUNGSTEN_KNIFE = registerItem("incomplete_tungsten_knife",
+            () -> new SequencedAssemblyItem(new Item.Properties()));
 
 
 
@@ -498,6 +522,5 @@ public class ModItems {
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
-
     }
 }

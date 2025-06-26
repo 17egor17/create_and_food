@@ -34,7 +34,7 @@ public class ModFluids {
     public static final ForgeFlowingFluid.Properties APPLE_VINEGAR_PROPERTIES = new ForgeFlowingFluid.Properties(
             () -> APPLE_VINEGAR_FLUID.get(), () -> APPLE_VINEGAR_FLOWING.get(), FluidAttributes.builder(CreateAndFood.asFluid("apple_vinegar_still"),
                     CreateAndFood.asFluid("apple_vinegar_flow"))
-            .density(9).luminosity(2).viscosity(5).sound(SoundEvents.BUCKET_EMPTY).overlay(WATER_OVERLAY_RL)).slopeFindDistance(6).levelDecreasePerBlock(1)
+            .density(9).viscosity(5).sound(SoundEvents.BUCKET_EMPTY).overlay(WATER_OVERLAY_RL)).slopeFindDistance(6).levelDecreasePerBlock(1)
             .block(() -> ModFluids.APPLE_VINEGAR_BLOCK.get()).bucket(() -> ModItems.APPLE_VINEGAR_BUCKET.get());
 
     public static final RegistryObject<LiquidBlock> APPLE_VINEGAR_BLOCK = ModBlocks.BLOCKS.register("apple_vinegar",
@@ -50,7 +50,7 @@ public class ModFluids {
     public static final ForgeFlowingFluid.Properties COCOA_OIL_PROPERTIES = new ForgeFlowingFluid.Properties(
             () -> COCOA_OIL_FLUID.get(), () -> COCOA_OIL_FLOWING.get(), FluidAttributes.builder(CreateAndFood.asFluid("cocoa_oil_still"),
                     CreateAndFood.asFluid("cocoa_oil_flow"))
-            .density(9).luminosity(2).viscosity(5).sound(SoundEvents.BUCKET_EMPTY).overlay(WATER_OVERLAY_RL)).slopeFindDistance(6).levelDecreasePerBlock(1)
+            .density(1400).viscosity(15).sound(SoundEvents.BUCKET_EMPTY).overlay(WATER_OVERLAY_RL)).slopeFindDistance(6).levelDecreasePerBlock(1)
             .block(() -> ModFluids.COCOA_OIL_BLOCK.get()).bucket(() -> ModItems.COCOA_OIL_BUCKET.get());
 
     public static final RegistryObject<LiquidBlock> COCOA_OIL_BLOCK = ModBlocks.BLOCKS.register("cocoa_oil",
@@ -66,7 +66,7 @@ public class ModFluids {
     public static final ForgeFlowingFluid.Properties WHITE_CHOCOLATE_PROPERTIES = new ForgeFlowingFluid.Properties(
             () -> WHITE_CHOCOLATE_FLUID.get(), () -> WHITE_CHOCOLATE_FLOWING.get(), FluidAttributes.builder(CreateAndFood.asFluid("white_chocolate_still"),
                     CreateAndFood.asFluid("white_chocolate_flow"))
-            .density(9).luminosity(2).viscosity(5).sound(SoundEvents.BUCKET_EMPTY).overlay(WATER_OVERLAY_RL)).slopeFindDistance(6).levelDecreasePerBlock(1)
+            .density(1400).viscosity(1500).sound(SoundEvents.BUCKET_EMPTY).overlay(WATER_OVERLAY_RL)).slopeFindDistance(6).levelDecreasePerBlock(1)
             .block(() -> ModFluids.WHITE_CHOCOLATE_BLOCK.get()).bucket(() -> ModItems.WHITE_CHOCOLATE_BUCKET.get());
 
     public static final RegistryObject<LiquidBlock> WHITE_CHOCOLATE_BLOCK = ModBlocks.BLOCKS.register("white_chocolate",
@@ -83,7 +83,7 @@ public class ModFluids {
     public static final ForgeFlowingFluid.Properties NIXIE_PROPERTIES = new ForgeFlowingFluid.Properties(
             () -> NIXIE_FLUID.get(), () -> NIXIE_FLOWING.get(), FluidAttributes.builder(CreateAndFood.asFluid("nixie_fluid_still"),
                     CreateAndFood.asFluid("nixie_fluid_flow"))
-            .density(9).luminosity(2).viscosity(5).overlay(WATER_OVERLAY_RL)).slopeFindDistance(6).levelDecreasePerBlock(1)
+            .density(1400).luminosity(10).viscosity(2000).overlay(WATER_OVERLAY_RL)).slopeFindDistance(6).levelDecreasePerBlock(1)
             .block(() -> ModFluids.NIXIE_BLOCK.get());
 
     public static final RegistryObject<LiquidBlock> NIXIE_BLOCK = ModBlocks.BLOCKS.register("nixie_fluid",
@@ -92,6 +92,22 @@ public class ModFluids {
                         return 10;
                     }).noDrops()));
 
+
+    public static final RegistryObject<FlowingFluid> RED_GRAPE_JUICE = FLUIDS.register("red_grape_juice",
+            () -> new ForgeFlowingFluid.Source(ModFluids.RED_GRAPE_JUICE_PROPERTIES));
+
+    public static final RegistryObject<FlowingFluid> RED_GRAPE_JUICE_FLOWING = FLUIDS.register("red_grape_juice_flowing",
+            () -> new ForgeFlowingFluid.Flowing(ModFluids.RED_GRAPE_JUICE_PROPERTIES));
+
+    public static final ForgeFlowingFluid.Properties RED_GRAPE_JUICE_PROPERTIES = new ForgeFlowingFluid.Properties(
+            () -> RED_GRAPE_JUICE.get(), () -> RED_GRAPE_JUICE_FLOWING.get(), FluidAttributes.builder(CreateAndFood.asFluid("grape_juice_still"),
+                    CreateAndFood.asFluid("grape_juice_flow"))
+            .density(9).viscosity(5).overlay(WATER_OVERLAY_RL)).slopeFindDistance(6).levelDecreasePerBlock(1)
+            .block(() -> ModFluids.RED_GRAPE_JUICE_BLOCK.get()).bucket(() -> ModItems.RED_GRAPE_JUICE_BUCKET.get());
+
+    public static final RegistryObject<LiquidBlock> RED_GRAPE_JUICE_BLOCK = ModBlocks.BLOCKS.register("red_grape_juice",
+            () -> new LiquidBlock(() -> ModFluids.RED_GRAPE_JUICE.get(), BlockBehaviour.Properties.of(Material.WATER)
+                    .noCollission().strength(100f).noDrops()));
 
 
     public static void register(IEventBus eventBus) {

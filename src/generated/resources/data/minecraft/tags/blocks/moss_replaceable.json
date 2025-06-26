@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
+    "create_and_food:marble",
+    "create_and_food:marble_black_galaxy",
+    "create_and_food:marble_perlin_pink",
     "create_and_food:baked_clay",
     "create_and_food:black_baked_clay",
     "create_and_food:blue_baked_clay",

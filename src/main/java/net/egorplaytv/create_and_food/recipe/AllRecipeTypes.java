@@ -25,7 +25,9 @@ import java.util.function.Supplier;
 
 public enum AllRecipeTypes implements IRecipeTypeInfo {
     CHOPPING(ChoppingRecipe::new),
-    BEATING(BeatingRecipe::new);
+    BEATING(BeatingRecipe::new),
+    POLISHING(PolishingRecipe::new)
+    ;
 
 
 

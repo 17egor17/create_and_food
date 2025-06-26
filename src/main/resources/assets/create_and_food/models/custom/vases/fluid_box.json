@@ -1,0 +1,21 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "create_and_food:fluid/nixie_fluid_still",
+		"particle": "create_and_food:fluid/nixie_fluid_still"
+	},
+	"elements": [
+		{
+			"from": [2, 1.98, 2],
+			"to": [14, 11.98, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 0, 2]},
+			"faces": {
+				"north": {"uv": [0, 0, 12, 10], "texture": "#0"},
+				"east": {"uv": [0, 0, 12, 10], "texture": "#0"},
+				"south": {"uv": [0, 0, 12, 10], "texture": "#0"},
+				"west": {"uv": [0, 0, 12, 10], "texture": "#0"},
+				"up": {"uv": [0, 0, 12, 12], "texture": "#0"}
+			}
+		}
+	]
+}

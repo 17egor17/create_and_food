@@ -30,7 +30,7 @@ import static net.minecraftforge.fluids.FluidAttributes.BUCKET_VOLUME;
 // CREDIT: https://github.com/mezz/JustEnoughItems by mezz
 // Under MIT-License: https://github.com/mezz/JustEnoughItems/blob/1.18/LICENSE.txt
 // Includes major rewrites and methods from:
-// https://github.com/mezz/JustEnoughItems/blob/1.18/Forge/src/main/java/mezz/jei/forge/platform/FluidHelper.java
+// https://github.com/mezz/JustEnoughItems/blob/1.18/Common/src/main/java/mezz/jei/common/render/FluidTankRenderer.java
 public class FluidTankRenderer {
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -186,14 +186,14 @@ public class FluidTankRenderer {
             long milliBuckets = (amount * 1000) / BUCKET_VOLUME;
 
             if (tooltipMode == TooltipMode.SHOW_AMOUNT_AND_CAPACITY) {
-                MutableComponent amountString = new TranslatableComponent("jei.create_and_food.tooltip.liquid.amount.with.capacity", nf.format(milliBuckets), nf.format(capacity));
+                TranslatableComponent amountString = new TranslatableComponent("jei.create_and_food.tooltip.liquid.amount.with.capacity", nf.format(milliBuckets), nf.format(capacity));
                 tooltip.add(amountString.withStyle(ChatFormatting.GRAY));
             } else if (tooltipMode == TooltipMode.SHOW_AMOUNT) {
                 if (fluidStack.getAmount() > 0) {
-                    MutableComponent amountString = new TranslatableComponent("jei.create_and_food.tooltip.liquid.amount", nf.format(milliBuckets));
+                    TranslatableComponent amountString = new TranslatableComponent("jei.create_and_food.tooltip.liquid.amount", nf.format(milliBuckets));
                     tooltip.add(amountString.withStyle(ChatFormatting.GRAY));
-                } else if (fluidStack.getAmount() == 0){
-                    MutableComponent amountString = new TranslatableComponent("jei.create_and_food.tooltip.liquid.amount.empty", nf.format(milliBuckets));
+                } else {
+                    TranslatableComponent amountString = new TranslatableComponent("jei.create_and_food.tooltip.liquid.amount.empty", nf.format(milliBuckets));
                     tooltip.add(amountString.withStyle(ChatFormatting.GRAY));
                 }
             }

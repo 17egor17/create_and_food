@@ -26,6 +26,10 @@ public class CreateAndFoodCommonConfigs {
 
     public static final ForgeConfigSpec.ConfigValue<Integer> SPEED_ATTENUATION_FURNACE;
 
+    public static final ForgeConfigSpec.ConfigValue<Boolean> ENABLE_KILOGRAMS;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> ENABLE_GRAMS;
+    public static final ForgeConfigSpec.ConfigValue<Boolean> ENABLE_TONES;
+
     static {
         BUILDER.comment("World generation").push("world");
         BUILDER.comment("Wild blueberry bush generation").push("wild_blueberry_bush");
@@ -101,6 +105,18 @@ public class CreateAndFoodCommonConfigs {
         SPEED_ATTENUATION_FURNACE = BUILDER.comment("Time in seconds")
                 .translation("config.create_and_food.furnace_speed")
                 .defineInRange("Speed Attenuation Blast Furnace", 50, 10, 100);
+
+        ENABLE_KILOGRAMS = BUILDER.comment("Includes kilograms")
+                .translation("config.create_and_food.enable_kilograms")
+                .define("Enable kilograms", true);
+
+        ENABLE_GRAMS = BUILDER.comment("Includes grams")
+                .translation("config.create_and_food.enable_grams")
+                .define("Enable grams", true);
+
+        ENABLE_TONES = BUILDER.comment("Includes tones")
+                .translation("config.create_and_food.enable_tones")
+                .define("Enable tones", true);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

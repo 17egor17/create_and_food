@@ -23,6 +23,9 @@ public class render {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.RYE_PLANT.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.ALMOND_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.ALMOND_LEAVES.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.NIXIE_VASE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.NIXIE_VASE_PERLIN_PINK.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.NIXIE_VASE_BLACK_GALAXY.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.BLUEBERRY_BUSH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.WILD_BLUEBERRY_BUSH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.CRANBERRY_BUSH.get(), RenderType.cutout());
@@ -46,9 +49,15 @@ public class render {
         ItemBlockRenderTypes.setRenderLayer(ModFluids.APPLE_VINEGAR_BLOCK.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModFluids.APPLE_VINEGAR_FLUID.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModFluids.APPLE_VINEGAR_FLOWING.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.WHITE_CHOCOLATE_BLOCK.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.WHITE_CHOCOLATE_FLUID.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.WHITE_CHOCOLATE_FLOWING.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModFluids.COCOA_OIL_BLOCK.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModFluids.COCOA_OIL_FLUID.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModFluids.COCOA_OIL_FLOWING.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.RED_GRAPE_JUICE_BLOCK.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.RED_GRAPE_JUICE.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(ModFluids.RED_GRAPE_JUICE_FLOWING.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.TORN_SOUL_LANTERN.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.TORN_SOUL_CHAIN.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.FRAMED_CALCITE.get(), RenderType.cutout());
@@ -81,6 +90,9 @@ public class render {
         MenuScreens.register(ModMenuTypes.SAMPLE_MENU.get(), SampleOfMetalsScreen::new);
 
         WoodType.register(ModWoodTypes.ALMOND);
+
+        BlockEntityRenderers.register(ModBlockEntities.SCALES_BLOCK_ENTITY.get(), ScalesBlockRenderer::new);
+        BlockEntityRenderers.register(ModBlockEntities.VASE_BLOCK_ENTITY.get(), VaseBlockRenderer::new);
 
         BlockEntityRenderers.register(ModBlockEntities.SIGN_BLOCK_ENTITIES.get(), SignRenderer::new);
 

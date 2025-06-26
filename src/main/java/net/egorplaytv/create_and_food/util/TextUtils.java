@@ -3,10 +3,7 @@ package net.egorplaytv.create_and_food.util;
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.*;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffectUtil;
@@ -21,27 +18,45 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import static net.egorplaytv.create_and_food.CreateAndFood.MOD_ID;
+
 public class TextUtils {
 
     private static final MutableComponent NO_EFFECTS;
+    public static final Style NORMAL_TOOLTIP_TEXT = Style.EMPTY.withColor(ChatFormatting.GRAY).withItalic(false);
 
     public TextUtils() {
     }
 
+    public static MutableComponent of(LocalizationTooltips buttonToolTips, Object... args) {
+        return of(buttonToolTips, NORMAL_TOOLTIP_TEXT, args);
+    }
+
+    public static MutableComponent of(LocalizationTooltips buttonToolTips, Style style, Object... args) {
+        return buttonToolTips.text(args).copy().withStyle(style);
+    }
+
+    public static MutableComponent getToolTipTranslation(String key, Object... args) {
+        return new TranslatableComponent("tooltip." + MOD_ID + "." + key, args);
+    }
+
     public static MutableComponent getJeiTranslation(String key, Object... args) {
-        return new TranslatableComponent("jei.create_and_food." + key, args);
+        return new TranslatableComponent("jei." + MOD_ID + "." + key, args);
+    }
+    public static MutableComponent getTranslation(String key, Object... args) {
+        return new TranslatableComponent(key, args);
     }
     public static MutableComponent getModTranslation(String key, Object... args) {
-        return new TranslatableComponent("create_and_food." + key, args);
+        return new TranslatableComponent(MOD_ID + "." + key, args);
     }
     public static MutableComponent getBerryBushTranslation(String key, Object... args) {
-        return new TranslatableComponent("create_and_food.berry_bush." + key, args);
+        return new TranslatableComponent(MOD_ID + ".berry_bush." + key, args);
     }
     public static MutableComponent getWildBerryBushTranslation(String key, Object... args) {
-        return new TranslatableComponent("create_and_food.wild_berry_bush." + key, args);
+        return new TranslatableComponent(MOD_ID + ".wild_berry_bush." + key, args);
     }
     public static MutableComponent getPumpkinAndMelonBushTranslation(String key, Object... args) {
-        return new TranslatableComponent("create_and_food.pumpkin_and_melon_bush." + key, args);
+        return new TranslatableComponent(MOD_ID + ".pumpkin_and_melon_bush." + key, args);
     }
 
     @OnlyIn(Dist.CLIENT)

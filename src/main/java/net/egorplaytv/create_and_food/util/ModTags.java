@@ -6,7 +6,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import org.lwjgl.system.CallbackI;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class ModTags {
 
@@ -53,6 +53,7 @@ public class ModTags {
     }
 
     public static class Items {
+
         private static void init(){}
 
         public static final TagKey<Item> STEEL = forgeTag("ingots/steel");
@@ -74,8 +75,13 @@ public class ModTags {
         public static final TagKey<Item> INVAR = forgeTag("ingots/invar");
         public static final TagKey<Item> LUMIUM = forgeTag("ingots/lumium");
         public static final TagKey<Item> SIGNALUM = forgeTag("ingots/signalum");
+        public static final TagKey<Item> INGOTS = forgeTag("ingots");
+        public static final TagKey<Item> TORCHES = forgeTag("torches");
+        public static final TagKey<Item> CHAINS = forgeTag("chains");
 
         public static final TagKey<Item> MEET = forgeTag("meet");
+        public static final TagKey<Item> EGGS = forgeTag("eggs");
+        public static final TagKey<Item> BANNER_PATTERNS = forgeTag("banner_patterns");
         public static final TagKey<Item> MACARONI = forgeTag("macaroni");
         public static final TagKey<Item> SMALL_BASE = forgeTag("small_base");
         public static final TagKey<Item> CREAMS = forgeTag("creams");
@@ -84,19 +90,16 @@ public class ModTags {
         public static final TagKey<Item> COAL_DUST = forgeTag("dusts/coal");
         public static final TagKey<Item> BERRIES = modTag("berries");
         public static final TagKey<Item> FUEL = modTag("fuel");
-        public static final TagKey<Item> FUEL_BUCKET = modTag("fuel_bucket");
-        public static final TagKey<Item> FUEL_5 = modTag("fuel_five_degrees");
-        public static final TagKey<Item> FUEL_10 = modTag("fuel_ten_degrees");
-        public static final TagKey<Item> FUEL_15 = modTag("fuel_fifteen_degrees");
-        public static final TagKey<Item> FUEL_90 = modTag("fuel_ninety_degrees");
-        public static final TagKey<Item> FUEL_100 = modTag("fuel_hundred_degrees");
-        public static final TagKey<Item> FUEL_1000 = modTag("fuel_thousand_degrees");
+        public static final TagKey<Item> CREATIVE_FUEL = modTag("creative_fuel");
         public static final TagKey<Item> CUT_TOOLS = forgeTag("cut_tools");
 
         public static final TagKey<Item> FUEL_HUNDRED = modTag("fuel_hundred");
 
+        public static final TagKey<Item> MARBLE = modTag("marbles/marble");
+
         public static final TagKey<Item> BARRELS = modTag("barrels");
         public static final TagKey<Item> CUTTING_BOARDS = modTag("cutting_boards");
+        public static final TagKey<Item> TERRACES = modTag("terraces");
 
 
         private static TagKey<Item> modTag(String name) {
@@ -111,3 +114,4 @@ public class ModTags {
         }
     }
 }
+

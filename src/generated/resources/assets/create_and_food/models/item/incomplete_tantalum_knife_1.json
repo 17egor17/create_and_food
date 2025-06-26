@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "create_and_food:item/tools/incomplete_knives/incomplete_tantalum_knife_1"
+  }
+}

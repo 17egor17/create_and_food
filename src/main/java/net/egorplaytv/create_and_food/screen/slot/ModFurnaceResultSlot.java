@@ -1,6 +1,7 @@
 package net.egorplaytv.create_and_food.screen.slot;
 
 import net.egorplaytv.create_and_food.block.entity.custom.MarbleBlastFurnaceBlockEntity;
+import net.egorplaytv.create_and_food.item.custom.IngotItem;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;

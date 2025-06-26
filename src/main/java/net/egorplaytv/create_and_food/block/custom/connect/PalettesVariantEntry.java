@@ -1,8 +1,6 @@
 package net.egorplaytv.create_and_food.block.custom.connect;
 
 import com.google.common.collect.ImmutableList;
-import com.simibubi.create.Create;
-import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.builders.ItemBuilder;
 import com.tterrag.registrate.providers.ProviderType;
@@ -10,6 +8,7 @@ import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.egorplaytv.create_and_food.CreateAndFood;
+import net.egorplaytv.create_and_food.data.CAFRegistrate;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
@@ -30,7 +29,7 @@ public class PalettesVariantEntry {
         NonNullSupplier<Block> baseBlock = paletteStoneVariants.baseBlock;
 
         for (PaletteBlockPattern pattern : paletteStoneVariants.variantTypes) {
-            BlockBuilder<? extends Block, CreateRegistrate> builder =
+            BlockBuilder<? extends Block, CAFRegistrate> builder =
                     CreateAndFood.REGISTRATE.block(pattern.createName(name), pattern.getBlockFactory())
                             .initialProperties(baseBlock)
                             .transform(pickaxeOnly())
@@ -38,7 +37,7 @@ public class PalettesVariantEntry {
                                     .apply(pattern)
                                     .apply(name)::accept);
 
-            ItemBuilder<BlockItem, ? extends BlockBuilder<? extends Block, CreateRegistrate>> itemBuilder =
+            ItemBuilder<BlockItem, ? extends BlockBuilder<? extends Block, CAFRegistrate>> itemBuilder =
                     builder.item();
 
             TagKey<Block>[] blockTags = pattern.getBlockTags();

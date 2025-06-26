@@ -1,6 +1,7 @@
 package net.egorplaytv.create_and_food;
 
 import net.egorplaytv.create_and_food.block.custom.connect.ModPartialModels;
+import net.egorplaytv.create_and_food.datagen.custom.ModItemModelsProperties;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 

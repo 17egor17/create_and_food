@@ -2,6 +2,7 @@ package net.egorplaytv.create_and_food;
 
 import com.simibubi.create.AllItems;
 import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.entity.custom.MarbleBlastFurnaceBlockEntity;
 import net.egorplaytv.create_and_food.item.ModItems;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.ComposterBlock;

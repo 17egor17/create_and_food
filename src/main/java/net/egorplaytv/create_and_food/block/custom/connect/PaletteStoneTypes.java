@@ -3,26 +3,59 @@ package net.egorplaytv.create_and_food.block.custom.connect;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.utility.Lang;
+import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
+import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.egorplaytv.create_and_food.CreateAndFood;
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.data.CAFRegistrate;
 import net.egorplaytv.create_and_food.sound.ModSounds;
+import net.minecraft.advancements.critereon.EnchantmentPredicate;
+import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.critereon.MinMaxBounds;
+import net.minecraft.core.Registry;
+import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.LootTable;
+import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
+import net.minecraft.world.level.storage.loot.predicates.ConditionReference;
+import net.minecraft.world.level.storage.loot.predicates.ConditionUserBuilder;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.concurrent.locks.Condition;
 import java.util.function.Function;
 
 import static net.egorplaytv.create_and_food.block.custom.connect.PaletteBlockPattern.*;
 
 public enum PaletteStoneTypes {
 
-//    MARBLE(MARBLE_RANGE, r -> () -> ModBlocks.MARBLE.get()),
-//    MARBLE_BLACK_GALAXY(MARBLE_RANGE, r -> () -> ModBlocks.MARBLE_BLACK_GALAXY.get()),
-//    MARBLE_PERLIN_PINK(MARBLE_RANGE, r -> () -> ModBlocks.MARBLE_PERLIN_PINK.get()),
+    MARBLE(MARBLE_RANGE, r -> r.paletteStoneBlock("marble", () -> Blocks.TERRACOTTA, false, true)
+            .properties(p -> p.destroyTime(1.5f).sound(SoundType.STONE)
+                    .color(MaterialColor.COLOR_GRAY))
+            .register()),
+
+    MARBLE_BLACK_GALAXY(MARBLE_RANGE, r -> r.paletteStoneBlock("marble_black_galaxy", () -> Blocks.TERRACOTTA, false, true)
+            .properties(p -> p.destroyTime(1.5f).sound(SoundType.STONE)
+                    .color(MaterialColor.COLOR_GRAY))
+            .register()),
+
+    MARBLE_PERLIN_PINK(MARBLE_RANGE, r -> r.paletteStoneBlock("marble_perlin_pink", () -> Blocks.TERRACOTTA, false, true)
+            .properties(p -> p.destroyTime(1.5f).sound(SoundType.STONE)
+                    .color(MaterialColor.COLOR_GRAY))
+            .register()),
 
     BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("baked_clay", () -> Blocks.TERRACOTTA, false, false)
             .properties(p -> p.destroyTime(1.25f).sound(ModSounds.BAKED_CLAY)
@@ -65,7 +98,8 @@ public enum PaletteStoneTypes {
                     .color(MaterialColor.COLOR_YELLOW))
             .register())
     ;
-    private final Function<CreateRegistrate, NonNullSupplier<Block>> factory;
+
+    private final Function<CAFRegistrate, NonNullSupplier<Block>> factory;
     private PalettesVariantEntry variants;
 
     public NonNullSupplier<Block> baseBlock;
@@ -73,7 +107,7 @@ public enum PaletteStoneTypes {
     public TagKey<Item> materialTag;
 
     PaletteStoneTypes(PaletteBlockPattern[] variantTypes,
-                              Function<CreateRegistrate, NonNullSupplier<Block>> factory) {
+                              Function<CAFRegistrate, NonNullSupplier<Block>> factory) {
         this.factory = factory;
         this.variantTypes = variantTypes;
     }
@@ -86,7 +120,7 @@ public enum PaletteStoneTypes {
         return variants;
     }
 
-    public static void register(CreateRegistrate registration) {
+    public static void register(CAFRegistrate registration) {
         for (PaletteStoneTypes paletteStoneVariants : values()) {
             paletteStoneVariants.baseBlock = paletteStoneVariants.factory.apply(registration);
             String id = Lang.asId(paletteStoneVariants.name());

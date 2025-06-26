@@ -1,0 +1,29 @@
+{
+  "type": "create_and_food:fermentation",
+  "ingredients": [
+    {
+      "item": "create_and_food:steel_ingot"
+    },
+    {
+      "item": "create_and_food:rye"
+    },
+    {
+      "item": "create_and_food:raw_protein"
+    },
+    {
+      "fluid": "minecraft:water",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "create:dough",
+      "count": 2
+    },
+    {
+      "fluid": "minecraft:lava",
+      "amount": 250
+    }
+  ],
+  "time": 1180
+}

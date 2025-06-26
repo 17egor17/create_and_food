@@ -13,6 +13,7 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.item.custom.IngotItem;
 import net.egorplaytv.create_and_food.recipe.MarbleFurnaceRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -43,7 +44,7 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
 
     @Override
     public void draw(MarbleFurnaceRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
-        drawTimeSecond(recipe, stack, 57, 78);
+        drawTimeSecond(recipe, stack, 32, 78);
         degrees(recipe, stack, 13,56);
         this.arrow.draw(stack,40,36);
         this.deg.draw(stack, 13, 66);
@@ -104,16 +105,18 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
     public void setRecipe(IRecipeLayoutBuilder builder, MarbleFurnaceRecipe recipe, IFocusGroup focuses) {
         if (recipe.getIngredients().size() == 1){
             builder.addSlot(RecipeIngredientRole.INPUT, 11,11).addIngredients(recipe.getIngredients().get(0));
-            builder.addSlot(RecipeIngredientRole.OUTPUT, 91,37).addItemStack(recipe.getResultItem());
         } else if (recipe.getIngredients().size() == 2) {
             builder.addSlot(RecipeIngredientRole.INPUT, 11,11).addIngredients(recipe.getIngredients().get(0));
             builder.addSlot(RecipeIngredientRole.INPUT, 31,11).addIngredients(recipe.getIngredients().get(1));
-            builder.addSlot(RecipeIngredientRole.OUTPUT, 91,37).addItemStack(recipe.getResultItem());
         } else if (recipe.getIngredients().size() == 3) {
             builder.addSlot(RecipeIngredientRole.INPUT, 11, 11).addIngredients(recipe.getIngredients().get(0));
             builder.addSlot(RecipeIngredientRole.INPUT, 31, 11).addIngredients(recipe.getIngredients().get(1));
             builder.addSlot(RecipeIngredientRole.INPUT, 21, 31).addIngredients(recipe.getIngredients().get(2));
-            builder.addSlot(RecipeIngredientRole.OUTPUT, 91, 37).addItemStack(recipe.getResultItem());
+        }
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 91, 37).addItemStack(recipe.getResultItem());
+        if (recipe.getResultItem().getItem() instanceof IngotItem){
+            IngotItem result = (IngotItem) recipe.getResultItem().getItem();
+            result.setDeg(recipe.getResultItem(), recipe.getDeg() - 50);
         }
     }
 }

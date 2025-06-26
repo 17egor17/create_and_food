@@ -1,0 +1,32 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"0": "create:block/axis",
+		"1": "create:block/depot_top"
+	},
+	"elements": [
+		{
+			"from": [6, 5, 6],
+			"to": [10, 6, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 5, 7]},
+			"faces": {
+				"north": {"uv": [6, 1, 10, 2], "texture": "#0"},
+				"east": {"uv": [6, 1, 10, 2], "texture": "#0"},
+				"south": {"uv": [6, 1, 10, 2], "texture": "#0"},
+				"west": {"uv": [6, 1, 10, 2], "texture": "#0"}
+			}
+		},
+		{
+			"from": [1, 6, 1],
+			"to": [15, 8, 15],
+			"faces": {
+				"north": {"uv": [1, 14, 15, 16], "texture": "#1"},
+				"east": {"uv": [1, 14, 15, 16], "texture": "#1"},
+				"south": {"uv": [1, 14, 15, 16], "texture": "#1"},
+				"west": {"uv": [1, 14, 15, 16], "texture": "#1"},
+				"up": {"uv": [1, 0, 15, 14], "texture": "#1"},
+				"down": {"uv": [1, 0, 15, 14], "texture": "#1"}
+			}
+		}
+	]
+}

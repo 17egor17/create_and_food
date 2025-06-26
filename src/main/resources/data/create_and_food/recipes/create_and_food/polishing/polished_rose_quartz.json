@@ -1,0 +1,15 @@
+{
+  "type": "create_and_food:polishing",
+  "ingredients": [
+    {
+      "item": "create:rose_quartz"
+    }
+  ],
+  "results": [
+    {
+      "item": "create:polished_rose_quartz"
+    }
+  ],
+  "speedLimits": 1,
+  "processingTime": 20
+}

@@ -1,6 +1,18 @@
 {
   "replace": false,
   "values": [
+    "create_and_food:cut_marble_slab",
+    "create_and_food:polished_cut_marble_slab",
+    "create_and_food:cut_marble_brick_slab",
+    "create_and_food:small_marble_brick_slab",
+    "create_and_food:cut_marble_black_galaxy_slab",
+    "create_and_food:polished_cut_marble_black_galaxy_slab",
+    "create_and_food:cut_marble_black_galaxy_brick_slab",
+    "create_and_food:small_marble_black_galaxy_brick_slab",
+    "create_and_food:cut_marble_perlin_pink_slab",
+    "create_and_food:polished_cut_marble_perlin_pink_slab",
+    "create_and_food:cut_marble_perlin_pink_brick_slab",
+    "create_and_food:small_marble_perlin_pink_brick_slab",
     "create_and_food:cut_baked_clay_slab",
     "create_and_food:cut_baked_clay_brick_slab",
     "create_and_food:small_baked_clay_brick_slab",

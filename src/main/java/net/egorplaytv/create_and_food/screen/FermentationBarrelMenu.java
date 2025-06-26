@@ -12,23 +12,28 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
+
+import java.util.Objects;
 
 public class FermentationBarrelMenu extends AbstractContainerMenu {
     public final FermentationBarrelBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
+    public final ItemStackHandler inventory;
     private FluidStack fluidStack;
     private FluidStack fluidStackOut;
     public FermentationBarrelMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
+        this(pContainerId, inv, getTileEntity(inv, extraData), new SimpleContainerData(2));
     }
-    public FermentationBarrelMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
+    public FermentationBarrelMenu(int pContainerId, Inventory inv, FermentationBarrelBlockEntity entity, ContainerData data) {
         super(ModMenuTypes.FERMENTATION_BARREL_MENU.get(), pContainerId);
-    // DON'T FORGET TO CHANGE THE NUMBER\/
-        checkContainerSize(inv, 6);
-        blockEntity = (FermentationBarrelBlockEntity) entity;
-        level = inv.player.level;
+//    // DON'T FORGET TO CHANGE THE NUMBER\/
+//        checkContainerSize(inv, 6);
+        this.blockEntity = entity;
+        this.inventory = entity.getItemHandler();
+        this.level = inv.player.level;
         this.data = data;
         this.fluidStack = blockEntity.getFluid();
         this.fluidStackOut = blockEntity.getFluidOut();
@@ -36,17 +41,25 @@ public class FermentationBarrelMenu extends AbstractContainerMenu {
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 11,20));
-            this.addSlot(new SlotItemHandler(handler, 1, 54,20));
-            this.addSlot(new SlotItemHandler(handler, 2, 54,38));
-            this.addSlot(new SlotItemHandler(handler, 3, 54,56));
-            this.addSlot(new SlotItemHandler(handler, 4, 79,20));
-            this.addSlot(new ModResultSlot(handler, 5, 106,38));
-
-        });
+        this.addSlot(new SlotItemHandler(this.inventory, 0, 11,20));
+        this.addSlot(new SlotItemHandler(this.inventory, 1, 54,20));
+        this.addSlot(new SlotItemHandler(this.inventory, 2, 54,38));
+        this.addSlot(new SlotItemHandler(this.inventory, 3, 54,56));
+        this.addSlot(new SlotItemHandler(this.inventory, 4, 79,20));
+        this.addSlot(new ModResultSlot(this.inventory, 5, 106,38));
 
         addDataSlots(data);
+    }
+
+    private static FermentationBarrelBlockEntity getTileEntity(Inventory playerInventory, FriendlyByteBuf data) {
+        Objects.requireNonNull(playerInventory, "playerInventory cannot be null");
+        Objects.requireNonNull(data, "data cannot be null");
+        BlockEntity tileAtPos = playerInventory.player.level.getBlockEntity(data.readBlockPos());
+        if (tileAtPos instanceof FermentationBarrelBlockEntity) {
+            return (FermentationBarrelBlockEntity)tileAtPos;
+        } else {
+            throw new IllegalStateException("Tile entity is not correct! " + tileAtPos);
+        }
     }
 
     public boolean isCrafting() {
@@ -91,31 +104,32 @@ public class FermentationBarrelMenu extends AbstractContainerMenu {
         int vanilla_all_slots_count = te_inventory_first_slot_index + te_inventory_slot_count;
 
 
-        Slot slot = slots.get(index);
-        if (slot == null || !slot.hasItem()) return ItemStack.EMPTY;
+        Slot slot = (Slot) slots.get(index);
         ItemStack sourceStack = slot.getItem();
         ItemStack itemstack = sourceStack.copy();
-
-        if (index < te_inventory_first_slot_index) {
-            if (!moveItemStackTo(sourceStack, te_inventory_first_slot_index, vanilla_all_slots_count, false)) {
+        if (slot != null && slot.hasItem()) {
+            if (index < te_inventory_first_slot_index) {
+                if (!moveItemStackTo(sourceStack, te_inventory_first_slot_index, vanilla_all_slots_count, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (index < vanilla_all_slots_count) {
+                if (!moveItemStackTo(sourceStack, vanilla_first_slot_index, te_inventory_first_slot_index, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else {
+                System.out.println("Invalid slotIndex:" + index);
                 return ItemStack.EMPTY;
             }
-        } else if (index < vanilla_all_slots_count) {
-            if (!moveItemStackTo(sourceStack, vanilla_first_slot_index, te_inventory_first_slot_index, false)) {
-                return ItemStack.EMPTY;
+
+            if (sourceStack.getCount() == 0) {
+                slot.set(ItemStack.EMPTY);
+            } else {
+                slot.setChanged();
             }
-        } else {
-            System.out.println("Invalid slotIndex:" + index);
-            return ItemStack.EMPTY;
+
+            slot.onTake(playerIn, sourceStack);
         }
 
-        if (sourceStack.getCount() == 0) {
-            slot.set(ItemStack.EMPTY);
-        } else {
-            slot.setChanged();
-        }
-
-        slot.onTake(playerIn, sourceStack);
         return itemstack;
     }
 

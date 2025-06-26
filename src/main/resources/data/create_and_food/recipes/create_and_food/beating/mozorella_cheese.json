@@ -15,6 +15,11 @@
     {
       "item": "create_and_food:mozzarella_cheese",
       "count": 4
+    },
+    {
+      "fluid": "minecraft:water",
+      "nbt": {},
+      "amount": 500
     }
   ],
   "heatRequirement": "heated"

@@ -3,6 +3,7 @@ package net.egorplaytv.create_and_food.world.feature;
 import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.block.custom.berry.WildPumpkinAndMelonBlock;
 import net.egorplaytv.create_and_food.block.custom.berry.WildPumpkinBushBlock;
+import net.egorplaytv.create_and_food.block.custom.connect.PaletteStoneTypes;
 import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
 import net.egorplaytv.create_and_food.util.ModTags;
 import net.minecraft.core.BlockPos;
@@ -115,16 +116,16 @@ public class ModConfiguredFeatures {
             OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_RUBY_ORE.get().defaultBlockState()));
 
     public static final List<OreConfiguration.TargetBlockState> OVERWORLD_MARBLE = List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.MARBLE.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.MARBLE.get().defaultBlockState()));
+            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, PaletteStoneTypes.MARBLE.getBaseBlock().get().defaultBlockState()),
+            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, PaletteStoneTypes.MARBLE.getBaseBlock().get().defaultBlockState()));
 
     public static final List<OreConfiguration.TargetBlockState> OVERWORLD_MARBLE_BLACK_GALAXY = List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.MARBLE_BLACK_GALAXY.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.MARBLE_BLACK_GALAXY.get().defaultBlockState()));
+            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, PaletteStoneTypes.MARBLE_BLACK_GALAXY.getBaseBlock().get().defaultBlockState()),
+            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, PaletteStoneTypes.MARBLE_BLACK_GALAXY.getBaseBlock().get().defaultBlockState()));
 
     public static final List<OreConfiguration.TargetBlockState> OVERWORLD_MARBLE_PERLIN_PINK = List.of(
-            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.MARBLE_PERLIN_PINK.get().defaultBlockState()),
-            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.MARBLE_PERLIN_PINK.get().defaultBlockState()));
+            OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, PaletteStoneTypes.MARBLE_PERLIN_PINK.getBaseBlock().get().defaultBlockState()),
+            OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, PaletteStoneTypes.MARBLE_PERLIN_PINK.getBaseBlock().get().defaultBlockState()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> RUBY_ORE = FeatureUtils.register("ruby_ore",
           Feature.ORE, new OreConfiguration(OVERWORLD_RUBY_ORES, CreateAndFoodCommonConfigs.RUBY_ORE_VEINS_SIZE.get()));

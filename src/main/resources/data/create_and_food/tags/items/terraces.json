@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "create_and_food:acacia_terrace",
+    "create_and_food:acacia_terrace_stairs",
+    "create_and_food:almond_terrace",
+    "create_and_food:almond_terrace_stairs",
+    "create_and_food:birch_terrace",
+    "create_and_food:birch_terrace_stairs",
+    "create_and_food:crimson_terrace",
+    "create_and_food:crimson_terrace_stairs",
+    "create_and_food:dark_oak_terrace",
+    "create_and_food:dark_oak_terrace_stairs",
+    "create_and_food:jungle_terrace",
+    "create_and_food:jungle_terrace_stairs",
+    "create_and_food:oak_terrace",
+    "create_and_food:oak_terrace_stairs",
+    "create_and_food:spruce_terrace",
+    "create_and_food:spruce_terrace_stairs",
+    "create_and_food:warped_terrace",
+    "create_and_food:warped_terrace_stairs"
+  ]
+}

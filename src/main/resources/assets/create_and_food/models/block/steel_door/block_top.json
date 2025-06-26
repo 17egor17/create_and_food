@@ -3,7 +3,7 @@
 	"textures": {
 		"side": "create_and_food:block/steel_door_side",
 		"top": "create_and_food:block/steel_door_top",
-		"particle": "create_and_food:block/palettes/casing/steel_block"
+		"particle": "create_and_food:block/steel_block"
 	},
 	"elements": [
 		{

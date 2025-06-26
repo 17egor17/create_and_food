@@ -1,13 +1,13 @@
 package net.egorplaytv.create_and_food.block.custom.connect;
 
-import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.data.CAFRegistrate;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MaterialColor;
 
 public class framedWall {
-    public framedWall(CreateRegistrate registrate) {
+    public framedWall(CAFRegistrate registrate) {
         ModBlocks.FRAMED_WALL = (CreateAndFood.REGISTRATE.block("framed_wall", CTFramedWall::new)
                 .properties(p -> p.color(MaterialColor.WOOD))
                 .transform(BuilderTransformers.framedWall(() -> {

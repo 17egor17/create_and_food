@@ -59,7 +59,8 @@ public class MechanicalBlenderScene {
 
         scene.overlay.showControls(new InputWindowElement(util.vector.topOf(basin), Pointing.DOWN).withItem(beef), 30);
         scene.idle(30);
-        Class<MechanicalBlenderBlockEntity> type = MechanicalBlenderBlockEntity.class;scene.world.modifyBlockEntity(blenderPos, type, pte -> pte.startProcessingBasin());
+        Class<MechanicalBlenderBlockEntity> type = MechanicalBlenderBlockEntity.class;
+        scene.world.modifyBlockEntity(blenderPos, type, pte -> pte.startProcessingBasin());
         scene.world.createItemOnBeltLike(basin, Direction.UP, beef);
         scene.idle(80);
         scene.world.modifyBlockEntityNBT(util.select.position(basin), BasinBlockEntity.class, nbt -> {

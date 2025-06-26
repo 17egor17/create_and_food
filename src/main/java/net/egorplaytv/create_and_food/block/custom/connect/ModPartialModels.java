@@ -17,7 +17,13 @@ public class ModPartialModels {
             STEEL_COGWHEEL = block("steel_cogwheel_shaftless"),
             LARGE_STEEL_COGWHEEL = block("large_steel_cogwheel_shaftless"),
             COGWHEEL_STEEL_SHAFT = block("cogwheel_steel_shaft"),
-            STEEL_SHAFT_HALF = block("steel_shaft_half");
+            STEEL_SHAFT_HALF = block("steel_shaft_half"),
+            SCALES_HEAD = block("kitchen_scales/head"),
+            FLUID_BOX = customBlock("vases/fluid_box"),
+            GRINDER_BELT_ACTIVE = block("mechanical_grinder/belt_active"),
+            GRINDER_BELT_INACTIVE = block("mechanical_grinder/belt_inactive"),
+            GRINDER_BELT_REVERSED = block("mechanical_grinder/belt_reversed")
+            ;
 
     static {
         FluidTransportBehaviour.AttachmentTypes.ComponentPartials[] var0 = FluidTransportBehaviour.AttachmentTypes.ComponentPartials.values();
@@ -38,6 +44,9 @@ public class ModPartialModels {
     }
     private static PartialModel block(String path) {
         return new PartialModel(CreateAndFood.asResource("block/" + path));
+    }
+    private static PartialModel customBlock(String path) {
+        return new PartialModel(CreateAndFood.asResource("custom/" + path));
     }
 
     public static void init() {

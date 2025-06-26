@@ -110,7 +110,8 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
         private final Advancement.Builder advancement;
         private final ResourceLocation advancementId;
 
-        public Result(ResourceLocation pId, Item pResult, int pCount, int pTime, int pDeg, float pExperience, List<Ingredient> ingredients, Advancement.Builder pAdvancement,
+        public Result(ResourceLocation pId, Item pResult, int pCount, int pTime, int pDeg, float pExperience,
+                      List<Ingredient> ingredients, Advancement.Builder pAdvancement,
                       ResourceLocation pAdvancementId) {
             this.id = pId;
             this.result = pResult;
@@ -149,6 +150,10 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
                 pJson.addProperty("time", this.blastingTime);
             }
             if (this.blastingDeg >= 100 && this.blastingDeg <= 10000) {
+                pJson.addProperty("comment", "min 100 deg, max 10000 deg");
+                pJson.addProperty("degree", this.blastingDeg);
+            } else if (this.blastingDeg > 10000){
+                this.blastingDeg = 10000;
                 pJson.addProperty("comment", "min 100 deg, max 10000 deg");
                 pJson.addProperty("degree", this.blastingDeg);
             } else {

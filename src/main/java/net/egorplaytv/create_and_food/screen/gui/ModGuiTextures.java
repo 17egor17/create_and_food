@@ -18,7 +18,8 @@ public enum ModGuiTextures implements ScreenElement {
     COPPER_INVENTORY_LEFT("copper_inventory", 170,105),
     COPPER_INVENTORY_RIGHT("copper_inventory", 0, 112, 170, 105),
     STEEL_INVENTORY_LEFT("steel_inventory", 170,105),
-    STEEL_INVENTORY_RIGHT("steel_inventory", 0, 112, 170, 105)
+    STEEL_INVENTORY_RIGHT("steel_inventory", 0, 112, 170, 105),
+    JEI_FRAGILE("widgets", 48, 49, 13, 23)
     ;
     public final ResourceLocation location;
     public final int width, height;

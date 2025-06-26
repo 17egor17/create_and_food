@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "create_and_food:cut_marble_black_galaxy",
+    "create_and_food:cut_marble_black_galaxy_stairs",
+    "create_and_food:cut_marble_black_galaxy_wall",
+    "create_and_food:polished_cut_marble_black_galaxy",
+    "create_and_food:polished_cut_marble_black_galaxy_stairs",
+    "create_and_food:polished_cut_marble_black_galaxy_wall",
+    "create_and_food:cut_marble_black_galaxy_bricks",
+    "create_and_food:cut_marble_black_galaxy_brick_stairs",
+    "create_and_food:cut_marble_black_galaxy_brick_wall",
+    "create_and_food:small_marble_black_galaxy_bricks",
+    "create_and_food:small_marble_black_galaxy_brick_stairs",
+    "create_and_food:small_marble_black_galaxy_brick_wall",
+    "create_and_food:marble_black_galaxy"
+  ]
+}

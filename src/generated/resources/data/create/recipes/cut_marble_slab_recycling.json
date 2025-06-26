@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "create_and_food:cut_marble_slab"
+    },
+    {
+      "item": "create_and_food:cut_marble_slab"
+    }
+  ],
+  "result": {
+    "item": "create_and_food:cut_marble"
+  }
+}

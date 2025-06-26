@@ -1,16 +1,19 @@
 package net.egorplaytv.create_and_food.block.entity.custom;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
-import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.block.custom.MarbleBlastFurnaceBlock;
 import net.egorplaytv.create_and_food.block.entity.ModBlockEntities;
 import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
 import net.egorplaytv.create_and_food.entity.WrappedHandler;
+import net.egorplaytv.create_and_food.item.custom.IngotItem;
 import net.egorplaytv.create_and_food.recipe.MarbleFurnaceRecipe;
 import net.egorplaytv.create_and_food.screen.MarbleBlastFurnaceMenu;
 import net.egorplaytv.create_and_food.util.ModTags;
+import net.minecraft.SharedConstants;
+import net.minecraft.Util;
 import net.minecraft.core.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -36,6 +39,7 @@ import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -73,7 +77,12 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         return itemHandler.getStackInSlot(index);
     }
 
+    public ItemStackHandler getItemHandler() {
+        return itemHandler;
+    }
+
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+
     private final Map<Direction, LazyOptional<WrappedHandler>> directionWrappedHandlerMap =
             Map.of(Direction.EAST, LazyOptional.of(() -> new WrappedHandler(itemHandler, (index) -> index == 1,
                             (index, stack) -> itemHandler.isItemValid(1, stack))),
@@ -91,14 +100,119 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     private int progress = 0;
     private int deg;
     private int time;
+    private boolean isCreativeDeg = false;
     private final Object2IntOpenHashMap<ResourceLocation> experience;
+    public static Map<Item, Integer> FUELS = Maps.newLinkedHashMap();
 
     public int getDeg() {
         return progress_deg;
     }
 
+    public static Map<Item, Integer> getFuel(){
+        int i = 1000;
+        int i1 = 100;
+        int i2 = 90;
+        int i3 = 75;
+        int i4 = 15;
+        int i5 = 10;
+        int i6 = 5;
+        add(Items.BLAZE_ROD, i1);
+        add(Items.COAL, i1);
+        add(Items.CHARCOAL, i1);
+        add(ModTags.Items.COAL_DUST, i1);
+        add(Blocks.COAL_BLOCK, i2);
+        add(ItemTags.BOATS, i3);
+        add(ItemTags.LOGS, i4);
+        add(ItemTags.PLANKS, i4);
+        add(ItemTags.WOODEN_STAIRS, i4);
+        add(ItemTags.WOODEN_SLABS, i4);
+        add(ItemTags.WOODEN_TRAPDOORS, i4);
+        add(Blocks.OAK_FENCE, i4);
+        add(Blocks.BIRCH_FENCE, i4);
+        add(Blocks.SPRUCE_FENCE, i4);
+        add(Blocks.JUNGLE_FENCE, i4);
+        add(Blocks.DARK_OAK_FENCE, i4);
+        add(Blocks.ACACIA_FENCE, i4);
+        add(Blocks.OAK_FENCE_GATE, i4);
+        add(Blocks.BIRCH_FENCE_GATE, i4);
+        add(Blocks.SPRUCE_FENCE_GATE, i4);
+        add(Blocks.JUNGLE_FENCE_GATE, i4);
+        add(Blocks.DARK_OAK_FENCE_GATE, i4);
+        add(Blocks.ACACIA_FENCE_GATE, i4);
+        add(Blocks.NOTE_BLOCK, i4);
+        add(Blocks.BOOKSHELF, i4);
+        add(Blocks.LECTERN, i4);
+        add(Blocks.JUKEBOX, i4);
+        add(Blocks.CHEST, i4);
+        add(Blocks.TRAPPED_CHEST, i4);
+        add(Blocks.CRAFTING_TABLE, i4);
+        add(Blocks.DAYLIGHT_DETECTOR, i4);
+        add(ItemTags.BANNERS, i4);
+        add(Blocks.LADDER, i4);
+        add(ItemTags.WOODEN_DOORS, i4);
+        add(Blocks.DRIED_KELP_BLOCK, i4);
+        add(Blocks.LOOM, i4);
+        add(Blocks.BARREL, i4);
+        add(Blocks.CARTOGRAPHY_TABLE, i4);
+        add(Blocks.FLETCHING_TABLE, i4);
+        add(Blocks.SMITHING_TABLE, i4);
+        add(Blocks.COMPOSTER, i4);
+        add(Items.STICK, i5);
+        add(ItemTags.WOODEN_PRESSURE_PLATES, i6);
+        add(Items.BOW, i6);
+        add(Items.FISHING_ROD, i6);
+        add(ItemTags.SIGNS, i6);
+        add(Items.WOODEN_SHOVEL, i6);
+        add(Items.WOODEN_SWORD, i6);
+        add(Items.WOODEN_HOE, i6);
+        add(Items.WOODEN_AXE, i6);
+        add(Items.WOODEN_PICKAXE, i6);
+        add(ItemTags.WOOL, i6);
+        add(ItemTags.WOODEN_BUTTONS, i6);
+        add(ItemTags.SAPLINGS, i6);
+        add(Items.BOWL, i6);
+        add(ItemTags.CARPETS, i6);
+        add(Items.CROSSBOW, i6);
+        add(Blocks.BAMBOO, i6);
+        add(Blocks.DEAD_BUSH, i6);
+        add(Blocks.SCAFFOLDING, i6);
+        add(Blocks.AZALEA, i6);
+        add(Blocks.FLOWERING_AZALEA, i6);
+        return FUELS;
+    }
+
+    private static boolean isNeverAFurnaceFuel(Item pItem) {
+        return pItem.builtInRegistryHolder().is(ItemTags.NON_FLAMMABLE_WOOD);
+    }
+
+    private static void add(TagKey<Item> pItemTag, int degree) {
+        for(Holder<Item> holder : Registry.ITEM.getTagOrEmpty(pItemTag)) {
+            if (degree > 0 && degree <= 1000) {
+                if (!isNeverAFurnaceFuel(holder.value())) {
+                    FUELS.put(holder.value(), degree);
+                }
+            }
+        }
+
+    }
+
+    private static void add(ItemLike pItem, int degree) {
+        Item item = pItem.asItem();
+        if (isNeverAFurnaceFuel(item)) {
+            if (SharedConstants.IS_RUNNING_IN_IDE) {
+                throw (IllegalStateException) Util.pauseInIde(new IllegalStateException("A developer tried to explicitly make fire resistant item " + item.getName((ItemStack)null).getString() + " a furnace fuel. That will not work!"));
+            }
+        } else {
+            if (degree > 0 && degree <= 1000) {
+                FUELS.put(item, degree);
+            }
+        }
+    }
+
+
     public MarbleBlastFurnaceBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.MARBLE_BLAST_FURNACE_ENTITY.get(), pPos, pBlockState);
+        getFuel();
         this.experience = new Object2IntOpenHashMap<>();
         this.data = new ContainerData() {
             public int get(int index) {
@@ -283,8 +397,10 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                     pBlockEntity.progress_deg >= recipe.get().getDeg()){
                 pBlockEntity.progress++;
             }
+
             pBlockEntity.RecipeExperience(recipe.get());
             setChanged(pLevel, pPos, pState);
+
             if (pBlockEntity.progress >= pBlockEntity.time) {
                 craftItem(pBlockEntity, pLevel);
             }
@@ -298,41 +414,54 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
             setChanged(pLevel, pPos, pState);
         }
 
+        if (hasRecipe(pBlockEntity, pLevel) && pBlockEntity.progress_deg > 0) {
+            if (pBlockEntity.itemHandler.getStackInSlot(1).getItem() instanceof IngotItem item) {
+                int i = 0;
+                if (i <= pBlockEntity.progress_deg) {
+                    ++i;
+                }
+                item.setDeg(pBlockEntity.itemHandler.getStackInSlot(1), i);
+            }
+            if (pBlockEntity.itemHandler.getStackInSlot(2).getItem() instanceof IngotItem item) {
+                int i = 0;
+                if (i <= pBlockEntity.progress_deg) {
+                    ++i;
+                }
+                item.setDeg(pBlockEntity.itemHandler.getStackInSlot(2), i);
+            }
+            if (pBlockEntity.itemHandler.getStackInSlot(3).getItem() instanceof IngotItem item) {
+                int i = 0;
+                if (i <= pBlockEntity.progress_deg) {
+                    ++i;
+                }
+                item.setDeg(pBlockEntity.itemHandler.getStackInSlot(3), i);
+            }
+        }
+
 
         if (hasFuel(pBlockEntity)) {
-            if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_1000)) {
-                pBlockEntity.progress_deg = pBlockEntity.progress_deg + 1000;
-                pBlockEntity.itemHandler.extractItem(0, 1, false);
-            } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_BUCKET)) {
-                pBlockEntity.progress_deg = pBlockEntity.progress_deg + 100;
-                pBlockEntity.itemHandler.extractItem(0, 1, false);
-                pBlockEntity.itemHandler.setStackInSlot(0, new ItemStack(Items.BUCKET));
-            } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_100)){
-                pBlockEntity.progress_deg = pBlockEntity.progress_deg + 100;
-                pBlockEntity.itemHandler.extractItem(0, 1, false);
-            } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_90)){
-                pBlockEntity.progress_deg = pBlockEntity.progress_deg + 90;
-                pBlockEntity.itemHandler.extractItem(0, 1, false);
-            } else if(pBlockEntity.itemHandler.getStackInSlot(0).is(ItemTags.BOATS)) {
-                pBlockEntity.progress_deg = pBlockEntity.progress_deg + 75;
-                pBlockEntity.itemHandler.extractItem(0, 1, false);
-            } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_15)){
-                pBlockEntity.progress_deg = pBlockEntity.progress_deg + 15;
-                pBlockEntity.itemHandler.extractItem(0, 1, false);
-            } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_10)){
-                pBlockEntity.progress_deg = pBlockEntity.progress_deg + 10;
-                pBlockEntity.itemHandler.extractItem(0, 1, false);
-            } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_5)) {
-                pBlockEntity.progress_deg = pBlockEntity.progress_deg + 5;
+            if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.CREATIVE_FUEL)) {
+                pBlockEntity.progress_deg = pBlockEntity.progress_deg + getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem());
+            } else {
+                pBlockEntity.progress_deg = pBlockEntity.progress_deg + getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem());
                 pBlockEntity.itemHandler.extractItem(0, 1, false);
             }
         }
-        if (hasTemperature(pBlockEntity)){
-            int tick = CreateAndFoodCommonConfigs.SPEED_ATTENUATION_FURNACE.get() * 20;
-            pBlockEntity.progress_tick++;
-            if (pBlockEntity.progress_tick >= tick){
-                pBlockEntity.progress_deg--;
-                pBlockEntity.resetProgressTick();
+
+        if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.CREATIVE_FUEL)){
+            pBlockEntity.isCreativeDeg = true;
+        } else if (pBlockEntity.itemHandler.getStackInSlot(0).isEmpty()) {
+            pBlockEntity.isCreativeDeg = false;
+        }
+
+        if (!pBlockEntity.isCreativeDeg) {
+            if (hasTemperature(pBlockEntity)) {
+                int tick = CreateAndFoodCommonConfigs.SPEED_ATTENUATION_FURNACE.get() * 20;
+                pBlockEntity.progress_tick++;
+                if (pBlockEntity.progress_tick >= tick) {
+                    pBlockEntity.progress_deg--;
+                    pBlockEntity.resetProgressTick();
+                }
             }
         }
         if (hasTemperature(pBlockEntity)) {
@@ -410,6 +539,9 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
             entity.itemHandler.setStackInSlot(4, new ItemStack(match.get().getResultItem().getItem(),
                     entity.itemHandler.getStackInSlot(4).getCount() + match.get().getResultItem().getCount()));
 
+            if (entity.itemHandler.getStackInSlot(4).getItem() instanceof IngotItem item) {
+                item.setDeg(entity.itemHandler.getStackInSlot(4), match.get().getDeg() - 50);
+            }
             entity.resetProgress();
         }
     }
@@ -435,19 +567,26 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         return pBlockEntity.progress_deg >= deg;
     }
     private static boolean hasFuel(MarbleBlastFurnaceBlockEntity pBlockEntity) {
-        if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_1000) && pBlockEntity.progress_deg <= 9000){
-            return true;
-        } else if ((pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_BUCKET) ||
-                pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_100)) && pBlockEntity.progress_deg <= 9900){
-            return true;
-        } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_90) && pBlockEntity.progress_deg <= 9910) {
-            return true;
-        } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_15) && pBlockEntity.progress_deg <= 9985){
-            return true;
-        } else if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_10) && pBlockEntity.progress_deg <= 9990){
-            return true;
-        } else
-            return pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.FUEL_5) && pBlockEntity.progress_deg <= 9995;
+        if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()) != null) {
+            if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(1000) && pBlockEntity.progress_deg <= 9000) {
+                return true;
+            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(100) && pBlockEntity.progress_deg <= 9900) {
+                return true;
+            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(90) && pBlockEntity.progress_deg <= 9910) {
+                return true;
+            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(75) && pBlockEntity.progress_deg <= 9925) {
+                return true;
+            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(15) && pBlockEntity.progress_deg <= 9985) {
+                return true;
+            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(10) && pBlockEntity.progress_deg <= 9990) {
+                return true;
+            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(5) && pBlockEntity.progress_deg <= 9995) {
+                return true;
+            } else
+                return getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()) != null && pBlockEntity.progress_deg <= 9000;
+        } else {
+            return false;
+        }
     }
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack resultItem) {
         return inventory.getItem(4).getItem() == resultItem.getItem() || inventory.getItem(4).isEmpty();

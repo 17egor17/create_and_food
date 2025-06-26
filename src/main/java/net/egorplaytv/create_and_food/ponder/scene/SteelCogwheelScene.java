@@ -46,7 +46,7 @@ public class SteelCogwheelScene {
         scene.idle(20);
 
         BlockEntry<EncasedCogwheelBlock> steelEncased = ModBlocks.STEEL_ENCASED_STEEL_COGWHEEL;
-        ItemStack steelCasingItem = ModBlocks.STEEL_BLOCK.asStack();
+        ItemStack steelCasingItem = ModBlocks.STEEL_CASING.asStack();
 
         scene.overlay.showControls(new InputWindowElement(util.vector.topOf(3, 0, 2), Pointing.UP).rightClick()
                 .withItem(steelCasingItem), 100);

@@ -1,0 +1,98 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"outside": "create_and_food:block/vase/marble_vase_side",
+		"inside": "create_and_food:block/vase/marble_vase_inner",
+		"particle": "create_and_food:block/palettes/stone_types/natural/marble_0"
+	},
+	"elements": [
+		{
+			"from": [2, 0, 2],
+			"to": [14, 1, 14],
+			"faces": {
+				"north": {"uv": [1, 1.5, 7, 2], "texture": "#outside"},
+				"east": {"uv": [1, 1.5, 7, 2], "texture": "#outside"},
+				"south": {"uv": [1, 1.5, 7, 2], "texture": "#outside"},
+				"west": {"uv": [1, 1.5, 7, 2], "texture": "#outside"},
+				"down": {"uv": [1, 9, 7, 15], "texture": "#outside"}
+			}
+		},
+		{
+			"from": [1, 1, 1],
+			"to": [15, 13, 15],
+			"faces": {
+				"north": {"uv": [0.5, 2, 7.5, 8], "texture": "#outside"},
+				"east": {"uv": [8.5, 10, 15.5, 16], "texture": "#outside"},
+				"south": {"uv": [8.5, 10, 15.5, 16], "texture": "#outside"},
+				"west": {"uv": [8.5, 10, 15.5, 16], "texture": "#outside"},
+				"up": {"uv": [8.5, 0.5, 15.5, 7.5], "texture": "#outside"},
+				"down": {"uv": [0.5, 8.5, 7.5, 15.5], "texture": "#outside"}
+			}
+		},
+		{
+			"from": [2, 13, 2],
+			"to": [14, 15, 14],
+			"faces": {
+				"north": {"uv": [1, 1, 7, 2], "texture": "#outside"},
+				"east": {"uv": [1, 1, 7, 2], "texture": "#outside"},
+				"south": {"uv": [1, 1, 7, 2], "texture": "#outside"},
+				"west": {"uv": [1, 1, 7, 2], "texture": "#outside"},
+				"up": {"uv": [9, 1, 15, 7], "texture": "#outside"}
+			}
+		},
+		{
+			"from": [2, 17, 2],
+			"to": [14, 19, 14],
+			"faces": {
+				"north": {"uv": [1, 1, 7, 2], "texture": "#outside"},
+				"east": {"uv": [1, 1, 7, 2], "texture": "#outside"},
+				"south": {"uv": [1, 1, 7, 2], "texture": "#outside"},
+				"west": {"uv": [1, 1, 7, 2], "texture": "#outside"},
+				"up": {"uv": [9, 1, 15, 7], "texture": "#outside"},
+				"down": {"uv": [1, 9, 7, 15], "texture": "#outside"}
+			}
+		},
+		{
+			"from": [2.98, 14.98, 2.98],
+			"to": [13.02, 17.02, 13.02],
+			"faces": {
+				"north": {"uv": [1.5, 0, 6.5, 1], "texture": "#outside"},
+				"east": {"uv": [1.5, 0, 6.5, 1], "texture": "#outside"},
+				"south": {"uv": [1.5, 0, 6.5, 1], "texture": "#outside"},
+				"west": {"uv": [1.5, 0, 6.5, 1], "texture": "#outside"}
+			}
+		},
+		{
+			"from": [2, 12, 2],
+			"to": [14, 2, 14],
+			"faces": {
+				"north": {"uv": [9, 1.5, 15, 6.5], "texture": "#inside"},
+				"east": {"uv": [9, 9.5, 15, 14.5], "texture": "#inside"},
+				"south": {"uv": [9, 9.5, 15, 14.5], "texture": "#inside"},
+				"west": {"uv": [9, 9.5, 15, 14.5], "texture": "#inside"},
+				"up": {"uv": [1, 1, 7, 7], "texture": "#inside"},
+				"down": {"uv": [1, 9, 7, 15], "texture": "#inside"}
+			}
+		},
+		{
+			"from": [4, 9, 1],
+			"to": [12, 5, 2],
+			"faces": {
+				"east": {"uv": [10, 5, 9.5, 3], "texture": "#inside"},
+				"west": {"uv": [14, 3, 14.5, 5], "texture": "#inside"},
+				"up": {"uv": [10, 5, 14, 5.5], "texture": "#inside"},
+				"down": {"uv": [10, 2.5, 14, 3], "texture": "#inside"}
+			}
+		},
+		{
+			"from": [5, 10, 1],
+			"to": [11, 4, 2],
+			"faces": {
+				"east": {"uv": [10.5, 5.5, 10, 2.5], "texture": "#inside"},
+				"west": {"uv": [13.5, 2.5, 14, 5.5], "texture": "#inside"},
+				"up": {"uv": [10.5, 5.5, 13.5, 6], "texture": "#inside"},
+				"down": {"uv": [10.5, 2, 13.5, 2.5], "texture": "#inside"}
+			}
+		}
+	]
+}

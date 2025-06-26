@@ -19,8 +19,16 @@ public class SequencedAssemblyItem extends Item {
         CompoundTag tag = stack.getTag();
         if (!tag.contains("SequencedAssembly"))
             return 0;
-        return tag.getCompound("SequencedAssembly")
-                .getFloat("Progress");
+        return tag.getCompound("SequencedAssembly").getFloat("Progress");
+    }
+
+    public int getStep(ItemStack stack){
+        if (!stack.hasTag())
+            return 0;
+        CompoundTag tag = stack.getTag();
+        if (!tag.contains("SequencedAssembly"))
+            return 0;
+        return tag.getCompound("SequencedAssembly").getInt("Step");
     }
 
     @Override

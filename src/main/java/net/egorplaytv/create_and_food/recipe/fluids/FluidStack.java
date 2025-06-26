@@ -24,7 +24,7 @@ public class FluidStack extends net.minecraftforge.fluids.FluidStack {
             instance -> instance.group(
                     Registry.FLUID.byNameCodec().fieldOf("fluid").forGetter(FluidStack::getFluid),
                     Codec.INT.fieldOf("amount").forGetter(FluidStack::getAmount),
-                    CompoundTag.CODEC.optionalFieldOf("tag").forGetter(stack -> Optional.ofNullable(stack.getTag()))
+                    CompoundTag.CODEC.optionalFieldOf("fluidTag").forGetter(stack -> Optional.ofNullable(stack.getTag()))
             ).apply(instance, (fluid, amount, tag) -> {
                 FluidStack stack = new FluidStack(fluid, amount);
                 tag.ifPresent(stack::setTag);

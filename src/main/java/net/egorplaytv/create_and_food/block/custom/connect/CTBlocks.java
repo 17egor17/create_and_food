@@ -14,8 +14,11 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.Tags;
 
 import java.util.function.Supplier;
@@ -45,12 +48,15 @@ public class CTBlocks {
         return CreateAndFood.REGISTRATE.block(name, ConnectedWall::new)
                 .onRegister(connectedTextures(behaviour))
                 .initialProperties(() -> Blocks.GOLD_BLOCK)
+                .properties(p -> p.sound(SoundType.AMETHYST))
                 .loot((t, g) -> t.dropWhenSilkTouch(g))
-                .blockstate((c, p) -> BlockStateGen.cubeAll(c, p, "palettes/", "golden_wall"))
-                .item()
-                .model((c, p) -> p.cubeColumn(c.getName(), p.modLoc(palettesDir() + c.getName()),
-                        p.modLoc(palettesDir() + c.getName() + "_top")))
-                .build()
+                .blockstate((c, p) ->
+                        p.getVariantBuilder(c.getEntry()).partialState().setModels(ConfiguredModel.builder()
+                                        .modelFile(p.models().withExistingParent(name, "block/cube_column")
+                                                .texture("side", palettesDir() + c.getName())
+                                                .texture("end", palettesDir() + c.getName() + "_top"))
+                                .build()))
+                .simpleItem()
                 .register();
     }
 
@@ -67,8 +73,7 @@ public class CTBlocks {
                 .tag(Tags.Blocks.GLASS_COLORLESS, BlockTags.IMPERMEABLE)
                 .item()
                 .tag(Tags.Items.GLASS_COLORLESS)
-                .model((c, p) -> p.cubeColumn(c.getName(), p.modLoc(palettesDir() + c.getName()),
-                        p.modLoc("block/palettes/alloy_souls_glass")))
+                .model((c, p) -> p.cubeAll(c.getName(), p.modLoc(palettesDir() + c.getName())))
                 .build()
                 .register();
     }
@@ -85,8 +90,7 @@ public class CTBlocks {
                 .tag(Tags.Blocks.GLASS_COLORLESS, BlockTags.IMPERMEABLE)
                 .item()
                 .tag(Tags.Items.GLASS_COLORLESS)
-                .model((c, p) -> p.cubeColumn(c.getName(), p.modLoc(palettesDir() + c.getName()),
-                        p.modLoc("block/palettes/almond_glass")))
+                .model((c, p) -> p.cubeAll(c.getName(), p.modLoc(palettesDir() + c.getName())))
                 .build()
                 .register();
     }
