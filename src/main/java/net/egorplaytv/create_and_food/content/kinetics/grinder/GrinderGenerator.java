@@ -5,6 +5,7 @@ import com.simibubi.create.foundation.data.SpecialBlockStateGen;
 
 import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.RegistrateBlockstateProvider;
+import net.egorplaytv.create_and_food.block.custom.GrinderBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -18,7 +19,7 @@ public class GrinderGenerator extends SpecialBlockStateGen {
 
     @Override
     protected int getYRotation(BlockState state) {
-        return horizontalAngle(state.getValue(BasinBlock.FACING));
+        return horizontalAngle(state.getValue(GrinderBlock.HORIZONTAL_FACING));
     }
 
     @Override

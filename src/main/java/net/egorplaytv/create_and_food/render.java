@@ -6,21 +6,21 @@ import net.egorplaytv.create_and_food.block.entity.ModWoodTypes;
 import net.egorplaytv.create_and_food.block.entity.renderer.*;
 import net.egorplaytv.create_and_food.fluid.ModFluids;
 import net.egorplaytv.create_and_food.screen.*;
-import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
-import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class render {
-    public render(FMLCommonSetupEvent event) {
+    public render(FMLClientSetupEvent event) {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.PASTRY_TABLE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.RYE_PLANT.get(), RenderType.cutoutMipped());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.RICE_PLANT.get(), RenderType.cutoutMipped());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.RICE_CROP.get(), RenderType.cutoutMipped());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.RICE_CROP_PANICLES.get(), RenderType.cutoutMipped());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.ALMOND_SAPLING.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.ALMOND_LEAVES.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.NIXIE_VASE.get(), RenderType.cutout());
@@ -60,6 +60,8 @@ public class render {
         ItemBlockRenderTypes.setRenderLayer(ModFluids.RED_GRAPE_JUICE_FLOWING.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.TORN_SOUL_LANTERN.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.TORN_SOUL_CHAIN.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.LANTERN.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(ModBlocks.SOUL_LANTERN.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.FRAMED_CALCITE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLOWING_BRASS_STEEL_LANTERN.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.GLOWING_BRASS_COPPER_LANTERN.get(), RenderType.cutout());

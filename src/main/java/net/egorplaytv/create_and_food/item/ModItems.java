@@ -84,6 +84,9 @@ public class ModItems {
     public static final RegistryObject<Item> COCOA_POWDER = registerItem("cocoa_powder",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
 
+    public static final RegistryObject<Item> HARD_COCOA = registerItem("hard_cocoa",
+            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+
     public static final RegistryObject<Item> COCOA_BUTTER_BRIQUETTE = registerItem("cocoa_butter_briquette",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
 
@@ -196,6 +199,9 @@ public class ModItems {
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
     public static final RegistryObject<Item> RYE = registerItem("rye",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+
+    public static final RegistryObject<Item> RICE = registerItem("rice",
+            () -> new RiceItem(ModBlocks.RICE_CROP.get(), new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
 
     public static final RegistryObject<Item> ROASTED_COCOA_BEANS = registerItem("roasted_cocoa_beans",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
@@ -509,6 +515,12 @@ public class ModItems {
     public static final RegistryObject<Item> GLOWING_BRASS_STEEL_LANTERN = registerItem("glowing_brass_steel_lantern",
             () -> new ItemNameBlockItem(ModBlocks.GLOWING_BRASS_STEEL_LANTERN.get(),
                     new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
+
+    public static final RegistryObject<Item> LANTERN = registerItem("lantern",
+            () -> new ItemNameBlockItem(ModBlocks.LANTERN.get(), new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
+
+    public static final RegistryObject<Item> SOUL_LANTERN = registerItem("soul_lantern",
+            () -> new ItemNameBlockItem(ModBlocks.SOUL_LANTERN.get(), new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
     public static final RegistryObject<Item> ALMOND_SIGN = registerItem("almond_sign",
             () -> new SignItem(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE).stacksTo(16),

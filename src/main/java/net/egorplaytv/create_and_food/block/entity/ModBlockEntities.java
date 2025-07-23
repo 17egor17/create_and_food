@@ -1,5 +1,6 @@
 package net.egorplaytv.create_and_food.block.entity;
 
+import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.content.kinetics.simpleRelays.SimpleKineticBlockEntity;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
@@ -108,6 +109,7 @@ public class ModBlockEntities {
             .renderer(() -> MechanicalBlenderRenderer::new)
             .register();
 
+
     public static final BlockEntityEntry<GrinderBlockEntity> GRINDER = CreateAndFood.REGISTRATE
             .blockEntity("grinder", GrinderBlockEntity::new)
             .instance(() -> GrinderInstance::new)
@@ -115,28 +117,28 @@ public class ModBlockEntities {
             .renderer(() -> GrinderRenderer::new)
             .register();
 
-    public static final BlockEntityEntry<SimpleKineticBlockEntity> CAF_COGWHEEL = REGISTRATE
+    public static final BlockEntityEntry<SimpleKineticBlockEntity> CAF_COGWHEEL = CreateAndFood.REGISTRATE
             .blockEntity("caf_simple_kinetic", SimpleKineticBlockEntity::new)
             .instance(() -> CAFCogwheelInstance::new, false)
             .validBlocks(ModBlocks.STEEL_SHAFT, ModBlocks.STEEL_COGWHEEL, ModBlocks.LARGE_STEEL_COGWHEEL)
             .renderer(() -> CAFCogwheelRenderer::new)
             .register();
 
-    public static final BlockEntityEntry<KineticBlockEntity> ENCASED_STEEL_SHAFT = REGISTRATE
+    public static final BlockEntityEntry<KineticBlockEntity> ENCASED_STEEL_SHAFT = CreateAndFood.REGISTRATE
             .blockEntity("encased_steel_shaft", KineticBlockEntity::new)
             .instance(() -> SteelShaftInstance::new, false)
             .validBlocks(ModBlocks.STEEL_ENCASED_STEEL_SHAFT)
             .renderer(() -> SteelShaftRenderer::new)
             .register();
 
-    public static final BlockEntityEntry<SimpleKineticBlockEntity> ENCASED_STEEL_COGWHEEL = REGISTRATE
+    public static final BlockEntityEntry<SimpleKineticBlockEntity> ENCASED_STEEL_COGWHEEL = CreateAndFood.REGISTRATE
             .blockEntity("encased_steel_cogwheel", SimpleKineticBlockEntity::new)
             .instance(() -> EncasedSteelCogInstance::small, false)
             .validBlocks(ModBlocks.STEEL_ENCASED_STEEL_COGWHEEL)
             .renderer(() -> EncasedSteelCogRenderer::small)
             .register();
 
-    public static final BlockEntityEntry<SimpleKineticBlockEntity> ENCASED_LARGE_STEEL_COGWHEEL = REGISTRATE
+    public static final BlockEntityEntry<SimpleKineticBlockEntity> ENCASED_LARGE_STEEL_COGWHEEL = CreateAndFood.REGISTRATE
             .blockEntity("encased_large_steel_cogwheel", SimpleKineticBlockEntity::new)
             .instance(() -> EncasedSteelCogInstance::large, false)
             .validBlocks(ModBlocks.STEEL_ENCASED_LARGE_STEEL_COGWHEEL)

@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
+    "create_and_food:glowing_brass_ingot",
+    "create_and_food:alloy_souls_ingot",
+    "create_and_food:alloy_souls",
     "#forge:ingots/steel",
     "#forge:ingots/tantalum",
     "#forge:ingots/tungsten"

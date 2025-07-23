@@ -59,7 +59,7 @@ public class PaletteBlockPattern {
 
     public static final PaletteBlockPattern[] STANDARD_RANGE = { CUT, POLISHED, BRICKS, SMALL_BRICKS, LAYERED, PILLAR };
     public static final PaletteBlockPattern[] BAKED_CLAY_RANGE = { CUT, BRICKS, SMALL_BRICKS, LAYERED, PILLAR };
-    public static final PaletteBlockPattern[] MARBLE_RANGE = { CUT, POLISHED, BRICKS, SMALL_BRICKS }; // , PILLAR
+    public static final PaletteBlockPattern[] MARBLE_RANGE = { CUT, POLISHED, BRICKS, SMALL_BRICKS, PILLAR };
 
     static final String TEXTURE_LOCATION = "block/palettes/stone_types/%s/%s";
 

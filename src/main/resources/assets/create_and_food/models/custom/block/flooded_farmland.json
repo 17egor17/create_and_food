@@ -1,0 +1,23 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"particle": "#dirt"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 7, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 7], "texture": "#dirt"},
+				"east": {"uv": [0, 0, 16, 7], "texture": "#dirt"},
+				"south": {"uv": [0, 0, 16, 7], "texture": "#dirt"},
+				"west": {"uv": [0, 0, 16, 7], "texture": "#dirt"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#farmland"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#dirt"}
+			}
+		}
+	],
+	"display": {}
+}

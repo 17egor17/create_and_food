@@ -3,6 +3,6 @@
   "textures": {
     "particle": "create_and_food:block/almond_log",
     "log": "create_and_food:block/almond_log",
-    "leaves": "create_and_food:block/palettes/stone_types/natural/almond_leaves_0"
+    "leaves": "create_and_food:block/leaves/almond_leaves_0"
   }
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "create_and_food:block/rice_stage0"
+  }
+}

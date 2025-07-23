@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#create_and_food:eggs/spawn_eggs",
+    "#create_and_food:eggs/egg",
+    "#create_and_food:eggs/turtle_egg"
+  ]
+}

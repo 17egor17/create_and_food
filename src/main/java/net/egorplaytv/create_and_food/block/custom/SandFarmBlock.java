@@ -112,6 +112,7 @@ public class SandFarmBlock extends FarmBlock {
         PlantType plantType = plantable.getPlantType(world, pos.relative(facing));
         return plantType == PlantType.CROP || plantType == PlantType.PLAINS;
     }
+
     private static boolean isUnderCrops(BlockGetter pLevel, BlockPos pPos) {
         BlockState plant = pLevel.getBlockState(pPos.above());
         BlockState state = pLevel.getBlockState(pPos);

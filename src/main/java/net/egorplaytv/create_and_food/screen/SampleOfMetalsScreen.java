@@ -13,11 +13,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.Item;
 
+import static net.egorplaytv.create_and_food.CreateAndFood.MOD_ID;
 import static net.egorplaytv.create_and_food.block.entity.custom.TerminalBlockEntity.*;
 
 public class SampleOfMetalsScreen extends AbstractContainerScreen<SampleOfMetalsMenu> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(CreateAndFood.MOD_ID, "textures/gui/sample_of_metals.png");
+            new ResourceLocation(MOD_ID, "textures/gui/sample_of_metals.png");
 
     public SampleOfMetalsScreen(SampleOfMetalsMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
@@ -49,12 +50,12 @@ public class SampleOfMetalsScreen extends AbstractContainerScreen<SampleOfMetals
         if (menu.isItem()) {
             this.font.draw(poseStack, menu.blockEntity.getItemName(), 38, 21, 0xFF808080);
             Item item = menu.blockEntity.itemHandler.getStackInSlot(0).getItem();
-            int ingredientLines = getIngredientsLines().get(item);
+            int ingredientLines = getIngredientsLines().get(item) == null ? 1 : getIngredientsLines().get(item);
             String tag = getTags().get(item);
-            String type = getTypes().get(item);
-            String modId = getModId();
+            String type = getTypes().get(item) == null ? "unknown" : getTypes().get(item);
+            String modId = getModId() == null ? MOD_ID : getModId();
 
-            String itemOrTag = tag.isEmpty() ? item.getRegistryName().getPath() : tag;
+            String itemOrTag = tag == null ? item.getRegistryName().getPath() : tag;
 
             if (item != null && getMetals().get(item) != null && type != null && modId != null) {
                 if (type.equals("metal")){
@@ -68,27 +69,27 @@ public class SampleOfMetalsScreen extends AbstractContainerScreen<SampleOfMetals
                     }
                     if (getMetals().get(item) >= 3) {
                         this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.metal.line.3",
-                                        new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.3")),
+                                        new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.1")),
                                 16, 61, 0xFF808080);
                     }
                     if (getMetals().get(item) >= 4) {
                         this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.metal.line.4",
-                                        new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.4")),
+                                        new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.2")),
                                 16, 71, 0xFF808080);
                     }
                     if (getMetals().get(item) >= 5) {
                         this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.metal.line.5",
-                                        new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.5")),
+                                        new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.3")),
                                 16, 81, 0xFF808080);
                     }
                     if (getMetals().get(item) >= 6) {
                         this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.metal.line.6",
-                                        new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.6")),
+                                        new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.4")),
                                 16, 91, 0xFF808080);
                     }
                     if (getMetals().get(item) == 7) {
                         this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.metal.line.7",
-                                        new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.7")),
+                                        new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.5")),
                                 16, 101, 0xFF808080);
                     }
 
@@ -102,22 +103,22 @@ public class SampleOfMetalsScreen extends AbstractContainerScreen<SampleOfMetals
                     if (ingredientLines == 1) {
                         if (getMetals().get(item) >= 2) {
                             this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.alloy.line.2",
-                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.2")),
+                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.1")),
                                     16, 51, 0xFF808080);
                         }
                         if (getMetals().get(item) >= 3) {
                             this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.alloy.line.3",
-                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.3")),
+                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.2")),
                                     16, 61, 0xFF808080);
                         }
                         if (getMetals().get(item) >= 4) {
                             this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.alloy.line.4",
-                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.4")),
+                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.3")),
                                     16, 71, 0xFF808080);
                         }
                         if (getMetals().get(item) >= 5) {
                             this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.alloy.line.5",
-                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.5")),
+                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.4")),
                                     16, 81, 0xFF808080);
                         }
                         if (getMetals().get(item) >= 6) {
@@ -126,30 +127,30 @@ public class SampleOfMetalsScreen extends AbstractContainerScreen<SampleOfMetals
                         }
                         if (getMetals().get(item) == 7) {
                             this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.alloy.line.7",
-                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.7")),
+                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.5")),
                                     16, 101, 0xFF808080);
                         }
                     } else if (ingredientLines == 2){
                         if (getMetals().get(item) >= 2) {
                             this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.alloy.line.2",
-                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.2_1")),
+                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.1_1")),
                                     16, 51, 0xFF808080);
-                            this.font.draw(poseStack, new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.2_2"),
+                            this.font.draw(poseStack, new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.1_2"),
                                     16, 61, 0xFF808080);
                         }
                         if (getMetals().get(item) >= 3) {
                             this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.alloy.line.3",
-                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.3")),
+                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.2")),
                                     16, 71, 0xFF808080);
                         }
                         if (getMetals().get(item) >= 4) {
                             this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.alloy.line.4",
-                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.4")),
+                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.3")),
                                     16, 81, 0xFF808080);
                         }
                         if (getMetals().get(item) >= 5) {
                             this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.alloy.line.5",
-                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.5")),
+                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.4")),
                                     16, 91, 0xFF808080);
                         }
                         if (getMetals().get(item) >= 6) {
@@ -158,10 +159,34 @@ public class SampleOfMetalsScreen extends AbstractContainerScreen<SampleOfMetals
                         }
                         if (getMetals().get(item) == 7) {
                             this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.alloy.line.7",
-                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.7")),
+                                            new TranslatableComponent(modId + ".sample." + itemOrTag + ".desc.line.5")),
                                     16, 111, 0xFF808080);
                         }
                     }
+                }
+
+            } else if (item != null && type != null) {
+                if (type.equals("unknown")) {
+                    this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.unknown.desc"),
+                            16, 41, 0xFF808080);
+                    this.font.draw(poseStack, new TranslatableComponent( "create_and_food.sample.alloy.line.2",
+                                    new TranslatableComponent("create_and_food.sample.unknown.desc")),
+                            16, 51, 0xFF808080);
+                    this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.metal.line.3",
+                                    new TranslatableComponent("create_and_food.sample.unknown.desc")),
+                            16, 61, 0xFF808080);
+                    this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.metal.line.4",
+                                    new TranslatableComponent("create_and_food.sample.unknown.desc")),
+                            16, 71, 0xFF808080);
+                    this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.metal.line.5",
+                                    new TranslatableComponent("create_and_food.sample.unknown.desc")),
+                            16, 81, 0xFF808080);
+                    this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.metal.line.6",
+                                    new TranslatableComponent("create_and_food.sample.unknown.desc")),
+                            16, 91, 0xFF808080);
+                    this.font.draw(poseStack, new TranslatableComponent("create_and_food.sample.metal.line.7",
+                                    new TranslatableComponent("create_and_food.sample.unknown.desc")),
+                            16, 101, 0xFF808080);
                 }
             }
         }

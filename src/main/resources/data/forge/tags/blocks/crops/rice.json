@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "create_and_food:rice_plant",
+    "create_and_food:rice",
+    "create_and_food:rice_panicles"
+  ]
+}

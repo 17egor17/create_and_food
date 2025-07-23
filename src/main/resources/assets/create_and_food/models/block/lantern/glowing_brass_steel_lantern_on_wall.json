@@ -4,6 +4,6 @@
         "lantern": "create_and_food:block/lantern/glowing_brass_steel_lantern",
         "chain": "create_and_food:block/lantern/steel_chain",
         "holder": "create_and_food:block/lantern/holder",
-        "particle": "create_and_food:block/palettes/casing/steel_block"
+        "particle": "create_and_food:block/steel_block"
     }
 }

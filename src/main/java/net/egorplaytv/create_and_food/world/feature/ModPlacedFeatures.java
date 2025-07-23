@@ -66,16 +66,25 @@ public class ModPlacedFeatures {
                     CreateAndFoodCommonConfigs.TANTALUM_ORE_VEINS_PER_CHUNK.get(),
                     HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(0), VerticalAnchor.aboveBottom(128))));
 
-    public static final Holder<PlacedFeature> MARBLE_PLACED = PlacementUtils.register("marble_placed",
-            ModConfiguredFeatures.MARBLE, ModOrePlacement.commonOrePlacement(CreateAndFoodCommonConfigs.MARBLE_PER_CHUNK.get(),
-                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-10), VerticalAnchor.aboveBottom(319))));
+    public static final Holder<PlacedFeature> MARBLE_PLACED_UPPER = PlacementUtils.register("marble_placed_upper",
+            ModConfiguredFeatures.MARBLE, ModOrePlacement.rareOrePlacement(CreateAndFoodCommonConfigs.MARBLE_PER_CHUNK_UPPER.get(),
+                    HeightRangePlacement.uniform(VerticalAnchor.absolute(64), VerticalAnchor.absolute(128))));
+    public static final Holder<PlacedFeature> MARBLE_PLACED_LOWER = PlacementUtils.register("marble_placed_lower",
+            ModConfiguredFeatures.MARBLE, ModOrePlacement.commonOrePlacement(CreateAndFoodCommonConfigs.MARBLE_PER_CHUNK_LOWER.get(),
+                    HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(60))));
 
-    public static final Holder<PlacedFeature> MARBLE_BLACK_GALAXY_PLACED = PlacementUtils.register("marble_black_galaxy_placed",
-            ModConfiguredFeatures.MARBLE_BLACK_GALAXY, ModOrePlacement.commonOrePlacement(CreateAndFoodCommonConfigs.MARBLE_PER_CHUNK.get(),
-                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-64), VerticalAnchor.aboveBottom(10))));
+    public static final Holder<PlacedFeature> MARBLE_BLACK_GALAXY_PLACED_UPPER = PlacementUtils.register("marble_black_galaxy_placed_upper",
+            ModConfiguredFeatures.MARBLE_BLACK_GALAXY, ModOrePlacement.rareOrePlacement(CreateAndFoodCommonConfigs.MARBLE_PER_CHUNK_UPPER.get(),
+                    HeightRangePlacement.uniform(VerticalAnchor.absolute(-34), VerticalAnchor.absolute(10))));
+    public static final Holder<PlacedFeature> MARBLE_BLACK_GALAXY_PLACED_LOWER = PlacementUtils.register("marble_black_galaxy_placed_lower",
+            ModConfiguredFeatures.MARBLE_BLACK_GALAXY, ModOrePlacement.commonOrePlacement(CreateAndFoodCommonConfigs.MARBLE_PER_CHUNK_LOWER.get(),
+                    HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(-30))));
 
-    public static final Holder<PlacedFeature> MARBLE_PERLIN_PINK_PLACED = PlacementUtils.register("marble_perlin_pink_placed",
-            ModConfiguredFeatures.MARBLE_PERLIN_PINK, ModOrePlacement.commonOrePlacement(CreateAndFoodCommonConfigs.MARBLE_PER_CHUNK.get(),
-                    HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(-10), VerticalAnchor.aboveBottom(319))));
+    public static final Holder<PlacedFeature> MARBLE_PERLIN_PINK_PLACED_UPPER = PlacementUtils.register("marble_perlin_pink_placed_upper",
+            ModConfiguredFeatures.MARBLE_PERLIN_PINK, ModOrePlacement.rareOrePlacement(CreateAndFoodCommonConfigs.MARBLE_PER_CHUNK_UPPER.get(),
+                    HeightRangePlacement.uniform(VerticalAnchor.absolute(60), VerticalAnchor.absolute(126))));
+    public static final Holder<PlacedFeature> MARBLE_PERLIN_PINK_PLACED_LOWER = PlacementUtils.register("marble_perlin_pink_placed_lower",
+            ModConfiguredFeatures.MARBLE_PERLIN_PINK, ModOrePlacement.commonOrePlacement(CreateAndFoodCommonConfigs.MARBLE_PER_CHUNK_LOWER.get(),
+                    HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(60))));
 
 }

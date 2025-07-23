@@ -44,6 +44,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(CUSTARD.get());
         simpleItem(POWDERED_SUGAR.get());
         simpleItem(COCOA_POWDER.get());
+        simpleItem(HARD_COCOA.get());
         simpleItem(COCOA_BUTTER_BRIQUETTE.get());
         simpleItem(RYE_FLOUR.get());
         simpleItem(RYE_BREAD.get());
@@ -65,8 +66,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(PURPLE_GRAPE_SAPLING.get(), "berry/saplings");
         simpleItem(RED_GRAPE.get(), "berry", "red_grapes");
         simpleItem(RED_GRAPE_SAPLING.get(), "berry/saplings");
-        simpleMinecraftItem(PUMPKIN_SEEDS.get());
-        simpleMinecraftItem(MELON_SEEDS.get());
+        minecraftItem(PUMPKIN_SEEDS.get());
+        minecraftItem(MELON_SEEDS.get());
         simpleItem(APPLE_VINEGAR_BUCKET.get());
         simpleItem(COCOA_OIL_BUCKET.get());
         simpleItem(WHITE_CHOCOLATE_BUCKET.get());
@@ -80,6 +81,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(EGG_SHELL.get());
         simpleItem(RYE_SEEDS.get());
         simpleItem(RYE.get());
+        simpleItem(RICE.get());
         simpleItem(ROASTED_COCOA_BEANS.get());
 
         ingotItem(STEEL_INGOT.get(), 800, 1300);
@@ -93,11 +95,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         ingotItem(ALLOY_SOULS_INGOT.get());
         metalItem(ALLOY_SOULS_NUGGET.get());
         metalItem(ALLOY_SOULS_SHEET.get());
-        metalItem(INCOMPLETE_NETHERITE_INGOT.get());
+        sequencedAssemblyItem(INCOMPLETE_NETHERITE_INGOT.get(), "metals");
         metalItem(NETHER_ALLOY.get());
         simpleItem(STEEL_COIL.get(), "coil");
         simpleItem(COPPER_COIL.get(), "coil");
-        handheldItem(INCOMPLETE_TOOL_HANDLE.get());
+        sequencedAssemblyItem(INCOMPLETE_TOOL_HANDLE.get(), "tools");
         handheldItem(TOOL_HANDLE.get());
         handheldItem(TANTALUM_SWORD.get(), "tantalum");
         handheldItem(TANTALUM_PICKAXE.get(), "tantalum");
@@ -123,7 +125,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(COPPER_SHOVEL.get(), "copper");
         handheldItem(COPPER_AXE.get(), "copper");
         handheldItem(COPPER_HOE.get(), "copper");
-        simpleItem(INCOMPLETE_COIN.get(), "coin");
+        sequencedAssemblyItem(INCOMPLETE_COIN.get(), "coin");
         simpleItem(COPPER_COIN.get(), "coin");
         simpleItem(IRON_COIN.get(), "coin");
         simpleItem(GOLDEN_COIN.get(), "coin");
@@ -138,11 +140,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(RUBY.get());
         simpleItem(FIRECLAY_BRICK.get());
         simpleItem(FIRECLAY_CLAY_BALL.get());
-        simpleItem(INCOMPLETE_MARBLE_BRICK.get());
+        sequencedAssemblyItem(INCOMPLETE_MARBLE_BRICK.get());
         simpleItem(MARBLE_BRICK.get());
-        simpleItem(INCOMPLETE_MARBLE_BLACK_GALAXY_BRICK.get());
+        sequencedAssemblyItem(INCOMPLETE_MARBLE_BLACK_GALAXY_BRICK.get());
         simpleItem(MARBLE_BLACK_GALAXY_BRICK.get());
-        simpleItem(INCOMPLETE_MARBLE_PERLIN_PINK_BRICK.get());
+        sequencedAssemblyItem(INCOMPLETE_MARBLE_PERLIN_PINK_BRICK.get());
         simpleItem(MARBLE_PERLIN_PINK_BRICK.get());
         metalItem(RAW_TANTALUM.get());
         metalItem(CRASHED_RAW_TANTALUM.get());
@@ -154,25 +156,27 @@ public class ModItemModelProvider extends ItemModelProvider {
         metalItem(TUNGSTEN_NUGGET.get());
 
         handheldItem(IRON_KNIFE.get(), "iron");
-        incompleteKnife(INCOMPLETE_IRON_KNIFE.get(), 3);
+        sequencedAssemblyItem(INCOMPLETE_IRON_KNIFE.get(), "tools/incomplete_knives", 3);
         handheldItem(DIAMOND_KNIFE.get(), "diamond");
-        incompleteKnife(INCOMPLETE_DIAMOND_KNIFE.get(), 3);
+        sequencedAssemblyItem(INCOMPLETE_DIAMOND_KNIFE.get(), "tools/incomplete_knives", 3);
         handheldItem(NETHERITE_KNIFE.get(), "netherite");
-        incompleteKnife(INCOMPLETE_NETHERITE_KNIFE.get(), 2, 3, 4);
+        sequencedAssemblyItem(INCOMPLETE_NETHERITE_KNIFE.get(), "tools/incomplete_knives", 2, 3, 4);
         handheldItem(GOLDEN_KNIFE.get(), "gold");
-        incompleteKnife(INCOMPLETE_GOLDEN_KNIFE.get(), 3);
+        sequencedAssemblyItem(INCOMPLETE_GOLDEN_KNIFE.get(), "tools/incomplete_knives", 3);
         handheldItem(STEEL_KNIFE.get(), "steel");
-        incompleteKnife(INCOMPLETE_STEEL_KNIFE.get(), 3);
+        sequencedAssemblyItem(INCOMPLETE_STEEL_KNIFE.get(), "tools/incomplete_knives", 3);
         handheldItem(TANTALUM_KNIFE.get(), "tantalum");
-        incompleteKnife(INCOMPLETE_TANTALUM_KNIFE.get(), 3);
+        sequencedAssemblyItem(INCOMPLETE_TANTALUM_KNIFE.get(), "tools/incomplete_knives", 3);
         handheldItem(TUNGSTEN_KNIFE.get(), "tungsten");
-        incompleteKnife(INCOMPLETE_TUNGSTEN_KNIFE.get(), 3);
+        sequencedAssemblyItem(INCOMPLETE_TUNGSTEN_KNIFE.get(), "tools/incomplete_knives", 3);
 
         simpleItem(ModItems.TORN_SOUL_CHAIN.get());
         simpleItem(ModItems.STEEL_CHAIN.get());
         simpleItem(ModItems.TORN_SOUL_LANTERN.get());
         simpleItem(ModItems.GLOWING_BRASS_COPPER_LANTERN.get());
         simpleItem(ModItems.GLOWING_BRASS_STEEL_LANTERN.get());
+        minecraftItem(ModItems.LANTERN.get());
+        minecraftItem(ModItems.SOUL_LANTERN.get());
         simpleItem(ModItems.ALMOND_SIGN.get());
 
         simpleItem(ALMOND_DOOR.get().asItem());
@@ -236,6 +240,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(BLACKSTONE_TANTALUM_ORE.get(), "ores", "blackstone_tantalum_ore_0");
         blockItem(RAW_TANTALUM_BLOCK.get(), "item");
         blockItem(TUNGSTEN_ORE.get(), "ores", "tungsten_ore_0");
+        blockItem(STONE_TUNGSTEN_ORE.get(), "ores", "stone_tungsten_ore_0");
+        blockItem(DEEPSLATE_TUNGSTEN_ORE.get(), "ores", "deepslate_tungsten_ore_0");
         blockItem(RAW_TUNGSTEN_BLOCK.get(), "item");
         blockItem(FARMLAND_SUMP_SAND.get(), "farmlands", "farmland_sump_sand_bottom");
         blockItem(FARMLAND_SUMP_RED_SAND.get(), "farmlands", "farmland_sump_red_sand_bottom");
@@ -245,6 +251,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(SAND_FARMLAND.get(), "farmlands");
         blockItem(FERTILIZED_RED_SAND.get(), "farmlands");
         blockItem(RED_SAND_FARMLAND.get(), "farmlands");
+        blockItem(FLOODED_FARMLAND.get(), "farmlands");
+        blockItem(FLOODED_RICH_SOIL_FARMLAND.get(), "farmlands");
         blockItem(FERTILIZED_SAND.get(), "farmlands");
         customBlockItem(NIXIE_VASE.get(), "vases", "vase_nixie_fluid")
                 .texture("outside", "create_and_food:block/vase/marble_vase_side")
@@ -276,46 +284,111 @@ public class ModItemModelProvider extends ItemModelProvider {
         blockItem(ALMOND_CUTTING_BOARD.get(), "cutting_board");
     }
 
-
-
-    private void incompleteKnife(Item item, int progressStep) {
-        var baseId = item.getRegistryName().getPath();
-
-        var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_1"), "item/tools/incomplete_knives/", item.getRegistryName().getPath() + "_1");
-
-        withExistingParent(baseId, "item/handheld")
-                .texture("layer0", new ResourceLocation(MOD_ID, "item/tools/incomplete_knives/" + baseId + "_0"))
-                // 2nd incomplete stage
-                .override()
-                .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep)
-                .model(model1)
-                .end();
+    private void sequencedAssemblyItem(Item item) {
+        sequencedAssemblyItem(item, "", 0, 0, 0, 0);
     }
 
-    private void incompleteKnife(Item item, int progressStep1, int progressStep2, int progressStep3) {
+    private void sequencedAssemblyItem(Item item, String textureFolder) {
+        sequencedAssemblyItem(item, textureFolder, 0, 0, 0, 0);
+    }
+
+    private void sequencedAssemblyItem(Item item, String textureFolder, int progressStep) {
+        sequencedAssemblyItem(item, textureFolder, progressStep, 0, 0, 0);
+    }
+
+    private void sequencedAssemblyItem(Item item, String textureFolder, int progressStep1, int progressStep2) {
+        sequencedAssemblyItem(item, textureFolder, progressStep1, progressStep2, 0, 0);
+    }
+
+    private void sequencedAssemblyItem(Item item, String textureFolder, int progressStep1, int progressStep2, int progressStep3) {
+        sequencedAssemblyItem(item, textureFolder, progressStep1, progressStep2, progressStep3, 0);
+    }
+
+    private void sequencedAssemblyItem(Item item, String textureFolder, int progressStep1, int progressStep2, int progressStep3, int progressStep4) {
         var baseId = item.getRegistryName().getPath();
+        String folder = !textureFolder.isEmpty() ? textureFolder + "/" : "";
 
-        var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_1"), "item/tools/incomplete_knives/", item.getRegistryName().getPath() + "_1");
-        var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_2"), "item/tools/incomplete_knives/", item.getRegistryName().getPath() + "_2");
-        var model3 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_3"), "item/tools/incomplete_knives/", item.getRegistryName().getPath() + "_3");
+        if (progressStep1 == 0 && progressStep2 == 0 && progressStep3 == 0 && progressStep4 == 0)
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId));
 
-        withExistingParent(baseId, "item/handheld")
-                .texture("layer0", new ResourceLocation(MOD_ID, "item/tools/incomplete_knives/" + baseId + "_0"))
-                // 2nd incomplete stage
-                .override()
-                .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep1)
-                .model(model1)
-                .end()
-                // 3nd incomplete stage
-                .override()
-                .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep2)
-                .model(model2)
-                .end()
-                // 4nd incomplete stage
-                .override()
-                .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep3)
-                .model(model3)
-                .end();
+        else if (progressStep1 != 0 && progressStep2 == 0 && progressStep3 == 0 && progressStep4 == 0) {
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_1"), "item/" + folder, item.getRegistryName().getPath() + "_1");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId + "_0"))
+                    // 2nd incomplete stage
+                    .override()
+                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep1)
+                    .model(model1)
+                    .end();
+        } else if (progressStep2 != 0 && progressStep3 == 0 && progressStep4 == 0) {
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_1"), "item/" + folder, item.getRegistryName().getPath() + "_1");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_2"), "item/" + folder, item.getRegistryName().getPath() + "_2");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId + "_0"))
+                    // 2nd incomplete stage
+                    .override()
+                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep1)
+                    .model(model1)
+                    .end()
+                    // 3nd incomplete stage
+                    .override()
+                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep2)
+                    .model(model2)
+                    .end();
+        } else if (progressStep3 != 0 && progressStep4 == 0) {
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_2"), "item/" + folder, item.getRegistryName().getPath() + "_2");
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_1"), "item/" + folder, item.getRegistryName().getPath() + "_1");
+            var model3 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_3"), "item/" + folder, item.getRegistryName().getPath() + "_3");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId + "_0"))
+                    // 2nd incomplete stage
+                    .override()
+                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep1)
+                    .model(model1)
+                    .end()
+                    // 3nd incomplete stage
+                    .override()
+                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep2)
+                    .model(model2)
+                    .end()
+                    // 4nd incomplete stage
+                    .override()
+                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep3)
+                    .model(model3)
+                    .end();
+        } else {
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_1"), "item/" + folder, item.getRegistryName().getPath() + "_1");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_2"), "item/" + folder, item.getRegistryName().getPath() + "_2");
+            var model3 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_3"), "item/" + folder, item.getRegistryName().getPath() + "_3");
+            var model4 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_4"), "item/" + folder, item.getRegistryName().getPath() + "_4");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId + "_0"))
+                    // 2nd incomplete stage
+                    .override()
+                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep1)
+                    .model(model1)
+                    .end()
+                    // 3nd incomplete stage
+                    .override()
+                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep2)
+                    .model(model2)
+                    .end()
+                    // 4nd incomplete stage
+                    .override()
+                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep3)
+                    .model(model3)
+                    .end()
+                    // 5nd incomplete stage
+                    .override()
+                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep4)
+                    .model(model4)
+                    .end();
+        }
     }
 
     private void ingotItem(Item item, int deg1, int deg2) {
@@ -367,20 +440,24 @@ public class ModItemModelProvider extends ItemModelProvider {
                     new ResourceLocation(MOD_ID, texturePath + "/" + item.getRegistryName().getPath()));
         }
     }
-    private ItemModelBuilder simpleItem(Item item, String path, String textureName){
+
+    private ItemModelBuilder minecraftItem(Item item){
         return withExistingParent(item.getRegistryName().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(MOD_ID, "item/" + path + "/" + textureName));
+                new ResourceLocation("item/" + item.getRegistryName().getPath()));
+    }
+
+    private ItemModelBuilder simpleItem(Item item, String path, String textureName){
+        String p = path.isEmpty() ? "" : path + "/";
+        return withExistingParent(item.getRegistryName().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(MOD_ID, "item/" + p + textureName));
     }
     private ItemModelBuilder simpleItem(Item item, String path){
-        return withExistingParent(item.getRegistryName().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(MOD_ID, "item/" + path + "/" + item.getRegistryName().getPath()));
+        return simpleItem(item, path, item.getRegistryName().getPath());
     }
     private ItemModelBuilder simpleItem(Item item){
-        return withExistingParent(item.getRegistryName().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(MOD_ID, "item/" + item.getRegistryName().getPath()));
+        return simpleItem(item, "", item.getRegistryName().getPath());
     }
     private ItemModelBuilder metalItem(Item item){
         return withExistingParent(item.getRegistryName().getPath(),
@@ -388,29 +465,22 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation(MOD_ID, "item/metals/" + item.getRegistryName().getPath()));
     }
     private ItemModelBuilder handheldItem(Item item, String path){
+        String p = path.isEmpty() ? "" : path + "/";
         return withExistingParent(item.getRegistryName().getPath(),
                 new ResourceLocation("item/handheld")).texture("layer0",
-                new ResourceLocation(MOD_ID, "item/tools/" + path + "/" + item.getRegistryName().getPath()));
+                new ResourceLocation(MOD_ID, "item/tools/" + p + item.getRegistryName().getPath()));
     }
     private ItemModelBuilder handheldItem(Item item){
-        return withExistingParent(item.getRegistryName().getPath(),
-                new ResourceLocation("item/handheld")).texture("layer0",
-                new ResourceLocation(MOD_ID, "item/tools/" + item.getRegistryName().getPath()));
+        return handheldItem(item, "");
     }
     private ItemModelBuilder hammerItem(Item item, String path){
+        String p = path.isEmpty() ? "" : path + "/";
         return withExistingParent(item.getRegistryName().getPath(),
                 new ResourceLocation(MOD_ID, "custom/item/tool/hammer")).texture("material",
-                new ResourceLocation(MOD_ID, "item/tools/" + path + "/" + item.getRegistryName().getPath()));
+                new ResourceLocation(MOD_ID, "item/tools/" + p + item.getRegistryName().getPath()));
     }
     private ItemModelBuilder hammerItem(Item item){
-        return withExistingParent(item.getRegistryName().getPath(),
-                new ResourceLocation(MOD_ID, "custom/item/tool/hammer")).texture("material",
-                new ResourceLocation(MOD_ID, "item/tools/" + item.getRegistryName().getPath()));
-    }
-    private ItemModelBuilder simpleMinecraftItem(Item item){
-        return withExistingParent(item.getRegistryName().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(CreateAndFood.MINECRAFT_ID, "item/" + item.getRegistryName().getPath()));
+        return hammerItem(item, "");
     }
     private ItemModelBuilder blockItem(Block block, String path, String modelName){
         if (!path.isEmpty()) {

@@ -174,7 +174,7 @@ public class VaseBlock extends BaseEntityBlock implements SimpleWaterloggedBlock
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return new VaseBlockEntity(pPos, pState, FILL);
+        return new VaseBlockEntity(pPos, pState);
     }
 
     @Nullable

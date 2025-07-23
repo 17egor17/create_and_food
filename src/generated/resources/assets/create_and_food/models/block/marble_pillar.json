@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "create_and_food:block/palettes/stone_types/pillar/marble_cut_pillar",
+    "end": "create_and_food:block/palettes/stone_types/cap/marble_cut_cap"
+  }
+}

@@ -34,6 +34,7 @@ import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
 import vectorwing.farmersdelight.common.crafting.CuttingBoardRecipe;
 import vectorwing.farmersdelight.common.mixin.accessor.RecipeManagerAccessor;
 import vectorwing.farmersdelight.common.registry.ModAdvancements;
+import vectorwing.farmersdelight.common.registry.ModRecipeTypes;
 import vectorwing.farmersdelight.common.registry.ModSounds;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.common.utility.ItemUtils;
@@ -108,13 +109,13 @@ public class BirchCuttingBoardBlockEntity extends SyncedBlockEntity {
             return Optional.empty();
         } else {
             if (this.lastRecipeID != null) {
-                Recipe<RecipeWrapper> recipe = (Recipe)((RecipeManagerAccessor)this.level.getRecipeManager()).getRecipeMap(CuttingBoardRecipe.TYPE).get(this.lastRecipeID);
+                Recipe<RecipeWrapper> recipe = (Recipe)((RecipeManagerAccessor)this.level.getRecipeManager()).getRecipeMap(ModRecipeTypes.CUTTING.get()).get(this.lastRecipeID);
                 if (recipe instanceof CuttingBoardRecipe && recipe.matches(recipeWrapper, this.level) && ((CuttingBoardRecipe)recipe).getTool().test(toolStack)) {
                     return Optional.of((CuttingBoardRecipe)recipe);
                 }
             }
 
-            List<CuttingBoardRecipe> recipeList = this.level.getRecipeManager().getRecipesFor(CuttingBoardRecipe.TYPE, recipeWrapper, this.level);
+            List<CuttingBoardRecipe> recipeList = this.level.getRecipeManager().getRecipesFor(ModRecipeTypes.CUTTING.get(), recipeWrapper, this.level);
             if (recipeList.isEmpty()) {
                 if (player != null) {
                     player.displayClientMessage(TextUtils.getTranslation("block.cutting_board.invalid_item", new Object[0]), true);

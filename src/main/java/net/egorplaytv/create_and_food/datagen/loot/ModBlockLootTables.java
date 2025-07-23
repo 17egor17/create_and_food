@@ -1,5 +1,7 @@
 package net.egorplaytv.create_and_food.datagen.loot;
 
+import net.egorplaytv.create_and_food.block.custom.RicePaniclesBlock;
+import net.egorplaytv.create_and_food.block.custom.RicePlantBlock;
 import net.egorplaytv.create_and_food.block.custom.RyePlantBlock;
 import net.egorplaytv.create_and_food.block.custom.berry.*;
 import net.egorplaytv.create_and_food.item.ModItems;
@@ -29,6 +31,8 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(TORN_SOUL_LANTERN.get());
         this.dropSelf(GLOWING_BRASS_COPPER_LANTERN.get());
         this.dropSelf(GLOWING_BRASS_STEEL_LANTERN.get());
+        this.dropSelf(LANTERN.get());
+        this.dropSelf(SOUL_LANTERN.get());
         this.dropOther(ALMOND_WALL_SIGN.get(), ModItems.ALMOND_SIGN.get());
         this.dropOther(ALMOND_SIGN.get(), ModItems.ALMOND_SIGN.get());
         this.add(ALMOND_DOOR.get(), BlockLoot::createDoorTable);
@@ -100,6 +104,10 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(RAW_TANTALUM_BLOCK.get());
         this.add(TUNGSTEN_ORE.get(),
                 (block) -> createOreDrop(TUNGSTEN_ORE.get(), ModItems.RAW_TUNGSTEN.get()));
+        this.add(STONE_TUNGSTEN_ORE.get(),
+                (block) -> createOreDrop(STONE_TUNGSTEN_ORE.get(), ModItems.RAW_TUNGSTEN.get()));
+        this.add(DEEPSLATE_TUNGSTEN_ORE.get(),
+                (block) -> createOreDrop(DEEPSLATE_TUNGSTEN_ORE.get(), ModItems.RAW_TUNGSTEN.get()));
         this.dropSelf(RAW_TUNGSTEN_BLOCK.get());
         this.add(FARMLAND_SUMP_SAND.get(), BlockLoot::createSlabItemTable);
         this.add(FARMLAND_SUMP_RED_SAND.get(), BlockLoot::createSlabItemTable);
@@ -109,6 +117,8 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropOther(SAND_FARMLAND.get(), Blocks.SAND);
         this.dropSelf(FERTILIZED_RED_SAND.get());
         this.dropOther(RED_SAND_FARMLAND.get(), Blocks.RED_SAND);
+        this.dropOther(FLOODED_FARMLAND.get(), FARMLAND_SUMP_DIRT.get());
+        this.dropOther(FLOODED_RICH_SOIL_FARMLAND.get(), FARMLAND_SUMP_RICH_SOIL.get());
         this.dropSelf(NIXIE_VASE.get());
         this.dropSelf(NIXIE_VASE_PERLIN_PINK.get());
         this.dropSelf(NIXIE_VASE_BLACK_GALAXY.get());
@@ -118,7 +128,24 @@ public class ModBlockLootTables extends BlockLoot {
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(RyePlantBlock.AGE, 7));
         this.add(RYE_PLANT.get(), createCropDrops(RYE_PLANT.get(), ModItems.RYE.get(),
                 ModItems.RYE_SEEDS.get(), lootitemcondition$builder));
-
+        this.add(RICE_PLANT.get(), (block) ->
+                applyExplosionDecay(block, LootTable.lootTable()
+                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.RICE.get()))
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
+                        .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(RICE_PLANT.get())
+                                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(RicePlantBlock.AGE, 7)))
+                                .add(LootItem.lootTableItem(vectorwing.farmersdelight.common.registry.ModItems.RICE_PANICLE.get()))
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))));
+        this.add(RICE_CROP.get(), (block) ->
+                applyExplosionDecay(block, LootTable.lootTable()
+                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.RICE.get()))
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))));
+        this.add(RICE_CROP_PANICLES.get(), (block) ->
+                applyExplosionDecay(block, LootTable.lootTable()
+                        .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(RICE_PLANT.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(RicePaniclesBlock.RICE_AGE, 3)))
+                                .add(LootItem.lootTableItem(vectorwing.farmersdelight.common.registry.ModItems.RICE_PANICLE.get()))
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))));
         this.add(BLUEBERRY_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
                         .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.BLUEBERRY_SAPLING.get()))

@@ -21,11 +21,13 @@ public class CreateAndFoodCommonConfigs {
 
     public static final ForgeConfigSpec.ConfigValue<Integer> TANTALUM_ORE_VEINS_PER_CHUNK;
     public static final ForgeConfigSpec.ConfigValue<Integer> TANTALUM_ORE_VEINS_SIZE;
-    public static final ForgeConfigSpec.ConfigValue<Integer> MARBLE_PER_CHUNK;
+    public static final ForgeConfigSpec.ConfigValue<Integer> MARBLE_PER_CHUNK_UPPER;
+    public static final ForgeConfigSpec.ConfigValue<Integer> MARBLE_PER_CHUNK_LOWER;
     public static final ForgeConfigSpec.ConfigValue<Integer> MARBLE_VEINS_SIZE;
 
     public static final ForgeConfigSpec.ConfigValue<Integer> SPEED_ATTENUATION_FURNACE;
 
+    public static final ForgeConfigSpec.BooleanValue GENERATE_CAF_CHEST_LOOT;
     public static final ForgeConfigSpec.ConfigValue<Boolean> ENABLE_KILOGRAMS;
     public static final ForgeConfigSpec.ConfigValue<Boolean> ENABLE_GRAMS;
     public static final ForgeConfigSpec.ConfigValue<Boolean> ENABLE_TONES;
@@ -92,13 +94,21 @@ public class CreateAndFoodCommonConfigs {
                 .defineInRange("Chance", 6, 6, Integer.MAX_VALUE);
         BUILDER.pop();
         BUILDER.comment("Marble generation").push("marble");
-        MARBLE_PER_CHUNK = BUILDER.comment("How many Marble Veins spawn per chunk!")
+        MARBLE_PER_CHUNK_UPPER = BUILDER.comment("How many Marble Veins spawn per chunk!")
                 .translation("config.create_and_food.marble_per_chunk")
-                .define("Marble Veins Per Chunk", 7);
+                .define("Marble Veins Per Chunk Upper", 6);
+        MARBLE_PER_CHUNK_LOWER = BUILDER.comment("How many Marble Veins spawn per chunk!")
+                .translation("config.create_and_food.marble_per_chunk")
+                .define("Marble Veins Per Chunk Lower", 2);
 
         MARBLE_VEINS_SIZE = BUILDER.comment("How many Marble Blocks spawn in one Vein!")
                 .translation("config.create_and_food.marble_veins_size")
-                .defineInRange("Marble Vein Size", 20, 20, 40);
+                .defineInRange("Marble Vein Size", 64, 20, 64);
+        BUILDER.pop();
+        BUILDER.comment("Generate CAF LootTables in minecraft chests").push("lootTableGeneration");
+        GENERATE_CAF_CHEST_LOOT = BUILDER.comment("Should this mod add some of its items as extra chest loot across Minecraft?")
+                .translation("config.create_and_food.loot_table_generation")
+                .define("generateCAFChestLoot", true);
         BUILDER.pop();
         BUILDER.pop();
         BUILDER.comment("Game settings").push("configs");

@@ -1,8 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#forge:eggs/spawn_eggs",
-    "#forge:eggs/egg",
-    "#forge:eggs/turtle_egg"
-  ]
-}

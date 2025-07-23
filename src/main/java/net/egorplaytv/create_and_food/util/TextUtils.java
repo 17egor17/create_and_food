@@ -2,6 +2,7 @@ package net.egorplaytv.create_and_food.util;
 
 import com.google.common.collect.Lists;
 import com.mojang.datafixers.util.Pair;
+import com.simibubi.create.foundation.utility.LangBuilder;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.*;
 import net.minecraft.world.effect.MobEffect;

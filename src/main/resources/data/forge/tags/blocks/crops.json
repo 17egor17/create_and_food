@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "#forge:crops/rye"
+    "#forge:crops/rye",
+    "#forge:crops/rice"
   ]
 }

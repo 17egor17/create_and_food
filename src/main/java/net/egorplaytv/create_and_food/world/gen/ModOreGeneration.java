@@ -15,8 +15,11 @@ public class ModOreGeneration {
         base.add(ModPlacedFeatures.RUBY_ORE_PLACED);
         base.add(ModPlacedFeatures.OVERWORLD_TANTALUM_ORE_PLACED);
         base.add(ModPlacedFeatures.NETHER_TANTALUM_ORE_PLACED);
-        base.add(ModPlacedFeatures.MARBLE_PLACED);
-        base.add(ModPlacedFeatures.MARBLE_BLACK_GALAXY_PLACED);
-        base.add(ModPlacedFeatures.MARBLE_PERLIN_PINK_PLACED);
+        base.add(ModPlacedFeatures.MARBLE_PLACED_UPPER);
+        base.add(ModPlacedFeatures.MARBLE_PLACED_LOWER);
+        base.add(ModPlacedFeatures.MARBLE_BLACK_GALAXY_PLACED_UPPER);
+        base.add(ModPlacedFeatures.MARBLE_BLACK_GALAXY_PLACED_LOWER);
+        base.add(ModPlacedFeatures.MARBLE_PERLIN_PINK_PLACED_UPPER);
+        base.add(ModPlacedFeatures.MARBLE_PERLIN_PINK_PLACED_LOWER);
     }
 }

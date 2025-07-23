@@ -20,9 +20,11 @@ import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.block.custom.*;
-import net.egorplaytv.create_and_food.block.custom.LanternBlock;
+import net.egorplaytv.create_and_food.block.custom.lanterns.LanternBlock;
 import net.egorplaytv.create_and_food.block.custom.berry.*;
 import net.egorplaytv.create_and_food.block.custom.connect.*;
+import net.egorplaytv.create_and_food.block.custom.lanterns.MinecraftLantern;
+import net.egorplaytv.create_and_food.block.custom.lanterns.TornSoulLantern;
 import net.egorplaytv.create_and_food.block.entity.ModWoodTypes;
 import net.egorplaytv.create_and_food.content.kinetics.grinder.GrinderGenerator;
 import net.egorplaytv.create_and_food.item.ModCreativeModeTab;
@@ -48,6 +50,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -70,15 +73,20 @@ public class ModBlocks {
 
 //________________________Create and Food: Decorative________________________\\
     public static final RegistryObject<Block> TORN_SOUL_CHAIN = registryBlockWithoutBlockItem("torn_soul_chain",
-            () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN).noOcclusion()));
+            () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN).noOcclusion().requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> STEEL_CHAIN = registryBlockWithoutBlockItem("steel_chain",
-            () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN).noOcclusion()));
+            () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN).noOcclusion().requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> TORN_SOUL_LANTERN = registryBlockWithoutBlockItem("torn_soul_lantern",
             () -> new TornSoulLantern(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion()));
     public static final RegistryObject<Block> GLOWING_BRASS_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_copper_lantern",
-            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion()));
+            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> GLOWING_BRASS_STEEL_LANTERN = registryBlockWithoutBlockItem("glowing_brass_steel_lantern",
-            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion()));
+            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> LANTERN = registryBlockWithoutBlockItem("lantern",
+            () -> new MinecraftLantern(BlockBehaviour.Properties.copy(Blocks.LANTERN).noCollission().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> SOUL_LANTERN = registryBlockWithoutBlockItem("soul_lantern",
+            () -> new MinecraftLantern(BlockBehaviour.Properties.copy(Blocks.SOUL_LANTERN).noCollission().requiresCorrectToolForDrops()));
 
 
     public static final RegistryObject<Block> ALMOND_WALL_SIGN = registryBlockWithoutBlockItem("almond_wall_sign",
@@ -195,6 +203,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> TERMINAL = registryBlock("terminal",
             () -> new TerminalBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2.0F)
                     .sound(SoundType.METAL).requiresCorrectToolForDrops()), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+
 
     public static BlockEntry<GrinderBlock> MECHANICAL_GRINDER;
 
@@ -362,6 +371,14 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(3.0F, 3.0F)
                     .requiresCorrectToolForDrops()), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
+    public static final RegistryObject<Block> STONE_TUNGSTEN_ORE = registryBlock("stone_tungsten_ore",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(3.0F, 3.0F)
+                    .requiresCorrectToolForDrops()), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+
+    public static final RegistryObject<Block> DEEPSLATE_TUNGSTEN_ORE = registryBlock("deepslate_tungsten_ore",
+            () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.DEEPSLATE).strength(4.5F, 3.0F)
+                    .requiresCorrectToolForDrops()), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+
     public static final RegistryObject<Block> RAW_TUNGSTEN_BLOCK = registryBlock("raw_tungsten_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE).strength(5.0F, 6.0F)
                     .requiresCorrectToolForDrops()), ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
@@ -376,10 +393,10 @@ public class ModBlocks {
             () -> new SumpBlock(BlockBehaviour.Properties.of(Material.SAND).sound(SoundType.SAND).noOcclusion().strength(0.6F)),
             ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
     public static final RegistryObject<Block> FARMLAND_SUMP_RICH_SOIL = registryBlock("farmland_sump_rich_soil",
-            () -> new SumpBlock(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).noOcclusion().strength(0.6F)),
+            () -> new DirtSlabBlock(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).noOcclusion().strength(0.6F)),
             ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
     public static final RegistryObject<Block> FARMLAND_SUMP_DIRT = registryBlock("farmland_sump_dirt",
-            () -> new SumpBlock(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).noOcclusion().strength(0.6F)),
+            () -> new DirtSlabBlock(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).noOcclusion().strength(0.6F)),
             ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
     public static final RegistryObject<Block> FERTILIZED_SAND = registryBlock("fertilized_sand",
@@ -394,6 +411,12 @@ public class ModBlocks {
     public static final RegistryObject<Block> RED_SAND_FARMLAND = registryBlock("red_sand_farmland",
             () -> new RedSandFarmBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND).sound(SoundType.SAND).strength(0.6F)
                     .isViewBlocking(ModBlocks::always).isSuffocating(ModBlocks::always)), CreativeModeTab.TAB_SEARCH);
+
+    public static final RegistryObject<Block> FLOODED_FARMLAND = registryBlock("flooded_farmland",
+            () -> new FloodedFarmlandBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND)), CreativeModeTab.TAB_SEARCH);
+
+    public static final RegistryObject<Block> FLOODED_RICH_SOIL_FARMLAND = registryBlock("flooded_rich_soil_farmland",
+            () -> new FloodedRichSoilFarmlandBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND)), CreativeModeTab.TAB_SEARCH);
 
     public static final RegistryObject<Block> NIXIE_VASE = registryBlock("nixie_vase",
             () -> new VaseBlock(BlockBehaviour.Properties.of(Material.GLASS).noCollission()),
@@ -412,50 +435,59 @@ public class ModBlocks {
     public static final RegistryObject<Block> RYE_PLANT = registryBlockWithoutBlockItem("rye_plant",
             () -> new RyePlantBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()));
 
+    public static final RegistryObject<Block> RICE_PLANT = registryBlockWithoutBlockItem("rice_plant",
+            () -> new RicePlantBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noCollission()));
+
+    public static final RegistryObject<Block> RICE_CROP = registryBlockWithoutBlockItem("rice",
+            () -> new RiceBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).strength(0.2F).noOcclusion()));
+
+    public static final RegistryObject<Block> RICE_CROP_PANICLES = registryBlockWithoutBlockItem("rice_panicles",
+            () -> new RicePaniclesBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()));
+
     public static final RegistryObject<Block> BLUEBERRY_BUSH = registryBlockWithoutBlockItem("blueberry_bush",
-            () -> new BlueberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new BlueberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
     public static final RegistryObject<Block> WILD_BLUEBERRY_BUSH = registryBlockWithoutBlockItem("wild_blueberry_bush",
-            () -> new WildBlueberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new WildBlueberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
 
     public static final RegistryObject<Block> CRANBERRY_BUSH = registryBlockWithoutBlockItem("cranberry_bush",
-            () -> new CranberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new CranberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
     public static final RegistryObject<Block> WILD_CRANBERRY_BUSH = registryBlockWithoutBlockItem("wild_cranberry_bush",
-            () -> new WildCranberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new WildCranberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
 
     public static final RegistryObject<Block> RASPBERRY_BUSH = registryBlockWithoutBlockItem("raspberry_bush",
-            () -> new RaspberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new RaspberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
     public static final RegistryObject<Block> WILD_RASPBERRY_BUSH = registryBlockWithoutBlockItem("wild_raspberry_bush",
-            () -> new WildRaspberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new WildRaspberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
 
     public static final RegistryObject<Block> BLUE_GRAPE_BUSH = registryBlockWithoutBlockItem("blue_grape_bush",
-            () -> new BlueGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new BlueGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
     public static final RegistryObject<Block> WILD_BLUE_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_blue_grape_bush",
-            () -> new WildBlueGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new WildBlueGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
 
     public static final RegistryObject<Block> GREEN_GRAPE_BUSH = registryBlockWithoutBlockItem("green_grape_bush",
-            () -> new GreenGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new GreenGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
     public static final RegistryObject<Block> WILD_GREEN_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_green_grape_bush",
-            () -> new WildGreenGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new WildGreenGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
 
     public static final RegistryObject<Block> PURPLE_GRAPE_BUSH = registryBlockWithoutBlockItem("purple_grape_bush",
-            () -> new PurpleGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new PurpleGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
     public static final RegistryObject<Block> WILD_PURPLE_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_purple_grape_bush",
-            () -> new WildPurpleGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new WildPurpleGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
 
     public static final RegistryObject<Block> RED_GRAPE_BUSH = registryBlockWithoutBlockItem("red_grape_bush",
-            () -> new RedGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new RedGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
     public static final RegistryObject<Block> WILD_RED_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_red_grape_bush",
-            () -> new WildRedGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new WildRedGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
 
     public static final RegistryObject<Block> PUMPKIN_BUSH = registryBlockWithoutBlockItem("pumpkin_bush",
-            () -> new PumpkinBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new PumpkinBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
     public static final RegistryObject<Block> WILD_PUMPKIN_BUSH = registryBlockWithoutBlockItem("wild_pumpkin_bush",
-            () -> new WildPumpkinBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new WildPumpkinBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
 
     public static final RegistryObject<Block> MELON_BUSH = registryBlockWithoutBlockItem("melon_bush",
-            () -> new MelonBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new MelonBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
     public static final RegistryObject<Block> WILD_MELON_BUSH = registryBlockWithoutBlockItem("wild_melon_bush",
-            () -> new WildMelonBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP)));
+            () -> new WildMelonBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
 
     //BAKED CLAY//
     public static final RegistryObject<Block> UNBAKED_CLAY = registryBlock("unbaked_clay",
@@ -528,130 +560,133 @@ public class ModBlocks {
 
 //________________________Create and Food: CTM________________________\\
     static {
-        REGISTRATE.creativeModeTab(() -> ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    REGISTRATE.creativeModeTab(() -> ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
-        MECHANICAL_GRINDER = REGISTRATE.block("mechanical_grinder", GrinderBlock::new)
-                .initialProperties(SharedProperties::stone)
-                .addLayer(() -> RenderType::cutoutMipped)
-                .properties(p -> p.color(MaterialColor.PODZOL))
-                .blockstate(new GrinderGenerator()::generate)
-                .transform(BlockStressDefaults.setImpact(4.0))
-                .item()
-                .tag(AllTags.AllItemTags.CONTRAPTION_CONTROLLED.tag)
-                .transform(customItemModel())
-                .register();
+    MECHANICAL_GRINDER = REGISTRATE.block("mechanical_grinder", GrinderBlock::new)
+            .initialProperties(SharedProperties::stone)
+            .addLayer(() -> RenderType::cutoutMipped)
+            .properties(p -> p.color(MaterialColor.PODZOL))
+            .blockstate(new GrinderGenerator()::generate)
+            .transform(BlockStressDefaults.setImpact(4.0))
+            .item()
+            .tag(AllTags.AllItemTags.CONTRAPTION_CONTROLLED.tag)
+            .transform(customItemModel())
+            .register();
 
-        STEEL_SHAFT = REGISTRATE.block("steel_shaft", CAFShaftBlock::new)
-                .initialProperties(SharedProperties::stone)
-                .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
-                .transform(BlockStressDefaults.setNoImpact())
-                .transform(pickaxeOnly())
-                .blockstate(BlockStateGen.axisBlockProvider(false))
-                .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
-                .simpleItem()
-                .register();
+    STEEL_SHAFT = REGISTRATE.block("steel_shaft", CAFShaftBlock::new)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
+            .transform(BlockStressDefaults.setNoImpact())
+            .transform(pickaxeOnly())
+            .blockstate(BlockStateGen.axisBlockProvider(false))
+            .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
+            .simpleItem()
+            .register();
 
-        STEEL_COGWHEEL = REGISTRATE.block("steel_cogwheel", CAFCogWheelBlock::small)
-                .initialProperties(SharedProperties::stone)
-                .properties(p -> p.sound(SoundType.METAL).color(MaterialColor.TERRACOTTA_GRAY))
-                .transform(BlockStressDefaults.setNoImpact())
-                .transform(pickaxeOnly())
-                .blockstate(BlockStateGen.axisBlockProvider(false))
-                .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
-                .item(CAFCogwheelBlockItem::new)
-                .build()
-                .register();
+    STEEL_COGWHEEL = REGISTRATE.block("steel_cogwheel", CAFCogWheelBlock::small)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.sound(SoundType.METAL).color(MaterialColor.TERRACOTTA_GRAY))
+            .transform(BlockStressDefaults.setNoImpact())
+            .transform(pickaxeOnly())
+            .blockstate(BlockStateGen.axisBlockProvider(false))
+            .transform(BlockStressDefaults.setImpact(1.5))
+            .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
+            .item(CAFCogwheelBlockItem::new)
+            .build()
+            .register();
 
-        LARGE_STEEL_COGWHEEL = REGISTRATE.block("large_steel_cogwheel", CAFCogWheelBlock::large)
-                .initialProperties(SharedProperties::stone)
-                .properties(p -> p.sound(SoundType.METAL).color(MaterialColor.TERRACOTTA_GRAY))
-                .transform(pickaxeOnly())
-                .transform(BlockStressDefaults.setNoImpact())
-                .blockstate(BlockStateGen.axisBlockProvider(false))
-                .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
-                .item(CAFCogwheelBlockItem::new)
-                .build()
-                .register();
+    LARGE_STEEL_COGWHEEL = REGISTRATE.block("large_steel_cogwheel", CAFCogWheelBlock::large)
+            .initialProperties(SharedProperties::stone)
+            .properties(p -> p.sound(SoundType.METAL).color(MaterialColor.TERRACOTTA_GRAY))
+            .transform(pickaxeOnly())
+            .transform(BlockStressDefaults.setNoImpact())
+            .blockstate(BlockStateGen.axisBlockProvider(false))
+            .transform(BlockStressDefaults.setImpact(3.0))
+            .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
+            .item(CAFCogwheelBlockItem::new)
+            .build()
+            .register();
 
-        ALLOY_SOULS_CASING = REGISTRATE.block("alloy_souls_casing", CasingBlock::new)
-                .properties(p -> p.color(MaterialColor.PODZOL))
-                .transform(BuilderTransformers.casing(() -> SpriteShifts.ALLOY_SOULS_CASING))
-                .properties(p -> p.lightLevel($ -> 10))
-                .register();
 
-        STEEL_BLOCK = REGISTRATE.block("steel_block", CasingBlock::new)
-                .properties(p -> p.color(MaterialColor.METAL))
-                .transform(BuilderTransformers.casing(() -> SpriteShifts.STEEL_BLOCK))
-                .properties(p -> p.sound(SoundType.METAL))
-                .register();
+    ALLOY_SOULS_CASING = REGISTRATE.block("alloy_souls_casing", CasingBlock::new)
+            .properties(p -> p.color(MaterialColor.PODZOL))
+            .transform(BuilderTransformers.casing(() -> SpriteShifts.ALLOY_SOULS_CASING))
+            .properties(p -> p.lightLevel($ -> 10))
+            .register();
 
-        STEEL_CASING = REGISTRATE.block("steel_casing", CasingBlock::new)
-                .properties(p -> p.color(MaterialColor.PODZOL))
-                .transform(BuilderTransformers.casing(() -> SpriteShifts.STEEL_CASING))
-                .properties(p -> p.sound(SoundType.WOOD))
-                .register();
+    STEEL_BLOCK = REGISTRATE.block("steel_block", CasingBlock::new)
+            .properties(p -> p.color(MaterialColor.METAL))
+            .transform(BuilderTransformers.casing(() -> SpriteShifts.STEEL_BLOCK))
+            .properties(p -> p.sound(SoundType.METAL))
+            .register();
 
-        STEEL_DOOR = REGISTRATE.block("steel_door", p -> new SlidingDoorBlock(p, true))
-                .transform(BuilderTransformers.slidingDoor("steel"))
-                .properties(p -> p.color(MaterialColor.METAL)
-                        .sound(SoundType.METAL)
-                        .noOcclusion()
-                ).register();
+    STEEL_CASING = REGISTRATE.block("steel_casing", CasingBlock::new)
+            .properties(p -> p.color(MaterialColor.PODZOL))
+            .transform(BuilderTransformers.casing(() -> SpriteShifts.STEEL_CASING))
+            .properties(p -> p.sound(SoundType.WOOD))
+            .register();
 
-        STEEL_SCAFFOLD = REGISTRATE.block("steel_scaffolding", MetalScaffoldingBlock::new)
-                .transform(BuilderTransformers.steelScaffold("steel",
-                        () -> DataIngredient.tag(AllTags.forgeItemTag("ingots/steel")), MaterialColor.TERRACOTTA_YELLOW,
-                        SpriteShifts.STEEL_SCAFFOLD, SpriteShifts.STEEL_SCAFFOLD_INSIDE, SpriteShifts.STEEL_CASING))
-                .register();
+    STEEL_DOOR = REGISTRATE.block("steel_door", p -> new SlidingDoorBlock(p, true))
+            .transform(BuilderTransformers.slidingDoor("steel"))
+            .properties(p -> p.color(MaterialColor.METAL)
+                    .sound(SoundType.METAL)
+                    .noOcclusion()
+            ).register();
 
-        GOLDEN_WALL = goldenWall("golden_wall",
-                () -> new HorizontalCTBehaviour(SpriteShifts.GOLDEN_WALL, SpriteShifts.GOLDEN_WALL_TOP));
+    STEEL_SCAFFOLD = REGISTRATE.block("steel_scaffolding", MetalScaffoldingBlock::new)
+            .transform(BuilderTransformers.steelScaffold("steel",
+                    () -> DataIngredient.tag(AllTags.forgeItemTag("ingots/steel")), MaterialColor.TERRACOTTA_YELLOW,
+                    SpriteShifts.STEEL_SCAFFOLD, SpriteShifts.STEEL_SCAFFOLD_INSIDE, SpriteShifts.STEEL_CASING))
+            .register();
 
-        ALMOND_GLASS = almondGlass("almond_glass",
-                () -> new SimpleCTBehaviour(SpriteShifts.ALMOND_GLASS));
+    GOLDEN_WALL = goldenWall("golden_wall",
+            () -> new HorizontalCTBehaviour(SpriteShifts.GOLDEN_WALL, SpriteShifts.GOLDEN_WALL_TOP));
 
-        ALLOY_SOULS_GLASS = alloySoulsGlass("alloy_souls_glass",
+    ALMOND_GLASS = almondGlass("almond_glass",
+            () -> new SimpleCTBehaviour(SpriteShifts.ALMOND_GLASS));
+
+    ALLOY_SOULS_GLASS = alloySoulsGlass("alloy_souls_glass",
             () -> new SimpleCTBehaviour(SpriteShifts.ALLOY_SOULS_GLASS));
 
-        SECURE_BLOCK = (REGISTRATE.block("secure_block", CasingBlock::new)
-                .properties(p -> p.color(MaterialColor.METAL))
-                .transform(BuilderTransformers.casing(() -> SpriteShifts.SECURE_BLOCK))
-                .properties(p -> p.sound(SoundType.METAL)))
-                .register();
+    SECURE_BLOCK = (REGISTRATE.block("secure_block", CasingBlock::new)
+            .properties(p -> p.color(MaterialColor.METAL))
+            .transform(BuilderTransformers.casing(() -> SpriteShifts.SECURE_BLOCK))
+            .properties(p -> p.sound(SoundType.METAL)))
+            .register();
 
-        STONE_WALKWAY = (REGISTRATE.block("stone_walkway", CTFramedWall::new)
-                .properties(p -> p.color(MaterialColor.METAL))
-                .transform(BuilderTransformers.walkway(() -> SpriteShifts.STONE_WALKWAY))
-                .transform(BuilderTransformers.walkway(() -> SpriteShifts.DEEPSLATE_WALKWAY)))
-                .register();
+    STONE_WALKWAY = (REGISTRATE.block("stone_walkway", CTFramedWall::new)
+            .properties(p -> p.color(MaterialColor.METAL))
+            .transform(BuilderTransformers.walkway(() -> SpriteShifts.STONE_WALKWAY))
+            .transform(BuilderTransformers.walkway(() -> SpriteShifts.DEEPSLATE_WALKWAY)))
+            .register();
 
-        DEEPSLATE_WALKWAY = (REGISTRATE.block("deepslate_walkway", CTFramedWall::new)
-                .properties(p -> p.color(MaterialColor.METAL))
-                .transform(BuilderTransformers.walkway(() -> SpriteShifts.DEEPSLATE_WALKWAY))
-                .transform(BuilderTransformers.walkway(() -> SpriteShifts.STONE_WALKWAY))
-                .properties(p -> p.sound(SoundType.DEEPSLATE)))
-                .register();
+    DEEPSLATE_WALKWAY = (REGISTRATE.block("deepslate_walkway", CTFramedWall::new)
+            .properties(p -> p.color(MaterialColor.METAL))
+            .transform(BuilderTransformers.walkway(() -> SpriteShifts.DEEPSLATE_WALKWAY))
+            .transform(BuilderTransformers.walkway(() -> SpriteShifts.STONE_WALKWAY))
+            .properties(p -> p.sound(SoundType.DEEPSLATE)))
+            .register();
 
-        SANDSTONE_WALKWAY = (REGISTRATE.block("sandstone_walkway", CTFramedWall::new)
-                .properties(p -> p.color(MaterialColor.METAL))
-                .transform(BuilderTransformers.walkway(() -> SpriteShifts.SANDSTONE_WALKWAY))
-                .transform(BuilderTransformers.walkway(() -> SpriteShifts.RED_SANDSTONE_WALKWAY)))
-                .register();
+    SANDSTONE_WALKWAY = (REGISTRATE.block("sandstone_walkway", CTFramedWall::new)
+            .properties(p -> p.color(MaterialColor.METAL))
+            .transform(BuilderTransformers.walkway(() -> SpriteShifts.SANDSTONE_WALKWAY))
+            .transform(BuilderTransformers.walkway(() -> SpriteShifts.RED_SANDSTONE_WALKWAY)))
+            .register();
 
-        RED_SANDSTONE_WALKWAY = (REGISTRATE.block("red_sandstone_walkway", CTFramedWall::new)
-                .properties(p -> p.color(MaterialColor.METAL))
-                .transform(BuilderTransformers.walkway(() -> SpriteShifts.RED_SANDSTONE_WALKWAY))
-                .transform(BuilderTransformers.walkway(() -> SpriteShifts.SANDSTONE_WALKWAY)))
-                .register();
+    RED_SANDSTONE_WALKWAY = (REGISTRATE.block("red_sandstone_walkway", CTFramedWall::new)
+            .properties(p -> p.color(MaterialColor.METAL))
+            .transform(BuilderTransformers.walkway(() -> SpriteShifts.RED_SANDSTONE_WALKWAY))
+            .transform(BuilderTransformers.walkway(() -> SpriteShifts.SANDSTONE_WALKWAY)))
+            .register();
 
 
-        new framedWall(REGISTRATE);
-        new framedWallBrick(REGISTRATE);
-        new framedWallGolden(REGISTRATE);
-        new framedWallSmallBrick(REGISTRATE);
-        PaletteStoneTypes.register(REGISTRATE);
+    new framedWall(REGISTRATE);
+    new framedWallBrick(REGISTRATE);
+    new framedWallGolden(REGISTRATE);
+    new framedWallSmallBrick(REGISTRATE);
+    PaletteStoneTypes.register(REGISTRATE);
 
-    }
+}
 
     public static final BlockEntry<EncasedShaftBlock> STEEL_ENCASED_STEEL_SHAFT =
             REGISTRATE.block("steel_encased_steel_shaft", p -> new EncasedShaftBlock(p, ModBlocks.STEEL_CASING::get))
@@ -663,6 +698,7 @@ public class ModBlocks {
     public static final BlockEntry<EncasedCogwheelBlock> STEEL_ENCASED_STEEL_COGWHEEL =
             REGISTRATE.block("steel_encased_steel_cogwheel", p -> steel(p, false, ModBlocks.STEEL_CASING::get))
                     .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
+                    .transform(BlockStressDefaults.setImpact(1.5))
                     .transform(BuilderTransformers.encasedSteelCogwheel("steel", () -> SpriteShifts.STEEL_CASING))
                     .transform(EncasingRegistry.addVariantTo(ModBlocks.STEEL_COGWHEEL))
                     .onRegister(CreateRegistrate.connectedTextures(() -> new EncasedCogCTBehaviour(SpriteShifts.STEEL_CASING,
@@ -673,6 +709,7 @@ public class ModBlocks {
     public static final BlockEntry<EncasedCogwheelBlock> STEEL_ENCASED_LARGE_STEEL_COGWHEEL =
             REGISTRATE.block("steel_encased_large_steel_cogwheel", p -> steel(p, true, ModBlocks.STEEL_CASING::get))
                     .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
+                    .transform(BlockStressDefaults.setImpact(3.0))
                     .transform(BuilderTransformers.encasedSteelLargeCogwheel("steel", () -> SpriteShifts.STEEL_CASING))
                     .transform(EncasingRegistry.addVariantTo(ModBlocks.LARGE_STEEL_COGWHEEL))
                     .transform(pickaxeOnly())

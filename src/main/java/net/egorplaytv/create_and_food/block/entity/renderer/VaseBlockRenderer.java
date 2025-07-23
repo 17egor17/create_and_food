@@ -18,18 +18,12 @@ public class VaseBlockRenderer<BE extends VaseBlockEntity> extends SafeBlockEnti
     @Override
     protected void renderSafe(BE be, float partialTicks, PoseStack ms, MultiBufferSource buffer, int light, int overlay) {
         BlockState state = be.getBlockState();
-        int fluidAmount = be.FLUID_TANK.getFluid().getAmount();
         boolean isEmpty = be.FLUID_TANK.isEmpty();
-        boolean isOpen = be.getIsOpen();
-        float level;
-        if (isOpen) {
-            if (isEmpty) {
-                level = 0;
-            } else {
-                level = (float) fluidAmount / 2000;
-            }
+        int level;
+        if (isEmpty) {
+            level = 0;
         } else {
-            level = (float) fluidAmount / 2000;
+            level = 1;
         }
 
 

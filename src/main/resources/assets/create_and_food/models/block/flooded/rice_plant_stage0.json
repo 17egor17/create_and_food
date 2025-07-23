@@ -1,0 +1,6 @@
+{
+  "parent": "create_and_food:custom/flooded_crop",
+  "textures": {
+    "layer0": "farmersdelight:block/rice_stage0"
+  }
+}

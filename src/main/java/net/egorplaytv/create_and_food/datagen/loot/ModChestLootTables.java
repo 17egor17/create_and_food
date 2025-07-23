@@ -19,7 +19,9 @@ import static net.egorplaytv.create_and_food.item.ModItems.*;
 
 public class ModChestLootTables extends ChestLoot {
     public static final ResourceLocation VILLAGE_CONFECTIONER_HOUSE =
-            new ResourceLocation(CreateAndFood.MOD_ID, "chests/confectioner_house");
+            new ResourceLocation(CreateAndFood.MOD_ID, "chests/loot_in_confectioner_house");
+    public static final ResourceLocation VILLAGE_HOUSE =
+            new ResourceLocation(CreateAndFood.MOD_ID, "chests/village_house");
 
     @Override
     public void accept(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
@@ -47,5 +49,19 @@ public class ModChestLootTables extends ChestLoot {
                                 .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 7)))
                                 .when(LootItemRandomChanceCondition.randomChance(0.5F)))
                         .add(LootItem.lootTableItem(RYE_SEEDS.get()).setWeight(5))));
+        consumer.accept(VILLAGE_HOUSE, LootTable.lootTable()
+                .withPool(LootPool.lootPool().setRolls(UniformGenerator.between(1, 3))
+                        .add(LootItem.lootTableItem(RYE_SEEDS.get()).setWeight(5)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2)))
+                                .when(LootItemRandomChanceCondition.randomChance(0.5F)))
+                        .add(LootItem.lootTableItem(RYE.get()).setWeight(5)
+                                .apply(SetItemCountFunction.setCount(UniformGenerator.between(1, 2)))))
+                .withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1))
+                        .add(LootItem.lootTableItem(COPPER_COIN.get()).setWeight(30))
+                        .add(LootItem.lootTableItem(IRON_COIN.get()).setWeight(20))
+                        .add(LootItem.lootTableItem(GOLDEN_COIN.get()).setWeight(10))
+                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))
+                                .when(LootItemRandomChanceCondition.randomChance(0.5F)))
+                        .when(LootItemRandomChanceCondition.randomChance(0.5F))));
     }
 }

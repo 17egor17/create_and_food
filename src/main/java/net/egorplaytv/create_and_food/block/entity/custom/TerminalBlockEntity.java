@@ -78,7 +78,6 @@ public class TerminalBlockEntity extends BlockEntity implements MenuProvider {
         add(ModTags.Items.SILVER, 7, "metal", "silver");
         add(ModTags.Items.STEEL, 7, "alloy", "steel");
         add(ModTags.Items.TIN, 7, "metal", "tin");
-        add(ModTags.Items.TANTALUM, 7, "metal", "tantalum");
         add(ModTags.Items.TUNGSTEN, 7, "metal", "tungsten");
         add(ModTags.Items.URANIUM, 7, "metal", "uranium");
         add(ModTags.Items.ZINC, 7, "metal", "zinc");

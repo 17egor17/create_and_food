@@ -1,0 +1,7 @@
+{
+  "parent": "create_and_food:custom/block/flooded_farmland",
+  "textures": {
+    "dirt": "minecraft:block/dirt",
+    "farmland": "minecraft:block/farmland"
+  }
+}

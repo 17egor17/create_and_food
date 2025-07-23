@@ -1,7 +1,7 @@
 package net.egorplaytv.create_and_food.datagen;
 
 import net.egorplaytv.create_and_food.block.custom.*;
-import net.egorplaytv.create_and_food.block.custom.LanternBlock;
+import net.egorplaytv.create_and_food.block.custom.lanterns.LanternBlock;
 import net.egorplaytv.create_and_food.block.praperties.LanternAttachType;
 import net.egorplaytv.create_and_food.block.praperties.TerraceAttachType;
 import net.minecraft.core.Direction;
@@ -9,8 +9,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.SlabType;
+import net.minecraft.world.level.block.state.properties.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -27,11 +26,13 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        customBlock(TORN_SOUL_CHAIN.get(), "block/lantern");
-        customBlock(STEEL_CHAIN.get(), "block/lantern");
+        chainBlock(TORN_SOUL_CHAIN.get(), "block/lantern");
+        chainBlock(STEEL_CHAIN.get(), "block/lantern");
         lanternBlock(TORN_SOUL_LANTERN.get(), "block/lantern");
         lanternBlock(GLOWING_BRASS_COPPER_LANTERN.get(), "block/lantern");
         lanternBlock(GLOWING_BRASS_STEEL_LANTERN.get(), "block/lantern");
+        minecraftLanternBlock(LANTERN.get(), "block/lantern");
+        minecraftLanternBlock(SOUL_LANTERN.get(), "block/lantern");
         signBlock((StandingSignBlock) ALMOND_SIGN.get(), (WallSignBlock) ALMOND_WALL_SIGN.get(),
                 blockTexture(ALMOND_PLANKS.get()));
         doorBlock(ALMOND_DOOR.get(), "block/doors", "almond_door_bottom", "almond_door_top");
@@ -163,6 +164,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         oreVariantBlock(BLACKSTONE_TANTALUM_ORE.get());
         simpleBlock(RAW_TANTALUM_BLOCK.get());
         oreVariantBlock(TUNGSTEN_ORE.get());
+        oreVariantBlock(STONE_TUNGSTEN_ORE.get());
+        oreVariantBlock(DEEPSLATE_TUNGSTEN_ORE.get());
         simpleBlock(RAW_TUNGSTEN_BLOCK.get());
         sumpBlock(FARMLAND_SUMP_SAND.get(), "block/farmlands");
         sumpBlock(FARMLAND_SUMP_RED_SAND.get(), "block/farmlands");
@@ -172,6 +175,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         farmlandBlock(SAND_FARMLAND.get(), "block/farmlands");
         simpleBlock(FERTILIZED_RED_SAND.get(), "block/farmlands");
         farmlandBlock(RED_SAND_FARMLAND.get(), "block/farmlands");
+        farmlandBlock(FLOODED_FARMLAND.get(), "block/farmlands");
+        farmlandBlock(FLOODED_RICH_SOIL_FARMLAND.get(), "block/farmlands");
         nixieVaseBlock(NIXIE_VASE.get(), "custom/vases", "vase_nixie_fluid",
                 "vase_nixie_fluid_open", "vase/marble_vase_side", "vase/marble_vase_inner",
                 "palettes/stone_types/natural/marble_0");
@@ -183,7 +188,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 "palettes/stone_types/natural/marble_black_galaxy_0");
         simpleBlock(ALMOND_SAPLING.get(), models().cross(ALMOND_SAPLING.get().getRegistryName().getPath(),
                 blockTexture(ALMOND_SAPLING.get())));
-        makeRye((RyePlantBlock) RYE_PLANT.get(), "rye_stage", "rye_stage");
+        cropPlantBlock((RyePlantBlock) RYE_PLANT.get(), "rye_stage", "rye_stage");
+        floodedCropBlock((FloodedCropBlock) RICE_PLANT.get(), "rice_plant_stage");
+        riceBlock(RICE_CROP.get(), RiceBlock.AGE, RiceBlock.SUPPORTING);
+        ricePaniclesBlock(RICE_CROP_PANICLES.get(), RicePaniclesBlock.RICE_AGE);
         simpleBlock(UNBAKED_CLAY.get(), "block/baked_clay");
         rotatingBlock(KITCHEN_TABLE.get(), "block/kitchen");
         rotatingBlock(KITCHEN_TABLE_INNER.get(), "block/kitchen");
@@ -201,6 +209,27 @@ public class ModBlockStateProvider extends BlockStateProvider {
         rotatingBlock(ALMOND_CUTTING_BOARD.get(), "block/cutting_board");
 
 
+    }
+
+    public void ricePaniclesBlock(Block block, IntegerProperty ageProperty) {
+        this.getVariantBuilder(block).forAllStatesExcept((state) -> {
+            int ageSuffix = (Integer)state.getValue(ageProperty);
+            String var10000 = block.getRegistryName().getPath();
+            String stageName = var10000 + "_stage" + ageSuffix;
+            return ConfiguredModel.builder().modelFile(models().cross(stageName,
+                    new ResourceLocation(MOD_ID, "block/" + stageName))).build();
+        });
+    }
+
+    public void riceBlock(Block block, IntegerProperty ageProperty, BooleanProperty isSupporting){
+        this.getVariantBuilder(block).forAllStatesExcept((state) -> {
+            int age = state.getValue(ageProperty);
+            String stageOrSupporting = state.getValue(isSupporting) && age == 3 ? "_supporting" : "_stage" + age;
+            String var10000 = block.getRegistryName().getPath();
+            String stageName = var10000 + stageOrSupporting;
+            return ConfiguredModel.builder().modelFile(models().cross(stageName,
+                    new ResourceLocation(MOD_ID, "block/" + stageName))).build();
+        });
     }
 
     public void simpleBlock(Block block, String pathTexture, String textureName){
@@ -386,6 +415,32 @@ public class ModBlockStateProvider extends BlockStateProvider {
         oreVariantBlock(block, "block/ores", block.getRegistryName().getPath());
     }
 
+    public void chainBlock(Block block, String pathModel){
+        getVariantBuilder(block).forAllStates(state -> {
+            Direction.Axis axis = state.getValue(RotatedPillarBlock.AXIS);
+
+            if (axis.equals(Direction.Axis.X)){
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath(),
+                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath())))
+                        .rotationX(90)
+                        .rotationY(90)
+                        .build();
+            } else if (axis.equals(Direction.Axis.Y)){
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath(),
+                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath())))
+                        .build();
+            } else {
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath(),
+                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath())))
+                        .rotationX(90)
+                        .build();
+            }
+        });
+    }
+
     public void lanternBlock(Block block, String pathModel){
         getVariantBuilder(block).forAllStates(state -> {
             LanternAttachType type = state.getValue(LanternBlock.ATTACHMENT);
@@ -399,6 +454,47 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_hanging",
                                 new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath() + "_hanging")))
+                        .build();
+            } else if (type.equals(LanternAttachType.NORTH)) {
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_on_wall",
+                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath() + "_on_wall")))
+                        .build();
+            } else if (type.equals(LanternAttachType.EAST)) {
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_on_wall",
+                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath() + "_on_wall")))
+                        .rotationY(90)
+                        .build();
+            } else if (type.equals(LanternAttachType.SOUTH)) {
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_on_wall",
+                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath() + "_on_wall")))
+                        .rotationY(180)
+                        .build();
+            } else {
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_on_wall",
+                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath() + "_on_wall")))
+                        .rotationY(270)
+                        .build();
+            }
+        });
+    }
+
+    public void minecraftLanternBlock(Block block, String pathModel){
+        getVariantBuilder(block).forAllStates(state -> {
+            LanternAttachType type = state.getValue(LanternBlock.ATTACHMENT);
+
+            if (type.equals(LanternAttachType.FLOOR)) {
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath(),
+                                new ResourceLocation("block/" + block.getRegistryName().getPath())))
+                        .build();
+            } else if (type.equals(LanternAttachType.HANGING)) {
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_hanging",
+                                new ResourceLocation("block/" + block.getRegistryName().getPath() + "_hanging")))
                         .build();
             } else if (type.equals(LanternAttachType.NORTH)) {
                 return ConfiguredModel.builder()
@@ -703,13 +799,28 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         new ResourceLocation(MOD_ID, pathModel + "/" + modelName))));
     }
 
-    public void makeRye(CropBlock block, String modelName, String textureName) {
-        Function<BlockState, ConfiguredModel[]> function = state -> statesRye(state, block, modelName, textureName);
+    public void floodedCropBlock(FloodedCropBlock block, String modelName){
+        Function<BlockState, ConfiguredModel[]> function = state -> statesFloodedCropBlock(state, block, modelName);
 
         getVariantBuilder(block).forAllStates(function);
     }
 
-    private ConfiguredModel[] statesRye(BlockState state, CropBlock block, String modelName, String textureName) {
+    private ConfiguredModel[] statesFloodedCropBlock(BlockState state, CropBlock block, String modelName){
+        ConfiguredModel[] models = new ConfiguredModel[1];
+        models[0] = new ConfiguredModel(models().withExistingParent(modelName + state.getValue(block.getAgeProperty()),
+                new ResourceLocation(MOD_ID, "block/flooded/" + modelName + state.getValue(block.getAgeProperty()))));
+
+        return models;
+    }
+
+
+    public void cropPlantBlock(CropBlock block, String modelName, String textureName) {
+        Function<BlockState, ConfiguredModel[]> function = state -> statesCropPlantBlock(state, block, modelName, textureName);
+
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+    private ConfiguredModel[] statesCropPlantBlock(BlockState state, CropBlock block, String modelName, String textureName) {
         ConfiguredModel[] models = new ConfiguredModel[1];
         models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(block.getAgeProperty()),
                 new ResourceLocation(MOD_ID, "block/rye/" + textureName + "_" + state.getValue(block.getAgeProperty()))));

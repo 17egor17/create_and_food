@@ -80,7 +80,7 @@ public class ModTags {
         public static final TagKey<Item> CHAINS = forgeTag("chains");
 
         public static final TagKey<Item> MEET = forgeTag("meet");
-        public static final TagKey<Item> EGGS = forgeTag("eggs");
+        public static final TagKey<Item> EGGS = modTag("eggs");
         public static final TagKey<Item> BANNER_PATTERNS = forgeTag("banner_patterns");
         public static final TagKey<Item> MACARONI = forgeTag("macaroni");
         public static final TagKey<Item> SMALL_BASE = forgeTag("small_base");

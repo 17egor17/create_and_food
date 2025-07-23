@@ -15,6 +15,14 @@ public class ingredientInfo {
                 TextUtils.getJeiTranslation("info.knife"));
         registration.addIngredientInfo(new ItemStack(ModItems.TUNGSTEN_KNIFE.get()), ITEM_STACK,
                 TextUtils.getJeiTranslation("info.knife"));
+        registration.addIngredientInfo(new ItemStack(ModItems.IRON_KNIFE.get()), ITEM_STACK,
+                TextUtils.getJeiTranslation("info.knife"));
+        registration.addIngredientInfo(new ItemStack(ModItems.DIAMOND_KNIFE.get()), ITEM_STACK,
+                TextUtils.getJeiTranslation("info.knife"));
+        registration.addIngredientInfo(new ItemStack(ModItems.NETHERITE_KNIFE.get()), ITEM_STACK,
+                TextUtils.getJeiTranslation("info.knife"));
+        registration.addIngredientInfo(new ItemStack(ModItems.GOLDEN_KNIFE.get()), ITEM_STACK,
+                TextUtils.getJeiTranslation("info.knife"));
 
     }
 }

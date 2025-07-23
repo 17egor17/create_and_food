@@ -32,14 +32,9 @@ public class VaseBlockEntity extends BlockEntity {
     };
     private boolean isOpen = false;
 
-    public VaseBlockEntity(BlockPos pPos, BlockState pBlockState, IntegerProperty fill) {
-        super(ModBlockEntities.VASE_BLOCK_ENTITY.get(), pPos, pBlockState);
-        new VaseBlockEntity(pPos, pBlockState);
-        setFluid(new FluidStack(ModFluids.NIXIE_FLUID.get(), random(pBlockState)));
-    }
-
     public VaseBlockEntity(BlockPos pPos, BlockState pBlockState){
         super(ModBlockEntities.VASE_BLOCK_ENTITY.get(), pPos, pBlockState);
+        setFluid(new FluidStack(ModFluids.NIXIE_FLUID.get(), random(pBlockState)));
     }
 
     public void setIsOpen(){

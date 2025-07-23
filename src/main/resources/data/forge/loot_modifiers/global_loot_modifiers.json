@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "entries": [
+    "create_and_food:add_loot_village_desert_house",
+    "create_and_food:add_loot_village_plains_house",
+    "create_and_food:add_loot_village_savanna_house",
+    "create_and_food:add_loot_village_snowy_house",
+    "create_and_food:add_loot_village_taiga_house",
+    "create_and_food:rye_seeds_from_tall_grass",
+    "create_and_food:rye_seeds_from_grass"
+  ]
+}

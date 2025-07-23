@@ -1,0 +1,15 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "create_and_food:hard_cocoa"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:cocoa_powder",
+      "count": 4
+    }
+  ],
+  "processingTime": 100
+}

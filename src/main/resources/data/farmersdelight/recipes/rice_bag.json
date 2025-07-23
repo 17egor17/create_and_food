@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "create_and_food:rice"
+    }
+  },
+  "result": {
+    "item": "farmersdelight:rice_bag"
+  }
+}

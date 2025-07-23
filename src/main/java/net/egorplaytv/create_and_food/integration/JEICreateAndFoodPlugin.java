@@ -7,15 +7,11 @@ import com.simibubi.create.compat.jei.DoubleItemIcon;
 import com.simibubi.create.compat.jei.EmptyBackground;
 import com.simibubi.create.compat.jei.ItemIcon;
 import com.simibubi.create.compat.jei.category.CreateRecipeCategory;
-import com.simibubi.create.compat.jei.category.FanWashingCategory;
 import com.simibubi.create.compat.jei.category.ProcessingViaFanCategory;
 import com.simibubi.create.content.equipment.sandPaper.SandPaperPolishingRecipe;
 import com.simibubi.create.content.processing.basin.BasinRecipe;
 import com.simibubi.create.foundation.config.ConfigBase;
 import com.simibubi.create.foundation.recipe.IRecipeTypeInfo;
-import com.simibubi.create.foundation.utility.Lang;
-import com.simibubi.create.infrastructure.config.AllConfigs;
-import com.simibubi.create.infrastructure.config.CRecipes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -100,7 +96,14 @@ public class JEICreateAndFoodPlugin implements IModPlugin {
                         .catalyst(ModBlocks.MECHANICAL_GRINDER::get)
                         .doubleItemIcon(ModBlocks.MECHANICAL_GRINDER.get(), AllItems.SAND_PAPER.get())
                         .emptyBackground(177, 85)
-                        .build("grinder_sandpaper_polishing", GrinderSandpaperPolishingCategory::new)
+                        .build("grinder_sandpaper_polishing", GrinderSandpaperPolishingCategory::new),
+
+                freezing = builder(FreezingRecipe.class)
+                        .addTypedRecipes(AllRecipeTypes.FREEZING)
+                        .catalystStack(ProcessingViaFanCategory.getFan("fan_freezing"))
+                        .doubleItemIcon(AllItems.PROPELLER.get(), Items.POWDER_SNOW_BUCKET)
+                        .emptyBackground(178, 72)
+                        .build("fan_freezing", FanFreezeCategory::new)
                 ;
     }
 

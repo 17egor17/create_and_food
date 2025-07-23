@@ -2,8 +2,10 @@
   "required": true,
   "minVersion": "0.8",
   "package": "net.egorplaytv.create_and_food.mixin",
+  "refmap": "create_and_food.mixins.refmap.json",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
+    "AllFanProcessingTypesMixin"
   ],
   "injectors": {
     "defaultRequire": 1
