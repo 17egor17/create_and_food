@@ -61,6 +61,12 @@
         "block": "farmersdelight:onions"
       }
     },
+    "rye": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "block": "create_and_food:rye_plant"
+      }
+    },
     "rice": {
       "trigger": "minecraft:placed_block",
       "conditions": {
@@ -159,6 +165,9 @@
     [
       "rice",
       "rice_plant"
+    ],
+    [
+      "rye"
     ],
     [
       "melon"

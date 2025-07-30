@@ -1,14 +1,14 @@
 {
   "display": {
     "icon": {
-      "item": "create_and_food:whisk"
+      "item": "create_and_food:raw_cake"
     },
     "title": {
-      "translate": "advancement.create_and_food.create_and_food"
+      "translate": "advancement.create_and_food.root"
     },
     "description": {
       "color": "#7755FF",
-      "translate": "advancement.create_and_food.create_and_food.desc"
+      "translate": "advancement.create_and_food.root.desc"
     },
     "frame": "task",
     "show_toast": false,

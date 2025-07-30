@@ -252,9 +252,14 @@ public class ModItems {
     public static final RegistryObject<Item> NETHER_ALLOY = registerItem("nether_alloy",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
-
     public static final RegistryObject<Item> STEEL_COIL = registerItem("steel_coil",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> ELECTRUM_COIL = registerItem("electrum_coil",
+            () -> new IEDependentIngredientItem(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> ALUMINUM_COIL = registerItem("aluminum_coil",
+            () -> new IEDependentIngredientItem(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> COPPER_COIL = registerItem("copper_coil",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_AND_FOOD)));

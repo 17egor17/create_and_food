@@ -2,17 +2,21 @@ package net.egorplaytv.create_and_food.datagen.custom;
 
 import com.google.common.collect.Lists;
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.recipe.FermentationBarrelRecipe;
+import net.egorplaytv.create_and_food.util.FluidJSONUtil;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
 import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
+import net.minecraft.core.NonNullList;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -162,12 +166,10 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
     private class Result implements FinishedRecipe {
         private final ResourceLocation id;
         private final List<Ingredient> ingredients;
-        private final Fluid inputFluid;
-        private final int amountIn;
+        private FluidStack inputFluid;
         private final Item result;
         private final int count;
-        private final Fluid outputFluid;
-        private final int amountOut;
+        private final FluidStack outputFluid;
         private final Item tool;
         private int time;
         private final Advancement.Builder advancement;
@@ -179,10 +181,8 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
             this.ingredients = ingredients;
             this.result = result != null ? result : null;
             this.count = count;
-            this.inputFluid = inputFluid;
-            this.amountIn = amountIn;
-            this.outputFluid = outputFluid != null ? outputFluid : null;
-            this.amountOut = amountOut;
+            this.inputFluid = new FluidStack(inputFluid, amountIn);
+            this.outputFluid = outputFluid != null ? new FluidStack(outputFluid, amountOut) : null;
             this.time = time != 0 ? time : 1000;
             this.tool = tool != null ? tool : null;
             this.advancement = advancement;
@@ -190,49 +190,63 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
         }
 
         @Override
-        public void serializeRecipeData(JsonObject pJson) {
-            JsonArray jsonarray = new JsonArray();
+        public void serializeRecipeData(JsonObject json) {
+            JsonArray array = new JsonArray();
+            if (this.inputFluid != null && this.ingredients != null) {
+                array.add(FluidJSONUtil.toJson(this.inputFluid));
 
-            for (int i = 0; i < ingredients.size(); ++i) {
-                Ingredient ingredient = ingredients.get(i);
-                if (!ingredients.isEmpty()) {
-                    jsonarray.add(ingredient.toJson());
+                for (int i = 0; i < ingredients.size(); ++i) {
+                    Ingredient ingredient = ingredients.get(i);
+                    if (!ingredients.isEmpty()) {
+                        array.add(ingredient.toJson());
+                    }
+                }
+            } else if (this.inputFluid != null) {
+                array.add(FluidJSONUtil.toJson(this.inputFluid));
+            } else {
+                for (int i = 0; i < ingredients.size(); ++i) {
+                    Ingredient ingredient = ingredients.get(i);
+                    if (!ingredients.isEmpty()) {
+                        array.add(ingredient.toJson());
+                    }
                 }
             }
-            pJson.add("ingredients", jsonarray);
-            JsonObject json = new JsonObject();
-            json.addProperty("fluid", this.inputFluid.getRegistryName().toString());
-            json.addProperty("amount", this.amountIn);
-            pJson.add("fluid", json);
-            if (this.result != null) {
-                JsonObject jsonobject = new JsonObject();
-                jsonobject.addProperty("item", this.result.getRegistryName().toString());
+
+            json.add("ingredients", array);
+
+            JsonArray jsonArray = new JsonArray();
+            if (this.outputFluid != null && this.result != null) {
+                jsonArray.add(FluidJSONUtil.toJson(this.outputFluid));
+
+                jsonArray.getAsJsonObject().addProperty("item", this.result.getRegistryName().toString());
                 if (this.count > 1) {
-                    jsonobject.addProperty("count", this.count);
+                    jsonArray.getAsJsonObject().addProperty("count", this.count);
                 }
-                pJson.add("resultItem", jsonobject);
+            } else if (this.outputFluid != null){
+                jsonArray.add(FluidJSONUtil.toJson(this.outputFluid));
+            } else {
+                jsonArray.getAsJsonObject().addProperty("item", this.result.getRegistryName().toString());
+                if (this.count > 1) {
+                    jsonArray.getAsJsonObject().addProperty("count", this.count);
+                }
             }
-            if (this.outputFluid != null) {
-                JsonObject object = new JsonObject();
-                object.addProperty("fluid", this.outputFluid.getRegistryName().toString());
-                object.addProperty("amount", this.amountOut);
-                pJson.add("resultFluid", object);
-            }
+            json.add("results", jsonArray);
+
             if (tool != null) {
                 JsonObject toolItem = new JsonObject();
                 toolItem.addProperty("item", this.tool.getRegistryName().toString());
-                pJson.add("tool", toolItem);
+                json.add("tool", toolItem);
             }
 
-            pJson.addProperty("comment", "min 20, max 120000");
+            json.addProperty("comment", "min 20, max 120000");
             if (this.time >= 20 && this.time <= 12000) {
-                pJson.addProperty("time", this.time);
+                json.addProperty("time", this.time);
             } else if (this.time > 12000) {
                 this.time = 12000;
-                pJson.addProperty("time", this.time);
+                json.addProperty("time", this.time);
             } else {
                 this.time = 20;
-                pJson.addProperty("time", this.time);
+                json.addProperty("time", this.time);
             }
 
         }
@@ -244,7 +258,7 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
             } else if (this.result != null && this.outputFluid == null){
                 return new ResourceLocation(CreateAndFood.MOD_ID, this.result.getRegistryName().getPath());
             } else {
-                return new ResourceLocation(this.outputFluid.getRegistryName().toString());
+                return new ResourceLocation(this.outputFluid.getFluid().getRegistryName().toString());
             }
         }
 

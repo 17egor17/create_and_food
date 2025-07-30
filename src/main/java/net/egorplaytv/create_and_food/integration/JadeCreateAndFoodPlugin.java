@@ -33,6 +33,7 @@ import snownee.jade.addon.vanilla.VanillaProvider;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
 import static net.egorplaytv.create_and_food.util.ModTags.Blocks.MINEABLE_WITH_HAMMER;
+import static snownee.jade.addon.harvest.HarvestToolProvider.registerHandler;
 import static vectorwing.farmersdelight.common.registry.ModItems.IRON_KNIFE;
 
 @WailaPlugin
@@ -43,12 +44,12 @@ public class JadeCreateAndFoodPlugin implements IWailaPlugin {
 
     @Override
     public void registerClient(IWailaClientRegistration registration) {
-        registration.registerComponentProvider(new ToolProvider(), TooltipPosition.BODY, Block.class);
+        registration.registerComponentProvider((IComponentProvider) new ToolProvider(), TooltipPosition.BODY, Block.class);
         registration.registerIconProvider(new AgeProvider(), CropBlock.class);
         registration.registerComponentProvider(new AgeProvider(), TooltipPosition.BODY, Block.class);
     }
 
-    public class ToolProvider extends HarvestToolProvider {
+    public class ToolProvider {
         public ToolProvider(){
             registerHandler(new SimpleToolHandler("pickaxe", BlockTags.MINEABLE_WITH_PICKAXE,
                     new Item[]{Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE,

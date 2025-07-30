@@ -27,7 +27,6 @@ import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.client.model.generators.ModelFile;
-import org.lwjgl.system.CallbackI;
 
 import java.util.Arrays;
 import java.util.function.Supplier;

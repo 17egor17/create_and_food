@@ -2,20 +2,22 @@
   "type": "create_and_food:fermentation",
   "ingredients": [
     {
+      "fluid": "create_and_food:red_grape_juice",
+      "amount": 250
+    },
+    {
       "item": "create_and_food:alloy_souls"
     },
     {
       "item": "create_and_food:copper_coin"
     }
   ],
-  "fluid": {
-    "fluid": "create_and_food:red_grape_juice",
-    "amount": 250
-  },
-  "resultFluid": {
-    "fluid": "create_and_food:cocoa_oil",
-    "amount": 250
-  },
+  "results": [
+    {
+      "fluid": "create_and_food:cocoa_oil",
+      "amount": 250
+    }
+  ],
   "comment": "min 20, max 120000",
   "time": 200
 }

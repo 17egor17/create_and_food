@@ -76,9 +76,11 @@ public class ModTags {
         public static final TagKey<Item> LUMIUM = forgeTag("ingots/lumium");
         public static final TagKey<Item> SIGNALUM = forgeTag("ingots/signalum");
         public static final TagKey<Item> INGOTS = forgeTag("ingots");
+
         public static final TagKey<Item> TORCHES = forgeTag("torches");
         public static final TagKey<Item> CHAINS = forgeTag("chains");
 
+        public static final TagKey<Item> IRON_SHEET = forgeTag("plates/iron");
         public static final TagKey<Item> MEET = forgeTag("meet");
         public static final TagKey<Item> EGGS = modTag("eggs");
         public static final TagKey<Item> BANNER_PATTERNS = forgeTag("banner_patterns");
@@ -88,14 +90,18 @@ public class ModTags {
         public static final TagKey<Item> ALMOND_LOGS = modTag("almond_logs");
         public static final TagKey<Item> FENCE_GATES = tag("fence_gates");
         public static final TagKey<Item> COAL_DUST = forgeTag("dusts/coal");
-        public static final TagKey<Item> BERRIES = modTag("berries");
+        public static final TagKey<Item> MOD_BERRIES = modTag("berries");
+        public static final TagKey<Item> BERRIES = forgeTag("berries");
         public static final TagKey<Item> FUEL = modTag("fuel");
         public static final TagKey<Item> CREATIVE_FUEL = modTag("creative_fuel");
         public static final TagKey<Item> CUT_TOOLS = forgeTag("cut_tools");
+        public static final TagKey<Item> TERRACOTTA = tag("terracotta");
+        public static final TagKey<Item> DEAD_CORALS = tag("dead_corals");
+        public static final TagKey<Item> LANTERNS = forgeTag("lanterns");
 
-        public static final TagKey<Item> FUEL_HUNDRED = modTag("fuel_hundred");
-
-        public static final TagKey<Item> MARBLE = modTag("marbles/marble");
+        public static final TagKey<Item> MARBLE = modTag("stone_types/marble");
+        public static final TagKey<Item> MARBLE_BLACK_GALAXY = modTag("stone_types/marble_black_galaxy");
+        public static final TagKey<Item> MARBLE_PERLIN_PINK = modTag("stone_types/marble_perlin_pink");
 
         public static final TagKey<Item> BARRELS = modTag("barrels");
         public static final TagKey<Item> CUTTING_BOARDS = modTag("cutting_boards");

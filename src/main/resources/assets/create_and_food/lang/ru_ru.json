@@ -1,7 +1,7 @@
 {
   "_comment": "_______________________________Advancement_______________________________",
-  "advancement.create_and_food.create_and_food": "Create и Еда",
-  "advancement.create_and_food.create_and_food.desc": "Добро пожаловать в мод Create и Еда",
+  "advancement.create_and_food.root": "Create и Еда",
+  "advancement.create_and_food.root.desc": "Добро пожаловать в мод Create и Еда",
   "advancement.exemple": "Пример",
   "advancement.exemple.desc": "Пример описания",
 
@@ -670,6 +670,8 @@
   "color.create_and_food.white": "§8Цвет: §fБелый§r",
   "color.create_and_food.yellow": "§8Цвет: §eЖелтый§r",
 
+  "ui.create_and_food.playerWeight": "Ваш вес: %s",
+  "ui.create_and_food.playerWeightItems": "Вес ваших предметов: %s",
   "ui.inventory": "Инвентарь",
   "ui.marble_furnace.deg": "%s°C",
 

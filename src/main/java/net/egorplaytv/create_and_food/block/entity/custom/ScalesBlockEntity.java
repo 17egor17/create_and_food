@@ -1,9 +1,6 @@
 package net.egorplaytv.create_and_food.block.entity.custom;
 
-import cofh.lib.api.item.IInventoryContainerItem;
 import com.google.common.collect.Maps;
-import com.simibubi.create.foundation.utility.IntAttached;
-import com.simibubi.create.foundation.utility.NBTHelper;
 import net.egorplaytv.create_and_food.block.entity.ModBlockEntities;
 import net.egorplaytv.create_and_food.util.ModTags;
 import net.minecraft.core.BlockPos;
@@ -11,14 +8,12 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -36,9 +31,6 @@ import vectorwing.farmersdelight.common.block.entity.SyncedBlockEntity;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
 public class ScalesBlockEntity extends SyncedBlockEntity {
@@ -60,10 +52,6 @@ public class ScalesBlockEntity extends SyncedBlockEntity {
     public static final Map<Item, Integer> WEIGHT = Maps.newLinkedHashMap();
 
     public static Map<Item, Integer> getWeight(){
-        addI(ModTags.Items.INGOTS, 1000);
-        addI(Tags.Items.STONE, 2800);
-        addI(Tags.Items.COBBLESTONE, 2800);
-
         addI(Items.FLINT_AND_STEEL, 900);
         addI(Items.COMPASS, 100);
         addI(Items.SPYGLASS, 500);
@@ -82,6 +70,7 @@ public class ScalesBlockEntity extends SyncedBlockEntity {
         addI(Items.TOTEM_OF_UNDYING, 500);
         addI(Items.TRIDENT, 800);
         addI(Items.CROSSBOW, 1500);
+
         addI(Items.POTION, 200);
         addI(Items.SPLASH_POTION, 200);
         addI(Items.LINGERING_POTION, 200);
@@ -100,6 +89,7 @@ public class ScalesBlockEntity extends SyncedBlockEntity {
         addI(Items.CARROT, 100);
         addI(Items.RABBIT_FOOT, 150);
         addI(Items.PHANTOM_MEMBRANE, 10);
+
         addI(Items.APPLE, 176);
         addI(Items.MUSHROOM_STEW, 1000);
         addI(Items.BREAD, 500);
@@ -133,9 +123,9 @@ public class ScalesBlockEntity extends SyncedBlockEntity {
         addI(Items.COOKED_MUTTON, 350);
         addI(Items.BEETROOT, 300);
         addI(Items.BEETROOT_SOUP, 1000);
-        addI(Items.SWEET_BERRIES, 150);
-        addI(Items.GLOW_BERRIES, 150);
+        addI(ModTags.Items.BERRIES, 150);
         addI(Items.HONEY_BOTTLE, 700);
+
         addI(Items.BEACON, 50);
         addI(ModTags.Items.EGGS, 55);
         addI(Items.CONDUIT, 100);
@@ -148,6 +138,9 @@ public class ScalesBlockEntity extends SyncedBlockEntity {
         addI(Items.QUARTZ, 40);
         addI(Items.AMETHYST_SHARD, 14);
         addI(Tags.Items.RAW_MATERIALS, 1500);
+        addI(Tags.Items.RAW_MATERIALS_GOLD, 11800);
+        addI(ModTags.Items.INGOTS, 9000);
+        addI(Tags.Items.INGOTS_GOLD, 11300);
         addI(Items.NETHERITE_SCRAP, 100);
         addI(Items.STICK, 350);
         addI(Items.BOWL, 180);
@@ -181,7 +174,8 @@ public class ScalesBlockEntity extends SyncedBlockEntity {
         addI(Items.BONE, 400);
         addI(Items.SUGAR, 10);
         addI(Items.ENDER_PEARL, 8);
-        addI(Tags.Items.NUGGETS, 111);
+        addI(Tags.Items.NUGGETS, 1000);
+        addI(Tags.Items.NUGGETS_GOLD, 1222);
         addI(Items.NETHER_WART, 150);
         addI(Items.ENDER_EYE, 8);
         addI(Items.EXPERIENCE_BOTTLE, 150);
@@ -281,10 +275,12 @@ public class ScalesBlockEntity extends SyncedBlockEntity {
         addI(Items.SMALL_DRIPLEAF, 150);
         addI(Items.BAMBOO, 200);
         addI(ModTags.Items.TORCHES, 250);
+        addI(Tags.Items.STONE, 2800);
+        addI(Tags.Items.COBBLESTONE, 2800);
         addI(Items.END_ROD, 150);
         addI(Items.CHORUS_PLANT, 250);
         addI(Items.CHORUS_FLOWER, 250);
-        addI(Tags.Items.CHESTS_WOODEN, 1000);
+        addI(Tags.Items.CHESTS_WOODEN, 15000);
         addI(Items.CRAFTING_TABLE, 700);
         addI(Items.FARMLAND, 900);
         addI(Items.FURNACE, 5000);
@@ -299,11 +295,62 @@ public class ScalesBlockEntity extends SyncedBlockEntity {
         addI(Items.INFESTED_CHISELED_STONE_BRICKS, 2800);
         addI(Items.BROWN_MUSHROOM_BLOCK, 400);
         addI(Items.RED_MUSHROOM_BLOCK, 400);
-        addI(Items.MUSHROOM_STEW, 400);
+        addI(Items.MUSHROOM_STEM, 400);
         addI(Items.IRON_BARS, 5000);
         addI(ModTags.Items.CHAINS, 2000);
         addI(Tags.Items.GLASS_PANES, 1000);
         addI(Items.VINE, 300);
+        addI(Items.LILY_PAD, 200);
+        addI(Items.ENCHANTING_TABLE, 10000);
+        addI(Items.END_PORTAL_FRAME, 2000);
+        addI(Tags.Items.CHESTS_ENDER, 20000);
+        addI(ItemTags.WALLS, 2800);
+        addI(ItemTags.ANVIL, 95000);
+        addI(ItemTags.CARPETS, 147);
+        addI(Items.DIRT_PATH, 1500);
+        addI(Tags.Items.GLASS_PANES, 563);
+        addB(BlockTags.SHULKER_BOXES, 1400);
+        addI(ModTags.Items.TERRACOTTA, 0);
+        addI(ItemTags.COALS, 1000);
+        addI(ModTags.Items.DEAD_CORALS, 1000);
+        addI(Items.SCAFFOLDING, 900);
+        addI(Items.PAINTING, 600);
+        addI(ItemTags.SIGNS, 700);
+        addI(ItemTags.BEDS, 65000);
+        addI(Items.ITEM_FRAME, 500);
+        addI(Items.GLOW_ITEM_FRAME, 500);
+        addB(BlockTags.FLOWER_POTS, 6000);
+        addI(Tags.Items.HEADS, 3000);
+        addI(Items.ARMOR_STAND, 2100);
+        addI(ItemTags.BANNERS, 1500);
+        addI(Items.END_CRYSTAL, 1000);
+        addI(Items.LOOM, 20000);
+        addI(Items.COMPARATOR, 21000);
+        addB(Tags.Blocks.BARRELS_WOODEN, 15000);
+        addI(Items.SMOKER, 5000);
+        addI(Items.BLAST_FURNACE, 5000);
+        addI(Items.CARTOGRAPHY_TABLE, 24000);
+        addI(Items.FLETCHING_TABLE, 24000);
+        addI(Items.GRINDSTONE, 4600);
+        addI(Items.SMITHING_TABLE, 42000);
+        addI(Items.STONECUTTER, 13200);
+        addI(Items.BELL, 10000);
+        addI(ModTags.Items.LANTERNS, 500);
+        addB(BlockTags.CAMPFIRES, 300);
+        addI(Items.SHROOMLIGHT, 2000);
+        addI(Items.BEE_NEST, 7000);
+        addI(Items.BEEHIVE, 36900);
+        addI(Items.HONEYCOMB_BLOCK, 2700);
+        addI(Items.LODESTONE, 5000);
+        addI(Items.RESPAWN_ANCHOR, 6000);
+        addI(ItemTags.CANDLES, 40);
+        addI(Items.SMALL_AMETHYST_BUD, 200);
+        addI(Items.MEDIUM_AMETHYST_BUD, 400);
+        addI(Items.LARGE_AMETHYST_BUD, 800);
+        addI(Items.AMETHYST_CLUSTER, 1182);
+        addI(Items.POINTED_DRIPSTONE, 3000);
+
+        addI(Items.CALCITE, 1355);
 
         addI(Items.TURTLE_HELMET, 800);
         addI(Items.LEATHER_HELMET, 750);
@@ -326,10 +373,10 @@ public class ScalesBlockEntity extends SyncedBlockEntity {
         addI(Items.DIAMOND_CHESTPLATE, 6000);
         addI(Items.DIAMOND_LEGGINGS, 3750);
         addI(Items.DIAMOND_BOOTS, 1500);
-        addI(Items.NETHERITE_HELMET, 5000);
-        addI(Items.NETHERITE_CHESTPLATE, 8000);
-        addI(Items.NETHERITE_LEGGINGS, 5000);
-        addI(Items.NETHERITE_BOOTS, 2000);
+        addI(Items.NETHERITE_HELMET, 22000);
+        addI(Items.NETHERITE_CHESTPLATE, 35200);
+        addI(Items.NETHERITE_LEGGINGS, 30800);
+        addI(Items.NETHERITE_BOOTS, 17600);
 
         addI(Items.WOODEN_SWORD, 700);
         addI(Items.WOODEN_AXE, 700);
@@ -415,12 +462,8 @@ public class ScalesBlockEntity extends SyncedBlockEntity {
         }
     }
 
-    public Integer showWeight(ScalesBlockEntity entity) {
-        return getWeight().get(entity.itemHandler.getStackInSlot(0).getItem()).intValue();
-    }
-
-    public boolean setIsWeighing(boolean bool){
-        return this.isWeighing = bool;
+    public void setIsWeighing(boolean bool){
+        this.isWeighing = bool;
     }
 
     public void saveAdditional(CompoundTag tag) {

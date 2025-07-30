@@ -98,6 +98,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         sequencedAssemblyItem(INCOMPLETE_NETHERITE_INGOT.get(), "metals");
         metalItem(NETHER_ALLOY.get());
         simpleItem(STEEL_COIL.get(), "coil");
+        simpleItem(ELECTRUM_COIL.get(), "coil");
+        simpleItem(ALUMINUM_COIL.get(), "coil");
         simpleItem(COPPER_COIL.get(), "coil");
         sequencedAssemblyItem(INCOMPLETE_TOOL_HANDLE.get(), "tools");
         handheldItem(TOOL_HANDLE.get());

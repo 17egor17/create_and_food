@@ -2,29 +2,41 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "create_and_food:nether_alloy"
+      "create_and_food:minecraft/crafting_table/marble_black_galaxy_blast_furnace"
     ]
   },
   "criteria": {
-    "has_cinder_flour": {
+    "has_marble": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "create:cinder_flour"
+              "create_and_food:marble_black_galaxy_brick"
             ]
           }
         ]
       }
     },
-    "has_alloy_souls": {
+    "has_fireclay": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "create_and_food:alloy_souls"
+              "create_and_food:fireclay_bricks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_furnace": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:furnace"
             ]
           }
         ]
@@ -33,14 +45,15 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "create_and_food:nether_alloy"
+        "recipe": "create_and_food:minecraft/crafting_table/marble_black_galaxy_blast_furnace"
       }
     }
   },
   "requirements": [
     [
-      "has_cinder_flour",
-      "has_alloy_souls",
+      "has_marble",
+      "has_fireclay",
+      "has_furnace",
       "has_the_recipe"
     ]
   ]

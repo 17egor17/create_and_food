@@ -2,9 +2,11 @@ package net.egorplaytv.create_and_food.block.custom;
 
 import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.item.ModItems;
+import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
@@ -25,6 +27,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
@@ -146,8 +149,20 @@ public class RiceBlock extends BushBlock implements BonemealableBlock, LiquidBlo
 
         if ((state.getBlock() instanceof FloodedFarmlandBlock || state.getBlock() instanceof FloodedRichSoilFarmlandBlock)
                 && (state.getValue(FloodedFarmlandBlock.WATERLOGGED) || state.getValue(FloodedRichSoilFarmlandBlock.WATERLOGGED))){
-            context.getLevel().playSound(null, context.getClickedPos(), SoundEvents.CROP_PLANTED, SoundSource.BLOCKS, 1.0F, 0.8F + context.getLevel().random.nextFloat() * 0.4F);
-            context.getLevel().setBlock(context.getClickedPos(), ModBlocks.RICE_PLANT.get().defaultBlockState(), 3);
+            BlockPos blockpos = context.getClickedPos();
+            Player player = context.getPlayer();
+            Level level = context.getLevel();
+            ItemStack itemStack = context.getItemInHand();
+            BlockState blockState = ModBlocks.RICE_PLANT.get().defaultBlockState();
+            level.setBlock(blockpos, blockState, 3);
+            if (player instanceof ServerPlayer){
+                CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer)player, blockpos, itemStack);
+            }
+            level.gameEvent(player, GameEvent.BLOCK_PLACE, blockpos);
+            level.playSound(player, blockpos, SoundEvents.CROP_PLANTED, SoundSource.BLOCKS, 1.0F, 0.8F + level.random.nextFloat() * 0.4F);
+            if (player == null || !player.getAbilities().instabuild) {
+                itemStack.shrink(1);
+            }
             return null;
         } else {
             return fluid.is(FluidTags.WATER) && fluid.getAmount() == 8 ? super.getStateForPlacement(context) : null;

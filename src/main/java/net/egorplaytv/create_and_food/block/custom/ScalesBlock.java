@@ -7,21 +7,17 @@ import net.egorplaytv.create_and_food.util.TextUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
@@ -35,10 +31,10 @@ import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import static net.egorplaytv.create_and_food.block.entity.custom.ScalesBlockEntity.getWeight;
 
 public class ScalesBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -90,30 +86,30 @@ public class ScalesBlock extends BaseEntityBlock implements SimpleWaterloggedBlo
                     return InteractionResult.SUCCESS;
                 }
                 if (handIn.equals(InteractionHand.MAIN_HAND) && player.getItemInHand(InteractionHand.MAIN_HAND).isEmpty()) {
-                    if (entity.getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) != null) {
+                    if (getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) != null) {
                         if (CreateAndFoodCommonConfigs.ENABLE_KILOGRAMS.get() && CreateAndFoodCommonConfigs.ENABLE_GRAMS.get()
                                 && CreateAndFoodCommonConfigs.ENABLE_TONES.get()) {
-                            if (entity.getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) >= 1000000) {
-                                float tn = (float) (entity.showWeight(entity) / 1000000);
+                            if (getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) >= 1000000) {
+                                float tn = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000000;
                                 player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_tn", tn)), true);
-                            } else if (entity.getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) >= 1000) {
-                                float kg = (float) (entity.showWeight(entity) / 1000);
+                            } else if (getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) >= 1000) {
+                                float kg = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000;
                                 player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_kg", kg)), true);
                             } else {
-                                float g = (float) entity.showWeight(entity);
+                                float g = getWeight().get(entity.getInventory().getStackInSlot(0).getItem());
                                 player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_g", g)), true);
                             }
                         } else if (CreateAndFoodCommonConfigs.ENABLE_KILOGRAMS.get()){
-                            float kg = (float) entity.showWeight(entity) / 1000;
+                            float kg = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000;
                             player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_kg", kg)), true);
                         } else if (CreateAndFoodCommonConfigs.ENABLE_GRAMS.get()){
-                            float g = (float) entity.showWeight(entity);
+                            float g = getWeight().get(entity.getInventory().getStackInSlot(0).getItem());
                             player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_g", g)), true);
                         } else if (CreateAndFoodCommonConfigs.ENABLE_TONES.get()){
-                            float tn = (float) entity.showWeight(entity) / 1000000;
+                            float tn = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000000;
                             player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_tn", tn)), true);
                         } else {
-                            float caf = (float)((entity.showWeight(entity) * 3.14) / 10);
+                            float caf = (float)(getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) * 3.14) / 10;
                             if (caf >= 1000) {
                                 float kCaf = caf / 1000;
                                 player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_kcaf", kCaf)), true);

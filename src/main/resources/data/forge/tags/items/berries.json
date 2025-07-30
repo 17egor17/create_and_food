@@ -1,6 +1,6 @@
 {
   "replace":false,
   "values": [
-    "create_and_food:cobbled_marble"
+    "#create_and_food:berries"
   ]
 }

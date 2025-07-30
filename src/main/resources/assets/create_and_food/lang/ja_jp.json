@@ -1,7 +1,7 @@
 {
   "_comment": "_______________________________Advancement_______________________________",
-  "advancement.create_and_food.create_and_food": "Create そして食べ物",
-  "advancement.create_and_food.create_and_food.desc": "Modへようこそ Create そして食べ物",
+  "advancement.create_and_food.root": "Create そして食べ物",
+  "advancement.create_and_food.root.desc": "Modへようこそ Create そして食べ物",
   "advancement.exemple": "例",
   "advancement.exemple.desc": "例の説明",
 
@@ -670,6 +670,8 @@
   "color.create_and_food.white": "§8カラー: §fホワイト§r",
   "color.create_and_food.yellow": "§8カラー: §eイエロー§r",
 
+  "ui.create_and_food.playerWeight": "Ваш вес: %s",
+  "ui.create_and_food.playerWeightItems": "Вес ваших предметов: %s",
   "ui.inventory": "インベントリ",
   "ui.marble_furnace.deg": "%s°C",
 

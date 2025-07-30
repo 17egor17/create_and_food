@@ -2,41 +2,53 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "create_and_food:cocoa_oil"
+      "create_and_food:minecraft/crafting_table/scales"
     ]
   },
   "criteria": {
-    "juice_bucket": {
+    "has_precision_mechanism": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "create_and_food:red_grape_juice_bucket"
+              "create:precision_mechanism"
             ]
           }
         ]
       }
     },
-    "alloy_souls": {
+    "has_iron_sheet": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "create_and_food:alloy_souls"
+              "create:iron_sheet"
             ]
           }
         ]
       }
     },
-    "copper_coin": {
+    "has_andesite_alloy": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "create_and_food:copper_coin"
+              "create:andesite_alloy"
+            ]
+          }
+        ]
+      }
+    },
+    "has_andesite_casing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create:andesite_casing"
             ]
           }
         ]
@@ -45,15 +57,16 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "create_and_food:cocoa_oil"
+        "recipe": "create_and_food:minecraft/crafting_table/scales"
       }
     }
   },
   "requirements": [
     [
-      "juice_bucket",
-      "alloy_souls",
-      "copper_coin",
+      "has_precision_mechanism",
+      "has_iron_sheet",
+      "has_andesite_alloy",
+      "has_andesite_casing",
       "has_the_recipe"
     ]
   ]

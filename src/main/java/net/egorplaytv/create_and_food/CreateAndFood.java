@@ -12,15 +12,20 @@ import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
 import net.egorplaytv.create_and_food.data.CAFRegistrate;
 import net.egorplaytv.create_and_food.networking.ModMessages;
 import net.egorplaytv.create_and_food.ponder.CAFPonders;
+import net.egorplaytv.create_and_food.screen.ItemWeightOverlay;
+import net.egorplaytv.create_and_food.screen.WeightOverlay;
 import net.egorplaytv.create_and_food.villager.ModVillagers;
 import net.egorplaytv.create_and_food.world.VillageStructures;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.gui.ForgeIngameGui;
+import net.minecraftforge.client.gui.OverlayRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
+import net.minecraftforge.fml.ModContainer;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -34,6 +39,7 @@ import net.minecraftforge.network.simple.SimpleChannel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Optional;
 import java.util.Random;
 import java.util.function.BiConsumer;
 
@@ -53,6 +59,8 @@ public class CreateAndFood {
             PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
     private static int messageID = 0;
     public static boolean IEIsPresent = false;
+    public static boolean MEKIsPresent = false;
+    public static boolean THIsPresent = false;
 
     @Deprecated
     public static final Random RANDOM = new Random();
@@ -70,13 +78,22 @@ public class CreateAndFood {
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;
         REGISTRATE.registerEventListeners(eventBus);
 
+        Optional<? extends ModContainer> thModContainer = ModList.get().getModContainerById("thermal");
+        if (thModContainer.isPresent()){
+            THIsPresent = true;
+        }
+        Optional<? extends ModContainer> mekModContainer = ModList.get().getModContainerById("mekanism");
+        if (mekModContainer.isPresent()){
+            MEKIsPresent = true;
+        }
+        Optional<? extends ModContainer> ieModContainer = ModList.get().getModContainerById("immersiveengineering");
+        if (ieModContainer.isPresent()){
+            IEIsPresent = true;
+        }
+
         setModId(MOD_ID);
 
         new register(eventBus);
-
-        if (ModList.get().getModContainerById("immersiveengineering").isPresent()){
-            IEIsPresent = true;
-        }
 
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::clientSetup);
@@ -100,7 +117,13 @@ public class CreateAndFood {
 
     private void clientSetup(final FMLClientSetupEvent event) {
         new render(event);
+//        registerOverlays();
         event.enqueueWork(CAFPonders::register);
+    }
+
+    private static void registerOverlays() {
+        OverlayRegistry.registerOverlayAbove(ForgeIngameGui.HOTBAR_ELEMENT, "Player Items Weight", ItemWeightOverlay.INSTANCE);
+        OverlayRegistry.registerOverlayAbove(ForgeIngameGui.HOTBAR_ELEMENT, "Player Weight", WeightOverlay.INSTANCE);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event){

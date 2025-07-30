@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:lantern",
+    "minecraft:soul_lantern",
+    "create_and_food:lantern",
+    "create_and_food:soul_lantern",
+    "create_and_food:torn_soul_lantern",
+    "create_and_food:glowing_brass_copper_lantern",
+    "create_and_food:glowing_brass_steel_lantern"
+  ]
+}

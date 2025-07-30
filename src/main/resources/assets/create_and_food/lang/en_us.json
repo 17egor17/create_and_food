@@ -1,7 +1,7 @@
 {
   "_comment": "_______________________________Advancement_______________________________",
-  "advancement.create_and_food.create_and_food": "Create and Food",
-  "advancement.create_and_food.create_and_food.desc": "Welcome to Create And Food",
+  "advancement.create_and_food.root": "Create and Food",
+  "advancement.create_and_food.root.desc": "Welcome to Create And Food",
   "advancement.exemple": "Exemple",
   "advancement.exemple.desc": "Exemple description",
 
@@ -670,6 +670,8 @@
   "color.create_and_food.white": "§8Color: §fWhite§r",
   "color.create_and_food.yellow": "§8Color: §eYellow§r",
 
+  "ui.create_and_food.playerWeight": "Your Weight: %s",
+  "ui.create_and_food.playerWeightItems": "Your Items Weight: %s",
   "ui.inventory": "Inventory",
   "ui.marble_furnace.deg": "%s°C",
 

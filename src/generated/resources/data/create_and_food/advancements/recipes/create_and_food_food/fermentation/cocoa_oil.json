@@ -2,29 +2,41 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "create_and_food:framed_calcite"
+      "create_and_food:fermentation/cocoa_oil"
     ]
   },
   "criteria": {
-    "has_stick": {
+    "juice_bucket": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:stick"
+              "create_and_food:red_grape_juice_bucket"
             ]
           }
         ]
       }
     },
-    "has_calcite": {
+    "alloy_souls": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:calcite"
+              "create_and_food:alloy_souls"
+            ]
+          }
+        ]
+      }
+    },
+    "copper_coin": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create_and_food:copper_coin"
             ]
           }
         ]
@@ -33,14 +45,15 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "create_and_food:framed_calcite"
+        "recipe": "create_and_food:fermentation/cocoa_oil"
       }
     }
   },
   "requirements": [
     [
-      "has_stick",
-      "has_calcite",
+      "juice_bucket",
+      "alloy_souls",
+      "copper_coin",
       "has_the_recipe"
     ]
   ]

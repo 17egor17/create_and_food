@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 0 ",
+    "010",
+    " 0 "
+  ],
+  "key": {
+    "0": {
+      "item": "create_and_food:copper_coil"
+    },
+    "1": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "immersiveengineering:wirecoil_copper",
+    "count": 8
+  }
+}

@@ -16,7 +16,7 @@
       "tag": "forge:nuggets/copper"
     },
     "3": {
-      "item": "minecraft:stick"
+      "tag": "forge:rods/wooden"
     }
   },
   "result": {
