@@ -1,0 +1,70 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "item": "create_and_food:base_of_dough"
+  },
+  "transitionalItem": {
+    "item": "create_and_food:incomplete_raw_cake"
+  },
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_raw_cake"
+        },
+        {
+          "fluid": "create:chocolate",
+          "nbt": {},
+          "amount": 500
+        }
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_raw_cake"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_raw_cake"
+        },
+        {
+          "fluid": "create_and_food:custard",
+          "nbt": {},
+          "amount": 250
+        }
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_raw_cake"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_raw_cake"
+        },
+        [
+          {
+            "item": "minecraft:sweet_berries"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_raw_cake"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:raw_cake"
+    }
+  ]
+}

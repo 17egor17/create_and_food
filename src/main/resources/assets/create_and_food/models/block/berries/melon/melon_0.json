@@ -2,7 +2,7 @@
 	"credit": "Made with Blockbench",
 	"textures": {
 		"leaves": "create_and_food:block/pumpkin/pumpkin_leaves",
-		"particle": "create_and_food:block/pumpkin/pumpkin_leaves"
+		"particle": "#leaves"
 	},
 	"elements": [
 		{

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "lantern",
+  "ingredients": [
+    {
+      "item": "minecraft:soul_lantern"
+    }
+  ],
+  "result": {
+    "item": "create_and_food:soul_lantern"
+  }
+}

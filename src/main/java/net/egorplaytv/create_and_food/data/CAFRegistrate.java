@@ -2,19 +2,19 @@ package net.egorplaytv.create_and_food.data;
 
 import com.simibubi.create.CreateClient;
 import com.simibubi.create.content.decoration.encasing.CasingConnectivity;
+import com.simibubi.create.content.fluids.VirtualFluid;
 import com.simibubi.create.foundation.block.connected.CTModel;
 import com.simibubi.create.foundation.block.connected.ConnectedTextureBehaviour;
-import com.simibubi.create.foundation.data.BlockStateGen;
-import com.simibubi.create.foundation.data.CreateBlockEntityBuilder;
-import com.simibubi.create.foundation.data.CreateEntityBuilder;
-import com.simibubi.create.foundation.data.CreateRegistrate;
+import com.simibubi.create.foundation.data.*;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import com.simibubi.create.foundation.utility.RegisteredObjects;
 import com.tterrag.registrate.AbstractRegistrate;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.builders.BlockEntityBuilder;
 import com.tterrag.registrate.builders.Builder;
+import com.tterrag.registrate.builders.FluidBuilder;
 import com.tterrag.registrate.util.entry.RegistryEntry;
+import com.tterrag.registrate.util.nullness.NonNullBiFunction;
 import com.tterrag.registrate.util.nullness.NonNullConsumer;
 import com.tterrag.registrate.util.nullness.NonNullFunction;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
@@ -22,6 +22,7 @@ import net.egorplaytv.create_and_food.CreateAndFood;
 import net.minecraft.client.resources.model.BakedModel;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -30,9 +31,12 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fluids.FluidAttributes;
+import net.minecraftforge.fluids.ForgeFlowingFluid;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistryEntry;
@@ -40,10 +44,12 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
+import static net.egorplaytv.create_and_food.CreateAndFood.MOD_ID;
 
 public class CAFRegistrate extends AbstractRegistrate<CAFRegistrate> {
     @Nullable
@@ -53,8 +59,8 @@ public class CAFRegistrate extends AbstractRegistrate<CAFRegistrate> {
         super(modId);
     }
 
-    public static CAFRegistrate create() {
-        return new CAFRegistrate(CreateAndFood.MOD_ID);
+    public static CAFRegistrate create(String modId) {
+        return new CAFRegistrate(modId);
     }
 
     public static Block getBlock(String name) {
@@ -164,6 +170,13 @@ public class CAFRegistrate extends AbstractRegistrate<CAFRegistrate> {
         return paletteStoneBlock(name, Block::new, propertiesFrom, worldGenStone, hasNaturalVariants);
     }
 
+    /* Fluids */
+
+    public FluidBuilder<VirtualFluid, CAFRegistrate> virtualFluid(String name) {
+        return entry(name,
+                c -> new VirtualFluidBuilder<>(self(), self(), name, c, new ResourceLocation(MOD_ID, "fluid/" + name + "_still"),
+                        new ResourceLocation(MOD_ID, "fluid/" + name + "_flow"), null, VirtualFluid::new));
+    }
 
     /* Util */
 

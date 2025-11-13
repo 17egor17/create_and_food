@@ -10,7 +10,8 @@
   ],
   "results": [
     {
-      "item": "create_and_food:cream"
+      "fluid": "create_and_food:cream",
+      "amount": 500
     }
   ]
 }

@@ -5,6 +5,9 @@
       "item": "create_and_food:raw_protein"
     },
     {
+      "item": "create_and_food:raw_protein"
+    },
+    {
       "item": "create_and_food:powdered_sugar"
     },
     {
@@ -13,7 +16,8 @@
   ],
   "results": [
     {
-      "item": "create_and_food:glaze"
+      "fluid": "create_and_food:glaze",
+      "amount": 500
     }
   ]
 }

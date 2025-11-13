@@ -82,7 +82,7 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
     }
     public int getDegrees() {
         int progress_deg = this.data.get(2);
-        int maxProgress = 10000;
+        int maxProgress = 5000;
         int progressSize = 51;
 
         return progress_deg != 0 ? progress_deg * progressSize / maxProgress : 0;

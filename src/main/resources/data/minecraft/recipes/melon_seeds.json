@@ -1,12 +1,11 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "group": "barrel",
   "ingredients": [
     {
-      "tag": "create_and_food:barrels"
+      "item": "minecraft:melon_slice"
     }
   ],
   "result": {
-    "item": "minecraft:barrel"
+    "item": "create_and_food:melon_seeds"
   }
 }

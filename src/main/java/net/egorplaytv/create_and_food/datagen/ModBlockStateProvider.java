@@ -1,6 +1,8 @@
 package net.egorplaytv.create_and_food.datagen;
 
 import net.egorplaytv.create_and_food.block.custom.*;
+import net.egorplaytv.create_and_food.block.custom.berry.PumpkinAndMelonBlock;
+import net.egorplaytv.create_and_food.block.custom.berry.WildPumpkinAndMelonBlock;
 import net.egorplaytv.create_and_food.block.custom.lanterns.LanternBlock;
 import net.egorplaytv.create_and_food.block.praperties.LanternAttachType;
 import net.egorplaytv.create_and_food.block.praperties.TerraceAttachType;
@@ -192,6 +194,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         floodedCropBlock((FloodedCropBlock) RICE_PLANT.get(), "rice_plant_stage");
         riceBlock(RICE_CROP.get(), RiceBlock.AGE, RiceBlock.SUPPORTING);
         ricePaniclesBlock(RICE_CROP_PANICLES.get(), RicePaniclesBlock.RICE_AGE);
+
         simpleBlock(UNBAKED_CLAY.get(), "block/baked_clay");
         rotatingBlock(KITCHEN_TABLE.get(), "block/kitchen");
         rotatingBlock(KITCHEN_TABLE_INNER.get(), "block/kitchen");
@@ -211,9 +214,34 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     }
 
+
+
+    public void pumpkinAndMelonBlock(Block block, IntegerProperty ageProperty, String modelName, boolean wildOrNotWild){
+        this.getVariantBuilder(block).forAllStatesExcept((state) -> {
+            int ageSuffix = state.getValue(ageProperty);
+            boolean inJungle = state.getValue(PumpkinAndMelonBlock.IN_JUNGLE);
+            String stageName = modelName + "_" + (wildOrNotWild ? 2 + ageSuffix : ageSuffix);
+            if (inJungle) {
+                return ConfiguredModel.builder().modelFile(
+                        models().withExistingParent("jungle_" + stageName,
+                                new ResourceLocation(MOD_ID, "block/berries/" + modelName + "/" + "jungle_" + stageName)))
+                        .build();
+            } else {
+                return ConfiguredModel.builder().modelFile(
+                        models().withExistingParent(stageName,
+                                new ResourceLocation(MOD_ID, "block/berries/" + modelName + "/" + stageName)))
+                        .build();
+            }
+        });
+    }
+
+    public void pumpkinAndMelonBlock(Block block, IntegerProperty ageProperty, String modelName){
+        this.pumpkinAndMelonBlock(block, ageProperty, modelName, false);
+    }
+
     public void ricePaniclesBlock(Block block, IntegerProperty ageProperty) {
         this.getVariantBuilder(block).forAllStatesExcept((state) -> {
-            int ageSuffix = (Integer)state.getValue(ageProperty);
+            int ageSuffix = state.getValue(ageProperty);
             String var10000 = block.getRegistryName().getPath();
             String stageName = var10000 + "_stage" + ageSuffix;
             return ConfiguredModel.builder().modelFile(models().cross(stageName,

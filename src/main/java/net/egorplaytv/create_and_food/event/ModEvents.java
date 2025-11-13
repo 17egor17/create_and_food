@@ -20,15 +20,6 @@ public class ModEvents {
     public static void addCustomTrades(VillagerTradesEvent event) {
         if(event.getType() == ModVillagers.CONFECTIONER.get()) {
             Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
-            ItemStack stack = new ItemStack(ModItems.CREAM.get(), 2);
-            int villagerLevel = 1;
-
-            trades.get(villagerLevel).add((pTrader, pRandom) -> new MerchantOffer(
-                    new ItemStack(ModItems.COPPER_COIN.get(), 1),
-                    stack, 10, 8, 0.02F));
-        }
-        if(event.getType() == ModVillagers.CONFECTIONER.get()) {
-            Int2ObjectMap<List<VillagerTrades.ItemListing>> trades = event.getTrades();
             ItemStack stack = new ItemStack(ModItems.BERRY_CAKE.get(), 2);
             int villagerLevel = 1;
 
@@ -54,7 +45,6 @@ public class ModEvents {
 
             trades.get(villagerLevel).add((pTrader, pRandom) -> new MerchantOffer(
                     new ItemStack(ModItems.COPPER_COIN.get(),5),
-                    new ItemStack(ModItems.CREAM.get(),5),
                     stack, 5, 8,0.02F));
         }
     }

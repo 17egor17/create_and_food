@@ -1,6 +1,5 @@
 package net.egorplaytv.create_and_food.block.praperties;
 
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 

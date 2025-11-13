@@ -37,16 +37,27 @@ public class ModItems {
 
     public static final RegistryObject<Item> RAW_GLOW_BERRY_CAKE = registerItem("raw_glow_berry_cake",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+
+    public static final RegistryObject<Item> INCOMPLETE_RAW_GLOW_BERRY_CAKE = registerItem("incomplete_raw_glow_berry_cake",
+            () -> new SequencedAssemblyItem(new Item.Properties()));
+
     public static final RegistryObject<Item> GLOW_BERRY_CAKE = registerItem("glow_berry_cake",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).food(ModFoods.BERRY_GLITTER_CAKE)));
 
     public static final RegistryObject<Item> RAW_BERRY_CAKE = registerItem("raw_berry_cake",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+
+    public static final RegistryObject<Item> INCOMPLETE_RAW_BERRY_CAKE = registerItem("incomplete_raw_berry_cake",
+            () -> new SequencedAssemblyItem(new Item.Properties()));
+
     public static final RegistryObject<Item> BERRY_CAKE = registerItem("berry_cake",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).food(ModFoods.BERRY_CAKE)));
 
     public static final RegistryObject<Item> RAW_CAKE = registerItem("raw_cake",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
+
+    public static final RegistryObject<Item> INCOMPLETE_RAW_CAKE = registerItem("incomplete_raw_cake",
+            () -> new SequencedAssemblyItem(new Item.Properties()));
 
     public static final RegistryObject<Item> RAW_SWEET_ROLL = registerItem("raw_sweet_roll",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
@@ -66,16 +77,7 @@ public class ModItems {
     public static final RegistryObject<Item> SMALL_DOUGH = registerItem("small_dough",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
 
-    public static final RegistryObject<Item> CREAM = registerItem("cream",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
-
     public static final RegistryObject<Item> BIZET = registerItem("bizet",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
-
-    public static final RegistryObject<Item> GLAZE = registerItem("glaze",
-            () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
-
-    public static final RegistryObject<Item> CUSTARD = registerItem("custard",
             () -> new Item(new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD)));
 
     public static final RegistryObject<Item> POWDERED_SUGAR = registerItem("powdered_sugar",
@@ -162,13 +164,13 @@ public class ModItems {
     //Berries//
 
     public static final RegistryObject<Item> APPLE_VINEGAR_BUCKET = registerItem("apple_vinegar_bucket",
-            () -> new BucketItem(ModFluids.APPLE_VINEGAR_FLUID, new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
+            () -> new BucketItem(ModFluids.APPLE_VINEGAR, new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
 
     public static final RegistryObject<Item> COCOA_OIL_BUCKET = registerItem("cocoa_oil_bucket",
-            () -> new BucketItem(ModFluids.COCOA_OIL_FLUID, new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
+            () -> new BucketItem(ModFluids.COCOA_OIL, new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
 
     public static final RegistryObject<Item> WHITE_CHOCOLATE_BUCKET = registerItem("white_chocolate_bucket",
-            () -> new BucketItem(ModFluids.WHITE_CHOCOLATE_FLUID, new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
+            () -> new BucketItem(ModFluids.WHITE_CHOCOLATE, new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
 
     public static final RegistryObject<Item> RED_GRAPE_JUICE_BUCKET = registerItem("red_grape_juice_bucket",
             () -> new BucketItem(ModFluids.RED_GRAPE_JUICE, new Item.Properties().tab(ModCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));

@@ -23,7 +23,8 @@
   ],
   "results": [
     {
-      "item": "create_and_food:custard"
+      "fluid": "create_and_food:custard",
+      "amount": 500
     }
   ],
   "heatRequirement": "heated"

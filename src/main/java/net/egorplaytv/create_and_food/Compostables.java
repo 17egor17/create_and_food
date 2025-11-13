@@ -22,9 +22,6 @@ public class Compostables {
         ComposterBlock.COMPOSTABLES.put(ModBlocks.ALMOND_SAPLING.get(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ModItems.RYE_SEEDS.get(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ModItems.RYE_FLOUR.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.CREAM.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.CUSTARD.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.GLAZE.get(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ModItems.BIZET.get(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ModItems.ALMOND_NUT.get(), 0.3F);
         ComposterBlock.COMPOSTABLES.put(ModItems.RYE.get(), 0.65F);

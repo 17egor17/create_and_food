@@ -366,19 +366,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         }
 
         if (hasRecipe(pBlockEntity, pLevel) && hasDegree(pBlockEntity, recipe.get().getDeg())) {
-            if (pBlockEntity.progress_deg > recipe.get().getDeg() + 8000){
-                int time = 80;
-                pBlockEntity.progress = pBlockEntity.progress + time;
-            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 7000){
-                int time = 70;
-                pBlockEntity.progress = pBlockEntity.progress + time;
-            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 6000){
-                int time = 60;
-                pBlockEntity.progress = pBlockEntity.progress + time;
-            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 5000){
-                int time = 50;
-                pBlockEntity.progress = pBlockEntity.progress + time;
-            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 4000){
+            if (pBlockEntity.progress_deg > recipe.get().getDeg() + 4000){
                 int time = 40;
                 pBlockEntity.progress = pBlockEntity.progress + time;
             } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 3000){
@@ -568,22 +556,22 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     }
     private static boolean hasFuel(MarbleBlastFurnaceBlockEntity pBlockEntity) {
         if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()) != null) {
-            if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(1000) && pBlockEntity.progress_deg <= 9000) {
+            if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(1000) && pBlockEntity.progress_deg <= 4000) {
                 return true;
-            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(100) && pBlockEntity.progress_deg <= 9900) {
+            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(100) && pBlockEntity.progress_deg <= 4900) {
                 return true;
-            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(90) && pBlockEntity.progress_deg <= 9910) {
+            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(90) && pBlockEntity.progress_deg <= 4910) {
                 return true;
-            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(75) && pBlockEntity.progress_deg <= 9925) {
+            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(75) && pBlockEntity.progress_deg <= 4925) {
                 return true;
-            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(15) && pBlockEntity.progress_deg <= 9985) {
+            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(15) && pBlockEntity.progress_deg <= 4985) {
                 return true;
-            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(10) && pBlockEntity.progress_deg <= 9990) {
+            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(10) && pBlockEntity.progress_deg <= 4990) {
                 return true;
-            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(5) && pBlockEntity.progress_deg <= 9995) {
+            } else if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()).equals(5) && pBlockEntity.progress_deg <= 4995) {
                 return true;
             } else
-                return getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()) != null && pBlockEntity.progress_deg <= 9000;
+                return getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()) != null && pBlockEntity.progress_deg <= 4000;
         } else {
             return false;
         }

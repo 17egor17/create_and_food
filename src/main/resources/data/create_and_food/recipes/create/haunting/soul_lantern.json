@@ -1,0 +1,13 @@
+{
+  "type": "create:haunting",
+  "ingredients": [
+    {
+      "item": "create_and_food:lantern"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:soul_lantern"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "000",
+    "000",
+    "000"
+  ],
+  "key": {
+    "0": {
+      "item": "create_and_food:tungsten_nugget"
+    }
+  },
+  "result": {
+    "item": "create_and_food:tungsten_ingot"
+  }
+}

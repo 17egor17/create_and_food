@@ -1,6 +1,5 @@
 package net.egorplaytv.create_and_food.block.entity;
 
-import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.content.kinetics.simpleRelays.SimpleKineticBlockEntity;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
@@ -15,8 +14,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import static com.simibubi.create.Create.REGISTRATE;
 
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
@@ -33,6 +30,7 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("tablet_entity", () ->
                     BlockEntityType.Builder.of(TerminalBlockEntity::new,
                             ModBlocks.TERMINAL.get()).build(null));
+
     public static final RegistryObject<BlockEntityType<ModSignBlockEntity>> SIGN_BLOCK_ENTITIES =
             BLOCK_ENTITIES.register("sign_block_entity", () ->
                     BlockEntityType.Builder.of(ModSignBlockEntity::new,

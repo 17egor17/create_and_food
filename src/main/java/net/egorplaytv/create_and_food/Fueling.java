@@ -35,16 +35,6 @@ public class Fueling {
         return pItem.builtInRegistryHolder().is(ItemTags.NON_FLAMMABLE_WOOD);
     }
 
-    private static void add(TagKey<Item> pItemTag, int degree) {
-        for(Holder<Item> holder : Registry.ITEM.getTagOrEmpty(pItemTag)) {
-            if (degree > 0 && degree <= 1000) {
-                if (!isNeverAFurnaceFuel(holder.value())) {
-                    FUELS.put(holder.value(), degree);
-                }
-            }
-        }
-    }
-
     private static void add(ItemLike pItem, int degree) {
         Item item = pItem.asItem();
         if (isNeverAFurnaceFuel(item)) {

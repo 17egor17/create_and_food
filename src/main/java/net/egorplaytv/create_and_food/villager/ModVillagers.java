@@ -30,7 +30,7 @@ public class ModVillagers {
     public static final RegistryObject<VillagerProfession> CONFECTIONER =
             VILLAGER_PROFESSIONS.register("confectioner",
                     () -> new VillagerProfession("confectioner", CONFECTIONER_POI.get(),
-                            ImmutableSet.of(ModItems.CREAM.get(), ModItems.BASE_OF_DOUGH.get(), Items.GLOW_BERRIES), ImmutableSet.of(), SoundEvents.VILLAGER_WORK_ARMORER));
+                            ImmutableSet.of(ModItems.BASE_OF_DOUGH.get(), Items.GLOW_BERRIES), ImmutableSet.of(), SoundEvents.VILLAGER_WORK_ARMORER));
 
 
     public static void registerPOIs() {

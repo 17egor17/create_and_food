@@ -2,32 +2,23 @@ package net.egorplaytv.create_and_food.integration;
 
 import mcp.mobius.waila.api.*;
 import mcp.mobius.waila.api.config.IPluginConfig;
-import mcp.mobius.waila.api.ui.IElement;
 import net.egorplaytv.create_and_food.block.custom.berry.*;
 import net.egorplaytv.create_and_food.item.ModItems;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.resources.language.I18n;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import org.jetbrains.annotations.Nullable;
 import snownee.jade.VanillaPlugin;
-import snownee.jade.addon.harvest.HarvestToolProvider;
 import snownee.jade.addon.harvest.SimpleToolHandler;
 import snownee.jade.addon.vanilla.VanillaProvider;
 import vectorwing.farmersdelight.common.tag.ModTags;
@@ -40,6 +31,10 @@ import static vectorwing.farmersdelight.common.registry.ModItems.IRON_KNIFE;
 public class JadeCreateAndFoodPlugin implements IWailaPlugin {
 
     public JadeCreateAndFoodPlugin(){
+    }
+
+    @Override
+    public void register(IWailaCommonRegistration registration) {
     }
 
     @Override
@@ -85,6 +80,7 @@ public class JadeCreateAndFoodPlugin implements IWailaPlugin {
             } else {
                 BlockState state = accessor.getBlockState();
                 Block block = state.getBlock();
+
                 if (config.get(VanillaPlugin.CROP_PROGRESS)) {
                     if (state.hasProperty(BlockStateProperties.AGE_5) && (block instanceof WildMelonBushBlock || block instanceof WildPumpkinBushBlock)) {
                         addMaturityTooltip(tooltip, (float) (Integer) state.getValue(BlockStateProperties.AGE_5) / 5.0F);

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "lantern",
+  "ingredients": [
+    {
+      "item": "create_and_food:lantern"
+    }
+  ],
+  "result": {
+    "item": "minecraft:lantern"
+  }
+}

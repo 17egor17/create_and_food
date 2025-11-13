@@ -892,4 +892,6 @@
   "tooltip.create_and_food.item.scroll.shift": "",
   "tooltip.create_and_food.shift": "§8자세한 내용을 보려면 [§eSHIFT§8]을 클릭하세요!",
   "tooltip.create_and_food.shift_down": "§8자세한 내용을 보려면 [§7SHIFT§8]을 클릭하세요!"
+  "tooltip.waila.energy.encaf": "Энергия: %s ЭнCAF / %s ЭнCAF",
+  "tooltip.waila.energy.kencaf": "Энергия: %s / %s кЭнCAF"
 }

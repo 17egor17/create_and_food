@@ -23,6 +23,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.gui.ForgeIngameGui;
 import net.minecraftforge.client.gui.OverlayRegistry;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.CapabilityManager;
+import net.minecraftforge.common.capabilities.CapabilityToken;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModContainer;
@@ -51,19 +54,11 @@ import static net.egorplaytv.create_and_food.block.entity.custom.TerminalBlockEn
 public class CreateAndFood {
     // Directly reference a slf4j logger
     public static final String MOD_ID = "create_and_food";
-    public static final CAFRegistrate REGISTRATE = CAFRegistrate.create();
+    public static final CAFRegistrate REGISTRATE = CAFRegistrate.create(MOD_ID);
     public static final Logger LOGGER = LogManager.getLogger();
-    private static final String PROTOCOL_VERSION = "1";
-    public static final SimpleChannel PACKET_HANDLER =
-            NetworkRegistry.newSimpleChannel(new ResourceLocation(MOD_ID, MOD_ID), () -> PROTOCOL_VERSION,
-            PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
-    private static int messageID = 0;
     public static boolean IEIsPresent = false;
     public static boolean MEKIsPresent = false;
     public static boolean THIsPresent = false;
-
-    @Deprecated
-    public static final Random RANDOM = new Random();
 
     static {
         REGISTRATE.setTooltipModifierFactory(item -> {
@@ -111,6 +106,7 @@ public class CreateAndFood {
     public static ResourceLocation asResource(String path) {
         return new ResourceLocation(MOD_ID, path);
     }
+
     public static ResourceLocation asFluid(String path) {
         return new ResourceLocation(MOD_ID, "fluid/" + path);
     }

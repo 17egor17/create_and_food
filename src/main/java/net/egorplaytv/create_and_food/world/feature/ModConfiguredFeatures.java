@@ -97,7 +97,8 @@ public class ModConfiguredFeatures {
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_MELON_BUSH =
             FeatureUtils.register("wild_melon_bush", Feature.RANDOM_PATCH,
-                    getWildCropConfiguration(ModBlocks.WILD_MELON_BUSH.get(), 64, 6,
+                    getWildCropConfiguration(ModBlocks.WILD_MELON_BUSH.get().defaultBlockState()
+                                    .setValue(WildPumpkinAndMelonBlock.IN_JUNGLE, true).getBlock(), 64, 6,
                             BlockPredicate.matchesBlocks(List.of(Blocks.GRASS_BLOCK), BLOCK_BELOW)));
 
 

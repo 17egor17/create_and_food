@@ -6,11 +6,11 @@
         "age=3,in_jungle=false": { "model": "create_and_food:block/berries/pumpkin/pumpkin_5" },
         "age=4,in_jungle=false": { "model": "create_and_food:block/berries/pumpkin/pumpkin_6" },
         "age=5,in_jungle=false": { "model": "create_and_food:block/berries/pumpkin/pumpkin_7" },
-        "age=0,in_jungle=true": { "model": "create_and_food:block/berries/pumpkin/pumpkin_in_jungle_2" },
-        "age=1,in_jungle=true": { "model": "create_and_food:block/berries/pumpkin/pumpkin_in_jungle_3" },
-        "age=2,in_jungle=true": { "model": "create_and_food:block/berries/pumpkin/pumpkin_in_jungle_4" },
-        "age=3,in_jungle=true": { "model": "create_and_food:block/berries/pumpkin/pumpkin_in_jungle_5" },
-        "age=4,in_jungle=true": { "model": "create_and_food:block/berries/pumpkin/pumpkin_in_jungle_6" },
-        "age=5,in_jungle=true": { "model": "create_and_food:block/berries/pumpkin/pumpkin_in_jungle_7" }
+        "age=0,in_jungle=true": { "model": "create_and_food:block/berries/pumpkin/jungle_pumpkin_2" },
+        "age=1,in_jungle=true": { "model": "create_and_food:block/berries/pumpkin/jungle_pumpkin_3" },
+        "age=2,in_jungle=true": { "model": "create_and_food:block/berries/pumpkin/jungle_pumpkin_4" },
+        "age=3,in_jungle=true": { "model": "create_and_food:block/berries/pumpkin/jungle_pumpkin_5" },
+        "age=4,in_jungle=true": { "model": "create_and_food:block/berries/pumpkin/jungle_pumpkin_6" },
+        "age=5,in_jungle=true": { "model": "create_and_food:block/berries/pumpkin/jungle_pumpkin_7" }
     }
 }

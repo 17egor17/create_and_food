@@ -31,14 +31,8 @@ public class WildBerryBushBlock extends BushBlock implements BonemealableBlock {
 
     public WildBerryBushBlock(Properties pProperties){
         super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(AGE, Integer.valueOf(0))
+        this.registerDefaultState(this.stateDefinition.any().setValue(getAgeProperty(), Integer.valueOf(0))
                 .setValue(CUT, Boolean.valueOf(false)));
-    }
-
-    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-        if (pEntity instanceof LivingEntity && pEntity.getType() != EntityType.FOX && pEntity.getType() != EntityType.BEE) {
-            pEntity.makeStuckInBlock(pState, new Vec3((double) 0.8F, 0.75D, (double) 0.8F));
-        }
     }
 
     @Override
@@ -51,17 +45,39 @@ public class WildBerryBushBlock extends BushBlock implements BonemealableBlock {
         return SHAPE;
     }
 
+    public IntegerProperty getAgeProperty() {
+        return AGE;
+    }
+
+    protected int getAge(BlockState pState) {
+        return pState.getValue(getAgeProperty());
+    }
+
+    public int getMaxAge(){
+        return MAX_AGE;
+    }
+
+    public boolean isMaxAge(BlockState pState){
+        return pState.getValue(this.getAgeProperty()) >= this.getMaxAge();
+    }
+
     public boolean isRandomlyTicking(BlockState pState) {
-        return pState.getValue(AGE) < MAX_AGE;
+        return !this.isMaxAge(pState);
     }
 
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
-        int i = pState.getValue(AGE);
-        if (i < MAX_AGE && pLevel.getRawBrightness(pPos.above(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos, pState,pRandom.nextInt(5) == 0)) {
-            pLevel.setBlock(pPos, pState.setValue(AGE, Integer.valueOf(i + 1)), 2);
+        int i = getAge(pState);
+        if (i < getMaxAge() && pLevel.getRawBrightness(pPos.above(), 0) >= 9 && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(pLevel, pPos, pState,pRandom.nextInt(5) == 0)) {
+            pLevel.setBlock(pPos, pState.setValue(getAgeProperty(), Integer.valueOf(i + 1)), 2);
             net.minecraftforge.common.ForgeHooks.onCropsGrowPost(pLevel, pPos, pState);
         }
 
+    }
+
+    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
+        if (pEntity instanceof LivingEntity && pEntity.getType() != EntityType.FOX && pEntity.getType() != EntityType.BEE) {
+            pEntity.makeStuckInBlock(pState, new Vec3((double) 0.8F, 0.75D, (double) 0.8F));
+        }
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
@@ -69,7 +85,7 @@ public class WildBerryBushBlock extends BushBlock implements BonemealableBlock {
     }
 
     public boolean isValidBonemealTarget(BlockGetter pLevel, BlockPos pPos, BlockState pState, boolean pIsClient) {
-        return pState.getValue(AGE) < MAX_AGE;
+        return !this.isMaxAge(pState);
     }
 
     public boolean isBonemealSuccess(Level pLevel, Random pRand, BlockPos pPos, BlockState pState) {
@@ -77,7 +93,7 @@ public class WildBerryBushBlock extends BushBlock implements BonemealableBlock {
     }
 
     public void performBonemeal(ServerLevel pLevel, Random pRand, BlockPos pPos, BlockState pState) {
-        int i = Math.min(MAX_AGE, pState.getValue(AGE) + 1);
-        pLevel.setBlock(pPos, pState.setValue(AGE, Integer.valueOf(i)), 2);
+        int i = Math.min(getMaxAge(), getAge(pState) + 1);
+        pLevel.setBlock(pPos, pState.setValue(getAgeProperty(), Integer.valueOf(i)), 2);
     }
 }

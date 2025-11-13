@@ -2,7 +2,7 @@
   "replace": false,
   "values": [
     "create_and_food:cream",
-    "create_and_food:glaze",
-    "create_and_food:custard"
+    "create_and_food:custard",
+    "create_and_food:glaze"
   ]
 }

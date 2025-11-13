@@ -84,16 +84,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_alloy_souls", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ModItems.ALLOY_SOULS.get()).build()))
                 .save(pFinishedRecipeConsumer, getCAFBlasting(getRecipeId(ModItems.NETHER_ALLOY.get())));
-
-        FermentationRecipeBuilder.fermentationRecipe(ModFluids.RED_GRAPE_JUICE.get(), 250, ModFluids.COCOA_OIL_FLUID.get(), 250)
-                .addIngredient(ModItems.ALLOY_SOULS.get()).addIngredient(ModItems.COPPER_COIN.get()).addTimeInSeconds(10)
-                .unlockedBy("juice_bucket", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ModItems.RED_GRAPE_JUICE_BUCKET.get()).build()))
-                .unlockedBy("alloy_souls", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ModItems.ALLOY_SOULS.get()).build()))
-                .unlockedBy("copper_coin", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ModItems.COPPER_COIN.get()).build()))
-                .save(pFinishedRecipeConsumer, getFermentation(getRecipeId(ModFluids.COCOA_OIL_FLUID.get())));
     }
 
     private ResourceLocation getCraftingTable(String id){

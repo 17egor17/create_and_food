@@ -2,17 +2,20 @@ package net.egorplaytv.create_and_food.util;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluid;
 
 public class ModTags {
 
     public static void init(){
         Blocks.init();
         Items.init();
+        Fluids.init();
     }
 
     public static class Blocks {
@@ -40,14 +43,14 @@ public class ModTags {
 
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_FREEZING = modTag("fan_processing_catalysts/freezing");
 
-        private static TagKey<Block> modTag(String name) {
+        public static TagKey<Block> modTag(String name) {
             return BlockTags.create(new ResourceLocation("create_and_food", name));
         }
-        private static TagKey<Block> forgeTag(String name) {
+        public static TagKey<Block> forgeTag(String name) {
             return BlockTags.create(new ResourceLocation("forge", name));
         }
 
-        private static TagKey<Block> tag(String name){
+        public static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation("minecraft", name));
         }
     }
@@ -86,7 +89,6 @@ public class ModTags {
         public static final TagKey<Item> BANNER_PATTERNS = forgeTag("banner_patterns");
         public static final TagKey<Item> MACARONI = forgeTag("macaroni");
         public static final TagKey<Item> SMALL_BASE = forgeTag("small_base");
-        public static final TagKey<Item> CREAMS = forgeTag("creams");
         public static final TagKey<Item> ALMOND_LOGS = modTag("almond_logs");
         public static final TagKey<Item> FENCE_GATES = tag("fence_gates");
         public static final TagKey<Item> COAL_DUST = forgeTag("dusts/coal");
@@ -108,15 +110,30 @@ public class ModTags {
         public static final TagKey<Item> TERRACES = modTag("terraces");
 
 
-        private static TagKey<Item> modTag(String name) {
+        public static TagKey<Item> modTag(String name) {
             return ItemTags.create(new ResourceLocation("create_and_food", name));
         }
-        private static TagKey<Item> forgeTag(String name) {
+        public static TagKey<Item> forgeTag(String name) {
             return ItemTags.create(new ResourceLocation("forge", name));
         }
 
-        private static TagKey<Item> tag(String name){
+        public static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation("minecraft", name));
+        }
+    }
+
+    public static class Fluids {
+        private static void init(){}
+
+        public static TagKey<Fluid> modTag(String name) {
+            return FluidTags.create(new ResourceLocation("create_and_food", name));
+        }
+        public static TagKey<Fluid> forgeTag(String name) {
+            return FluidTags.create(new ResourceLocation("forge", name));
+        }
+
+        public static TagKey<Fluid> tag(String name){
+            return FluidTags.create(new ResourceLocation("minecraft", name));
         }
     }
 }

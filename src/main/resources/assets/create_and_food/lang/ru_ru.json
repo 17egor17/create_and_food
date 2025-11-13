@@ -383,6 +383,8 @@
 
   "_comment": "_______________________________CreateAndFood_______________________________",
   "create_and_food.berry_bush.circumcised": "§cВы не можете обрезать черенок, потому что он уже обрезан или еще не пророс",
+  "create_and_food.energy.encaf": "%s ЕнCAF",
+  "create_and_food.energy.kencaf": "%s кЕнCAF",
   "create_and_food.gui.goggles.current_speed": "Скорость:",
   "create_and_food.gui.goggles.high": "Высокая",
   "create_and_food.gui.goggles.low": "Низкая",
@@ -904,5 +906,7 @@
   "tooltip.create_and_food.item.scroll.recipe": "",
   "tooltip.create_and_food.item.scroll.shift": "",
   "tooltip.create_and_food.shift": "§8Нажмите [§eSHIFT§8] для получения дополнительной информации!",
-  "tooltip.create_and_food.shift_down": "§8Нажмите [§7SHIFT§8] для получения дополнительной информации!"
+  "tooltip.create_and_food.shift_down": "§8Нажмите [§7SHIFT§8] для получения дополнительной информации!",
+  "tooltip.waila.energy.encaf": "Энергия: %s ЭнCAF / %s ЭнCAF",
+  "tooltip.waila.energy.kencaf": "Энергия: %s / %s кЭнCAF"
 }
