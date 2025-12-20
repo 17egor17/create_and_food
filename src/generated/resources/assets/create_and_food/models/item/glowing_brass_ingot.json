@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "create_and_food:item/metals/glowing_brass_ingot"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "create_and_food:degree": 500.0
+      },
+      "model": "create_and_food:item/glowing_brass_ingot_red_hot"
+    },
+    {
+      "predicate": {
+        "create_and_food:degree": 700.0
+      },
+      "model": "create_and_food:item/glowing_brass_ingot_white_hot"
+    }
+  ]
+}

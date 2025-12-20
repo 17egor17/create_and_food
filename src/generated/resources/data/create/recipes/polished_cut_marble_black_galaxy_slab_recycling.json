@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "create_and_food:polished_cut_marble_black_galaxy_slab"
+    },
+    {
+      "item": "create_and_food:polished_cut_marble_black_galaxy_slab"
+    }
+  ],
+  "result": {
+    "item": "create_and_food:polished_cut_marble_black_galaxy"
+  }
+}
