@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "create_and_food:minecraft/crafting_table/scales"
+    ]
+  },
+  "criteria": {
+    "has_precision_mechanism": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create:precision_mechanism"
+            ]
+          }
+        ]
+      }
+    },
+    "has_iron_sheet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create:iron_sheet"
+            ]
+          }
+        ]
+      }
+    },
+    "has_andesite_alloy": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create:andesite_alloy"
+            ]
+          }
+        ]
+      }
+    },
+    "has_andesite_casing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create:andesite_casing"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "create_and_food:minecraft/crafting_table/scales"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_precision_mechanism",
+      "has_iron_sheet",
+      "has_andesite_alloy",
+      "has_andesite_casing",
+      "has_the_recipe"
+    ]
+  ]
+}

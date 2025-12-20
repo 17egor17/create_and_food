@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "011",
+    "011"
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:rods/wooden"
+    },
+    "1": {
+      "item": "minecraft:acacia_planks"
+    }
+  },
+  "result": {
+    "item": "create_and_food:acacia_cutting_board"
+  }
+}

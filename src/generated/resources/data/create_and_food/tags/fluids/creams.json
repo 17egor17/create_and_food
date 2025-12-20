@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "create_and_food:flowing_cream",
+    "create_and_food:cream",
+    "create_and_food:flowing_custard",
+    "create_and_food:custard",
+    "create_and_food:flowing_glaze",
+    "create_and_food:glaze"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "create_and_food:stone_types/marble_perlin_pink"
+  },
+  "result": "create_and_food:small_marble_perlin_pink_brick_wall",
+  "count": 1
+}

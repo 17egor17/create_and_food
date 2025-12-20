@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "create_and_food:flowing_nixie_fluid",
+    "create_and_food:nixie_fluid"
+  ]
+}

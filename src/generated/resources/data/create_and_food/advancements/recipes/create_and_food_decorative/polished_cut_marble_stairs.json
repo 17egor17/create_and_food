@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "create_and_food:polished_cut_marble_stairs"
+    ]
+  },
+  "criteria": {
+    "has_polished_cut_marble": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create_and_food:polished_cut_marble"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "create_and_food:polished_cut_marble_stairs"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_polished_cut_marble",
+      "has_the_recipe"
+    ]
+  ]
+}

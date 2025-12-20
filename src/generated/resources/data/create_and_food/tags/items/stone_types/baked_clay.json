@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "create_and_food:cut_baked_clay",
+    "create_and_food:cut_baked_clay_stairs",
+    "create_and_food:cut_baked_clay_wall",
+    "create_and_food:cut_baked_clay_bricks",
+    "create_and_food:cut_baked_clay_brick_stairs",
+    "create_and_food:cut_baked_clay_brick_wall",
+    "create_and_food:small_baked_clay_bricks",
+    "create_and_food:small_baked_clay_brick_stairs",
+    "create_and_food:small_baked_clay_brick_wall",
+    "create_and_food:layered_baked_clay",
+    "create_and_food:baked_clay_pillar",
+    "create_and_food:baked_clay"
+  ]
+}

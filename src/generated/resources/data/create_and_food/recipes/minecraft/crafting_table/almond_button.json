@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "create_and_food:almond_planks"
+    }
+  ],
+  "result": {
+    "item": "create_and_food:almond_button"
+  }
+}

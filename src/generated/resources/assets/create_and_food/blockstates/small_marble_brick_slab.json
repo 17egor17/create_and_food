@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "create_and_food:block/small_marble_brick_slab_top"
+    },
+    "type=bottom": {
+      "model": "create_and_food:block/small_marble_brick_slab"
+    },
+    "type=double": {
+      "model": "create_and_food:block/small_marble_bricks"
+    }
+  }
+}

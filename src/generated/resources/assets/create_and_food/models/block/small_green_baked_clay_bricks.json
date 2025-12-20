@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "create_and_food:block/palettes/stone_types/small_brick/green_baked_clay_cut_small_brick"
+  }
+}

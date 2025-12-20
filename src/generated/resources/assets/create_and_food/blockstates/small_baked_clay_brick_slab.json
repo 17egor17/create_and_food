@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "create_and_food:block/small_baked_clay_brick_slab_top"
+    },
+    "type=bottom": {
+      "model": "create_and_food:block/small_baked_clay_brick_slab"
+    },
+    "type=double": {
+      "model": "create_and_food:block/small_baked_clay_bricks"
+    }
+  }
+}

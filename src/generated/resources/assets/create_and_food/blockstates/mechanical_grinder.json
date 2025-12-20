@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "create_and_food:block/mechanical_grinder/block",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "create_and_food:block/mechanical_grinder/block"
+    },
+    "facing=west": {
+      "model": "create_and_food:block/mechanical_grinder/block",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "create_and_food:block/mechanical_grinder/block",
+      "y": 270
+    }
+  }
+}

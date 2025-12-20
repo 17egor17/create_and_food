@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "create_and_food:small_baked_clay_brick_slab"
+    },
+    {
+      "item": "create_and_food:small_baked_clay_brick_slab"
+    }
+  ],
+  "result": {
+    "item": "create_and_food:small_baked_clay_bricks"
+  }
+}

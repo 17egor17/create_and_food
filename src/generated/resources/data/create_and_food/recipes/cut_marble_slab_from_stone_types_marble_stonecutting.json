@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "create_and_food:stone_types/marble"
+  },
+  "result": "create_and_food:cut_marble_slab",
+  "count": 2
+}

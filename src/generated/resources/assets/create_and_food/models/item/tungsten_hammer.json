@@ -1,0 +1,6 @@
+{
+  "parent": "create_and_food:custom/item/tool/hammer",
+  "textures": {
+    "material": "create_and_food:item/tools/tungsten/tungsten_hammer"
+  }
+}

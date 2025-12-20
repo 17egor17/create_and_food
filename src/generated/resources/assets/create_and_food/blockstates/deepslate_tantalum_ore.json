@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "create_and_food:block/deepslate_tantalum_ore_0"
+      },
+      {
+        "model": "create_and_food:block/deepslate_tantalum_ore_1"
+      },
+      {
+        "model": "create_and_food:block/deepslate_tantalum_ore_2"
+      },
+      {
+        "model": "create_and_food:block/deepslate_tantalum_ore_3"
+      }
+    ]
+  }
+}

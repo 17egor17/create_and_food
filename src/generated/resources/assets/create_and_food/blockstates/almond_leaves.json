@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "create_and_food:block/almond_leaves_0"
+      },
+      {
+        "model": "create_and_food:block/almond_leaves_1"
+      },
+      {
+        "model": "create_and_food:block/almond_leaves_2"
+      },
+      {
+        "model": "create_and_food:block/almond_leaves_3"
+      },
+      {
+        "model": "create_and_food:block/almond_leaves_4"
+      }
+    ]
+  }
+}

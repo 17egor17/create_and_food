@@ -1,0 +1,544 @@
+{
+  "variants": {
+    "facing=north,fill=0,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=0,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=0,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=0,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=1,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=1,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=1,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=1,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=2,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=2,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=2,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=2,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=3,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=3,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=3,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=3,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=4,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=4,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=4,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=4,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=5,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=5,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=5,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=5,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=6,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=6,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=6,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=6,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=7,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=7,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=7,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=7,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=8,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=8,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=8,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=8,open=false,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=0,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=0,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=0,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=0,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=1,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=1,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=1,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=1,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=2,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=2,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=2,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=2,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=3,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=3,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=3,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=3,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=4,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=4,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=4,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=4,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=5,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=5,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=5,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=5,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=6,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=6,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=6,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=6,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=7,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=7,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=7,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=7,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=8,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=8,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=8,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=8,open=true,waterlogged=false": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=0,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=0,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=0,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=0,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=1,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=1,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=1,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=1,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=2,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=2,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=2,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=2,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=3,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=3,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=3,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=3,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=4,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=4,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=4,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=4,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=5,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=5,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=5,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=5,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=6,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=6,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=6,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=6,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=7,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=7,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=7,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=7,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=8,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close"
+    },
+    "facing=south,fill=8,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 180
+    },
+    "facing=west,fill=8,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 270
+    },
+    "facing=east,fill=8,open=false,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_close",
+      "y": 90
+    },
+    "facing=north,fill=0,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=0,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=0,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=0,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=1,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=1,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=1,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=1,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=2,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=2,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=2,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=2,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=3,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=3,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=3,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=3,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=4,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=4,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=4,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=4,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=5,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=5,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=5,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=5,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=6,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=6,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=6,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=6,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=7,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=7,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=7,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=7,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    },
+    "facing=north,fill=8,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open"
+    },
+    "facing=south,fill=8,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 180
+    },
+    "facing=west,fill=8,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 270
+    },
+    "facing=east,fill=8,open=true,waterlogged=true": {
+      "model": "create_and_food:block/nixie_vase_black_galaxy_open",
+      "y": 90
+    }
+  }
+}

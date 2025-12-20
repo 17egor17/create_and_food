@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "create_and_food:minecraft/crafting_table/acacia_barrel"
+    ]
+  },
+  "criteria": {
+    "has_acacia_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:acacia_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_acacia_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:acacia_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "create_and_food:minecraft/crafting_table/acacia_barrel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_acacia_planks",
+      "has_acacia_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

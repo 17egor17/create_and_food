@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "create_and_food:cut_yellow_baked_clay_stairs_from_stone_types_yellow_baked_clay_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_stone_types_yellow_baked_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "create_and_food:stone_types/yellow_baked_clay"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "create_and_food:cut_yellow_baked_clay_stairs_from_stone_types_yellow_baked_clay_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stone_types_yellow_baked_clay",
+      "has_the_recipe"
+    ]
+  ]
+}

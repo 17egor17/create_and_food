@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "create_and_food:stone_types/marble_black_galaxy"
+  },
+  "result": "create_and_food:polished_cut_marble_black_galaxy_stairs",
+  "count": 1
+}

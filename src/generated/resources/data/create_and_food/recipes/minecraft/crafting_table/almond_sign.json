@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "111",
+    "111",
+    " 0 "
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:rods/wooden"
+    },
+    "1": {
+      "item": "create_and_food:almond_planks"
+    }
+  },
+  "result": {
+    "item": "create_and_food:almond_sign",
+    "count": 3
+  }
+}
