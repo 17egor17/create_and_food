@@ -11,6 +11,8 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.egorplaytv.create_and_food.CreateAndFood;
+import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
+import net.egorplaytv.create_and_food.config.DegreeUnits;
 import net.egorplaytv.create_and_food.recipe.IJeiFuelingRecipe;
 import net.egorplaytv.create_and_food.recipe.RecipeTypes;
 import net.minecraft.client.Minecraft;
@@ -78,12 +80,23 @@ public class FuelingRecipeCategory implements IRecipeCategory<IJeiFuelingRecipe>
 
     @Override
     public void draw(IJeiFuelingRecipe recipe, IRecipeSlotsView recipeSlotsView, PoseStack stack, double mouseX, double mouseY) {
-        int degree = recipe.getDegree();
+        int degreeC = recipe.getDegree();
+        float degreeF = degreeC*1.8F+32;
+        float degreeK = degreeC+273.15F;
         this.degree.draw(stack, 31, 19);
-        TranslatableComponent text = new TranslatableComponent("jei.create_and_food.fuel.degree", degree);
+        TranslatableComponent degC = new TranslatableComponent("jei.create_and_food.fuel.degreeC", degreeC);
+        TranslatableComponent degF = new TranslatableComponent("jei.create_and_food.fuel.degreeF", degreeF);
+        TranslatableComponent degK = new TranslatableComponent("jei.create_and_food.fuel.degreeK", degreeK);
 
         Minecraft minecraft = Minecraft.getInstance();
         Font font = minecraft.font;
-        font.draw(stack, text, 31, 8, 0xFF505050);
+
+        if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_CELSIUS) {
+            font.draw(stack, degC, 31, 8, 0xFF505050);
+        } else if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_FAHRENHEIT) {
+            font.draw(stack, degF, 31, 8, 0xFF505050);
+        } else if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_KELVIN) {
+            font.draw(stack, degK, 31, 8, 0xFF505050);
+        }
     }
 }

@@ -18,6 +18,8 @@ import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IColorHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
+import net.egorplaytv.create_and_food.config.CAFConfigs;
+import net.egorplaytv.create_and_food.config.CAFRecipes;
 import net.egorplaytv.create_and_food.integration.animations.AnimatedGrinder;
 import net.egorplaytv.create_and_food.recipe.PolishingRecipe;
 import net.egorplaytv.create_and_food.screen.gui.ModGuiTextures;
@@ -69,7 +71,7 @@ public class GrinderPolishingCategory extends CreateRecipeCategory<PolishingReci
 
         int speedLimits = recipe.getSpeedLimits();
 
-        String speedText = 	(speedLimits == 1)? "low":
+        String speedText = (speedLimits == 1)? "low":
                 (speedLimits == 2)? "medium":
                         (speedLimits == 3)? "high":
                                 "any";
@@ -85,17 +87,21 @@ public class GrinderPolishingCategory extends CreateRecipeCategory<PolishingReci
 
         Minecraft.getInstance().font.draw(matrixStack,  text, (177 - width)/2.0f, 75, 0xFFFFFF);
 
-
         if (recipe.isFragile()) {
-            ModGuiTextures.JEI_FRAGILE.render(matrixStack, 2, 62);
-            if (mouseX >= 2 && mouseX <= 15 && mouseY >= 62 && mouseY <= 85)
+            ModGuiTextures.JEI_FRAGILE.render(matrixStack, 120, 5);
+            if (mouseX >= 120 && mouseX <= 133 && mouseY >= 5 && mouseY <= 28)
                 Minecraft.getInstance().screen.renderComponentTooltip(matrixStack, addToTooltip(new LinkedList<>()), (int)mouseX,  (int)mouseY);
         }
     }
 
     private List<Component> addToTooltip(List<Component> list) {
-        list.add(TextUtils.getJeiTranslation("text.fragile")
-                .withStyle(ChatFormatting.GOLD));
+        if (CAFConfigs.server().recipes.destroyOnWrongGrinderSpeed.get()) {
+            list.add(TextUtils.getJeiTranslation("text.fragile.destroy")
+                    .withStyle(ChatFormatting.GOLD));
+        } else {
+            list.add(TextUtils.getJeiTranslation("text.fragile")
+                    .withStyle(ChatFormatting.GOLD));
+        }
         return list;
     }
 

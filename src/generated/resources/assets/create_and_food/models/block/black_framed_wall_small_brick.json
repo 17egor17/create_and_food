@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "create_and_food:block/palettes/framed_wall/black_framed_wall_small_brick"
-  }
-}

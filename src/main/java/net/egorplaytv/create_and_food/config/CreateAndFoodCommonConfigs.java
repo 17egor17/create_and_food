@@ -2,6 +2,8 @@ package net.egorplaytv.create_and_food.config;
 
 import net.minecraftforge.common.ForgeConfigSpec;
 
+import java.util.ArrayList;
+
 public class CreateAndFoodCommonConfigs {
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
     public static final ForgeConfigSpec SPEC;
@@ -26,6 +28,7 @@ public class CreateAndFoodCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Integer> MARBLE_VEINS_SIZE;
 
     public static final ForgeConfigSpec.ConfigValue<Integer> SPEED_ATTENUATION_FURNACE;
+    public static final ForgeConfigSpec.EnumValue<DegreeUnits> UNITS;
 
     public static final ForgeConfigSpec.BooleanValue GENERATE_CAF_CHEST_LOOT;
     public static final ForgeConfigSpec.ConfigValue<Boolean> ENABLE_KILOGRAMS;
@@ -115,6 +118,8 @@ public class CreateAndFoodCommonConfigs {
         SPEED_ATTENUATION_FURNACE = BUILDER.comment("Time in seconds")
                 .translation("config.create_and_food.furnace_speed")
                 .defineInRange("Speed Attenuation Blast Furnace", 50, 10, 100);
+        UNITS = BUILDER.comment("Units of measurement")
+                .defineEnum("unitsOfMeasurement", DegreeUnits.DEGREES_CELSIUS);
 
         ENABLE_KILOGRAMS = BUILDER.comment("Includes kilograms")
                 .translation("config.create_and_food.enable_kilograms")
@@ -130,5 +135,9 @@ public class CreateAndFoodCommonConfigs {
 
         BUILDER.pop();
         SPEC = BUILDER.build();
+    }
+
+    public static DegreeUnits getUnits(){
+        return UNITS.get();
     }
 }

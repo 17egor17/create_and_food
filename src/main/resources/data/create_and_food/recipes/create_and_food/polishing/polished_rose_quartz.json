@@ -11,5 +11,6 @@
     }
   ],
   "speedLimits": 1,
-  "processingTime": 20
+  "processingTime": 20,
+  "fragile": false
 }

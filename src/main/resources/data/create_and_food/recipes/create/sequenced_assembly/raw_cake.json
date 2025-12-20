@@ -32,8 +32,7 @@
           "item": "create_and_food:incomplete_raw_cake"
         },
         {
-          "fluid": "create_and_food:cream",
-          "nbt": {},
+          "fluidTag": "create_and_food:creams",
           "amount": 250
         }
       ],
@@ -66,5 +65,6 @@
     {
       "item": "create_and_food:raw_cake"
     }
-  ]
+  ],
+  "loops": 1
 }

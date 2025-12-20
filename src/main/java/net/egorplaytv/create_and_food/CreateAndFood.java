@@ -10,6 +10,7 @@ import net.egorplaytv.create_and_food.config.CAFConfigs;
 import net.egorplaytv.create_and_food.config.CreateAndFoodClientConfigs;
 import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
 import net.egorplaytv.create_and_food.data.CAFRegistrate;
+import net.egorplaytv.create_and_food.item.ItemEntities;
 import net.egorplaytv.create_and_food.networking.ModMessages;
 import net.egorplaytv.create_and_food.ponder.CAFPonders;
 import net.egorplaytv.create_and_food.screen.ItemWeightOverlay;
@@ -19,13 +20,12 @@ import net.egorplaytv.create_and_food.world.VillageStructures;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.gui.ForgeIngameGui;
 import net.minecraftforge.client.gui.OverlayRegistry;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.CapabilityManager;
-import net.minecraftforge.common.capabilities.CapabilityToken;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModContainer;
@@ -37,13 +37,10 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
-import net.minecraftforge.network.NetworkRegistry;
-import net.minecraftforge.network.simple.SimpleChannel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Optional;
-import java.util.Random;
 import java.util.function.BiConsumer;
 
 import static net.egorplaytv.create_and_food.block.entity.custom.TerminalBlockEntity.setModId;
@@ -59,6 +56,7 @@ public class CreateAndFood {
     public static boolean IEIsPresent = false;
     public static boolean MEKIsPresent = false;
     public static boolean THIsPresent = false;
+    public static boolean VIIsPresent = false;
 
     static {
         REGISTRATE.setTooltipModifierFactory(item -> {
@@ -85,6 +83,10 @@ public class CreateAndFood {
         if (ieModContainer.isPresent()){
             IEIsPresent = true;
         }
+        Optional<? extends ModContainer> viModContainer = ModList.get().getModContainerById("vintageimprovements");
+        if (viModContainer.isPresent()){
+            VIIsPresent = true;
+        }
 
         setModId(MOD_ID);
 
@@ -93,6 +95,7 @@ public class CreateAndFood {
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::gatherData);
+        eventBus.addGenericListener(EntityType.class, this::registerEntities);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, CreateAndFoodClientConfigs.SPEC, "create_and_food-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CreateAndFoodCommonConfigs.SPEC, "create_and_food-common.toml");
@@ -101,6 +104,10 @@ public class CreateAndFood {
         MinecraftForge.EVENT_BUS.addListener(VillageStructures::addNewVillageBuilding);
         MinecraftForge.EVENT_BUS.register(this);
         DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> CreateAndFoodClient::new);
+    }
+
+    private void registerEntities(RegistryEvent.Register<EntityType<?>> event) {
+        ItemEntities.init(event.getRegistry());
     }
 
     public static ResourceLocation asResource(String path) {

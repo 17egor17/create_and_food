@@ -1,6 +1,7 @@
 package net.egorplaytv.create_and_food.item.custom;
 
 import net.egorplaytv.create_and_food.damage.ModDamageSource;
+import net.egorplaytv.create_and_food.item.entity.custom.IIEntity;
 import net.egorplaytv.create_and_food.util.TextUtils;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
@@ -20,6 +21,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluids;
@@ -33,6 +35,7 @@ public class IngotItem extends Item {
     private final int degrees;
     protected Level level;
     private int tick;
+    private int damageTick;
     public static final String TAG_DEGREE = "deg";
     public static final String TAG_PREVENT_MAGNET = "PreventRemoteMovement";
 
@@ -41,29 +44,40 @@ public class IngotItem extends Item {
         this.degrees = deg;
     }
 
-    @Override
-    @OnlyIn(Dist.CLIENT)
-    public void appendHoverText(ItemStack pStack, Level pLevel, List<Component> pTooltip, TooltipFlag pIsAdvanced) {
-        pTooltip.add(TextUtils.getToolTipTranslation("doesnt_despawn"));
-        pTooltip.add(TextUtils.getToolTipTranslation("degrees", degrees));
-        pTooltip.add(TextUtils.getToolTipTranslation("ingot.degrees", 24 + getDeg(pStack)));
-
-        super.appendHoverText(pStack, pLevel, pTooltip, pIsAdvanced);
-    }
 
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
         int deg = getDeg(pStack);
-        if (deg >= 5000){
-            pEntity.hurt(ModDamageSource.HOT_METAL, 20);
-        } else if (deg >= 1000){
-            pEntity.hurt(ModDamageSource.HOT_METAL, 10);
-        } else if (deg >= 500){
-            pEntity.hurt(ModDamageSource.HOT_METAL, 4);
-        } else if (deg >= 100){
-            pEntity.hurt(ModDamageSource.HOT_METAL, 2);
+        if (deg >= 5000) {
+            ++damageTick;
+            if (damageTick >= 20) {
+                pEntity.hurt(ModDamageSource.HOT_METAL, 20);
+                damageTick = 0;
+            }
+        } else if (deg >= 1000) {
+            ++damageTick;
+            if (damageTick >= 20) {
+                pEntity.hurt(ModDamageSource.HOT_METAL, 10);
+                damageTick = 0;
+            }
+        } else if (deg >= 500) {
+            ++damageTick;
+            if (damageTick >= 20) {
+                pEntity.hurt(ModDamageSource.HOT_METAL, 4);
+                damageTick = 0;
+            }
+        } else if (deg >= 100) {
+            ++damageTick;
+            if (damageTick >= 20) {
+                pEntity.hurt(ModDamageSource.HOT_METAL, 2);
+                damageTick = 0;
+            }
         } else if (deg >= 60) {
-            pEntity.hurt(ModDamageSource.HOT_METAL, 1);
+            ++damageTick;
+            if (damageTick >= 20) {
+                pEntity.hurt(ModDamageSource.HOT_METAL, 1);
+                damageTick = 0;
+            }
         }
         ++tick;
         if (tick >= 200) {
@@ -73,92 +87,6 @@ public class IngotItem extends Item {
             }
         }
         setDeg(pStack, deg);
-    }
-
-    @Override
-    public int getEntityLifespan(final ItemStack itemStack, final Level level) {
-        return Integer.MAX_VALUE;
-    }
-
-    @Override
-    public boolean hasCustomEntity(ItemStack stack) {
-        return true;
-    }
-
-    @Override
-    public Entity createEntity(Level level, Entity location, ItemStack stack) {
-        ItemEntity entity = new ItemEntity(level, location.getX(), location.getY(), location.getZ(), stack){
-            final int x = Mth.floor(this.getX());
-            final int y = Mth.floor((this.getBoundingBox().minY + this.getBoundingBox().maxY) / 2.0D);
-            final int z = Mth.floor(this.getZ());
-
-            BlockPos pos = new BlockPos(x, y, z);
-            final BlockState state = this.level.getBlockState(pos);
-
-            @Override
-            public void baseTick() {
-                super.baseTick();
-
-                final ItemStack is = this.getItem();
-                final Item gc = is.getItem();
-
-                if (!(gc instanceof IngotItem))
-                    return;
-
-                if (state.getBlock().defaultBlockState().getFluidState().is(Fluids.WATER)){
-                    decreaseInWaterDeg(is);
-                } else {
-                    decreaseDeg(is);
-                }
-            }
-
-            private void decreaseInWaterDeg(ItemStack is) {
-                int deg = getDeg(is);
-                if (deg >= 5000){
-                    int degree = 25;
-                    deg = deg - degree;
-                } else if (deg >= 1000){
-                    int degree = 20;
-                    deg = deg - degree;
-                } else if (deg >= 500){
-                    int degree = 15;
-                    deg = deg - degree;
-                } else if (deg >= 100){
-                    int degree = 10;
-                    deg = deg - degree;
-                } else if (deg >= 60) {
-                    int degree = 5;
-                    deg = deg - degree;
-                } else if (deg > 0){
-                    --deg;
-                }
-                setDeg(is, deg);
-            }
-
-            private void decreaseDeg(ItemStack is) {
-                int deg = getDeg(is);
-                ++tick;
-                if (tick >= 200) {
-                    if (deg > 24) {
-                        --deg;
-                        tick = 0;
-                    }
-                }
-                setDeg(is, deg);
-            }
-        };
-
-        entity.setDeltaMovement(location.getDeltaMovement());
-        entity.setPickUpDelay(40);
-        entity.getPersistentData().putBoolean(TAG_PREVENT_MAGNET, true);
-        return entity;
-    }
-
-    @Override
-    public void fillItemCategory(CreativeModeTab category, NonNullList<ItemStack> items) {
-        if (this.allowdedIn(category)){
-            items.add(new ItemStack(this, 1));
-        }
     }
 
     public int getDegrees() {
@@ -172,6 +100,42 @@ public class IngotItem extends Item {
 
     public void setDeg(ItemStack is, int degree) {
         is.getOrCreateTag().putInt(TAG_DEGREE, degree);
+    }
+
+    @Override
+    @OnlyIn(Dist.CLIENT)
+    public void appendHoverText(ItemStack pStack, Level pLevel, List<Component> pTooltip, TooltipFlag pIsAdvanced) {
+        pTooltip.add(TextUtils.getToolTipTranslation("doesnt_despawn"));
+        pTooltip.add(TextUtils.getToolTipTranslation("degrees", degrees));
+        pTooltip.add(TextUtils.getToolTipTranslation("ingot.degrees", 24 + getDeg(pStack)));
+
+        super.appendHoverText(pStack, pLevel, pTooltip, pIsAdvanced);
+    }
+
+    @Override
+    public int getEntityLifespan(final ItemStack itemStack, final Level level) {
+        return Integer.MAX_VALUE;
+    }
+
+    @Override
+    public boolean hasCustomEntity(ItemStack stack) {
+        return true;
+    }
+
+    @Override
+    public Entity createEntity(final Level level, final Entity location, final ItemStack stack) {
+        final IIEntity entity = new IIEntity(level, location.getX(), location.getY(), location.getZ(), stack);
+        entity.setDeltaMovement(location.getDeltaMovement());
+        entity.setPickUpDelay(40);
+        entity.getPersistentData().putBoolean(TAG_PREVENT_MAGNET, true);
+        return entity;
+    }
+
+    @Override
+    public void fillItemCategory(CreativeModeTab category, NonNullList<ItemStack> items) {
+        if (this.allowdedIn(category)){
+            items.add(new ItemStack(this, 1));
+        }
     }
 }
 

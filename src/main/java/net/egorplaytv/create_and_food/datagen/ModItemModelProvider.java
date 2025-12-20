@@ -28,13 +28,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(PIZZA.get(), "dough");
         simpleItem(PIZZA_SLICE.get(), "dough");
         simpleItem(RAW_GLOW_BERRY_CAKE.get(), "dough");
-        simpleItem(INCOMPLETE_RAW_GLOW_BERRY_CAKE.get(), "dough");
+        simpleItem(INCOMPLETE_RAW_GLOW_BERRY_CAKE.get(), "dough", "raw_glow_berry_cake");
         simpleItem(GLOW_BERRY_CAKE.get(), "dough");
         simpleItem(RAW_BERRY_CAKE.get(), "dough");
-        simpleItem(INCOMPLETE_RAW_BERRY_CAKE.get(), "dough");
+        simpleItem(INCOMPLETE_RAW_BERRY_CAKE.get(), "dough", "raw_berry_cake");
         simpleItem(BERRY_CAKE.get(), "dough");
         simpleItem(RAW_CAKE.get(), "dough");
-        simpleItem(INCOMPLETE_RAW_CAKE.get(), "dough");
+        simpleItem(INCOMPLETE_RAW_CAKE.get(), "dough", "raw_cake");
         simpleItem(RAW_SWEET_ROLL.get(), "dough");
         simpleItem(DOUGH_BASE_WITH_CHOCOLATE.get(), "dough");
         simpleItem(SMALL_DOUGH_BASE_WHiH_HONEY.get(), "dough");

@@ -13,6 +13,8 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
+import net.egorplaytv.create_and_food.config.DegreeUnits;
 import net.egorplaytv.create_and_food.item.custom.IngotItem;
 import net.egorplaytv.create_and_food.recipe.MarbleFurnaceRecipe;
 import net.minecraft.client.Minecraft;
@@ -67,11 +69,21 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
         }
     }
     private void degrees(MarbleFurnaceRecipe recipe, PoseStack stack, int x, int y) {
-        int deg = recipe.getDeg();
-        TranslatableComponent timeString = new TranslatableComponent("jei.create_and_food.blasting.deg", deg);
+        int degC = recipe.getDeg();
+        float degF = degC*1.8F+32;
+        float degK = degC+273.15F;
+        TranslatableComponent timeStringC = new TranslatableComponent("jei.create_and_food.blasting.degC", degC);
+        TranslatableComponent timeStringF = new TranslatableComponent("jei.create_and_food.blasting.degF", degF);
+        TranslatableComponent timeStringK = new TranslatableComponent("jei.create_and_food.blasting.degK", degK);
         Minecraft minecraft = Minecraft.getInstance();
         Font fontRenderer = minecraft.font;
-        fontRenderer.draw(stack, timeString, x, y, 0xFF424242);
+        if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_CELSIUS) {
+            fontRenderer.draw(stack, timeStringC, x, y, 0xFF424242);
+        } else if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_FAHRENHEIT) {
+            fontRenderer.draw(stack, timeStringF, x, y, 0xFF424242);
+        } else if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_KELVIN) {
+            fontRenderer.draw(stack, timeStringK, x, y, 0xFF424242);
+        }
     }
 
     @Override

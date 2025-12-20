@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "side": "create_and_food:block/palettes/stone_types/polished/marble_black_galaxy_cut_polished",
-    "bottom": "create_and_food:block/palettes/stone_types/polished/marble_black_galaxy_cut_polished",
-    "top": "create_and_food:block/palettes/stone_types/polished/marble_black_galaxy_cut_polished"
-  }
-}

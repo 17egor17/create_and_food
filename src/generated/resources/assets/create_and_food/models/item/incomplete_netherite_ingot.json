@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "create_and_food:item/metals/incomplete_netherite_ingot"
-  }
-}

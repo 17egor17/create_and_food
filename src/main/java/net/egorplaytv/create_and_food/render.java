@@ -11,6 +11,8 @@ import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
+import net.minecraft.client.renderer.entity.ItemEntityRenderer;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
@@ -86,6 +88,8 @@ public class render {
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.KITCHEN_TABLE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.KITCHEN_TABLE_INNER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(ModBlocks.KITCHEN_TABLE_OUTER.get(), RenderType.cutout());
+
+
 
         MenuScreens.register(ModMenuTypes.FERMENTATION_BARREL_MENU.get(), FermentationBarrelScreen::new);
         MenuScreens.register(ModMenuTypes.BLASTING_MENU.get(), MarbleBlastFurnaceScreen::new);

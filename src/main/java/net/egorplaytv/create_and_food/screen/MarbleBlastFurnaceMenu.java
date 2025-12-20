@@ -2,6 +2,8 @@ package net.egorplaytv.create_and_food.screen;
 
 import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.block.entity.custom.MarbleBlastFurnaceBlockEntity;
+import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
+import net.egorplaytv.create_and_food.config.DegreeUnits;
 import net.egorplaytv.create_and_food.screen.slot.ModFurnaceResultSlot;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -89,14 +91,30 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
 
     }
     public TranslatableComponent getDegreeProgress() {
-        int progress_deg = this.data.get(2);
+        int progress_degC = this.data.get(2);
 
-        return new TranslatableComponent("ui.marble_furnace.deg", progress_deg);
+        if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_CELSIUS){
+            return new TranslatableComponent("ui.marble_furnace.degC", progress_degC);
+        } else if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_FAHRENHEIT){
+            float progress_degF = progress_degC*1.8F+32;
+            return new TranslatableComponent("ui.marble_furnace.degF", progress_degF);
+        } else {
+            float progress_degK = progress_degC+273.15F;
+            return new TranslatableComponent("ui.marble_furnace.degK", progress_degK);
+        }
     }
     public TranslatableComponent getDegProgress() {
-        int deg = this.data.get(3);
+        int degC = this.data.get(3);
 
-        return new TranslatableComponent("ui.marble_furnace.deg", deg);
+        if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_CELSIUS){
+            return new TranslatableComponent("ui.marble_furnace.degC", degC);
+        } else if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_FAHRENHEIT){
+            float degF = degC*1.8F+32;
+            return new TranslatableComponent("ui.marble_furnace.degF", degF);
+        } else {
+            float degK = degC+273.15F;
+            return new TranslatableComponent("ui.marble_furnace.degK", degK);
+        }
     }
 
     @Override

@@ -4,6 +4,7 @@ import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.block.entity.ModBlockEntities;
 import net.egorplaytv.create_and_food.entity.ModEntityTypes;
 import net.egorplaytv.create_and_food.fluid.ModFluids;
+import net.egorplaytv.create_and_food.item.ItemEntities;
 import net.egorplaytv.create_and_food.item.ModItems;
 import net.egorplaytv.create_and_food.particle.ModParticles;
 import net.egorplaytv.create_and_food.recipe.AllRecipeTypes;

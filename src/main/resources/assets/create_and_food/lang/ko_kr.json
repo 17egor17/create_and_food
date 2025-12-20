@@ -459,8 +459,8 @@
   "fluid.create_and_food.nixie_fluid_flowing": "가스 배출액",
   "fluid.create_and_food.white_chocolate": "하얀색 초콜릿",
   "fluid.create_and_food.white_chocolate_flowing": "하얀색 초콜릿",
-  "fluid.minecraft.milk": "밀크",
-  "fluid.minecraft.flowing_milk": "밀크",
+  "fluid.minecraft.milk": "우유",
+  "fluid.minecraft.flowing_milk": "우유",
 
   "_comment": "_______________________________Gamerule_______________________________",
   "gamerule.doSeasonCycle": "계절의 변화",

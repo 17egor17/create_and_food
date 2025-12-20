@@ -32,8 +32,7 @@
           "item": "create_and_food:incomplete_raw_berry_cake"
         },
         {
-          "fluid": "create_and_food:cream",
-          "nbt": {},
+          "fluidTag": "create_and_food:creams",
           "amount": 250
         }
       ],

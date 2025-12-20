@@ -117,8 +117,8 @@ public class PolishingRecipe extends ProcessingRecipe<RecipeWrapper> implements 
         return () -> AssemblyPolishing::new;
     }
 
-    public int getSpeedLimits() {return speedLimits;}
+    public int getSpeedLimits() { return speedLimits; }
 
-    public boolean isFragile() {return fragile;}
+    public boolean isFragile() { return fragile; }
 
 }

@@ -19,6 +19,6 @@ public class MeltItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pIsAdvanced) {
-        pTooltip.add(new TranslatableComponent("tooltip.create_and_food.degrees",degrees));
+        pTooltip.add(new TranslatableComponent("tooltip.create_and_food.degrees", degrees));
     }
 }

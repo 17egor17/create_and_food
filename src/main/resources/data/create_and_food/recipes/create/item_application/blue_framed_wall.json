@@ -1,0 +1,16 @@
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "item": "create_and_food:framed_wall"
+    },
+    {
+      "tag": "forge:dyes/blue"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:blue_framed_wall"
+    }
+  ]
+}

@@ -28,6 +28,7 @@ public enum ModGuiTextures implements ScreenElement {
     ModGuiTextures(String location, int x, int y) {
         this(location, 0, 0, x, y);
     }
+
     ModGuiTextures(String location, int startX, int startY, int width, int height) {
         this(CreateAndFood.MOD_ID, location, startX, startY, width, height);
     }

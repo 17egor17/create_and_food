@@ -41,7 +41,7 @@ public class MarbleBlastFurnaceScreen extends AbstractContainerScreen<MarbleBlas
 
         RenderSystem.setShaderTexture(0, WIDGETS);
         if (menu.isCrafting()) {
-            this.blit(pPoseStack, x + 55, y + 51, 225, 3, menu.getScaledProgress(), 10);
+            this.blit(pPoseStack, x + 57, y + 43, 225, 3, menu.getScaledProgress(), 10);
         }
         if (menu.isDegrees()) {
             this.blit(pPoseStack, x + 5, y + 144, 177, 35, menu.getDegrees(), 5);
@@ -56,7 +56,7 @@ public class MarbleBlastFurnaceScreen extends AbstractContainerScreen<MarbleBlas
         this.font.draw(poseStack, new TranslatableComponent("ui.inventory"), 63, 75, 0xFF808080);
         this.font.draw(poseStack, menu.getDegreeProgress(), 5, 134, 0xFF606060);
         if (menu.isDeg()) {
-            this.font.draw(poseStack, menu.getDegProgress(), 55, 42, 0xFF8b8b8b);
+            this.font.draw(poseStack, menu.getDegProgress(), 46, 56, 0xFF8b8b8b);
         }
     }
 

@@ -559,19 +559,25 @@ public class ModBlocks {
 
 
 //________________________Create and Food: CTM________________________\\
+
+    static {
+        REGISTRATE.creativeModeTab(() -> CreateAndFood.VIIsPresent ? null : ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+
+        MECHANICAL_GRINDER = REGISTRATE.block("mechanical_grinder", GrinderBlock::new)
+                .initialProperties(SharedProperties::stone)
+                .addLayer(() -> RenderType::cutoutMipped)
+                .properties(p -> p.color(MaterialColor.PODZOL))
+                .blockstate(new GrinderGenerator()::generate)
+                .transform(BlockStressDefaults.setImpact(4.0))
+                .item()
+                .tag(AllTags.AllItemTags.CONTRAPTION_CONTROLLED.tag)
+                .transform(customItemModel())
+                .register();
+    }
+
     static {
     REGISTRATE.creativeModeTab(() -> ModCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
-    MECHANICAL_GRINDER = REGISTRATE.block("mechanical_grinder", GrinderBlock::new)
-            .initialProperties(SharedProperties::stone)
-            .addLayer(() -> RenderType::cutoutMipped)
-            .properties(p -> p.color(MaterialColor.PODZOL))
-            .blockstate(new GrinderGenerator()::generate)
-            .transform(BlockStressDefaults.setImpact(4.0))
-            .item()
-            .tag(AllTags.AllItemTags.CONTRAPTION_CONTROLLED.tag)
-            .transform(customItemModel())
-            .register();
 
     STEEL_SHAFT = REGISTRATE.block("steel_shaft", CAFShaftBlock::new)
             .initialProperties(SharedProperties::stone)

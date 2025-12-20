@@ -5,8 +5,7 @@
       "item": "create:dough"
     },
     {
-      "fluid": "create_and_food:cream",
-      "nbt": {},
+      "fluidTag": "create_and_food:creams",
       "amount": 250
     }
   ],

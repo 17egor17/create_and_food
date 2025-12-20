@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "side": "create_and_food:block/palettes/stone_types/slab/marble_cut_slab",
-    "bottom": "create_and_food:block/palettes/stone_types/polished/marble_cut_polished",
-    "top": "create_and_food:block/palettes/stone_types/polished/marble_cut_polished"
-  }
-}

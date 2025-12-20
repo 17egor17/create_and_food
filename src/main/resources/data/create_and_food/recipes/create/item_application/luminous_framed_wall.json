@@ -1,0 +1,16 @@
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "item": "create_and_food:framed_wall"
+    },
+    {
+      "item": "minecraft:glow_ink_sac"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:luminous_framed_wall"
+    }
+  ]
+}

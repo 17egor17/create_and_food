@@ -70,9 +70,8 @@ public class CTBlocks {
                 .loot((t, g) -> t.dropWhenSilkTouch(g))
                 .recipe((c, p) -> p.stonecutting(DataIngredient.tag(Tags.Items.GLASS_COLORLESS), c::get))
                 .blockstate((c, p) -> BlockStateGen.cubeAll(c, p, "palettes/", "alloy_souls_glass"))
-                .tag(Tags.Blocks.GLASS_COLORLESS, BlockTags.IMPERMEABLE)
+                .tag(BlockTags.IMPERMEABLE)
                 .item()
-                .tag(Tags.Items.GLASS_COLORLESS)
                 .model((c, p) -> p.cubeAll(c.getName(), p.modLoc(palettesDir() + c.getName())))
                 .build()
                 .register();
@@ -87,9 +86,8 @@ public class CTBlocks {
                 .loot((t, g) -> t.dropWhenSilkTouch(g))
                 .recipe((c, p) -> p.stonecutting(DataIngredient.tag(Tags.Items.GLASS_COLORLESS), c::get))
                 .blockstate((c, p) -> BlockStateGen.cubeAll(c, p, "palettes/", "almond_glass"))
-                .tag(Tags.Blocks.GLASS_COLORLESS, BlockTags.IMPERMEABLE)
+                .tag(BlockTags.IMPERMEABLE)
                 .item()
-                .tag(Tags.Items.GLASS_COLORLESS)
                 .model((c, p) -> p.cubeAll(c.getName(), p.modLoc(palettesDir() + c.getName())))
                 .build()
                 .register();

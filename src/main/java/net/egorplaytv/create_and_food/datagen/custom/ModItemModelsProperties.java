@@ -14,6 +14,7 @@ import static net.egorplaytv.create_and_food.CreateAndFood.MOD_ID;
 @OnlyIn(Dist.CLIENT)
 public final class ModItemModelsProperties {
 
+    public static final String TAG_DEGREE = "deg";
     public static final ResourceLocation DEGREE_PREDICATE_ID = new ResourceLocation(MOD_ID, "degree");
     public static final ResourceLocation SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID = new ResourceLocation(MOD_ID, "sequenced_assembly_progress");
 
@@ -36,9 +37,8 @@ public final class ModItemModelsProperties {
     }
 
     public static void registerIngotItem(Item item) {
-        IngotItem ingotItem = (IngotItem) item;
         ItemProperties.register(item.asItem(), DEGREE_PREDICATE_ID,
-                (is, level, p, s) -> ingotItem.getDeg(is));
+                (is, level, p, s) -> is.getTag() != null ? is.getTag().getInt(TAG_DEGREE) : 0);
     }
 
     public static void registerSequencedAssemblyProgress(Item item) {

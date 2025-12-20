@@ -149,16 +149,16 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
                 pJson.addProperty("comment_time", "min 200 time");
                 pJson.addProperty("time", this.blastingTime);
             }
-            if (this.blastingDeg >= 100 && this.blastingDeg <= 10000) {
-                pJson.addProperty("comment", "min 100 deg, max 10000 deg");
+            if (this.blastingDeg >= 100 && this.blastingDeg <= 5000) {
+                pJson.addProperty("comment", "min 100 deg, max 5000 deg");
                 pJson.addProperty("degree", this.blastingDeg);
-            } else if (this.blastingDeg > 10000){
-                this.blastingDeg = 10000;
-                pJson.addProperty("comment", "min 100 deg, max 10000 deg");
+            } else if (this.blastingDeg > 5000){
+                this.blastingDeg = 5000;
+                pJson.addProperty("comment", "min 100 deg, max 5000 deg");
                 pJson.addProperty("degree", this.blastingDeg);
             } else {
                 this.blastingDeg = 100;
-                pJson.addProperty("comment", "min 100 deg, max 10000 deg");
+                pJson.addProperty("comment", "min 100 deg, max 5000 deg");
                 pJson.addProperty("degree", this.blastingDeg);
             }
             if (this.experience > 0.0F) {
