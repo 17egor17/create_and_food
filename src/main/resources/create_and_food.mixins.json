@@ -6,7 +6,6 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "AllFanProcessingTypesMixin",
-    "AxeItemMixin",
     "PumpkinBlockMixin"
   ],
   "injectors": {

@@ -123,24 +123,24 @@ public class CAFBlockStateProvider extends BlockStateProvider {
                         new ResourceLocation(MOD_ID, "block/" + FIRECLAY_BRICKS.get().getRegistryName().getPath() + "_2"))),
                 new ConfiguredModel(models().cubeAll(FIRECLAY_BRICKS.get().getRegistryName().getPath() + "_3",
                         new ResourceLocation(MOD_ID, "block/" + FIRECLAY_BRICKS.get().getRegistryName().getPath() + "_3"))));
-        terraceBlock(ACACIA_TERRACE.get(), "block/terrace");
-        terraceStairsBlock(ACACIA_TERRACE_STAIRS.get(), ACACIA_TERRACE.get(), "block/terrace");
-        terraceBlock(ALMOND_TERRACE.get(), "block/terrace");
-        terraceStairsBlock(ALMOND_TERRACE_STAIRS.get(), ALMOND_TERRACE.get(), "block/terrace");
-        terraceBlock(BIRCH_TERRACE.get(), "block/terrace");
-        terraceStairsBlock(BIRCH_TERRACE_STAIRS.get(), BIRCH_TERRACE.get(), "block/terrace");
-        terraceBlock(CRIMSON_TERRACE.get(), "block/terrace");
-        terraceStairsBlock(CRIMSON_TERRACE_STAIRS.get(), CRIMSON_TERRACE.get(), "block/terrace");
-        terraceBlock(DARK_OAK_TERRACE.get(), "block/terrace");
-        terraceStairsBlock(DARK_OAK_TERRACE_STAIRS.get(), DARK_OAK_TERRACE.get(), "block/terrace");
-        terraceBlock(JUNGLE_TERRACE.get(), "block/terrace");
-        terraceStairsBlock(JUNGLE_TERRACE_STAIRS.get(), JUNGLE_TERRACE.get(), "block/terrace");
-        terraceBlock(OAK_TERRACE.get(), "block/terrace");
-        terraceStairsBlock(OAK_TERRACE_STAIRS.get(), OAK_TERRACE.get(), "block/terrace");
-        terraceBlock(SPRUCE_TERRACE.get(), "block/terrace");
-        terraceStairsBlock(SPRUCE_TERRACE_STAIRS.get(), SPRUCE_TERRACE.get(), "block/terrace");
-        terraceBlock(WARPED_TERRACE.get(), "block/terrace");
-        terraceStairsBlock(WARPED_TERRACE_STAIRS.get(), WARPED_TERRACE.get(), "block/terrace");
+        terraceBlock(ACACIA_TERRACE.get());
+        terraceStairsBlock(ACACIA_TERRACE_STAIRS.get(), ACACIA_TERRACE.get());
+        terraceBlock(ALMOND_TERRACE.get());
+        terraceStairsBlock(ALMOND_TERRACE_STAIRS.get(), ALMOND_TERRACE.get());
+        terraceBlock(BIRCH_TERRACE.get());
+        terraceStairsBlock(BIRCH_TERRACE_STAIRS.get(), BIRCH_TERRACE.get());
+        terraceBlock(CRIMSON_TERRACE.get());
+        terraceStairsBlock(CRIMSON_TERRACE_STAIRS.get(), CRIMSON_TERRACE.get());
+        terraceBlock(DARK_OAK_TERRACE.get());
+        terraceStairsBlock(DARK_OAK_TERRACE_STAIRS.get(), DARK_OAK_TERRACE.get());
+        terraceBlock(JUNGLE_TERRACE.get());
+        terraceStairsBlock(JUNGLE_TERRACE_STAIRS.get(), JUNGLE_TERRACE.get());
+        terraceBlock(OAK_TERRACE.get());
+        terraceStairsBlock(OAK_TERRACE_STAIRS.get(), OAK_TERRACE.get());
+        terraceBlock(SPRUCE_TERRACE.get());
+        terraceStairsBlock(SPRUCE_TERRACE_STAIRS.get(), SPRUCE_TERRACE.get());
+        terraceBlock(WARPED_TERRACE.get());
+        terraceStairsBlock(WARPED_TERRACE_STAIRS.get(), WARPED_TERRACE.get());
         customBlock(FRAMED_CALCITE.get(), "block/wall");
         getVariantBuilder(STEEL_LAMP_BLOCK.get()).forAllStates(state -> {
             if (state.getValue(RedstoneLampBlock.LIT).equals(true)){
@@ -550,99 +550,99 @@ public class CAFBlockStateProvider extends BlockStateProvider {
         });
     }
 
-    public void terraceBlock(Block block, String pathModel){
+    public void terraceBlock(Block block){
         getVariantBuilder(block).forAllStates(state -> {
             TerraceAttachType type = state.getValue(TerraceBlock.ATTACHMENT);
             if (type.equals(TerraceAttachType.SINGLE)){
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_block",
-                                new ResourceLocation(MOD_ID, pathModel + "/oak_terrace_block"))
+                                new ResourceLocation(MOD_ID, "custom/block/terrace/terrace_block"))
                                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + block.getRegistryName().getPath())))
                         .build();
             } else if (type.equals(TerraceAttachType.LOW)){
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_bottom",
-                                new ResourceLocation(MOD_ID, pathModel + "/oak_terrace_bottom"))
+                                new ResourceLocation(MOD_ID, "custom/block/terrace/terrace_bottom"))
                                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + block.getRegistryName().getPath())))
                         .build();
             } else if (type.equals(TerraceAttachType.MIDDLE)) {
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_medium",
-                                new ResourceLocation(MOD_ID, pathModel + "/oak_terrace_medium"))
+                                new ResourceLocation(MOD_ID, "custom/block/terrace/terrace_medium"))
                                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + block.getRegistryName().getPath())))
                         .build();
             } else {
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_top",
-                                new ResourceLocation(MOD_ID, pathModel + "/oak_terrace_top"))
+                                new ResourceLocation(MOD_ID, "custom/block/terrace/terrace_top"))
                                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + block.getRegistryName().getPath())))
                         .build();
             }
         });
     }
 
-    public void terraceStairsBlock(Block block, Block terrace, String pathModel){
+    public void terraceStairsBlock(Block block, Block terrace){
         getVariantBuilder(block).forAllStates(state -> {
             TerraceAttachType type = state.getValue(TerraceStairsBlock.ATTACHMENT);
             Direction direction = state.getValue(TerraceStairsBlock.FACING);
             if (type.equals(TerraceAttachType.SINGLE) && direction.equals(Direction.NORTH)){
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_north",
-                                new ResourceLocation(MOD_ID, pathModel + "/oak_terrace_stairs_north"))
+                                new ResourceLocation(MOD_ID, "custom/block/terrace/terrace_stairs_north"))
                                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + terrace.getRegistryName().getPath())))
                         .build();
             } else if (type.equals(TerraceAttachType.SINGLE) && direction.equals(Direction.SOUTH)){
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_south",
-                                new ResourceLocation(MOD_ID, pathModel + "/oak_terrace_stairs_south"))
+                                new ResourceLocation(MOD_ID, "custom/block/terrace/terrace_stairs_south"))
                                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + terrace.getRegistryName().getPath())))
                         .build();
             } else if (type.equals(TerraceAttachType.SINGLE) && direction.equals(Direction.WEST)) {
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_west",
-                                new ResourceLocation(MOD_ID, pathModel + "/oak_terrace_stairs_west"))
+                                new ResourceLocation(MOD_ID, "custom/block/terrace/terrace_stairs_west"))
                                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + terrace.getRegistryName().getPath())))
                         .build();
             } else if (type.equals(TerraceAttachType.SINGLE) && direction.equals(Direction.EAST)) {
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_east",
-                                new ResourceLocation(MOD_ID, pathModel + "/oak_terrace_stairs_east"))
+                                new ResourceLocation(MOD_ID, "custom/block/terrace/terrace_stairs_east"))
                                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + terrace.getRegistryName().getPath())))
                         .build();
             } else if (type.equals(TerraceAttachType.UP) && direction.equals(Direction.NORTH)){
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_top_north",
-                                new ResourceLocation(MOD_ID, pathModel + "/oak_terrace_stairs_top_north"))
+                                new ResourceLocation(MOD_ID, "custom/block/terrace/terrace_top_stairs_north"))
                                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + terrace.getRegistryName().getPath())))
                         .build();
             } else if (type.equals(TerraceAttachType.UP) && direction.equals(Direction.SOUTH)){
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_top_south",
-                                new ResourceLocation(MOD_ID, pathModel + "/oak_terrace_stairs_top_south"))
+                                new ResourceLocation(MOD_ID, "custom/block/terrace/terrace_top_stairs_south"))
                                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + terrace.getRegistryName().getPath())))
                         .build();
             } else if (type.equals(TerraceAttachType.UP) && direction.equals(Direction.WEST)) {
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_top_west",
-                                new ResourceLocation(MOD_ID, pathModel + "/oak_terrace_stairs_top_west"))
+                                new ResourceLocation(MOD_ID, "custom/block/terrace/terrace_top_stairs_west"))
                                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + terrace.getRegistryName().getPath())))
                         .build();
             } else if (type.equals(TerraceAttachType.UP) && direction.equals(Direction.EAST)) {
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_top_east",
-                                new ResourceLocation(MOD_ID, pathModel + "/oak_terrace_stairs_top_east"))
+                                new ResourceLocation(MOD_ID, "custom/block/terrace/terrace_top_stairs_east"))
                                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + terrace.getRegistryName().getPath())))
                         .build();
             }  else if (type.equals(TerraceAttachType.LOW)){
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(terrace.getRegistryName().getPath() + "_bottom",
-                                new ResourceLocation(MOD_ID, pathModel + "/oak_terrace_bottom"))
+                                new ResourceLocation(MOD_ID, "custom/block/terrace/terrace_bottom"))
                                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + terrace.getRegistryName().getPath())))
                         .build();
             } else {
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(terrace.getRegistryName().getPath() + "_medium",
-                                new ResourceLocation(MOD_ID, pathModel + "/oak_terrace_medium"))
+                                new ResourceLocation(MOD_ID, "custom/block/terrace/terrace_medium"))
                                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + terrace.getRegistryName().getPath())))
                         .build();
             }

@@ -1,5 +1,5 @@
 {
-  "parent": "create_and_food:block/terrace/oak_terrace_top",
+  "parent": "create_and_food:custom/block/terrace/terrace_top",
   "textures": {
     "terrace": "create_and_food:block/warped_terrace"
   }

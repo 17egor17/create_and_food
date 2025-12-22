@@ -86,7 +86,7 @@ public class CAFItemModelProvider extends ItemModelProvider {
         ingotItem(STEEL_INGOT.get(), 800, 1300);
         metalItem(STEEL_NUGGET.get());
         metalItem(STEEL_SHEET.get());
-        ingotItem(GLOWING_BRASS_INGOT.get(), 500, 700);
+        ingotItem(GLOWING_BRASS_INGOT.get(), "brass", 500, 700);
         metalItem(GLOWING_BRASS_NUGGET.get());
         metalItem(GLOWING_BRASS_SHEET.get());
         metalItem(PIECE_OF_GOLD.get());
@@ -212,24 +212,24 @@ public class CAFItemModelProvider extends ItemModelProvider {
         blockItem(COBBLED_MARBLE_BLACK_GALAXY.get(), "marbles");
         blockItem(COBBLED_MARBLE_PERLIN_PINK.get(), "marbles");
         blockItem(FIRECLAY_BRICKS.get(), "item", "fireclay_bricks_0");
-        blockItemModel(ACACIA_TERRACE.get(), "terrace", "oak_terrace_block");
-        blockItemModel(ACACIA_TERRACE_STAIRS.get(), ACACIA_TERRACE.get(), "terrace", "oak_terrace_stairs_west");
-        blockItemModel(ALMOND_TERRACE.get(), "terrace", "oak_terrace_block");
-        blockItemModel(ALMOND_TERRACE_STAIRS.get(), ALMOND_TERRACE.get(), "terrace", "oak_terrace_stairs_west");
-        blockItemModel(BIRCH_TERRACE.get(), "terrace", "oak_terrace_block");
-        blockItemModel(BIRCH_TERRACE_STAIRS.get(), BIRCH_TERRACE.get(), "terrace", "oak_terrace_stairs_west");
-        blockItemModel(CRIMSON_TERRACE.get(), "terrace", "oak_terrace_block");
-        blockItemModel(CRIMSON_TERRACE_STAIRS.get(), CRIMSON_TERRACE.get(), "terrace", "oak_terrace_stairs_west");
-        blockItemModel(DARK_OAK_TERRACE.get(), "terrace", "oak_terrace_block");
-        blockItemModel(DARK_OAK_TERRACE_STAIRS.get(), DARK_OAK_TERRACE.get(), "terrace", "oak_terrace_stairs_west");
-        blockItemModel(JUNGLE_TERRACE.get(), "terrace", "oak_terrace_block");
-        blockItemModel(JUNGLE_TERRACE_STAIRS.get(), JUNGLE_TERRACE.get(), "terrace", "oak_terrace_stairs_west");
-        blockItemModel(OAK_TERRACE.get(), "terrace", "oak_terrace_block");
-        blockItemModel(OAK_TERRACE_STAIRS.get(), OAK_TERRACE.get(), "terrace", "oak_terrace_stairs_west");
-        blockItemModel(SPRUCE_TERRACE.get(), "terrace", "oak_terrace_block");
-        blockItemModel(SPRUCE_TERRACE_STAIRS.get(), SPRUCE_TERRACE.get(), "terrace", "oak_terrace_stairs_west");
-        blockItemModel(WARPED_TERRACE.get(), "terrace", "oak_terrace_block");
-        blockItemModel(WARPED_TERRACE_STAIRS.get(), WARPED_TERRACE.get(), "terrace", "oak_terrace_stairs_west");
+        blockItemModel(ACACIA_TERRACE.get(), "terrace_block");
+        blockItemModel(ACACIA_TERRACE_STAIRS.get(), ACACIA_TERRACE.get(), "terrace_stairs_west");
+        blockItemModel(ALMOND_TERRACE.get(), "terrace_block");
+        blockItemModel(ALMOND_TERRACE_STAIRS.get(), ALMOND_TERRACE.get(), "terrace_stairs_west");
+        blockItemModel(BIRCH_TERRACE.get(), "terrace_block");
+        blockItemModel(BIRCH_TERRACE_STAIRS.get(), BIRCH_TERRACE.get(), "terrace_stairs_west");
+        blockItemModel(CRIMSON_TERRACE.get(), "terrace_block");
+        blockItemModel(CRIMSON_TERRACE_STAIRS.get(), CRIMSON_TERRACE.get(), "terrace_stairs_west");
+        blockItemModel(DARK_OAK_TERRACE.get(), "terrace_block");
+        blockItemModel(DARK_OAK_TERRACE_STAIRS.get(), DARK_OAK_TERRACE.get(),"terrace_stairs_west");
+        blockItemModel(JUNGLE_TERRACE.get(), "terrace_block");
+        blockItemModel(JUNGLE_TERRACE_STAIRS.get(), JUNGLE_TERRACE.get(), "terrace_stairs_west");
+        blockItemModel(OAK_TERRACE.get(), "terrace_block");
+        blockItemModel(OAK_TERRACE_STAIRS.get(), OAK_TERRACE.get(), "terrace_stairs_west");
+        blockItemModel(SPRUCE_TERRACE.get(), "terrace_block");
+        blockItemModel(SPRUCE_TERRACE_STAIRS.get(), SPRUCE_TERRACE.get(), "terrace_stairs_west");
+        blockItemModel(WARPED_TERRACE.get(), "terrace_block");
+        blockItemModel(WARPED_TERRACE_STAIRS.get(), WARPED_TERRACE.get(), "terrace_stairs_west");
         blockItem(FRAMED_CALCITE.get(), "wall");
         blockItem(STEEL_LAMP_BLOCK.get(), "lamps", "steel_ruby_lamp_block_off");
         blockItem(RUBY_ORE.get(), "item");
@@ -393,29 +393,75 @@ public class CAFItemModelProvider extends ItemModelProvider {
         }
     }
 
-    private void ingotItem(Item item, int deg1, int deg2) {
+    private void ingotItem(Item item, String type, int deg1, int deg2) {
+        if (type.equals("default") || type.isEmpty()){
+            var baseId = item.getRegistryName().getPath();
 
-        var baseId = item.getRegistryName().getPath();
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "ingot_red_hot");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_white_hot"), "item/metals/hot/", "ingot_white_hot");
 
-        var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "ingot_red_hot");
-        var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_white_hot"), "item/metals/hot/", "ingot_white_hot");
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId))
+                    // 2nd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
+                    .model(model1)
+                    .end()
+                    // 3rd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
+                    .model(model2)
+                    .end();
 
-        withExistingParent(baseId, "item/generated")
-                .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId))
-                // 2nd degree stage
-                .override()
-                .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
-                .model(model1)
-                .end()
-                // 3rd degree stage
-                .override()
-                .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
-                .model(model2)
-                .end();
+        } else if (type.equals("brass")) {
+            var baseId = item.getRegistryName().getPath();
+
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "brass_ingot_red_hot");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_white_hot"), "item/metals/hot/", "brass_ingot_white_hot");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId))
+                    // 2nd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
+                    .model(model1)
+                    .end()
+                    // 3rd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
+                    .model(model2)
+                    .end();
+        } else if (type.equals("zinc")) {
+            var baseId = item.getRegistryName().getPath();
+
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "zinc_ingot_red_hot");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_white_hot"), "item/metals/hot/", "zinc_ingot_white_hot");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId))
+                    // 2nd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
+                    .model(model1)
+                    .end()
+                    // 3rd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
+                    .model(model2)
+                    .end();
+        }
+    }
+
+    private void ingotItem(Item item, int deg1, int deg2){
+        ingotItem(item, "default", deg1, deg2);
+    }
+
+    private void ingotItem(Item item, String type) {
+        ingotItem(item, type, 550, 1300);
     }
 
     private void ingotItem(Item item) {
-        ingotItem(item, 550, 1300);
+        ingotItem(item, "default", 550, 1300);
     }
 
     private ItemModelBuilder simpleItem(ResourceLocation id, String path, String texture){
@@ -505,21 +551,15 @@ public class CAFItemModelProvider extends ItemModelProvider {
         }
     }
 
+    private ItemModelBuilder blockItemModel(Block block, Block terrace, String modelName) {
+        return withExistingParent(block.getRegistryName().getPath(),
+                new ResourceLocation(MOD_ID, "custom/block/terrace/" + modelName))
+                .texture("terrace", new ResourceLocation(MOD_ID, "block/" + terrace.getRegistryName().getPath()));
 
-    private ItemModelBuilder blockItemModel(Block block, Block terrace, String path, String modelName){
-        if (!path.isEmpty()) {
-            return withExistingParent(block.getRegistryName().getPath(),
-                    new ResourceLocation(MOD_ID, "block/" + path + "/" + modelName))
-                    .texture("terrace", new ResourceLocation(MOD_ID, "block/" + terrace.getRegistryName().getPath()));
-        } else {
-            return withExistingParent(block.getRegistryName().getPath(),
-                    new ResourceLocation(MOD_ID, "block/" + modelName))
-                    .texture("terrace", new ResourceLocation(MOD_ID, "block/" + terrace.getRegistryName().getPath()));
-        }
     }
 
-    private ItemModelBuilder blockItemModel(Block block, String path, String modelName){
-        return blockItemModel(block, block, path, modelName);
+    private ItemModelBuilder blockItemModel(Block block, String modelName){
+        return blockItemModel(block, block, modelName);
     }
 
     private ItemModelBuilder blockItem(Block block, String path){
