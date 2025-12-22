@@ -1,7 +1,6 @@
 package net.egorplaytv.create_and_food.datagen.custom;
 
-import net.egorplaytv.create_and_food.item.ModItems;
-import net.egorplaytv.create_and_food.item.custom.IngotItem;
+import net.egorplaytv.create_and_food.item.CAFItems;
 import net.egorplaytv.create_and_food.item.custom.SequencedAssemblyItem;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
@@ -20,20 +19,20 @@ public final class ModItemModelsProperties {
 
     public static void init() {
         // Ingot Items
-        registerIngotItem(ModItems.STEEL_INGOT.get());
-        registerIngotItem(ModItems.GLOWING_BRASS_INGOT.get());
-        registerIngotItem(ModItems.ALLOY_SOULS_INGOT.get());
-        registerIngotItem(ModItems.TUNGSTEN_INGOT.get());
-        registerIngotItem(ModItems.TANTALUM_INGOT.get());
+        registerIngotItem(CAFItems.STEEL_INGOT.get());
+        registerIngotItem(CAFItems.GLOWING_BRASS_INGOT.get());
+        registerIngotItem(CAFItems.ALLOY_SOULS_INGOT.get());
+        registerIngotItem(CAFItems.TUNGSTEN_INGOT.get());
+        registerIngotItem(CAFItems.TANTALUM_INGOT.get());
 
         // Sequenced Assembly Progress Items
-        registerSequencedAssemblyProgress(ModItems.INCOMPLETE_IRON_KNIFE.get());
-        registerSequencedAssemblyProgress(ModItems.INCOMPLETE_DIAMOND_KNIFE.get());
-        registerSequencedAssemblyProgress(ModItems.INCOMPLETE_NETHERITE_KNIFE.get());
-        registerSequencedAssemblyProgress(ModItems.INCOMPLETE_GOLDEN_KNIFE.get());
-        registerSequencedAssemblyProgress(ModItems.INCOMPLETE_STEEL_KNIFE.get());
-        registerSequencedAssemblyProgress(ModItems.INCOMPLETE_TANTALUM_KNIFE.get());
-        registerSequencedAssemblyProgress(ModItems.INCOMPLETE_TUNGSTEN_KNIFE.get());
+        registerSequencedAssemblyProgress(CAFItems.INCOMPLETE_IRON_KNIFE.get());
+        registerSequencedAssemblyProgress(CAFItems.INCOMPLETE_DIAMOND_KNIFE.get());
+        registerSequencedAssemblyProgress(CAFItems.INCOMPLETE_NETHERITE_KNIFE.get());
+        registerSequencedAssemblyProgress(CAFItems.INCOMPLETE_GOLDEN_KNIFE.get());
+        registerSequencedAssemblyProgress(CAFItems.INCOMPLETE_STEEL_KNIFE.get());
+        registerSequencedAssemblyProgress(CAFItems.INCOMPLETE_TANTALUM_KNIFE.get());
+        registerSequencedAssemblyProgress(CAFItems.INCOMPLETE_TUNGSTEN_KNIFE.get());
     }
 
     public static void registerIngotItem(Item item) {

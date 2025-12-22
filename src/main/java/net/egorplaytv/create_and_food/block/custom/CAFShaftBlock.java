@@ -3,7 +3,6 @@ package net.egorplaytv.create_and_food.block.custom;
 import com.google.common.base.Predicates;
 import com.simibubi.create.AllBlocks;
 import com.simibubi.create.AllShapes;
-import com.simibubi.create.content.decoration.encasing.EncasableBlock;
 import com.simibubi.create.content.decoration.girder.GirderEncasedShaftBlock;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.content.kinetics.simpleRelays.AbstractSimpleShaftBlock;
@@ -13,7 +12,7 @@ import com.simibubi.create.foundation.placement.IPlacementHelper;
 import com.simibubi.create.foundation.placement.PlacementHelpers;
 import com.simibubi.create.foundation.placement.PlacementOffset;
 import com.simibubi.create.foundation.placement.PoleHelper;
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.entity.ModBlockEntities;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
@@ -43,7 +42,7 @@ public class CAFShaftBlock extends ShaftBlock {
     }
 
     public static boolean isShaft(BlockState state) {
-        return ModBlocks.STEEL_SHAFT.has(state);
+        return CAFBlocks.STEEL_SHAFT.has(state);
     }
 
     @Override
@@ -122,7 +121,7 @@ public class CAFShaftBlock extends ShaftBlock {
 
         @Override
         public Predicate<BlockState> getStatePredicate() {
-            return Predicates.or(ModBlocks.STEEL_SHAFT::has, AllBlocks.SHAFT::has, AllBlocks.POWERED_SHAFT::has);
+            return Predicates.or(CAFBlocks.STEEL_SHAFT::has, AllBlocks.SHAFT::has, AllBlocks.POWERED_SHAFT::has);
         }
 
         @Override

@@ -1,9 +1,8 @@
 package net.egorplaytv.create_and_food;
 
 import com.simibubi.create.AllItems;
-import net.egorplaytv.create_and_food.block.ModBlocks;
-import net.egorplaytv.create_and_food.block.entity.custom.MarbleBlastFurnaceBlockEntity;
-import net.egorplaytv.create_and_food.item.ModItems;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
+import net.egorplaytv.create_and_food.item.CAFItems;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.ComposterBlock;
 
@@ -18,30 +17,30 @@ public class Compostables {
         ComposterBlock.COMPOSTABLES.put(AllItems.HONEYED_APPLE.get(), 0.65F);
 
         //Create And Food
-        ComposterBlock.COMPOSTABLES.put(ModBlocks.ALMOND_LEAVES.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ModBlocks.ALMOND_SAPLING.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.RYE_SEEDS.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.RYE_FLOUR.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.BIZET.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.ALMOND_NUT.get(), 0.3F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.RYE.get(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.RYE_DOUGH.get(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.SMALL_DOUGH.get(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.EGG_SHELL.get(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.RAW_EGG.get(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.RAW_YOLK.get(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.RAW_PROTEIN.get(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.RAW_CAKE.get(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.RAW_BERRY_CAKE.get(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.RAW_GLOW_BERRY_CAKE.get(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.RAW_PIZZA.get(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.RAW_SWEET_ROLL.get(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.MOZZARELLA_CHEESE.get(), 0.65F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.GLOW_BERRY_CAKE.get(), 0.85F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.PIZZA.get(), 0.85F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.PIZZA_SLICE.get(), 0.1F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.BERRY_CAKE.get(), 0.85F);
-        ComposterBlock.COMPOSTABLES.put(ModItems.RYE_BREAD.get(), 0.85F);
+        ComposterBlock.COMPOSTABLES.put(CAFBlocks.ALMOND_LEAVES.get(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(CAFBlocks.ALMOND_SAPLING.get(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.RYE_SEEDS.get(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.RYE_FLOUR.get(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.BIZET.get(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.ALMOND_NUT.get(), 0.3F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.RYE.get(), 0.65F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.RYE_DOUGH.get(), 0.65F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.SMALL_DOUGH.get(), 0.65F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.EGG_SHELL.get(), 0.65F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.RAW_EGG.get(), 0.65F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.RAW_YOLK.get(), 0.65F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.RAW_PROTEIN.get(), 0.65F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.RAW_CAKE.get(), 0.65F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.RAW_BERRY_CAKE.get(), 0.65F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.RAW_GLOW_BERRY_CAKE.get(), 0.65F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.RAW_PIZZA.get(), 0.65F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.RAW_SWEET_ROLL.get(), 0.65F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.MOZZARELLA_CHEESE.get(), 0.65F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.GLOW_BERRY_CAKE.get(), 0.85F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.PIZZA.get(), 0.85F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.PIZZA_SLICE.get(), 0.1F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.BERRY_CAKE.get(), 0.85F);
+        ComposterBlock.COMPOSTABLES.put(CAFItems.RYE_BREAD.get(), 0.85F);
 
         //Minecraft
         ComposterBlock.COMPOSTABLES.put(Items.EGG, 0.65F);

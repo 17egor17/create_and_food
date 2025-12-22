@@ -1,7 +1,7 @@
 package net.egorplaytv.create_and_food.block.custom;
 
-import net.egorplaytv.create_and_food.block.ModBlocks;
-import net.egorplaytv.create_and_food.item.ModItems;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
+import net.egorplaytv.create_and_food.item.CAFItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -26,7 +26,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
@@ -57,7 +56,7 @@ public class RiceBlock extends BushBlock implements BonemealableBlock, LiquidBlo
                     float chance = 10.0F;
                     if (ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt((int)(25.0F / chance) + 1) == 0)) {
                         if (age == this.getMaxAge()) {
-                            RicePaniclesBlock riceUpper = (RicePaniclesBlock) ModBlocks.RICE_CROP_PANICLES.get();
+                            RicePaniclesBlock riceUpper = (RicePaniclesBlock) CAFBlocks.RICE_CROP_PANICLES.get();
                             if (riceUpper.defaultBlockState().canSurvive(worldIn, pos.above()) && worldIn.isEmptyBlock(pos.above())) {
                                 worldIn.setBlockAndUpdate(pos.above(), riceUpper.defaultBlockState());
                                 ForgeHooks.onCropsGrowPost(worldIn, pos, state);
@@ -110,7 +109,7 @@ public class RiceBlock extends BushBlock implements BonemealableBlock, LiquidBlo
     }
 
     public ItemStack getCloneItemStack(BlockGetter worldIn, BlockPos pos, BlockState state) {
-        return new ItemStack(ModItems.RICE.get());
+        return new ItemStack(CAFItems.RICE.get());
     }
 
     public BlockState withAge(int age) {
@@ -138,7 +137,7 @@ public class RiceBlock extends BushBlock implements BonemealableBlock, LiquidBlo
     }
 
     public boolean isSupportingRiceUpper(BlockState topState) {
-        return topState.getBlock() == ModBlocks.RICE_CROP_PANICLES.get();
+        return topState.getBlock() == CAFBlocks.RICE_CROP_PANICLES.get();
     }
 
     @Nullable
@@ -153,7 +152,7 @@ public class RiceBlock extends BushBlock implements BonemealableBlock, LiquidBlo
             Player player = context.getPlayer();
             Level level = context.getLevel();
             ItemStack itemStack = context.getItemInHand();
-            BlockState blockState = ModBlocks.RICE_PLANT.get().defaultBlockState();
+            BlockState blockState = CAFBlocks.RICE_PLANT.get().defaultBlockState();
             level.setBlock(blockpos, blockState, 3);
             if (player instanceof ServerPlayer){
                 CriteriaTriggers.PLACED_BLOCK.trigger((ServerPlayer)player, blockpos, itemStack);
@@ -192,13 +191,13 @@ public class RiceBlock extends BushBlock implements BonemealableBlock, LiquidBlo
             worldIn.setBlockAndUpdate(pos, state.setValue(AGE, ageGrowth));
         } else {
             BlockState top = worldIn.getBlockState(pos.above());
-            if (top.getBlock() == ModBlocks.RICE_CROP_PANICLES.get()) {
+            if (top.getBlock() == CAFBlocks.RICE_CROP_PANICLES.get()) {
                 BonemealableBlock growable = (BonemealableBlock)worldIn.getBlockState(pos.above()).getBlock();
                 if (growable.isValidBonemealTarget(worldIn, pos.above(), top, false)) {
                     growable.performBonemeal(worldIn, worldIn.random, pos.above(), top);
                 }
             } else {
-                RicePaniclesBlock riceUpper = (RicePaniclesBlock)ModBlocks.RICE_CROP_PANICLES.get();
+                RicePaniclesBlock riceUpper = (RicePaniclesBlock) CAFBlocks.RICE_CROP_PANICLES.get();
                 int remainingGrowth = ageGrowth - this.getMaxAge() - 1;
                 if (riceUpper.defaultBlockState().canSurvive(worldIn, pos.above()) && worldIn.isEmptyBlock(pos.above())) {
                     worldIn.setBlockAndUpdate(pos, state.setValue(AGE, this.getMaxAge()));

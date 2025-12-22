@@ -8,7 +8,7 @@ import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.ponder.scene.*;
 import net.minecraft.world.level.ItemLike;
 
-import static net.egorplaytv.create_and_food.block.ModBlocks.*;
+import static net.egorplaytv.create_and_food.block.CAFBlocks.*;
 
 public class CAFPonders {
     public static final PonderTag CREATE_AND_FOOD;

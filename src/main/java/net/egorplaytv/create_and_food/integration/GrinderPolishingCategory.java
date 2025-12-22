@@ -4,33 +4,25 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import javax.swing.*;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.compat.jei.category.CreateRecipeCategory;
 import com.simibubi.create.content.processing.recipe.ProcessingOutput;
 import com.simibubi.create.foundation.gui.AllGuiTextures;
 
-import com.simibubi.create.foundation.utility.Color;
-import com.simibubi.create.foundation.utility.Components;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
-import mezz.jei.api.helpers.IColorHelper;
 import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import net.egorplaytv.create_and_food.config.CAFConfigs;
-import net.egorplaytv.create_and_food.config.CAFRecipes;
 import net.egorplaytv.create_and_food.integration.animations.AnimatedGrinder;
 import net.egorplaytv.create_and_food.recipe.PolishingRecipe;
-import net.egorplaytv.create_and_food.screen.gui.ModGuiTextures;
+import net.egorplaytv.create_and_food.screen.gui.CAFGuiTextures;
 import net.egorplaytv.create_and_food.util.TextUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.components.ChatComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
-
-import static net.egorplaytv.create_and_food.CreateAndFood.MOD_ID;
 
 @ParametersAreNonnullByDefault
 public class GrinderPolishingCategory extends CreateRecipeCategory<PolishingRecipe> {
@@ -88,7 +80,7 @@ public class GrinderPolishingCategory extends CreateRecipeCategory<PolishingReci
         Minecraft.getInstance().font.draw(matrixStack,  text, (177 - width)/2.0f, 75, 0xFFFFFF);
 
         if (recipe.isFragile()) {
-            ModGuiTextures.JEI_FRAGILE.render(matrixStack, 120, 5);
+            CAFGuiTextures.JEI_FRAGILE.render(matrixStack, 120, 5);
             if (mouseX >= 120 && mouseX <= 133 && mouseY >= 5 && mouseY <= 28)
                 Minecraft.getInstance().screen.renderComponentTooltip(matrixStack, addToTooltip(new LinkedList<>()), (int)mouseX,  (int)mouseY);
         }

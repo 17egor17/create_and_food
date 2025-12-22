@@ -1,6 +1,6 @@
 package net.egorplaytv.create_and_food.world.feature.tree;
 
-import net.egorplaytv.create_and_food.world.feature.ModConfiguredFeatures;
+import net.egorplaytv.create_and_food.world.feature.CAFConfiguredFeatures;
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.block.grower.AbstractTreeGrower;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -12,6 +12,6 @@ public class AlmondTreeGrower extends AbstractTreeGrower {
     @Nullable
     @Override
     protected Holder<? extends ConfiguredFeature<?, ?>> getConfiguredFeature(Random pRandom, boolean pLargeHive) {
-        return ModConfiguredFeatures.ALMOND_TREE;
+        return CAFConfiguredFeatures.ALMOND_TREE;
     }
 }

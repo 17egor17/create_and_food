@@ -2,7 +2,7 @@ package net.egorplaytv.create_and_food.block.entity.renderer;
 
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,7 +20,7 @@ public class SteelShaftRenderer<T extends KineticBlockEntity> extends KineticBlo
     }
 
     public static BlockState steelShaft(Direction.Axis axis) {
-        return ModBlocks.STEEL_SHAFT.getDefaultState()
+        return CAFBlocks.STEEL_SHAFT.getDefaultState()
                 .setValue(BlockStateProperties.AXIS, axis);
     }
 

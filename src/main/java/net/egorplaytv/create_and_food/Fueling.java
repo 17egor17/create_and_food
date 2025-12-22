@@ -1,17 +1,11 @@
 package net.egorplaytv.create_and_food;
 
 import com.simibubi.create.AllItems;
-import net.egorplaytv.create_and_food.item.ModItems;
-import net.egorplaytv.create_and_food.util.ModTags;
+import net.egorplaytv.create_and_food.item.CAFItems;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
-import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 
 import static net.egorplaytv.create_and_food.block.entity.custom.MarbleBlastFurnaceBlockEntity.FUELS;
@@ -23,10 +17,10 @@ public class Fueling {
         add(AllItems.CREATIVE_BLAZE_CAKE.get(), 1000);
 
         //Create And Food
-        add(ModItems.ALLOY_SOULS_INGOT.get(), 1000);
-        add(ModItems.ALLOY_SOULS_SHEET.get(), 1000);
-        add(ModItems.ALLOY_SOULS.get(), 1000);
-        add(ModItems.ALLOY_SOULS_NUGGET.get(), 100);
+        add(CAFItems.ALLOY_SOULS_INGOT.get(), 1000);
+        add(CAFItems.ALLOY_SOULS_SHEET.get(), 1000);
+        add(CAFItems.ALLOY_SOULS.get(), 1000);
+        add(CAFItems.ALLOY_SOULS_NUGGET.get(), 100);
 
         //Minecraft
     }

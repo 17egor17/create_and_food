@@ -1,7 +1,6 @@
 package net.egorplaytv.create_and_food;
 
-import net.egorplaytv.create_and_food.item.ModItems;
-import net.egorplaytv.create_and_food.util.ModTags;
+import net.egorplaytv.create_and_food.util.CAFTags;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.core.Holder;
@@ -19,7 +18,7 @@ public class Sample {
 
 
         //Create And Food
-        add(ModTags.Items.TANTALUM, 7, "alloy", "tantalum");
+        add(CAFTags.Items.TANTALUM, 7, "alloy", "tantalum");
 
 
         //Forge

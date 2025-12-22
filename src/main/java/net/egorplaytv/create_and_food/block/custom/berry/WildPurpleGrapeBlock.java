@@ -1,7 +1,7 @@
 package net.egorplaytv.create_and_food.block.custom.berry;
 
-import net.egorplaytv.create_and_food.item.ModItems;
-import net.egorplaytv.create_and_food.util.ModTags;
+import net.egorplaytv.create_and_food.item.CAFItems;
+import net.egorplaytv.create_and_food.util.CAFTags;
 import net.egorplaytv.create_and_food.util.TextUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -26,7 +26,7 @@ public class WildPurpleGrapeBlock extends WildBerryBushBlock {
 
     @Override
     public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter level, BlockPos pos, Player player) {
-        return ModItems.PURPLE_GRAPE.get().getDefaultInstance();
+        return CAFItems.PURPLE_GRAPE.get().getDefaultInstance();
     }
 
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
@@ -34,8 +34,8 @@ public class WildPurpleGrapeBlock extends WildBerryBushBlock {
         boolean flag = i == MAX_AGE;
         if (!flag && pPlayer.getItemInHand(pHand).is(Items.BONE_MEAL)) {
             return InteractionResult.PASS;
-        } else if (pPlayer.getItemInHand(pHand).is(ModTags.Items.CUT_TOOLS) && pState.getValue(CUT) == Boolean.valueOf(false)) {
-            ItemStack setBranch = ModItems.PURPLE_GRAPE_SAPLING.get().getDefaultInstance();
+        } else if (pPlayer.getItemInHand(pHand).is(CAFTags.Items.CUT_TOOLS) && pState.getValue(CUT) == Boolean.valueOf(false)) {
+            ItemStack setBranch = CAFItems.PURPLE_GRAPE_SAPLING.get().getDefaultInstance();
             setBranch.setCount(5);
             pLevel.playSound((Player) null, pPos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0F, 0.8F + pLevel.random.nextFloat() * 0.4F);
             pLevel.setBlock(pPos, pState.setValue(CUT, Boolean.valueOf(true)), 2);
@@ -44,12 +44,12 @@ public class WildPurpleGrapeBlock extends WildBerryBushBlock {
             }
             ItemHandlerHelper.giveItemToPlayer(pPlayer, setBranch);
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
-        } else if (pPlayer.getItemInHand(pHand).is(ModTags.Items.CUT_TOOLS) && pState.getValue(CUT) == Boolean.valueOf(true)) {
+        } else if (pPlayer.getItemInHand(pHand).is(CAFTags.Items.CUT_TOOLS) && pState.getValue(CUT) == Boolean.valueOf(true)) {
             pPlayer.displayClientMessage(TextUtils.getWildBerryBushTranslation("circumcised", new Object[0]), true);
-        } else if (pPlayer.getItemInHand(pHand).is(ModTags.Items.CUT_TOOLS)) {
+        } else if (pPlayer.getItemInHand(pHand).is(CAFTags.Items.CUT_TOOLS)) {
             pPlayer.displayClientMessage(TextUtils.getWildBerryBushTranslation("circumcised", new Object[0]), true);
         } else if (i > 0) {
-            ItemStack setBerries = ModItems.PURPLE_GRAPE.get().getDefaultInstance();
+            ItemStack setBerries = CAFItems.PURPLE_GRAPE.get().getDefaultInstance();
             if (pState.getValue(AGE) == MAX_AGE) {
                 setBerries.setCount(5);
             } else if (pState.getValue(AGE) == 1) {

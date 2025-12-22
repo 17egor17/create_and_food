@@ -3,21 +3,14 @@ package net.egorplaytv.create_and_food.ponder.scene;
 import com.simibubi.create.foundation.ponder.SceneBuilder;
 import com.simibubi.create.foundation.ponder.SceneBuildingUtil;
 import com.simibubi.create.foundation.ponder.element.InputWindowElement;
-import com.simibubi.create.foundation.utility.NBTHelper;
 import com.simibubi.create.foundation.utility.Pointing;
-import net.egorplaytv.create_and_food.block.ModBlocks;
 import net.egorplaytv.create_and_food.block.entity.custom.ScalesBlockEntity;
-import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
-import net.egorplaytv.create_and_food.item.ModItems;
+import net.egorplaytv.create_and_food.item.CAFItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.items.ItemStackHandler;
-
-import java.util.Objects;
 
 public class ScalesScene {
     public static void scales(SceneBuilder scene, SceneBuildingUtil util) {
@@ -31,7 +24,7 @@ public class ScalesScene {
 
         BlockPos scalesPos = util.grid.at(2, 2, 2);
         Vec3 scalesSide = util.vector.blockSurface(scalesPos, Direction.WEST);
-        ItemStack steel_ingot = new ItemStack(ModItems.STEEL_INGOT.get());
+        ItemStack steel_ingot = new ItemStack(CAFItems.STEEL_INGOT.get());
         scene.idle(10);
 
 

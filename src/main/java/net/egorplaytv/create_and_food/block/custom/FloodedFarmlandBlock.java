@@ -1,6 +1,6 @@
 package net.egorplaytv.create_and_food.block.custom;
 
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -73,10 +73,10 @@ public class FloodedFarmlandBlock extends Block implements SimpleWaterloggedBloc
 
     public static void turnToDirtSlab(BlockState pState, Level pLevel, BlockPos pPos) {
         if (pState.getValue(WATERLOGGED)) {
-            pLevel.setBlockAndUpdate(pPos, pushEntitiesUp(pState, ModBlocks.FARMLAND_SUMP_DIRT.get().defaultBlockState()
+            pLevel.setBlockAndUpdate(pPos, pushEntitiesUp(pState, CAFBlocks.FARMLAND_SUMP_DIRT.get().defaultBlockState()
                     .setValue(DirtSlabBlock.WATERLOGGED, true), pLevel, pPos));
         } else {
-            pLevel.setBlockAndUpdate(pPos, pushEntitiesUp(pState, ModBlocks.FARMLAND_SUMP_DIRT.get().defaultBlockState(), pLevel, pPos));
+            pLevel.setBlockAndUpdate(pPos, pushEntitiesUp(pState, CAFBlocks.FARMLAND_SUMP_DIRT.get().defaultBlockState(), pLevel, pPos));
         }
     }
 
@@ -87,7 +87,7 @@ public class FloodedFarmlandBlock extends Block implements SimpleWaterloggedBloc
     }
 
     public boolean isFertile(BlockState state, BlockGetter world, BlockPos pos) {
-        if (state.is((Block) ModBlocks.FLOODED_FARMLAND.get())) {
+        if (state.is((Block) CAFBlocks.FLOODED_FARMLAND.get())) {
             return (Integer)state.getValue(MOISTURE) > 0;
         } else {
             return false;
@@ -118,7 +118,7 @@ public class FloodedFarmlandBlock extends Block implements SimpleWaterloggedBloc
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         FluidState fluidstate = pContext.getLevel().getFluidState(pContext.getClickedPos());
         return !this.defaultBlockState().canSurvive(pContext.getLevel(),
-                pContext.getClickedPos()) ? ModBlocks.FARMLAND_SUMP_DIRT.get().defaultBlockState()
+                pContext.getClickedPos()) ? CAFBlocks.FARMLAND_SUMP_DIRT.get().defaultBlockState()
                 : this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
     }
 
@@ -137,7 +137,7 @@ public class FloodedFarmlandBlock extends Block implements SimpleWaterloggedBloc
 
     public void fallOn(Level pLevel, BlockState pState, BlockPos pPos, Entity pEntity, float pFallDistance) {
         if (!pLevel.isClientSide && net.minecraftforge.common.ForgeHooks.onFarmlandTrample(pLevel, pPos,
-                ModBlocks.FARMLAND_SUMP_DIRT.get().defaultBlockState(), pFallDistance, pEntity)) {
+                CAFBlocks.FARMLAND_SUMP_DIRT.get().defaultBlockState(), pFallDistance, pEntity)) {
             turnToDirtSlab(pState, pLevel, pPos);
         }
 

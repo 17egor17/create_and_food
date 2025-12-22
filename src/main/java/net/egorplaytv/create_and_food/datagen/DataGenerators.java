@@ -14,9 +14,9 @@ public class DataGenerators {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(new ModRecipeProvider(generator));
-        generator.addProvider(new ModLootTableProvider(generator));
-        generator.addProvider(new ModBlockStateProvider(generator, existingFileHelper));
-        generator.addProvider(new ModItemModelProvider(generator, existingFileHelper));
+        generator.addProvider(new CAFRecipeProvider(generator));
+        generator.addProvider(new CAFLootTableProvider(generator));
+        generator.addProvider(new CAFBlockStateProvider(generator, existingFileHelper));
+        generator.addProvider(new CAFItemModelProvider(generator, existingFileHelper));
     }
 }

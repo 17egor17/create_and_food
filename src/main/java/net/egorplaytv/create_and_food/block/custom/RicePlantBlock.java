@@ -1,6 +1,6 @@
 package net.egorplaytv.create_and_food.block.custom;
 
-import net.egorplaytv.create_and_food.item.ModItems;
+import net.egorplaytv.create_and_food.item.CAFItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -68,7 +68,7 @@ public class RicePlantBlock extends FloodedCropBlock {
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return ModItems.RICE.get();
+        return CAFItems.RICE.get();
     }
 
     @Override

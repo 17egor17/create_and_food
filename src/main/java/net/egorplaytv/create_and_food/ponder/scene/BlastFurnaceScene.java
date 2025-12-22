@@ -5,7 +5,7 @@ import com.simibubi.create.foundation.ponder.SceneBuilder;
 import com.simibubi.create.foundation.ponder.SceneBuildingUtil;
 import com.simibubi.create.foundation.ponder.element.InputWindowElement;
 import com.simibubi.create.foundation.utility.Pointing;
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.custom.MarbleBlastFurnaceBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -24,7 +24,7 @@ public class BlastFurnaceScene {
         scene.idle(5);
         BlockPos furnacePos = util.grid.at(2, 1, 2);
         scene.world.showSection(util.select.position(furnacePos), Direction.NORTH);
-        Block furnace = ModBlocks.MARBLE_BLAST_FURNACE.get();
+        Block furnace = CAFBlocks.MARBLE_BLAST_FURNACE.get();
         ItemStack air = Items.AIR.getDefaultInstance();
         ItemStack blaze_cake = AllItems.BLAZE_CAKE.asStack();
         scene.idle(20);

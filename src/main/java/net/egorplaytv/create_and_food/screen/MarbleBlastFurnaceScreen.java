@@ -3,8 +3,8 @@ package net.egorplaytv.create_and_food.screen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.egorplaytv.create_and_food.CreateAndFood;
-import net.egorplaytv.create_and_food.block.ModBlocks;
-import net.egorplaytv.create_and_food.screen.gui.ModGuiTextures;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
+import net.egorplaytv.create_and_food.screen.gui.CAFGuiTextures;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
@@ -37,7 +37,7 @@ public class MarbleBlastFurnaceScreen extends AbstractContainerScreen<MarbleBlas
 
         this.blit(pPoseStack, x, y,0,0, 167, 153);
 
-        ModGuiTextures.STEEL_INVENTORY_LEFT.render(pPoseStack,x + 59, y + 72);
+        CAFGuiTextures.STEEL_INVENTORY_LEFT.render(pPoseStack,x + 59, y + 72);
 
         RenderSystem.setShaderTexture(0, WIDGETS);
         if (menu.isCrafting()) {
@@ -52,11 +52,11 @@ public class MarbleBlastFurnaceScreen extends AbstractContainerScreen<MarbleBlas
     protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
-        this.font.draw(poseStack, ModBlocks.MARBLE_BLAST_FURNACE.get().getName(), 3, 4, 0xFFffffff);
+        this.font.draw(poseStack, CAFBlocks.MARBLE_BLAST_FURNACE.get().getName(), 3, 4, 0xFFffffff);
         this.font.draw(poseStack, new TranslatableComponent("ui.inventory"), 63, 75, 0xFF808080);
         this.font.draw(poseStack, menu.getDegreeProgress(), 5, 134, 0xFF606060);
         if (menu.isDeg()) {
-            this.font.draw(poseStack, menu.getDegProgress(), 46, 56, 0xFF8b8b8b);
+            this.font.draw(poseStack, menu.getDegProgress(), 46, 57, 0xFF8b8b8b);
         }
     }
 

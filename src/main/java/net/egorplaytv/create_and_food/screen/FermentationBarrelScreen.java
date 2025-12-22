@@ -3,8 +3,8 @@ package net.egorplaytv.create_and_food.screen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.egorplaytv.create_and_food.CreateAndFood;
-import net.egorplaytv.create_and_food.block.ModBlocks;
-import net.egorplaytv.create_and_food.screen.gui.ModGuiTextures;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
+import net.egorplaytv.create_and_food.screen.gui.CAFGuiTextures;
 import net.egorplaytv.create_and_food.screen.renderer.FluidTankRenderer;
 import net.egorplaytv.create_and_food.util.MouseUtil;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -55,7 +55,7 @@ public class FermentationBarrelScreen extends AbstractContainerScreen<Fermentati
 
         renderer.render(pPoseStack, x + 128, y + 19, menu.getFluidStackOut());
 
-        ModGuiTextures.COPPER_INVENTORY_LEFT.render(pPoseStack, x + 24, y + 83);
+        CAFGuiTextures.COPPER_INVENTORY_LEFT.render(pPoseStack, x + 24, y + 83);
 
         RenderSystem.setShaderTexture(0, WIDGETS);
         blit(pPoseStack, x + 32, y + 19, 0, 49, 16, 56);
@@ -69,7 +69,7 @@ public class FermentationBarrelScreen extends AbstractContainerScreen<Fermentati
     protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
-        this.font.draw(poseStack, ModBlocks.FERMENTATION_BARREL.get().getName(), 3, 4, 0xFF606060);
+        this.font.draw(poseStack, CAFBlocks.FERMENTATION_BARREL.get().getName(), 3, 4, 0xFF606060);
         this.font.draw(poseStack, new TranslatableComponent("ui.inventory"), 28, 86, 0xFF606060);
 
         renderFluidAreaInputTooltips(poseStack, mouseX, mouseY, x, y);

@@ -1,33 +1,19 @@
 package net.egorplaytv.create_and_food.item.custom;
 
-import net.egorplaytv.create_and_food.damage.ModDamageSource;
+import net.egorplaytv.create_and_food.damage.CAFDamageSource;
 import net.egorplaytv.create_and_food.item.entity.custom.IIEntity;
 import net.egorplaytv.create_and_food.util.TextUtils;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.item.ItemEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.FlowingFluid;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.common.Tags;
 
 import java.util.List;
 
@@ -51,31 +37,31 @@ public class IngotItem extends Item {
         if (deg >= 5000) {
             ++damageTick;
             if (damageTick >= 20) {
-                pEntity.hurt(ModDamageSource.HOT_METAL, 20);
+                pEntity.hurt(CAFDamageSource.HOT_METAL, 20);
                 damageTick = 0;
             }
         } else if (deg >= 1000) {
             ++damageTick;
             if (damageTick >= 20) {
-                pEntity.hurt(ModDamageSource.HOT_METAL, 10);
+                pEntity.hurt(CAFDamageSource.HOT_METAL, 10);
                 damageTick = 0;
             }
         } else if (deg >= 500) {
             ++damageTick;
             if (damageTick >= 20) {
-                pEntity.hurt(ModDamageSource.HOT_METAL, 4);
+                pEntity.hurt(CAFDamageSource.HOT_METAL, 4);
                 damageTick = 0;
             }
         } else if (deg >= 100) {
             ++damageTick;
             if (damageTick >= 20) {
-                pEntity.hurt(ModDamageSource.HOT_METAL, 2);
+                pEntity.hurt(CAFDamageSource.HOT_METAL, 2);
                 damageTick = 0;
             }
         } else if (deg >= 60) {
             ++damageTick;
             if (damageTick >= 20) {
-                pEntity.hurt(ModDamageSource.HOT_METAL, 1);
+                pEntity.hurt(CAFDamageSource.HOT_METAL, 1);
                 damageTick = 0;
             }
         }

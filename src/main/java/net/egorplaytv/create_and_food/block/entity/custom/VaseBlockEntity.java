@@ -2,14 +2,13 @@ package net.egorplaytv.create_and_food.block.entity.custom;
 
 import net.egorplaytv.create_and_food.block.entity.ModBlockEntities;
 import net.egorplaytv.create_and_food.entity.WrappedFluidHandler;
-import net.egorplaytv.create_and_food.fluid.ModFluids;
+import net.egorplaytv.create_and_food.fluid.CAFFluids;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.fluids.FluidStack;
@@ -34,7 +33,7 @@ public class VaseBlockEntity extends BlockEntity {
 
     public VaseBlockEntity(BlockPos pPos, BlockState pBlockState){
         super(ModBlockEntities.VASE_BLOCK_ENTITY.get(), pPos, pBlockState);
-        setFluid(new FluidStack(ModFluids.NIXIE_FLUID.get(), random(pBlockState)));
+        setFluid(new FluidStack(CAFFluids.NIXIE_FLUID.get(), random(pBlockState)));
     }
 
     public void setIsOpen(){

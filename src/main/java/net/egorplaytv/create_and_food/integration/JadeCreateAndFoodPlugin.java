@@ -3,17 +3,13 @@ package net.egorplaytv.create_and_food.integration;
 import mcp.mobius.waila.api.*;
 import mcp.mobius.waila.api.config.IPluginConfig;
 import net.egorplaytv.create_and_food.block.custom.berry.*;
-import net.egorplaytv.create_and_food.item.ModItems;
+import net.egorplaytv.create_and_food.item.CAFItems;
 import net.minecraft.ChatFormatting;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.api.distmarker.Dist;
@@ -23,7 +19,7 @@ import snownee.jade.addon.harvest.SimpleToolHandler;
 import snownee.jade.addon.vanilla.VanillaProvider;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
-import static net.egorplaytv.create_and_food.util.ModTags.Blocks.MINEABLE_WITH_HAMMER;
+import static net.egorplaytv.create_and_food.util.CAFTags.Blocks.MINEABLE_WITH_HAMMER;
 import static snownee.jade.addon.harvest.HarvestToolProvider.registerHandler;
 import static vectorwing.farmersdelight.common.registry.ModItems.IRON_KNIFE;
 
@@ -48,23 +44,23 @@ public class JadeCreateAndFoodPlugin implements IWailaPlugin {
         public ToolProvider(){
             registerHandler(new SimpleToolHandler("pickaxe", BlockTags.MINEABLE_WITH_PICKAXE,
                     new Item[]{Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE,
-                            Items.NETHERITE_PICKAXE, ModItems.TANTALUM_PICKAXE.get(), ModItems.TUNGSTEN_PICKAXE.get()}));
+                            Items.NETHERITE_PICKAXE, CAFItems.TANTALUM_PICKAXE.get(), CAFItems.TUNGSTEN_PICKAXE.get()}));
 
             registerHandler(new SimpleToolHandler("axe", BlockTags.MINEABLE_WITH_AXE,
                     new Item[]{Items.WOODEN_AXE, Items.STONE_AXE, Items.IRON_AXE, Items.DIAMOND_AXE, Items.NETHERITE_AXE,
-                            ModItems.TANTALUM_AXE.get(), ModItems.TUNGSTEN_AXE.get()}));
+                            CAFItems.TANTALUM_AXE.get(), CAFItems.TUNGSTEN_AXE.get()}));
 
             registerHandler(new SimpleToolHandler("shovel", BlockTags.MINEABLE_WITH_SHOVEL,
                     new Item[]{Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL,
-                            Items.NETHERITE_SHOVEL, ModItems.TANTALUM_SHOVEL.get(), ModItems.TUNGSTEN_SHOVEL.get()}));
+                            Items.NETHERITE_SHOVEL, CAFItems.TANTALUM_SHOVEL.get(), CAFItems.TUNGSTEN_SHOVEL.get()}));
 
             registerHandler(new SimpleToolHandler("hoe", BlockTags.MINEABLE_WITH_HOE,
                     new Item[]{Items.WOODEN_HOE, Items.STONE_HOE, Items.IRON_HOE, Items.DIAMOND_HOE,
-                            Items.NETHERITE_HOE, ModItems.TANTALUM_HOE.get(), ModItems.TUNGSTEN_HOE.get()}));
+                            Items.NETHERITE_HOE, CAFItems.TANTALUM_HOE.get(), CAFItems.TUNGSTEN_HOE.get()}));
 
 
             registerHandler(new SimpleToolHandler("hammer", MINEABLE_WITH_HAMMER,
-                    new Item[]{ModItems.STEEL_HAMMER.get(), ModItems.TANTALUM_HAMMER.get(), ModItems.TUNGSTEN_HAMMER.get()}));
+                    new Item[]{CAFItems.STEEL_HAMMER.get(), CAFItems.TANTALUM_HAMMER.get(), CAFItems.TUNGSTEN_HAMMER.get()}));
 
             registerHandler(new SimpleToolHandler("knife", ModTags.MINEABLE_WITH_KNIFE, IRON_KNIFE.get()));
         }

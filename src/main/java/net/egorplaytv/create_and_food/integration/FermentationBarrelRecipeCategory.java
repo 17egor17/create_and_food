@@ -13,7 +13,7 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.egorplaytv.create_and_food.CreateAndFood;
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.recipe.FermentationBarrelRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -21,8 +21,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.ItemLike;
-import net.minecraftforge.fluids.FluidStack;
 
 import java.util.List;
 
@@ -42,7 +40,7 @@ public class FermentationBarrelRecipeCategory implements IRecipeCategory<Ferment
 
     public FermentationBarrelRecipeCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0,0,140,90);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.FERMENTATION_BARREL.get()));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(CAFBlocks.FERMENTATION_BARREL.get()));
         this.arrow = helper.drawableBuilder(WIDGETS, 177,0,24,12).buildAnimated(200, IDrawableAnimated.StartDirection.LEFT, false);
         this.fluidTank = helper.createDrawable(WIDGETS, 0,49,16,63);
         this.fluidTankOut = helper.createDrawable(WIDGETS, 16, 49, 16, 63);

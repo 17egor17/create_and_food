@@ -2,11 +2,8 @@ package net.egorplaytv.create_and_food.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import net.egorplaytv.create_and_food.CreateAndFood;
-import net.egorplaytv.create_and_food.block.ModBlocks;
-import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
-import net.egorplaytv.create_and_food.config.DegreeUnits;
-import net.egorplaytv.create_and_food.screen.gui.ModGuiTextures;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
+import net.egorplaytv.create_and_food.screen.gui.CAFGuiTextures;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
@@ -41,13 +38,13 @@ public class SampleOfMetalsScreen extends AbstractContainerScreen<SampleOfMetals
 
         this.blit(pPoseStack, x, y,0,0, 237, 172);
 
-        ModGuiTextures.INVENTORY_RIGHT.render(pPoseStack, x + 67, y + 131);
+        CAFGuiTextures.INVENTORY_RIGHT.render(pPoseStack, x + 67, y + 131);
     }
 
     public void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
-        this.font.draw(poseStack, ModBlocks.TERMINAL.get().getName(), 38, 9, 0xFFffffff);
+        this.font.draw(poseStack, CAFBlocks.TERMINAL.get().getName(), 38, 9, 0xFFffffff);
         this.font.draw(poseStack, new TranslatableComponent("ui.inventory"), 165, 134, 0xFF808080);
         if (menu.isItem()) {
             this.font.draw(poseStack, menu.blockEntity.getItemName(), 38, 21, 0xFF808080);

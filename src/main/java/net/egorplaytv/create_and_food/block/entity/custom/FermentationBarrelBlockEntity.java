@@ -5,7 +5,7 @@ import net.egorplaytv.create_and_food.block.custom.FermentationBarrelBlock;
 import net.egorplaytv.create_and_food.block.entity.ModBlockEntities;
 import net.egorplaytv.create_and_food.entity.WrappedFluidHandler;
 import net.egorplaytv.create_and_food.entity.WrappedHandler;
-import net.egorplaytv.create_and_food.networking.ModMessages;
+import net.egorplaytv.create_and_food.networking.CAFMessages;
 import net.egorplaytv.create_and_food.networking.packet.FermantionBarrelFluidPacket;
 import net.egorplaytv.create_and_food.networking.packet.FermantionBarrelFluidPacketOut;
 import net.egorplaytv.create_and_food.recipe.FermentationBarrelRecipe;
@@ -71,7 +71,7 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
         protected void onContentsChanged() {
             setChanged();
             if (!level.isClientSide()) {
-                ModMessages.sendToClients(new FermantionBarrelFluidPacket(this.fluid, worldPosition));
+                CAFMessages.sendToClients(new FermantionBarrelFluidPacket(this.fluid, worldPosition));
             }
         }
     };
@@ -89,7 +89,7 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
         protected void onContentsChanged() {
             setChanged();
             if (!level.isClientSide()) {
-                ModMessages.sendToClients(new FermantionBarrelFluidPacketOut(this.fluid, worldPosition));
+                CAFMessages.sendToClients(new FermantionBarrelFluidPacketOut(this.fluid, worldPosition));
             }
         }
     };
@@ -170,8 +170,8 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        ModMessages.sendToClients(new FermantionBarrelFluidPacket(this.getFluid(), worldPosition));
-        ModMessages.sendToClients(new FermantionBarrelFluidPacketOut(this.getFluidOut(), worldPosition));
+        CAFMessages.sendToClients(new FermantionBarrelFluidPacket(this.getFluid(), worldPosition));
+        CAFMessages.sendToClients(new FermantionBarrelFluidPacketOut(this.getFluidOut(), worldPosition));
         return new FermentationBarrelMenu(pContainerId, pInventory, this, this.data);
     }
 

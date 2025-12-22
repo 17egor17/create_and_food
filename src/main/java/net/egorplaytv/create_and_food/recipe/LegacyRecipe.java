@@ -55,6 +55,6 @@ public class LegacyRecipe extends CustomRecipe {
     @NonNull
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ModRecipes.LEGACY_RECIPE.get();
+        return CAFRecipes.LEGACY_RECIPE.get();
     }
 }

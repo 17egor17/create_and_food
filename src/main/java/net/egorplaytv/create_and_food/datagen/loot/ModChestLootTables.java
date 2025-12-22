@@ -1,21 +1,19 @@
 package net.egorplaytv.create_and_food.datagen.loot;
 
 import net.egorplaytv.create_and_food.CreateAndFood;
-import net.egorplaytv.create_and_food.item.ModItems.*;
 import net.minecraft.data.loot.ChestLoot;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.function.BiConsumer;
 
-import static net.egorplaytv.create_and_food.item.ModItems.*;
+import static net.egorplaytv.create_and_food.item.CAFItems.*;
 
 public class ModChestLootTables extends ChestLoot {
     public static final ResourceLocation VILLAGE_CONFECTIONER_HOUSE =

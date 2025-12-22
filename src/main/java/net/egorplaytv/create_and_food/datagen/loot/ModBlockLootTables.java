@@ -4,7 +4,7 @@ import net.egorplaytv.create_and_food.block.custom.RicePaniclesBlock;
 import net.egorplaytv.create_and_food.block.custom.RicePlantBlock;
 import net.egorplaytv.create_and_food.block.custom.RyePlantBlock;
 import net.egorplaytv.create_and_food.block.custom.berry.*;
-import net.egorplaytv.create_and_food.item.ModItems;
+import net.egorplaytv.create_and_food.item.CAFItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.level.block.Block;
@@ -18,7 +18,7 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.registries.RegistryObject;
 
-import static net.egorplaytv.create_and_food.block.ModBlocks.*;
+import static net.egorplaytv.create_and_food.block.CAFBlocks.*;
 
 public class ModBlockLootTables extends BlockLoot {
 
@@ -33,8 +33,8 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(GLOWING_BRASS_STEEL_LANTERN.get());
         this.dropSelf(LANTERN.get());
         this.dropSelf(SOUL_LANTERN.get());
-        this.dropOther(ALMOND_WALL_SIGN.get(), ModItems.ALMOND_SIGN.get());
-        this.dropOther(ALMOND_SIGN.get(), ModItems.ALMOND_SIGN.get());
+        this.dropOther(ALMOND_WALL_SIGN.get(), CAFItems.ALMOND_SIGN.get());
+        this.dropOther(ALMOND_SIGN.get(), CAFItems.ALMOND_SIGN.get());
         this.add(ALMOND_DOOR.get(), BlockLoot::createDoorTable);
         this.dropSelf(ALMOND_TRAPDOOR.get());
         this.dropSelf(ALMOND_BUTTON.get());
@@ -88,26 +88,26 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(FRAMED_CALCITE.get());
         this.dropSelf(STEEL_LAMP_BLOCK.get());
         this.add(RUBY_ORE.get(),
-                (block) -> createOreDrop(RUBY_ORE.get(), ModItems.RAW_RUBY.get()));
+                (block) -> createOreDrop(RUBY_ORE.get(), CAFItems.RAW_RUBY.get()));
         this.add(DEEPSLATE_RUBY_ORE.get(),
-                (block) -> createOreDrop(DEEPSLATE_RUBY_ORE.get(), ModItems.RAW_RUBY.get()));
+                (block) -> createOreDrop(DEEPSLATE_RUBY_ORE.get(), CAFItems.RAW_RUBY.get()));
         this.dropSelf(RAW_RUBY_BLOCK.get());
         this.dropSelf(RUBY_BLOCK.get());
         this.add(STONE_TANTALUM_ORE.get(),
-                (block) -> createOreDrop(STONE_TANTALUM_ORE.get(), ModItems.RAW_TANTALUM.get()));
+                (block) -> createOreDrop(STONE_TANTALUM_ORE.get(), CAFItems.RAW_TANTALUM.get()));
         this.add(DEEPSLATE_TANTALUM_ORE.get(),
-                (block) -> createOreDrop(DEEPSLATE_TANTALUM_ORE.get(), ModItems.RAW_TANTALUM.get()));
+                (block) -> createOreDrop(DEEPSLATE_TANTALUM_ORE.get(), CAFItems.RAW_TANTALUM.get()));
         this.add(TANTALUM_ORE.get(),
-                (block) -> createOreDrop(TANTALUM_ORE.get(), ModItems.RAW_TANTALUM.get()));
+                (block) -> createOreDrop(TANTALUM_ORE.get(), CAFItems.RAW_TANTALUM.get()));
         this.add(BLACKSTONE_TANTALUM_ORE.get(),
-                (block) -> createOreDrop(BLACKSTONE_TANTALUM_ORE.get(), ModItems.RAW_TANTALUM.get()));
+                (block) -> createOreDrop(BLACKSTONE_TANTALUM_ORE.get(), CAFItems.RAW_TANTALUM.get()));
         this.dropSelf(RAW_TANTALUM_BLOCK.get());
         this.add(TUNGSTEN_ORE.get(),
-                (block) -> createOreDrop(TUNGSTEN_ORE.get(), ModItems.RAW_TUNGSTEN.get()));
+                (block) -> createOreDrop(TUNGSTEN_ORE.get(), CAFItems.RAW_TUNGSTEN.get()));
         this.add(STONE_TUNGSTEN_ORE.get(),
-                (block) -> createOreDrop(STONE_TUNGSTEN_ORE.get(), ModItems.RAW_TUNGSTEN.get()));
+                (block) -> createOreDrop(STONE_TUNGSTEN_ORE.get(), CAFItems.RAW_TUNGSTEN.get()));
         this.add(DEEPSLATE_TUNGSTEN_ORE.get(),
-                (block) -> createOreDrop(DEEPSLATE_TUNGSTEN_ORE.get(), ModItems.RAW_TUNGSTEN.get()));
+                (block) -> createOreDrop(DEEPSLATE_TUNGSTEN_ORE.get(), CAFItems.RAW_TUNGSTEN.get()));
         this.dropSelf(RAW_TUNGSTEN_BLOCK.get());
         this.add(FARMLAND_SUMP_SAND.get(), BlockLoot::createSlabItemTable);
         this.add(FARMLAND_SUMP_RED_SAND.get(), BlockLoot::createSlabItemTable);
@@ -126,11 +126,11 @@ public class ModBlockLootTables extends BlockLoot {
         LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
                 .hasBlockStateProperties(RYE_PLANT.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(RyePlantBlock.AGE, 7));
-        this.add(RYE_PLANT.get(), createCropDrops(RYE_PLANT.get(), ModItems.RYE.get(),
-                ModItems.RYE_SEEDS.get(), lootitemcondition$builder));
+        this.add(RYE_PLANT.get(), createCropDrops(RYE_PLANT.get(), CAFItems.RYE.get(),
+                CAFItems.RYE_SEEDS.get(), lootitemcondition$builder));
         this.add(RICE_PLANT.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
-                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.RICE.get()))
+                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(CAFItems.RICE.get()))
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(RICE_PLANT.get())
                                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(RicePlantBlock.AGE, 7)))
@@ -138,7 +138,7 @@ public class ModBlockLootTables extends BlockLoot {
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))));
         this.add(RICE_CROP.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
-                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.RICE.get()))
+                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(CAFItems.RICE.get()))
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))));
         this.add(RICE_CROP_PANICLES.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
@@ -148,141 +148,141 @@ public class ModBlockLootTables extends BlockLoot {
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))));
         this.add(BLUEBERRY_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
-                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.BLUEBERRY_SAPLING.get()))
+                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(CAFItems.BLUEBERRY_SAPLING.get()))
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BLUEBERRY_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlueberryBlock.AGE, 6)))
-                                .add(LootItem.lootTableItem(ModItems.BLUEBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                                .add(LootItem.lootTableItem(CAFItems.BLUEBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BLUEBERRY_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlueberryBlock.AGE, 7)))
-                                .add(LootItem.lootTableItem(ModItems.BLUEBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+                                .add(LootItem.lootTableItem(CAFItems.BLUEBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
         this.add(WILD_BLUEBERRY_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_BLUEBERRY_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildBlueberryBlock.AGE, 1)))
-                                .add(LootItem.lootTableItem(ModItems.BLUEBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                                .add(LootItem.lootTableItem(CAFItems.BLUEBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_BLUEBERRY_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildBlueberryBlock.AGE, 2)))
-                                .add(LootItem.lootTableItem(ModItems.BLUEBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+                                .add(LootItem.lootTableItem(CAFItems.BLUEBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
 
         this.add(CRANBERRY_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
-                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.CRANBERRY_SAPLING.get()))
+                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(CAFItems.CRANBERRY_SAPLING.get()))
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(CRANBERRY_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CranberryBlock.AGE, 6)))
-                                .add(LootItem.lootTableItem(ModItems.CRANBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                                .add(LootItem.lootTableItem(CAFItems.CRANBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(CRANBERRY_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(CranberryBlock.AGE, 7)))
-                                .add(LootItem.lootTableItem(ModItems.CRANBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+                                .add(LootItem.lootTableItem(CAFItems.CRANBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
         this.add(WILD_CRANBERRY_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_CRANBERRY_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildCranberryBlock.AGE, 1)))
-                                .add(LootItem.lootTableItem(ModItems.CRANBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                                .add(LootItem.lootTableItem(CAFItems.CRANBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_CRANBERRY_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildCranberryBlock.AGE, 2)))
-                                .add(LootItem.lootTableItem(ModItems.CRANBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+                                .add(LootItem.lootTableItem(CAFItems.CRANBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
 
         this.add(RASPBERRY_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
-                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.RASPBERRY_SAPLING.get()))
+                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(CAFItems.RASPBERRY_SAPLING.get()))
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(RASPBERRY_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(RaspberryBlock.AGE, 6)))
-                                .add(LootItem.lootTableItem(ModItems.RASPBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                                .add(LootItem.lootTableItem(CAFItems.RASPBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(RASPBERRY_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(RaspberryBlock.AGE, 7)))
-                                .add(LootItem.lootTableItem(ModItems.RASPBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+                                .add(LootItem.lootTableItem(CAFItems.RASPBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
         this.add(WILD_RASPBERRY_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_RASPBERRY_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildRaspberryBlock.AGE, 1)))
-                                .add(LootItem.lootTableItem(ModItems.RASPBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                                .add(LootItem.lootTableItem(CAFItems.RASPBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_RASPBERRY_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildRaspberryBlock.AGE, 2)))
-                                .add(LootItem.lootTableItem(ModItems.RASPBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+                                .add(LootItem.lootTableItem(CAFItems.RASPBERRY.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
 
         this.add(BLUE_GRAPE_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
-                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.BLUE_GRAPE_SAPLING.get()))
+                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(CAFItems.BLUE_GRAPE_SAPLING.get()))
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BLUE_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlueGrapeBlock.AGE, 6)))
-                                .add(LootItem.lootTableItem(ModItems.BLUE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                                .add(LootItem.lootTableItem(CAFItems.BLUE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(BLUE_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(BlueGrapeBlock.AGE, 7)))
-                                .add(LootItem.lootTableItem(ModItems.BLUE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+                                .add(LootItem.lootTableItem(CAFItems.BLUE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
         this.add(WILD_BLUE_GRAPE_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_BLUE_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildBlueGrapeBlock.AGE, 1)))
-                                .add(LootItem.lootTableItem(ModItems.BLUE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                                .add(LootItem.lootTableItem(CAFItems.BLUE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_BLUE_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildBlueGrapeBlock.AGE, 2)))
-                                .add(LootItem.lootTableItem(ModItems.BLUE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+                                .add(LootItem.lootTableItem(CAFItems.BLUE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
 
         this.add(GREEN_GRAPE_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
-                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.GREEN_GRAPE_SAPLING.get()))
+                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(CAFItems.GREEN_GRAPE_SAPLING.get()))
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(GREEN_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GreenGrapeBlock.AGE, 6)))
-                                .add(LootItem.lootTableItem(ModItems.GREEN_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                                .add(LootItem.lootTableItem(CAFItems.GREEN_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(GREEN_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(GreenGrapeBlock.AGE, 7)))
-                                .add(LootItem.lootTableItem(ModItems.GREEN_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+                                .add(LootItem.lootTableItem(CAFItems.GREEN_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
         this.add(WILD_GREEN_GRAPE_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_GREEN_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildGreenGrapeBlock.AGE, 1)))
-                                .add(LootItem.lootTableItem(ModItems.GREEN_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                                .add(LootItem.lootTableItem(CAFItems.GREEN_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_GREEN_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildGreenGrapeBlock.AGE, 2)))
-                                .add(LootItem.lootTableItem(ModItems.GREEN_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+                                .add(LootItem.lootTableItem(CAFItems.GREEN_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
 
         this.add(PURPLE_GRAPE_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
-                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.PURPLE_GRAPE_SAPLING.get()))
+                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(CAFItems.PURPLE_GRAPE_SAPLING.get()))
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(PURPLE_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PurpleGrapeBlock.AGE, 6)))
-                                .add(LootItem.lootTableItem(ModItems.PURPLE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                                .add(LootItem.lootTableItem(CAFItems.PURPLE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(PURPLE_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PurpleGrapeBlock.AGE, 7)))
-                                .add(LootItem.lootTableItem(ModItems.PURPLE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+                                .add(LootItem.lootTableItem(CAFItems.PURPLE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
         this.add(WILD_PURPLE_GRAPE_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_PURPLE_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildPurpleGrapeBlock.AGE, 1)))
-                                .add(LootItem.lootTableItem(ModItems.PURPLE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                                .add(LootItem.lootTableItem(CAFItems.PURPLE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_PURPLE_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildPurpleGrapeBlock.AGE, 2)))
-                                .add(LootItem.lootTableItem(ModItems.PURPLE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+                                .add(LootItem.lootTableItem(CAFItems.PURPLE_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
 
         this.add(RED_GRAPE_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
-                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(ModItems.RED_GRAPE_SAPLING.get()))
+                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(CAFItems.RED_GRAPE_SAPLING.get()))
                                 .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(RED_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(RedGrapeBlock.AGE, 6)))
-                                .add(LootItem.lootTableItem(ModItems.RED_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                                .add(LootItem.lootTableItem(CAFItems.RED_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(RED_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(RedGrapeBlock.AGE, 7)))
-                                .add(LootItem.lootTableItem(ModItems.RED_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+                                .add(LootItem.lootTableItem(CAFItems.RED_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
         this.add(WILD_RED_GRAPE_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_RED_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildRedGrapeBlock.AGE, 1)))
-                                .add(LootItem.lootTableItem(ModItems.RED_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                                .add(LootItem.lootTableItem(CAFItems.RED_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_RED_GRAPE_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildRedGrapeBlock.AGE, 2)))
-                                .add(LootItem.lootTableItem(ModItems.RED_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+                                .add(LootItem.lootTableItem(CAFItems.RED_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
 
         this.add(PUMPKIN_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
                         .withPool(LootPool.lootPool()
-                                .add(LootItem.lootTableItem(ModItems.PUMPKIN_SEEDS.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
+                                .add(LootItem.lootTableItem(CAFItems.PUMPKIN_SEEDS.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(PUMPKIN_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(PumpkinBushBlock.AGE, 7)))
                                 .add(LootItem.lootTableItem(Blocks.PUMPKIN.asItem())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))));
@@ -297,7 +297,7 @@ public class ModBlockLootTables extends BlockLoot {
         this.add(MELON_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
                         .withPool(LootPool.lootPool()
-                                .add(LootItem.lootTableItem(ModItems.MELON_SEEDS.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
+                                .add(LootItem.lootTableItem(CAFItems.MELON_SEEDS.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
                         .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(MELON_BUSH.get())
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MelonBushBlock.AGE, 7)))
                                 .add(LootItem.lootTableItem(Blocks.MELON.asItem())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))));

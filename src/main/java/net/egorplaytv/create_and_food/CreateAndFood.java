@@ -11,19 +11,15 @@ import net.egorplaytv.create_and_food.config.CreateAndFoodClientConfigs;
 import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
 import net.egorplaytv.create_and_food.data.CAFRegistrate;
 import net.egorplaytv.create_and_food.item.ItemEntities;
-import net.egorplaytv.create_and_food.networking.ModMessages;
+import net.egorplaytv.create_and_food.networking.CAFMessages;
 import net.egorplaytv.create_and_food.ponder.CAFPonders;
-import net.egorplaytv.create_and_food.screen.ItemWeightOverlay;
-import net.egorplaytv.create_and_food.screen.WeightOverlay;
-import net.egorplaytv.create_and_food.villager.ModVillagers;
+import net.egorplaytv.create_and_food.villager.CAFVillagers;
 import net.egorplaytv.create_and_food.world.VillageStructures;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.gui.ForgeIngameGui;
-import net.minecraftforge.client.gui.OverlayRegistry;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -119,19 +115,13 @@ public class CreateAndFood {
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
-        new render(event);
-//        registerOverlays();
+        new render();
         event.enqueueWork(CAFPonders::register);
-    }
-
-    private static void registerOverlays() {
-        OverlayRegistry.registerOverlayAbove(ForgeIngameGui.HOTBAR_ELEMENT, "Player Items Weight", ItemWeightOverlay.INSTANCE);
-        OverlayRegistry.registerOverlayAbove(ForgeIngameGui.HOTBAR_ELEMENT, "Player Weight", WeightOverlay.INSTANCE);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event){
         event.enqueueWork(() ->{
-            ModVillagers.registerPOIs();
+            CAFVillagers.registerPOIs();
             new Compostables();
             new Fueling();
             new Sample();
@@ -139,7 +129,7 @@ public class CreateAndFood {
             Sheets.addWoodType(ModWoodTypes.ALMOND);
         });
 
-        ModMessages.register();
+        CAFMessages.register();
     }
 
     public void gatherData(GatherDataEvent event){

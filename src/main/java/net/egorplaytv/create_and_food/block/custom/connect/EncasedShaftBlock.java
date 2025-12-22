@@ -7,7 +7,7 @@ import com.simibubi.create.content.kinetics.base.RotatedPillarKineticBlock;
 import com.simibubi.create.content.schematics.requirement.ISpecialBlockItemRequirement;
 import com.simibubi.create.content.schematics.requirement.ItemRequirement;
 import com.simibubi.create.foundation.block.IBE;
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
@@ -47,7 +47,7 @@ public class EncasedShaftBlock extends AbstractEncasedShaftBlock
         context.getLevel()
                 .levelEvent(2001, context.getClickedPos(), Block.getId(state));
         KineticBlockEntity.switchToBlockState(context.getLevel(), context.getClickedPos(),
-                ModBlocks.STEEL_SHAFT.getDefaultState()
+                CAFBlocks.STEEL_SHAFT.getDefaultState()
                         .setValue(AXIS, state.getValue(AXIS)));
         return InteractionResult.SUCCESS;
     }
@@ -56,13 +56,13 @@ public class EncasedShaftBlock extends AbstractEncasedShaftBlock
     public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player) {
         if (target instanceof BlockHitResult)
             return ((BlockHitResult) target).getDirection()
-                    .getAxis() == getRotationAxis(state) ? ModBlocks.STEEL_SHAFT.asStack() : getCasing().asItem().getDefaultInstance();
+                    .getAxis() == getRotationAxis(state) ? CAFBlocks.STEEL_SHAFT.asStack() : getCasing().asItem().getDefaultInstance();
         return super.getCloneItemStack(state, target, world, pos, player);
     }
 
     @Override
     public ItemRequirement getRequiredItems(BlockState state, BlockEntity be) {
-        return ItemRequirement.of(ModBlocks.STEEL_SHAFT.getDefaultState(), be);
+        return ItemRequirement.of(CAFBlocks.STEEL_SHAFT.getDefaultState(), be);
     }
 
     @Override

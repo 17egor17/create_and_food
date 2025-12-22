@@ -1,6 +1,6 @@
 package net.egorplaytv.create_and_food.block.custom;
 
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -13,7 +13,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.FarmBlock;
 import net.minecraft.world.level.block.FenceGateBlock;
 import net.minecraft.world.level.block.piston.MovingPistonBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -75,10 +74,10 @@ public class FloodedRichSoilFarmlandBlock extends FloodedFarmlandBlock {
 
     public static void turnToDirtSlab(BlockState pState, Level pLevel, BlockPos pPos) {
         if (pState.getValue(WATERLOGGED)) {
-            pLevel.setBlockAndUpdate(pPos, pushEntitiesUp(pState, ModBlocks.FARMLAND_SUMP_RICH_SOIL.get().defaultBlockState()
+            pLevel.setBlockAndUpdate(pPos, pushEntitiesUp(pState, CAFBlocks.FARMLAND_SUMP_RICH_SOIL.get().defaultBlockState()
                     .setValue(DirtSlabBlock.WATERLOGGED, true), pLevel, pPos));
         } else {
-            pLevel.setBlockAndUpdate(pPos, pushEntitiesUp(pState, ModBlocks.FARMLAND_SUMP_RICH_SOIL.get().defaultBlockState(), pLevel, pPos));
+            pLevel.setBlockAndUpdate(pPos, pushEntitiesUp(pState, CAFBlocks.FARMLAND_SUMP_RICH_SOIL.get().defaultBlockState(), pLevel, pPos));
         }
     }
 
@@ -89,7 +88,7 @@ public class FloodedRichSoilFarmlandBlock extends FloodedFarmlandBlock {
     }
 
     public boolean isFertile(BlockState state, BlockGetter world, BlockPos pos) {
-        if (state.is((Block) ModBlocks.FLOODED_RICH_SOIL_FARMLAND.get())) {
+        if (state.is((Block) CAFBlocks.FLOODED_RICH_SOIL_FARMLAND.get())) {
             return (Integer)state.getValue(MOISTURE) > 0;
         } else {
             return false;
@@ -120,7 +119,7 @@ public class FloodedRichSoilFarmlandBlock extends FloodedFarmlandBlock {
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         FluidState fluidstate = pContext.getLevel().getFluidState(pContext.getClickedPos());
         return !this.defaultBlockState().canSurvive(pContext.getLevel(),
-                pContext.getClickedPos()) ? ModBlocks.FARMLAND_SUMP_RICH_SOIL.get().defaultBlockState()
+                pContext.getClickedPos()) ? CAFBlocks.FARMLAND_SUMP_RICH_SOIL.get().defaultBlockState()
                 : this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
     }
 

@@ -3,10 +3,9 @@ package net.egorplaytv.create_and_food.integration.animations;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
 import com.simibubi.create.AllBlocks;
-import com.simibubi.create.AllPartialModels;
 import com.simibubi.create.compat.jei.category.animations.AnimatedKinetics;
 import com.simibubi.create.foundation.utility.AnimationTickHolder;
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.custom.connect.ModPartialModels;
 import net.minecraft.util.Mth;
 
@@ -25,7 +24,7 @@ public class AnimatedBlender extends AnimatedKinetics {
                 .scale(scale)
                 .render(matrixStack);
 
-        blockElement(ModBlocks.MECHANICAL_BLENDER.getDefaultState())
+        blockElement(CAFBlocks.MECHANICAL_BLENDER.getDefaultState())
                 .atLocal(0, 0, 0)
                 .scale(scale)
                 .render(matrixStack);

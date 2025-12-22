@@ -6,7 +6,7 @@ import com.simibubi.create.foundation.ponder.Selection;
 import com.simibubi.create.foundation.ponder.element.InputWindowElement;
 import com.simibubi.create.foundation.utility.Pointing;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.custom.connect.EncasedShaftBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -70,8 +70,8 @@ public class SteelShaftScene {
         scene.world.showSection(shaft, Direction.DOWN);
         scene.idle(20);
 
-        BlockEntry<EncasedShaftBlock> steelEncased = ModBlocks.STEEL_ENCASED_STEEL_SHAFT;
-        ItemStack steelCasingItem = ModBlocks.STEEL_CASING.asStack();
+        BlockEntry<EncasedShaftBlock> steelEncased = CAFBlocks.STEEL_ENCASED_STEEL_SHAFT;
+        ItemStack steelCasingItem = CAFBlocks.STEEL_CASING.asStack();
 
         scene.overlay.showControls(new InputWindowElement(util.vector.topOf(3, 1, 2), Pointing.DOWN).rightClick()
                 .withItem(steelCasingItem), 60);

@@ -12,7 +12,7 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.egorplaytv.create_and_food.CreateAndFood;
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
 import net.egorplaytv.create_and_food.config.DegreeUnits;
 import net.egorplaytv.create_and_food.item.custom.IngotItem;
@@ -39,7 +39,7 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
 
     public MarbleBlastFurnaceRecipeCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0, 91, 136, 90);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.MARBLE_BLAST_FURNACE.get()));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(CAFBlocks.MARBLE_BLAST_FURNACE.get()));
         this.arrow = helper.drawableBuilder(WIDGETS, 225,3,30,10).buildAnimated(200, IDrawableAnimated.StartDirection.LEFT, false);
         this.deg = helper.drawableBuilder(WIDGETS, 177,35, 51, 5).buildAnimated(200, IDrawableAnimated.StartDirection.LEFT, false);
     }

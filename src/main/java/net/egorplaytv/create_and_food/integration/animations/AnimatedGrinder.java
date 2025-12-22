@@ -2,12 +2,9 @@ package net.egorplaytv.create_and_food.integration.animations;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
-import com.simibubi.create.AllBlocks;
-import com.simibubi.create.AllPartialModels;
 import com.simibubi.create.compat.jei.category.animations.AnimatedKinetics;
-import com.simibubi.create.content.kinetics.saw.SawBlock;
 
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.custom.GrinderBlock;
 import net.egorplaytv.create_and_food.block.custom.connect.ModPartialModels;
 import net.minecraft.core.Direction;
@@ -28,7 +25,7 @@ public class AnimatedGrinder extends AnimatedKinetics {
                 .scale(scale)
                 .render(matrixStack);
 
-        blockElement(ModBlocks.MECHANICAL_GRINDER.getDefaultState()
+        blockElement(CAFBlocks.MECHANICAL_GRINDER.getDefaultState()
                 .setValue(GrinderBlock.HORIZONTAL_FACING, Direction.WEST))
                 .rotateBlock(0, 0, 0)
                 .scale(scale)

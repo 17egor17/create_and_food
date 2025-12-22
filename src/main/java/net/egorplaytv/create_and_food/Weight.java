@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.Block;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
 import static net.egorplaytv.create_and_food.block.entity.custom.ScalesBlockEntity.WEIGHT;
-import static net.egorplaytv.create_and_food.item.ModItems.*;
+import static net.egorplaytv.create_and_food.item.CAFItems.*;
 
 public class Weight {
     public Weight(){

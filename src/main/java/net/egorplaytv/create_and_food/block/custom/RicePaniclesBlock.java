@@ -1,7 +1,7 @@
 package net.egorplaytv.create_and_food.block.custom;
 
-import net.egorplaytv.create_and_food.block.ModBlocks;
-import net.egorplaytv.create_and_food.item.ModItems;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
+import net.egorplaytv.create_and_food.item.CAFItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -66,7 +66,7 @@ public class RicePaniclesBlock extends CropBlock {
     }
 
     protected ItemLike getBaseSeedId() {
-        return (ItemLike) ModItems.RICE.get();
+        return (ItemLike) CAFItems.RICE.get();
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -74,7 +74,7 @@ public class RicePaniclesBlock extends CropBlock {
     }
 
     protected boolean mayPlaceOn(BlockState state, BlockGetter worldIn, BlockPos pos) {
-        return state.getBlock() == ModBlocks.RICE_CROP.get();
+        return state.getBlock() == CAFBlocks.RICE_CROP.get();
     }
 
     protected int getBonemealAgeIncrease(Level worldIn) {
@@ -82,7 +82,7 @@ public class RicePaniclesBlock extends CropBlock {
     }
 
     public boolean canSurvive(BlockState state, LevelReader worldIn, BlockPos pos) {
-        return (worldIn.getRawBrightness(pos, 0) >= 8 || worldIn.canSeeSky(pos)) && worldIn.getBlockState(pos.below()).getBlock() == ModBlocks.RICE_CROP.get();
+        return (worldIn.getRawBrightness(pos, 0) >= 8 || worldIn.canSeeSky(pos)) && worldIn.getBlockState(pos.below()).getBlock() == CAFBlocks.RICE_CROP.get();
     }
 
     static {

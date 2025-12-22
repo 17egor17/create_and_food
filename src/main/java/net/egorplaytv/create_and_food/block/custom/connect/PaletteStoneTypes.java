@@ -1,41 +1,19 @@
 package net.egorplaytv.create_and_food.block.custom.connect;
 
 import com.simibubi.create.AllTags;
-import com.simibubi.create.foundation.data.CreateRegistrate;
 import com.simibubi.create.foundation.utility.Lang;
-import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
-import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.data.CAFRegistrate;
-import net.egorplaytv.create_and_food.sound.ModSounds;
-import net.minecraft.advancements.critereon.EnchantmentPredicate;
-import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.advancements.critereon.MinMaxBounds;
-import net.minecraft.core.Registry;
-import net.minecraft.data.loot.BlockLoot;
-import net.minecraft.resources.ResourceLocation;
+import net.egorplaytv.create_and_food.sound.CAFSounds;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.enchantment.Enchantments;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MaterialColor;
-import net.minecraft.world.level.storage.loot.LootPool;
-import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
-import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
-import net.minecraft.world.level.storage.loot.predicates.ConditionReference;
-import net.minecraft.world.level.storage.loot.predicates.ConditionUserBuilder;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.concurrent.locks.Condition;
 import java.util.function.Function;
 
 import static net.egorplaytv.create_and_food.block.custom.connect.PaletteBlockPattern.*;
@@ -58,43 +36,43 @@ public enum PaletteStoneTypes {
             .register()),
 
     BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("baked_clay", () -> Blocks.TERRACOTTA, false, false)
-            .properties(p -> p.destroyTime(1.25f).sound(ModSounds.BAKED_CLAY)
+            .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_BROWN))
             .register()),
     BLACK_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("black_baked_clay", () -> Blocks.TERRACOTTA, false, false)
-            .properties(p -> p.destroyTime(1.25f).sound(ModSounds.BAKED_CLAY)
+            .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_BLACK))
             .register()),
     BLUE_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("blue_baked_clay", () -> Blocks.TERRACOTTA, false, false)
-            .properties(p -> p.destroyTime(1.25f).sound(ModSounds.BAKED_CLAY)
+            .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_BLUE))
             .register()),
     CYAN_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("cyan_baked_clay", () -> Blocks.TERRACOTTA, false, false)
-            .properties(p -> p.destroyTime(1.25f).sound(ModSounds.BAKED_CLAY)
+            .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_CYAN))
             .register()),
     GRAY_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("gray_baked_clay", () -> Blocks.TERRACOTTA, false, false)
-            .properties(p -> p.destroyTime(1.25f).sound(ModSounds.BAKED_CLAY)
+            .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_GRAY))
             .register()),
     GREEN_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("green_baked_clay", () -> Blocks.TERRACOTTA, false, false)
-            .properties(p -> p.destroyTime(1.25f).sound(ModSounds.BAKED_CLAY)
+            .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_GREEN))
             .register()),
     ORANGE_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("orange_baked_clay", () -> Blocks.TERRACOTTA, false, false)
-            .properties(p -> p.destroyTime(1.25f).sound(ModSounds.BAKED_CLAY)
+            .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_ORANGE))
             .register()),
     RED_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("red_baked_clay", () -> Blocks.TERRACOTTA, false, false)
-            .properties(p -> p.destroyTime(1.25f).sound(ModSounds.BAKED_CLAY)
+            .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_RED))
             .register()),
     WHITE_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("white_baked_clay", () -> Blocks.TERRACOTTA, false, false)
-            .properties(p -> p.destroyTime(1.25f).sound(ModSounds.BAKED_CLAY)
+            .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_LIGHT_GRAY))
             .register()),
     YELLOW_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("yellow_baked_clay", () -> Blocks.TERRACOTTA, false, false)
-            .properties(p -> p.destroyTime(1.25f).sound(ModSounds.BAKED_CLAY)
+            .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_YELLOW))
             .register())
     ;

@@ -12,7 +12,7 @@ import com.simibubi.create.content.processing.recipe.ProcessingRecipe;
 import com.simibubi.create.content.processing.recipe.ProcessingRecipeBuilder.ProcessingRecipeParams;
 import com.simibubi.create.content.processing.sequenced.IAssemblyRecipe;
 
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.integration.jei.AssemblyPolishing;
 import net.egorplaytv.create_and_food.util.TextUtils;
 import net.minecraft.network.FriendlyByteBuf;
@@ -109,7 +109,7 @@ public class PolishingRecipe extends ProcessingRecipe<RecipeWrapper> implements 
 
     @Override
     public void addRequiredMachines(Set<ItemLike> list) {
-        list.add(ModBlocks.MECHANICAL_GRINDER.get());
+        list.add(CAFBlocks.MECHANICAL_GRINDER.get());
     }
 
     @Override

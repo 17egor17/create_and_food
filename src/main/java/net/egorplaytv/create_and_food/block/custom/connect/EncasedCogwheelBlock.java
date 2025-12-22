@@ -1,6 +1,5 @@
 package net.egorplaytv.create_and_food.block.custom.connect;
 
-import com.simibubi.create.AllBlocks;
 import com.simibubi.create.content.contraptions.ITransformableBlock;
 import com.simibubi.create.content.contraptions.StructureTransform;
 import com.simibubi.create.content.decoration.encasing.EncasedBlock;
@@ -17,7 +16,7 @@ import com.simibubi.create.foundation.utility.Iterate;
 import com.simibubi.create.foundation.utility.VoxelShaper;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.entity.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -62,7 +61,7 @@ public class EncasedCogwheelBlock extends RotatedPillarKineticBlock
     private final BlockEntityEntry<SimpleKineticBlockEntity> beLarge;
 
     public static EncasedCogwheelBlock steel(Properties properties, boolean large, Supplier<Block> casing){
-        return new EncasedCogwheelBlock(properties, large, casing, ModBlocks.STEEL_COGWHEEL, ModBlocks.LARGE_STEEL_COGWHEEL, ModBlockEntities.ENCASED_STEEL_COGWHEEL, ModBlockEntities.ENCASED_LARGE_STEEL_COGWHEEL);
+        return new EncasedCogwheelBlock(properties, large, casing, CAFBlocks.STEEL_COGWHEEL, CAFBlocks.LARGE_STEEL_COGWHEEL, ModBlockEntities.ENCASED_STEEL_COGWHEEL, ModBlockEntities.ENCASED_LARGE_STEEL_COGWHEEL);
     }
 
     public EncasedCogwheelBlock(Properties properties, boolean large, Supplier<Block> casing, BlockEntry<?> blockSmall, BlockEntry<?> blockLarge, BlockEntityEntry<SimpleKineticBlockEntity> beSmall, BlockEntityEntry<SimpleKineticBlockEntity> beLarge) {

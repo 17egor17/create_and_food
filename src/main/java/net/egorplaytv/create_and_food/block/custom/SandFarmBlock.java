@@ -1,6 +1,6 @@
 package net.egorplaytv.create_and_food.block.custom;
 
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -74,7 +74,7 @@ public class SandFarmBlock extends FarmBlock {
                 || blockstate.getBlock() instanceof MovingPistonBlock;
     }
     public boolean isFertile(BlockState state, BlockGetter world, BlockPos pos) {
-        if (state.is((Block) ModBlocks.SAND_FARMLAND.get())) {
+        if (state.is((Block) CAFBlocks.SAND_FARMLAND.get())) {
             return (Integer)state.getValue(MOISTURE) > 0;
         } else {
             return false;

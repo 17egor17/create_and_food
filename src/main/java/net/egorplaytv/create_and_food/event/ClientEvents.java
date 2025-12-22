@@ -1,6 +1,6 @@
 package net.egorplaytv.create_and_food.event;
 
-import net.egorplaytv.create_and_food.fluid.ModFluids;
+import net.egorplaytv.create_and_food.fluid.CAFFluids;
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
@@ -28,28 +28,28 @@ public class ClientEvents {
         Fluid fluid = fluidState.getType();
         Entity entity = camera.getEntity();
 
-        if (ModFluids.APPLE_VINEGAR.get()
+        if (CAFFluids.APPLE_VINEGAR.get()
                 .isSame(fluid)){
             event.scaleFarPlaneDistance(1f / 2f);
             event.setCanceled(true);
             return;
         }
 
-        if (ModFluids.COCOA_OIL.get()
+        if (CAFFluids.COCOA_OIL.get()
                 .isSame(fluid)){
             event.scaleFarPlaneDistance(1f / 32f);
             event.setCanceled(true);
             return;
         }
 
-        if (ModFluids.WHITE_CHOCOLATE.get()
+        if (CAFFluids.WHITE_CHOCOLATE.get()
                 .isSame(fluid)){
             event.scaleFarPlaneDistance(1f / 32f);
             event.setCanceled(true);
             return;
         }
 
-        if (ModFluids.RED_GRAPE_JUICE.get()
+        if (CAFFluids.RED_GRAPE_JUICE.get()
                 .isSame(fluid)){
             event.scaleFarPlaneDistance(1f / 32f);
             event.setCanceled(true);
@@ -71,7 +71,7 @@ public class ClientEvents {
 
         Fluid fluid = fluidState.getType();
 
-        if (ModFluids.APPLE_VINEGAR.get()
+        if (CAFFluids.APPLE_VINEGAR.get()
                 .isSame(fluid)){
             event.setRed(50 / 255f);
             event.setGreen(134 / 255f);
@@ -79,7 +79,7 @@ public class ClientEvents {
             return;
         }
 
-        if (ModFluids.COCOA_OIL.get()
+        if (CAFFluids.COCOA_OIL.get()
                 .isSame(fluid)){
             event.setRed(213 / 255f);
             event.setGreen(200 / 255f);
@@ -87,7 +87,7 @@ public class ClientEvents {
             return;
         }
 
-        if (ModFluids.WHITE_CHOCOLATE.get()
+        if (CAFFluids.WHITE_CHOCOLATE.get()
                 .isSame(fluid)){
             event.setRed(234 / 255f);
             event.setGreen(227 / 255f);
@@ -95,7 +95,7 @@ public class ClientEvents {
             return;
         }
 
-        if (ModFluids.RED_GRAPE_JUICE.get()
+        if (CAFFluids.RED_GRAPE_JUICE.get()
                 .isSame(fluid)){
             event.setRed(179 / 255f);
             event.setGreen(11 / 255f);

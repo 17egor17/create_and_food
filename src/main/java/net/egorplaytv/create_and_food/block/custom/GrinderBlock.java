@@ -7,7 +7,7 @@ import com.simibubi.create.foundation.block.IBE;
 
 import net.egorplaytv.create_and_food.block.entity.ModBlockEntities;
 import net.egorplaytv.create_and_food.block.entity.custom.GrinderBlockEntity;
-import net.egorplaytv.create_and_food.damage.ModDamageSource;
+import net.egorplaytv.create_and_food.damage.CAFDamageSource;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Direction.Axis;
@@ -57,7 +57,7 @@ public class GrinderBlock extends HorizontalKineticBlock implements IBE<GrinderB
         withBlockEntityDo(worldIn, pos, be -> {
             if (be.getSpeed() == 0)
                 return;
-            entityIn.hurt(ModDamageSource.POLISHING, (float) DrillBlock.getDamage(be.getSpeed()));
+            entityIn.hurt(CAFDamageSource.POLISHING, (float) DrillBlock.getDamage(be.getSpeed()));
         });
     }
 

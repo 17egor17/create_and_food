@@ -1,6 +1,6 @@
 package net.egorplaytv.create_and_food.block.custom.berry;
 
-import net.egorplaytv.create_and_food.util.ModTags;
+import net.egorplaytv.create_and_food.util.CAFTags;
 import net.egorplaytv.create_and_food.util.TextUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
@@ -36,9 +36,9 @@ public class WildMelonBushBlock extends WildPumpkinAndMelonBlock{
         boolean flag = i == MAX_AGE;
         if (!flag && pPlayer.getItemInHand(pHand).is(Items.BONE_MEAL)) {
             return InteractionResult.PASS;
-        } else if (i < MAX_AGE && pPlayer.getItemInHand(pHand).is(ModTags.Items.CUT_TOOLS)) {
+        } else if (i < MAX_AGE && pPlayer.getItemInHand(pHand).is(CAFTags.Items.CUT_TOOLS)) {
             pPlayer.displayClientMessage(TextUtils.getPumpkinAndMelonBushTranslation("cut", new Object[0]), true);
-        } else if (i == MAX_AGE && pPlayer.getItemInHand(pHand).is(ModTags.Items.CUT_TOOLS)) {
+        } else if (i == MAX_AGE && pPlayer.getItemInHand(pHand).is(CAFTags.Items.CUT_TOOLS)) {
             ItemStack setPumpkin = Blocks.MELON.asItem().getDefaultInstance();
             setPumpkin.setCount(1);
 

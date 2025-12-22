@@ -21,7 +21,7 @@ import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.registration.*;
 import mezz.jei.api.runtime.IIngredientManager;
 import net.egorplaytv.create_and_food.CreateAndFood;
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.config.CAFConfigs;
 import net.egorplaytv.create_and_food.config.CAFRecipes;
 import net.egorplaytv.create_and_food.foundation.utility.CreateAndFoodLang;
@@ -68,33 +68,33 @@ public class JEICreateAndFoodPlugin implements IModPlugin {
         CreateRecipeCategory<?>
                 chopping = builder(BasinRecipe.class)
                         .addTypedRecipes(AllRecipeTypes.CHOPPING)
-                        .catalyst(ModBlocks.MECHANICAL_BLENDER::get)
+                        .catalyst(CAFBlocks.MECHANICAL_BLENDER::get)
                         .catalyst(AllBlocks.BASIN::get)
-                        .doubleItemIcon(ModBlocks.MECHANICAL_BLENDER.get(), AllBlocks.BASIN.get())
+                        .doubleItemIcon(CAFBlocks.MECHANICAL_BLENDER.get(), AllBlocks.BASIN.get())
                         .emptyBackground(177, 103)
                         .build("chopping", BlenderCategory::standard),
 
                 beating = builder(BasinRecipe.class)
                         .addTypedRecipes(AllRecipeTypes.BEATING)
-                        .catalyst(ModBlocks.MECHANICAL_BLENDER::get)
+                        .catalyst(CAFBlocks.MECHANICAL_BLENDER::get)
                         .catalyst(AllBlocks.BASIN::get)
-                        .doubleItemIcon(ModBlocks.MECHANICAL_BLENDER.get(), AllBlocks.BASIN.get())
+                        .doubleItemIcon(CAFBlocks.MECHANICAL_BLENDER.get(), AllBlocks.BASIN.get())
                         .emptyBackground(177, 103)
                         .build("beating", BlenderCategory::beating),
 
                 polishing = builder(PolishingRecipe.class)
                         .addTypedRecipes(AllRecipeTypes.POLISHING)
-                        .catalyst(ModBlocks.MECHANICAL_GRINDER::get)
-                        .itemIcon(ModBlocks.MECHANICAL_GRINDER.get())
+                        .catalyst(CAFBlocks.MECHANICAL_GRINDER::get)
+                        .itemIcon(CAFBlocks.MECHANICAL_GRINDER.get())
                         .emptyBackground(177, 85)
                         .build("polishing", GrinderPolishingCategory::new),
 
                 grinder_sandpaper_polishing = builder(SandPaperPolishingRecipe.class)
                         .enableWhen(c -> c.allowSandpaperPolishingOnGrinder)
                         .addAllRecipesIf(r -> r instanceof SandPaperPolishingRecipe
-                                && ModRecipesList.isPolishing(r))
-                        .catalyst(ModBlocks.MECHANICAL_GRINDER::get)
-                        .doubleItemIcon(ModBlocks.MECHANICAL_GRINDER.get(), AllItems.SAND_PAPER.get())
+                                && CAFRecipesList.isPolishing(r))
+                        .catalyst(CAFBlocks.MECHANICAL_GRINDER::get)
+                        .doubleItemIcon(CAFBlocks.MECHANICAL_GRINDER.get(), AllItems.SAND_PAPER.get())
                         .emptyBackground(177, 85)
                         .build("grinder_sandpaper_polishing", GrinderSandpaperPolishingCategory::new),
 
@@ -142,18 +142,18 @@ public class JEICreateAndFoodPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.FERMENTATION_BARREL.get()), RecipeTypes.FERMENTATION);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.MARBLE_BLAST_FURNACE.get()), RecipeTypes.BLASTING);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.MARBLE_BLAST_FURNACE.get()), RecipeTypes.FUELING);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.OAK_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.SPRUCE_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.BIRCH_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.JUNGLE_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ACACIA_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.DARK_OAK_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.CRIMSON_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.WARPED_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
-        registration.addRecipeCatalyst(new ItemStack(ModBlocks.ALMOND_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
+        registration.addRecipeCatalyst(new ItemStack(CAFBlocks.FERMENTATION_BARREL.get()), RecipeTypes.FERMENTATION);
+        registration.addRecipeCatalyst(new ItemStack(CAFBlocks.MARBLE_BLAST_FURNACE.get()), RecipeTypes.BLASTING);
+        registration.addRecipeCatalyst(new ItemStack(CAFBlocks.MARBLE_BLAST_FURNACE.get()), RecipeTypes.FUELING);
+        registration.addRecipeCatalyst(new ItemStack(CAFBlocks.OAK_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
+        registration.addRecipeCatalyst(new ItemStack(CAFBlocks.SPRUCE_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
+        registration.addRecipeCatalyst(new ItemStack(CAFBlocks.BIRCH_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
+        registration.addRecipeCatalyst(new ItemStack(CAFBlocks.JUNGLE_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
+        registration.addRecipeCatalyst(new ItemStack(CAFBlocks.ACACIA_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
+        registration.addRecipeCatalyst(new ItemStack(CAFBlocks.DARK_OAK_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
+        registration.addRecipeCatalyst(new ItemStack(CAFBlocks.CRIMSON_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
+        registration.addRecipeCatalyst(new ItemStack(CAFBlocks.WARPED_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
+        registration.addRecipeCatalyst(new ItemStack(CAFBlocks.ALMOND_CUTTING_BOARD.get()), FDRecipeTypes.CUTTING);
         allCategories.forEach(c -> c.registerCatalysts(registration));
     }
 
@@ -161,7 +161,7 @@ public class JEICreateAndFoodPlugin implements IModPlugin {
     public void registerGuiHandlers(IGuiHandlerRegistration registration) {
         registration.addRecipeClickArea(FermentationBarrelScreen.class, 74, 39, 24, 12,
                 FermentationBarrelRecipeCategory.FERMENTATION_TYPE);
-        registration.addRecipeClickArea(MarbleBlastFurnaceScreen.class, 55,51,30,10,
+        registration.addRecipeClickArea(MarbleBlastFurnaceScreen.class, 57,43,30,10,
                 MarbleBlastFurnaceRecipeCategory.BLASTING_TYPE, RecipeTypes.FUELING);
     }
 

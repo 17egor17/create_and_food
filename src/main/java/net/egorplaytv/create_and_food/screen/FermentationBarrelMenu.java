@@ -1,8 +1,8 @@
 package net.egorplaytv.create_and_food.screen;
 
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.entity.custom.FermentationBarrelBlockEntity;
-import net.egorplaytv.create_and_food.screen.slot.ModResultSlot;
+import net.egorplaytv.create_and_food.screen.slot.CAFResultSlot;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -27,7 +27,7 @@ public class FermentationBarrelMenu extends AbstractContainerMenu {
         this(pContainerId, inv, getTileEntity(inv, extraData), new SimpleContainerData(2));
     }
     public FermentationBarrelMenu(int pContainerId, Inventory inv, FermentationBarrelBlockEntity entity, ContainerData data) {
-        super(ModMenuTypes.FERMENTATION_BARREL_MENU.get(), pContainerId);
+        super(CAFMenuTypes.FERMENTATION_BARREL_MENU.get(), pContainerId);
 //    // DON'T FORGET TO CHANGE THE NUMBER\/
 //        checkContainerSize(inv, 6);
         this.blockEntity = entity;
@@ -45,7 +45,7 @@ public class FermentationBarrelMenu extends AbstractContainerMenu {
         this.addSlot(new SlotItemHandler(this.inventory, 2, 54,38));
         this.addSlot(new SlotItemHandler(this.inventory, 3, 54,56));
         this.addSlot(new SlotItemHandler(this.inventory, 4, 79,20));
-        this.addSlot(new ModResultSlot(this.inventory, 5, 106,38));
+        this.addSlot(new CAFResultSlot(this.inventory, 5, 106,38));
 
         addDataSlots(data);
     }
@@ -135,7 +135,7 @@ public class FermentationBarrelMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.FERMENTATION_BARREL.get());
+                pPlayer, CAFBlocks.FERMENTATION_BARREL.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {

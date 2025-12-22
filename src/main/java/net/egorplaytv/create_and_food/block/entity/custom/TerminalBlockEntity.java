@@ -3,7 +3,7 @@ package net.egorplaytv.create_and_food.block.entity.custom;
 import com.google.common.collect.Maps;
 import net.egorplaytv.create_and_food.block.entity.ModBlockEntities;
 import net.egorplaytv.create_and_food.screen.SampleOfMetalsMenu;
-import net.egorplaytv.create_and_food.util.ModTags;
+import net.egorplaytv.create_and_food.util.CAFTags;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
@@ -59,28 +59,28 @@ public class TerminalBlockEntity extends BlockEntity implements MenuProvider {
     public static String modId;
 
     public static Map<Item, Integer> getMetals(){
-        add(ModTags.Items.ALUMINUM, 7, "metal", "aluminum");
-        add(ModTags.Items.BRASS, 7, "alloy", "brass");
-        add(ModTags.Items.BRONZE, 7, "alloy", "bronze");
-        add(ModTags.Items.CONSTANTAN, 7, "alloy", "constantan");
+        add(CAFTags.Items.ALUMINUM, 7, "metal", "aluminum");
+        add(CAFTags.Items.BRASS, 7, "alloy", "brass");
+        add(CAFTags.Items.BRONZE, 7, "alloy", "bronze");
+        add(CAFTags.Items.CONSTANTAN, 7, "alloy", "constantan");
         add(Tags.Items.INGOTS_COPPER, 7, "metal", "copper");
-        add(ModTags.Items.ELECTRUM, 7, "alloy", "electrum");
-        add(ModTags.Items.ENDERIUM, 7, 2, "alloy", "enderium");
+        add(CAFTags.Items.ELECTRUM, 7, "alloy", "electrum");
+        add(CAFTags.Items.ENDERIUM, 7, 2, "alloy", "enderium");
         add(Tags.Items.INGOTS_GOLD, 7, "metal", "gold");
-        add(ModTags.Items.INVAR, 7, "alloy", "invar");
+        add(CAFTags.Items.INVAR, 7, "alloy", "invar");
         add(Tags.Items.INGOTS_IRON, 7, "metal", "iron");
-        add(ModTags.Items.LEAD, 7, "metal", "lead");
-        add(ModTags.Items.LUMIUM, 7, 2, "alloy", "lumium");
+        add(CAFTags.Items.LEAD, 7, "metal", "lead");
+        add(CAFTags.Items.LUMIUM, 7, 2, "alloy", "lumium");
         add(Tags.Items.INGOTS_NETHERITE, 7, "alloy", "netherite");
-        add(ModTags.Items.NICKEL, 7, "metal", "nickel");
-        add(ModTags.Items.OSMIUM, 7, "metal", "osmium");
-        add(ModTags.Items.SIGNALUM, 7, "alloy", "signalum");
-        add(ModTags.Items.SILVER, 7, "metal", "silver");
-        add(ModTags.Items.STEEL, 7, "alloy", "steel");
-        add(ModTags.Items.TIN, 7, "metal", "tin");
-        add(ModTags.Items.TUNGSTEN, 7, "metal", "tungsten");
-        add(ModTags.Items.URANIUM, 7, "metal", "uranium");
-        add(ModTags.Items.ZINC, 7, "metal", "zinc");
+        add(CAFTags.Items.NICKEL, 7, "metal", "nickel");
+        add(CAFTags.Items.OSMIUM, 7, "metal", "osmium");
+        add(CAFTags.Items.SIGNALUM, 7, "alloy", "signalum");
+        add(CAFTags.Items.SILVER, 7, "metal", "silver");
+        add(CAFTags.Items.STEEL, 7, "alloy", "steel");
+        add(CAFTags.Items.TIN, 7, "metal", "tin");
+        add(CAFTags.Items.TUNGSTEN, 7, "metal", "tungsten");
+        add(CAFTags.Items.URANIUM, 7, "metal", "uranium");
+        add(CAFTags.Items.ZINC, 7, "metal", "zinc");
         return METALS;
     }
 

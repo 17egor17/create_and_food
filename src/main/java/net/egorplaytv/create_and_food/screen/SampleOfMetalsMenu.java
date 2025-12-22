@@ -1,6 +1,6 @@
 package net.egorplaytv.create_and_food.screen;
 
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.entity.custom.TerminalBlockEntity;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
@@ -19,7 +19,7 @@ public class SampleOfMetalsMenu extends AbstractContainerMenu {
         this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()));
     }
     public SampleOfMetalsMenu(int pContainerId, Inventory inv, BlockEntity entity) {
-        super(ModMenuTypes.SAMPLE_MENU.get(), pContainerId);
+        super(CAFMenuTypes.SAMPLE_MENU.get(), pContainerId);
         checkContainerSize(inv, 1);
         blockEntity = (TerminalBlockEntity) entity;
         level = inv.player.level;
@@ -78,7 +78,7 @@ public class SampleOfMetalsMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.TERMINAL.get());
+                pPlayer, CAFBlocks.TERMINAL.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {

@@ -1,6 +1,6 @@
 package net.egorplaytv.create_and_food.block.custom;
 
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
@@ -39,11 +39,11 @@ public class ModFlammableRotatedPillarBlock extends RotatedPillarBlock {
     public BlockState getToolModifiedState(BlockState state, Level world, BlockPos pos, Player player,
                                            ItemStack stack, ToolAction toolAction) {
         if(stack.getItem() instanceof AxeItem) {
-            if(state.is(ModBlocks.ALMOND_LOG.get())) {
-                return ModBlocks.STRIPPED_ALMOND_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            if(state.is(CAFBlocks.ALMOND_LOG.get())) {
+                return CAFBlocks.STRIPPED_ALMOND_LOG.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
-            if(state.is(ModBlocks.ALMOND_WOOD.get())) {
-                return ModBlocks.STRIPPED_ALMOND_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
+            if(state.is(CAFBlocks.ALMOND_WOOD.get())) {
+                return CAFBlocks.STRIPPED_ALMOND_WOOD.get().defaultBlockState().setValue(AXIS, state.getValue(AXIS));
             }
         }
 

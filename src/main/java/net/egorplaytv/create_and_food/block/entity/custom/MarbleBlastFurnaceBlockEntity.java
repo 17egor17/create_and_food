@@ -11,7 +11,7 @@ import net.egorplaytv.create_and_food.entity.WrappedHandler;
 import net.egorplaytv.create_and_food.item.custom.IngotItem;
 import net.egorplaytv.create_and_food.recipe.MarbleFurnaceRecipe;
 import net.egorplaytv.create_and_food.screen.MarbleBlastFurnaceMenu;
-import net.egorplaytv.create_and_food.util.ModTags;
+import net.egorplaytv.create_and_food.util.CAFTags;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.core.*;
@@ -65,7 +65,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
             return switch (slot) {
-                case 0 -> stack.is(ModTags.Items.FUEL);
+                case 0 -> stack.is(CAFTags.Items.FUEL);
                 case 1, 2, 3 -> true;
                 case 4 -> false;
                 default -> super.isItemValid(slot, stack);
@@ -119,7 +119,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         add(Items.BLAZE_ROD, i1);
         add(Items.COAL, i1);
         add(Items.CHARCOAL, i1);
-        add(ModTags.Items.COAL_DUST, i1);
+        add(CAFTags.Items.COAL_DUST, i1);
         add(Blocks.COAL_BLOCK, i2);
         add(ItemTags.BOATS, i3);
         add(ItemTags.LOGS, i4);
@@ -428,7 +428,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
 
 
         if (hasFuel(pBlockEntity)) {
-            if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.CREATIVE_FUEL)) {
+            if (pBlockEntity.itemHandler.getStackInSlot(0).is(CAFTags.Items.CREATIVE_FUEL)) {
                 pBlockEntity.progress_deg = pBlockEntity.progress_deg + getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem());
             } else {
                 pBlockEntity.progress_deg = pBlockEntity.progress_deg + getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem());
@@ -436,7 +436,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
             }
         }
 
-        if (pBlockEntity.itemHandler.getStackInSlot(0).is(ModTags.Items.CREATIVE_FUEL)){
+        if (pBlockEntity.itemHandler.getStackInSlot(0).is(CAFTags.Items.CREATIVE_FUEL)){
             pBlockEntity.isCreativeDeg = true;
         } else if (pBlockEntity.itemHandler.getStackInSlot(0).isEmpty()) {
             pBlockEntity.isCreativeDeg = false;

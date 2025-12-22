@@ -5,7 +5,7 @@ import com.simibubi.create.foundation.ponder.element.InputWindowElement;
 import com.simibubi.create.foundation.ponder.element.WorldSectionElement;
 import com.simibubi.create.foundation.utility.Pointing;
 import com.tterrag.registrate.util.entry.BlockEntry;
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.custom.CAFCogWheelBlock;
 import net.egorplaytv.create_and_food.block.custom.CAFShaftBlock;
 import net.egorplaytv.create_and_food.block.custom.connect.EncasedCogwheelBlock;
@@ -45,8 +45,8 @@ public class SteelCogwheelScene {
         scene.world.showSection(large2, Direction.EAST);
         scene.idle(20);
 
-        BlockEntry<EncasedCogwheelBlock> steelEncased = ModBlocks.STEEL_ENCASED_STEEL_COGWHEEL;
-        ItemStack steelCasingItem = ModBlocks.STEEL_CASING.asStack();
+        BlockEntry<EncasedCogwheelBlock> steelEncased = CAFBlocks.STEEL_ENCASED_STEEL_COGWHEEL;
+        ItemStack steelCasingItem = CAFBlocks.STEEL_CASING.asStack();
 
         scene.overlay.showControls(new InputWindowElement(util.vector.topOf(3, 0, 2), Pointing.UP).rightClick()
                 .withItem(steelCasingItem), 100);
@@ -114,7 +114,7 @@ public class SteelCogwheelScene {
         scene.world.modifyKineticSpeed(util.select.fromTo(4, 2, 2, 0, 2, 2), f -> 16F);
 
         BlockPos shaft = util.grid.at(2, 2, 2);
-        Block steel_shaft = ModBlocks.STEEL_SHAFT.get();
+        Block steel_shaft = CAFBlocks.STEEL_SHAFT.get();
 
         scene.idle(5);
         scene.world.showSection(util.select.position(2, 1, 2), Direction.NORTH);
@@ -215,9 +215,9 @@ public class SteelCogwheelScene {
 
         BlockPos lowerCog = util.grid.at(3, 1, 2);
         BlockPos upperCog = util.grid.at(3, 2, 3);
-        BlockState largeCogState = ModBlocks.LARGE_STEEL_COGWHEEL.getDefaultState()
+        BlockState largeCogState = CAFBlocks.LARGE_STEEL_COGWHEEL.getDefaultState()
                 .setValue(CAFCogWheelBlock.AXIS, Direction.Axis.X);
-        BlockState smallCogState = ModBlocks.STEEL_COGWHEEL.getDefaultState()
+        BlockState smallCogState = CAFBlocks.STEEL_COGWHEEL.getDefaultState()
                 .setValue(CAFCogWheelBlock.AXIS, Direction.Axis.X);
 
         scene.world.setBlock(lowerCog, largeCogState, false);

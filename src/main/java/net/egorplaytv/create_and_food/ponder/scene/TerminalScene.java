@@ -4,7 +4,7 @@ import com.simibubi.create.foundation.ponder.SceneBuilder;
 import com.simibubi.create.foundation.ponder.SceneBuildingUtil;
 import com.simibubi.create.foundation.ponder.element.InputWindowElement;
 import com.simibubi.create.foundation.utility.Pointing;
-import net.egorplaytv.create_and_food.item.ModItems;
+import net.egorplaytv.create_and_food.item.CAFItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.ItemStack;
@@ -19,7 +19,7 @@ public class TerminalScene {
         scene.idle(5);
         BlockPos tabletPos = util.grid.at(2, 1, 2);
         scene.world.showSection(util.select.position(tabletPos), Direction.NORTH);
-        ItemStack steel = ModItems.STEEL_INGOT.get().getDefaultInstance();
+        ItemStack steel = CAFItems.STEEL_INGOT.get().getDefaultInstance();
         scene.idle(30);
         scene.overlay.showControls((new InputWindowElement(util.vector.topOf(tabletPos), Pointing.DOWN)).withItem(steel), 57);
         scene.idle(20);

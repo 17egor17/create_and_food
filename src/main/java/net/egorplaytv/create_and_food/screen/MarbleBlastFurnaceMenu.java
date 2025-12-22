@@ -1,10 +1,10 @@
 package net.egorplaytv.create_and_food.screen;
 
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.entity.custom.MarbleBlastFurnaceBlockEntity;
 import net.egorplaytv.create_and_food.config.CreateAndFoodCommonConfigs;
 import net.egorplaytv.create_and_food.config.DegreeUnits;
-import net.egorplaytv.create_and_food.screen.slot.ModFurnaceResultSlot;
+import net.egorplaytv.create_and_food.screen.slot.CAFFurnaceResultSlot;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.player.Inventory;
@@ -29,7 +29,7 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
     }
 
     public MarbleBlastFurnaceMenu(int pContainerId, Inventory inv, MarbleBlastFurnaceBlockEntity entity, ContainerData data) {
-        super(ModMenuTypes.BLASTING_MENU.get(), pContainerId);
+        super(CAFMenuTypes.BLASTING_MENU.get(), pContainerId);
 //    // DON'T FORGET TO CHANGE THE NUMBER\/
 //        checkContainerSize(inv, 5);
         blockEntity = entity;
@@ -45,7 +45,7 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
         this.addSlot(new SlotItemHandler(this.inventory, 1, 16,28));
         this.addSlot(new SlotItemHandler(this.inventory, 2, 36,28));
         this.addSlot(new SlotItemHandler(this.inventory, 3, 26,48));
-        this.addSlot(new ModFurnaceResultSlot(inv.player, this.inventory, 4, 120,48));
+        this.addSlot(new CAFFurnaceResultSlot(inv.player, this.inventory, 4, 120,48));
 
         this.addDataSlots(data);
     }
@@ -160,7 +160,7 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.MARBLE_BLAST_FURNACE.get());
+                pPlayer, CAFBlocks.MARBLE_BLAST_FURNACE.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {

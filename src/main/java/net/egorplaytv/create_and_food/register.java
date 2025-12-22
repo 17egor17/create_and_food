@@ -1,36 +1,35 @@
 package net.egorplaytv.create_and_food;
 
-import net.egorplaytv.create_and_food.block.ModBlocks;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.entity.ModBlockEntities;
-import net.egorplaytv.create_and_food.entity.ModEntityTypes;
-import net.egorplaytv.create_and_food.fluid.ModFluids;
-import net.egorplaytv.create_and_food.item.ItemEntities;
-import net.egorplaytv.create_and_food.item.ModItems;
-import net.egorplaytv.create_and_food.particle.ModParticles;
+import net.egorplaytv.create_and_food.entity.CAFEntityTypes;
+import net.egorplaytv.create_and_food.fluid.CAFFluids;
+import net.egorplaytv.create_and_food.item.CAFItems;
+import net.egorplaytv.create_and_food.particle.CAFParticles;
 import net.egorplaytv.create_and_food.recipe.AllRecipeTypes;
-import net.egorplaytv.create_and_food.recipe.ModRecipes;
-import net.egorplaytv.create_and_food.screen.ModMenuTypes;
-import net.egorplaytv.create_and_food.sound.ModSounds;
-import net.egorplaytv.create_and_food.util.ModTags;
-import net.egorplaytv.create_and_food.villager.ModVillagers;
-import net.egorplaytv.create_and_food.world.structure.ModStructures;
+import net.egorplaytv.create_and_food.recipe.CAFRecipes;
+import net.egorplaytv.create_and_food.screen.CAFMenuTypes;
+import net.egorplaytv.create_and_food.sound.CAFSounds;
+import net.egorplaytv.create_and_food.util.CAFTags;
+import net.egorplaytv.create_and_food.villager.CAFVillagers;
+import net.egorplaytv.create_and_food.world.structure.CAFStructures;
 import net.minecraftforge.eventbus.api.IEventBus;
 
 public class register {
     public register(IEventBus eventBus) {
-        ModItems.register(eventBus);
-        ModBlocks.register(eventBus);
+        CAFItems.register(eventBus);
+        CAFBlocks.register(eventBus);
         ModBlockEntities.register(eventBus);
-        ModMenuTypes.register(eventBus);
-        ModFluids.register(eventBus);
-        ModEntityTypes.register(eventBus);
-        ModSounds.register(eventBus);
-        ModParticles.register(eventBus);
-        ModVillagers.register(eventBus);
-        ModRecipes.register(eventBus);
+        CAFMenuTypes.register(eventBus);
+        CAFFluids.register(eventBus);
+        CAFEntityTypes.register(eventBus);
+        CAFSounds.register(eventBus);
+        CAFParticles.register(eventBus);
+        CAFVillagers.register(eventBus);
+        CAFRecipes.register(eventBus);
         AllRecipeTypes.register(eventBus);
-        ModStructures.register(eventBus);
-        ModTags.init();
+        CAFStructures.register(eventBus);
+        CAFTags.init();
 
 //        for 1.19.2
 //        ModCreativeModeTab.register(eventBus);
