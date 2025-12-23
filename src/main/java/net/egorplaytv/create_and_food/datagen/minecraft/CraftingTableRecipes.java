@@ -338,7 +338,7 @@ public class CraftingTableRecipes {
         ShapedRecipeBuilder.shaped(CAFBlocks.LARGE_STEEL_COGWHEEL.get())
                 .define('0', CAFBlocks.STEEL_SHAFT.get()).define('1', CAFItems.STEEL_INGOT.get())
                 .define('2', CAFItems.STEEL_NUGGET.get())
-                .pattern("212").pattern("202").pattern("212")
+                .pattern("212").pattern("101").pattern("212")
                 .unlockedBy("has_steel_shaft", inventoryTrigger(ItemPredicate.Builder.item().of(CAFBlocks.STEEL_SHAFT.get()).build()))
                 .unlockedBy("has_steel_ingot", inventoryTrigger(ItemPredicate.Builder.item().of(CAFItems.STEEL_INGOT.get()).build()))
                 .unlockedBy("has_steel_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFItems.STEEL_NUGGET.get()).build()))
