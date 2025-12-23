@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "212",
+    "202",
+    "212"
+  ],
+  "key": {
+    "0": {
+      "item": "create_and_food:steel_shaft"
+    },
+    "1": {
+      "item": "create_and_food:steel_ingot"
+    },
+    "2": {
+      "item": "create_and_food:steel_nugget"
+    }
+  },
+  "result": {
+    "item": "create_and_food:large_steel_cogwheel"
+  }
+}

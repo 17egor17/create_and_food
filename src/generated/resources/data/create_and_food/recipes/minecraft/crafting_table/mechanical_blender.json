@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "1",
+    "0",
+    "2"
+  ],
+  "key": {
+    "0": {
+      "item": "create_and_food:steel_casing"
+    },
+    "1": {
+      "item": "create_and_food:steel_cogwheel"
+    },
+    "2": {
+      "item": "create:propeller"
+    }
+  },
+  "result": {
+    "item": "create_and_food:mechanical_blender"
+  }
+}

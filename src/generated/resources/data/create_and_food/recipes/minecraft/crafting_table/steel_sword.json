@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "1",
+    "1",
+    "0"
+  ],
+  "key": {
+    "0": {
+      "item": "create_and_food:tool_handle"
+    },
+    "1": {
+      "tag": "forge:ingots/steel"
+    }
+  },
+  "result": {
+    "item": "create_and_food:steel_sword"
+  }
+}

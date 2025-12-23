@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "111",
+    "101",
+    "111"
+  ],
+  "key": {
+    "0": {
+      "item": "create_and_food:steel_nugget"
+    },
+    "1": {
+      "tag": "forge:nuggets/steel"
+    }
+  },
+  "result": {
+    "item": "create_and_food:steel_ingot"
+  }
+}

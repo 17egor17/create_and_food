@@ -1,0 +1,65 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "create_and_food:minecraft/crafting_table/steel_coil"
+    ]
+  },
+  "criteria": {
+    "has_wooden_button": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:wooden_buttons"
+          }
+        ]
+      }
+    },
+    "has_steel_sheet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:plates/steel"
+          }
+        ]
+      }
+    },
+    "has_steel_nugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:nuggets/steel"
+          }
+        ]
+      }
+    },
+    "has_stick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:rods/wooden"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "create_and_food:minecraft/crafting_table/steel_coil"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_wooden_button",
+      "has_steel_sheet",
+      "has_steel_nugget",
+      "has_stick",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "create_and_food:minecraft/crafting_table/warped_barrel"
+    ]
+  },
+  "criteria": {
+    "has_warped_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:warped_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_warped_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:warped_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "create_and_food:minecraft/crafting_table/warped_barrel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_warped_planks",
+      "has_warped_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

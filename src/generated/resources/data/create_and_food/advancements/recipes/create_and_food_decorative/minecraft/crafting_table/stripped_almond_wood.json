@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "create_and_food:minecraft/crafting_table/stripped_almond_wood"
+    ]
+  },
+  "criteria": {
+    "has_": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create_and_food:stripped_almond_log"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "create_and_food:minecraft/crafting_table/stripped_almond_wood"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_",
+      "has_the_recipe"
+    ]
+  ]
+}

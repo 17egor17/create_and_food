@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "000",
+    "121",
+    "111"
+  ],
+  "key": {
+    "0": {
+      "item": "create_and_food:alloy_souls_sheet"
+    },
+    "1": {
+      "item": "create_and_food:alloy_souls_nugget"
+    },
+    "2": {
+      "item": "minecraft:soul_torch"
+    }
+  },
+  "result": {
+    "item": "create_and_food:torn_soul_lantern"
+  }
+}

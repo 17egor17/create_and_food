@@ -1,6 +1,5 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "torn_souls_lantern",
 	"textures": {
 		"1": "create_and_food:block/fire",
 		"2": "create_and_food:block/fire_down",

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1",
+    "2"
+  ],
+  "key": {
+    "0": {
+      "item": "create_and_food:mozzarella_cheese"
+    },
+    "1": {
+      "tag": "forge:meat"
+    },
+    "2": {
+      "item": "create_and_food:base_of_dough"
+    }
+  },
+  "result": {
+    "item": "create_and_food:raw_pizza"
+  }
+}

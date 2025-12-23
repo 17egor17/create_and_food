@@ -88,7 +88,7 @@ public class CAFTags {
         public static final TagKey<Item> CHAINS = forgeTag("chains");
 
         public static final TagKey<Item> IRON_SHEET = forgeTag("plates/iron");
-        public static final TagKey<Item> MEET = forgeTag("meet");
+        public static final TagKey<Item> MEAT = forgeTag("meat");
         public static final TagKey<Item> EGGS = modTag("eggs");
         public static final TagKey<Item> BANNER_PATTERNS = forgeTag("banner_patterns");
         public static final TagKey<Item> MACARONI = forgeTag("macaroni");

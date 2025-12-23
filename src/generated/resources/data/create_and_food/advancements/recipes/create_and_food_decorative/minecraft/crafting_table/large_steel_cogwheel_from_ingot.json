@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "create_and_food:minecraft/crafting_table/large_steel_cogwheel_from_ingot"
+    ]
+  },
+  "criteria": {
+    "has_steel_shaft": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create_and_food:steel_shaft"
+            ]
+          }
+        ]
+      }
+    },
+    "has_steel_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create_and_food:steel_ingot"
+            ]
+          }
+        ]
+      }
+    },
+    "has_steel_nugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create_and_food:steel_nugget"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "create_and_food:minecraft/crafting_table/large_steel_cogwheel_from_ingot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_steel_shaft",
+      "has_steel_ingot",
+      "has_steel_nugget",
+      "has_the_recipe"
+    ]
+  ]
+}

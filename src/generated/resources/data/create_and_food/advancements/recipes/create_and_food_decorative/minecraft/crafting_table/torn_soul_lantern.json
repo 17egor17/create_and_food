@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "create_and_food:minecraft/crafting_table/torn_soul_lantern"
+    ]
+  },
+  "criteria": {
+    "has_alloy_souls_sheet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create_and_food:alloy_souls_sheet"
+            ]
+          }
+        ]
+      }
+    },
+    "has_alloy_souls_nugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create_and_food:alloy_souls_nugget"
+            ]
+          }
+        ]
+      }
+    },
+    "has_soul_torch": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:soul_torch"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "create_and_food:minecraft/crafting_table/torn_soul_lantern"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_alloy_souls_sheet",
+      "has_alloy_souls_nugget",
+      "has_soul_torch",
+      "has_the_recipe"
+    ]
+  ]
+}

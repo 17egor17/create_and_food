@@ -123,21 +123,7 @@ public class CAFBlocks {
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
     public static final RegistryObject<Block> ALMOND_PLANKS = registryBlock("almond_planks",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
-
-                @Override
-                public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
-                    return true;
-                }
-                @Override
-                public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face){
-                    return 20;
-                }
-                @Override
-                public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
-                    return 5;
-                }
-            }, CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+            () -> planks(MaterialColor.WOOD), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
     public static final RegistryObject<Block> ALMOND_STAIRS = registryBlock("almond_stairs",
             () -> new StairBlock(() -> CAFBlocks.ALMOND_PLANKS.get().defaultBlockState(),
@@ -753,6 +739,24 @@ public class CAFBlocks {
             @Override
             public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
                 return 30;
+            }
+        };
+    }
+
+    private static Block planks(MaterialColor color){
+        return new Block(BlockBehaviour.Properties.of(Material.WOOD, color)
+                .strength(2.0F, 3.0F).sound(SoundType.WOOD)) {
+            @Override
+            public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+                return true;
+            }
+            @Override
+            public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face){
+                return 20;
+            }
+            @Override
+            public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
+                return 5;
             }
         };
     }

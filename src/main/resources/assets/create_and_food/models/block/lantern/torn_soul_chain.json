@@ -1,6 +1,5 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "torn_soul_chain",
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "create_and_food:block/torn_souls_chain",

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "create_and_food:minecraft/crafting_table/tungsten_ingot"
+    ]
+  },
+  "criteria": {
+    "has_tungsten_nugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:nuggets/tungsten"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "create_and_food:minecraft/crafting_table/tungsten_ingot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tungsten_nugget",
+      "has_the_recipe"
+    ]
+  ]
+}
