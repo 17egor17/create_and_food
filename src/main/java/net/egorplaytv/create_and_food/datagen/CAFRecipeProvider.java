@@ -42,6 +42,7 @@ public class CAFRecipeProvider extends RecipeProvider implements IConditionBuild
         CAFBeatingRecipes.register(pConsumer);
         CAFBlastingRecipes.register(pConsumer);
         CAFFermentationRecipes.register(pConsumer);
+        CAFFreezingRecipes.register(pConsumer);
         CAFPolishingRecipes.register(pConsumer);
 
         // Farmer's Delight
