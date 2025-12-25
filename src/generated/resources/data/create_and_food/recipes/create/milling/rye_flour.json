@@ -1,0 +1,24 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "create_and_food:rye"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:rye_flour"
+    },
+    {
+      "item": "create_and_food:rye_flour",
+      "count": 2,
+      "chance": 0.25
+    },
+    {
+      "item": "create_and_food:rye_seeds",
+      "count": 2,
+      "chance": 0.25
+    }
+  ],
+  "processingTime": 100
+}

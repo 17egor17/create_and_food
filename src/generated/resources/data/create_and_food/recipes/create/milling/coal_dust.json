@@ -1,0 +1,18 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:coal"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:coal_dust"
+    },
+    {
+      "item": "create_and_food:coal_dust",
+      "chance": 0.3
+    }
+  ],
+  "processingTime": 100
+}

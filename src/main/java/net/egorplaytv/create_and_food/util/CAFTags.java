@@ -1,5 +1,6 @@
 package net.egorplaytv.create_and_food.util;
 
+import net.egorplaytv.create_and_food.CreateAndFood;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.FluidTags;
@@ -151,6 +152,10 @@ public class CAFTags {
         return optionalTag(registry, new ResourceLocation("forge", path));
     }
 
+    public static <T extends IForgeRegistryEntry<T>> TagKey<T> CAFTag(IForgeRegistry<T> registry, String path) {
+        return optionalTag(registry, new ResourceLocation(CreateAndFood.MOD_ID, path));
+    }
+
     public static TagKey<Block> forgeBlockTag(String path) {
         return forgeTag(ForgeRegistries.BLOCKS, path);
     }
@@ -161,6 +166,18 @@ public class CAFTags {
 
     public static TagKey<Fluid> forgeFluidTag(String path) {
         return forgeTag(ForgeRegistries.FLUIDS, path);
+    }
+
+    public static TagKey<Block> CAFBlockTag(String path) {
+        return CAFTag(ForgeRegistries.BLOCKS, path);
+    }
+
+    public static TagKey<Item> CAFItemTag(String path) {
+        return CAFTag(ForgeRegistries.ITEMS, path);
+    }
+
+    public static TagKey<Fluid> CAFFluidTag(String path) {
+        return CAFTag(ForgeRegistries.FLUIDS, path);
     }
 }
 

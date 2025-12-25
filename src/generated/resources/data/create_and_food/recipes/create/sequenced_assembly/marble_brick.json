@@ -1,0 +1,73 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": [
+    {
+      "item": "create_and_food:marble"
+    }
+  ],
+  "transitionalItem": {
+    "item": "create_and_food:incomplete_marble_brick"
+  },
+  "sequence": [
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_marble_brick"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_marble_brick"
+        }
+      ],
+      "processingTime": 100
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_marble_brick"
+        },
+        {
+          "fluid": "minecraft:water",
+          "nbt": {},
+          "amount": 250
+        }
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_marble_brick"
+        }
+      ]
+    },
+    {
+      "type": "create_and_food:polishing",
+      "ingredients": [
+        {
+          "item": "create_and_food:incomplete_marble_brick"
+        }
+      ],
+      "results": [
+        {
+          "item": "create_and_food:incomplete_marble_brick"
+        }
+      ],
+      "processingTime": 100,
+      "speedLimits": 0,
+      "fragile": false
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:marble_brick",
+      "count": 9,
+      "chance": 80.0
+    },
+    {
+      "item": "create_and_food:cobbled_marble",
+      "chance": 20.0
+    }
+  ],
+  "loops": 1
+}

@@ -12,6 +12,4 @@ public class FluidJSONUtil {
     public static JsonElement toJson(FluidStack stack){
         return net.egorplaytv.create_and_food.recipe.fluids.FluidStack.CODEC.encodeStart(JsonOps.INSTANCE, stack).result().orElseThrow();
     }
-
-
 }

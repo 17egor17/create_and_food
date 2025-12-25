@@ -14,11 +14,8 @@ import static com.tterrag.registrate.providers.RegistrateRecipeProvider.inventor
 import static net.egorplaytv.create_and_food.CreateAndFood.MOD_ID;
 
 public class CAFBlastingRecipes {
-    public CAFBlastingRecipes(Consumer<FinishedRecipe> pConsumer) {
-        blasting(pConsumer);
-    }
 
-    private void blasting(Consumer<FinishedRecipe> pConsumer) {
+    private static void blasting(Consumer<FinishedRecipe> pConsumer) {
         new BlastingRecipeBuilder(CAFItems.NETHER_ALLOY.get(), 1, 200, 1000, 0.1F)
                 .addIngredient(AllItems.CINDER_FLOUR.get())
                 .addIngredient(CAFItems.ALLOY_SOULS.get())
@@ -30,17 +27,22 @@ public class CAFBlastingRecipes {
     }
 
 
-    public ResourceLocation getCAFBlasting(String id) {
+    public static ResourceLocation getCAFBlasting(String id) {
         return new ResourceLocation(MOD_ID, "blasting/" + id);
     }
-    public ResourceLocation getCAFBlastingDouble(String id) {
+    public static ResourceLocation getCAFBlastingDouble(String id) {
         return new ResourceLocation(MOD_ID, "blasting/double/" + id);
     }
-    public ResourceLocation getCAFBlastingTriple(String id) {
+    public static ResourceLocation getCAFBlastingTriple(String id) {
         return new ResourceLocation(MOD_ID, "blasting/triple/" + id);
     }
 
-    private String getRecipeId(ItemLike item){
+    private static String getRecipeId(ItemLike item){
         return item.asItem().getRegistryName().getPath();
+    }
+
+
+    public static void register(Consumer<FinishedRecipe> pConsumer){
+        blasting(pConsumer);
     }
 }

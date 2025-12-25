@@ -169,8 +169,7 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
 
         @Override
         public ResourceLocation getId() {
-            return new ResourceLocation(CreateAndFood.MOD_ID,
-                    this.result.getRegistryName().getPath());
+            return this.id;
         }
 
         @Override

@@ -253,13 +253,7 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
 
         @Override
         public ResourceLocation getId() {
-            if (this.result != null && this.outputFluid != null){
-                return id;
-            } else if (this.result != null && this.outputFluid == null){
-                return new ResourceLocation(CreateAndFood.MOD_ID, this.result.getRegistryName().getPath());
-            } else {
-                return new ResourceLocation(this.outputFluid.getFluid().getRegistryName().toString());
-            }
+            return this.id;
         }
 
         @Override

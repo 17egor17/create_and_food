@@ -10,22 +10,24 @@ import java.util.function.Consumer;
 import static net.egorplaytv.create_and_food.CreateAndFood.MOD_ID;
 
 public class CAFFermentationRecipes {
-    public CAFFermentationRecipes(Consumer<FinishedRecipe> pConsumer) {
-        fermentation(pConsumer);
-    }
 
-    private void fermentation(Consumer<FinishedRecipe> pConsumer) {
+    private static void fermentation(Consumer<FinishedRecipe> pConsumer) {
 
     }
 
-    public ResourceLocation getFermentation(String id) {
+    public static ResourceLocation getFermentation(String id) {
         return new ResourceLocation(MOD_ID, "fermentation/" + id);
     }
 
-    private String getRecipeId(ItemLike item){
+    private static String getRecipeId(ItemLike item){
         return item.asItem().getRegistryName().getPath();
     }
-    private String getRecipeId(Fluid fluid){
+    private static String getRecipeId(Fluid fluid){
         return fluid.getRegistryName().getPath();
+    }
+
+
+    public static void register(Consumer<FinishedRecipe> pConsumer) {
+        fermentation(pConsumer);
     }
 }

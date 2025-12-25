@@ -1,0 +1,14 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:brick"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:brick_dust"
+    }
+  ],
+  "processingTime": 100
+}

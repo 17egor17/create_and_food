@@ -23,12 +23,8 @@ import static com.tterrag.registrate.providers.RegistrateRecipeProvider.inventor
 import static net.egorplaytv.create_and_food.CreateAndFood.MOD_ID;
 
 public class CraftingTableRecipes {
-    public CraftingTableRecipes(Consumer<FinishedRecipe> pConsumer) {
-        shapedRecipe(pConsumer);
-        shapelessRecipes(pConsumer);
-    }
 
-    private void shapedRecipe(Consumer<FinishedRecipe> pConsumer){
+    private static void shapedRecipe(Consumer<FinishedRecipe> pConsumer){
         ShapedRecipeBuilder.shaped(CAFBlocks.ACACIA_BARREL.get())
                 .define('0', Items.ACACIA_PLANKS).define('1', Items.ACACIA_SLAB)
                 .pattern("010").pattern("0 0").pattern("010")
@@ -613,7 +609,7 @@ public class CraftingTableRecipes {
 //                .save(pConsumer, getCraftingTable(getRecipeId()));
     }
 
-    private void shapelessRecipes(Consumer<FinishedRecipe> pConsumer){
+    private static void shapelessRecipes(Consumer<FinishedRecipe> pConsumer){
         ShapelessRecipeBuilder.shapeless(vectorwing.farmersdelight.common.registry.ModBlocks.CUTTING_BOARD.get())
                 .requires(CAFTags.Items.CUTTING_BOARDS)
                 .unlockedBy("has_cutting_boards", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.CUTTING_BOARDS).build()))
@@ -706,11 +702,17 @@ public class CraftingTableRecipes {
 
 
 
-    private ResourceLocation getCraftingTable(String id){
+    private static ResourceLocation getCraftingTable(String id){
         return new ResourceLocation(MOD_ID, "minecraft/crafting_table/" + id);
     }
 
-    private String getRecipeId(ItemLike item){
+    private static String getRecipeId(ItemLike item){
         return item.asItem().getRegistryName().getPath();
+    }
+
+
+    public static void register(Consumer<FinishedRecipe> pConsumer){
+        shapedRecipe(pConsumer);
+        shapelessRecipes(pConsumer);
     }
 }
