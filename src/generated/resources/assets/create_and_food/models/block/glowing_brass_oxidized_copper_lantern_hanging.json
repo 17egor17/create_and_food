@@ -1,0 +1,8 @@
+{
+  "parent": "create_and_food:custom/block/lantern/lantern_hanging",
+  "textures": {
+    "material": "create_and_food:block/lantern/glowing_brass_oxidized_copper_lantern",
+    "chain": "create_and_food:block/lantern/steel_chain",
+    "particle": "minecraft:block/oxidized_copper"
+  }
+}

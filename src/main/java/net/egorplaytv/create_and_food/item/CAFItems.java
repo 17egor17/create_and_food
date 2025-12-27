@@ -519,6 +519,34 @@ public class CAFItems {
             () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_COPPER_LANTERN.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
+    public static final RegistryObject<Item> GLOWING_BRASS_EXPOSED_COPPER_LANTERN = registerItem("glowing_brass_exposed_copper_lantern",
+            () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_EXPOSED_COPPER_LANTERN.get(),
+                    new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
+
+    public static final RegistryObject<Item> GLOWING_BRASS_WEATHERED_COPPER_LANTERN = registerItem("glowing_brass_weathered_copper_lantern",
+            () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_WEATHERED_COPPER_LANTERN.get(),
+                    new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
+
+    public static final RegistryObject<Item> GLOWING_BRASS_OXIDIZED_COPPER_LANTERN = registerItem("glowing_brass_oxidized_copper_lantern",
+            () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_OXIDIZED_COPPER_LANTERN.get(),
+                    new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
+
+    public static final RegistryObject<Item> GLOWING_BRASS_WAXED_COPPER_LANTERN = registerItem("glowing_brass_waxed_copper_lantern",
+            () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_WAXED_COPPER_LANTERN.get(),
+                    new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
+
+    public static final RegistryObject<Item> GLOWING_BRASS_WAXED_EXPOSED_COPPER_LANTERN = registerItem("glowing_brass_waxed_exposed_copper_lantern",
+            () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_WAXED_EXPOSED_COPPER_LANTERN.get(),
+                    new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
+
+    public static final RegistryObject<Item> GLOWING_BRASS_WAXED_WEATHERED_COPPER_LANTERN = registerItem("glowing_brass_waxed_weathered_copper_lantern",
+            () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_WAXED_WEATHERED_COPPER_LANTERN.get(),
+                    new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
+
+    public static final RegistryObject<Item> GLOWING_BRASS_WAXED_OXIDIZED_COPPER_LANTERN = registerItem("glowing_brass_waxed_oxidized_copper_lantern",
+            () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_WAXED_OXIDIZED_COPPER_LANTERN.get(),
+                    new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
+
     public static final RegistryObject<Item> GLOWING_BRASS_STEEL_LANTERN = registerItem("glowing_brass_steel_lantern",
             () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_STEEL_LANTERN.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));

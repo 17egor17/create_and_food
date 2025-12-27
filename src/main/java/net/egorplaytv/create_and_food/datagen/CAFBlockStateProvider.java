@@ -1,5 +1,6 @@
 package net.egorplaytv.create_and_food.datagen;
 
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.custom.*;
 import net.egorplaytv.create_and_food.block.custom.berry.PumpkinAndMelonBlock;
 import net.egorplaytv.create_and_food.block.custom.lanterns.LanternBlock;
@@ -29,11 +30,18 @@ public class CAFBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         chainBlock(TORN_SOUL_CHAIN.get(), "block/lantern");
         chainBlock(STEEL_CHAIN.get(), "block/lantern");
-        lanternBlock(TORN_SOUL_LANTERN.get(), "block/lantern");
-        lanternBlock(GLOWING_BRASS_COPPER_LANTERN.get(), "block/lantern");
-        lanternBlock(GLOWING_BRASS_STEEL_LANTERN.get(), "block/lantern");
-        minecraftLanternBlock(LANTERN.get(), "block/lantern");
-        minecraftLanternBlock(SOUL_LANTERN.get(), "block/lantern");
+        tornSoulsLanternBlock(TORN_SOUL_LANTERN.get(), "block/lantern");
+        lanternBlock(GLOWING_BRASS_COPPER_LANTERN.get(), STEEL_CHAIN.get(), "minecraft:block/copper_block");
+        lanternBlock(GLOWING_BRASS_EXPOSED_COPPER_LANTERN.get(), STEEL_CHAIN.get(), "minecraft:block/exposed_copper");
+        lanternBlock(GLOWING_BRASS_WEATHERED_COPPER_LANTERN.get(), STEEL_CHAIN.get(), "minecraft:block/weathered_copper");
+        lanternBlock(GLOWING_BRASS_OXIDIZED_COPPER_LANTERN.get(), STEEL_CHAIN.get(), "minecraft:block/oxidized_copper");
+        lanternBlock(GLOWING_BRASS_WAXED_COPPER_LANTERN.get(), STEEL_CHAIN.get(), GLOWING_BRASS_COPPER_LANTERN.get(), "minecraft:block/copper_block");
+        lanternBlock(GLOWING_BRASS_WAXED_EXPOSED_COPPER_LANTERN.get(), STEEL_CHAIN.get(), GLOWING_BRASS_EXPOSED_COPPER_LANTERN.get(), "minecraft:block/exposed_copper");
+        lanternBlock(GLOWING_BRASS_WAXED_WEATHERED_COPPER_LANTERN.get(), STEEL_CHAIN.get(), GLOWING_BRASS_WEATHERED_COPPER_LANTERN.get(), "minecraft:block/weathered_copper");
+        lanternBlock(GLOWING_BRASS_WAXED_OXIDIZED_COPPER_LANTERN.get(), STEEL_CHAIN.get(), GLOWING_BRASS_OXIDIZED_COPPER_LANTERN.get(), "minecraft:block/oxidized_copper");
+        lanternBlock(GLOWING_BRASS_STEEL_LANTERN.get(), STEEL_CHAIN.get(), "create_and_food:block/steel_block");
+        minecraftLanternBlock(LANTERN.get());
+        minecraftLanternBlock(SOUL_LANTERN.get());
         signBlock((StandingSignBlock) ALMOND_SIGN.get(), (WallSignBlock) ALMOND_WALL_SIGN.get(),
                 blockTexture(ALMOND_PLANKS.get()));
         doorBlock(ALMOND_DOOR.get(), "block/doors", "almond_door_bottom", "almond_door_top");
@@ -468,7 +476,7 @@ public class CAFBlockStateProvider extends BlockStateProvider {
         });
     }
 
-    public void lanternBlock(Block block, String pathModel){
+    public void tornSoulsLanternBlock(Block block, String pathModel){
         getVariantBuilder(block).forAllStates(state -> {
             LanternAttachType type = state.getValue(LanternBlock.ATTACHMENT);
 
@@ -509,7 +517,74 @@ public class CAFBlockStateProvider extends BlockStateProvider {
         });
     }
 
-    public void minecraftLanternBlock(Block block, String pathModel){
+    public void lanternBlock(Block block, Block chain, Block texture, String particle) {
+        getVariantBuilder(block).forAllStates(state -> {
+            LanternAttachType type = state.getValue(LanternBlock.ATTACHMENT);
+
+            if (type.equals(LanternAttachType.FLOOR)) {
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath(),
+                                        new ResourceLocation(MOD_ID, "custom/block/lantern/lantern"))
+                                .texture("material", "create_and_food:block/lantern/" + texture.getRegistryName().getPath())
+                                .texture("chain", "create_and_food:block/lantern/" + chain.getRegistryName().getPath())
+                                .texture("particle", particle))
+                        .build();
+            } else if (type.equals(LanternAttachType.HANGING)) {
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_hanging",
+                                        new ResourceLocation(MOD_ID, "custom/block/lantern/lantern_hanging"))
+                                .texture("material", "create_and_food:block/lantern/" + texture.getRegistryName().getPath())
+                                .texture("chain", "create_and_food:block/lantern/" + chain.getRegistryName().getPath())
+                                .texture("particle", particle))
+                        .build();
+            } else if (type.equals(LanternAttachType.NORTH)) {
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_on_wall",
+                                        new ResourceLocation(MOD_ID, "custom/block/lantern/lantern_on_wall"))
+                                .texture("lantern", "create_and_food:block/lantern/" + texture.getRegistryName().getPath())
+                                .texture("chain", "create_and_food:block/lantern/" + chain.getRegistryName().getPath())
+                                .texture("holder", "create_and_food:block/lantern/holder")
+                                .texture("particle", particle))
+                        .build();
+            } else if (type.equals(LanternAttachType.EAST)) {
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_on_wall",
+                                        new ResourceLocation(MOD_ID, "custom/block/lantern/lantern_on_wall"))
+                                .texture("lantern", "create_and_food:block/lantern/" + texture.getRegistryName().getPath())
+                                .texture("chain", "create_and_food:block/lantern/" + chain.getRegistryName().getPath())
+                                .texture("holder", "create_and_food:block/lantern/holder")
+                                .texture("particle", particle))
+                        .rotationY(90)
+                        .build();
+            } else if (type.equals(LanternAttachType.SOUTH)) {
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_on_wall",
+                                        new ResourceLocation(MOD_ID, "custom/block/lantern/lantern_on_wall"))
+                                .texture("lantern", "create_and_food:block/lantern/" + texture.getRegistryName().getPath())
+                                .texture("chain", "create_and_food:block/lantern/" + chain.getRegistryName().getPath())
+                                .texture("holder", "create_and_food:block/lantern/holder")
+                                .texture("particle", particle))
+                        .rotationY(180)
+                        .build();
+            } else {
+                return ConfiguredModel.builder()
+                        .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_on_wall",
+                                        new ResourceLocation(MOD_ID, "custom/block/lantern/lantern_on_wall"))
+                                .texture("lantern", "create_and_food:block/lantern/" + texture.getRegistryName().getPath())
+                                .texture("chain", "create_and_food:block/lantern/" + chain.getRegistryName().getPath())
+                                .texture("holder", "create_and_food:block/lantern/holder")
+                                .texture("particle", particle))
+                        .rotationY(270)
+                        .build();
+            }
+        });
+    }
+
+    public void lanternBlock(Block block, Block chain, String particle) {
+        lanternBlock(block, chain, block, particle);
+    }
+
+    public void minecraftLanternBlock(Block block){
         getVariantBuilder(block).forAllStates(state -> {
             LanternAttachType type = state.getValue(LanternBlock.ATTACHMENT);
 
@@ -526,24 +601,36 @@ public class CAFBlockStateProvider extends BlockStateProvider {
             } else if (type.equals(LanternAttachType.NORTH)) {
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_on_wall",
-                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath() + "_on_wall")))
+                                new ResourceLocation(MOD_ID, "custom/block/lantern/minecraft/lantern_on_wall"))
+                                .texture("lantern", "minecraft:block/" + block.getRegistryName().getPath())
+                                .texture("holder_1", "create_and_food:block/lantern/lantern_holder_1")
+                                .texture("holder", "create_and_food:block/lantern/lantern_holder"))
                         .build();
             } else if (type.equals(LanternAttachType.EAST)) {
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_on_wall",
-                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath() + "_on_wall")))
+                                new ResourceLocation(MOD_ID, "custom/block/lantern/minecraft/lantern_on_wall"))
+                                .texture("lantern", "minecraft:block/" + block.getRegistryName().getPath())
+                                .texture("holder_1", "create_and_food:block/lantern/lantern_holder_1")
+                                .texture("holder", "create_and_food:block/lantern/lantern_holder"))
                         .rotationY(90)
                         .build();
             } else if (type.equals(LanternAttachType.SOUTH)) {
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_on_wall",
-                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath() + "_on_wall")))
+                                new ResourceLocation(MOD_ID, "custom/block/lantern/minecraft/lantern_on_wall"))
+                                .texture("lantern", "minecraft:block/" + block.getRegistryName().getPath())
+                                .texture("holder_1", "create_and_food:block/lantern/lantern_holder_1")
+                                .texture("holder", "create_and_food:block/lantern/lantern_holder"))
                         .rotationY(180)
                         .build();
             } else {
                 return ConfiguredModel.builder()
                         .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_on_wall",
-                                new ResourceLocation(MOD_ID, pathModel + "/" + block.getRegistryName().getPath() + "_on_wall")))
+                                new ResourceLocation(MOD_ID, "custom/block/lantern/minecraft/lantern_on_wall"))
+                                .texture("lantern", "minecraft:block/" + block.getRegistryName().getPath())
+                                .texture("holder_1", "create_and_food:block/lantern/lantern_holder_1")
+                                .texture("holder", "create_and_food:block/lantern/lantern_holder"))
                         .rotationY(270)
                         .build();
             }

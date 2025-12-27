@@ -28,6 +28,8 @@ public class CAFFluids {
     public static final DeferredRegister<Fluid> FLUIDS =
             DeferredRegister.create(ForgeRegistries.FLUIDS, CreateAndFood.MOD_ID);
 
+    //The color of the fluid is set in ClientEvents!!!!!
+
     public static final RegistryObject<FlowingFluid> APPLE_VINEGAR = FLUIDS.register("apple_vinegar",
             () -> new ForgeFlowingFluid.Source(CAFFluids.APPLE_VINEGAR_PROPERTIES));
 

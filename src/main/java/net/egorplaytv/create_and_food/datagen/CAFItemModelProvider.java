@@ -175,6 +175,13 @@ public class CAFItemModelProvider extends ItemModelProvider {
         simpleItem(CAFItems.STEEL_CHAIN.get());
         simpleItem(CAFItems.TORN_SOUL_LANTERN.get());
         simpleItem(CAFItems.GLOWING_BRASS_COPPER_LANTERN.get());
+        simpleItem(CAFItems.GLOWING_BRASS_EXPOSED_COPPER_LANTERN.get());
+        simpleItem(CAFItems.GLOWING_BRASS_WEATHERED_COPPER_LANTERN.get());
+        simpleItem(CAFItems.GLOWING_BRASS_OXIDIZED_COPPER_LANTERN.get());
+        simpleItem(CAFItems.GLOWING_BRASS_WAXED_COPPER_LANTERN.get(), "", "glowing_brass_copper_lantern");
+        simpleItem(CAFItems.GLOWING_BRASS_WAXED_EXPOSED_COPPER_LANTERN.get(), "", "glowing_brass_exposed_copper_lantern");
+        simpleItem(CAFItems.GLOWING_BRASS_WAXED_WEATHERED_COPPER_LANTERN.get(), "", "glowing_brass_weathered_copper_lantern");
+        simpleItem(CAFItems.GLOWING_BRASS_WAXED_OXIDIZED_COPPER_LANTERN.get(), "", "glowing_brass_oxidized_copper_lantern");
         simpleItem(CAFItems.GLOWING_BRASS_STEEL_LANTERN.get());
         minecraftItem(CAFItems.LANTERN.get());
         minecraftItem(CAFItems.SOUL_LANTERN.get());

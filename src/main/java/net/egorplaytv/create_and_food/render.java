@@ -64,6 +64,13 @@ public class render {
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.FRAMED_CALCITE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.GLOWING_BRASS_STEEL_LANTERN.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.GLOWING_BRASS_COPPER_LANTERN.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.GLOWING_BRASS_EXPOSED_COPPER_LANTERN.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.GLOWING_BRASS_WEATHERED_COPPER_LANTERN.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.GLOWING_BRASS_OXIDIZED_COPPER_LANTERN.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.GLOWING_BRASS_WAXED_COPPER_LANTERN.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.GLOWING_BRASS_WAXED_EXPOSED_COPPER_LANTERN.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.GLOWING_BRASS_WAXED_WEATHERED_COPPER_LANTERN.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.GLOWING_BRASS_WAXED_OXIDIZED_COPPER_LANTERN.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.STEEL_CHAIN.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.STEEL_LAMP_BLOCK.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.FURNITURE_CUTTER.get(), RenderType.cutout());
@@ -86,7 +93,24 @@ public class render {
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.KITCHEN_TABLE_INNER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.KITCHEN_TABLE_OUTER.get(), RenderType.cutout());
 
-
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.OAK_TERRACE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.OAK_TERRACE_STAIRS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.SPRUCE_TERRACE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.SPRUCE_TERRACE_STAIRS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.BIRCH_TERRACE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.BIRCH_TERRACE_STAIRS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.JUNGLE_TERRACE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.JUNGLE_TERRACE_STAIRS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.ACACIA_TERRACE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.ACACIA_TERRACE_STAIRS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.DARK_OAK_TERRACE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.DARK_OAK_TERRACE_STAIRS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.CRIMSON_TERRACE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.CRIMSON_TERRACE_STAIRS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.WARPED_TERRACE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.WARPED_TERRACE_STAIRS.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.ALMOND_TERRACE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.ALMOND_TERRACE_STAIRS.get(), RenderType.cutout());
 
         MenuScreens.register(CAFMenuTypes.FERMENTATION_BARREL_MENU.get(), FermentationBarrelScreen::new);
         MenuScreens.register(CAFMenuTypes.BLASTING_MENU.get(), MarbleBlastFurnaceScreen::new);

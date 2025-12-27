@@ -30,6 +30,13 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(STEEL_CHAIN.get());
         this.dropSelf(TORN_SOUL_LANTERN.get());
         this.dropSelf(GLOWING_BRASS_COPPER_LANTERN.get());
+        this.dropSelf(GLOWING_BRASS_EXPOSED_COPPER_LANTERN.get());
+        this.dropSelf(GLOWING_BRASS_WEATHERED_COPPER_LANTERN.get());
+        this.dropSelf(GLOWING_BRASS_OXIDIZED_COPPER_LANTERN.get());
+        this.dropSelf(GLOWING_BRASS_WAXED_COPPER_LANTERN.get());
+        this.dropSelf(GLOWING_BRASS_WAXED_EXPOSED_COPPER_LANTERN.get());
+        this.dropSelf(GLOWING_BRASS_WAXED_WEATHERED_COPPER_LANTERN.get());
+        this.dropSelf(GLOWING_BRASS_WAXED_OXIDIZED_COPPER_LANTERN.get());
         this.dropSelf(GLOWING_BRASS_STEEL_LANTERN.get());
         this.dropSelf(LANTERN.get());
         this.dropSelf(SOUL_LANTERN.get());

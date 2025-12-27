@@ -73,9 +73,9 @@ public class ClientEvents {
 
         if (CAFFluids.APPLE_VINEGAR.get()
                 .isSame(fluid)){
-            event.setRed(50 / 255f);
-            event.setGreen(134 / 255f);
-            event.setBlue(188 / 255f);
+            event.setRed(153 / 255f);
+            event.setGreen(80 / 255f);
+            event.setBlue(0 / 255f);
             return;
         }
 

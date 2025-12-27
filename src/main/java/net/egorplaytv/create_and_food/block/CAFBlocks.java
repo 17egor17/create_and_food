@@ -20,11 +20,10 @@ import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.egorplaytv.create_and_food.CreateAndFood;
 import net.egorplaytv.create_and_food.block.custom.*;
-import net.egorplaytv.create_and_food.block.custom.lanterns.LanternBlock;
+import net.egorplaytv.create_and_food.block.custom.lanterns.*;
 import net.egorplaytv.create_and_food.block.custom.berry.*;
 import net.egorplaytv.create_and_food.block.custom.connect.*;
-import net.egorplaytv.create_and_food.block.custom.lanterns.MinecraftLantern;
-import net.egorplaytv.create_and_food.block.custom.lanterns.TornSoulLantern;
+import net.egorplaytv.create_and_food.block.custom.lanterns.LanternBlock;
 import net.egorplaytv.create_and_food.block.entity.ModWoodTypes;
 import net.egorplaytv.create_and_food.content.kinetics.grinder.GrinderGenerator;
 import net.egorplaytv.create_and_food.item.CAFCreativeModeTab;
@@ -78,8 +77,28 @@ public class CAFBlocks {
             () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN).noOcclusion().requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> TORN_SOUL_LANTERN = registryBlockWithoutBlockItem("torn_soul_lantern",
             () -> new TornSoulLantern(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion()));
+
     public static final RegistryObject<Block> GLOWING_BRASS_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_copper_lantern",
+            () -> new CopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops(),
+                    WeatheringCopperLantern.WeatherState.UNAFFECTED));
+    public static final RegistryObject<Block> GLOWING_BRASS_EXPOSED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_exposed_copper_lantern",
+            () -> new CopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops(),
+                    WeatheringCopperLantern.WeatherState.EXPOSED));
+    public static final RegistryObject<Block> GLOWING_BRASS_WEATHERED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_weathered_copper_lantern",
+            () -> new CopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops(),
+                    WeatheringCopperLantern.WeatherState.WEATHERED));
+    public static final RegistryObject<Block> GLOWING_BRASS_OXIDIZED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_oxidized_copper_lantern",
+            () -> new CopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops(),
+                    WeatheringCopperLantern.WeatherState.OXIDIZED));
+    public static final RegistryObject<Block> GLOWING_BRASS_WAXED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_copper_lantern",
             () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> GLOWING_BRASS_WAXED_EXPOSED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_exposed_copper_lantern",
+            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> GLOWING_BRASS_WAXED_WEATHERED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_weathered_copper_lantern",
+            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> GLOWING_BRASS_WAXED_OXIDIZED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_oxidized_copper_lantern",
+            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
+
     public static final RegistryObject<Block> GLOWING_BRASS_STEEL_LANTERN = registryBlockWithoutBlockItem("glowing_brass_steel_lantern",
             () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
 
@@ -144,31 +163,31 @@ public class CAFBlocks {
             () -> new MarbleBlastFurnaceBlock(BlockBehaviour.Properties.of(Material.STONE).strength(2.0F)
                     .sound(SoundType.STONE).requiresCorrectToolForDrops().lightLevel(litBlockEmission(13))),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> ACACIA_BARREL = registryBlock("acacia_barrel",
-            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
-            CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> ALMOND_BARREL = registryBlock("almond_barrel",
-            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
-            CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> BIRCH_BARREL = registryBlock("birch_barrel",
-            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
-            CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> CRIMSON_BARREL = registryBlock("crimson_barrel",
-            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
-            CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> DARK_OAK_BARREL = registryBlock("dark_oak_barrel",
-            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
-            CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> JUNGLE_BARREL = registryBlock("jungle_barrel",
-            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
-            CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
     public static final RegistryObject<Block> OAK_BARREL = registryBlock("oak_barrel",
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
     public static final RegistryObject<Block> SPRUCE_BARREL = registryBlock("spruce_barrel",
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> BIRCH_BARREL = registryBlock("birch_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> JUNGLE_BARREL = registryBlock("jungle_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> ACACIA_BARREL = registryBlock("acacia_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> DARK_OAK_BARREL = registryBlock("dark_oak_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> CRIMSON_BARREL = registryBlock("crimson_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
     public static final RegistryObject<Block> WARPED_BARREL = registryBlock("warped_barrel",
+            () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
+            CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<Block> ALMOND_BARREL = registryBlock("almond_barrel",
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
