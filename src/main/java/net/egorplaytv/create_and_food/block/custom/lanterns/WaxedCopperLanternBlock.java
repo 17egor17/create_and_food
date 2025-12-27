@@ -1,14 +1,14 @@
 package net.egorplaytv.create_and_food.block.custom.lanterns;
 
+import com.google.common.base.Suppliers;
+import com.google.common.collect.BiMap;
+import com.google.common.collect.ImmutableBiMap;
 import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.praperties.BlockStateProperties;
 import net.egorplaytv.create_and_food.block.praperties.LanternAttachType;
-import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -27,7 +27,6 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -46,8 +45,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 import java.util.Random;
+import java.util.function.Supplier;
 
-public class CopperLanternBlock extends Block implements SimpleWaterloggedBlock, WeatheringCopperLantern {
+public class WaxedCopperLanternBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED =
             net.minecraft.world.level.block.state.properties.BlockStateProperties.WATERLOGGED;
     public static final EnumProperty<LanternAttachType> ATTACHMENT = BlockStateProperties.LANTERN_ATTACHMENT;
@@ -60,7 +60,17 @@ public class CopperLanternBlock extends Block implements SimpleWaterloggedBlock,
                     Block.box(4D, 1D, 4D, 12D, 9D, 12D),
                     Block.box(3.8D, 1.8D, 3.8D, 12.2D, 8.2D, 12.2D));
 
-    private final WeatherState weatherState;
+    public static final Supplier<BiMap<Block, Block>> WAXABLES = Suppliers.memoize(() -> {
+        return ImmutableBiMap.<Block, Block>builder()
+                .put(CAFBlocks.GLOWING_BRASS_COPPER_LANTERN.get(), CAFBlocks.GLOWING_BRASS_WAXED_COPPER_LANTERN.get())
+                .put(CAFBlocks.GLOWING_BRASS_EXPOSED_COPPER_LANTERN.get(), CAFBlocks.GLOWING_BRASS_WAXED_EXPOSED_COPPER_LANTERN.get())
+                .put(CAFBlocks.GLOWING_BRASS_WEATHERED_COPPER_LANTERN.get(), CAFBlocks.GLOWING_BRASS_WAXED_WEATHERED_COPPER_LANTERN.get())
+                .put(CAFBlocks.GLOWING_BRASS_OXIDIZED_COPPER_LANTERN.get(), CAFBlocks.GLOWING_BRASS_WAXED_OXIDIZED_COPPER_LANTERN.get())
+                .build();
+    });
+    public static final Supplier<BiMap<Block, Block>> WAX_OFF_BY_BLOCK = Suppliers.memoize(() -> {
+        return WAXABLES.get().inverse();
+    });
 
     private VoxelShape TO_SOUTH(){
         VoxelShape shape = Shapes.empty();
@@ -115,20 +125,12 @@ public class CopperLanternBlock extends Block implements SimpleWaterloggedBlock,
         return shape;
     }
 
-    public CopperLanternBlock(Properties pProperties, WeatherState weatherState) {
+    public WaxedCopperLanternBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(ATTACHMENT, LanternAttachType.FLOOR)
                 .setValue(WATERLOGGED, Boolean.valueOf(false)));
-        this.weatherState = weatherState;
     }
 
-    public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
-        this.onRandomTick(pState, pLevel, pPos, pRandom);
-    }
-
-    public boolean isRandomlyTicking(BlockState pState) {
-        return WeatheringCopperLantern.getNext(pState.getBlock()).isPresent();
-    }
 
     private VoxelShape getVoxelShape(BlockState pState) {
         LanternAttachType lanternattachtype = pState.getValue(ATTACHMENT);
@@ -159,36 +161,15 @@ public class CopperLanternBlock extends Block implements SimpleWaterloggedBlock,
     @Override
     public @Nullable BlockState getToolModifiedState(BlockState state, Level level, BlockPos pos, Player player, ItemStack stack, ToolAction toolAction) {
         if (stack.getItem() instanceof AxeItem) {
-            if (state.getBlock() instanceof CopperLanternBlock) {
-                if (state.getBlock() != CAFBlocks.GLOWING_BRASS_COPPER_LANTERN.get()) {
-                    level.playSound(player, pos, SoundEvents.AXE_SCRAPE, SoundSource.BLOCKS, 1.0F, 1.0F);
-                    level.levelEvent(player, 3005, pos, 0);
-                    return WeatheringCopperLantern.getPrevious(state.getBlock()).get().defaultBlockState()
-                            .setValue(WATERLOGGED, state.getValue(WATERLOGGED)).setValue(ATTACHMENT, state.getValue(ATTACHMENT));
-                } else {
-                    return super.getToolModifiedState(state, level, pos, player, stack, toolAction);
-                }
+            if (state.getBlock() instanceof WaxedCopperLanternBlock) {
+                level.playSound(player, pos, SoundEvents.AXE_WAX_OFF, SoundSource.BLOCKS, 1.0F, 1.0F);
+                level.levelEvent(player, 3004, pos, 0);
+                return Optional.ofNullable(WAX_OFF_BY_BLOCK.get().get(state.getBlock())).get().defaultBlockState()
+                        .setValue(WATERLOGGED, state.getValue(WATERLOGGED)).setValue(ATTACHMENT, state.getValue(ATTACHMENT));
+
             }
         }
-
         return super.getToolModifiedState(state, level, pos, player, stack, toolAction);
-    }
-
-    @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        ItemStack itemStack = pPlayer.getItemInHand(InteractionHand.MAIN_HAND);
-        if (itemStack.getItem() instanceof HoneycombItem){
-            if (pState.getBlock() instanceof CopperLanternBlock){
-                pLevel.playSound(pPlayer, pPos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS, 1.0F, 1.0F);
-                pLevel.setBlock(pPos, Optional.ofNullable(WaxedCopperLanternBlock.WAXABLES.get().get(pState.getBlock())).get().defaultBlockState()
-                        .setValue(WATERLOGGED, pState.getValue(WATERLOGGED)).setValue(ATTACHMENT, pState.getValue(ATTACHMENT)), 11);
-                pLevel.levelEvent(pPlayer, 3003, pPos, 0);
-
-                return InteractionResult.SUCCESS;
-            }
-        }
-
-        return InteractionResult.PASS;
     }
 
     @Nullable
@@ -284,10 +265,5 @@ public class CopperLanternBlock extends Block implements SimpleWaterloggedBlock,
     @Override
     public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
         return false;
-    }
-
-    @Override
-    public WeatherState getAge() {
-        return this.weatherState;
     }
 }

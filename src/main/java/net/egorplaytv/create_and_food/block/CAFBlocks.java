@@ -91,13 +91,13 @@ public class CAFBlocks {
             () -> new CopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops(),
                     WeatheringCopperLantern.WeatherState.OXIDIZED));
     public static final RegistryObject<Block> GLOWING_BRASS_WAXED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_copper_lantern",
-            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
+            () -> new WaxedCopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> GLOWING_BRASS_WAXED_EXPOSED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_exposed_copper_lantern",
-            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
+            () -> new WaxedCopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> GLOWING_BRASS_WAXED_WEATHERED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_weathered_copper_lantern",
-            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
+            () -> new WaxedCopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> GLOWING_BRASS_WAXED_OXIDIZED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_oxidized_copper_lantern",
-            () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
+            () -> new WaxedCopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
 
     public static final RegistryObject<Block> GLOWING_BRASS_STEEL_LANTERN = registryBlockWithoutBlockItem("glowing_brass_steel_lantern",
             () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));

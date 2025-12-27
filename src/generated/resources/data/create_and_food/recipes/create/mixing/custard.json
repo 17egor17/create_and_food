@@ -2,13 +2,19 @@
   "type": "create:mixing",
   "ingredients": [
     {
+      "item": "create_and_food:raw_egg"
+    },
+    {
+      "item": "create_and_food:raw_egg"
+    },
+    {
       "item": "minecraft:sugar"
     },
     {
-      "item": "create_and_food:cocoa_powder"
+      "item": "minecraft:sugar"
     },
     {
-      "item": "create_and_food:cocoa_butter_briquette"
+      "item": "create:wheat_flour"
     },
     {
       "fluidTag": "forge:milk",
@@ -17,7 +23,7 @@
   ],
   "results": [
     {
-      "fluid": "create:flowing_chocolate",
+      "fluid": "create_and_food:custard",
       "amount": 500
     }
   ],

@@ -110,6 +110,27 @@ public class CAFFluids {
             .tag(CAFTags.Fluids.modTag("creams"))
             .register();
 
+    public static final FluidEntry<VirtualFluid> WOOD_PULP = REGISTRATE.virtualFluid("wood_pulp")
+            .tag(CAFTags.Fluids.modTag("pulp"))
+            .register();
+
+    public static final FluidEntry<VirtualFluid> CRIMSON_PULP = REGISTRATE.virtualFluid("crimson_pulp")
+            .tag(CAFTags.Fluids.modTag("pulp"))
+            .register();
+
+    public static final FluidEntry<VirtualFluid> WARPED_PULP = REGISTRATE.virtualFluid("warped_pulp")
+            .tag(CAFTags.Fluids.modTag("pulp"))
+            .register();
+
+    public static final FluidEntry<VirtualFluid> CONCENTRATED_WOOD_PULP = REGISTRATE.virtualFluid("concentrated_wood_pulp")
+            .tag(CAFTags.Fluids.modTag("concentrate_pulp"))
+            .register();
+
+    public static final FluidEntry<VirtualFluid> PAPER_PULP = REGISTRATE.virtualFluid("paper_pulp").register();
+
+    public static final FluidEntry<VirtualFluid> SULFURIC_ACID = REGISTRATE.virtualFluid("sulfuric_acid").register();
+
+
     public static void register(IEventBus eventBus) {
         FLUIDS.register(eventBus);
     }

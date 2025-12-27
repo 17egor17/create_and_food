@@ -1,0 +1,28 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:white_dye"
+    },
+    {
+      "item": "minecraft:white_dye"
+    },
+    {
+      "item": "minecraft:white_dye"
+    },
+    {
+      "item": "minecraft:white_dye"
+    },
+    {
+      "fluidTag": "create_and_food:pulp",
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "fluid": "create_and_food:paper_pulp",
+      "amount": 500
+    }
+  ],
+  "heatRequirement": "heated"
+}

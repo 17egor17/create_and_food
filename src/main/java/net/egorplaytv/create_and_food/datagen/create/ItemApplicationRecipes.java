@@ -6,8 +6,11 @@ import net.egorplaytv.create_and_food.item.CAFItems;
 import net.egorplaytv.create_and_food.util.CAFTags;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.ToolAction;
 
 import java.util.function.Consumer;
 

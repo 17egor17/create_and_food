@@ -254,6 +254,24 @@ public class CAFItems {
     public static final RegistryObject<Item> NETHER_ALLOY = registerItem("nether_alloy",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
+    public static final RegistryObject<Item> RAW_TANTALUM = registerItem("raw_tantalum",
+            () -> new MeltItem(3016, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+    public static final RegistryObject<Item> CRASHED_RAW_TANTALUM = registerItem("crushed_raw_tantalum",
+            () -> new MeltItem(3016, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+    public static final RegistryObject<Item> TANTALUM_INGOT = registerItem("tantalum_ingot",
+            () -> new IngotItem(3016, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+    public static final RegistryObject<Item> TANTALUM_NUGGET = registerItem("tantalum_nugget",
+            () -> new MeltItem(3016, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> RAW_TUNGSTEN = registerItem("raw_tungsten",
+            () -> new MeltItem(3421, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+    public static final RegistryObject<Item> CRASHED_RAW_TUNGSTEN = registerItem("crushed_raw_tungsten",
+            () -> new MeltItem(3421, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+    public static final RegistryObject<Item> TUNGSTEN_INGOT = registerItem("tungsten_ingot",
+            () -> new IngotItem(3421, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+    public static final RegistryObject<Item> TUNGSTEN_NUGGET = registerItem("tungsten_nugget",
+            () -> new MeltItem(3421, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
     public static final RegistryObject<Item> STEEL_COIL = registerItem("steel_coil",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
@@ -395,6 +413,33 @@ public class CAFItems {
     public static final RegistryObject<Item> BRICK_DUST = registerItem("brick_dust",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
+    public static final RegistryObject<Item> WOOD_SAWDUST = registerItem("wood_sawdust",
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> WOOD_CHIPS = registerItem("wood_chips",
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> CRIMSON_SAWDUST = registerItem("crimson_sawdust",
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> CRIMSON_CHIPS = registerItem("crimson_chips",
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> WARPED_SAWDUST = registerItem("warped_sawdust",
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> WARPED_CHIPS = registerItem("warped_chips",
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> THIN_CARDBOARD = registerItem("thin_cardboard",
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> CRIMSON_THIN_CARDBOARD = registerItem("crimson_thin_cardboard",
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> WARPED_THIN_CARDBOARD = registerItem("warped_thin_cardboard",
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
     public static final RegistryObject<Item> RAW_RUBY = registerItem("raw_ruby",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
@@ -421,24 +466,6 @@ public class CAFItems {
             () -> new SequencedAssemblyItem(new Item.Properties()));
     public static final RegistryObject<Item> MARBLE_PERLIN_PINK_BRICK = registerItem("marble_perlin_pink_brick",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
-
-    public static final RegistryObject<Item> RAW_TANTALUM = registerItem("raw_tantalum",
-            () -> new MeltItem(3016, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
-    public static final RegistryObject<Item> CRASHED_RAW_TANTALUM = registerItem("crushed_raw_tantalum",
-            () -> new MeltItem(3016, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
-    public static final RegistryObject<Item> TANTALUM_INGOT = registerItem("tantalum_ingot",
-            () -> new IngotItem(3016, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
-    public static final RegistryObject<Item> TANTALUM_NUGGET = registerItem("tantalum_nugget",
-            () -> new MeltItem(3016, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
-
-    public static final RegistryObject<Item> RAW_TUNGSTEN = registerItem("raw_tungsten",
-            () -> new MeltItem(3421, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
-    public static final RegistryObject<Item> CRASHED_RAW_TUNGSTEN = registerItem("crushed_raw_tungsten",
-            () -> new MeltItem(3421, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
-    public static final RegistryObject<Item> TUNGSTEN_INGOT = registerItem("tungsten_ingot",
-            () -> new IngotItem(3421, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
-    public static final RegistryObject<Item> TUNGSTEN_NUGGET = registerItem("tungsten_nugget",
-            () -> new MeltItem(3421, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
 
 

@@ -7,8 +7,10 @@ import net.egorplaytv.create_and_food.item.CAFItems;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.Tags;
 
 import java.util.function.Consumer;
 
@@ -64,6 +66,37 @@ public class CrushingRecipes {
                 .addResult(AllItems.EXP_NUGGET.get(), 0.75f)
                 .addResult(Items.COBBLESTONE, 0.125f)
                 .save(pConsumer, getCrushing(getRecipeId(CAFBlocks.STONE_TUNGSTEN_ORE.get())));
+
+        CrushingRecipeBuilder.crushingRecipe(CAFItems.WOOD_CHIPS.get(), 4, 200)
+                .addIngredient(ItemTags.LOGS_THAT_BURN)
+                .addResult(CAFItems.WOOD_SAWDUST.get(), 0.25f, 2)
+                .save(pConsumer, getCrushing(getRecipeId(CAFItems.WOOD_CHIPS.get())));
+
+        CrushingRecipeBuilder.crushingRecipe(CAFItems.WOOD_SAWDUST.get(), 200)
+                .addIngredient(CAFItems.WOOD_CHIPS.get())
+                .addResult(CAFItems.WOOD_SAWDUST.get(), 0.5f, 1)
+                .save(pConsumer, getCrushing(getRecipeId(CAFItems.WOOD_SAWDUST.get())));
+
+        CrushingRecipeBuilder.crushingRecipe(CAFItems.CRIMSON_CHIPS.get(), 4, 200)
+                .addIngredient(ItemTags.CRIMSON_STEMS)
+                .addResult(CAFItems.CRIMSON_SAWDUST.get(), 0.25f, 2)
+                .save(pConsumer, getCrushing(getRecipeId(CAFItems.CRIMSON_CHIPS.get())));
+
+        CrushingRecipeBuilder.crushingRecipe(CAFItems.CRIMSON_SAWDUST.get(), 200)
+                .addIngredient(CAFItems.CRIMSON_CHIPS.get())
+                .addResult(CAFItems.CRIMSON_SAWDUST.get(), 0.5f, 1)
+                .save(pConsumer, getCrushing(getRecipeId(CAFItems.CRIMSON_SAWDUST.get())));
+
+        CrushingRecipeBuilder.crushingRecipe(CAFItems.WARPED_CHIPS.get(), 4, 200)
+                .addIngredient(ItemTags.WARPED_STEMS)
+                .addResult(CAFItems.WARPED_SAWDUST.get(), 0.25f, 2)
+                .save(pConsumer, getCrushing(getRecipeId(CAFItems.WARPED_CHIPS.get())));
+
+        CrushingRecipeBuilder.crushingRecipe(CAFItems.WARPED_SAWDUST.get(), 200)
+                .addIngredient(CAFItems.WARPED_CHIPS.get())
+                .addResult(CAFItems.WARPED_SAWDUST.get(), 0.5f, 1)
+                .save(pConsumer, getCrushing(getRecipeId(CAFItems.WARPED_SAWDUST.get())));
+
 
 //        CrushingRecipeBuilder.crushingRecipe()
 //                .addIngredient()

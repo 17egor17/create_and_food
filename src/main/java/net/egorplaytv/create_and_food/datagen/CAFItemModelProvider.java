@@ -137,6 +137,15 @@ public class CAFItemModelProvider extends ItemModelProvider {
         simpleItem(IRON_DUST.get());
         simpleItem(STEEL_DUST.get());
         simpleItem(BRICK_DUST.get());
+        simpleItem(WOOD_SAWDUST.get());
+        simpleItem(WOOD_CHIPS.get());
+        simpleItem(CRIMSON_SAWDUST.get());
+        simpleItem(CRIMSON_CHIPS.get());
+        simpleItem(WARPED_SAWDUST.get());
+        simpleItem(WARPED_CHIPS.get());
+        simpleItem(THIN_CARDBOARD.get());
+        simpleItem(CRIMSON_THIN_CARDBOARD.get());
+        simpleItem(WARPED_THIN_CARDBOARD.get());
         simpleItem(RAW_RUBY.get());
         simpleItem(RUBY.get());
         simpleItem(FIRECLAY_BRICK.get());

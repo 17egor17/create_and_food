@@ -5,6 +5,7 @@ import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import com.tterrag.registrate.providers.ProviderType;
+import net.egorplaytv.create_and_food.block.CAFBlocks;
 import net.egorplaytv.create_and_food.block.entity.ModWoodTypes;
 import net.egorplaytv.create_and_food.config.CAFConfigs;
 import net.egorplaytv.create_and_food.config.CreateAndFoodClientConfigs;
@@ -19,6 +20,7 @@ import net.minecraft.client.renderer.Sheets;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.HoneycombItem;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -126,6 +128,7 @@ public class CreateAndFood {
             new Fueling();
             new Sample();
             new Weight();
+
             Sheets.addWoodType(ModWoodTypes.ALMOND);
         });
 

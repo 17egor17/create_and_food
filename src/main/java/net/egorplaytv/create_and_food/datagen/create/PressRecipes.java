@@ -61,6 +61,22 @@ public class PressRecipes {
                 .addIngredient(CAFItems.SMALL_DOUGH.get())
                 .save(pConsumer, getCompacting(getRecipeId(CAFItems.SMALL_DOUGH_BASE.get())));
 
+        CompactingRecipeBuilder.compactingRecipe(CAFItems.THIN_CARDBOARD.get())
+                .addIngredient(CAFFluids.WOOD_PULP.get().getSource(), 100)
+                .save(pConsumer, getCompacting(getRecipeId(CAFItems.THIN_CARDBOARD.get())));
+
+        CompactingRecipeBuilder.compactingRecipe(CAFItems.CRIMSON_THIN_CARDBOARD.get())
+                .addIngredient(CAFFluids.CRIMSON_PULP.get().getSource(), 100)
+                .save(pConsumer, getCompacting(getRecipeId(CAFItems.CRIMSON_THIN_CARDBOARD.get())));
+
+        CompactingRecipeBuilder.compactingRecipe(CAFItems.WARPED_THIN_CARDBOARD.get())
+                .addIngredient(CAFFluids.WARPED_PULP.get().getSource(), 100)
+                .save(pConsumer, getCompacting(getRecipeId(CAFItems.WARPED_THIN_CARDBOARD.get())));
+
+        CompactingRecipeBuilder.compactingRecipe(Items.PAPER)
+                .addIngredient(CAFFluids.PAPER_PULP.get().getSource(), 50)
+                .save(pConsumer, getCompacting(getRecipeId(Items.PAPER)));
+
 //        CompactingRecipeBuilder.compactingRecipe()
 //                .addIngredient()
 //                .save(pConsumer, getCompacting(getRecipeId()));

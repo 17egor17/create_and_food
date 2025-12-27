@@ -1,0 +1,18 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "create_and_food:crimson_chips"
+    }
+  ],
+  "results": [
+    {
+      "item": "create_and_food:crimson_sawdust"
+    },
+    {
+      "item": "create_and_food:crimson_sawdust",
+      "chance": 0.5
+    }
+  ],
+  "processingTime": 200
+}
