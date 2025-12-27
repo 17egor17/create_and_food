@@ -13,7 +13,6 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
-import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -110,7 +109,7 @@ public class CopperLanternBlock extends Block implements SimpleWaterloggedBlock,
     }
 
     public boolean isRandomlyTicking(BlockState pState) {
-        return WeatheringCopper.getNext(pState.getBlock()).isPresent();
+        return WeatheringCopperLantern.getNext(pState.getBlock()).isPresent();
     }
 
     private VoxelShape getVoxelShape(BlockState pState) {

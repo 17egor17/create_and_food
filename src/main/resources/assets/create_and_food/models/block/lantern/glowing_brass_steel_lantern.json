@@ -1,8 +1,0 @@
-{
-	"parent": "create_and_food:custom/block/lantern/glowing_brass_lantern",
-	"textures": {
-		"material": "create_and_food:block/lantern/glowing_brass_steel_lantern",
-		"chain": "create_and_food:block/lantern/steel_chain",
-		"particle": "create_and_food:block/steel_block"
-	}
-}
