@@ -84,10 +84,10 @@ public class MixerRecipes {
                 .addIngredient(CAFFluids.COCOA_OIL.get(), 250)
                 .save(pConsumer, getMixing(getRecipeIdFluidFrom(CAFFluids.WHITE_CHOCOLATE.get(), CAFFluids.COCOA_OIL.get())));
 
-//        MixingRecipeBuilder.mixingRecipe(CAFFluids.SULFURIC_ACID.get().getSource(), 1000, HEATED)
-//                .addIngredient(Items.GUNPOWDER, 5)
-//                .addIngredient(Fluids.WATER, 1000)
-//                .save(pConsumer, getMixing(getRecipeId(CAFFluids.SULFURIC_ACID.get().getSource())));
+        MixingRecipeBuilder.mixingRecipe(CAFFluids.SULFURIC_ACID.get().getSource(), 1000, HEATED)
+                .addIngredient(Items.GUNPOWDER, 5)
+                .addIngredient(Fluids.WATER, 1000)
+                .save(pConsumer, getMixing(getRecipeId(CAFFluids.SULFURIC_ACID.get().getSource())));
 
         MixingRecipeBuilder.mixingRecipe(CAFFluids.WOOD_PULP.get().getSource(), 500, HEATED)
                 .addIngredient(CAFFluids.SULFURIC_ACID.get(), 1000)
