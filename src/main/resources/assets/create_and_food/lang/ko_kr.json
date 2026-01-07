@@ -1,7 +1,7 @@
 {
   "_comment": "_______________________________Advancement_______________________________",
-  "advancement.create_and_food.create_and_food": "Create and Food",
-  "advancement.create_and_food.create_and_food.desc": "Create and Food 모드에 오신 것을 환영합니다",
+  "advancement.create_and_food.root": "Create and Food",
+  "advancement.create_and_food.root.desc": "Create and Food 모드에 오신 것을 환영합니다",
   "advancement.exemple": "예시",
   "advancement.exemple.desc": "예시 설명",
 
@@ -504,7 +504,7 @@
   "fluid.create_and_food.warped_pulp": "Искажённый раствор целлюлозы",
   "fluid.create_and_food.white_chocolate": "하얀색 초콜릿",
   "fluid.create_and_food.white_chocolate_flowing": "하얀색 초콜릿",
-  "fluid.create_and_food.wood_pulp": "Древесный раствор целлюлозы"
+  "fluid.create_and_food.wood_pulp": "Древесный раствор целлюлозы",
   "fluid.minecraft.milk": "우유",
   "fluid.minecraft.flowing_milk": "우유",
 

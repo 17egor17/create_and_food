@@ -1,7 +1,7 @@
 {
   "_comment": "_______________________________Advancement_______________________________",
-  "advancement.create_and_food.create_and_food": "Create and Food",
-  "advancement.create_and_food.create_and_food.desc": "Bienvenido al mod Create and Food",
+  "advancement.create_and_food.root": "Create and Food",
+  "advancement.create_and_food.root.desc": "Bienvenido al mod Create and Food",
   "advancement.exemple": "Пример",
   "advancement.exemple.desc": "Пример описания",
 
