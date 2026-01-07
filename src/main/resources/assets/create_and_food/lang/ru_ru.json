@@ -428,10 +428,10 @@
   "_comment": "_______________________________DeathAttack_______________________________",
   "death.attack.create_and_food.drank": "%1$s спился(ась) до смерти",
   "death.attack.create_and_food.drank.player": "%1$s спился(ась) до смерти из-за %2$s",
-  "death.attack.create_and_food.grinder_polishing_damage": "%1$s был отполирован до смерти",
-  "death.attack.create_and_food.grinder_polishing_damage.player": "%1$s был отполирован до смерти из-за %2$s",
+  "death.attack.create_and_food.grinder_polishing_damage": "%1$s был(а) отполирован(а) до смерти",
+  "death.attack.create_and_food.grinder_polishing_damage.player": "%1$s был(а) отполирован(а) до смерти из-за %2$s",
   "death.attack.create_and_food.hot_metal": "%1$s погиб(ла) от горячего металла",
-  "death.attack.create_and_food.raspberry_bush": "%1$s искололся до смерти в кустах малины",
+  "death.attack.create_and_food.raspberry_bush": "%1$s искололся(ась) до смерти в кустах малины",
 
   "_comment": "_______________________________DynamicTrees_______________________________",
   "block.dynamictrees.almond_tree_branch": "Миндальное дерево",
