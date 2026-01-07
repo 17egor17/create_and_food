@@ -402,8 +402,6 @@
 
   "_comment": "_______________________________CreateAndFood_______________________________",
   "create_and_food.berry_bush.circumcised": "§c줄기를 잘라낼 수 없어요 이미 잘라 있거나 아직 싹이 나지 않았기 때문에",
-  "create_and_food.energy.encaf": "%s ЕнCAF",
-  "create_and_food.energy.kencaf": "%s кЕнCAF",
   "create_and_food.gui.goggles.current_speed": "Скорость:",
   "create_and_food.gui.goggles.high": "Высокая",
   "create_and_food.gui.goggles.low": "Низкая",

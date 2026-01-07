@@ -402,8 +402,6 @@
 
   "_comment": "_______________________________CreateAndFood_______________________________",
   "create_and_food.berry_bush.circumcised": "§cすでに切り取られているか、まだ発芽していないため、挿し木を切り取ることはできません",
-  "create_and_food.energy.encaf": "%s ЕнCAF",
-  "create_and_food.energy.kencaf": "%s кЕнCAF",
   "create_and_food.gui.goggles.current_speed": "速度：",
   "create_and_food.gui.goggles.high": "高い",
   "create_and_food.gui.goggles.low": "低い",
