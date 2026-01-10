@@ -1,0 +1,26 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "caf:stone_tantalum_ore"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:raw_tantalum"
+    },
+    {
+      "item": "caf:crushed_raw_tantalum",
+      "chance": 0.75
+    },
+    {
+      "item": "create:experience_nugget",
+      "chance": 0.75
+    },
+    {
+      "item": "minecraft:cobblestone",
+      "chance": 0.125
+    }
+  ],
+  "processingTime": 250
+}

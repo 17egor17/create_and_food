@@ -1,0 +1,18 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "caf:raw_tantalum"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:crushed_raw_tantalum"
+    },
+    {
+      "item": "create:experience_nugget",
+      "chance": 0.75
+    }
+  ],
+  "processingTime": 400
+}

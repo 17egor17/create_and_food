@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/torn_soul_chain"
+    ]
+  },
+  "criteria": {
+    "has_alloy_souls_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:alloy_souls_ingot"
+            ]
+          }
+        ]
+      }
+    },
+    "has_alloy_souls_nugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:alloy_souls_nugget"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/torn_soul_chain"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_alloy_souls_ingot",
+      "has_alloy_souls_nugget",
+      "has_the_recipe"
+    ]
+  ]
+}

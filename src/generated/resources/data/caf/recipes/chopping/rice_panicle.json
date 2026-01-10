@@ -1,0 +1,16 @@
+{
+  "type": "caf:chopping",
+  "ingredients": [
+    {
+      "item": "farmersdelight:rice_panicle"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:rice"
+    },
+    {
+      "item": "farmersdelight:straw"
+    }
+  ]
+}

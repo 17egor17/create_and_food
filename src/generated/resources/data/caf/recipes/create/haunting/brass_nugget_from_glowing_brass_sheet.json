@@ -1,0 +1,14 @@
+{
+  "type": "create:haunting",
+  "ingredients": [
+    {
+      "item": "caf:glowing_brass_sheet"
+    }
+  ],
+  "results": [
+    {
+      "item": "create:brass_nugget",
+      "count": 4
+    }
+  ]
+}

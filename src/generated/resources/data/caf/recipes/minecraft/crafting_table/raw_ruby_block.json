@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "000",
+    "000",
+    "000"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:raw_ruby"
+    }
+  },
+  "result": {
+    "item": "caf:raw_ruby_block"
+  }
+}

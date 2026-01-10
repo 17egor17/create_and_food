@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "212",
+    "101",
+    "212"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:steel_shaft"
+    },
+    "1": {
+      "item": "caf:steel_ingot"
+    },
+    "2": {
+      "item": "caf:steel_nugget"
+    }
+  },
+  "result": {
+    "item": "caf:large_steel_cogwheel"
+  }
+}

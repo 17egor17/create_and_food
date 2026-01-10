@@ -1,0 +1,15 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "caf:cocoa_butter_briquette"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "caf:cocoa_oil",
+      "amount": 250
+    }
+  ],
+  "heatRequirement": "heated"
+}

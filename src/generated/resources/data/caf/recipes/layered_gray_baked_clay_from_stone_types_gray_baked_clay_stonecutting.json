@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "caf:stone_types/gray_baked_clay"
+  },
+  "result": "caf:layered_gray_baked_clay",
+  "count": 1
+}

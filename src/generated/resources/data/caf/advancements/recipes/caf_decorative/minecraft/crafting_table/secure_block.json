@@ -1,0 +1,43 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/secure_block"
+    ]
+  },
+  "criteria": {
+    "has_brass_sheet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:plates/brass"
+          }
+        ]
+      }
+    },
+    "has_steel_sheet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:plates/steel"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/secure_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_brass_sheet",
+      "has_steel_sheet",
+      "has_the_recipe"
+    ]
+  ]
+}

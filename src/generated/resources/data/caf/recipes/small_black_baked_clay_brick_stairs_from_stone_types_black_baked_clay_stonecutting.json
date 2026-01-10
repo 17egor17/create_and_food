@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "caf:stone_types/black_baked_clay"
+  },
+  "result": "caf:small_black_baked_clay_brick_stairs",
+  "count": 1
+}

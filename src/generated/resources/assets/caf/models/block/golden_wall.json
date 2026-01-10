@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "caf:block/palettes/golden_wall",
+    "end": "caf:block/palettes/golden_wall_top"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "small_yellow_baked_clay_brick_slab",
+  "pattern": [
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "caf:small_yellow_baked_clay_bricks"
+    }
+  },
+  "result": {
+    "item": "caf:small_yellow_baked_clay_brick_slab",
+    "count": 6
+  }
+}

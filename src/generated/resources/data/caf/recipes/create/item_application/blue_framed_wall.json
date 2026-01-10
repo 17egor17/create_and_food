@@ -1,0 +1,16 @@
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "item": "caf:framed_wall"
+    },
+    {
+      "tag": "forge:dyes/blue"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:blue_framed_wall"
+    }
+  ]
+}

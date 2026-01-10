@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "caf:alloy_souls"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:alloy_souls_sheet"
+    }
+  ]
+}

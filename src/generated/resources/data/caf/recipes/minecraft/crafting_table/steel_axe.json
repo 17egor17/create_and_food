@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "11",
+    "10",
+    " 2"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:tool_handle"
+    },
+    "1": {
+      "tag": "forge:ingots/steel"
+    },
+    "2": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "result": {
+    "item": "caf:steel_axe"
+  }
+}

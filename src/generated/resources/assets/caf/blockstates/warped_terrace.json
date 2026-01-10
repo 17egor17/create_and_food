@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "attachment=single,waterlogged=false": {
+      "model": "caf:block/warped_terrace_block"
+    },
+    "attachment=low,waterlogged=false": {
+      "model": "caf:block/warped_terrace_bottom"
+    },
+    "attachment=middle,waterlogged=false": {
+      "model": "caf:block/warped_terrace_medium"
+    },
+    "attachment=up,waterlogged=false": {
+      "model": "caf:block/warped_terrace_top"
+    },
+    "attachment=single,waterlogged=true": {
+      "model": "caf:block/warped_terrace_block"
+    },
+    "attachment=low,waterlogged=true": {
+      "model": "caf:block/warped_terrace_bottom"
+    },
+    "attachment=middle,waterlogged=true": {
+      "model": "caf:block/warped_terrace_medium"
+    },
+    "attachment=up,waterlogged=true": {
+      "model": "caf:block/warped_terrace_top"
+    }
+  }
+}

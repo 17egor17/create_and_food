@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "caf:cut_marble_black_galaxy_brick_slab"
+    },
+    {
+      "item": "caf:cut_marble_black_galaxy_brick_slab"
+    }
+  ],
+  "result": {
+    "item": "caf:cut_marble_black_galaxy_bricks"
+  }
+}

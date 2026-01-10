@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1",
+    "2"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:mozzarella_cheese"
+    },
+    "1": {
+      "tag": "forge:meat"
+    },
+    "2": {
+      "item": "caf:base_of_dough"
+    }
+  },
+  "result": {
+    "item": "caf:raw_pizza"
+  }
+}

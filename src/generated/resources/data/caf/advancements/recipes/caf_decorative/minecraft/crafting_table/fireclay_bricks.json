@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/fireclay_bricks"
+    ]
+  },
+  "criteria": {
+    "has_fireclay_brick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:fireclay_brick"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/fireclay_bricks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_fireclay_brick",
+      "has_the_recipe"
+    ]
+  ]
+}

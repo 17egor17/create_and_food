@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "caf:raw_tantalum_block"
+    }
+  ],
+  "result": {
+    "item": "caf:raw_tantalum",
+    "count": 9
+  }
+}

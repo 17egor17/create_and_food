@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "caf:stone_types/orange_baked_clay"
+  },
+  "result": "caf:cut_orange_baked_clay_wall",
+  "count": 1
+}

@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "create:dough"
+    },
+    {
+      "fluidTag": "caf:creams",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:raw_sweet_roll"
+    }
+  ]
+}

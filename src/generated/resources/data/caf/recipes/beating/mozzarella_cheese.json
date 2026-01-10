@@ -1,0 +1,25 @@
+{
+  "type": "caf:beating",
+  "ingredients": [
+    {
+      "fluidTag": "forge:milk",
+      "amount": 1000
+    },
+    {
+      "fluid": "caf:apple_vinegar",
+      "nbt": {},
+      "amount": 1000
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:mozzarella_cheese",
+      "count": 4
+    },
+    {
+      "fluid": "minecraft:water",
+      "amount": 500
+    }
+  ],
+  "heatRequirement": "heated"
+}

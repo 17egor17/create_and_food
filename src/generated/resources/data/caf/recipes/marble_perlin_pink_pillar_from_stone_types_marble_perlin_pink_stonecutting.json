@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "caf:stone_types/marble_perlin_pink"
+  },
+  "result": "caf:marble_perlin_pink_pillar",
+  "count": 1
+}

@@ -1,0 +1,15 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "fluid": "caf:paper_pulp",
+      "nbt": {},
+      "amount": 50
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:paper"
+    }
+  ]
+}

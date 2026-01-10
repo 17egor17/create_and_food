@@ -1,0 +1,73 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": [
+    {
+      "item": "caf:marble"
+    }
+  ],
+  "transitionalItem": {
+    "item": "caf:incomplete_marble_brick"
+  },
+  "sequence": [
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_marble_brick"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_marble_brick"
+        }
+      ],
+      "processingTime": 100
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_marble_brick"
+        },
+        {
+          "fluid": "minecraft:water",
+          "nbt": {},
+          "amount": 250
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_marble_brick"
+        }
+      ]
+    },
+    {
+      "type": "caf:polishing",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_marble_brick"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_marble_brick"
+        }
+      ],
+      "processingTime": 100,
+      "speedLimits": 0,
+      "fragile": false
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:marble_brick",
+      "count": 9,
+      "chance": 80.0
+    },
+    {
+      "item": "caf:cobbled_marble",
+      "chance": 20.0
+    }
+  ],
+  "loops": 1
+}

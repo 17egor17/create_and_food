@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/almond_barrel"
+    ]
+  },
+  "criteria": {
+    "has_almond_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:almond_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_almond_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:almond_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/almond_barrel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_almond_planks",
+      "has_almond_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

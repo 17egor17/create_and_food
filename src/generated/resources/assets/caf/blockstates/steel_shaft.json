@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "caf:block/steel_shaft",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "caf:block/steel_shaft"
+    },
+    "axis=z": {
+      "model": "caf:block/steel_shaft",
+      "x": 90,
+      "y": 180
+    }
+  }
+}

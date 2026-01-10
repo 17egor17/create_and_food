@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "caf:block/ores/deepslate_tantalum_ore_3"
+  }
+}

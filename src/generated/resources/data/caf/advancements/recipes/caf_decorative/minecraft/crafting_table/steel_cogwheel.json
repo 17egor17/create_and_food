@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/steel_cogwheel"
+    ]
+  },
+  "criteria": {
+    "has_steel_shaft": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:steel_shaft"
+            ]
+          }
+        ]
+      }
+    },
+    "has_steel_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:steel_ingot"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/steel_cogwheel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_steel_shaft",
+      "has_steel_ingot",
+      "has_the_recipe"
+    ]
+  ]
+}

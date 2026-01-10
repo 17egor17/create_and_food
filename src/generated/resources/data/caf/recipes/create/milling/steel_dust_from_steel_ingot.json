@@ -1,0 +1,14 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "caf:steel_ingot"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:steel_dust"
+    }
+  ],
+  "processingTime": 150
+}

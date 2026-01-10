@@ -1,0 +1,19 @@
+{
+  "type": "caf:blasting",
+  "ingredients": [
+    {
+      "item": "create:cinder_flour"
+    },
+    {
+      "item": "caf:alloy_souls"
+    }
+  ],
+  "result": {
+    "item": "caf:nether_alloy"
+  },
+  "comment_time": "min 200 time",
+  "time": 200,
+  "comment": "min 100 deg, max 5000 deg",
+  "degree": 1000,
+  "experience": 0.1
+}

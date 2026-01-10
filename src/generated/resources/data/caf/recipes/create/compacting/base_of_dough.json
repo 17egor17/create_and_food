@@ -1,0 +1,13 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "create:dough"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:base_of_dough"
+    }
+  ]
+}

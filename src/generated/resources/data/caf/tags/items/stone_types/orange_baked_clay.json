@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "caf:cut_orange_baked_clay",
+    "caf:cut_orange_baked_clay_stairs",
+    "caf:cut_orange_baked_clay_wall",
+    "caf:cut_orange_baked_clay_bricks",
+    "caf:cut_orange_baked_clay_brick_stairs",
+    "caf:cut_orange_baked_clay_brick_wall",
+    "caf:small_orange_baked_clay_bricks",
+    "caf:small_orange_baked_clay_brick_stairs",
+    "caf:small_orange_baked_clay_brick_wall",
+    "caf:layered_orange_baked_clay",
+    "caf:orange_baked_clay_pillar",
+    "caf:orange_baked_clay"
+  ]
+}

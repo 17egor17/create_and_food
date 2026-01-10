@@ -1,0 +1,18 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "caf:warped_chips"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:warped_sawdust"
+    },
+    {
+      "item": "caf:warped_sawdust",
+      "chance": 0.5
+    }
+  ],
+  "processingTime": 200
+}

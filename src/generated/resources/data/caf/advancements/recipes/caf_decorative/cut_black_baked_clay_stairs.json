@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:cut_black_baked_clay_stairs"
+    ]
+  },
+  "criteria": {
+    "has_cut_black_baked_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:cut_black_baked_clay"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:cut_black_baked_clay_stairs"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cut_black_baked_clay",
+      "has_the_recipe"
+    ]
+  ]
+}

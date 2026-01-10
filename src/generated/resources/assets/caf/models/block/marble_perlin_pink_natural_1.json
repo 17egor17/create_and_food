@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "caf:block/palettes/stone_types/natural/marble_perlin_pink_1"
+  }
+}

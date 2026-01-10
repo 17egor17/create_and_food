@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "caf:block/steel_ruby_lamp_block_off"
+    },
+    "lit=true": {
+      "model": "caf:block/steel_ruby_lamp_block_on"
+    }
+  }
+}

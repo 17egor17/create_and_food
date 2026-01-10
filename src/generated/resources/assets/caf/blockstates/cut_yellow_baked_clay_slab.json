@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=top": {
+      "model": "caf:block/cut_yellow_baked_clay_slab_top"
+    },
+    "type=bottom": {
+      "model": "caf:block/cut_yellow_baked_clay_slab"
+    },
+    "type=double": {
+      "model": "caf:block/cut_yellow_baked_clay"
+    }
+  }
+}

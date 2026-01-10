@@ -1,0 +1,17 @@
+{
+  "type": "caf:chopping",
+  "ingredients": [
+    {
+      "item": "farmersdelight:wild_rice"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:rice"
+    },
+    {
+      "item": "farmersdelight:straw",
+      "chance": 0.5
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/almond_planks"
+    ]
+  },
+  "criteria": {
+    "has_almond_logs": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "caf:almond_logs"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/almond_planks"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_almond_logs",
+      "has_the_recipe"
+    ]
+  ]
+}

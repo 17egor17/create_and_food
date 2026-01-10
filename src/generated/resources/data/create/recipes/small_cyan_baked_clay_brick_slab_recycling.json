@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "caf:small_cyan_baked_clay_brick_slab"
+    },
+    {
+      "item": "caf:small_cyan_baked_clay_brick_slab"
+    }
+  ],
+  "result": {
+    "item": "caf:small_cyan_baked_clay_bricks"
+  }
+}

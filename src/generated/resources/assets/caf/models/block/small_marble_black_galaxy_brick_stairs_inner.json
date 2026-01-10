@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "side": "caf:block/palettes/stone_types/small_brick/marble_black_galaxy_cut_small_brick",
+    "bottom": "caf:block/palettes/stone_types/small_brick/marble_black_galaxy_cut_small_brick",
+    "top": "caf:block/palettes/stone_types/small_brick/marble_black_galaxy_cut_small_brick"
+  }
+}

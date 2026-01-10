@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "caf:glowing_brass_ingot"
+    }
+  ],
+  "result": {
+    "item": "caf:glowing_brass_nugget",
+    "count": 9
+  }
+}

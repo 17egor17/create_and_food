@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "caf:block/ores/stone_tungsten_ore_0"
+  }
+}

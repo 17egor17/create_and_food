@@ -1,0 +1,69 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": [
+    {
+      "item": "caf:small_dough_base"
+    }
+  ],
+  "transitionalItem": {
+    "item": "caf:incomplete_raw_glow_berry_cake"
+  },
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_raw_glow_berry_cake"
+        },
+        {
+          "fluidTag": "forge:honey",
+          "amount": 250
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_raw_glow_berry_cake"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_raw_glow_berry_cake"
+        },
+        {
+          "fluidTag": "caf:creams",
+          "amount": 250
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_raw_glow_berry_cake"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_raw_glow_berry_cake"
+        },
+        {
+          "item": "minecraft:glow_berries"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_raw_glow_berry_cake"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:raw_glow_berry_cake"
+    }
+  ],
+  "loops": 1
+}

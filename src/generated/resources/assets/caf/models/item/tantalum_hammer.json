@@ -1,0 +1,6 @@
+{
+  "parent": "caf:custom/item/tool/hammer",
+  "textures": {
+    "material": "caf:item/tools/tantalum/tantalum_hammer"
+  }
+}

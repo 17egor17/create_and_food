@@ -1,0 +1,29 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "caf:raw_protein"
+    },
+    {
+      "item": "caf:raw_protein"
+    },
+    {
+      "item": "caf:raw_protein"
+    },
+    {
+      "item": "caf:raw_protein"
+    },
+    {
+      "item": "caf:powdered_sugar"
+    },
+    {
+      "item": "caf:powdered_sugar"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "caf:glaze",
+      "amount": 500
+    }
+  ]
+}

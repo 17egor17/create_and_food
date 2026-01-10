@@ -1,0 +1,9 @@
+{
+  "parent": "caf:block/encased_cogwheel/block_bottom",
+  "textures": {
+    "casing": "caf:block/steel_casing",
+    "cog": "caf:block/steel_gearbox",
+    "end": "caf:block/steel",
+    "side": "caf:block/steel_encased_cogwheel_side"
+  }
+}

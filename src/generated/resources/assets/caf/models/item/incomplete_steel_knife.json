@@ -1,0 +1,14 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "caf:item/tools/incomplete_knives/incomplete_steel_knife_0"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "caf:sequenced_assembly_progress": 3.0
+      },
+      "model": "caf:item/incomplete_steel_knife_1"
+    }
+  ]
+}

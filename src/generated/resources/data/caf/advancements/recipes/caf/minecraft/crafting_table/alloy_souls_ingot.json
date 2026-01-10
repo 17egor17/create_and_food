@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/alloy_souls_ingot"
+    ]
+  },
+  "criteria": {
+    "has_alloy_souls": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:alloy_souls"
+            ]
+          }
+        ]
+      }
+    },
+    "has_alloy_souls_nugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:alloy_souls_nugget"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/alloy_souls_ingot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_alloy_souls",
+      "has_alloy_souls_nugget",
+      "has_the_recipe"
+    ]
+  ]
+}

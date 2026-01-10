@@ -1,0 +1,16 @@
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "tag": "forge:stripped_logs"
+    },
+    {
+      "item": "caf:alloy_souls"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:alloy_souls_casing"
+    }
+  ]
+}

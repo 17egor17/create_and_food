@@ -1,0 +1,18 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "caf:crimson_chips"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:crimson_sawdust"
+    },
+    {
+      "item": "caf:crimson_sawdust",
+      "chance": 0.5
+    }
+  ],
+  "processingTime": 200
+}

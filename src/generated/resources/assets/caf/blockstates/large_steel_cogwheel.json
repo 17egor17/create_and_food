@@ -1,0 +1,17 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "caf:block/large_steel_cogwheel",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "caf:block/large_steel_cogwheel"
+    },
+    "axis=z": {
+      "model": "caf:block/large_steel_cogwheel",
+      "x": 90,
+      "y": 180
+    }
+  }
+}

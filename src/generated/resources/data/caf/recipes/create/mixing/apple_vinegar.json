@@ -1,0 +1,39 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "item": "minecraft:apple"
+    },
+    {
+      "fluid": "minecraft:water",
+      "nbt": {},
+      "amount": 1000
+    },
+    {
+      "fluidTag": "forge:honey",
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "fluid": "caf:apple_vinegar",
+      "amount": 1000
+    }
+  ],
+  "heatRequirement": "heated"
+}

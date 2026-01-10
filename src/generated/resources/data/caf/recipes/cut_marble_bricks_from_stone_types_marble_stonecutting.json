@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "caf:stone_types/marble"
+  },
+  "result": "caf:cut_marble_bricks",
+  "count": 1
+}

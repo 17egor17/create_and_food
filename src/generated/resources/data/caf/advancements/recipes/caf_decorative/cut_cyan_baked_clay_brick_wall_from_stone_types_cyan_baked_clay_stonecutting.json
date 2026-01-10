@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:cut_cyan_baked_clay_brick_wall_from_stone_types_cyan_baked_clay_stonecutting"
+    ]
+  },
+  "criteria": {
+    "has_stone_types_cyan_baked_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "caf:stone_types/cyan_baked_clay"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:cut_cyan_baked_clay_brick_wall_from_stone_types_cyan_baked_clay_stonecutting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stone_types_cyan_baked_clay",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 0 ",
+    "010"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:almond_planks"
+    },
+    "1": {
+      "tag": "forge:glass/colorless"
+    }
+  },
+  "result": {
+    "item": "caf:almond_glass"
+  }
+}

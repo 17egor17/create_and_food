@@ -1,0 +1,27 @@
+{
+  "type": "create:compacting",
+  "ingredients": [
+    {
+      "item": "caf:roasted_cocoa_beans"
+    },
+    {
+      "item": "caf:roasted_cocoa_beans"
+    },
+    {
+      "item": "caf:roasted_cocoa_beans"
+    },
+    {
+      "item": "caf:roasted_cocoa_beans"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:hard_cocoa",
+      "chance": 0.75
+    },
+    {
+      "fluid": "caf:cocoa_oil",
+      "amount": 250
+    }
+  ]
+}

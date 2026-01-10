@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "111",
+    "101",
+    "111"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:tantalum_nugget"
+    },
+    "1": {
+      "tag": "forge:nuggets/tantalum"
+    }
+  },
+  "result": {
+    "item": "caf:tantalum_ingot"
+  }
+}

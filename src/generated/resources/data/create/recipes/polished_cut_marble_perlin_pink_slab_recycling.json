@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "caf:polished_cut_marble_perlin_pink_slab"
+    },
+    {
+      "item": "caf:polished_cut_marble_perlin_pink_slab"
+    }
+  ],
+  "result": {
+    "item": "caf:polished_cut_marble_perlin_pink"
+  }
+}

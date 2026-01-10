@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "caf:item/metals/alloy_souls_ingot"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "caf:degree": 550.0
+      },
+      "model": "caf:item/alloy_souls_ingot_red_hot"
+    },
+    {
+      "predicate": {
+        "caf:degree": 1300.0
+      },
+      "model": "caf:item/alloy_souls_ingot_white_hot"
+    }
+  ]
+}

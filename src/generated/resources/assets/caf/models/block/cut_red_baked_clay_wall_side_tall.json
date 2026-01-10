@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_side_tall",
+  "textures": {
+    "wall": "caf:block/palettes/stone_types/cut/red_baked_clay_cut"
+  }
+}

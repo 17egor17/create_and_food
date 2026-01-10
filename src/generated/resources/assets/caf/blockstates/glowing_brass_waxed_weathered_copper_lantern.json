@@ -1,0 +1,46 @@
+{
+  "variants": {
+    "attachment=floor,waterlogged=false": {
+      "model": "caf:block/glowing_brass_waxed_weathered_copper_lantern"
+    },
+    "attachment=hanging,waterlogged=false": {
+      "model": "caf:block/glowing_brass_waxed_weathered_copper_lantern_hanging"
+    },
+    "attachment=west,waterlogged=false": {
+      "model": "caf:block/glowing_brass_waxed_weathered_copper_lantern_on_wall",
+      "y": 270
+    },
+    "attachment=east,waterlogged=false": {
+      "model": "caf:block/glowing_brass_waxed_weathered_copper_lantern_on_wall",
+      "y": 90
+    },
+    "attachment=south,waterlogged=false": {
+      "model": "caf:block/glowing_brass_waxed_weathered_copper_lantern_on_wall",
+      "y": 180
+    },
+    "attachment=north,waterlogged=false": {
+      "model": "caf:block/glowing_brass_waxed_weathered_copper_lantern_on_wall"
+    },
+    "attachment=floor,waterlogged=true": {
+      "model": "caf:block/glowing_brass_waxed_weathered_copper_lantern"
+    },
+    "attachment=hanging,waterlogged=true": {
+      "model": "caf:block/glowing_brass_waxed_weathered_copper_lantern_hanging"
+    },
+    "attachment=west,waterlogged=true": {
+      "model": "caf:block/glowing_brass_waxed_weathered_copper_lantern_on_wall",
+      "y": 270
+    },
+    "attachment=east,waterlogged=true": {
+      "model": "caf:block/glowing_brass_waxed_weathered_copper_lantern_on_wall",
+      "y": 90
+    },
+    "attachment=south,waterlogged=true": {
+      "model": "caf:block/glowing_brass_waxed_weathered_copper_lantern_on_wall",
+      "y": 180
+    },
+    "attachment=north,waterlogged=true": {
+      "model": "caf:block/glowing_brass_waxed_weathered_copper_lantern_on_wall"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "caf:item/tools/steel/steel_axe"
+  }
+}

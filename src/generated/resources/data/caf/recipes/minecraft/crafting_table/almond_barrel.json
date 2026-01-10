@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "010",
+    "0 0",
+    "010"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:almond_planks"
+    },
+    "1": {
+      "item": "caf:almond_slab"
+    }
+  },
+  "result": {
+    "item": "caf:almond_barrel"
+  }
+}

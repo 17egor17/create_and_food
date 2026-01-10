@@ -1,0 +1,16 @@
+{
+  "type": "caf:chopping",
+  "ingredients": [
+    {
+      "item": "farmersdelight:wild_beetroots"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:beetroot"
+    },
+    {
+      "item": "minecraft:red_dye"
+    }
+  ]
+}

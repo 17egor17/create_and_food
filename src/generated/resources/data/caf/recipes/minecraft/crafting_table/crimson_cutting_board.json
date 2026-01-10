@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "011",
+    "011"
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:rods/wooden"
+    },
+    "1": {
+      "item": "minecraft:crimson_planks"
+    }
+  },
+  "result": {
+    "item": "caf:crimson_cutting_board"
+  }
+}

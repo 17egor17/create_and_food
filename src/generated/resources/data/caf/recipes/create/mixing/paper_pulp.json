@@ -1,0 +1,28 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:white_dye"
+    },
+    {
+      "item": "minecraft:white_dye"
+    },
+    {
+      "item": "minecraft:white_dye"
+    },
+    {
+      "item": "minecraft:white_dye"
+    },
+    {
+      "fluidTag": "caf:pulp",
+      "amount": 500
+    }
+  ],
+  "results": [
+    {
+      "fluid": "caf:paper_pulp",
+      "amount": 500
+    }
+  ],
+  "heatRequirement": "heated"
+}

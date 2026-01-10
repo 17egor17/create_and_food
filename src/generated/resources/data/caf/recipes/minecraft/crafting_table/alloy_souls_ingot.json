@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "001"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:alloy_souls"
+    },
+    "1": {
+      "item": "caf:alloy_souls_nugget"
+    }
+  },
+  "result": {
+    "item": "caf:alloy_souls_ingot"
+  }
+}

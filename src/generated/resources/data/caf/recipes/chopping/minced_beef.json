@@ -1,0 +1,14 @@
+{
+  "type": "caf:chopping",
+  "ingredients": [
+    {
+      "item": "minecraft:beef"
+    }
+  ],
+  "results": [
+    {
+      "item": "farmersdelight:minced_beef",
+      "count": 2
+    }
+  ]
+}

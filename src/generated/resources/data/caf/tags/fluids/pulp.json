@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "caf:flowing_wood_pulp",
+    "caf:wood_pulp",
+    "caf:flowing_crimson_pulp",
+    "caf:crimson_pulp",
+    "caf:flowing_warped_pulp",
+    "caf:warped_pulp"
+  ]
+}

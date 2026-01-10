@@ -1,0 +1,29 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "caf:raw_protein"
+    },
+    {
+      "item": "caf:raw_protein"
+    },
+    {
+      "item": "caf:raw_protein"
+    },
+    {
+      "item": "caf:raw_protein"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "caf:cream",
+      "amount": 500
+    }
+  ]
+}

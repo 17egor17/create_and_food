@@ -1,0 +1,70 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": [
+    {
+      "item": "caf:base_of_dough"
+    }
+  ],
+  "transitionalItem": {
+    "item": "caf:incomplete_raw_cake"
+  },
+  "sequence": [
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_raw_cake"
+        },
+        {
+          "fluid": "create:chocolate",
+          "nbt": {},
+          "amount": 500
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_raw_cake"
+        }
+      ]
+    },
+    {
+      "type": "create:filling",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_raw_cake"
+        },
+        {
+          "fluidTag": "caf:creams",
+          "amount": 250
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_raw_cake"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_raw_cake"
+        },
+        {
+          "item": "minecraft:sweet_berries"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_raw_cake"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:raw_cake"
+    }
+  ],
+  "loops": 1
+}

@@ -1,0 +1,13 @@
+{
+  "type": "create:pressing",
+  "ingredients": [
+    {
+      "item": "caf:glowing_brass_ingot"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:glowing_brass_sheet"
+    }
+  ]
+}

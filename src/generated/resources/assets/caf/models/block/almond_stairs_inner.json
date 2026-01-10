@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/inner_stairs",
+  "textures": {
+    "side": "caf:block/almond_planks",
+    "bottom": "caf:block/almond_planks",
+    "top": "caf:block/almond_planks"
+  }
+}

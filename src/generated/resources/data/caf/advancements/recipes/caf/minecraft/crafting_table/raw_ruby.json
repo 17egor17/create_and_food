@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/raw_ruby"
+    ]
+  },
+  "criteria": {
+    "has_raw_ruby_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:raw_ruby_block"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/raw_ruby"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_raw_ruby_block",
+      "has_the_recipe"
+    ]
+  ]
+}
