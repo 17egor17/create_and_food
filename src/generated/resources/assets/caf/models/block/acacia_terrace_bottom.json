@@ -1,0 +1,6 @@
+{
+  "parent": "caf:custom/block/terrace/terrace_bottom",
+  "textures": {
+    "terrace": "caf:block/acacia_terrace"
+  }
+}

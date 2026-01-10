@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "cut_marble_black_galaxy_stairs",
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "caf:cut_marble_black_galaxy"
+    }
+  },
+  "result": {
+    "item": "caf:cut_marble_black_galaxy_stairs",
+    "count": 4
+  }
+}

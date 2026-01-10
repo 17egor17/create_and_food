@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "small_blue_baked_clay_brick_stairs",
+  "pattern": [
+    "X  ",
+    "XX ",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "caf:small_blue_baked_clay_bricks"
+    }
+  },
+  "result": {
+    "item": "caf:small_blue_baked_clay_brick_stairs",
+    "count": 4
+  }
+}

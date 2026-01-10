@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_post",
+  "textures": {
+    "wall": "caf:block/palettes/stone_types/small_brick/red_baked_clay_cut_small_brick"
+  }
+}

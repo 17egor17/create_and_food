@@ -1,0 +1,79 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": [
+    {
+      "item": "create:iron_sheet"
+    }
+  ],
+  "transitionalItem": {
+    "item": "caf:incomplete_tool_handle"
+  },
+  "sequence": [
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_tool_handle"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_tool_handle"
+        }
+      ],
+      "processingTime": 100
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_tool_handle"
+        },
+        {
+          "item": "minecraft:iron_nugget"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_tool_handle"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_tool_handle"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_tool_handle"
+        }
+      ]
+    },
+    {
+      "type": "caf:polishing",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_tool_handle"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_tool_handle"
+        }
+      ],
+      "processingTime": 100,
+      "speedLimits": 0,
+      "fragile": false
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:tool_handle",
+      "count": 2
+    }
+  ],
+  "loops": 4
+}

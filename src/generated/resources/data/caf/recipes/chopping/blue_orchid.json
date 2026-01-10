@@ -1,0 +1,14 @@
+{
+  "type": "caf:chopping",
+  "ingredients": [
+    {
+      "item": "minecraft:blue_orchid"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:light_blue_dye",
+      "count": 2
+    }
+  ]
+}

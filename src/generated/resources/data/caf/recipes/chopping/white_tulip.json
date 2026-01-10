@@ -1,0 +1,14 @@
+{
+  "type": "caf:chopping",
+  "ingredients": [
+    {
+      "item": "minecraft:white_tulip"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:white_dye",
+      "count": 2
+    }
+  ]
+}

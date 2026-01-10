@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/tantalum_ingot"
+    ]
+  },
+  "criteria": {
+    "has_tantalum_nugget": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:nuggets/tantalum"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/tantalum_ingot"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tantalum_nugget",
+      "has_the_recipe"
+    ]
+  ]
+}

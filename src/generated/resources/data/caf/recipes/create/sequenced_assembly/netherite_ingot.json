@@ -1,0 +1,113 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": [
+    {
+      "item": "caf:nether_alloy"
+    }
+  ],
+  "transitionalItem": {
+    "item": "caf:incomplete_netherite_ingot"
+  },
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_netherite_ingot"
+        },
+        {
+          "item": "minecraft:gold_nugget"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_netherite_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_netherite_ingot"
+        },
+        {
+          "item": "minecraft:gold_nugget"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_netherite_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_netherite_ingot"
+        },
+        {
+          "item": "minecraft:gold_nugget"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_netherite_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_netherite_ingot"
+        },
+        {
+          "item": "minecraft:gold_nugget"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_netherite_ingot"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_netherite_ingot"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_netherite_ingot"
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:netherite_ingot",
+      "chance": 50.0
+    },
+    {
+      "item": "minecraft:gold_nugget",
+      "chance": 20.0
+    },
+    {
+      "item": "caf:nether_alloy",
+      "chance": 5.0
+    },
+    {
+      "item": "caf:alloy_souls",
+      "chance": 15.0
+    },
+    {
+      "item": "caf:piece_of_gold",
+      "chance": 10.0
+    }
+  ],
+  "loops": 1
+}
