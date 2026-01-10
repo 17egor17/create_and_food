@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "caf:cut_marble_black_galaxy",
+    "caf:cut_marble_black_galaxy_stairs",
+    "caf:cut_marble_black_galaxy_wall",
+    "caf:polished_cut_marble_black_galaxy",
+    "caf:polished_cut_marble_black_galaxy_stairs",
+    "caf:polished_cut_marble_black_galaxy_wall",
+    "caf:cut_marble_black_galaxy_bricks",
+    "caf:cut_marble_black_galaxy_brick_stairs",
+    "caf:cut_marble_black_galaxy_brick_wall",
+    "caf:small_marble_black_galaxy_bricks",
+    "caf:small_marble_black_galaxy_brick_stairs",
+    "caf:small_marble_black_galaxy_brick_wall",
+    "caf:marble_black_galaxy_pillar",
+    "caf:marble_black_galaxy"
+  ]
+}

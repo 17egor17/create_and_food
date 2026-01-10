@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "caf:stone_types/marble_perlin_pink"
+  },
+  "result": "caf:polished_cut_marble_perlin_pink_wall",
+  "count": 1
+}

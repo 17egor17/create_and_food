@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "101",
+    "020",
+    "101"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:fireclay_bricks"
+    },
+    "1": {
+      "item": "caf:marble_black_galaxy_brick"
+    },
+    "2": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "result": {
+    "item": "caf:marble_black_galaxy_blast_furnace"
+  }
+}

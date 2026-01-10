@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "caf:stone_types/green_baked_clay"
+  },
+  "result": "caf:small_green_baked_clay_brick_slab",
+  "count": 2
+}

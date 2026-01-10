@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_side",
+  "textures": {
+    "wall": "caf:block/palettes/stone_types/brick/marble_cut_brick"
+  }
+}

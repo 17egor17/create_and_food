@@ -1,0 +1,100 @@
+{
+  "variants": {
+    "attachment=single,facing=north,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_stairs_north"
+    },
+    "attachment=low,facing=north,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_bottom"
+    },
+    "attachment=middle,facing=north,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_medium"
+    },
+    "attachment=up,facing=north,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_stairs_top_north"
+    },
+    "attachment=single,facing=south,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_stairs_south"
+    },
+    "attachment=low,facing=south,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_bottom"
+    },
+    "attachment=middle,facing=south,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_medium"
+    },
+    "attachment=up,facing=south,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_stairs_top_south"
+    },
+    "attachment=single,facing=west,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_stairs_west"
+    },
+    "attachment=low,facing=west,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_bottom"
+    },
+    "attachment=middle,facing=west,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_medium"
+    },
+    "attachment=up,facing=west,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_stairs_top_west"
+    },
+    "attachment=single,facing=east,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_stairs_east"
+    },
+    "attachment=low,facing=east,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_bottom"
+    },
+    "attachment=middle,facing=east,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_medium"
+    },
+    "attachment=up,facing=east,waterlogged=false": {
+      "model": "caf:block/crimson_terrace_stairs_top_east"
+    },
+    "attachment=single,facing=north,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_stairs_north"
+    },
+    "attachment=low,facing=north,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_bottom"
+    },
+    "attachment=middle,facing=north,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_medium"
+    },
+    "attachment=up,facing=north,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_stairs_top_north"
+    },
+    "attachment=single,facing=south,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_stairs_south"
+    },
+    "attachment=low,facing=south,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_bottom"
+    },
+    "attachment=middle,facing=south,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_medium"
+    },
+    "attachment=up,facing=south,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_stairs_top_south"
+    },
+    "attachment=single,facing=west,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_stairs_west"
+    },
+    "attachment=low,facing=west,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_bottom"
+    },
+    "attachment=middle,facing=west,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_medium"
+    },
+    "attachment=up,facing=west,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_stairs_top_west"
+    },
+    "attachment=single,facing=east,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_stairs_east"
+    },
+    "attachment=low,facing=east,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_bottom"
+    },
+    "attachment=middle,facing=east,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_medium"
+    },
+    "attachment=up,facing=east,waterlogged=true": {
+      "model": "caf:block/crimson_terrace_stairs_top_east"
+    }
+  }
+}

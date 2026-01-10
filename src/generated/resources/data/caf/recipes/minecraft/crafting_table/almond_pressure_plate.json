@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "00"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:almond_planks"
+    }
+  },
+  "result": {
+    "item": "caf:almond_pressure_plate"
+  }
+}

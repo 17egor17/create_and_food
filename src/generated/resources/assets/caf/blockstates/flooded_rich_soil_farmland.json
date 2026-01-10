@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "moisture=0,waterlogged=false": {
+      "model": "caf:block/flooded_rich_soil_farmland"
+    },
+    "moisture=1,waterlogged=false": {
+      "model": "caf:block/flooded_rich_soil_farmland"
+    },
+    "moisture=2,waterlogged=false": {
+      "model": "caf:block/flooded_rich_soil_farmland"
+    },
+    "moisture=3,waterlogged=false": {
+      "model": "caf:block/flooded_rich_soil_farmland"
+    },
+    "moisture=4,waterlogged=false": {
+      "model": "caf:block/flooded_rich_soil_farmland"
+    },
+    "moisture=5,waterlogged=false": {
+      "model": "caf:block/flooded_rich_soil_farmland"
+    },
+    "moisture=6,waterlogged=false": {
+      "model": "caf:block/flooded_rich_soil_farmland"
+    },
+    "moisture=7,waterlogged=false": {
+      "model": "caf:block/flooded_rich_soil_farmland_moist"
+    },
+    "moisture=0,waterlogged=true": {
+      "model": "caf:block/flooded_rich_soil_farmland"
+    },
+    "moisture=1,waterlogged=true": {
+      "model": "caf:block/flooded_rich_soil_farmland"
+    },
+    "moisture=2,waterlogged=true": {
+      "model": "caf:block/flooded_rich_soil_farmland"
+    },
+    "moisture=3,waterlogged=true": {
+      "model": "caf:block/flooded_rich_soil_farmland"
+    },
+    "moisture=4,waterlogged=true": {
+      "model": "caf:block/flooded_rich_soil_farmland"
+    },
+    "moisture=5,waterlogged=true": {
+      "model": "caf:block/flooded_rich_soil_farmland"
+    },
+    "moisture=6,waterlogged=true": {
+      "model": "caf:block/flooded_rich_soil_farmland"
+    },
+    "moisture=7,waterlogged=true": {
+      "model": "caf:block/flooded_rich_soil_farmland_moist"
+    }
+  }
+}

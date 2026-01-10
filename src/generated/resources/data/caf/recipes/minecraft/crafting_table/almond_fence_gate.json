@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "010",
+    "010"
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:rods/wooden"
+    },
+    "1": {
+      "item": "caf:almond_planks"
+    }
+  },
+  "result": {
+    "item": "caf:almond_fence_gate"
+  }
+}

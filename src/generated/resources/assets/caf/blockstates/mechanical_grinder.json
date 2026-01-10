@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "caf:block/mechanical_grinder/block",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "caf:block/mechanical_grinder/block"
+    },
+    "facing=west": {
+      "model": "caf:block/mechanical_grinder/block",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "caf:block/mechanical_grinder/block",
+      "y": 270
+    }
+  }
+}

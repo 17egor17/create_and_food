@@ -1,0 +1,6 @@
+{
+  "parent": "caf:custom/block/terrace/terrace_stairs_north",
+  "textures": {
+    "terrace": "caf:block/birch_terrace"
+  }
+}

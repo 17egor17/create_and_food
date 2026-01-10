@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "caf:block/palettes/stone_types/slab/marble_cut_slab",
+    "end": "caf:block/palettes/stone_types/polished/marble_cut_polished"
+  }
+}

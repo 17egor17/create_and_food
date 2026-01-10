@@ -1,0 +1,13 @@
+{
+  "type": "create:sandpaper_polishing",
+  "ingredients": [
+    {
+      "item": "caf:raw_ruby"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:ruby"
+    }
+  ]
+}

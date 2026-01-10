@@ -1,0 +1,26 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "caf:item/tools/incomplete_knives/incomplete_netherite_knife_0"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "caf:sequenced_assembly_progress": 2.0
+      },
+      "model": "caf:item/incomplete_netherite_knife_1"
+    },
+    {
+      "predicate": {
+        "caf:sequenced_assembly_progress": 3.0
+      },
+      "model": "caf:item/incomplete_netherite_knife_2"
+    },
+    {
+      "predicate": {
+        "caf:sequenced_assembly_progress": 4.0
+      },
+      "model": "caf:item/incomplete_netherite_knife_3"
+    }
+  ]
+}

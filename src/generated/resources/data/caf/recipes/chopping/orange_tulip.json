@@ -1,0 +1,14 @@
+{
+  "type": "caf:chopping",
+  "ingredients": [
+    {
+      "item": "minecraft:orange_tulip"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:orange_dye",
+      "count": 2
+    }
+  ]
+}

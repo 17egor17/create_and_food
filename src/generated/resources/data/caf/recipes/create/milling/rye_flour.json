@@ -1,0 +1,24 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "caf:rye"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:rye_flour"
+    },
+    {
+      "item": "caf:rye_flour",
+      "count": 2,
+      "chance": 0.25
+    },
+    {
+      "item": "caf:rye_seeds",
+      "count": 2,
+      "chance": 0.25
+    }
+  ],
+  "processingTime": 100
+}

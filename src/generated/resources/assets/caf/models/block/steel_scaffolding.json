@@ -1,0 +1,10 @@
+{
+  "parent": "caf:block/scaffold/block",
+  "textures": {
+    "top": "caf:block/scaffold/steel_funnel_frame",
+    "inside": "caf:block/scaffold/steel_scaffold_inside",
+    "side": "caf:block/scaffold/steel_scaffold",
+    "casing": "caf:block/steel_casing",
+    "particle": "caf:block/scaffold/steel_scaffold"
+  }
+}

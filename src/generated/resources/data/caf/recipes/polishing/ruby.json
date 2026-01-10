@@ -1,0 +1,16 @@
+{
+  "type": "caf:polishing",
+  "ingredients": [
+    {
+      "item": "caf:raw_ruby"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:ruby"
+    }
+  ],
+  "speedLimits": 1,
+  "processingTime": 20,
+  "fragile": true
+}

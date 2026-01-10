@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "caf:flowing_cream",
+    "caf:cream",
+    "caf:flowing_custard",
+    "caf:custard",
+    "caf:flowing_glaze",
+    "caf:glaze"
+  ]
+}

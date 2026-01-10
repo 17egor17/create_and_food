@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "caf:cut_marble_black_galaxy_bricks"
+    }
+  },
+  "result": {
+    "item": "caf:cut_marble_black_galaxy_brick_wall",
+    "count": 6
+  }
+}

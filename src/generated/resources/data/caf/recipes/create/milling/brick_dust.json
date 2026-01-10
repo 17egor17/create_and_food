@@ -1,0 +1,14 @@
+{
+  "type": "create:milling",
+  "ingredients": [
+    {
+      "item": "minecraft:brick"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:brick_dust"
+    }
+  ],
+  "processingTime": 100
+}

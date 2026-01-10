@@ -1,0 +1,19 @@
+{
+  "replace": false,
+  "values": [
+    "caf:cut_marble_perlin_pink",
+    "caf:cut_marble_perlin_pink_stairs",
+    "caf:cut_marble_perlin_pink_wall",
+    "caf:polished_cut_marble_perlin_pink",
+    "caf:polished_cut_marble_perlin_pink_stairs",
+    "caf:polished_cut_marble_perlin_pink_wall",
+    "caf:cut_marble_perlin_pink_bricks",
+    "caf:cut_marble_perlin_pink_brick_stairs",
+    "caf:cut_marble_perlin_pink_brick_wall",
+    "caf:small_marble_perlin_pink_bricks",
+    "caf:small_marble_perlin_pink_brick_stairs",
+    "caf:small_marble_perlin_pink_brick_wall",
+    "caf:marble_perlin_pink_pillar",
+    "caf:marble_perlin_pink"
+  ]
+}

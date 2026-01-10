@@ -1,0 +1,98 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": [
+    {
+      "item": "create:iron_sheet"
+    }
+  ],
+  "transitionalItem": {
+    "item": "caf:incomplete_iron_knife"
+  },
+  "sequence": [
+    {
+      "type": "caf:polishing",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_iron_knife"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_iron_knife"
+        }
+      ],
+      "processingTime": 100,
+      "speedLimits": 0,
+      "fragile": false
+    },
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_iron_knife"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_iron_knife"
+        }
+      ],
+      "processingTime": 100
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_iron_knife"
+        },
+        {
+          "item": "caf:tool_handle"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_iron_knife"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_iron_knife"
+        },
+        {
+          "item": "caf:tool_handle"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_iron_knife"
+        }
+      ]
+    },
+    {
+      "type": "caf:polishing",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_iron_knife"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_iron_knife"
+        }
+      ],
+      "processingTime": 100,
+      "speedLimits": 0,
+      "fragile": false
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:iron_knife",
+      "count": 2
+    }
+  ],
+  "loops": 1
+}

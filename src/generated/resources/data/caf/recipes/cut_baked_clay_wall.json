@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "caf:cut_baked_clay"
+    }
+  },
+  "result": {
+    "item": "caf:cut_baked_clay_wall",
+    "count": 6
+  }
+}
