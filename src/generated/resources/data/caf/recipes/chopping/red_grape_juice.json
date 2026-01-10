@@ -1,0 +1,14 @@
+{
+  "type": "caf:chopping",
+  "ingredients": [
+    {
+      "tag": "caf:grapes/red_juice"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "caf:red_grape_juice",
+      "amount": 250
+    }
+  ]
+}

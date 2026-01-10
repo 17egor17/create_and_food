@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "caf:block/fireclay_bricks_0"
+      },
+      {
+        "model": "caf:block/fireclay_bricks_1"
+      },
+      {
+        "model": "caf:block/fireclay_bricks_2"
+      },
+      {
+        "model": "caf:block/fireclay_bricks_3"
+      }
+    ]
+  }
+}

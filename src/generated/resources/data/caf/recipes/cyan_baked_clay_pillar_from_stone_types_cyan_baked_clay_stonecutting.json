@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "caf:stone_types/cyan_baked_clay"
+  },
+  "result": "caf:cyan_baked_clay_pillar",
+  "count": 1
+}

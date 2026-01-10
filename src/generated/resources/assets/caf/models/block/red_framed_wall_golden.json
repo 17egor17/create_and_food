@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "caf:block/palettes/framed_wall/red_framed_wall_golden"
+  }
+}

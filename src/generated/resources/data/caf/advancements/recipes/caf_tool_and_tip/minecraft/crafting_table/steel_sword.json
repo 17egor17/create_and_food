@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/steel_sword"
+    ]
+  },
+  "criteria": {
+    "has_tool_handle": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:tool_handle"
+            ]
+          }
+        ]
+      }
+    },
+    "has_steel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:ingots/steel"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/steel_sword"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_tool_handle",
+      "has_steel",
+      "has_the_recipe"
+    ]
+  ]
+}

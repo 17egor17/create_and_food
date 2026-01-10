@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "caf:stone_types/marble_black_galaxy"
+  },
+  "result": "caf:small_marble_black_galaxy_brick_slab",
+  "count": 2
+}

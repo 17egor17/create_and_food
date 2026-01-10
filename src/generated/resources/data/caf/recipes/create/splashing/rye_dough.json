@@ -1,0 +1,13 @@
+{
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "caf:rye_flour"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:rye_dough"
+    }
+  ]
+}

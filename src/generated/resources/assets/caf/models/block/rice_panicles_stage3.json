@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "caf:block/rice_panicles_stage3"
+  }
+}

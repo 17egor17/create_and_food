@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/mechanical_blender"
+    ]
+  },
+  "criteria": {
+    "has_steel_casing": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:steel_casing"
+            ]
+          }
+        ]
+      }
+    },
+    "has_steel_cogwheel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:steel_cogwheel"
+            ]
+          }
+        ]
+      }
+    },
+    "has_propeller": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "create:propeller"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/mechanical_blender"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_steel_casing",
+      "has_steel_cogwheel",
+      "has_propeller",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "type": "caf:chopping",
+  "ingredients": [
+    {
+      "item": "minecraft:azure_bluet"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:light_gray_dye",
+      "count": 2
+    }
+  ]
+}

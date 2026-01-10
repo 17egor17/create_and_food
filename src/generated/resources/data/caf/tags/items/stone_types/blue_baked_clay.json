@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "caf:cut_blue_baked_clay",
+    "caf:cut_blue_baked_clay_stairs",
+    "caf:cut_blue_baked_clay_wall",
+    "caf:cut_blue_baked_clay_bricks",
+    "caf:cut_blue_baked_clay_brick_stairs",
+    "caf:cut_blue_baked_clay_brick_wall",
+    "caf:small_blue_baked_clay_bricks",
+    "caf:small_blue_baked_clay_brick_stairs",
+    "caf:small_blue_baked_clay_brick_wall",
+    "caf:layered_blue_baked_clay",
+    "caf:blue_baked_clay_pillar",
+    "caf:blue_baked_clay"
+  ]
+}

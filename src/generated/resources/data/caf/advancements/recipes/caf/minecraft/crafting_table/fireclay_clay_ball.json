@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/fireclay_clay_ball"
+    ]
+  },
+  "criteria": {
+    "has_brick_dust": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:brick_dust"
+            ]
+          }
+        ]
+      }
+    },
+    "has_clay_ball": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:clay_ball"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/fireclay_clay_ball"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_brick_dust",
+      "has_clay_ball",
+      "has_the_recipe"
+    ]
+  ]
+}

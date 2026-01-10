@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "caf:block/deepslate_tantalum_ore_0"
+      },
+      {
+        "model": "caf:block/deepslate_tantalum_ore_1"
+      },
+      {
+        "model": "caf:block/deepslate_tantalum_ore_2"
+      },
+      {
+        "model": "caf:block/deepslate_tantalum_ore_3"
+      }
+    ]
+  }
+}

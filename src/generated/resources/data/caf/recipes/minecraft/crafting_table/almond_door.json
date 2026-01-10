@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "01",
+    "00"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:almond_planks"
+    },
+    "1": {
+      "tag": "forge:glass/colorless"
+    }
+  },
+  "result": {
+    "item": "caf:almond_door",
+    "count": 3
+  }
+}

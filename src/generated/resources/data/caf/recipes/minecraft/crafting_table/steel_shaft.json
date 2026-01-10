@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "0"
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:ingots/steel"
+    }
+  },
+  "result": {
+    "item": "caf:steel_shaft",
+    "count": 18
+  }
+}

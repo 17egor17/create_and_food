@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "caf:block/marble_black_galaxy_pillar_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "caf:block/marble_black_galaxy_pillar"
+    },
+    "axis=z": {
+      "model": "caf:block/marble_black_galaxy_pillar_horizontal",
+      "x": 90
+    }
+  }
+}

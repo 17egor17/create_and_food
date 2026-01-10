@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "caf:marble",
+    "caf:marble_black_galaxy",
+    "caf:marble_perlin_pink",
+    "caf:baked_clay",
+    "caf:black_baked_clay",
+    "caf:blue_baked_clay",
+    "caf:cyan_baked_clay",
+    "caf:gray_baked_clay",
+    "caf:green_baked_clay",
+    "caf:orange_baked_clay",
+    "caf:red_baked_clay",
+    "caf:white_baked_clay",
+    "caf:yellow_baked_clay"
+  ]
+}

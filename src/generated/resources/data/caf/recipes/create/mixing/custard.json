@@ -1,0 +1,31 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "caf:raw_egg"
+    },
+    {
+      "item": "caf:raw_egg"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "create:wheat_flour"
+    },
+    {
+      "fluidTag": "forge:milk",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "fluid": "caf:custard",
+      "amount": 500
+    }
+  ],
+  "heatRequirement": "heated"
+}

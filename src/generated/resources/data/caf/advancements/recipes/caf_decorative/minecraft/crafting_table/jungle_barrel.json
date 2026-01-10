@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/jungle_barrel"
+    ]
+  },
+  "criteria": {
+    "has_jungle_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:jungle_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_jungle_slab": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:jungle_slab"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/jungle_barrel"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_jungle_planks",
+      "has_jungle_slab",
+      "has_the_recipe"
+    ]
+  ]
+}

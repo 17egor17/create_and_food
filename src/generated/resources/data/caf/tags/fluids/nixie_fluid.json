@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "caf:flowing_nixie_fluid",
+    "caf:nixie_fluid"
+  ]
+}

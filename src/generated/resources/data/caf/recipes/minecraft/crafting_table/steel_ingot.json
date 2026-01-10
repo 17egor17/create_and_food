@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "111",
+    "101",
+    "111"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:steel_nugget"
+    },
+    "1": {
+      "tag": "forge:nuggets/steel"
+    }
+  },
+  "result": {
+    "item": "caf:steel_ingot"
+  }
+}

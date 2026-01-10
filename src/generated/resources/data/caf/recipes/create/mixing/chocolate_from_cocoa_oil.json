@@ -1,0 +1,27 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "caf:cocoa_powder"
+    },
+    {
+      "fluidTag": "forge:milk",
+      "amount": 250
+    },
+    {
+      "fluid": "caf:cocoa_oil",
+      "nbt": {},
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "fluid": "create:chocolate",
+      "amount": 500
+    }
+  ],
+  "heatRequirement": "heated"
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "side": "caf:block/palettes/stone_types/brick/marble_perlin_pink_cut_brick",
+    "bottom": "caf:block/palettes/stone_types/brick/marble_perlin_pink_cut_brick",
+    "top": "caf:block/palettes/stone_types/brick/marble_perlin_pink_cut_brick"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "202",
+    "131",
+    "202"
+  ],
+  "key": {
+    "0": {
+      "tag": "minecraft:wooden_buttons"
+    },
+    "1": {
+      "tag": "forge:plates/copper"
+    },
+    "2": {
+      "tag": "forge:nuggets/copper"
+    },
+    "3": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "result": {
+    "item": "caf:copper_coil",
+    "count": 2
+  }
+}

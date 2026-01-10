@@ -1,0 +1,58 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/raw_pizza"
+    ]
+  },
+  "criteria": {
+    "has_mozzarella_cheese": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:mozzarella_cheese"
+            ]
+          }
+        ]
+      }
+    },
+    "has_meat": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:meat"
+          }
+        ]
+      }
+    },
+    "has_base_of_dough": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:base_of_dough"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/raw_pizza"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_mozzarella_cheese",
+      "has_meat",
+      "has_base_of_dough",
+      "has_the_recipe"
+    ]
+  ]
+}

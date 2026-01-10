@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "caf:alloy_souls_casing",
+    "caf:steel_block",
+    "caf:steel_casing",
+    "caf:secure_block"
+  ]
+}

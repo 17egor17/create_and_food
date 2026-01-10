@@ -1,0 +1,16 @@
+{
+  "type": "create:item_application",
+  "ingredients": [
+    {
+      "item": "caf:ruby_block"
+    },
+    {
+      "tag": "forge:plates/gold"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:golden_wall"
+    }
+  ]
+}

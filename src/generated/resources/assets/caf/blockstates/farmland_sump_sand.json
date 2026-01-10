@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "type=top,waterlogged=false": {
+      "model": "caf:block/farmland_sump_sand"
+    },
+    "type=bottom,waterlogged=false": {
+      "model": "caf:block/farmland_sump_sand_bottom"
+    },
+    "type=double,waterlogged=false": {
+      "model": "caf:block/farmland_sump_sand_double"
+    },
+    "type=top,waterlogged=true": {
+      "model": "caf:block/farmland_sump_sand"
+    },
+    "type=bottom,waterlogged=true": {
+      "model": "caf:block/farmland_sump_sand_bottom"
+    },
+    "type=double,waterlogged=true": {
+      "model": "caf:block/farmland_sump_sand_double"
+    }
+  }
+}

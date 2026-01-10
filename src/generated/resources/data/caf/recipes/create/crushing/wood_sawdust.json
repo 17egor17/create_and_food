@@ -1,0 +1,18 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "caf:wood_chips"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:wood_sawdust"
+    },
+    {
+      "item": "caf:wood_sawdust",
+      "chance": 0.5
+    }
+  ],
+  "processingTime": 200
+}

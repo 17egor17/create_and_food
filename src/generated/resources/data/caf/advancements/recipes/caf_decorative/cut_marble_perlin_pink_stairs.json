@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:cut_marble_perlin_pink_stairs"
+    ]
+  },
+  "criteria": {
+    "has_cut_marble_perlin_pink": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:cut_marble_perlin_pink"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:cut_marble_perlin_pink_stairs"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cut_marble_perlin_pink",
+      "has_the_recipe"
+    ]
+  ]
+}

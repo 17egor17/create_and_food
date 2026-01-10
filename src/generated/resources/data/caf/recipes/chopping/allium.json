@@ -1,0 +1,14 @@
+{
+  "type": "caf:chopping",
+  "ingredients": [
+    {
+      "item": "minecraft:allium"
+    }
+  ],
+  "results": [
+    {
+      "item": "minecraft:magenta_dye",
+      "count": 2
+    }
+  ]
+}

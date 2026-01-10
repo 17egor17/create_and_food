@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "caf:block/almond_planks_0"
+      },
+      {
+        "model": "caf:block/almond_planks_1"
+      },
+      {
+        "model": "caf:block/almond_planks_2"
+      },
+      {
+        "model": "caf:block/almond_planks_3"
+      },
+      {
+        "model": "caf:block/almond_planks_4"
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "caf:custom/block/lantern/lantern_on_wall",
+  "textures": {
+    "lantern": "caf:block/lantern/glowing_brass_copper_lantern",
+    "chain": "caf:block/lantern/steel_chain",
+    "holder": "caf:block/lantern/holder",
+    "particle": "minecraft:block/copper_block"
+  }
+}

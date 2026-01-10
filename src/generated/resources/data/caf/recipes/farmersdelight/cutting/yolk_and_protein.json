@@ -1,0 +1,19 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "caf:raw_egg"
+    }
+  ],
+  "tool": {
+    "item": "caf:egg_shell"
+  },
+  "result": [
+    {
+      "item": "caf:raw_protein"
+    },
+    {
+      "item": "caf:raw_yolk"
+    }
+  ]
+}

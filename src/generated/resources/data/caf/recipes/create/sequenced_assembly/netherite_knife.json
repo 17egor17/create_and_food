@@ -1,0 +1,111 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": [
+    {
+      "item": "minecraft:netherite_ingot"
+    }
+  ],
+  "transitionalItem": {
+    "item": "caf:incomplete_netherite_knife"
+  },
+  "sequence": [
+    {
+      "type": "create:cutting",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_netherite_knife"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_netherite_knife"
+        }
+      ],
+      "processingTime": 100
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_netherite_knife"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_netherite_knife"
+        }
+      ]
+    },
+    {
+      "type": "caf:polishing",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_netherite_knife"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_netherite_knife"
+        }
+      ],
+      "processingTime": 100,
+      "speedLimits": 0,
+      "fragile": false
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_netherite_knife"
+        },
+        {
+          "item": "caf:tool_handle"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_netherite_knife"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_netherite_knife"
+        },
+        {
+          "item": "caf:tool_handle"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_netherite_knife"
+        }
+      ]
+    },
+    {
+      "type": "caf:polishing",
+      "ingredients": [
+        {
+          "item": "caf:incomplete_netherite_knife"
+        }
+      ],
+      "results": [
+        {
+          "item": "caf:incomplete_netherite_knife"
+        }
+      ],
+      "processingTime": 100,
+      "speedLimits": 0,
+      "fragile": false
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:netherite_knife",
+      "count": 2
+    }
+  ],
+  "loops": 1
+}

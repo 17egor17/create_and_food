@@ -1,0 +1,17 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "item": "create:cinder_flour"
+    },
+    {
+      "item": "caf:alloy_souls"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:nether_alloy"
+    }
+  ],
+  "heatRequirement": "superheated"
+}

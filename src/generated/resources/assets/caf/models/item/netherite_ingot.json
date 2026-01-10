@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "minecraft:item/netherite_ingot"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "caf:degree": 550.0
+      },
+      "model": "caf:item/netherite_ingot_red_hot"
+    },
+    {
+      "predicate": {
+        "caf:degree": 1300.0
+      },
+      "model": "caf:item/netherite_ingot_white_hot"
+    }
+  ]
+}

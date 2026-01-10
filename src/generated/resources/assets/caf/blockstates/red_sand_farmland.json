@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "moisture=0": {
+      "model": "caf:block/red_sand_farmland"
+    },
+    "moisture=1": {
+      "model": "caf:block/red_sand_farmland"
+    },
+    "moisture=2": {
+      "model": "caf:block/red_sand_farmland"
+    },
+    "moisture=3": {
+      "model": "caf:block/red_sand_farmland"
+    },
+    "moisture=4": {
+      "model": "caf:block/red_sand_farmland"
+    },
+    "moisture=5": {
+      "model": "caf:block/red_sand_farmland"
+    },
+    "moisture=6": {
+      "model": "caf:block/red_sand_farmland"
+    },
+    "moisture=7": {
+      "model": "caf:block/red_sand_farmland_moist"
+    }
+  }
+}

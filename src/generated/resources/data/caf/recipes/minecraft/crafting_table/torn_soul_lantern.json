@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "000",
+    "121",
+    "111"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:alloy_souls_sheet"
+    },
+    "1": {
+      "item": "caf:alloy_souls_nugget"
+    },
+    "2": {
+      "item": "minecraft:soul_torch"
+    }
+  },
+  "result": {
+    "item": "caf:torn_soul_lantern"
+  }
+}
