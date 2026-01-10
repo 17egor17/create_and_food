@@ -1,0 +1,44 @@
+{
+  "replace": false,
+  "values": [
+    "caf:framed_wall",
+    "caf:black_framed_wall",
+    "caf:blue_framed_wall",
+    "caf:brown_framed_wall",
+    "caf:cyan_framed_wall",
+    "caf:green_framed_wall",
+    "caf:luminous_framed_wall",
+    "caf:orange_framed_wall",
+    "caf:red_framed_wall",
+
+    "caf:framed_wall_small_brick",
+    "caf:black_framed_wall_small_brick",
+    "caf:blue_framed_wall_small_brick",
+    "caf:brown_framed_wall_small_brick",
+    "caf:cyan_framed_wall_small_brick",
+    "caf:green_framed_wall_small_brick",
+    "caf:luminous_framed_wall_small_brick",
+    "caf:orange_framed_wall_small_brick",
+    "caf:red_framed_wall_small_brick",
+
+    "caf:framed_wall_brick",
+    "caf:black_framed_wall_brick",
+    "caf:blue_framed_wall_brick",
+    "caf:brown_framed_wall_brick",
+    "caf:cyan_framed_wall_brick",
+    "caf:green_framed_wall_brick",
+    "caf:luminous_framed_wall_brick",
+    "caf:orange_framed_wall_brick",
+    "caf:red_framed_wall_brick",
+
+    "caf:framed_wall_golden",
+    "caf:black_framed_wall_golden",
+    "caf:blue_framed_wall_golden",
+    "caf:brown_framed_wall_golden",
+    "caf:cyan_framed_wall_golden",
+    "caf:green_framed_wall_golden",
+    "caf:luminous_framed_wall_golden",
+    "caf:orange_framed_wall_golden",
+    "caf:red_framed_wall_golden"
+  ]
+}

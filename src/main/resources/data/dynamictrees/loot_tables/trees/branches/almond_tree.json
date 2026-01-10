@@ -15,7 +15,7 @@
               "function": "minecraft:explosion_decay"
             }
           ],
-          "name": "create_and_food:almond_log"
+          "name": "caf:almond_log"
         }
       ]
     },

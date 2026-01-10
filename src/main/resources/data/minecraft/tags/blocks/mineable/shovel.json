@@ -1,15 +1,15 @@
 {
   "replace": false,
   "values": [
-    "create_and_food:unbaked_clay",
-    "create_and_food:farmland_sump_sand",
-    "create_and_food:farmland_sump_red_sand",
-    "create_and_food:farmland_sump_rich_soil",
-    "create_and_food:farmland_sump_dirt",
-    "create_and_food:farmland_sump_dirt",
-    "create_and_food:fertilized_sand",
-    "create_and_food:sand_farmland",
-    "create_and_food:fertilized_red_sand",
-    "create_and_food:red_sand_farmland"
+    "caf:unbaked_clay",
+    "caf:farmland_sump_sand",
+    "caf:farmland_sump_red_sand",
+    "caf:farmland_sump_rich_soil",
+    "caf:farmland_sump_dirt",
+    "caf:farmland_sump_dirt",
+    "caf:fertilized_sand",
+    "caf:sand_farmland",
+    "caf:fertilized_red_sand",
+    "caf:red_sand_farmland"
   ]
 }

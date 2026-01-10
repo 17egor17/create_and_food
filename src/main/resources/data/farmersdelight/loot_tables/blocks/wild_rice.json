@@ -26,7 +26,7 @@
                   "condition": "minecraft:survives_explosion"
                 }
               ],
-              "name": "create_and_food:rice"
+              "name": "caf:rice"
             }
           ]
         }
@@ -78,7 +78,7 @@
                   "condition": "minecraft:survives_explosion"
                 }
               ],
-              "name": "create_and_food:rice"
+              "name": "caf:rice"
             }
           ]
         }

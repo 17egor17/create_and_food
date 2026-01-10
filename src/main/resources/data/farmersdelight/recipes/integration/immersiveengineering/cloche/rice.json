@@ -13,7 +13,7 @@
     }
   ],
   "input": {
-    "item": "create_and_food:rice"
+    "item": "caf:rice"
   },
   "soil": {
     "item": "minecraft:dirt"

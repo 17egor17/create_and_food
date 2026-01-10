@@ -1,0 +1,32 @@
+{
+  "type": "caf:fermentation",
+  "ingredients": [
+    {
+      "item": "caf:steel_ingot"
+    },
+    {
+      "item": "caf:rye"
+    },
+    {
+      "item": "caf:raw_protein"
+    },
+    {
+      "fluid": "minecraft:water",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "item": "create:dough",
+      "count": 2
+    },
+    {
+      "fluid": "minecraft:milk",
+      "amount": 250
+    }
+  ],
+  "tool": {
+    "item": "minecraft:bowl"
+  },
+  "time": 1180
+}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "textures": {
-    "side": "create_and_food:block/almond_planks",
-    "bottom": "create_and_food:block/almond_planks",
-    "top": "create_and_food:block/almond_planks"
-  }
-}

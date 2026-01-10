@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cube_all",
+    "textures": {
+      "all": "caf:block/steel_ruby_lamp_off"
+  }
+}

@@ -1,6 +1,0 @@
-{
-  "parent": "create_and_food:custom/block/terrace/terrace_medium",
-  "textures": {
-    "terrace": "create_and_food:block/crimson_terrace"
-  }
-}

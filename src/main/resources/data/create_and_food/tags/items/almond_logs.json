@@ -1,9 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "create_and_food:almond_log",
-    "create_and_food:almond_wood",
-    "create_and_food:stripped_almond_log",
-    "create_and_food:stripped_almond_wood"
-  ]
-}

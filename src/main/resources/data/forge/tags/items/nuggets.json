@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "#forge:nuggets/steel"
+    "#forge:nuggets/steel",
+    "#forge:nuggets/tantalum",
+    "#forge:nuggets/tungsten"
   ]
 }

@@ -1,0 +1,51 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"head": "caf:block/blender_head"
+	},
+	"elements": [
+		{
+			"name": "BlenderCenter",
+			"from": [7, -4, 7],
+			"to": [9, 8, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 7, 8]},
+			"faces": {
+				"north": {"uv": [12, 0, 14, 12], "texture": "#head"},
+				"east": {"uv": [12, 0, 14, 12], "texture": "#head"},
+				"south": {"uv": [12, 0, 14, 12], "texture": "#head"},
+				"west": {"uv": [12, 0, 14, 12], "texture": "#head"},
+				"down": {"uv": [12, 12, 14, 14], "texture": "#head"}
+			}
+		},
+		{
+			"name": "Blender wire 1",
+			"from": [3, -1.5, 3],
+			"to": [13, -1.5, 13],
+			"rotation": {"angle": 22.5, "axis": "y", "origin": [8, 7, 8]},
+			"faces": {
+				"up": {"uv": [11, 0, 0, 11], "texture": "#head"},
+				"down": {"uv": [11, 11, 0, 0], "rotation": 180, "texture": "#head"}
+			}
+		},
+		{
+			"name": "Blender wire 2",
+			"from": [3, 1, 3],
+			"to": [13, 1, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 7, 8]},
+			"faces": {
+				"up": {"uv": [11, 0, 0, 11], "rotation": 270, "texture": "#head"},
+				"down": {"uv": [11, 11, 0, 0], "rotation": 270, "texture": "#head"}
+			}
+		},
+		{
+			"name": "Blender wire 3",
+			"from": [3, 3.5, 3],
+			"to": [13, 3.5, 13],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 7, 8]},
+			"faces": {
+				"up": {"uv": [11, 0, 0, 11], "rotation": 270, "texture": "#head"},
+				"down": {"uv": [11, 11, 0, 0], "rotation": 270, "texture": "#head"}
+			}
+		}
+	]
+}

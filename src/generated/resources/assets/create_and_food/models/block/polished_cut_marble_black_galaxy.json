@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "create_and_food:block/palettes/stone_types/polished/marble_black_galaxy_cut_polished"
-  }
-}

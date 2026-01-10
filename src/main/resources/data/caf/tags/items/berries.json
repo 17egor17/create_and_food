@@ -1,0 +1,11 @@
+{
+  "replace":false,
+  "values": [
+    "caf:blueberry",
+    "caf:cranberry",
+    "caf:blue_grape",
+    "caf:green_grape",
+    "caf:purple_grape",
+    "caf:red_grape"
+  ]
+}

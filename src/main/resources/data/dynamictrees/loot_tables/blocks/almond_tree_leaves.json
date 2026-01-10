@@ -38,7 +38,7 @@
                   ]
                 }
               ],
-              "name": "create_and_food:almond_leaves"
+              "name": "caf:almond_leaves"
             },
             {
               "type": "dynamictrees:seed_item",

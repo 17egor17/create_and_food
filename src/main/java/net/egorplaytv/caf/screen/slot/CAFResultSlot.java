@@ -1,0 +1,15 @@
+package net.egorplaytv.caf.screen.slot;
+
+import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.SlotItemHandler;
+
+public class CAFResultSlot extends SlotItemHandler {
+    public CAFResultSlot(IItemHandler itemHandler, int index, int xPosition, int yPosition) {
+        super(itemHandler, index, xPosition, yPosition);
+    }
+    @Override
+    public boolean mayPlace(ItemStack stack) {
+            return false;
+    }
+}

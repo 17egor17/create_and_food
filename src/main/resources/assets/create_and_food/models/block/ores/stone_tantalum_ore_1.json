@@ -1,6 +1,0 @@
-{
-	"parent": "minecraft:block/cube_all",
-	"textures": {
-		"all": "create_and_food:block/ores/stone_tantalum_ore_2"
-	}
-}

@@ -1,0 +1,14 @@
+{
+  "replace":false,
+  "values": [
+    "caf:acacia_barrel",
+    "caf:almond_barrel",
+    "caf:birch_barrel",
+    "caf:crimson_barrel",
+    "caf:dark_oak_barrel",
+    "caf:jungle_barrel",
+    "caf:oak_barrel",
+    "caf:spruce_barrel",
+    "caf:warped_barrel"
+  ]
+}

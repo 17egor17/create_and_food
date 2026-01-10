@@ -1,9 +1,0 @@
-{
-  "parent": "create_and_food:custom/block/kitchen/kitchen_table",
-  "textures": {
-    "frame": "create_and_food:block/kitchen/acacia_frame",
-    "planks": "minecraft:block/acacia_planks",
-    "top": "create_and_food:block/kitchen/polished_andesite",
-    "doors": "create_and_food:block/kitchen/acacia_doors"
-  }
-}

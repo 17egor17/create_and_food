@@ -1,0 +1,23 @@
+{
+  "type": "caf:rye_seeds_drop",
+  "conditions": [
+    {
+      "condition": "minecraft:random_chance",
+      "chance": 0.1
+    },
+    {
+      "condition": "minecraft:inverted",
+      "term": {
+        "condition": "minecraft:match_tool",
+        "predicate": {
+          "tag": "forge:shears"
+        }
+      }
+    },
+    {
+      "condition": "block_state_property",
+      "block": "minecraft:tall_grass"
+    }
+  ],
+  "addition": "caf:rye_seeds"
+}

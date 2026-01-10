@@ -3,7 +3,7 @@
   "group": "lantern",
   "ingredients": [
     {
-      "item": "create_and_food:soul_lantern"
+      "item": "caf:soul_lantern"
     }
   ],
   "result": {

@@ -1,11 +1,11 @@
 {
     "variants": {
       "": [
-        { "model": "create_and_food:block/leaves/almond_leaves_0" },
-        { "model": "create_and_food:block/leaves/almond_leaves_1" },
-        { "model": "create_and_food:block/leaves/almond_leaves_2" },
-        { "model": "create_and_food:block/leaves/almond_leaves_3" },
-        { "model": "create_and_food:block/leaves/almond_leaves_4" }
+        { "model": "caf:block/leaves/almond_leaves_0" },
+        { "model": "caf:block/leaves/almond_leaves_1" },
+        { "model": "caf:block/leaves/almond_leaves_2" },
+        { "model": "caf:block/leaves/almond_leaves_3" },
+        { "model": "caf:block/leaves/almond_leaves_4" }
       ]
     }
 }

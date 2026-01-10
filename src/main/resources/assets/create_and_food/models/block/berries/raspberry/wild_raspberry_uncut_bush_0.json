@@ -1,7 +1,0 @@
-{
-  "parent": "create_and_food:custom/block/berrybush/wild_berrybush_uncut",
-  "textures": {
-    "leaves": "create_and_food:block/berrybush/raspberry_leaves",
-    "branches": "create_and_food:block/berrybush/branches"
-  }
-}

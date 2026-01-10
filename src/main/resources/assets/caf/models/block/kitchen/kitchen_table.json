@@ -1,0 +1,9 @@
+{
+  "parent": "caf:custom/block/kitchen/kitchen_table",
+  "textures": {
+    "frame": "caf:block/kitchen/acacia_frame",
+    "planks": "minecraft:block/acacia_planks",
+    "top": "caf:block/kitchen/polished_andesite",
+    "doors": "caf:block/kitchen/acacia_doors"
+  }
+}

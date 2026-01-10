@@ -1,9 +1,0 @@
-{
-  "parent": "create_and_food:custom/block/lantern/lantern_on_wall",
-  "textures": {
-    "lantern": "create_and_food:block/lantern/glowing_brass_weathered_copper_lantern",
-    "chain": "create_and_food:block/lantern/steel_chain",
-    "holder": "create_and_food:block/lantern/holder",
-    "particle": "minecraft:block/weathered_copper"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "parent": "create_and_food:custom/block/terrace/terrace_top_stairs_west",
-  "textures": {
-    "terrace": "create_and_food:block/dark_oak_terrace"
-  }
-}

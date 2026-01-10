@@ -2,7 +2,7 @@
   "parent": "farmersdelight:main/get_fd_seed",
   "display": {
     "icon": {
-      "item": "create_and_food:rice"
+      "item": "caf:rice"
     },
     "title": {
       "translate": "farmersdelight.advancement.plant_rice"
@@ -19,13 +19,13 @@
     "plant_rice": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "create_and_food:rice"
+        "block": "caf:rice"
       }
     },
     "rice": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "create_and_food:rice_plant"
+        "block": "caf:rice_plant"
       }
     }
   },

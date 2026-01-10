@@ -1,0 +1,22 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "caf:cocoa_powder"
+    },
+    {
+      "item": "caf:cocoa_powder"
+    }
+  ],
+  "result": {
+    "item": "farmersdelight:hot_cocoa"
+  },
+  "experience": 0.35,
+  "cookingtime": 200
+}

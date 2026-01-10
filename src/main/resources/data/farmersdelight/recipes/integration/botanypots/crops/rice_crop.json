@@ -7,7 +7,7 @@
   ],
   "type": "botanypots:crop",
   "seed": {
-    "item": "create_and_food:rice"
+    "item": "caf:rice"
   },
   "categories": ["dirt"],
   "growthTicks": 1000,

@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "create_and_food:almond_door",
-    "create_and_food:steel_door"
+    "caf:almond_door",
+    "caf:steel_door"
   ]
 }

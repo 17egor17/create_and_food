@@ -1,0 +1,7 @@
+{
+  "parent": "caf:custom/block/flooded_farmland",
+  "textures": {
+    "dirt": "farmersdelight:block/rich_soil_farmland_moist_side",
+    "farmland": "farmersdelight:block/rich_soil_farmland_moist"
+  }
+}

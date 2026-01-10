@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "textures": {
-    "side": "create_and_food:block/palettes/stone_types/brick/blue_baked_clay_cut_brick",
-    "bottom": "create_and_food:block/palettes/stone_types/brick/blue_baked_clay_cut_brick",
-    "top": "create_and_food:block/palettes/stone_types/brick/blue_baked_clay_cut_brick"
-  }
-}

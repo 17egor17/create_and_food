@@ -3,7 +3,7 @@ loaderVersion="[40,)"
 license="MIT"
 
 [[mods]]
-modId="create_and_food"
+modId="caf"
 # The Implementation-Version property in the jar's MANIFEST.MF file will be used as the mod version at runtime
 version= "${file.jarVersion}"
 displayName="Create And Food"
@@ -15,35 +15,35 @@ authors="EgorPlayTv"
 description='''
 Baking that inspires players'''
 
-[[dependencies.create_and_food]]
+[[dependencies.caf]]
     modId="forge"
     mandatory=true
     versionRange="[40,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.create_and_food]]
+[[dependencies.caf]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.18.2,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.create_and_food]]
+[[dependencies.caf]]
     modId="dynamictrees"
     mandatory=false
     versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
 
-[[dependencies.create_and_food]]
+[[dependencies.caf]]
     modId="create"
     mandatory=true
     versionRange="[0,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.create_and_food]]
+[[dependencies.caf]]
     modId="farmersdelight"
     mandatory=true
     versionRange="[1.18.2-1.2.3,)"

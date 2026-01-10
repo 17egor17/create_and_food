@@ -1,7 +1,7 @@
 {
   "loader": "dynamictrees:branch",
   "textures": {
-    "bark": "create_and_food:block/almond_log",
-    "rings": "create_and_food:block/almond_log_top"
+    "bark": "caf:block/almond_log",
+    "rings": "caf:block/almond_log_top"
   }
 }

@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "age=0,cut=true": { "model": "caf:block/berries/raspberry/wild_raspberry_bush_0" },
+        "age=1,cut=true": { "model": "caf:block/berries/raspberry/wild_raspberry_bush_1" },
+        "age=2,cut=true": { "model": "caf:block/berries/raspberry/wild_raspberry_bush_2" },
+        "age=0,cut=false": { "model": "caf:block/berries/raspberry/wild_raspberry_uncut_bush_0" },
+        "age=1,cut=false": { "model": "caf:block/berries/raspberry/wild_raspberry_uncut_bush_1" },
+        "age=2,cut=false": { "model": "caf:block/berries/raspberry/wild_raspberry_uncut_bush_2" }
+    }
+}

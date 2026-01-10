@@ -13,7 +13,7 @@
     "hot": 0.75,
     "dry": 0.25
   },
-  "primitive_sapling": "create_and_food:almond_sapling",
+  "primitive_sapling": "caf:almond_sapling",
   "perfect_biomes": { "types": [ "forest", "jungle", "savanna" ] },
   "fruits": [
     "almond"

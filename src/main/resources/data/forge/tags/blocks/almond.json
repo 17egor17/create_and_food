@@ -1,19 +1,19 @@
 {
   "replace": false,
   "values": [
-    "create_and_food:almond_log",
-    "create_and_food:almond_wood",
-    "create_and_food:stripped_almond_log",
-    "create_and_food:stripped_almond_wood",
-    "create_and_food:almond_planks",
-    "create_and_food:almond_stairs",
-    "create_and_food:almond_slab",
-    "create_and_food:almond_fence",
-    "create_and_food:almond_fence_gate",
-    "create_and_food:almond_button",
-    "create_and_food:almond_pressure_plate",
-    "create_and_food:almond_door",
-    "create_and_food:almond_trapdoor",
-    "create_and_food:almond_sign"
+    "caf:almond_log",
+    "caf:almond_wood",
+    "caf:stripped_almond_log",
+    "caf:stripped_almond_wood",
+    "caf:almond_planks",
+    "caf:almond_stairs",
+    "caf:almond_slab",
+    "caf:almond_fence",
+    "caf:almond_fence_gate",
+    "caf:almond_button",
+    "caf:almond_pressure_plate",
+    "caf:almond_door",
+    "caf:almond_trapdoor",
+    "caf:almond_sign"
   ]
 }

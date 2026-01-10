@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "caf:block/leaves/almond_leaves_4"
+  }
+}

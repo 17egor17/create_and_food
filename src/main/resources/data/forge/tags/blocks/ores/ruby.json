@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "create_and_food:ruby_ore",
-    "create_and_food:deepslate_ruby_ore"
+    "caf:ruby_ore",
+    "caf:deepslate_ruby_ore"
   ]
 }

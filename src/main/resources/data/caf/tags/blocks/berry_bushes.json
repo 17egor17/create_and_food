@@ -1,0 +1,19 @@
+{
+  "replace":false,
+  "values": [
+    "caf:blueberry_bush",
+    "caf:wild_blueberry_bush",
+    "caf:cranberry_bush",
+    "caf:wild_cranberry_bush",
+    "caf:raspberry_bush",
+    "caf:wild_raspberry_bush",
+    "caf:blue_grape_bush",
+    "caf:wild_blue_grape_bush",
+    "caf:green_grape_bush",
+    "caf:wild_green_grape_bush",
+    "caf:purple_grape_bush",
+    "caf:wild_purple_grape_bush",
+    "caf:red_grape_bush",
+    "caf:wild_red_grape_bush"
+  ]
+}

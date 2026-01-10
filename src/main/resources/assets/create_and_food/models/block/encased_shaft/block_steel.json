@@ -1,7 +1,0 @@
-{
-	"parent": "create:block/encased_shaft/block",
-	"textures": {
-		"casing": "create_and_food:block/steel_casing",
-		"opening": "create_and_food:block/steel_gearbox"
-	}
-}

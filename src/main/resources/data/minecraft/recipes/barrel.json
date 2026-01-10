@@ -3,7 +3,7 @@
   "group": "barrel",
   "ingredients": [
     {
-      "tag": "create_and_food:barrels"
+      "tag": "caf:barrels"
     }
   ],
   "result": {

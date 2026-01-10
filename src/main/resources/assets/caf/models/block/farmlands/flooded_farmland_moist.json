@@ -1,0 +1,7 @@
+{
+  "parent": "caf:custom/block/flooded_farmland",
+  "textures": {
+    "dirt": "minecraft:block/dirt",
+    "farmland": "minecraft:block/farmland_moist"
+  }
+}

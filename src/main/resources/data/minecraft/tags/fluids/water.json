@@ -1,13 +1,13 @@
 {
   "replace": false ,
   "values": [
-    "create_and_food:apple_vinegar_flowing",
-    "create_and_food:apple_vinegar",
-    "create_and_food:cocoa_oil_flowing",
-    "create_and_food:cocoa_oil",
-    "create_and_food:white_chocolate_flowing",
-    "create_and_food:white_chocolate",
-    "create_and_food:red_grape_juice_flowing",
-    "create_and_food:red_grape_juice"
+    "caf:apple_vinegar_flowing",
+    "caf:apple_vinegar",
+    "caf:cocoa_oil_flowing",
+    "caf:cocoa_oil",
+    "caf:white_chocolate_flowing",
+    "caf:white_chocolate",
+    "caf:red_grape_juice_flowing",
+    "caf:red_grape_juice"
   ]
 }

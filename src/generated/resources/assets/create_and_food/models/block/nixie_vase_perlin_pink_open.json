@@ -1,8 +1,0 @@
-{
-  "parent": "create_and_food:custom/vases/vase_nixie_fluid_open",
-  "textures": {
-    "outside": "create_and_food:block/vase/marble_perlin_pink_vase_side",
-    "inside": "create_and_food:block/vase/marble_perlin_pink_vase_inner",
-    "particle": "create_and_food:block/palettes/stone_types/natural/marble_perlin_pink_0"
-  }
-}

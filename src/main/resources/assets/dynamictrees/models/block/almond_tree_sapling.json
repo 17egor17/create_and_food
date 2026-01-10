@@ -1,8 +1,8 @@
 {
   "parent": "dynamictrees:block/smartmodel/sapling",
   "textures": {
-    "particle": "create_and_food:block/almond_log",
-    "log": "create_and_food:block/almond_log",
-    "leaves": "create_and_food:block/leaves/almond_leaves_0"
+    "particle": "caf:block/almond_log",
+    "log": "caf:block/almond_log",
+    "leaves": "caf:block/leaves/almond_leaves_0"
   }
 }

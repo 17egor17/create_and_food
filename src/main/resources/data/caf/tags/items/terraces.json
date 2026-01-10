@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "caf:acacia_terrace",
+    "caf:acacia_terrace_stairs",
+    "caf:almond_terrace",
+    "caf:almond_terrace_stairs",
+    "caf:birch_terrace",
+    "caf:birch_terrace_stairs",
+    "caf:crimson_terrace",
+    "caf:crimson_terrace_stairs",
+    "caf:dark_oak_terrace",
+    "caf:dark_oak_terrace_stairs",
+    "caf:jungle_terrace",
+    "caf:jungle_terrace_stairs",
+    "caf:oak_terrace",
+    "caf:oak_terrace_stairs",
+    "caf:spruce_terrace",
+    "caf:spruce_terrace_stairs",
+    "caf:warped_terrace",
+    "caf:warped_terrace_stairs"
+  ]
+}

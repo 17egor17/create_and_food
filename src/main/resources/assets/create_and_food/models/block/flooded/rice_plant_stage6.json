@@ -1,7 +1,0 @@
-{
-  "parent": "create_and_food:custom/flooded_crop_double",
-  "textures": {
-    "top": "farmersdelight:block/rice_panicles_stage2",
-    "bottom": "farmersdelight:block/rice_stage3"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "create_and_food:block/encased_large_cogwheel/item",
-  "textures": {
-    "casing": "create_and_food:block/steel_casing",
-    "end": "create_and_food:block/steel",
-    "side": "create_and_food:block/steel_encased_cogwheel_side_connected"
-  }
-}

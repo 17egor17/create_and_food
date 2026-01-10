@@ -64,19 +64,19 @@
     "rye": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "create_and_food:rye_plant"
+        "block": "caf:rye_plant"
       }
     },
     "rice": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "create_and_food:rice"
+        "block": "caf:rice"
       }
     },
     "rice_plant": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "block": "create_and_food:rice_plant"
+        "block": "caf:rice_plant"
       }
     },
     "melon": {

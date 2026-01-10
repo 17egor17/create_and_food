@@ -1,0 +1,7 @@
+{
+  "parent": "caf:custom/block/farmland_sump_top",
+  "textures": {
+    "material": "minecraft:block/red_sand",
+    "end": "caf:block/farmlands/farmland_sump_red_end"
+  }
+}

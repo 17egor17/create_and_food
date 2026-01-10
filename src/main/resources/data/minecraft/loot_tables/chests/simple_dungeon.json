@@ -183,7 +183,7 @@
               "add": false
             }
           ],
-          "name": "create_and_food:melon_seeds"
+          "name": "caf:melon_seeds"
         },
         {
           "type": "minecraft:item",
@@ -199,7 +199,7 @@
               "add": false
             }
           ],
-          "name": "create_and_food:pumpkin_seeds"
+          "name": "caf:pumpkin_seeds"
         },
         {
           "type": "minecraft:item",

@@ -1,0 +1,7 @@
+{
+  "parent": "caf:custom/block/berrybush/berrybush_sapling_4",
+  "textures": {
+    "leaves": "caf:block/berrybush/raspberry_leaves",
+    "branches": "caf:block/berrybush/branches"
+  }
+}

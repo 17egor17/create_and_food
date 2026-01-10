@@ -1,0 +1,8 @@
+{
+  "parent": "caf:custom/block/nixie/nixie_lamp",
+  "textures": {
+		"0": "caf:block/nixie_lamp/white/nixie_lamp",
+		"1": "caf:block/nixie_lamp/white/nixie_glow",
+		"particle": "caf:block/nixie_lamp/white/nixie_lamp"
+	}
+}

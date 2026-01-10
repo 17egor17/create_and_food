@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "tag": "create_and_food:stone_types/baked_clay"
-  },
-  "result": "create_and_food:small_baked_clay_brick_wall",
-  "count": 1
-}

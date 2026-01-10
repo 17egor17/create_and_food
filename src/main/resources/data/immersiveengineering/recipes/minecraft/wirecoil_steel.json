@@ -7,10 +7,10 @@
   ],
   "key": {
     "0": {
-      "item": "create_and_food:aluminum_coil"
+      "item": "caf:aluminum_coil"
     },
     "1": {
-      "item": "create_and_food:steel_coil"
+      "item": "caf:steel_coil"
     },
     "2": {
       "tag": "forge:rods/wooden"

@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "caf:almond_wall_sign",
+    "caf:almond_sign",
+    "caf:almond_door",
+    "caf:almond_trapdoor",
+    "caf:almond_button",
+    "caf:almond_pressure_plate",
+    "caf:almond_fence",
+    "caf:almond_fence_gate",
+    "caf:almond_log",
+    "caf:stripped_almond_log",
+    "caf:almond_wood",
+    "caf:stripped_almond_wood",
+    "caf:almond_planks",
+    "caf:almond_stairs",
+    "caf:almond_slab"
+  ]
+}

@@ -1,0 +1,138 @@
+{
+
+  "ruby_break": {
+    "subtitle": "sounds.caf.ruby_break",
+    "sounds": [
+      "caf:ruby/break1",
+      "caf:ruby/break2",
+      "caf:ruby/break3",
+      "caf:ruby/break4"
+    ]
+  },
+  "ruby_place": {
+    "subtitle": "sounds.caf.ruby_place",
+    "sounds": [
+      "caf:ruby/place1",
+      "caf:ruby/place2",
+      "caf:ruby/place3",
+      "caf:ruby/place4"
+    ]
+  },
+  "ruby_step": {
+    "subtitle": "sounds.caf.ruby_step",
+    "sounds": [
+      "caf:ruby/step1",
+      "caf:ruby/step2",
+      "caf:ruby/step3",
+      "caf:ruby/step4",
+      "caf:ruby/step5",
+      "caf:ruby/step6"
+    ]
+  },
+  "ruby_hit": {
+    "subtitle": "sounds.caf.ruby_step",
+    "sounds": [
+      "caf:ruby/step1",
+      "caf:ruby/step2",
+      "caf:ruby/step3",
+      "caf:ruby/step4",
+      "caf:ruby/step5",
+      "caf:ruby/step6"
+    ]
+  },
+  "baked_clay_break": {
+    "subtitle": "sounds.caf.baked_clay_break",
+    "sounds": [
+      "caf:baked_clay/break1",
+      "caf:baked_clay/break2",
+      "caf:baked_clay/break3",
+      "caf:baked_clay/break4",
+      "caf:baked_clay/break5",
+      "caf:baked_clay/break6"
+    ]
+  },
+  "baked_clay_step": {
+    "subtitle": "sounds.caf.baked_clay_step",
+    "sounds": [
+      "caf:baked_clay/step1",
+      "caf:baked_clay/step2",
+      "caf:baked_clay/step3",
+      "caf:baked_clay/step4",
+      "caf:baked_clay/step5",
+      "caf:baked_clay/step6"
+    ]
+  },
+  "baked_clay_place": {
+    "subtitle": "sounds.caf.baked_clay_place",
+    "sounds": [
+      "caf:baked_clay/break1",
+      "caf:baked_clay/break2",
+      "caf:baked_clay/break3",
+      "caf:baked_clay/break4",
+      "caf:baked_clay/break5",
+      "caf:baked_clay/break6"
+    ]
+  },
+  "baked_clay_hit": {
+    "subtitle": "sounds.caf.baked_clay_hit",
+    "sounds": [
+      "caf:baked_clay/step1",
+      "caf:baked_clay/step2",
+      "caf:baked_clay/step3",
+      "caf:baked_clay/step4",
+      "caf:baked_clay/step5",
+      "caf:baked_clay/step6"
+    ]
+  },
+  "steel_ruby_lamp_break": {
+    "subtitle": "sounds.caf.steel_ruby_lamp_break",
+    "sounds": [
+      "caf:steel_ruby_lantern/break1",
+      "caf:steel_ruby_lantern/break2",
+      "caf:steel_ruby_lantern/break3",
+      "caf:steel_ruby_lantern/break4"
+    ]
+  },
+  "steel_ruby_lamp_step": {
+    "subtitle": "sounds.caf.steel_ruby_lamp_step",
+    "sounds": [
+      "caf:steel_ruby_lantern/step1",
+      "caf:steel_ruby_lantern/step2",
+      "caf:steel_ruby_lantern/step3",
+      "caf:steel_ruby_lantern/step4"
+    ]
+  },
+  "steel_ruby_lamp_place": {
+    "subtitle": "sounds.caf.steel_ruby_lamp_place",
+    "sounds": [
+      "caf:steel_ruby_lantern/place1",
+      "caf:steel_ruby_lantern/place2",
+      "caf:steel_ruby_lantern/place3",
+      "caf:steel_ruby_lantern/place4"
+    ]
+  },
+  "steel_ruby_lamp_hit": {
+    "subtitle": "sounds.caf.steel_ruby_lamp_hit",
+    "sounds": [
+      "caf:steel_ruby_lantern/step1",
+      "caf:steel_ruby_lantern/step2",
+      "caf:steel_ruby_lantern/step3",
+      "caf:steel_ruby_lantern/step4"
+    ]
+  },
+  "souls": {
+    "subtitle": "sounds.caf.souls",
+    "sounds": [
+      "caf:souls/souls1",
+      "caf:souls/souls2",
+      "caf:souls/souls3",
+      "caf:souls/souls4",
+      "caf:souls/souls6",
+      "caf:souls/souls7",
+      "caf:souls/souls8",
+      "caf:souls/souls9",
+      "caf:souls/souls10",
+      "caf:souls/souls11"
+    ]
+  }
+}

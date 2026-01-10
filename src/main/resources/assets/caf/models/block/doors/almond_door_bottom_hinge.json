@@ -1,0 +1,55 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/door_bottom_rh",
+	"textures": {
+		"1": "caf:block/almond_door_lower",
+		"particle": "caf:block/almond_door_lower",
+		"bottom": "caf:block/almond_door_bottom"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [3, 3, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14.5, 0, 1.5]},
+			"faces": {
+				"north": {"uv": [10, 0, 13, 3], "texture": "#1"},
+				"east": {"uv": [0, 13, 16, 16], "texture": "#bottom"},
+				"south": {"uv": [10, 0, 13, 3], "texture": "#1"},
+				"west": {"uv": [0, 13, 16, 16], "texture": "#bottom"},
+				"up": {"uv": [6, 0, 9, 16], "rotation": 180, "texture": "#1"},
+				"down": {"uv": [13, 0, 16, 16], "texture": "#1"}
+			}
+		},
+		{
+			"from": [0, 3, 0],
+			"to": [3, 16, 3],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14.5, 0, 1.5]},
+			"faces": {
+				"north": {"uv": [0, 0, 3, 13], "texture": "#1"},
+				"east": {"uv": [13, 0, 16, 13], "texture": "#bottom"},
+				"south": {"uv": [3, 0, 6, 13], "texture": "#1"},
+				"west": {"uv": [13, 0, 16, 13], "texture": "#bottom"}
+			}
+		},
+		{
+			"from": [0, 3, 13],
+			"to": [3, 16, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14.5, 0, 1.5]},
+			"faces": {
+				"north": {"uv": [3, 0, 6, 13], "texture": "#1"},
+				"east": {"uv": [0, 0, 3, 13], "texture": "#bottom"},
+				"south": {"uv": [0, 0, 3, 13], "texture": "#1"},
+				"west": {"uv": [0, 0, 3, 13], "texture": "#bottom"}
+			}
+		},
+		{
+			"from": [1, 3, 3],
+			"to": [2, 16, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [14.5, 0, 1.5]},
+			"faces": {
+				"east": {"uv": [3, 0, 13, 13], "texture": "#bottom"},
+				"west": {"uv": [3, 0, 13, 13], "texture": "#bottom"}
+			}
+		}
+	]
+}

@@ -1,0 +1,28 @@
+{
+  "type": "caf:fermentation",
+  "ingredients": [
+    {
+      "item": "caf:rye_flour"
+    },
+    {
+      "item": "caf:rye"
+    },
+    {
+      "item": "caf:raw_protein"
+    },
+    {
+      "fluid": "minecraft:water",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+    "item": "create:dough",
+    "count": 2
+    }
+  ],
+  "tool": {
+    "item": "minecraft:bowl"
+  },
+  "time": 1180
+}

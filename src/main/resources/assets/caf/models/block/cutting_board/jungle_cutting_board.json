@@ -1,0 +1,6 @@
+{
+  "parent": "caf:custom/cutting_board",
+  "textures": {
+    "board": "caf:block/cutting_boards/jungle_cutting_board"
+  }
+}

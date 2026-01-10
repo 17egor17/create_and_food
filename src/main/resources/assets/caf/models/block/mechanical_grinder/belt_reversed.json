@@ -1,0 +1,20 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "caf:block/belt_for_mechanical_grinder",
+		"belt": "caf:block/belt_for_mechanical_grinder"
+	},
+	"elements": [
+		{
+			"from": [0.99, 10.99, 2.99],
+			"to": [15.01, 13.01, 13.01],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"east": {"uv": [3, 14, 13, 16], "texture": "#belt"},
+				"west": {"uv": [3, 2, 13, 0], "texture": "#belt"},
+				"up": {"uv": [3, 2, 13, 14], "rotation": 270, "texture": "#belt"}
+			}
+		}
+	]
+}

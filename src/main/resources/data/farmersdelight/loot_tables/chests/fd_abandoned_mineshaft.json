@@ -73,7 +73,7 @@
               }
             }
           ],
-          "name": "create_and_food:rice"
+          "name": "caf:rice"
         },
         {
           "type": "minecraft:empty",

@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:minecraft/crafting_table/red_baked_clay"
+    ]
+  },
+  "criteria": {
+    "has_baked_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:baked_clay"
+            ]
+          }
+        ]
+      }
+    },
+    "has_red_dye": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:dyes/red"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:minecraft/crafting_table/red_baked_clay"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_baked_clay",
+      "has_red_dye",
+      "has_the_recipe"
+    ]
+  ]
+}

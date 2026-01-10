@@ -1,0 +1,7 @@
+{
+  "parent": "caf:custom/block/farmland_sump_top",
+  "textures": {
+    "material": "farmersdelight:block/rich_soil",
+    "end": "caf:block/farmlands/farmland_sump_end_rich_soil"
+  }
+}

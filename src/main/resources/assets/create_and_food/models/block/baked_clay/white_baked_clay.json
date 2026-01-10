@@ -1,6 +1,0 @@
-{
-	"parent": "block/cube_all",
-	"textures": {
-		"all": "create_and_food:block/baked_clay/colors/white_baked_clay"
-	}
-}

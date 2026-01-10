@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "caf:almond_log",
+    "caf:almond_wood",
+    "caf:stripped_almond_log",
+    "caf:stripped_almond_wood"
+  ]
+}

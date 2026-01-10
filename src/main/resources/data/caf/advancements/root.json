@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "item": "caf:raw_cake"
+    },
+    "title": {
+      "translate": "advancement.caf.root"
+    },
+    "description": {
+      "color": "#7755FF",
+      "translate": "advancement.caf.root.desc"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false,
+    "background": "caf:textures/gui/advancement_texture.png"
+  },
+  "criteria": {
+    "0": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {}
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ]
+}

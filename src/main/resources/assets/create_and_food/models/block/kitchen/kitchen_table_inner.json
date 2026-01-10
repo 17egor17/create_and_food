@@ -1,7 +1,0 @@
-{
-  "parent": "create_and_food:custom/block/kitchen/kitchen_table_inner",
-  "textures": {
-    "planks": "minecraft:block/acacia_planks",
-    "top": "create_and_food:block/kitchen/polished_andesite_inner"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "create_and_food:custom/block/lantern/minecraft/lantern_on_wall",
-  "textures": {
-    "lantern": "minecraft:block/lantern",
-    "holder_1": "create_and_food:block/lantern/lantern_holder_1",
-    "holder": "create_and_food:block/lantern/lantern_holder"
-  }
-}

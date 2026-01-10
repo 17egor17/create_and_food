@@ -1,0 +1,22 @@
+{
+  "type": "caf:fermentation",
+  "ingredients": [
+    {
+      "item": "caf:rye_flour"
+    },
+    {
+      "item": "caf:raw_yolk"
+    },
+    {
+      "fluid": "minecraft:lava",
+      "amount": 350
+    }
+  ],
+  "results": [
+    {
+    "item": "create:blaze_cake",
+    "count": 2
+    }
+  ],
+  "time": 1200
+}

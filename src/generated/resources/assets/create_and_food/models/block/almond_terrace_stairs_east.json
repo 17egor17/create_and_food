@@ -1,6 +1,0 @@
-{
-  "parent": "create_and_food:custom/block/terrace/terrace_stairs_east",
-  "textures": {
-    "terrace": "create_and_food:block/almond_terrace"
-  }
-}

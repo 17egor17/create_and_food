@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/template_wall_side_tall",
-  "textures": {
-    "wall": "create_and_food:block/palettes/stone_types/small_brick/marble_perlin_pink_cut_small_brick"
-  }
-}

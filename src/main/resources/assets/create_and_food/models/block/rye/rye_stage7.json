@@ -1,6 +1,0 @@
-{
-  "parent": "create_and_food:custom/crop",
-  "textures": {
-    "crop": "minecraft:block/wheat_stage7"
-  }
-}

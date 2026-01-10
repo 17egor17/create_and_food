@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 1,
+  "cookingtime": 300,
+  "ingredient": {
+    "item": "caf:steel_dust"
+  },
+  "result": "caf:steel_ingot"
+}

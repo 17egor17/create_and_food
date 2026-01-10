@@ -1,7 +1,0 @@
-{
-  "parent": "create_and_food:custom/block/berrybush/berrybush_sapling_1",
-  "textures": {
-    "leaves": "create_and_food:block/berrybush/blueberry_leaves",
-    "branches": "create_and_food:block/berrybush/branches"
-  }
-}

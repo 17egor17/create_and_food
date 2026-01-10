@@ -22,8 +22,8 @@ apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'org.spongepowered.mixin'
 
 
-group = 'net.egorplaytv.create_and_food'
-archivesBaseName = "create_and_food-${artifact_minecraft_version}"
+group = 'net.egorplaytv.caf'
+archivesBaseName = "caf-${artifact_minecraft_version}"
 version = "${modVersion}"
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
@@ -31,8 +31,8 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 def refmap
 mixin {
-    refmap = add sourceSets.main, 'create_and_food.refmap.json'
-    config 'create_and_food.mixins.json'
+    refmap = add sourceSets.main, 'caf.refmap.json'
+    config 'caf.mixins.json'
 }
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
@@ -73,10 +73,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'create_and_food'
+            property 'forge.enabledGameTestNamespaces', 'caf'
 
             mods {
-                create_and_food {
+                caf {
                     source sourceSets.main
                 }
             }
@@ -89,13 +89,13 @@ minecraft {
 
             property 'forge.logging.console.level', 'debug'
 
-            args '--tweakClass', 'org.spongepowered.asm.launch.MixinTweaker', '--mixin', '-mixin.config=create_and_food.mixins.json'
+            args '--tweakClass', 'org.spongepowered.asm.launch.MixinTweaker', '--mixin', '-mixin.config=caf.mixins.json'
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'create_and_food'
+            property 'forge.enabledGameTestNamespaces', 'caf'
 
             mods {
-                create_and_food {
+                caf {
                     source sourceSets.main
                 }
             }
@@ -121,10 +121,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', 'create_and_food'
+            property 'forge.enabledGameTestNamespaces', 'caf'
 
             mods {
-                create_and_food {
+                caf {
                     source sourceSets.main
                 }
             }
@@ -138,10 +138,10 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
-            args '--mod', 'create_and_food', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'caf', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                create_and_food {
+                caf {
                     source sourceSets.main
                 }
             }
@@ -269,7 +269,7 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"        : "create_and_food",
+                "Specification-Title"        : "caf",
                 "Specification-Vendor"       : "EgorPlayTv",
                 "Specification-Version"      : "1", // We are version 1 of ourselves
                 "Implementation-Title"       : project.jar.baseName,
@@ -278,7 +278,7 @@ jar {
                 "Implementation-Timestamp"   : new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
                 "TweakClass"                 : "org.spongepowered.asm.launch.MixinTweaker",
                 "TweakOrder"                 : 0,
-                "MixinConfigs"               : "create_and_food.mixins.json"
+                "MixinConfigs"               : "caf.mixins.json"
         ])
     }
 }

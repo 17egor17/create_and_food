@@ -1,16 +1,16 @@
 {
   "replace": false,
   "values": [
-	  "create_and_food:base_of_dough",
-	  "create_and_food:small_dough_base",
-	  "create_and_food:dough_base_with_chocolate",
-	  "create_and_food:small_dough_base_with_honey",
-	  "create_and_food:small_dough_base_with_chocolate",
-	  "create_and_food:honey_milk",
-	  "create_and_food:raw_cake",
-	  "create_and_food:raw_berry_cake",
-	  "create_and_food:berry_cake",
-	  "create_and_food:raw_glow_berry_cake",
-	  "create_and_food:glow_berry_cake"
+	  "caf:base_of_dough",
+	  "caf:small_dough_base",
+	  "caf:dough_base_with_chocolate",
+	  "caf:small_dough_base_with_honey",
+	  "caf:small_dough_base_with_chocolate",
+	  "caf:honey_milk",
+	  "caf:raw_cake",
+	  "caf:raw_berry_cake",
+	  "caf:berry_cake",
+	  "caf:raw_glow_berry_cake",
+	  "caf:glow_berry_cake"
   ]
 }
