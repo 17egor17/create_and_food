@@ -37,15 +37,15 @@ public class FermentationBarrelMenu extends AbstractContainerMenu {
         this.fluidStack = blockEntity.getFluid();
         this.fluidStackOut = blockEntity.getFluidOut();
 
-        addPlayerInventory(inv);
-        addPlayerHotbar(inv);
-
         this.addSlot(new SlotItemHandler(this.inventory, 0, 11,20));
         this.addSlot(new SlotItemHandler(this.inventory, 1, 54,20));
         this.addSlot(new SlotItemHandler(this.inventory, 2, 54,38));
         this.addSlot(new SlotItemHandler(this.inventory, 3, 54,56));
         this.addSlot(new SlotItemHandler(this.inventory, 4, 79,20));
         this.addSlot(new CAFResultSlot(this.inventory, 5, 106,38));
+
+        addPlayerInventory(inv);
+        addPlayerHotbar(inv);
 
         addDataSlots(data);
     }

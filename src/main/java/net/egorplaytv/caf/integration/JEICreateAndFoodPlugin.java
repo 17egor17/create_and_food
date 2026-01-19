@@ -17,7 +17,9 @@ import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.gui.drawable.IDrawable;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.helpers.IJeiHelpers;
+import mezz.jei.api.helpers.IStackHelper;
 import mezz.jei.api.recipe.category.IRecipeCategory;
+import mezz.jei.api.recipe.transfer.IRecipeTransferHandlerHelper;
 import mezz.jei.api.registration.*;
 import mezz.jei.api.runtime.IIngredientManager;
 import net.egorplaytv.caf.CreateAndFood;
@@ -171,7 +173,6 @@ public class JEICreateAndFoodPlugin implements IModPlugin {
         registration.addRecipeTransferHandler(MarbleBlastFurnaceMenu.class, RecipeTypes.BLASTING, 1, 3, 5, 36);
         registration.addRecipeTransferHandler(MarbleBlastFurnaceMenu.class, RecipeTypes.FUELING, 0, 1, 5, 36);
         registration.addRecipeTransferHandler(FermentationBarrelMenu.class, RecipeTypes.FERMENTATION, 1, 4, 6, 36);
-
     }
 
     private <T extends Recipe<?>> JEICreateAndFoodPlugin.CategoryBuilder<T> builder(Class<? extends T> recipeClass) {

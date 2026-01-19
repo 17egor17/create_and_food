@@ -37,15 +37,14 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
         level = inv.player.level;
         this.data = data;
 
-        addPlayerInventory(inv);
-        addPlayerHotbar(inv);
-
-
         this.addSlot(new SlotItemHandler(this.inventory, 0, 26,86));
         this.addSlot(new SlotItemHandler(this.inventory, 1, 16,28));
         this.addSlot(new SlotItemHandler(this.inventory, 2, 36,28));
         this.addSlot(new SlotItemHandler(this.inventory, 3, 26,48));
         this.addSlot(new CAFFurnaceResultSlot(inv.player, this.inventory, 4, 120,48));
+
+        addPlayerInventory(inv);
+        addPlayerHotbar(inv);
 
         this.addDataSlots(data);
     }
