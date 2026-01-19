@@ -29,7 +29,6 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
     private final int blastingTime;
     private final int blastingDeg;
     private final float experience;
-    private final Advancement.Builder advancement = Advancement.Builder.advancement();
 
     public BlastingRecipeBuilder(Item result, int count, int time, int degree, float experience) {
         this.result = result;
@@ -38,6 +37,31 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
         this.blastingDeg = degree;
         this.experience = experience;
     }
+
+    public static BlastingRecipeBuilder blastingRecipe(Item result, int count, int time, int degree, float experience) {
+        return new BlastingRecipeBuilder(result, count, time, degree, experience);
+    }
+
+    public static BlastingRecipeBuilder blastingRecipe(Item result, int count, int time, int degree) {
+        return new BlastingRecipeBuilder(result, count, time, degree, 0.0F);
+    }
+
+    public static BlastingRecipeBuilder blastingRecipe(Item result, int time, int degree, float experience) {
+        return new BlastingRecipeBuilder(result, 1, time, degree, experience);
+    }
+
+    public static BlastingRecipeBuilder blastingRecipe(Item result, int time, int degree) {
+        return new BlastingRecipeBuilder(result, 1, time, degree, 0.0F);
+    }
+
+    public static BlastingRecipeBuilder blastingRecipe(Item result, int count) {
+        return new BlastingRecipeBuilder(result, count, 200, 100, 0.0F);
+    }
+
+    public static BlastingRecipeBuilder blastingRecipe(Item result) {
+        return new BlastingRecipeBuilder(result, 1, 200, 100, 0.0F);
+    }
+
 
     public BlastingRecipeBuilder addIngredient(TagKey<Item> tagIn) {
         return this.addIngredient(Ingredient.of(tagIn));
@@ -70,8 +94,7 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
 
     @Override
     public RecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
-        this.advancement.addCriterion(pCriterionName, pCriterionTrigger);
-        return this;
+        return null;
     }
 
     @Override
@@ -86,16 +109,8 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
-        this.advancement.parent(new ResourceLocation("recipes/root"))
-                .addCriterion("has_the_recipe",
-                        RecipeUnlockedTrigger.unlocked(pRecipeId))
-                .rewards(AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
-
         pFinishedRecipeConsumer.accept(new BlastingRecipeBuilder.Result(pRecipeId, this.result, this.count, this.blastingTime,
-                this.blastingDeg, this.experience, this.ingredients,
-                this.advancement, new ResourceLocation(pRecipeId.getNamespace(), "recipes/" +
-                this.result.getItemCategory().getRecipeFolderName() + "/" + pRecipeId.getPath())));
-
+                this.blastingDeg, this.experience, this.ingredients));
     }
 
     public static class Result implements FinishedRecipe {
@@ -106,12 +121,9 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
         private int blastingTime;
         private int blastingDeg;
         private final float experience;
-        private final Advancement.Builder advancement;
-        private final ResourceLocation advancementId;
 
         public Result(ResourceLocation pId, Item pResult, int pCount, int pTime, int pDeg, float pExperience,
-                      List<Ingredient> ingredients, Advancement.Builder pAdvancement,
-                      ResourceLocation pAdvancementId) {
+                      List<Ingredient> ingredients) {
             this.id = pId;
             this.result = pResult;
             this.count = pCount;
@@ -119,8 +131,6 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
             this.blastingDeg = pDeg;
             this.experience = pExperience;
             this.ingredients = ingredients;
-            this.advancement = pAdvancement;
-            this.advancementId = pAdvancementId;
         }
 
         @Override
@@ -178,12 +188,12 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
 
         @javax.annotation.Nullable
         public JsonObject serializeAdvancement() {
-            return this.advancement.serializeToJson();
+            return null;
         }
 
         @javax.annotation.Nullable
         public ResourceLocation getAdvancementId() {
-            return this.advancementId;
+            return null;
         }
     }
 

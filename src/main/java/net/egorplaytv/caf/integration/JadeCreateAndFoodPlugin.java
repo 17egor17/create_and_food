@@ -43,19 +43,19 @@ public class JadeCreateAndFoodPlugin implements IWailaPlugin {
     public class ToolProvider {
         public ToolProvider(){
             registerHandler(new SimpleToolHandler("pickaxe", BlockTags.MINEABLE_WITH_PICKAXE,
-                    new Item[]{Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE,
+                    new Item[]{Items.WOODEN_PICKAXE, Items.STONE_PICKAXE, CAFItems.COPPER_PICKAXE.get(), Items.IRON_PICKAXE, Items.DIAMOND_PICKAXE,
                             Items.NETHERITE_PICKAXE, CAFItems.TANTALUM_PICKAXE.get(), CAFItems.TUNGSTEN_PICKAXE.get()}));
 
             registerHandler(new SimpleToolHandler("axe", BlockTags.MINEABLE_WITH_AXE,
-                    new Item[]{Items.WOODEN_AXE, Items.STONE_AXE, Items.IRON_AXE, Items.DIAMOND_AXE, Items.NETHERITE_AXE,
+                    new Item[]{Items.WOODEN_AXE, Items.STONE_AXE, CAFItems.COPPER_AXE.get(), Items.IRON_AXE, Items.DIAMOND_AXE, Items.NETHERITE_AXE,
                             CAFItems.TANTALUM_AXE.get(), CAFItems.TUNGSTEN_AXE.get()}));
 
             registerHandler(new SimpleToolHandler("shovel", BlockTags.MINEABLE_WITH_SHOVEL,
-                    new Item[]{Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL,
+                    new Item[]{Items.WOODEN_SHOVEL, Items.STONE_SHOVEL, CAFItems.COPPER_SHOVEL.get(), Items.IRON_SHOVEL, Items.DIAMOND_SHOVEL,
                             Items.NETHERITE_SHOVEL, CAFItems.TANTALUM_SHOVEL.get(), CAFItems.TUNGSTEN_SHOVEL.get()}));
 
             registerHandler(new SimpleToolHandler("hoe", BlockTags.MINEABLE_WITH_HOE,
-                    new Item[]{Items.WOODEN_HOE, Items.STONE_HOE, Items.IRON_HOE, Items.DIAMOND_HOE,
+                    new Item[]{Items.WOODEN_HOE, Items.STONE_HOE, CAFItems.COPPER_HOE.get(), Items.IRON_HOE, Items.DIAMOND_HOE,
                             Items.NETHERITE_HOE, CAFItems.TANTALUM_HOE.get(), CAFItems.TUNGSTEN_HOE.get()}));
 
 

@@ -34,7 +34,6 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
     private final int amountOut;
     private final Item tool;
     private int time;
-    private final Advancement.Builder advancement = Advancement.Builder.advancement();
 
     private FermentationRecipeBuilder(Fluid inputFluid, int amountIn, Item result, int count, Fluid outputFluid, int amountOut, Item tool) {
         this.inputFluid = inputFluid;
@@ -121,8 +120,7 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
 
     @Override
     public RecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
-        this.advancement.addCriterion(pCriterionName, pCriterionTrigger);
-        return this;
+        return null;
     }
 
     @Override
@@ -142,20 +140,8 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
-        this.advancement.parent(new ResourceLocation("recipes/root"))
-                .addCriterion("has_the_recipe",
-                        RecipeUnlockedTrigger.unlocked(pRecipeId))
-                .rewards(AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
-
-        if (this.result == null){
-            pFinishedRecipeConsumer.accept(new FermentationRecipeBuilder.Result(pRecipeId, null, this.count, this.inputFluid, this.amountIn, this.outputFluid, this.amountOut, this.time, this.ingredients, this.tool,
-                    this.advancement, new ResourceLocation(pRecipeId.getNamespace(), "recipes/" +
-                    this.outputFluid.getBucket().getItemCategory().getRecipeFolderName() + "/" + pRecipeId.getPath())));
-        } else {
-            pFinishedRecipeConsumer.accept(new FermentationRecipeBuilder.Result(pRecipeId, this.result, this.count, this.inputFluid, this.amountIn, this.outputFluid, this.amountOut, this.time, this.ingredients, this.tool,
-                    this.advancement, new ResourceLocation(pRecipeId.getNamespace(), "recipes/" +
-                    this.result.getItemCategory().getRecipeFolderName() + "/" + pRecipeId.getPath())));
-        }
+            pFinishedRecipeConsumer.accept(new FermentationRecipeBuilder.Result(pRecipeId, null, this.count, this.inputFluid,
+                    this.amountIn, this.outputFluid, this.amountOut, this.time, this.ingredients, this.tool));
     }
 
     private class Result implements FinishedRecipe {
@@ -167,11 +153,9 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
         private final FluidStack outputFluid;
         private final Item tool;
         private int time;
-        private final Advancement.Builder advancement;
-        private final ResourceLocation advancementId;
 
         public Result(ResourceLocation id, Item result, int count, Fluid inputFluid, int amountIn, Fluid outputFluid,
-                      int amountOut, int time, List<Ingredient> ingredients, Item tool, Advancement.Builder advancement, ResourceLocation advancementId) {
+                      int amountOut, int time, List<Ingredient> ingredients, Item tool) {
             this.id = id;
             this.ingredients = ingredients;
             this.result = result != null ? result : null;
@@ -180,8 +164,6 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
             this.outputFluid = outputFluid != null ? new FluidStack(outputFluid, amountOut) : null;
             this.time = time != 0 ? time : 1000;
             this.tool = tool != null ? tool : null;
-            this.advancement = advancement;
-            this.advancementId = advancementId;
         }
 
         @Override
@@ -258,12 +240,12 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
 
         @javax.annotation.Nullable
         public JsonObject serializeAdvancement() {
-            return this.advancement.serializeToJson();
+            return null;
         }
 
         @javax.annotation.Nullable
         public ResourceLocation getAdvancementId() {
-            return this.advancementId;
+            return null;
         }
     }
 }

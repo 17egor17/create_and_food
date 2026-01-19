@@ -43,6 +43,7 @@ public class CAFTags {
 
         public static final TagKey<Block> MINEABLE_WITH_HAMMER = modTag("mineable/hammer");
 
+        public static final TagKey<Block> NEEDS_COPPER_TOOL = forgeTag("needs_copper_tool");
         public static final TagKey<Block> NEEDS_TANTALUM_TOOL = forgeTag("needs_tantalum_tool");
         public static final TagKey<Block> NEEDS_TUNGSTEN_TOOL = forgeTag("needs_tungsten_tool");
 
