@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "create_and_food:item/almond_tree_seed"
+    "layer0": "caf:item/almond_tree_seed"
   }
 }
