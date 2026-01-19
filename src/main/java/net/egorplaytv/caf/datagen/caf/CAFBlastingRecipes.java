@@ -4,7 +4,6 @@ import com.simibubi.create.AllItems;
 import net.egorplaytv.caf.datagen.custom.BlastingRecipeBuilder;
 import net.egorplaytv.caf.item.CAFItems;
 import net.egorplaytv.caf.util.CAFTags;
-import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
@@ -12,7 +11,6 @@ import net.minecraft.world.level.ItemLike;
 
 import java.util.function.Consumer;
 
-import static com.tterrag.registrate.providers.RegistrateRecipeProvider.inventoryTrigger;
 import static net.egorplaytv.caf.CreateAndFood.MOD_ID;
 
 public class CAFBlastingRecipes {
@@ -82,9 +80,65 @@ public class CAFBlastingRecipes {
                 .addIngredient(CAFTags.forgeItemTag("nuggets/gold"))
                 .save(pConsumer, getCAFBlasting(getRecipeId(CAFItems.GOLD_INGOT.get()) + "_from_piece"));
 
-        BlastingRecipeBuilder.blastingRecipe(CAFItems.GOLD_NUGGET.get())
+        BlastingRecipeBuilder.blastingRecipe(CAFItems.GOLD_NUGGET.get(), 200, 1064, 0.1F)
+                .addIngredient(CAFItems.GOLDEN_COIN.get())
+                .save(pConsumer, getCAFBlasting(getRecipeIdFromCoin(CAFItems.GOLD_NUGGET.get(), CoinType.DEFAULT)));
 
-                .save(pConsumer, getCAFBlasting(getRecipeId(CAFItems.GOLD_NUGGET.get())));
+        BlastingRecipeBuilder.blastingRecipe(CAFItems.GOLD_NUGGET.get(), 200, 1064, 0.1F)
+                .addIngredient(CAFItems.BROKEN_GOLDEN_COIN.get())
+                .save(pConsumer, getCAFBlasting(getRecipeIdFromCoin(CAFItems.GOLD_NUGGET.get(), CoinType.BROKEN)));
+
+        BlastingRecipeBuilder.blastingRecipe(CAFItems.IRON_INGOT.get(), 400, 1538, 0.7F)
+                .addIngredient(CAFItems.RAW_IRON.get())
+                .save(pConsumer, getCAFBlasting(getRecipeId(CAFItems.IRON_INGOT.get())));
+
+        BlastingRecipeBuilder.blastingRecipe(CAFItems.IRON_INGOT.get(), 400, 1538, 0.7F)
+                .addIngredient(CAFItems.RAW_IRON.get())
+                .save(pConsumer, getCAFBlasting(getRecipeIdFromCrushed(CAFItems.IRON_INGOT.get())));
+
+        BlastingRecipeBuilder.blastingRecipe(CAFItems.IRON_INGOT.get(), 400, 1538, 0.7F)
+                .addIngredient(CAFItems.RAW_IRON.get())
+                .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.IRON_INGOT.get())));
+
+        BlastingRecipeBuilder.blastingRecipe(CAFItems.IRON_NUGGET.get(), 200, 1538, 0.1F)
+                .addIngredient(CAFItems.IRON_COIN.get())
+                .save(pConsumer, getCAFBlasting(getRecipeIdFromCoin(CAFItems.IRON_NUGGET.get(), CoinType.DEFAULT)));
+
+        BlastingRecipeBuilder.blastingRecipe(CAFItems.IRON_NUGGET.get(), 200, 1538, 0.1F)
+                .addIngredient(CAFItems.IRON_COIN.get())
+                .save(pConsumer, getCAFBlasting(getRecipeIdFromCoin(CAFItems.IRON_NUGGET.get(), CoinType.BROKEN)));
+
+        BlastingRecipeBuilder.blastingRecipe(CAFItems.NETHERITE_INGOT.get(), 400, 3133, 0.7F)
+                .addIngredient(CAFTags.forgeItemTag("dusts/netherite"))
+                .save(pConsumer, getCAFBlasting(getRecipeId(CAFItems.NETHERITE_INGOT.get())));
+
+        BlastingRecipeBuilder.blastingRecipe(CAFItems.STEEL_INGOT.get(), 400, 1538, 0.9F)
+                .addIngredient(CAFTags.forgeItemTag("dusts/coal")).addIngredient(CAFTags.forgeItemTag("dusts/coal"))
+                .addIngredient(CAFTags.forgeItemTag("ingots/iron"))
+                .save(pConsumer, getCAFBlasting(getRecipeId(CAFItems.STEEL_INGOT.get())));
+
+        BlastingRecipeBuilder.blastingRecipe(CAFItems.STEEL_INGOT.get(), 400, 1538, 0.7F)
+                .addIngredient(CAFTags.forgeItemTag("dusts/steel"))
+                .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.STEEL_INGOT.get())));
+
+        BlastingRecipeBuilder.blastingRecipe(CAFItems.TANTALUM_INGOT.get(), 400, 3016, 0.1F)
+                .addIngredient(CAFItems.RAW_TANTALUM.get())
+                .save(pConsumer, getCAFBlasting(getRecipeId(CAFItems.STEEL_INGOT.get())));
+
+        BlastingRecipeBuilder.blastingRecipe(CAFItems.TANTALUM_INGOT.get(), 400, 3016, 0.1F)
+                .addIngredient(CAFItems.CRUSHED_RAW_TANTALUM.get())
+                .save(pConsumer, getCAFBlasting(getRecipeIdFromCrushed(CAFItems.STEEL_INGOT.get())));
+
+        BlastingRecipeBuilder.blastingRecipe(CAFItems.TUNGSTEN_INGOT.get(), 400, 3421, 0.1F)
+                .addIngredient(CAFItems.RAW_TUNGSTEN.get())
+                .save(pConsumer, getCAFBlasting(getRecipeId(CAFItems.TUNGSTEN_INGOT.get())));
+
+        BlastingRecipeBuilder.blastingRecipe(CAFItems.TUNGSTEN_INGOT.get(), 400, 3421, 0.1F)
+                .addIngredient(CAFItems.CRUSHED_RAW_TUNGSTEN.get())
+                .save(pConsumer, getCAFBlasting(getRecipeIdFromCrushed(CAFItems.TUNGSTEN_INGOT.get())));
+
+
+
 
 
 

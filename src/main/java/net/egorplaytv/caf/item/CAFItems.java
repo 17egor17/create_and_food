@@ -275,7 +275,7 @@ public class CAFItems {
 
     public static final RegistryObject<MetalItem> RAW_TANTALUM = registerItem("raw_tantalum",
             () -> new MetalItem(3016, Type.RAW, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
-    public static final RegistryObject<MetalItem> CRASHED_RAW_TANTALUM = registerItem("crushed_raw_tantalum",
+    public static final RegistryObject<MetalItem> CRUSHED_RAW_TANTALUM = registerItem("crushed_raw_tantalum",
             () -> new MetalItem(3016, Type.CRASHED_RAW, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> TANTALUM_INGOT = registerItem("tantalum_ingot",
             () -> new MetalItem(3016, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
@@ -284,7 +284,7 @@ public class CAFItems {
 
     public static final RegistryObject<MetalItem> RAW_TUNGSTEN = registerItem("raw_tungsten",
             () -> new MetalItem(3421, Type.RAW, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
-    public static final RegistryObject<MetalItem> CRASHED_RAW_TUNGSTEN = registerItem("crushed_raw_tungsten",
+    public static final RegistryObject<MetalItem> CRUSHED_RAW_TUNGSTEN = registerItem("crushed_raw_tungsten",
             () -> new MetalItem(3421, Type.CRASHED_RAW, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> TUNGSTEN_INGOT = registerItem("tungsten_ingot",
             () -> new MetalItem(3421, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
