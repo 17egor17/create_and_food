@@ -2,7 +2,7 @@
   "type": "caf:blasting",
   "ingredients": [
     {
-      "item": "caf:raw_iron"
+      "item": "create:crushed_raw_iron"
     }
   ],
   "result": {

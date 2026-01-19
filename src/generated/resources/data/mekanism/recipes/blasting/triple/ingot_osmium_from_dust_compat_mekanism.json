@@ -1,0 +1,23 @@
+{
+  "type": "caf:blasting",
+  "ingredients": [
+    {
+      "item": "mekanism:dust_osmium"
+    },
+    {
+      "item": "mekanism:dust_osmium"
+    },
+    {
+      "item": "mekanism:dust_osmium"
+    }
+  ],
+  "result": {
+    "item": "mekanism:ingot_osmium",
+    "count": 3
+  },
+  "comment_time": "min 200 time",
+  "time": 800,
+  "comment": "min 100 deg, max 5000 deg",
+  "degree": 3033,
+  "experience": 0.3
+}

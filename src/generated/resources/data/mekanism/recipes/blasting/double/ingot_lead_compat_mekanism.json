@@ -1,9 +1,6 @@
 {
-  "type": "create_and_food:blasting",
+  "type": "caf:blasting",
   "ingredients": [
-    {
-      "item": "create:crushed_raw_lead"
-    },
     {
       "item": "create:crushed_raw_lead"
     },
@@ -13,11 +10,11 @@
   ],
   "result": {
     "item": "mekanism:ingot_lead",
-    "count": 3
+    "count": 2
   },
   "comment_time": "min 200 time",
-  "time": 1200,
-  "comment": "min 100 deg, max 10000 deg",
+  "time": 800,
+  "comment": "min 100 deg, max 5000 deg",
   "degree": 327,
-  "experience": 0.3
+  "experience": 0.2
 }

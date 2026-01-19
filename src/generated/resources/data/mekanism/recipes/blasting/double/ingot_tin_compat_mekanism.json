@@ -2,19 +2,19 @@
   "type": "caf:blasting",
   "ingredients": [
     {
-      "item": "immersiveengineering:dust_steel"
+      "item": "create:crushed_raw_tin"
     },
     {
-      "item": "immersiveengineering:dust_steel"
+      "item": "create:crushed_raw_tin"
     }
   ],
   "result": {
-    "item": "immersiveengineering:ingot_steel",
+    "item": "mekanism:ingot_tin",
     "count": 2
   },
   "comment_time": "min 200 time",
   "time": 800,
   "comment": "min 100 deg, max 5000 deg",
-  "degree": 1538,
-  "experience": 0.7
+  "degree": 231,
+  "experience": 0.2
 }

@@ -98,11 +98,11 @@ public class CAFBlastingRecipes {
                 .save(pConsumer, getCAFBlasting(getRecipeId(CAFItems.IRON_INGOT.get())));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.IRON_INGOT.get(), 400, 1538, 0.7F)
-                .addIngredient(CAFItems.RAW_IRON.get())
+                .addIngredient(AllItems.CRUSHED_IRON.get())
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCrushed(CAFItems.IRON_INGOT.get())));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.IRON_INGOT.get(), 400, 1538, 0.7F)
-                .addIngredient(CAFItems.RAW_IRON.get())
+                .addIngredient(CAFTags.forgeItemTag("dusts/iron"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.IRON_INGOT.get())));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.IRON_NUGGET.get(), 200, 1538, 0.1F)
@@ -329,11 +329,92 @@ public class CAFBlastingRecipes {
 
     private static void doubleBlastingCompat(Consumer<FinishedRecipe> pConsumer) {
         if (CreateAndFood.IEIsPresent){
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.ALUMINUM, ModID.IE), 2, 800, 660, 0.2F)
+                    .addIngredient(AllItems.CRUSHED_BAUXITE.get()).addIngredient(AllItems.CRUSHED_BAUXITE.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.ALUMINUM, ModID.IE), ModID.IE), ModID.IE, RecipeType.DOUBLE));
 
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.ALUMINUM, ModID.IE), 2, 800, 660, 0.2F)
+                    .addIngredient(getDusts(Metals.ALUMINUM, ModID.IE)).addIngredient(getDusts(Metals.ALUMINUM, ModID.IE))
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.ALUMINUM, ModID.IE), ModID.IE), ModID.IE, RecipeType.DOUBLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.IE), 2, 800, 327, 0.2F)
+                    .addIngredient(AllItems.CRUSHED_LEAD.get()).addIngredient(AllItems.CRUSHED_LEAD.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.LEAD, ModID.IE), ModID.IE), ModID.IE, RecipeType.DOUBLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.NICKEL, ModID.IE), 2, 800, 1455, 0.2F)
+                    .addIngredient(AllItems.CRUSHED_NICKEL.get()).addIngredient(AllItems.CRUSHED_NICKEL.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.NICKEL, ModID.IE), ModID.IE), ModID.IE, RecipeType.DOUBLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.SILVER, ModID.IE), 2, 800, 961, 0.2F)
+                    .addIngredient(AllItems.CRUSHED_SILVER.get()).addIngredient(AllItems.CRUSHED_SILVER.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.SILVER, ModID.IE), ModID.IE), ModID.IE, RecipeType.DOUBLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.STEEL, ModID.IE), 2, 800, 1538, 1.4F)
+                    .addIngredient(getDusts(Metals.STEEL, ModID.IE)).addIngredient(getDusts(Metals.STEEL, ModID.IE))
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.STEEL, ModID.IE), ModID.IE), ModID.IE, RecipeType.DOUBLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.IE), 2, 800, 1132, 0.2F)
+                    .addIngredient(AllItems.CRUSHED_URANIUM.get()).addIngredient(AllItems.CRUSHED_URANIUM.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.URANIUM, ModID.IE), ModID.IE), ModID.IE, RecipeType.DOUBLE));
         }
 
         if (CreateAndFood.MEKIsPresent){
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.BRONZE, ModID.MEKANISM), 2, 800, 1000, 1.0F)
+                    .addIngredient(MekanismItems.BRONZE_DUST.get()).addIngredient(MekanismItems.BRONZE_DUST.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.BRONZE, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
 
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.MEKANISM), 2, 800, 327, 0.2F)
+                    .addIngredient(AllItems.CRUSHED_LEAD.get()).addIngredient(AllItems.CRUSHED_LEAD.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.LEAD, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.MEKANISM), 2, 800, 327, 0.2F)
+                    .addIngredient(getDusts(Metals.LEAD, ModID.MEKANISM)).addIngredient(getDusts(Metals.LEAD, ModID.MEKANISM))
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.LEAD, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.OSMIUM, ModID.MEKANISM), 2, 800, 3033, 0.2F)
+                    .addIngredient(AllItems.CRUSHED_OSMIUM.get()).addIngredient(AllItems.CRUSHED_OSMIUM.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.OSMIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.OSMIUM, ModID.MEKANISM), 2, 800, 3033, 0.2F)
+                    .addIngredient(getDusts(Metals.OSMIUM, ModID.MEKANISM)).addIngredient(getDusts(Metals.OSMIUM, ModID.MEKANISM))
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.OSMIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.STEEL, ModID.MEKANISM), 2, 800, 1538, 1.4F)
+                    .addIngredient(getDusts(Metals.STEEL, ModID.MEKANISM)).addIngredient(getDusts(Metals.STEEL, ModID.MEKANISM))
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.STEEL, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.TIN, ModID.MEKANISM), 2, 800, 231, 0.2F)
+                    .addIngredient(AllItems.CRUSHED_TIN.get()).addIngredient(AllItems.CRUSHED_TIN.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.TIN, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.TIN, ModID.MEKANISM), 2, 800, 231, 0.2F)
+                    .addIngredient(getDusts(Metals.TIN, ModID.MEKANISM)).addIngredient(getDusts(Metals.TIN, ModID.MEKANISM))
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.TIN, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.MEKANISM), 2, 800, 1132, 0.2F)
+                    .addIngredient(AllItems.CRUSHED_URANIUM.get()).addIngredient(AllItems.CRUSHED_URANIUM.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.URANIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.MEKANISM), 2, 800, 1132, 0.2F)
+                    .addIngredient(getDusts(Metals.URANIUM, ModID.MEKANISM)).addIngredient(getDusts(Metals.URANIUM, ModID.MEKANISM))
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.URANIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
         }
 
         if (CreateAndFood.THIsPresent){
@@ -366,11 +447,109 @@ public class CAFBlastingRecipes {
 
     private static void tripleBlastingCompat(Consumer<FinishedRecipe> pConsumer) {
         if (CreateAndFood.IEIsPresent){
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.ALUMINUM, ModID.IE), 3, 1200, 660, 0.3F)
+                    .addIngredient(AllItems.CRUSHED_BAUXITE.get()).addIngredient(AllItems.CRUSHED_BAUXITE.get())
+                    .addIngredient(AllItems.CRUSHED_BAUXITE.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.ALUMINUM, ModID.IE), ModID.IE), ModID.IE, RecipeType.TRIPLE));
 
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.ALUMINUM, ModID.IE), 3, 1200, 660, 0.3F)
+                    .addIngredient(getDusts(Metals.ALUMINUM, ModID.IE)).addIngredient(getDusts(Metals.ALUMINUM, ModID.IE))
+                    .addIngredient(getDusts(Metals.ALUMINUM, ModID.IE))
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.ALUMINUM, ModID.IE), ModID.IE), ModID.IE, RecipeType.TRIPLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.IE), 3, 1200, 327, 0.3F)
+                    .addIngredient(AllItems.CRUSHED_LEAD.get()).addIngredient(AllItems.CRUSHED_LEAD.get())
+                    .addIngredient(AllItems.CRUSHED_LEAD.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.LEAD, ModID.IE), ModID.IE), ModID.IE, RecipeType.TRIPLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.NICKEL, ModID.IE), 3, 1200, 1455, 0.3F)
+                    .addIngredient(AllItems.CRUSHED_NICKEL.get()).addIngredient(AllItems.CRUSHED_NICKEL.get())
+                    .addIngredient(AllItems.CRUSHED_NICKEL.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.NICKEL, ModID.IE), ModID.IE), ModID.IE, RecipeType.TRIPLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.SILVER, ModID.IE), 3, 1200, 961, 0.3F)
+                    .addIngredient(AllItems.CRUSHED_SILVER.get()).addIngredient(AllItems.CRUSHED_SILVER.get())
+                    .addIngredient(AllItems.CRUSHED_SILVER.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.SILVER, ModID.IE), ModID.IE), ModID.IE, RecipeType.TRIPLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.STEEL, ModID.IE), 3, 1200, 1538, 2.1F)
+                    .addIngredient(getDusts(Metals.STEEL, ModID.IE)).addIngredient(getDusts(Metals.STEEL, ModID.IE))
+                    .addIngredient(getDusts(Metals.STEEL, ModID.IE))
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.STEEL, ModID.IE), ModID.IE), ModID.IE, RecipeType.TRIPLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.IE), 3, 1200, 1132, 0.3F)
+                    .addIngredient(AllItems.CRUSHED_URANIUM.get()).addIngredient(AllItems.CRUSHED_URANIUM.get())
+                    .addIngredient(AllItems.CRUSHED_URANIUM.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.URANIUM, ModID.IE), ModID.IE), ModID.IE, RecipeType.TRIPLE));
         }
 
         if (CreateAndFood.MEKIsPresent){
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.BRONZE, ModID.MEKANISM), 3, 800, 1000, 1.5F)
+                    .addIngredient(MekanismItems.BRONZE_DUST.get()).addIngredient(MekanismItems.BRONZE_DUST.get())
+                    .addIngredient(MekanismItems.BRONZE_DUST.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.BRONZE, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
 
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.MEKANISM), 3, 800, 327, 0.3F)
+                    .addIngredient(AllItems.CRUSHED_LEAD.get()).addIngredient(AllItems.CRUSHED_LEAD.get())
+                    .addIngredient(AllItems.CRUSHED_LEAD.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.LEAD, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.MEKANISM), 3, 800, 327, 0.3F)
+                    .addIngredient(getDusts(Metals.LEAD, ModID.MEKANISM)).addIngredient(getDusts(Metals.LEAD, ModID.MEKANISM))
+                    .addIngredient(getDusts(Metals.LEAD, ModID.MEKANISM))
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.LEAD, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.OSMIUM, ModID.MEKANISM), 3, 800, 3033, 0.3F)
+                    .addIngredient(AllItems.CRUSHED_OSMIUM.get()).addIngredient(AllItems.CRUSHED_OSMIUM.get())
+                    .addIngredient(AllItems.CRUSHED_OSMIUM.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.OSMIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.OSMIUM, ModID.MEKANISM), 3, 800, 3033, 0.3F)
+                    .addIngredient(getDusts(Metals.OSMIUM, ModID.MEKANISM)).addIngredient(getDusts(Metals.OSMIUM, ModID.MEKANISM))
+                    .addIngredient(getDusts(Metals.OSMIUM, ModID.MEKANISM))
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.OSMIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.STEEL, ModID.MEKANISM), 3, 800, 1538, 2.1F)
+                    .addIngredient(getDusts(Metals.STEEL, ModID.MEKANISM)).addIngredient(getDusts(Metals.STEEL, ModID.MEKANISM))
+                    .addIngredient(getDusts(Metals.STEEL, ModID.MEKANISM))
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.STEEL, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.TIN, ModID.MEKANISM), 3, 800, 231, 0.3F)
+                    .addIngredient(AllItems.CRUSHED_TIN.get()).addIngredient(AllItems.CRUSHED_TIN.get())
+                    .addIngredient(AllItems.CRUSHED_TIN.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.TIN, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.TIN, ModID.MEKANISM), 3, 800, 231, 0.3F)
+                    .addIngredient(getDusts(Metals.TIN, ModID.MEKANISM)).addIngredient(getDusts(Metals.TIN, ModID.MEKANISM))
+                    .addIngredient(getDusts(Metals.TIN, ModID.MEKANISM))
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.TIN, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.MEKANISM), 3, 800, 1132, 0.3F)
+                    .addIngredient(AllItems.CRUSHED_URANIUM.get()).addIngredient(AllItems.CRUSHED_URANIUM.get())
+                    .addIngredient(AllItems.CRUSHED_URANIUM.get())
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.URANIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+
+            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.MEKANISM), 3, 800, 1132, 0.3F)
+                    .addIngredient(getDusts(Metals.URANIUM, ModID.MEKANISM)).addIngredient(getDusts(Metals.URANIUM, ModID.MEKANISM))
+                    .addIngredient(getDusts(Metals.URANIUM, ModID.MEKANISM))
+                    .save(pConsumer,
+                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.URANIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
         }
 
         if (CreateAndFood.THIsPresent){

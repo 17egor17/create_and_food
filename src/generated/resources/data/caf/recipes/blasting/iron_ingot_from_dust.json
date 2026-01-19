@@ -2,7 +2,7 @@
   "type": "caf:blasting",
   "ingredients": [
     {
-      "item": "caf:raw_iron"
+      "tag": "forge:dusts/iron"
     }
   ],
   "result": {

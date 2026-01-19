@@ -1,11 +1,11 @@
 {
-  "type": "create_and_food:blasting",
+  "type": "caf:blasting",
   "ingredients": [
     {
-      "item": "mekanism:dust_osmium"
+      "item": "create:crushed_raw_osmium"
     },
     {
-      "item": "mekanism:dust_osmium"
+      "item": "create:crushed_raw_osmium"
     }
   ],
   "result": {
@@ -14,7 +14,7 @@
   },
   "comment_time": "min 200 time",
   "time": 800,
-  "comment": "min 100 deg, max 10000 deg",
+  "comment": "min 100 deg, max 5000 deg",
   "degree": 3033,
-  "experience": 0.1
+  "experience": 0.2
 }

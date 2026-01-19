@@ -6,18 +6,15 @@
     },
     {
       "item": "immersiveengineering:dust_steel"
-    },
-    {
-      "item": "immersiveengineering:dust_steel"
     }
   ],
   "result": {
     "item": "immersiveengineering:ingot_steel",
-    "count": 3
+    "count": 2
   },
   "comment_time": "min 200 time",
-  "time": 1200,
+  "time": 800,
   "comment": "min 100 deg, max 5000 deg",
   "degree": 1538,
-  "experience": 0.7
+  "experience": 1.4
 }
