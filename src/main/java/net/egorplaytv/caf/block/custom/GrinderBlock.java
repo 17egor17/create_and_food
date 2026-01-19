@@ -57,7 +57,7 @@ public class GrinderBlock extends HorizontalKineticBlock implements IBE<GrinderB
         withBlockEntityDo(worldIn, pos, be -> {
             if (be.getSpeed() == 0)
                 return;
-            entityIn.hurt(CAFDamageSource.POLISHING, (float) DrillBlock.getDamage(be.getSpeed()));
+            CAFDamageSource.polishing(entityIn, (float) DrillBlock.getDamage(be.getSpeed()));
         });
     }
 

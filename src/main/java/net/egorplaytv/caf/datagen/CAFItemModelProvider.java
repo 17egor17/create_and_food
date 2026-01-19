@@ -140,11 +140,11 @@ public class CAFItemModelProvider extends ItemModelProvider {
         sequencedAssemblyItem(INCOMPLETE_MARBLE_PERLIN_PINK_BRICK.get());
         simpleItem(MARBLE_PERLIN_PINK_BRICK.get());
         metalItem(RAW_TANTALUM.get());
-        metalItem(CRASHED_RAW_TANTALUM.get());
+        metalItem(CRUSHED_RAW_TANTALUM.get());
         ingotItem(TANTALUM_INGOT.get(), 550, 1320);
         metalItem(TANTALUM_NUGGET.get());
         metalItem(RAW_TUNGSTEN.get());
-        metalItem(CRASHED_RAW_TUNGSTEN.get());
+        metalItem(CRUSHED_RAW_TUNGSTEN.get());
         ingotItem(TUNGSTEN_INGOT.get(), 550, 1600);
         metalItem(TUNGSTEN_NUGGET.get());
 

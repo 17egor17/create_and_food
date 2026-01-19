@@ -42,7 +42,7 @@ public class RaspberryBlock extends BerryBushBlock {
                 double d0 = Math.abs(pEntity.getX() - pEntity.xOld);
                 double d1 = Math.abs(pEntity.getZ() - pEntity.zOld);
                 if (d0 >= (double)0.003F || d1 >= (double)0.003F) {
-                    pEntity.hurt(CAFDamageSource.RASPBERRY_BUSH, 1.0F);
+                    CAFDamageSource.raspberryBush(pEntity, 1.0F);
                 }
             }
         }

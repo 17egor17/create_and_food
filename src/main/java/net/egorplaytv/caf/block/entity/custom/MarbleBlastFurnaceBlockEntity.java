@@ -8,7 +8,7 @@ import net.egorplaytv.caf.block.custom.MarbleBlastFurnaceBlock;
 import net.egorplaytv.caf.block.entity.ModBlockEntities;
 import net.egorplaytv.caf.config.CreateAndFoodCommonConfigs;
 import net.egorplaytv.caf.entity.WrappedHandler;
-import net.egorplaytv.caf.item.custom.MeltItem;
+import net.egorplaytv.caf.item.custom.MetalItem;
 import net.egorplaytv.caf.recipe.MarbleFurnaceRecipe;
 import net.egorplaytv.caf.screen.MarbleBlastFurnaceMenu;
 import net.egorplaytv.caf.util.CAFTags;
@@ -441,8 +441,8 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                 ItemStack itemStackSlot2 = pBlockEntity.itemHandler.getStackInSlot(2);
                 ItemStack itemStackSlot3 = pBlockEntity.itemHandler.getStackInSlot(3);
 
-                if (itemStackSlot1.getItem() instanceof MeltItem slot1 && itemStackSlot2.getItem() instanceof MeltItem slot2
-                        && itemStackSlot3.getItem() instanceof MeltItem slot3) {
+                if (itemStackSlot1.getItem() instanceof MetalItem slot1 && itemStackSlot2.getItem() instanceof MetalItem slot2
+                        && itemStackSlot3.getItem() instanceof MetalItem slot3) {
                     pBlockEntity.i++;
                     if (pBlockEntity.i >= 20) {
                         if (pBlockEntity.progress_deg >= 4000) {
@@ -483,7 +483,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                         }
                         pBlockEntity.i = 0;
                     }
-                } else if (itemStackSlot1.getItem() instanceof MeltItem slot1 && itemStackSlot2.getItem() instanceof MeltItem slot2) {
+                } else if (itemStackSlot1.getItem() instanceof MetalItem slot1 && itemStackSlot2.getItem() instanceof MetalItem slot2) {
                     pBlockEntity.i++;
                     if (pBlockEntity.i >= 20) {
                         if (pBlockEntity.progress_deg >= 4000) {
@@ -514,7 +514,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                         }
                         pBlockEntity.i = 0;
                     }
-                } else if (itemStackSlot1.getItem() instanceof MeltItem slot1 && itemStackSlot3.getItem() instanceof MeltItem slot3) {
+                } else if (itemStackSlot1.getItem() instanceof MetalItem slot1 && itemStackSlot3.getItem() instanceof MetalItem slot3) {
                     pBlockEntity.i++;
                     if (pBlockEntity.i >= 20) {
                         if (pBlockEntity.progress_deg >= 4000) {
@@ -545,7 +545,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                         }
                         pBlockEntity.i = 0;
                     }
-                } else if (itemStackSlot2.getItem() instanceof MeltItem slot2 && itemStackSlot3.getItem() instanceof MeltItem slot3) {
+                } else if (itemStackSlot2.getItem() instanceof MetalItem slot2 && itemStackSlot3.getItem() instanceof MetalItem slot3) {
                     pBlockEntity.i++;
                     if (pBlockEntity.i >= 20) {
                         if (pBlockEntity.progress_deg >= 4000) {
@@ -576,7 +576,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                         }
                         pBlockEntity.i = 0;
                     }
-                } else if (itemStackSlot1.getItem() instanceof MeltItem slot1) {
+                } else if (itemStackSlot1.getItem() instanceof MetalItem slot1) {
                     pBlockEntity.i++;
                     if (pBlockEntity.i >= 20) {
                         if (pBlockEntity.progress_deg >= 4000) {
@@ -597,7 +597,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                         }
                         pBlockEntity.i = 0;
                     }
-                } else if (itemStackSlot2.getItem() instanceof MeltItem slot2) {
+                } else if (itemStackSlot2.getItem() instanceof MetalItem slot2) {
                     pBlockEntity.i++;
                     if (pBlockEntity.i >= 20) {
                         if (pBlockEntity.progress_deg >= 4000) {
@@ -615,7 +615,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                         }
                         pBlockEntity.i = 0;
                     }
-                } else if (itemStackSlot3.getItem() instanceof MeltItem slot3) {
+                } else if (itemStackSlot3.getItem() instanceof MetalItem slot3) {
                     pBlockEntity.i++;
                     if (pBlockEntity.i >= 20) {
                         if (pBlockEntity.progress_deg >= 4000) {
@@ -687,22 +687,22 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         ItemStack itemStackSlot1 = pBlockEntity.itemHandler.getStackInSlot(1);
         ItemStack itemStackSlot2 = pBlockEntity.itemHandler.getStackInSlot(2);
         ItemStack itemStackSlot3 = pBlockEntity.itemHandler.getStackInSlot(3);
-        if (itemStackSlot1.getItem() instanceof MeltItem slot1 && itemStackSlot2.getItem() instanceof MeltItem slot2
-                && itemStackSlot3.getItem() instanceof MeltItem slot3) {
+        if (itemStackSlot1.getItem() instanceof MetalItem slot1 && itemStackSlot2.getItem() instanceof MetalItem slot2
+                && itemStackSlot3.getItem() instanceof MetalItem slot3) {
             return slot1.getDeg(itemStackSlot1) >= slot1.getMeltingPoint() && slot2.getDeg(itemStackSlot2) >= slot2.getMeltingPoint()
                     && slot3.getDeg(itemStackSlot3) >= slot3.getMeltingPoint();
-        } else if (itemStackSlot1.getItem() instanceof MeltItem slot1 && itemStackSlot2.getItem() instanceof MeltItem slot2) {
+        } else if (itemStackSlot1.getItem() instanceof MetalItem slot1 && itemStackSlot2.getItem() instanceof MetalItem slot2) {
             return slot1.getDeg(itemStackSlot1) >= slot1.getMeltingPoint() && slot2.getDeg(itemStackSlot2) >= slot2.getMeltingPoint();
-        } else if (itemStackSlot1.getItem() instanceof MeltItem slot1 && itemStackSlot3.getItem() instanceof MeltItem slot3) {
+        } else if (itemStackSlot1.getItem() instanceof MetalItem slot1 && itemStackSlot3.getItem() instanceof MetalItem slot3) {
             return slot1.getDeg(itemStackSlot1) >= slot1.getMeltingPoint() && slot3.getDeg(itemStackSlot3) >= slot3.getMeltingPoint();
-        } else if (itemStackSlot2.getItem() instanceof MeltItem slot2
-                && itemStackSlot3.getItem() instanceof MeltItem slot3) {
+        } else if (itemStackSlot2.getItem() instanceof MetalItem slot2
+                && itemStackSlot3.getItem() instanceof MetalItem slot3) {
             return slot2.getDeg(itemStackSlot2) >= slot2.getMeltingPoint() && slot3.getDeg(itemStackSlot3) >= slot3.getMeltingPoint();
-        } else if (itemStackSlot1.getItem() instanceof MeltItem slot1) {
+        } else if (itemStackSlot1.getItem() instanceof MetalItem slot1) {
             return slot1.getDeg(itemStackSlot1) >= slot1.getMeltingPoint();
-        } else if (itemStackSlot2.getItem() instanceof MeltItem slot2) {
+        } else if (itemStackSlot2.getItem() instanceof MetalItem slot2) {
             return slot2.getDeg(itemStackSlot2) >= slot2.getMeltingPoint();
-        } else if (itemStackSlot3.getItem() instanceof MeltItem slot3) {
+        } else if (itemStackSlot3.getItem() instanceof MetalItem slot3) {
             return slot3.getDeg(itemStackSlot3) >= slot3.getMeltingPoint();
         } else {
             return true;
@@ -737,7 +737,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
             entity.itemHandler.setStackInSlot(4, new ItemStack(match.get().getResultItem().getItem(),
                     entity.itemHandler.getStackInSlot(4).getCount() + match.get().getResultItem().getCount()));
 
-            if (entity.itemHandler.getStackInSlot(4).getItem() instanceof MeltItem item) {
+            if (entity.itemHandler.getStackInSlot(4).getItem() instanceof MetalItem item) {
                 item.setDeg(entity.itemHandler.getStackInSlot(4), match.get().getDeg() - 50);
             }
             entity.resetProgress();

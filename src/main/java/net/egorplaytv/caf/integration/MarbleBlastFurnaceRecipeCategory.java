@@ -15,7 +15,7 @@ import net.egorplaytv.caf.CreateAndFood;
 import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.config.CreateAndFoodCommonConfigs;
 import net.egorplaytv.caf.config.DegreeUnits;
-import net.egorplaytv.caf.item.custom.MeltItem;
+import net.egorplaytv.caf.item.custom.MetalItem;
 import net.egorplaytv.caf.recipe.MarbleFurnaceRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -127,7 +127,7 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
         }
         builder.addSlot(RecipeIngredientRole.OUTPUT, 91, 37).addItemStack(recipe.getResultItem());
 
-        if (recipe.getResultItem().getItem() instanceof MeltItem item) {
+        if (recipe.getResultItem().getItem() instanceof MetalItem item) {
             item.setDeg(recipe.getResultItem(), recipe.getDeg() - 50);
         }
 

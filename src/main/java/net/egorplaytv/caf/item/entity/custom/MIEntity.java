@@ -1,7 +1,7 @@
 package net.egorplaytv.caf.item.entity.custom;
 
 import net.egorplaytv.caf.item.ItemEntities;
-import net.egorplaytv.caf.item.custom.MeltItem;
+import net.egorplaytv.caf.item.custom.MetalItem;
 import net.egorplaytv.caf.item.entity.CAFItemEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
@@ -38,7 +38,7 @@ public class MIEntity extends CAFItemEntity {
         final ItemStack is = this.getItem();
         final Item gc = is.getItem();
 
-        if (!(gc instanceof MeltItem))
+        if (!(gc instanceof MetalItem))
             return;
 
         decreaseDegree(is);
@@ -85,8 +85,8 @@ public class MIEntity extends CAFItemEntity {
             this.setItem(newItem);
 
             if (is.getItem() != newItem.getItem()
-                    && this.getPersistentData().contains(MeltItem.TAG_PREVENT_MAGNET)) {
-                this.getPersistentData().remove(MeltItem.TAG_PREVENT_MAGNET);
+                    && this.getPersistentData().contains(MetalItem.TAG_PREVENT_MAGNET)) {
+                this.getPersistentData().remove(MetalItem.TAG_PREVENT_MAGNET);
             }
         }
     }
