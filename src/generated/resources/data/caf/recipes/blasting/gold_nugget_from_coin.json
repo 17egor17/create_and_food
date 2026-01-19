@@ -1,0 +1,16 @@
+{
+  "type": "caf:blasting",
+  "ingredients": [
+    {
+      "item": "caf:golden_coin"
+    }
+  ],
+  "result": {
+    "item": "caf:gold_nugget"
+  },
+  "comment_time": "min 200 time",
+  "time": 200,
+  "comment": "min 100 deg, max 5000 deg",
+  "degree": 1064,
+  "experience": 0.1
+}

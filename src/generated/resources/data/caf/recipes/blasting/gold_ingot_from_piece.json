@@ -1,0 +1,22 @@
+{
+  "type": "caf:blasting",
+  "ingredients": [
+    {
+      "item": "caf:piece_of_gold"
+    },
+    {
+      "item": "caf:piece_of_gold"
+    },
+    {
+      "tag": "forge:nuggets/gold"
+    }
+  ],
+  "result": {
+    "item": "caf:gold_ingot"
+  },
+  "comment_time": "min 200 time",
+  "time": 400,
+  "comment": "min 100 deg, max 5000 deg",
+  "degree": 1064,
+  "experience": 0.5
+}

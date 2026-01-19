@@ -1,0 +1,16 @@
+{
+  "type": "caf:blasting",
+  "ingredients": [
+    {
+      "item": "caf:raw_tantalum"
+    }
+  ],
+  "result": {
+    "item": "caf:tantalum_ingot"
+  },
+  "comment_time": "min 200 time",
+  "time": 400,
+  "comment": "min 100 deg, max 5000 deg",
+  "degree": 3016,
+  "experience": 0.1
+}

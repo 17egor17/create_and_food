@@ -2,10 +2,13 @@ package net.egorplaytv.caf.block.custom.connect;
 
 import com.simibubi.create.AllTags;
 import com.simibubi.create.foundation.utility.Lang;
+import com.tterrag.registrate.providers.loot.RegistrateBlockLootTables;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.egorplaytv.caf.CreateAndFood;
+import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.data.CAFRegistrate;
 import net.egorplaytv.caf.sound.CAFSounds;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -14,6 +17,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.ForgeRegistries;
 
+import java.util.Objects;
 import java.util.function.Function;
 
 import static net.egorplaytv.caf.block.custom.connect.PaletteBlockPattern.*;
@@ -23,16 +27,22 @@ public enum PaletteStoneTypes {
     MARBLE(MARBLE_RANGE, r -> r.paletteStoneBlock("marble", () -> Blocks.TERRACOTTA, false, true)
             .properties(p -> p.destroyTime(1.5f).sound(SoundType.STONE)
                     .color(MaterialColor.COLOR_GRAY))
+            .loot((l, b) -> l.add(b,
+                            RegistrateBlockLootTables.createSingleItemTableWithSilkTouch(b, CAFBlocks.COBBLED_MARBLE.get())))
             .register()),
 
     MARBLE_BLACK_GALAXY(MARBLE_RANGE, r -> r.paletteStoneBlock("marble_black_galaxy", () -> Blocks.TERRACOTTA, false, true)
             .properties(p -> p.destroyTime(1.5f).sound(SoundType.STONE)
                     .color(MaterialColor.COLOR_GRAY))
+            .loot((l, b) -> l.add(b,
+                    RegistrateBlockLootTables.createSingleItemTableWithSilkTouch(b, CAFBlocks.COBBLED_MARBLE_BLACK_GALAXY.get())))
             .register()),
 
     MARBLE_PERLIN_PINK(MARBLE_RANGE, r -> r.paletteStoneBlock("marble_perlin_pink", () -> Blocks.TERRACOTTA, false, true)
             .properties(p -> p.destroyTime(1.5f).sound(SoundType.STONE)
                     .color(MaterialColor.COLOR_GRAY))
+            .loot((l, b) -> l.add(b,
+                    RegistrateBlockLootTables.createSingleItemTableWithSilkTouch(b, CAFBlocks.COBBLED_MARBLE_PERLIN_PINK.get())))
             .register()),
 
     BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("baked_clay", () -> Blocks.TERRACOTTA, false, false)

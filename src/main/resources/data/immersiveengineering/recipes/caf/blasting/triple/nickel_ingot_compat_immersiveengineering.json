@@ -1,5 +1,5 @@
 {
-  "type": "create_and_food:blasting",
+  "type": "caf:blasting",
   "ingredients": [
     {
       "item": "create:crushed_raw_nickel"

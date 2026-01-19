@@ -1,0 +1,22 @@
+{
+  "type": "caf:blasting",
+  "ingredients": [
+    {
+      "tag": "forge:dusts/coal"
+    },
+    {
+      "tag": "forge:dusts/coal"
+    },
+    {
+      "tag": "forge:ingots/iron"
+    }
+  ],
+  "result": {
+    "item": "caf:steel_ingot"
+  },
+  "comment_time": "min 200 time",
+  "time": 400,
+  "comment": "min 100 deg, max 5000 deg",
+  "degree": 1538,
+  "experience": 0.9
+}
