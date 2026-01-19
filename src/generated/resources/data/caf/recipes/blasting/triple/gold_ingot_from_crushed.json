@@ -1,0 +1,23 @@
+{
+  "type": "caf:blasting",
+  "ingredients": [
+    {
+      "item": "create:crushed_raw_gold"
+    },
+    {
+      "item": "create:crushed_raw_gold"
+    },
+    {
+      "item": "create:crushed_raw_gold"
+    }
+  ],
+  "result": {
+    "item": "caf:gold_ingot",
+    "count": 3
+  },
+  "comment_time": "min 200 time",
+  "time": 1200,
+  "comment": "min 100 deg, max 5000 deg",
+  "degree": 1064,
+  "experience": 0.3
+}

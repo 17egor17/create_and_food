@@ -1,0 +1,23 @@
+{
+  "type": "caf:blasting",
+  "ingredients": [
+    {
+      "item": "caf:copper_coin"
+    },
+    {
+      "item": "caf:copper_coin"
+    },
+    {
+      "item": "caf:copper_coin"
+    }
+  ],
+  "result": {
+    "item": "create:copper_nugget",
+    "count": 3
+  },
+  "comment_time": "min 200 time",
+  "time": 600,
+  "comment": "min 100 deg, max 5000 deg",
+  "degree": 185,
+  "experience": 0.3
+}

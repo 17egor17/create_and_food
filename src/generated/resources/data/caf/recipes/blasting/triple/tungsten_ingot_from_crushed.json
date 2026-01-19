@@ -1,0 +1,23 @@
+{
+  "type": "caf:blasting",
+  "ingredients": [
+    {
+      "item": "caf:crushed_raw_tungsten"
+    },
+    {
+      "item": "caf:crushed_raw_tungsten"
+    },
+    {
+      "item": "caf:crushed_raw_tungsten"
+    }
+  ],
+  "result": {
+    "item": "caf:tungsten_ingot",
+    "count": 3
+  },
+  "comment_time": "min 200 time",
+  "time": 1200,
+  "comment": "min 100 deg, max 5000 deg",
+  "degree": 3421,
+  "experience": 0.3
+}

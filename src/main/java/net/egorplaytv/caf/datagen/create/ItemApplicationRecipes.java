@@ -62,7 +62,7 @@ public class ItemApplicationRecipes {
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.LUMINOUS_FRAMED_WALL.get())
                 .addIngredient(CAFBlocks.FRAMED_WALL.get())
-                .addIngredient(CAFTags.forgeItemTag("dyes/luminous"))
+                .addIngredient(Items.GLOW_INK_SAC)
                 .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.LUMINOUS_FRAMED_WALL.get())));
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.ORANGE_FRAMED_WALL.get())
