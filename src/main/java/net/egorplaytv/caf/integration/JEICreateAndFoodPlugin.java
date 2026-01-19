@@ -168,9 +168,9 @@ public class JEICreateAndFoodPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
-        registration.addRecipeTransferHandler(MarbleBlastFurnaceMenu.class, RecipeTypes.BLASTING, 1, 3, 3, 36);
-        registration.addRecipeTransferHandler(MarbleBlastFurnaceMenu.class, RecipeTypes.FUELING, 1, 1, 3, 36);
-        registration.addRecipeTransferHandler(FermentationBarrelMenu.class, RecipeTypes.FERMENTATION, 1, 4, 3, 36);
+        registration.addRecipeTransferHandler(MarbleBlastFurnaceMenu.class, RecipeTypes.BLASTING, 1, 3, 5, 36);
+        registration.addRecipeTransferHandler(MarbleBlastFurnaceMenu.class, RecipeTypes.FUELING, 0, 1, 5, 36);
+        registration.addRecipeTransferHandler(FermentationBarrelMenu.class, RecipeTypes.FERMENTATION, 1, 4, 6, 36);
 
     }
 
