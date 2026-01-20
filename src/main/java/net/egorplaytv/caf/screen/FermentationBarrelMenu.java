@@ -2,6 +2,7 @@ package net.egorplaytv.caf.screen;
 
 import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.block.entity.custom.FermentationBarrelBlockEntity;
+import net.egorplaytv.caf.screen.slot.CAFFermentationSlot;
 import net.egorplaytv.caf.screen.slot.CAFResultSlot;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
@@ -37,7 +38,7 @@ public class FermentationBarrelMenu extends AbstractContainerMenu {
         this.fluidStack = blockEntity.getFluid();
         this.fluidStackOut = blockEntity.getFluidOut();
 
-        this.addSlot(new SlotItemHandler(this.inventory, 0, 11,20));
+        this.addSlot(new CAFFermentationSlot(this.inventory, 0, 11,20));
         this.addSlot(new SlotItemHandler(this.inventory, 1, 54,20));
         this.addSlot(new SlotItemHandler(this.inventory, 2, 54,38));
         this.addSlot(new SlotItemHandler(this.inventory, 3, 54,56));

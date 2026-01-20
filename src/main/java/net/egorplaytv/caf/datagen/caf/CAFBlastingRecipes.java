@@ -54,11 +54,11 @@ public class CAFBlastingRecipes {
                 .addIngredient(CAFTags.forgeItemTag("dusts/copper"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.COPPER_INGOT.get())));
 
-        BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 200, 185, 0.1F)
+        BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 200, 1085, 0.1F)
                 .addIngredient(CAFItems.COPPER_COIN.get())
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCoin(AllItems.COPPER_NUGGET.get(), CoinType.DEFAULT)));
 
-        BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 200, 185, 0.1F)
+        BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 200, 1085, 0.1F)
                 .addIngredient(CAFItems.BROKEN_COPPER_COIN.get())
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCoin(AllItems.COPPER_NUGGET.get(), CoinType.BROKEN)));
 
@@ -176,11 +176,11 @@ public class CAFBlastingRecipes {
                 .addIngredient(CAFTags.forgeItemTag("dusts/copper")).addIngredient(CAFTags.forgeItemTag("dusts/copper"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.COPPER_INGOT.get()), RecipeType.DOUBLE));
 
-        BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 2, 400, 185, 0.2F)
+        BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 2, 400, 1085, 0.2F)
                 .addIngredient(CAFItems.COPPER_COIN.get()).addIngredient(CAFItems.COPPER_COIN.get())
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCoin(AllItems.COPPER_NUGGET.get(), CoinType.DEFAULT), RecipeType.DOUBLE));
 
-        BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 2, 400, 185, 0.2F)
+        BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 2, 400, 1085, 0.2F)
                 .addIngredient(CAFItems.BROKEN_COPPER_COIN.get()).addIngredient(CAFItems.BROKEN_COPPER_COIN.get())
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCoin(AllItems.COPPER_NUGGET.get(), CoinType.BROKEN), RecipeType.DOUBLE));
 
@@ -273,12 +273,12 @@ public class CAFBlastingRecipes {
                 .addIngredient(CAFTags.forgeItemTag("dusts/copper"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.COPPER_INGOT.get()), RecipeType.TRIPLE));
 
-        BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 3, 600, 185, 0.3F)
+        BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 3, 600, 1085, 0.3F)
                 .addIngredient(CAFItems.COPPER_COIN.get()).addIngredient(CAFItems.COPPER_COIN.get())
                 .addIngredient(CAFItems.COPPER_COIN.get())
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCoin(AllItems.COPPER_NUGGET.get(), CoinType.DEFAULT), RecipeType.TRIPLE));
 
-        BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 3, 600, 185, 0.3F)
+        BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 3, 600, 1085, 0.3F)
                 .addIngredient(CAFItems.BROKEN_COPPER_COIN.get()).addIngredient(CAFItems.BROKEN_COPPER_COIN.get())
                 .addIngredient(CAFItems.BROKEN_COPPER_COIN.get())
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCoin(AllItems.COPPER_NUGGET.get(), CoinType.BROKEN), RecipeType.TRIPLE));

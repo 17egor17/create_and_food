@@ -1,0 +1,21 @@
+{
+  "type": "caf:fermentation",
+  "ingredients": [
+    {
+      "fluid": "minecraft:water",
+      "nbt": {},
+      "amount": 90
+    },
+    {
+      "item": "minecraft:glow_berries"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "immersiveengineering:ethanol",
+      "amount": 100
+    }
+  ],
+  "comment": "min 20, max 120000",
+  "time": 800
+}

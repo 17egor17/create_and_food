@@ -1,0 +1,21 @@
+{
+  "type": "caf:fermentation",
+  "ingredients": [
+    {
+      "fluid": "minecraft:water",
+      "nbt": {},
+      "amount": 10
+    },
+    {
+      "item": "minecraft:melon_slice"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "immersiveengineering:ethanol",
+      "amount": 20
+    }
+  ],
+  "comment": "min 20, max 120000",
+  "time": 800
+}

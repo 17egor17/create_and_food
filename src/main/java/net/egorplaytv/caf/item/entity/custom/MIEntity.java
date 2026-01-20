@@ -64,14 +64,14 @@ public class MIEntity extends CAFItemEntity {
             } else if (deg >= 60) {
                 int degree = 5;
                 deg = deg - degree;
-            } else if (deg > 0) {
+            } else if (deg > 24) {
                 --deg;
             }
             is.getOrCreateTag().putInt(TAG_DEGREE, deg);
         } else {
             ++tick;
             if (tick >= 200) {
-                if (deg > 0) {
+                if (deg > 24) {
                     --deg;
                     tick = 0;
                 }

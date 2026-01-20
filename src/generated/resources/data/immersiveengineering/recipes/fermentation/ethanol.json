@@ -1,0 +1,17 @@
+{
+  "type": "caf:fermentation",
+  "ingredients": [
+    {
+      "fluid": "create:honey",
+      "amount": 250
+    }
+  ],
+  "results": [
+    {
+      "fluid": "immersiveengineering:ethanol",
+      "amount": 250
+    }
+  ],
+  "comment": "min 20, max 120000",
+  "time": 800
+}

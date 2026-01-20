@@ -1,0 +1,21 @@
+{
+  "type": "caf:fermentation",
+  "ingredients": [
+    {
+      "fluid": "minecraft:water",
+      "nbt": {},
+      "amount": 30
+    },
+    {
+      "item": "minecraft:beetroot"
+    }
+  ],
+  "results": [
+    {
+      "fluid": "immersiveengineering:ethanol",
+      "amount": 40
+    }
+  ],
+  "comment": "min 20, max 120000",
+  "time": 800
+}

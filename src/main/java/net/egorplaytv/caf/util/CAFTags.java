@@ -107,6 +107,8 @@ public class CAFTags {
         public static final TagKey<Item> DEAD_CORALS = tag("dead_corals");
         public static final TagKey<Item> LANTERNS = forgeTag("lanterns");
 
+        public static final TagKey<Item> BOTTLES = forgeTag("bottles");
+
         public static final TagKey<Item> MARBLE = modTag("stone_types/marble");
         public static final TagKey<Item> MARBLE_BLACK_GALAXY = modTag("stone_types/marble_black_galaxy");
         public static final TagKey<Item> MARBLE_PERLIN_PINK = modTag("stone_types/marble_perlin_pink");

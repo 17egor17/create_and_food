@@ -2,6 +2,7 @@ package net.egorplaytv.caf.recipe;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.simibubi.create.foundation.fluid.FluidIngredient;
 import net.egorplaytv.caf.CreateAndFood;
 import net.egorplaytv.caf.util.FluidJSONUtil;
 import net.minecraft.core.NonNullList;
@@ -141,6 +142,7 @@ public class FermentationBarrelRecipe implements Recipe<SimpleContainer> {
 
             for (JsonElement je : GsonHelper.getAsJsonArray(json, "ingredients")) {
                 JsonObject jsonObject = je.getAsJsonObject();
+
                 if (GsonHelper.isValidNode(jsonObject, "fluid") && GsonHelper.isValidNode(jsonObject, "item")) {
                     inputFluid = FluidJSONUtil.fromJson(je);
                     inputs.add(Ingredient.fromJson(je));

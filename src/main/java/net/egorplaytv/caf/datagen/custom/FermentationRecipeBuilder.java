@@ -1,8 +1,10 @@
 package net.egorplaytv.caf.datagen.custom;
 
+import blusunrize.immersiveengineering.common.fluids.IEFluid;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.simibubi.create.foundation.fluid.FluidIngredient;
 import net.egorplaytv.caf.recipe.FermentationBarrelRecipe;
 import net.egorplaytv.caf.util.FluidJSONUtil;
 import net.minecraft.advancements.Advancement;
@@ -26,8 +28,7 @@ import java.util.function.Consumer;
 
 public class FermentationRecipeBuilder implements RecipeBuilder {
     private final List<Ingredient> ingredients = Lists.newArrayList();
-    private final Fluid inputFluid;
-    private final int amountIn;
+    private final FluidIngredient inputFluid;
     private final Item result;
     private final int count;
     private final Fluid outputFluid;
@@ -35,9 +36,8 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
     private final Item tool;
     private int time;
 
-    private FermentationRecipeBuilder(Fluid inputFluid, int amountIn, Item result, int count, Fluid outputFluid, int amountOut, Item tool) {
+    private FermentationRecipeBuilder(FluidIngredient inputFluid, Item result, int count, Fluid outputFluid, int amountOut, Item tool) {
         this.inputFluid = inputFluid;
-        this.amountIn = amountIn;
         this.result = result != null ? result : null;
         this.count = result != null ? count : 0;
         this.outputFluid = outputFluid != null ? outputFluid : null;
@@ -46,28 +46,28 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
     }
 
     public static FermentationRecipeBuilder fermentationRecipe(Fluid inputFluid, int amountIn, Item result, int count, Fluid outputFluid, int amountOut, Item tool){
-        return new FermentationRecipeBuilder(inputFluid, amountIn, result, count, outputFluid, amountOut, tool);
+        return new FermentationRecipeBuilder(FluidIngredient.fromFluid(inputFluid, amountIn), result, count, outputFluid, amountOut, tool);
     }
     public static FermentationRecipeBuilder fermentationRecipe(Fluid inputFluid, int amountIn, Item result, Fluid outputFluid, int amountOut, Item tool){
-        return new FermentationRecipeBuilder(inputFluid, amountIn, result, 1, outputFluid, amountOut, tool);
+        return new FermentationRecipeBuilder(FluidIngredient.fromFluid(inputFluid, amountIn), result, 1, outputFluid, amountOut, tool);
     }
     public static FermentationRecipeBuilder fermentationRecipe(Fluid inputFluid, int amountIn, Fluid outputFluid, int amountOut, Item tool){
-        return new FermentationRecipeBuilder(inputFluid, amountIn, null, 0, outputFluid, amountOut, tool);
+        return new FermentationRecipeBuilder(FluidIngredient.fromFluid(inputFluid, amountIn), null, 0, outputFluid, amountOut, tool);
     }
     public static FermentationRecipeBuilder fermentationRecipe(Fluid inputFluid, int amountIn, Item result, int count, Item tool){
-        return new FermentationRecipeBuilder(inputFluid, amountIn, result, count, null, 0, tool);
+        return new FermentationRecipeBuilder(FluidIngredient.fromFluid(inputFluid, amountIn), result, count, null, 0, tool);
     }
     public static FermentationRecipeBuilder fermentationRecipe(Fluid inputFluid, int amountIn, Item result, int count, Fluid outputFluid, int amountOut){
-        return new FermentationRecipeBuilder(inputFluid, amountIn, result, count, outputFluid, amountOut, null);
+        return new FermentationRecipeBuilder(FluidIngredient.fromFluid(inputFluid, amountIn), result, count, outputFluid, amountOut, null);
     }
     public static FermentationRecipeBuilder fermentationRecipe(Fluid inputFluid, int amountIn, Item result, Fluid outputFluid, int amountOut){
-        return new FermentationRecipeBuilder(inputFluid, amountIn, result, 1, outputFluid, amountOut, null);
+        return new FermentationRecipeBuilder(FluidIngredient.fromFluid(inputFluid, amountIn), result, 1, outputFluid, amountOut, null);
     }
     public static FermentationRecipeBuilder fermentationRecipe(Fluid inputFluid, int amountIn, Fluid outputFluid, int amountOut){
-        return new FermentationRecipeBuilder(inputFluid, amountIn, null, 0, outputFluid, amountOut, null);
+        return new FermentationRecipeBuilder(FluidIngredient.fromFluid(inputFluid, amountIn), null, 0, outputFluid, amountOut, null);
     }
     public static FermentationRecipeBuilder fermentationRecipe(Fluid inputFluid, int amountIn, Item result, int count){
-        return new FermentationRecipeBuilder(inputFluid, amountIn, result, count, null, 0, null);
+        return new FermentationRecipeBuilder(FluidIngredient.fromFluid(inputFluid, amountIn), result, count, null, 0, null);
     }
 
 
@@ -141,26 +141,26 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
             pFinishedRecipeConsumer.accept(new FermentationRecipeBuilder.Result(pRecipeId, null, this.count, this.inputFluid,
-                    this.amountIn, this.outputFluid, this.amountOut, this.time, this.ingredients, this.tool));
+                    this.outputFluid, this.amountOut, this.time, this.ingredients, this.tool));
     }
 
     private class Result implements FinishedRecipe {
         private final ResourceLocation id;
         private final List<Ingredient> ingredients;
-        private FluidStack inputFluid;
+        private FluidIngredient inputFluid;
         private final Item result;
         private final int count;
         private final FluidStack outputFluid;
         private final Item tool;
         private int time;
 
-        public Result(ResourceLocation id, Item result, int count, Fluid inputFluid, int amountIn, Fluid outputFluid,
+        public Result(ResourceLocation id, Item result, int count, FluidIngredient inputFluid, Fluid outputFluid,
                       int amountOut, int time, List<Ingredient> ingredients, Item tool) {
             this.id = id;
             this.ingredients = ingredients;
             this.result = result != null ? result : null;
             this.count = count;
-            this.inputFluid = new FluidStack(inputFluid, amountIn);
+            this.inputFluid = inputFluid;
             this.outputFluid = outputFluid != null ? new FluidStack(outputFluid, amountOut) : null;
             this.time = time != 0 ? time : 1000;
             this.tool = tool != null ? tool : null;
@@ -170,7 +170,7 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
         public void serializeRecipeData(JsonObject json) {
             JsonArray array = new JsonArray();
             if (this.inputFluid != null && this.ingredients != null) {
-                array.add(FluidJSONUtil.toJson(this.inputFluid));
+                array.add(inputFluid.serialize());
 
                 for (int i = 0; i < ingredients.size(); ++i) {
                     Ingredient ingredient = ingredients.get(i);
@@ -179,7 +179,7 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
                     }
                 }
             } else if (this.inputFluid != null) {
-                array.add(FluidJSONUtil.toJson(this.inputFluid));
+                array.add(inputFluid.serialize());
             } else {
                 for (int i = 0; i < ingredients.size(); ++i) {
                     Ingredient ingredient = ingredients.get(i);

@@ -38,9 +38,12 @@ public class MetalItem extends Item {
 
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pIsAdvanced) {
-        pTooltip.add(TextUtils.getToolTipTranslation("doesnt_despawn"));
-        pTooltip.add(TextUtils.getToolTipTranslation("degrees", meltingPoint));
-        pTooltip.add(TextUtils.getToolTipTranslation("ingot.degrees", 24 + getDeg(pStack)));
+        if (pStack.getItem() instanceof MetalItem metal) {
+            pTooltip.add(TextUtils.getToolTipTranslation("doesnt_despawn"));
+            pTooltip.add(TextUtils.getToolTipTranslation("degrees", meltingPoint));
+            metal.setDeg(pStack, 24);
+            pTooltip.add(TextUtils.getToolTipTranslation("ingot.degrees", metal.getDeg(pStack)));
+        }
     }
 
     @Override
@@ -88,7 +91,7 @@ public class MetalItem extends Item {
 
                     ++tick;
                     if (tick >= 200) {
-                        if (deg > 0) {
+                        if (deg > 24) {
                             --deg;
                             tick = 0;
                         }
@@ -138,7 +141,7 @@ public class MetalItem extends Item {
     @Override
     public boolean isBarVisible(ItemStack pStack) {
         MetalItem ingot = (MetalItem) pStack.getItem();
-        if (ingot.getDeg(pStack) == 0){
+        if (ingot.getDeg(pStack) <= 24){
             return false;
         } else {
             return true;
