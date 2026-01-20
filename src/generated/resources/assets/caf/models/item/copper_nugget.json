@@ -1,20 +1,20 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "caf:item/metals/crushed_raw_tungsten"
+    "layer0": "caf:item/metals/copper_nugget"
   },
   "overrides": [
     {
       "predicate": {
         "caf:degree": 550.0
       },
-      "model": "caf:item/crushed_raw_tungsten_red_hot"
+      "model": "caf:item/copper_nugget_red_hot"
     },
     {
       "predicate": {
-        "caf:degree": 1600.0
+        "caf:degree": 1300.0
       },
-      "model": "caf:item/crushed_raw_tungsten_white_hot"
+      "model": "caf:item/copper_nugget_white_hot"
     }
   ]
 }

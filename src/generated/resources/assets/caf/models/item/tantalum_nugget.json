@@ -2,5 +2,19 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "caf:item/metals/tantalum_nugget"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "caf:degree": 550.0
+      },
+      "model": "caf:item/tantalum_nugget_red_hot"
+    },
+    {
+      "predicate": {
+        "caf:degree": 1320.0
+      },
+      "model": "caf:item/tantalum_nugget_white_hot"
+    }
+  ]
 }

@@ -226,6 +226,8 @@ public class CAFItems {
             () -> new MetalItem(1085, Type.RAW, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> COPPER_INGOT = registerItem("copper_ingot",
             () -> new MetalItem(1085, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+    public static final RegistryObject<MetalItem> COPPER_NUGGET = registerItem("copper_nugget",
+            () -> new MetalItem(1085, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> RAW_GOLD = registerItem("raw_gold",
             () -> new MetalItem(1064, Type.RAW, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> GOLD_INGOT = registerItem("gold_ingot",

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "caf:item/metals/hot/copper_tungsten_nugget_red_hot"
+  }
+}

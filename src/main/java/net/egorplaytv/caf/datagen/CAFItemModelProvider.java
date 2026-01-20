@@ -84,24 +84,25 @@ public class CAFItemModelProvider extends ItemModelProvider {
         simpleItem(ROASTED_COCOA_BEANS.get());
 
         minecraftMetalItem(RAW_IRON.get());
-        minecraftIngotItem(IRON_INGOT.get());
+        minecraftIngotItem(IRON_INGOT.get(), 680, 1539);
         minecraftMetalItem(IRON_NUGGET.get());
         minecraftMetalItem(RAW_COPPER.get());
-        minecraftIngotItem(COPPER_INGOT.get());
+        minecraftIngotItem(COPPER_INGOT.get(), 600, 1083);
+        nuggetItem(COPPER_NUGGET.get(), Metals.COPPER);
         minecraftMetalItem(RAW_GOLD.get());
-        minecraftIngotItem(GOLD_INGOT.get());
+        minecraftIngotItem(GOLD_INGOT.get(), 600, 1000);
         metalItem(PIECE_OF_GOLD.get());
         minecraftMetalItem(GOLD_NUGGET.get());
-        minecraftIngotItem(NETHERITE_INGOT.get());
+        minecraftIngotItem(NETHERITE_INGOT.get(), 900, 1500);
         ingotItem(STEEL_INGOT.get(), 800, 1300);
-        metalItem(STEEL_NUGGET.get());
+        nuggetItem(STEEL_NUGGET.get(), 800, 1300);
         metalItem(STEEL_SHEET.get());
-        ingotItem(GLOWING_BRASS_INGOT.get(), "brass", 500, 700);
-        metalItem(GLOWING_BRASS_NUGGET.get());
+        ingotItem(GLOWING_BRASS_INGOT.get(), Metals.BRASS, 500, 700);
+        nuggetItem(GLOWING_BRASS_NUGGET.get(), Metals.BRASS, 500, 700);
         metalItem(GLOWING_BRASS_SHEET.get());
         metalItem(ALLOY_SOULS.get());
         ingotItem(ALLOY_SOULS_INGOT.get());
-        metalItem(ALLOY_SOULS_NUGGET.get());
+        nuggetItem(ALLOY_SOULS_NUGGET.get());
         metalItem(ALLOY_SOULS_SHEET.get());
         sequencedAssemblyItem(INCOMPLETE_NETHERITE_INGOT.get(), "metals");
         metalItem(NETHER_ALLOY.get());
@@ -140,13 +141,13 @@ public class CAFItemModelProvider extends ItemModelProvider {
         sequencedAssemblyItem(INCOMPLETE_MARBLE_PERLIN_PINK_BRICK.get());
         simpleItem(MARBLE_PERLIN_PINK_BRICK.get());
         metalItem(RAW_TANTALUM.get());
-        metalItem(CRUSHED_RAW_TANTALUM.get());
+        crushedRawItem(CRUSHED_RAW_TANTALUM.get(), Metals.TANTALUM, 550, 1320);
         ingotItem(TANTALUM_INGOT.get(), 550, 1320);
-        metalItem(TANTALUM_NUGGET.get());
+        nuggetItem(TANTALUM_NUGGET.get(), Metals.TANTALUM, 550, 1320);
         metalItem(RAW_TUNGSTEN.get());
-        metalItem(CRUSHED_RAW_TUNGSTEN.get());
+        crushedRawItem(CRUSHED_RAW_TUNGSTEN.get(), Metals.TUNGSTEN, 550, 1600);
         ingotItem(TUNGSTEN_INGOT.get(), 550, 1600);
-        metalItem(TUNGSTEN_NUGGET.get());
+        nuggetItem(TUNGSTEN_NUGGET.get(), Metals.TUNGSTEN, 550, 1600);
 
         sequencedAssemblyItem(INCOMPLETE_TOOL_HANDLE.get(), "tools");
         handheldItem(TOOL_HANDLE.get());
@@ -457,8 +458,8 @@ public class CAFItemModelProvider extends ItemModelProvider {
         minecraftIngotItem(item, 550, 1300);
     }
 
-    private void ingotItem(Item item, String type, int deg1, int deg2) {
-        if (type.equals("default") || type.isEmpty()){
+    private void ingotItem(Item item, Metals type, int deg1, int deg2) {
+        if (type.equals(Metals.DEFAULT)){
             var baseId = item.getRegistryName().getPath();
 
             var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "ingot_red_hot");
@@ -477,7 +478,7 @@ public class CAFItemModelProvider extends ItemModelProvider {
                     .model(model2)
                     .end();
 
-        } else if (type.equals("brass")) {
+        } else if (type.equals(Metals.BRASS)) {
             var baseId = item.getRegistryName().getPath();
 
             var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "brass_ingot_red_hot");
@@ -495,7 +496,7 @@ public class CAFItemModelProvider extends ItemModelProvider {
                     .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
                     .model(model2)
                     .end();
-        } else if (type.equals("zinc")) {
+        } else if (type.equals(Metals.ZINC)) {
             var baseId = item.getRegistryName().getPath();
 
             var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "zinc_ingot_red_hot");
@@ -517,16 +518,226 @@ public class CAFItemModelProvider extends ItemModelProvider {
     }
 
     private void ingotItem(Item item, int deg1, int deg2){
-        ingotItem(item, "default", deg1, deg2);
+        ingotItem(item, Metals.DEFAULT, deg1, deg2);
     }
 
-    private void ingotItem(Item item, String type) {
+    private void ingotItem(Item item, Metals type) {
         ingotItem(item, type, 550, 1300);
     }
 
     private void ingotItem(Item item) {
-        ingotItem(item, "default", 550, 1300);
+        ingotItem(item, Metals.DEFAULT, 550, 1300);
     }
+
+    private void nuggetItem(Item item, Metals type, int deg1, int deg2) {
+        if (type.equals(Metals.DEFAULT)){
+            var baseId = item.getRegistryName().getPath();
+
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "iron_nugget_red_hot");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_white_hot"), "item/metals/hot/", "iron_nugget_white_hot");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId))
+                    // 2nd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
+                    .model(model1)
+                    .end()
+                    // 3rd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
+                    .model(model2)
+                    .end();
+
+        } else if (type.equals(Metals.COPPER) || type.equals(Metals.TUNGSTEN)) {
+            var baseId = item.getRegistryName().getPath();
+
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "copper_tungsten_nugget_red_hot");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_white_hot"), "item/metals/hot/", "copper_tungsten_nugget_white_hot");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId))
+                    // 2nd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
+                    .model(model1)
+                    .end()
+                    // 3rd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
+                    .model(model2)
+                    .end();
+        } else if (type.equals(Metals.GOLD)) {
+            var baseId = item.getRegistryName().getPath();
+
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "gold_nugget_red_hot");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_white_hot"), "item/metals/hot/", "gold_nugget_white_hot");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId))
+                    // 2nd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
+                    .model(model1)
+                    .end()
+                    // 3rd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
+                    .model(model2)
+                    .end();
+        } else if (type.equals(Metals.STEEL)) {
+            var baseId = item.getRegistryName().getPath();
+
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "steel_nugget_red_hot");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_white_hot"), "item/metals/hot/", "steel_nugget_white_hot");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId))
+                    // 2nd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
+                    .model(model1)
+                    .end()
+                    // 3rd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
+                    .model(model2)
+                    .end();
+        } else if (type.equals(Metals.BRASS)) {
+            var baseId = item.getRegistryName().getPath();
+
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "brass_nugget_red_hot");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_white_hot"), "item/metals/hot/", "brass_nugget_white_hot");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId))
+                    // 2nd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
+                    .model(model1)
+                    .end()
+                    // 3rd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
+                    .model(model2)
+                    .end();
+        } else if (type.equals(Metals.ZINC) || type.equals(Metals.TANTALUM)) {
+            var baseId = item.getRegistryName().getPath();
+
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "zinc_tantalum_nugget_red_hot");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_white_hot"), "item/metals/hot/", "zinc_tantalum_nugget_white_hot");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId))
+                    // 2nd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
+                    .model(model1)
+                    .end()
+                    // 3rd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
+                    .model(model2)
+                    .end();
+        }
+    }
+
+    private void nuggetItem(Item item, int deg1, int deg2){
+        nuggetItem(item, Metals.DEFAULT, deg1, deg2);
+    }
+
+    private void nuggetItem(Item item, Metals type) {
+        nuggetItem(item, type, 550, 1300);
+    }
+
+    private void nuggetItem(Item item) {
+        nuggetItem(item, Metals.DEFAULT, 550, 1300);
+    }
+
+    private void crushedRawItem(Item item, Metals type, int deg1, int deg2) {
+        if (type.equals(Metals.ALUMINUM) || type.equals(Metals.ZINC) || type.equals(Metals.TUNGSTEN)){
+            var baseId = item.getRegistryName().getPath();
+
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "crushed_raw_aluminum_zinc_tungsten_red_hot");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_white_hot"), "item/metals/hot/", "crushed_raw_aluminum_zinc_tungsten_white_hot");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId))
+                    // 2nd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
+                    .model(model1)
+                    .end()
+                    // 3rd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
+                    .model(model2)
+                    .end();
+
+        } else if (type.equals(Metals.COPPER) || type.equals(Metals.NICKEL) || type.equals(Metals.OSMIUM)){
+            var baseId = item.getRegistryName().getPath();
+
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "crushed_raw_copper_nickel_osmium_tantalum_red_hot");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_white_hot"), "item/metals/hot/", "crushed_raw_copper_nickel_osmium_tantalum_white_hot");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId))
+                    // 2nd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
+                    .model(model1)
+                    .end()
+                    // 3rd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
+                    .model(model2)
+                    .end();
+
+        } else if (type.equals(Metals.GOLD) || type.equals(Metals.SILVER) || type.equals(Metals.URANIUM)){
+            var baseId = item.getRegistryName().getPath();
+
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "crushed_raw_gold_silver_uranium_red_hot");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_white_hot"), "item/metals/hot/", "crushed_raw_gold_silver_uranium_white_hot");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId))
+                    // 2nd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
+                    .model(model1)
+                    .end()
+                    // 3rd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
+                    .model(model2)
+                    .end();
+
+        } else if (type.equals(Metals.IRON) || type.equals(Metals.LEAD) || type.equals(Metals.TIN)){
+            var baseId = item.getRegistryName().getPath();
+
+            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "crushed_raw_iron_lead_tin_red_hot");
+            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_white_hot"), "item/metals/hot/", "crushed_raw_iron_lead_tin_white_hot");
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId))
+                    // 2nd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
+                    .model(model1)
+                    .end()
+                    // 3rd degree stage
+                    .override()
+                    .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
+                    .model(model2)
+                    .end();
+
+        }
+    }
+
+    private void crushedRawItem(Item item, Metals type) {
+        crushedRawItem(item, type, 550, 1300);
+    }
+
 
     private ItemModelBuilder simpleItem(ResourceLocation id, String path, String texture){
         return withExistingParent(id.getPath(), new ResourceLocation("item/generated")).texture("layer0",
@@ -642,5 +853,10 @@ public class CAFItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder blockItem(Block block, String path){
         return withExistingParent(block.getRegistryName().getPath(),
                 new ResourceLocation(MOD_ID, "block/" + path + "/" + block.getRegistryName().getPath()));
+    }
+
+
+    private enum Metals {
+        DEFAULT, IRON, COPPER, GOLD, NETHERITE, STEEL, ALUMINUM, ZINC, TUNGSTEN, TANTALUM, NICKEL, OSMIUM, SILVER, URANIUM, LEAD, TIN, BRASS
     }
 }

@@ -45,51 +45,56 @@ public class MetalItem extends Item {
 
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-        if (pEntity instanceof LivingEntity entity) {
-            if (pStack.getItem() instanceof MetalItem metal) {
-                int deg = metal.getDeg(pStack);
+        super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
+        if (pIsSelected) {
+            if (pEntity == null)
+                return;
 
-                if (deg >= 5000) {
-                    ++damageTick;
-                    if (damageTick >= 20) {
-                        CAFDamageSource.hotMetal(entity, 20.0F);
-                        damageTick = 0;
-                    }
-                } else if (deg >= 1000) {
-                    ++damageTick;
-                    if (damageTick >= 20) {
-                        CAFDamageSource.hotMetal(entity, 10.0F);
-                        damageTick = 0;
-                    }
-                } else if (deg >= 500) {
-                    ++damageTick;
-                    if (damageTick >= 20) {
-                        CAFDamageSource.hotMetal(entity, 4.0F);
-                        damageTick = 0;
-                    }
-                } else if (deg >= 100) {
-                    ++damageTick;
-                    if (damageTick >= 20) {
-                        CAFDamageSource.hotMetal(entity, 2.0F);
-                        damageTick = 0;
-                    }
-                } else if (deg >= 60) {
-                    ++damageTick;
-                    if (damageTick >= 20) {
-                        CAFDamageSource.hotMetal(entity, 1.0F);
-                        damageTick = 0;
-                    }
-                }
+            if (pEntity instanceof LivingEntity entity) {
+                if (pStack.getItem() instanceof MetalItem metal) {
+                    int deg = metal.getDeg(pStack);
 
-                ++tick;
-                if (tick >= 200) {
-                    if (deg > 0) {
-                        --deg;
-                        tick = 0;
+                    if (deg >= 5000) {
+                        ++damageTick;
+                        if (damageTick >= 20) {
+                            CAFDamageSource.hotMetal(entity, 20.0F);
+                            damageTick = 0;
+                        }
+                    } else if (deg >= 1000) {
+                        ++damageTick;
+                        if (damageTick >= 20) {
+                            CAFDamageSource.hotMetal(entity, 10.0F);
+                            damageTick = 0;
+                        }
+                    } else if (deg >= 500) {
+                        ++damageTick;
+                        if (damageTick >= 20) {
+                            CAFDamageSource.hotMetal(entity, 4.0F);
+                            damageTick = 0;
+                        }
+                    } else if (deg >= 100) {
+                        ++damageTick;
+                        if (damageTick >= 20) {
+                            CAFDamageSource.hotMetal(entity, 2.0F);
+                            damageTick = 0;
+                        }
+                    } else if (deg >= 60) {
+                        ++damageTick;
+                        if (damageTick >= 20) {
+                            CAFDamageSource.hotMetal(entity, 1.0F);
+                            damageTick = 0;
+                        }
                     }
+
+                    ++tick;
+                    if (tick >= 200) {
+                        if (deg > 0) {
+                            --deg;
+                            tick = 0;
+                        }
+                    }
+                    metal.setDeg(pStack, deg);
                 }
-                metal.setDeg(pStack, deg);
-                super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
             }
         }
     }

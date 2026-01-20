@@ -2,5 +2,19 @@
   "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "caf:item/metals/glowing_brass_nugget"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "caf:degree": 500.0
+      },
+      "model": "caf:item/glowing_brass_nugget_red_hot"
+    },
+    {
+      "predicate": {
+        "caf:degree": 700.0
+      },
+      "model": "caf:item/glowing_brass_nugget_white_hot"
+    }
+  ]
 }

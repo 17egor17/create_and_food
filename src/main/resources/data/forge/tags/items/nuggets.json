@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "#forge:nuggets/copper",
     "#forge:nuggets/gold",
     "#forge:nuggets/iron",
     "#forge:nuggets/steel",

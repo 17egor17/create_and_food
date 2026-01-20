@@ -6,13 +6,13 @@
   "overrides": [
     {
       "predicate": {
-        "caf:degree": 550.0
+        "caf:degree": 680.0
       },
       "model": "caf:item/iron_ingot_red_hot"
     },
     {
       "predicate": {
-        "caf:degree": 1300.0
+        "caf:degree": 1539.0
       },
       "model": "caf:item/iron_ingot_white_hot"
     }
