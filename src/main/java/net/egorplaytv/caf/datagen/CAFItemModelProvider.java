@@ -674,7 +674,7 @@ public class CAFItemModelProvider extends ItemModelProvider {
                     .model(model2)
                     .end();
 
-        } else if (type.equals(Metals.COPPER) || type.equals(Metals.NICKEL) || type.equals(Metals.OSMIUM)){
+        } else if (type.equals(Metals.COPPER) || type.equals(Metals.NICKEL) || type.equals(Metals.OSMIUM) || type.equals(Metals.TANTALUM)){
             var baseId = item.getRegistryName().getPath();
 
             var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "crushed_raw_copper_nickel_osmium_tantalum_red_hot");
