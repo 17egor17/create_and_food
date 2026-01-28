@@ -174,7 +174,7 @@ public class CopperLanternBlock extends Block implements SimpleWaterloggedBlock,
         if (itemStack.getItem() instanceof HoneycombItem){
             if (pState.getBlock() instanceof CopperLanternBlock){
                 pLevel.playSound(pPlayer, pPos, SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS, 1.0F, 1.0F);
-                if (!pPlayer.isCreative() || !pPlayer.isSpectator()) {
+                if (!pPlayer.isCreative()) {
                     itemStack.shrink(1);
                 }
                 pLevel.setBlock(pPos, Optional.ofNullable(WaxedCopperLanternBlock.WAXABLES.get().get(pState.getBlock())).get().defaultBlockState()

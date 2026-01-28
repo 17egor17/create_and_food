@@ -2,17 +2,22 @@ package net.egorplaytv.caf.item.custom;
 
 import net.egorplaytv.caf.damage.CAFDamageSource;
 import net.egorplaytv.caf.item.entity.custom.MIEntity;
+import net.egorplaytv.caf.util.CAFTags;
 import net.egorplaytv.caf.util.TextUtils;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
@@ -41,64 +46,50 @@ public class MetalItem extends Item {
         if (pStack.getItem() instanceof MetalItem metal) {
             pTooltip.add(TextUtils.getToolTipTranslation("doesnt_despawn"));
             pTooltip.add(TextUtils.getToolTipTranslation("degrees", meltingPoint));
-            metal.setDeg(pStack, 24);
             pTooltip.add(TextUtils.getToolTipTranslation("ingot.degrees", metal.getDeg(pStack)));
         }
     }
 
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-        super.inventoryTick(pStack, pLevel, pEntity, pSlotId, pIsSelected);
         if (pIsSelected) {
-            if (pEntity == null)
-                return;
-
-            if (pEntity instanceof LivingEntity entity) {
+            if (pEntity instanceof ServerPlayer entity) {
                 if (pStack.getItem() instanceof MetalItem metal) {
-                    int deg = metal.getDeg(pStack);
-
-                    if (deg >= 5000) {
-                        ++damageTick;
-                        if (damageTick >= 20) {
-                            CAFDamageSource.hotMetal(entity, 20.0F);
-                            damageTick = 0;
-                        }
-                    } else if (deg >= 1000) {
-                        ++damageTick;
-                        if (damageTick >= 20) {
-                            CAFDamageSource.hotMetal(entity, 10.0F);
-                            damageTick = 0;
-                        }
-                    } else if (deg >= 500) {
-                        ++damageTick;
-                        if (damageTick >= 20) {
-                            CAFDamageSource.hotMetal(entity, 4.0F);
-                            damageTick = 0;
-                        }
-                    } else if (deg >= 100) {
-                        ++damageTick;
-                        if (damageTick >= 20) {
-                            CAFDamageSource.hotMetal(entity, 2.0F);
-                            damageTick = 0;
-                        }
-                    } else if (deg >= 60) {
-                        ++damageTick;
-                        if (damageTick >= 20) {
-                            CAFDamageSource.hotMetal(entity, 1.0F);
-                            damageTick = 0;
+                    if (!entity.gameMode.getGameModeForPlayer().isCreative()) {
+                        if (entity.getItemInHand(InteractionHand.MAIN_HAND).is(metal) && metal.getDeg(pStack) >= 50
+                                && !entity.getItemInHand(InteractionHand.OFF_HAND).is(CAFTags.forgeItemTag("tongs"))) {
+                            CAFDamageSource.hotMetal(entity, 5.0F);
+                            entity.drop(entity.getItemInHand(InteractionHand.MAIN_HAND), false, false);
+                            entity.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
                         }
                     }
-
-                    ++tick;
-                    if (tick >= 200) {
-                        if (deg > 24) {
-                            --deg;
-                            tick = 0;
-                        }
-                    }
-                    metal.setDeg(pStack, deg);
                 }
             }
+        }
+        if (pEntity instanceof ServerPlayer entity) {
+            if (pStack.getItem() instanceof MetalItem metal) {
+                if (!entity.gameMode.getGameModeForPlayer().isCreative()) {
+                    if (entity.getItemInHand(InteractionHand.OFF_HAND).is(metal) && metal.getDeg(pStack) >= 50
+                            && !entity.getItemInHand(InteractionHand.MAIN_HAND).is(CAFTags.forgeItemTag("tongs"))) {
+                        CAFDamageSource.hotMetal(entity, 5.0F);
+                        entity.drop(entity.getItemInHand(InteractionHand.OFF_HAND), false, false);
+                        entity.setItemInHand(InteractionHand.OFF_HAND, ItemStack.EMPTY);
+                    }
+                }
+            }
+        }
+
+        if (pStack.getItem() instanceof MetalItem metal) {
+            int deg = metal.getDeg(pStack);
+
+            ++tick;
+            if (tick >= 200) {
+                if (deg > 24) {
+                    --deg;
+                    tick = 0;
+                }
+            }
+            metal.setDeg(pStack, deg);
         }
     }
 
