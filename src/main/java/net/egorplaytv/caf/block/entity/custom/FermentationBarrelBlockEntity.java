@@ -360,8 +360,8 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
         if (recipe.isPresent()){
             boolean fluidInTankEqualsRecipeFluid = false;
             List<FluidStack> fluid = recipe.get().getInputFluid();
-            for (int i = 0; i < fluid.size() + 1; ++i){
-                fluidInTankEqualsRecipeFluid = entity.FLUID_TANK_IN.getFluid().equals(fluid.get(i));
+            for (FluidStack fluidStack : fluid) {
+                fluidInTankEqualsRecipeFluid = entity.FLUID_TANK_IN.getFluid().equals(fluidStack);
             }
             if (!recipe.get().getInputTool().isEmpty() && !recipe.get().getResultFluid().isEmpty()
                     && !recipe.get().getResultItem().isEmpty()) {
