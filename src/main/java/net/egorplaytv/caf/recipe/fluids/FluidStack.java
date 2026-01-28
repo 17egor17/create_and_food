@@ -9,13 +9,13 @@ import net.minecraft.world.level.material.Fluid;
 import java.util.Optional;
 
 public class FluidStack extends net.minecraftforge.fluids.FluidStack {
-    public static final Codec<net.minecraftforge.fluids.FluidStack> CODEC = RecordCodecBuilder.create(
+    public static final Codec<FluidStack> CODEC = RecordCodecBuilder.create(
             instance -> instance.group(
-                    Registry.FLUID.byNameCodec().fieldOf("fluid").forGetter(net.minecraftforge.fluids.FluidStack::getFluid),
-                    Codec.INT.fieldOf("amount").forGetter(net.minecraftforge.fluids.FluidStack::getAmount),
+                    Registry.FLUID.byNameCodec().fieldOf("fluid").forGetter(FluidStack::getFluid),
+                    Codec.INT.fieldOf("amount").forGetter(FluidStack::getAmount),
                     CompoundTag.CODEC.optionalFieldOf("fluidTag").forGetter(stack -> Optional.ofNullable(stack.getTag()))
             ).apply(instance, (fluid, amount, tag) -> {
-                net.minecraftforge.fluids.FluidStack stack = new net.minecraftforge.fluids.FluidStack(fluid, amount);
+                FluidStack stack = new FluidStack(fluid, amount);
                 tag.ifPresent(stack::setTag);
                 return stack;
             })
@@ -36,7 +36,17 @@ public class FluidStack extends net.minecraftforge.fluids.FluidStack {
         }
     }
 
-    public FluidStack(net.minecraftforge.fluids.FluidStack stack, int amount) {
-        this(stack.getFluid(), amount, stack.getTag());
+    public FluidStack(FluidStack stack, int amount) {
+        this(stack.getFluid(), amount, stack.tag);
+    }
+
+    @Override
+    public void setTag(CompoundTag tag) {
+        this.tag = tag;
+    }
+
+    @Override
+    public CompoundTag getTag() {
+        return tag;
     }
 }

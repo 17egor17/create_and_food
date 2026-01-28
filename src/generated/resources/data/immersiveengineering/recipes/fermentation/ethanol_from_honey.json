@@ -2,7 +2,7 @@
   "type": "caf:fermentation",
   "ingredients": [
     {
-      "fluid": "create:honey",
+      "fluidTag": "forge:honey",
       "amount": 250
     }
   ],

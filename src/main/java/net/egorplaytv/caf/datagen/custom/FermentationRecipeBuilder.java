@@ -69,6 +69,30 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
     public static FermentationRecipeBuilder fermentationRecipe(Fluid inputFluid, int amountIn, Item result, int count){
         return new FermentationRecipeBuilder(FluidIngredient.fromFluid(inputFluid, amountIn), result, count, null, 0, null);
     }
+    public static FermentationRecipeBuilder fermentationRecipe(TagKey<Fluid> inputFluid, int amountIn, Item result, int count, Fluid outputFluid, int amountOut, Item tool){
+        return new FermentationRecipeBuilder(FluidIngredient.fromTag(inputFluid, amountIn), result, count, outputFluid, amountOut, tool);
+    }
+    public static FermentationRecipeBuilder fermentationRecipe(TagKey<Fluid> inputFluid, int amountIn, Item result, Fluid outputFluid, int amountOut, Item tool){
+        return new FermentationRecipeBuilder(FluidIngredient.fromTag(inputFluid, amountIn), result, 1, outputFluid, amountOut, tool);
+    }
+    public static FermentationRecipeBuilder fermentationRecipe(TagKey<Fluid> inputFluid, int amountIn, Fluid outputFluid, int amountOut, Item tool){
+        return new FermentationRecipeBuilder(FluidIngredient.fromTag(inputFluid, amountIn), null, 0, outputFluid, amountOut, tool);
+    }
+    public static FermentationRecipeBuilder fermentationRecipe(TagKey<Fluid> inputFluid, int amountIn, Item result, int count, Item tool){
+        return new FermentationRecipeBuilder(FluidIngredient.fromTag(inputFluid, amountIn), result, count, null, 0, tool);
+    }
+    public static FermentationRecipeBuilder fermentationRecipe(TagKey<Fluid> inputFluid, int amountIn, Item result, int count, Fluid outputFluid, int amountOut){
+        return new FermentationRecipeBuilder(FluidIngredient.fromTag(inputFluid, amountIn), result, count, outputFluid, amountOut, null);
+    }
+    public static FermentationRecipeBuilder fermentationRecipe(TagKey<Fluid> inputFluid, int amountIn, Item result, Fluid outputFluid, int amountOut){
+        return new FermentationRecipeBuilder(FluidIngredient.fromTag(inputFluid, amountIn), result, 1, outputFluid, amountOut, null);
+    }
+    public static FermentationRecipeBuilder fermentationRecipe(TagKey<Fluid> inputFluid, int amountIn, Fluid outputFluid, int amountOut){
+        return new FermentationRecipeBuilder(FluidIngredient.fromTag(inputFluid, amountIn), null, 0, outputFluid, amountOut, null);
+    }
+    public static FermentationRecipeBuilder fermentationRecipe(TagKey<Fluid> inputFluid, int amountIn, Item result, int count){
+        return new FermentationRecipeBuilder(FluidIngredient.fromTag(inputFluid, amountIn), result, count, null, 0, null);
+    }
 
 
     public FermentationRecipeBuilder addIngredient(TagKey<Item> tagIn) {

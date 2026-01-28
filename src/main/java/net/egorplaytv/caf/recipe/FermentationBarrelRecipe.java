@@ -24,13 +24,13 @@ import java.util.List;
 public class FermentationBarrelRecipe implements Recipe<SimpleContainer> {
     protected final ResourceLocation id;
     protected final NonNullList<Ingredient> inputItems;
-    protected final FluidStack inputFluid;
+    protected final FluidIngredient inputFluid;
     protected final FluidStack outputFluid;
     protected final ItemStack output;
     protected final ItemStack inputTool;
     protected int time;
     public FermentationBarrelRecipe(ResourceLocation id, ItemStack output, FluidStack outputFluid,
-                                    NonNullList<Ingredient> recipeItems, FluidStack inputFluid, ItemStack inputTool, int time) {
+                                    NonNullList<Ingredient> recipeItems, FluidIngredient inputFluid, ItemStack inputTool, int time) {
         this.id = id;
         if (!output.isEmpty()){
             this.output = output;
@@ -85,7 +85,11 @@ public class FermentationBarrelRecipe implements Recipe<SimpleContainer> {
         return i == this.inputItems.size() && RecipeMatcher.findMatches(inputs, this.inputItems) != null;
     }
 
-    public FluidStack getInputFluid(){
+    public List<FluidStack> getInputFluid(){
+        return inputFluid.getMatchingFluidStacks();
+    }
+
+    public FluidIngredient getInputFluidIngredient(){
         return inputFluid;
     }
 
@@ -136,18 +140,18 @@ public class FermentationBarrelRecipe implements Recipe<SimpleContainer> {
         @Override
         public FermentationBarrelRecipe fromJson(ResourceLocation id, JsonObject json) {
             NonNullList<Ingredient> inputs = NonNullList.create();
-            FluidStack inputFluid = FluidStack.EMPTY;
+            FluidIngredient inputFluid = FluidIngredient.EMPTY;
             FluidStack fluidResult = FluidStack.EMPTY;
             ItemStack output = ItemStack.EMPTY;
 
             for (JsonElement je : GsonHelper.getAsJsonArray(json, "ingredients")) {
                 JsonObject jsonObject = je.getAsJsonObject();
 
-                if (GsonHelper.isValidNode(jsonObject, "fluid") && GsonHelper.isValidNode(jsonObject, "item")) {
-                    inputFluid = FluidJSONUtil.fromJson(je);
+                if (FluidIngredient.isFluidIngredient(je) && GsonHelper.isValidNode(jsonObject, "item")) {
+                    inputFluid = FluidIngredient.deserialize(je);
                     inputs.add(Ingredient.fromJson(je));
-                } else if (GsonHelper.isValidNode(jsonObject, "fluid"))
-                    inputFluid = FluidJSONUtil.fromJson(je);
+                } else if (FluidIngredient.isFluidIngredient(je))
+                    inputFluid = FluidIngredient.deserialize(je);
                 else
                     inputs.add(Ingredient.fromJson(je));
             }
@@ -173,7 +177,7 @@ public class FermentationBarrelRecipe implements Recipe<SimpleContainer> {
         @Override
         public FermentationBarrelRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
-            FluidStack inputFluid = buf.readFluidStack();
+            FluidIngredient inputFluid = FluidIngredient.read(buf);
 
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromNetwork(buf));
@@ -188,8 +192,9 @@ public class FermentationBarrelRecipe implements Recipe<SimpleContainer> {
 
         @Override
         public void toNetwork(FriendlyByteBuf buf, FermentationBarrelRecipe recipe) {
+            FluidIngredient fluidIngredient = recipe.getInputFluidIngredient();
             buf.writeInt(recipe.getIngredients().size());
-            buf.writeFluidStack(recipe.getInputFluid());
+            fluidIngredient.write(buf);
             buf.writeFluidStack(recipe.getResultFluid());
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.toNetwork(buf);

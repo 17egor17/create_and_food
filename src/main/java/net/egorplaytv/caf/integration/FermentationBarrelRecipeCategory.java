@@ -118,7 +118,7 @@ public class FermentationBarrelRecipeCategory implements IRecipeCategory<Ferment
         }
         builder.addSlot(RecipeIngredientRole.INPUT, 61, 15).addItemStack(recipe.getInputTool());
         builder.addSlot(RecipeIngredientRole.INPUT, 14, 14)
-                .addIngredients(ForgeTypes.FLUID_STACK, List.of(recipe.getInputFluid()))
+                .addIngredients(ForgeTypes.FLUID_STACK, recipe.getInputFluidIngredient().getMatchingFluidStacks())
                 .setFluidRenderer(4000, false, 16, 56);
         if (!recipe.getResultItem().isEmpty() && !recipe.getResultFluid().isEmpty()) {
             builder.addSlot(RecipeIngredientRole.OUTPUT, 110, 14)

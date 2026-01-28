@@ -47,9 +47,9 @@ public class CAFFermentationRecipes {
                 .addIngredient(Items.GLOW_BERRIES).addTimeInSeconds(40)
                 .save(pConsumer, getFermentationCompat(getRecipeId(IEFluids.ETHANOL.getStill(), Items.GLOW_BERRIES), ModID.IE));
 
-        FermentationRecipeBuilder.fermentationRecipe(AllFluids.HONEY.get(), 250, IEFluids.ETHANOL.getStill(), 250)
+        FermentationRecipeBuilder.fermentationRecipe(CAFTags.forgeFluidTag("honey"), 250, IEFluids.ETHANOL.getStill(), 250)
                 .addTimeInSeconds(40)
-                .save(pConsumer, getFermentationCompat(getRecipeId(IEFluids.ETHANOL.getStill()), ModID.IE));
+                .save(pConsumer, getFermentationCompat(getRecipeId(IEFluids.ETHANOL.getStill(), AllFluids.HONEY.get().getSource()), ModID.IE));
 
         FermentationRecipeBuilder.fermentationRecipe(Fluids.WATER, 30, IEFluids.ETHANOL.getStill(), 40)
                 .addIngredient(Items.BEETROOT).addTimeInSeconds(40)
@@ -73,12 +73,28 @@ public class CAFFermentationRecipes {
         return item.asItem().getRegistryName().getPath() + "_from_" + from.asItem().getRegistryName().getPath();
     }
 
+    private static String getRecipeId(ItemLike item, Fluid from) {
+        return item.asItem().getRegistryName().getPath() + "_from_" + from.getRegistryName().getPath();
+    }
+
+    private static String getRecipeId(ItemLike item, String from) {
+        return item.asItem().getRegistryName().getPath() + "_from_" + from;
+    }
+
     private static String getRecipeId(ItemLike item) {
         return item.asItem().getRegistryName().getPath();
     }
 
     private static String getRecipeId(Fluid fluid, ItemLike from) {
         return fluid.getRegistryName().getPath() + "_from_" + from.asItem().getRegistryName().getPath();
+    }
+
+    private static String getRecipeId(Fluid fluid, Fluid from) {
+        return fluid.getRegistryName().getPath() + "_from_" + from.getRegistryName().getPath();
+    }
+
+    private static String getRecipeId(Fluid fluid, String from) {
+        return fluid.getRegistryName().getPath() + "_from_" + from;
     }
 
     private static String getRecipeId(Fluid fluid) {
