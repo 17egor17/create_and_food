@@ -513,10 +513,10 @@
 
   "_comment": "_______________________________ItemGroup_______________________________",
   "itemGroup.caf": "Create и еда",
-  "itemGroup.caf_decorative": "Create и еда: Декоративные блоки",
-  "itemGroup.caf_food": "Create и еда: Еда",
-  "itemGroup.caf_kitchen": "Create и еда: Кухня",
-  "itemGroup.caf_tool_and_tip": "Create и еда: Инструменты и наконечники",
+  "itemGroup.caf_decorative": "CAF: Декоративные блоки",
+  "itemGroup.caf_food": "CAF: Еда",
+  "itemGroup.caf_kitchen": "CAF: Кухня",
+  "itemGroup.caf_tool_and_tip": "CAF: Инструменты и наконечники",
 
   "_comment": "_______________________________Items_______________________________",
   "item.caf.alloy_souls": "Сплав душ",
