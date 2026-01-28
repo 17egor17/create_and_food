@@ -1,0 +1,36 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "caf:block/dryer/fresh_leaves_tea",
+		"leaves": "caf:block/dryer/fresh_leaves_tea"
+	},
+	"elements": [
+		{
+			"from": [2, 1.1, 2],
+			"to": [14, 2.1, 14],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 1.1, 2]},
+			"faces": {
+				"north": {"uv": [2, 1, 14, 2], "texture": "#leaves"},
+				"east": {"uv": [1, 2, 2, 14], "rotation": 90, "texture": "#leaves"},
+				"south": {"uv": [2, 14, 14, 15], "texture": "#leaves"},
+				"west": {"uv": [14, 2, 15, 14], "rotation": 90, "texture": "#leaves"},
+				"up": {"uv": [2, 2, 14, 14], "texture": "#leaves"},
+				"down": {"uv": [2, 2, 14, 14], "texture": "#leaves"}
+			}
+		},
+		{
+			"from": [2.001, 2.101, 2.001],
+			"to": [13.999, 1.099, 13.999],
+			"rotation": {"angle": 0, "axis": "y", "origin": [2, 2.1, 2]},
+			"faces": {
+				"north": {"uv": [2, 2, 14, 1], "texture": "#leaves"},
+				"east": {"uv": [2, 2, 1, 14], "rotation": 90, "texture": "#leaves"},
+				"south": {"uv": [2, 15, 14, 14], "texture": "#leaves"},
+				"west": {"uv": [15, 2, 14, 14], "rotation": 90, "texture": "#leaves"},
+				"up": {"uv": [2, 2, 14, 14], "rotation": 180, "texture": "#leaves"},
+				"down": {"uv": [2, 2, 14, 14], "rotation": 180, "texture": "#leaves"}
+			}
+		}
+	]
+}
