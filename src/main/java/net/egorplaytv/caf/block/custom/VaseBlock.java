@@ -90,25 +90,24 @@ public class VaseBlock extends BaseEntityBlock implements SimpleWaterloggedBlock
     }
 
     public static int random(BlockState pState){
-        int t;
         if (pState.getValue(VaseBlock.FILL).equals(0)){
-            return t = 0;
+            return 0;
         } else if (pState.getValue(FILL).equals(1)){
-            return t = 250;
+            return 250;
         } else if (pState.getValue(FILL).equals(2)){
-            return t = 500;
+            return 500;
         } else if (pState.getValue(FILL).equals(3)){
-            return t = 750;
+            return 750;
         } else if (pState.getValue(FILL).equals(4)){
-            return t = 1000;
+            return 1000;
         } else if (pState.getValue(FILL).equals(5)){
-            return t = 1250;
+            return 1250;
         } else if (pState.getValue(FILL).equals(6)){
-            return t = 1500;
+            return 1500;
         } else if (pState.getValue(FILL).equals(7)){
-            return t = 1750;
+            return 1750;
         } else {
-            return t = 2000;
+            return 2000;
         }
     }
 
