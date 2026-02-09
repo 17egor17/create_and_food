@@ -1,8 +1,10 @@
 package net.egorplaytv.caf.item.custom;
 
 import net.egorplaytv.caf.damage.CAFDamageSource;
+import net.egorplaytv.caf.datagen.custom.ModItemModelsProperties;
 import net.egorplaytv.caf.item.entity.custom.MIEntity;
 import net.egorplaytv.caf.util.CAFTags;
+import net.egorplaytv.caf.util.Metals;
 import net.egorplaytv.caf.util.TextUtils;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
@@ -31,7 +33,7 @@ public class MetalItem extends Item {
     public static final String TAG_DEGREE = "deg";
     public static final String TAG_PREVENT_MAGNET = "PreventRemoteMovement";
 
-    public MetalItem(int meltingPoint, MetalItem.Type type, Properties pProperties) {
+    public MetalItem(int meltingPoint, MetalItem.Type type, Metals metalType, Properties pProperties) {
         super(pProperties);
         this.meltingPoint = meltingPoint;
         switch (type) {
@@ -39,6 +41,7 @@ public class MetalItem extends Item {
             case INGOT, SHEET -> this.heatingSpeed = 1;
             case NUGGET, COIN -> this.heatingSpeed = 3;
         }
+        ModItemModelsProperties.registerMetalItem(this, metalType);
     }
 
     @Override

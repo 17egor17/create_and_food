@@ -5,6 +5,7 @@ import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.fluid.CAFFluids;
 import net.egorplaytv.caf.item.custom.MetalItem.Type;
 import net.egorplaytv.caf.item.custom.*;
+import net.egorplaytv.caf.util.Metals;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -217,135 +218,135 @@ public class CAFItems {
 
 //________________________Create and Food________________________\\
     public static final RegistryObject<MetalItem> RAW_IRON = registerItem("raw_iron",
-            () -> new MetalItem(1538, Type.RAW, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1538, Type.RAW, Metals.IRON, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> IRON_INGOT = registerItem("iron_ingot",
-            () -> new MetalItem(1538, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1538, Type.INGOT, Metals.IRON, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> IRON_NUGGET = registerItem("iron_nugget",
-            () -> new MetalItem(1538, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1538, Type.NUGGET, Metals.IRON, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> RAW_COPPER = registerItem("raw_copper",
-            () -> new MetalItem(1085, Type.RAW, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1085, Type.RAW, Metals.COPPER, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> COPPER_INGOT = registerItem("copper_ingot",
-            () -> new MetalItem(1085, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1085, Type.INGOT, Metals.COPPER, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> COPPER_NUGGET = registerItem("copper_nugget",
-            () -> new MetalItem(1085, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1085, Type.NUGGET, Metals.COPPER, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> RAW_GOLD = registerItem("raw_gold",
-            () -> new MetalItem(1064, Type.RAW, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1064, Type.RAW, Metals.GOLD, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> GOLD_INGOT = registerItem("gold_ingot",
-            () -> new MetalItem(1064, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1064, Type.INGOT, Metals.GOLD, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> PIECE_OF_GOLD = registerItem("piece_of_gold",
-            () -> new MetalItem(1064, Type.PIECE, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1064, Type.PIECE, Metals.GOLD, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> GOLD_NUGGET = registerItem("gold_nugget",
-            () -> new MetalItem(1064, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1064, Type.NUGGET, Metals.GOLD, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> NETHERITE_INGOT = registerItem("netherite_ingot",
-            () -> new MetalItem(3133, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(3133, Type.INGOT, Metals.NETHERITE, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<DependentMetalItem> ALUMINUM_INGOT = registerItem("aluminum_ingot",
-            () -> new DependentMetalItem(660, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(660, Type.INGOT, Metals.ALUMINUM, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.IEIsPresent));
     public static final RegistryObject<DependentMetalItem> ALUMINUM_NUGGET = registerItem("aluminum_nugget",
-            () -> new DependentMetalItem(660, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(660, Type.NUGGET, Metals.ALUMINUM, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.IEIsPresent));
 
     public static final RegistryObject<DependentMetalItem> LEAD_INGOT = registerItem("lead_ingot",
-            () -> new DependentMetalItem(328, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(328, Type.INGOT, Metals.LEAD, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent, CreateAndFood.MEKIsPresent));
     public static final RegistryObject<DependentMetalItem> LEAD_NUGGET = registerItem("lead_nugget",
-            () -> new DependentMetalItem(328, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(328, Type.NUGGET, Metals.LEAD, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent, CreateAndFood.MEKIsPresent));
 
     public static final RegistryObject<DependentMetalItem> NICKEL_INGOT = registerItem("nickel_ingot",
-            () -> new DependentMetalItem(1455, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(1455, Type.INGOT, Metals.NICKEL, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent));
     public static final RegistryObject<DependentMetalItem> NICKEL_NUGGET = registerItem("nickel_nugget",
-            () -> new DependentMetalItem(1455, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(1455, Type.NUGGET, Metals.NICKEL, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent));
 
     public static final RegistryObject<DependentMetalItem> OSMIUM_INGOT = registerItem("osmium_ingot",
-            () -> new DependentMetalItem(3033, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(3033, Type.INGOT, Metals.OSMIUM, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.MEKIsPresent));
     public static final RegistryObject<DependentMetalItem> OSMIUM_NUGGET = registerItem("osmium_nugget",
-            () -> new DependentMetalItem(3033, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(3033, Type.NUGGET, Metals.OSMIUM, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.MEKIsPresent));
 
     public static final RegistryObject<DependentMetalItem> SILVER_INGOT = registerItem("silver_ingot",
-            () -> new DependentMetalItem(962, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(962, Type.INGOT, Metals.SILVER, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.THIsPresent, CreateAndFood.IEIsPresent));
     public static final RegistryObject<DependentMetalItem> SILVER_NUGGET = registerItem("silver_nugget",
-            () -> new DependentMetalItem(962, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(962, Type.NUGGET, Metals.SILVER, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.THIsPresent, CreateAndFood.IEIsPresent));
 
     public static final RegistryObject<DependentMetalItem> TIN_INGOT = registerItem("tin_ingot",
-            () -> new DependentMetalItem(232, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(232, Type.INGOT, Metals.TIN, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.THIsPresent, CreateAndFood.MEKIsPresent));
     public static final RegistryObject<DependentMetalItem> TIN_NUGGET = registerItem("tin_nugget",
-            () -> new DependentMetalItem(232, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(232, Type.NUGGET, Metals.TIN, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.THIsPresent, CreateAndFood.MEKIsPresent));
 
     public static final RegistryObject<DependentMetalItem> URANIUM_INGOT = registerItem("uranium_ingot",
-            () -> new DependentMetalItem(1135, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(1135, Type.INGOT, Metals.URANIUM, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.MEKIsPresent, CreateAndFood.IEIsPresent));
     public static final RegistryObject<DependentMetalItem> URANIUM_NUGGET = registerItem("uranium_nugget",
-            () -> new DependentMetalItem(1135, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(1135, Type.NUGGET, Metals.URANIUM, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.MEKIsPresent, CreateAndFood.IEIsPresent));
 
     public static final RegistryObject<DependentMetalItem> BRONZE_INGOT = registerItem("bronze_ingot",
-            () -> new DependentMetalItem(1140, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(1140, Type.INGOT, Metals.BRONZE, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.MEKIsPresent, CreateAndFood.THIsPresent));
     public static final RegistryObject<DependentMetalItem> BRONZE_NUGGET = registerItem("bronze_nugget",
-            () -> new DependentMetalItem(1140, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(1140, Type.NUGGET, Metals.BRONZE, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.MEKIsPresent, CreateAndFood.THIsPresent));
 
     public static final RegistryObject<DependentMetalItem> CONSTANTAN_INGOT = registerItem("constantan_ingot",
-            () -> new DependentMetalItem(1260, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(1260, Type.INGOT, Metals.CONSTANTAN, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent));
     public static final RegistryObject<DependentMetalItem> CONSTANTAN_NUGGET = registerItem("constantan_nugget",
-            () -> new DependentMetalItem(1260, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(1260, Type.NUGGET, Metals.CONSTANTAN, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent));
 
     public static final RegistryObject<DependentMetalItem> ELECTRUM_INGOT = registerItem("electrum_ingot",
-            () -> new DependentMetalItem(960, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(960, Type.INGOT, Metals.ELECTRUM, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent));
     public static final RegistryObject<DependentMetalItem> ELECTRUM_NUGGET = registerItem("electrum_nugget",
-            () -> new DependentMetalItem(960, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(960, Type.NUGGET, Metals.ELECTRUM, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent));
 
     public static final RegistryObject<DependentMetalItem> INVAR_INGOT = registerItem("invar_ingot",
-            () -> new DependentMetalItem(1425, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(1425, Type.INGOT, Metals.INVAR, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.THIsPresent));
     public static final RegistryObject<DependentMetalItem> INVAR_NUGGET = registerItem("invar_nugget",
-            () -> new DependentMetalItem(1425, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+            () -> new DependentMetalItem(1425, Type.NUGGET, Metals.INVAR, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.THIsPresent));
 
 
     public static final RegistryObject<MetalItem> STEEL_INGOT = registerItem("steel_ingot",
-            () -> new MetalItem(1530, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1530, Type.INGOT, Metals.STEEL, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<MetalItem> STEEL_NUGGET = registerItem("steel_nugget",
-            () -> new MetalItem(1530, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1530, Type.NUGGET, Metals.STEEL, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<MetalItem> STEEL_SHEET = registerItem("steel_sheet",
-            () -> new MetalItem(1530, Type.SHEET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1530, Type.SHEET, Metals.STEEL, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<MetalItem> GLOWING_BRASS_INGOT = registerItem("glowing_brass_ingot",
-            () -> new MetalItem(950, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(950, Type.INGOT, Metals.BRASS, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<MetalItem> GLOWING_BRASS_NUGGET = registerItem("glowing_brass_nugget",
-            () -> new MetalItem(950, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(950, Type.NUGGET, Metals.BRASS, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<MetalItem> GLOWING_BRASS_SHEET = registerItem("glowing_brass_sheet",
-            () -> new MetalItem(950, Type.SHEET,new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(950, Type.SHEET, Metals.BRASS, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<MetalItem> ALLOY_SOULS = registerItem("alloy_souls",
-            () -> new MetalItem(1400, Type.PIECE, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1400, Type.PIECE, Metals.ALLOY_SOULS, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<MetalItem> ALLOY_SOULS_INGOT = registerItem("alloy_souls_ingot",
-            () -> new MetalItem(1400, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1400, Type.INGOT, Metals.ALLOY_SOULS, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<MetalItem> ALLOY_SOULS_NUGGET = registerItem("alloy_souls_nugget",
-            () -> new MetalItem(1400, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1400, Type.NUGGET, Metals.ALLOY_SOULS, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<MetalItem> ALLOY_SOULS_SHEET = registerItem("alloy_souls_sheet",
-            () -> new MetalItem(1400, Type.SHEET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1400, Type.SHEET, Metals.ALLOY_SOULS, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> INCOMPLETE_NETHERITE_INGOT = registerItem("incomplete_netherite_ingot",
             () -> new SequencedAssemblyItem(new Item.Properties()));
@@ -354,22 +355,22 @@ public class CAFItems {
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<MetalItem> RAW_TANTALUM = registerItem("raw_tantalum",
-            () -> new MetalItem(3016, Type.RAW, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(3016, Type.RAW, Metals.TANTALUM, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> CRUSHED_RAW_TANTALUM = registerItem("crushed_raw_tantalum",
-            () -> new MetalItem(3016, Type.CRASHED_RAW, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(3016, Type.CRASHED_RAW, Metals.TANTALUM, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> TANTALUM_INGOT = registerItem("tantalum_ingot",
-            () -> new MetalItem(3016, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(3016, Type.INGOT, Metals.TANTALUM, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> TANTALUM_NUGGET = registerItem("tantalum_nugget",
-            () -> new MetalItem(3016, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(3016, Type.NUGGET, Metals.TANTALUM, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<MetalItem> RAW_TUNGSTEN = registerItem("raw_tungsten",
-            () -> new MetalItem(3421, Type.RAW, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(3421, Type.RAW, Metals.TUNGSTEN, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> CRUSHED_RAW_TUNGSTEN = registerItem("crushed_raw_tungsten",
-            () -> new MetalItem(3421, Type.CRASHED_RAW, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(3421, Type.CRASHED_RAW, Metals.TUNGSTEN, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> TUNGSTEN_INGOT = registerItem("tungsten_ingot",
-            () -> new MetalItem(3421, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(3421, Type.INGOT, Metals.TUNGSTEN, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> TUNGSTEN_NUGGET = registerItem("tungsten_nugget",
-            () -> new MetalItem(3421, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(3421, Type.NUGGET, Metals.TUNGSTEN, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> STEEL_COIL = registerItem("steel_coil",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
@@ -386,18 +387,18 @@ public class CAFItems {
     public static final RegistryObject<Item> INCOMPLETE_COIN = registerItem("incomplete_coin",
             () -> new SequencedAssemblyItem(new Item.Properties()));
     public static final RegistryObject<MetalItem> COPPER_COIN = registerItem("copper_coin",
-            () -> new MetalItem(1085, Type.COIN, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1085, Type.COIN, Metals.COPPER, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> IRON_COIN = registerItem("iron_coin",
-            () -> new MetalItem(1538, Type.COIN, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1538, Type.COIN, Metals.IRON, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
     public static final RegistryObject<MetalItem> GOLDEN_COIN = registerItem("golden_coin",
-            () -> new MetalItem(1064, Type.COIN, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new MetalItem(1064, Type.COIN, Metals.GOLD, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<MetalItem> BROKEN_COPPER_COIN = registerItem("broken_copper_coin",
-            () -> new MetalItem(1085, Type.COIN, new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)));
+            () -> new MetalItem(1085, Type.COIN, Metals.COPPER, new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)));
     public static final RegistryObject<MetalItem> BROKEN_IRON_COIN = registerItem("broken_iron_coin",
-            () -> new MetalItem(1538, Type.COIN, new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)));
+            () -> new MetalItem(1538, Type.COIN, Metals.IRON, new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)));
     public static final RegistryObject<MetalItem> BROKEN_GOLDEN_COIN = registerItem("broken_golden_coin",
-            () -> new MetalItem(1064, Type.COIN, new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)));
+            () -> new MetalItem(1064, Type.COIN, Metals.GOLD, new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)));
 
     public static final RegistryObject<Item> COAL_DUST = registerItem("coal_dust",
             () -> new FuelItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD), 1600));

@@ -2,6 +2,7 @@ package net.egorplaytv.caf.datagen.custom;
 
 import net.egorplaytv.caf.item.CAFItems;
 import net.egorplaytv.caf.item.custom.SequencedAssemblyItem;
+import net.egorplaytv.caf.util.Metals;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -18,17 +19,6 @@ public final class ModItemModelsProperties {
     public static final ResourceLocation SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID = new ResourceLocation(MOD_ID, "sequenced_assembly_progress");
 
     public static void init() {
-        // Ingot Items
-        registerIngotItem(CAFItems.IRON_INGOT.get());
-        registerIngotItem(CAFItems.COPPER_INGOT.get());
-        registerIngotItem(CAFItems.GOLD_INGOT.get());
-        registerIngotItem(CAFItems.NETHERITE_INGOT.get());
-        registerIngotItem(CAFItems.STEEL_INGOT.get());
-        registerIngotItem(CAFItems.GLOWING_BRASS_INGOT.get());
-        registerIngotItem(CAFItems.ALLOY_SOULS_INGOT.get());
-        registerIngotItem(CAFItems.TUNGSTEN_INGOT.get());
-        registerIngotItem(CAFItems.TANTALUM_INGOT.get());
-
         // Sequenced Assembly Progress Items
         registerSequencedAssemblyProgress(CAFItems.INCOMPLETE_IRON_KNIFE.get());
         registerSequencedAssemblyProgress(CAFItems.INCOMPLETE_DIAMOND_KNIFE.get());
@@ -39,9 +29,11 @@ public final class ModItemModelsProperties {
         registerSequencedAssemblyProgress(CAFItems.INCOMPLETE_TUNGSTEN_KNIFE.get());
     }
 
-    public static void registerIngotItem(Item item) {
-        ItemProperties.register(item.asItem(), DEGREE_PREDICATE_ID,
-                (is, level, p, s) -> is.getTag() != null ? is.getTag().getInt(TAG_DEGREE) : 0);
+    public static void registerMetalItem(Item item, Metals type) {
+        if (!type.equals(Metals.OSMIUM)) {
+            ItemProperties.register(item.asItem(), DEGREE_PREDICATE_ID,
+                    (is, level, p, s) -> is.getTag() != null ? is.getTag().getInt(TAG_DEGREE) : 0);
+        }
     }
 
     public static void registerSequencedAssemblyProgress(Item item) {

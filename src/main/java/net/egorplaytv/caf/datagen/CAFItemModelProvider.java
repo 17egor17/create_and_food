@@ -2,6 +2,7 @@ package net.egorplaytv.caf.datagen;
 
 import net.egorplaytv.caf.datagen.custom.ModItemModelsProperties;
 import net.egorplaytv.caf.item.CAFItems;
+import net.egorplaytv.caf.util.Metals;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -607,6 +608,11 @@ public class CAFItemModelProvider extends ItemModelProvider {
                     .model(model2)
                     .end();
 
+        } else if (type.equals(Metals.OSMIUM)) {
+            var baseId = item.getRegistryName().getPath();
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId));
         } else if (type.equals(Metals.COPPER) || type.equals(Metals.TUNGSTEN)) {
             var baseId = item.getRegistryName().getPath();
 
@@ -705,7 +711,11 @@ public class CAFItemModelProvider extends ItemModelProvider {
     }
 
     private void nuggetItem(Item item, Metals type) {
-        nuggetItem(item, type, 550, 1300);
+        if (type.equals(Metals.OSMIUM)){
+            nuggetItem(item, type, 0, 0);
+        } else {
+            nuggetItem(item, type, 550, 1300);
+        }
     }
 
     private void nuggetItem(Item item) {
@@ -911,10 +921,5 @@ public class CAFItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder blockItem(Block block, String path){
         return withExistingParent(block.getRegistryName().getPath(),
                 new ResourceLocation(MOD_ID, "block/" + path + "/" + block.getRegistryName().getPath()));
-    }
-
-
-    private enum Metals {
-        DEFAULT, IRON, COPPER, GOLD, NETHERITE, STEEL, ALUMINUM, ZINC, TUNGSTEN, TANTALUM, NICKEL, OSMIUM, SILVER, URANIUM, LEAD, TIN, BRASS
     }
 }
