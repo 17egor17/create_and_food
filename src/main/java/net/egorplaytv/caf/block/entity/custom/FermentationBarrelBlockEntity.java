@@ -1,5 +1,6 @@
 package net.egorplaytv.caf.block.entity.custom;
 
+import com.google.common.collect.Maps;
 import com.simibubi.create.AllFluids;
 import com.simibubi.create.foundation.fluid.CombinedTankWrapper;
 import net.egorplaytv.caf.block.custom.FermentationBarrelBlock;
@@ -12,8 +13,10 @@ import net.egorplaytv.caf.networking.packet.FermantionBarrelFluidPacketOut;
 import net.egorplaytv.caf.recipe.FermentationBarrelRecipe;
 import net.egorplaytv.caf.screen.FermentationBarrelMenu;
 import net.egorplaytv.caf.util.CAFTags;
+import net.egorplaytv.caf.util.ItemIngredient;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
@@ -26,7 +29,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.*;
-import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
@@ -46,6 +48,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -374,58 +377,74 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
                 .getRecipeFor(FermentationBarrelRecipe.Type.INSTANCE, entity.inventory, level);
 
         if (recipe.isPresent()){
-//            List<ItemStack> stacksInSlot1 = recipe.get().getInputItems().get(0).getMatchingItemStacks();
-//            Item itemInSlot1 = ItemStack.EMPTY.getItem();
-//            for (ItemStack stack : stacksInSlot1) {
-//                itemInSlot1 = stack.getItem();
-//            }
-//
-//            if (!recipe.get().getInputTool().isEmpty() && !recipe.get().getResultFluid().isEmpty()
-//                    && !recipe.get().getResultItem().isEmpty()
-//                    && entity.itemHandler.getStackInSlot(1).is(itemInSlot1)) {
-//
-//            }
-            if (!recipe.get().getInputTool().isEmpty() && !recipe.get().getResultFluid().isEmpty()
-                    && !recipe.get().getResultItem().isEmpty()) {
                 return canInsertAmountIntoOutputSlot(entity.inventory, recipe.get().getResultItem())
                         && canInsertItemIntoOutputSlot(entity.inventory, recipe.get().getResultItem())
-                        && canInsertAmountIntoOutputFluidTank(entity, recipe.get().getResultFluid().getAmount())
+                        && canInsertAmountIntoOutputFluidTank(entity, recipe.get().getResultFluid())
                         && canInsertFluidIntoOutputFluidTank(entity, recipe.get().getResultFluid())
-                        && canToolInSlot(entity, recipe.get().getInputTool());
-            } else if (!recipe.get().getInputTool().isEmpty() && !recipe.get().getResultFluid().isEmpty()
-                    && recipe.get().getResultItem().isEmpty()) {
-                return canInsertAmountIntoOutputFluidTank(entity, recipe.get().getResultFluid().getAmount())
-                        && canInsertFluidIntoOutputFluidTank(entity, recipe.get().getResultFluid())
-                        && canToolInSlot(entity, recipe.get().getInputTool());
-            } else if (!recipe.get().getInputTool().isEmpty() && recipe.get().getResultFluid().isEmpty()
-                    && !recipe.get().getResultItem().isEmpty()) {
-                return canInsertAmountIntoOutputSlot(entity.inventory, recipe.get().getResultItem())
-                        && canInsertItemIntoOutputSlot(entity.inventory, recipe.get().getResultItem())
-                        && canToolInSlot(entity, recipe.get().getInputTool());
-            } else if (recipe.get().getInputTool().isEmpty() && !recipe.get().getResultFluid().isEmpty()
-                    && recipe.get().getResultItem().isEmpty()) {
-                return canInsertAmountIntoOutputFluidTank(entity, recipe.get().getResultFluid().getAmount())
-                        && canInsertFluidIntoOutputFluidTank(entity, recipe.get().getResultFluid())
-                        && entity.itemHandler.getStackInSlot(4).isEmpty();
-            } else if (recipe.get().getInputTool().isEmpty() && recipe.get().getResultFluid().isEmpty()
-                    && !recipe.get().getResultItem().isEmpty()) {
-                return canInsertAmountIntoOutputSlot(entity.inventory, recipe.get().getResultItem())
-                        && canInsertItemIntoOutputSlot(entity.inventory, recipe.get().getResultItem())
-                        && entity.itemHandler.getStackInSlot(4).isEmpty();
-            } else if (recipe.get().getInputTool().isEmpty() && !recipe.get().getResultFluid().isEmpty()
-                    && !recipe.get().getResultItem().isEmpty()) {
-                return canInsertAmountIntoOutputSlot(entity.inventory, recipe.get().getResultItem())
-                        && canInsertItemIntoOutputSlot(entity.inventory, recipe.get().getResultItem())
-                        && canInsertAmountIntoOutputFluidTank(entity, recipe.get().getResultFluid().getAmount())
-                        && canInsertFluidIntoOutputFluidTank(entity, recipe.get().getResultFluid())
-                        && entity.itemHandler.getStackInSlot(4).isEmpty();
+                        && canToolInSlot(entity, recipe.get().getInputTool())
+                        && canIngredientsInSlots(entity, recipe.get().getInputItems());
+        }
+        return false;
+    }
+
+    private static boolean canIngredientsInSlots(FermentationBarrelBlockEntity entity, NonNullList<ItemIngredient> inputItems) {
+        if (inputItems.isEmpty())
+            return true;
+
+        if (inputItems.size() == 1) {
+            for (int i = 1; i < 4; ++i) {
+                for (ItemStack stack : inputItems.get(0).getMatchingItemStacks()) {
+                    if (entity.itemHandler.getStackInSlot(i).getItem().equals(stack.getItem())) {
+                        if (entity.itemHandler.getStackInSlot(i).getCount() >= inputItems.get(0).getRequiredCount())
+                            return true;
+                    }
+                }
+            }
+        } else if (inputItems.size() == 2) {
+            for (int i = 1; i < 4; ++i) {
+                for (ItemStack stack : inputItems.get(0).getMatchingItemStacks()) {
+                    if (entity.itemHandler.getStackInSlot(i).getItem().equals(stack.getItem())) {
+                        if (entity.itemHandler.getStackInSlot(i).getCount() >= inputItems.get(0).getRequiredCount())
+                            return true;
+                    }
+                }
+                for (ItemStack stack : inputItems.get(1).getMatchingItemStacks()) {
+                    if (entity.itemHandler.getStackInSlot(i).getItem().equals(stack.getItem())) {
+                        if (entity.itemHandler.getStackInSlot(i).getCount() >= inputItems.get(1).getRequiredCount())
+                            return true;
+                    }
+                }
+            }
+        } else if (inputItems.size() == 3) {
+            for (int i = 1; i < 4; ++i) {
+                for (ItemStack stack : inputItems.get(0).getMatchingItemStacks()) {
+                    if (entity.itemHandler.getStackInSlot(i).getItem().equals(stack.getItem())) {
+                        if (entity.itemHandler.getStackInSlot(i).getCount() >= inputItems.get(0).getRequiredCount())
+                            return true;
+                    }
+                }
+                for (ItemStack stack : inputItems.get(1).getMatchingItemStacks()) {
+                    if (entity.itemHandler.getStackInSlot(i).getItem().equals(stack.getItem())) {
+                        if (entity.itemHandler.getStackInSlot(i).getCount() >= inputItems.get(1).getRequiredCount())
+                            return true;
+                    }
+                }
+                for (ItemStack stack : inputItems.get(2).getMatchingItemStacks()) {
+                    if (entity.itemHandler.getStackInSlot(i).getItem().equals(stack.getItem())) {
+                        if (entity.itemHandler.getStackInSlot(i).getCount() >= inputItems.get(2).getRequiredCount())
+                            return true;
+                    }
+                }
             }
         }
         return false;
     }
 
     private static boolean canToolInSlot(FermentationBarrelBlockEntity entity, ItemStack inputTool) {
-        return entity.itemHandler.getStackInSlot(4).getItem() == inputTool.getItem();
+        if (inputTool.isEmpty())
+            return true;
+        else
+            return entity.itemHandler.getStackInSlot(4).getItem() == inputTool.getItem();
     }
 
     private static void craft(FermentationBarrelBlockEntity entity, Level level) {
@@ -438,51 +457,14 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
 
         if (recipe.isPresent()){
             entity.FLUID_TANK_IN.drain(recipe.get().getInputFluidIngredient().getRequiredAmount(), IFluidHandler.FluidAction.EXECUTE);
-            entity.itemHandler.extractItem(1, entity.itemHandler.getStackInSlot(1) != ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) == ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) == ItemStack.EMPTY
-                    ? recipe.get().getInputItems().get(0).getRequiredCount() : entity.itemHandler.getStackInSlot(1) == ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) != ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) == ItemStack.EMPTY
-                    ? 0 : entity.itemHandler.getStackInSlot(1) == ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) == ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) != ItemStack.EMPTY
-                    ? 0 : entity.itemHandler.getStackInSlot(1) != ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) != ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) == ItemStack.EMPTY
-                    ? recipe.get().getInputItems().get(0).getRequiredCount() : entity.itemHandler.getStackInSlot(1) != ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) == ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) != ItemStack.EMPTY
-                    ? recipe.get().getInputItems().get(0).getRequiredCount() : entity.itemHandler.getStackInSlot(1) != ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) != ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) != ItemStack.EMPTY
-                    ? recipe.get().getInputItems().get(0).getRequiredCount() : entity.itemHandler.getStackInSlot(1) == ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) != ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) != ItemStack.EMPTY
-                    ? 0 : recipe.get().getInputItems().get(0).getRequiredCount(), false);
-            entity.itemHandler.extractItem(2, entity.itemHandler.getStackInSlot(1) != ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) == ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) == ItemStack.EMPTY
-                    ? 0 : entity.itemHandler.getStackInSlot(1) == ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) != ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) == ItemStack.EMPTY
-                    ? recipe.get().getInputItems().get(0).getRequiredCount() : entity.itemHandler.getStackInSlot(1) == ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(0) == ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) != ItemStack.EMPTY
-                    ? 0 : entity.itemHandler.getStackInSlot(1) != ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) != ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) == ItemStack.EMPTY
-                    ? recipe.get().getInputItems().get(1).getRequiredCount() : entity.itemHandler.getStackInSlot(1) != ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) == ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) != ItemStack.EMPTY
-                    ? 0 : entity.itemHandler.getStackInSlot(1) != ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) != ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) != ItemStack.EMPTY
-                    ? recipe.get().getInputItems().get(1).getRequiredCount() : entity.itemHandler.getStackInSlot(1) == ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) != ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) != ItemStack.EMPTY
-                    ? recipe.get().getInputItems().get(0).getRequiredCount() : recipe.get().getInputItems().get(1).getRequiredCount(), false);
-            entity.itemHandler.extractItem(3, entity.itemHandler.getStackInSlot(1) != ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) == ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) == ItemStack.EMPTY
-                    ? 0 : entity.itemHandler.getStackInSlot(1) == ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) != ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) == ItemStack.EMPTY
-                    ? 0 : entity.itemHandler.getStackInSlot(1) == ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(0) == ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) != ItemStack.EMPTY
-                    ? recipe.get().getInputItems().get(0).getRequiredCount() : entity.itemHandler.getStackInSlot(1) != ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) != ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) == ItemStack.EMPTY
-                    ? 0 : entity.itemHandler.getStackInSlot(1) != ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) == ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) != ItemStack.EMPTY
-                    ? recipe.get().getInputItems().get(1).getRequiredCount() : entity.itemHandler.getStackInSlot(1) != ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) != ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) != ItemStack.EMPTY
-                    ? recipe.get().getInputItems().get(2).getRequiredCount() : entity.itemHandler.getStackInSlot(1) == ItemStack.EMPTY
-                    && entity.itemHandler.getStackInSlot(2) != ItemStack.EMPTY && entity.itemHandler.getStackInSlot(3) != ItemStack.EMPTY
-                    ? recipe.get().getInputItems().get(1).getRequiredCount() : recipe.get().getInputItems().get(2).getRequiredCount(), false);
+            if (!recipe.get().getInputItems().isEmpty()) {
+                entity.itemHandler.extractItem(1, hasAndExtractItem(entity, recipe.get().getInputItems()).get(1) == null ? 0 :
+                        hasAndExtractItem(entity, recipe.get().getInputItems()).get(1), false);
+                entity.itemHandler.extractItem(2, hasAndExtractItem(entity, recipe.get().getInputItems()).get(2) == null ? 0 :
+                        hasAndExtractItem(entity, recipe.get().getInputItems()).get(2), false);
+                entity.itemHandler.extractItem(3, hasAndExtractItem(entity, recipe.get().getInputItems()).get(3) == null ? 0 :
+                        hasAndExtractItem(entity, recipe.get().getInputItems()).get(3), false);
+            }
             if (!recipe.get().getInputTool().isEmpty()) {
                 if (entity.itemHandler.getStackInSlot(4).isDamageableItem()) {
                     entity.itemHandler.getStackInSlot(4).hurt(1, level.random, (ServerPlayer) null);
@@ -503,24 +485,83 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
         }
     }
 
+    private static Map<Integer, Integer> hasAndExtractItem(FermentationBarrelBlockEntity entity, NonNullList<ItemIngredient> inputItems) {
+        Map<Integer, Integer> returns = Maps.newLinkedHashMap();
+        if (inputItems.size() == 1) {
+            for (int i = 1; i < 4; ++i) {
+                for (ItemStack stack : inputItems.get(0).getMatchingItemStacks()) {
+                    if (entity.itemHandler.getStackInSlot(i).getItem().equals(stack.getItem())) {
+                        returns.put(i, inputItems.get(0).getRequiredCount());
+                    }
+                }
+            }
+            return returns;
+        } else if (inputItems.size() == 2) {
+            for (int i = 1; i < 4; ++i) {
+                for (ItemStack stack : inputItems.get(0).getMatchingItemStacks()) {
+                    if (entity.itemHandler.getStackInSlot(i).getItem().equals(stack.getItem())) {
+                        returns.put(i, inputItems.get(0).getRequiredCount());
+                    }
+                }
+                for (ItemStack stack : inputItems.get(1).getMatchingItemStacks()) {
+                    if (entity.itemHandler.getStackInSlot(i).getItem().equals(stack.getItem())) {
+                        returns.put(i, inputItems.get(1).getRequiredCount());
+                    }
+                }
+            }
+            return returns;
+        } else if (inputItems.size() == 3) {
+            for (int i = 1; i < 4; ++i) {
+                for (ItemStack stack : inputItems.get(0).getMatchingItemStacks()) {
+                    if (entity.itemHandler.getStackInSlot(i).getItem().equals(stack.getItem())) {
+                        returns.put(i, inputItems.get(0).getRequiredCount());
+                    }
+                }
+                for (ItemStack stack : inputItems.get(1).getMatchingItemStacks()) {
+                    if (entity.itemHandler.getStackInSlot(i).getItem().equals(stack.getItem())) {
+                        returns.put(i, inputItems.get(1).getRequiredCount());
+                    }
+                }
+                for (ItemStack stack : inputItems.get(2).getMatchingItemStacks()) {
+                    if (entity.itemHandler.getStackInSlot(i).getItem().equals(stack.getItem())) {
+                        returns.put(i, inputItems.get(2).getRequiredCount());
+                    }
+                }
+            }
+            return returns;
+        }
+        return Maps.newLinkedHashMap();
+    }
+
     private void resetProgress () {
         this.progress = 0;
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
-        return inventory.getItem(5).getItem() == output.getItem() || inventory.getItem(5).isEmpty();
+        if (output.isEmpty())
+            return true;
+        else
+            return inventory.getItem(5).getItem() == output.getItem() || inventory.getItem(5).isEmpty();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
-        return inventory.getItem(5).getMaxStackSize() >= inventory.getItem(5).getCount() + output.getCount();
+        if (output.isEmpty())
+            return true;
+        else
+            return inventory.getItem(5).getMaxStackSize() >= inventory.getItem(5).getCount() + output.getCount();
     }
 
     private static boolean canInsertFluidIntoOutputFluidTank(FermentationBarrelBlockEntity entity, FluidStack output) {
-        return entity.FLUID_TANK_OUT.getFluid() == output || entity.FLUID_TANK_OUT.isEmpty();
+        if (output.isEmpty())
+            return true;
+        else
+            return entity.FLUID_TANK_OUT.getFluid() == output || entity.FLUID_TANK_OUT.isEmpty();
     }
 
-    private static boolean canInsertAmountIntoOutputFluidTank(FermentationBarrelBlockEntity entity, int amount) {
-        return entity.FLUID_TANK_OUT.getCapacity() - entity.FLUID_TANK_OUT.getFluid().getAmount()
-                >= entity.FLUID_TANK_OUT.getFluid().getAmount() + amount;
+    private static boolean canInsertAmountIntoOutputFluidTank(FermentationBarrelBlockEntity entity, FluidStack output) {
+        if (output.isEmpty())
+            return true;
+        else
+            return entity.FLUID_TANK_OUT.getSpace() >= entity.FLUID_TANK_OUT.getFluid().getAmount() + output.getAmount();
     }
 }
