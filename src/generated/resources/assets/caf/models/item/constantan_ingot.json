@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "caf:item/metals/constantan_ingot"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "caf:degree": 550.0
+      },
+      "model": "caf:item/constantan_ingot_red_hot"
+    },
+    {
+      "predicate": {
+        "caf:degree": 1000.0
+      },
+      "model": "caf:item/constantan_ingot_white_hot"
+    }
+  ]
+}

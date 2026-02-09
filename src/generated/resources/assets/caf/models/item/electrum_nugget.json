@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "caf:item/metals/electrum_nugget"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "caf:degree": 680.0
+      },
+      "model": "caf:item/electrum_nugget_red_hot"
+    },
+    {
+      "predicate": {
+        "caf:degree": 1300.0
+      },
+      "model": "caf:item/electrum_nugget_white_hot"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "caf:item/metals/silver_nugget"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "caf:degree": 650.0
+      },
+      "model": "caf:item/silver_nugget_red_hot"
+    },
+    {
+      "predicate": {
+        "caf:degree": 1000.0
+      },
+      "model": "caf:item/silver_nugget_white_hot"
+    }
+  ]
+}

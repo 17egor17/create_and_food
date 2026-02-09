@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "caf:item/metals/uranium_nugget"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "caf:degree": 700.0
+      },
+      "model": "caf:item/uranium_nugget_red_hot"
+    },
+    {
+      "predicate": {
+        "caf:degree": 3818.0
+      },
+      "model": "caf:item/uranium_nugget_white_hot"
+    }
+  ]
+}

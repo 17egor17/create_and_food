@@ -239,6 +239,84 @@ public class CAFItems {
     public static final RegistryObject<MetalItem> NETHERITE_INGOT = registerItem("netherite_ingot",
             () -> new MetalItem(3133, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
+    public static final RegistryObject<DependentMetalItem> ALUMINUM_INGOT = registerItem("aluminum_ingot",
+            () -> new DependentMetalItem(660, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.IEIsPresent));
+    public static final RegistryObject<DependentMetalItem> ALUMINUM_NUGGET = registerItem("aluminum_nugget",
+            () -> new DependentMetalItem(660, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.IEIsPresent));
+
+    public static final RegistryObject<DependentMetalItem> LEAD_INGOT = registerItem("lead_ingot",
+            () -> new DependentMetalItem(328, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent, CreateAndFood.MEKIsPresent));
+    public static final RegistryObject<DependentMetalItem> LEAD_NUGGET = registerItem("lead_nugget",
+            () -> new DependentMetalItem(328, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent, CreateAndFood.MEKIsPresent));
+
+    public static final RegistryObject<DependentMetalItem> NICKEL_INGOT = registerItem("nickel_ingot",
+            () -> new DependentMetalItem(1455, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent));
+    public static final RegistryObject<DependentMetalItem> NICKEL_NUGGET = registerItem("nickel_nugget",
+            () -> new DependentMetalItem(1455, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent));
+
+    public static final RegistryObject<DependentMetalItem> OSMIUM_INGOT = registerItem("osmium_ingot",
+            () -> new DependentMetalItem(3033, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.MEKIsPresent));
+    public static final RegistryObject<DependentMetalItem> OSMIUM_NUGGET = registerItem("osmium_nugget",
+            () -> new DependentMetalItem(3033, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.MEKIsPresent));
+
+    public static final RegistryObject<DependentMetalItem> SILVER_INGOT = registerItem("silver_ingot",
+            () -> new DependentMetalItem(962, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.THIsPresent, CreateAndFood.IEIsPresent));
+    public static final RegistryObject<DependentMetalItem> SILVER_NUGGET = registerItem("silver_nugget",
+            () -> new DependentMetalItem(962, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.THIsPresent, CreateAndFood.IEIsPresent));
+
+    public static final RegistryObject<DependentMetalItem> TIN_INGOT = registerItem("tin_ingot",
+            () -> new DependentMetalItem(232, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.THIsPresent, CreateAndFood.MEKIsPresent));
+    public static final RegistryObject<DependentMetalItem> TIN_NUGGET = registerItem("tin_nugget",
+            () -> new DependentMetalItem(232, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.THIsPresent, CreateAndFood.MEKIsPresent));
+
+    public static final RegistryObject<DependentMetalItem> URANIUM_INGOT = registerItem("uranium_ingot",
+            () -> new DependentMetalItem(1135, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.MEKIsPresent, CreateAndFood.IEIsPresent));
+    public static final RegistryObject<DependentMetalItem> URANIUM_NUGGET = registerItem("uranium_nugget",
+            () -> new DependentMetalItem(1135, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.MEKIsPresent, CreateAndFood.IEIsPresent));
+
+    public static final RegistryObject<DependentMetalItem> BRONZE_INGOT = registerItem("bronze_ingot",
+            () -> new DependentMetalItem(1140, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.MEKIsPresent, CreateAndFood.THIsPresent));
+    public static final RegistryObject<DependentMetalItem> BRONZE_NUGGET = registerItem("bronze_nugget",
+            () -> new DependentMetalItem(1140, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.MEKIsPresent, CreateAndFood.THIsPresent));
+
+    public static final RegistryObject<DependentMetalItem> CONSTANTAN_INGOT = registerItem("constantan_ingot",
+            () -> new DependentMetalItem(1260, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent));
+    public static final RegistryObject<DependentMetalItem> CONSTANTAN_NUGGET = registerItem("constantan_nugget",
+            () -> new DependentMetalItem(1260, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent));
+
+    public static final RegistryObject<DependentMetalItem> ELECTRUM_INGOT = registerItem("electrum_ingot",
+            () -> new DependentMetalItem(960, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent));
+    public static final RegistryObject<DependentMetalItem> ELECTRUM_NUGGET = registerItem("electrum_nugget",
+            () -> new DependentMetalItem(960, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.IEIsPresent, CreateAndFood.THIsPresent));
+
+    public static final RegistryObject<DependentMetalItem> INVAR_INGOT = registerItem("invar_ingot",
+            () -> new DependentMetalItem(1425, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.THIsPresent));
+    public static final RegistryObject<DependentMetalItem> INVAR_NUGGET = registerItem("invar_nugget",
+            () -> new DependentMetalItem(1425, Type.NUGGET, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.THIsPresent));
+
+
     public static final RegistryObject<MetalItem> STEEL_INGOT = registerItem("steel_ingot",
             () -> new MetalItem(1530, Type.INGOT, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 

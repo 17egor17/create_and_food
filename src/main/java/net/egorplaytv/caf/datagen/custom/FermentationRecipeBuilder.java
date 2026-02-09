@@ -1,17 +1,13 @@
 package net.egorplaytv.caf.datagen.custom;
 
-import blusunrize.immersiveengineering.common.fluids.IEFluid;
 import com.google.common.collect.Lists;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.simibubi.create.foundation.fluid.FluidIngredient;
 import net.egorplaytv.caf.recipe.FermentationBarrelRecipe;
+import net.egorplaytv.caf.recipe.fluids.FluidStack;
 import net.egorplaytv.caf.util.FluidJSONUtil;
-import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
-import net.minecraft.advancements.RequirementsStrategy;
-import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -20,7 +16,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluid;
-import net.minecraftforge.fluids.FluidStack;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;

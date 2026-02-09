@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "caf:item/metals/uranium_ingot"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "caf:degree": 700.0
+      },
+      "model": "caf:item/uranium_ingot_red_hot"
+    },
+    {
+      "predicate": {
+        "caf:degree": 3818.0
+      },
+      "model": "caf:item/uranium_ingot_white_hot"
+    }
+  ]
+}

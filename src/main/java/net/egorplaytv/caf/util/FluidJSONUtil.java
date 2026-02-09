@@ -9,7 +9,7 @@ public class FluidJSONUtil {
         return FluidStack.CODEC.decode(JsonOps.INSTANCE, json).result().orElseThrow().getFirst();
     }
 
-    public static JsonElement toJson(net.minecraftforge.fluids.FluidStack stack) {
-        return FluidStack.CODEC.encodeStart(JsonOps.INSTANCE, (FluidStack) stack).result().orElseThrow();
+    public static JsonElement toJson(FluidStack stack) {
+        return FluidStack.CODEC.encodeStart(JsonOps.INSTANCE, stack).result().orElseThrow();
     }
 }

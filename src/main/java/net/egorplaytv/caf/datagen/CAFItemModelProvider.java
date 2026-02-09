@@ -10,6 +10,9 @@ import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static net.egorplaytv.caf.CreateAndFood.MOD_ID;
 import static net.egorplaytv.caf.block.CAFBlocks.*;
 import static net.egorplaytv.caf.item.CAFItems.*;
@@ -94,6 +97,30 @@ public class CAFItemModelProvider extends ItemModelProvider {
         metalItem(PIECE_OF_GOLD.get());
         minecraftMetalItem(GOLD_NUGGET.get());
         minecraftIngotItem(NETHERITE_INGOT.get(), 900, 1500);
+        ingotItem(ALUMINUM_INGOT.get(), 850, 2500);
+        nuggetItem(ALUMINUM_NUGGET.get(), 850, 2500);
+        ingotItem(LEAD_INGOT.get(), 550, 1750);
+        nuggetItem(LEAD_NUGGET.get(), 550, 1750);
+        ingotItem(NICKEL_INGOT.get(), 550, 1000);
+        nuggetItem(NICKEL_NUGGET.get(), 550, 1000);
+        ingotItem(OSMIUM_INGOT.get(), Metals.OSMIUM);
+        nuggetItem(OSMIUM_NUGGET.get(), Metals.OSMIUM);
+        ingotItem(SILVER_INGOT.get(), 650, 1000);
+        nuggetItem(SILVER_NUGGET.get(), 650, 1000);
+        ingotItem(TIN_INGOT.get(), 500, 1000);
+        nuggetItem(TIN_NUGGET.get(), 500, 1000);
+        ingotItem(URANIUM_INGOT.get(), 700, 3818);
+        nuggetItem(URANIUM_NUGGET.get(), 700, 3818);
+        ingotItem(BRONZE_INGOT.get(), 600, 1100);
+        nuggetItem(BRONZE_NUGGET.get(), 600, 1100);
+        ingotItem(CONSTANTAN_INGOT.get(), 550, 1000);
+        nuggetItem(CONSTANTAN_NUGGET.get(), 550, 1000);
+        ingotItem(ELECTRUM_INGOT.get(), 680, 1300);
+        nuggetItem(ELECTRUM_NUGGET.get(), 680, 1300);
+        ingotItem(INVAR_INGOT.get(), 100, 1200);
+        nuggetItem(INVAR_NUGGET.get(), 100, 1200);
+
+
         ingotItem(STEEL_INGOT.get(), 800, 1300);
         nuggetItem(STEEL_NUGGET.get(), 800, 1300);
         metalItem(STEEL_SHEET.get());
@@ -347,94 +374,106 @@ public class CAFItemModelProvider extends ItemModelProvider {
         sequencedAssemblyItem(item, textureFolder, progressStep1, progressStep2, progressStep3, 0);
     }
 
-    private void sequencedAssemblyItem(Item item, String textureFolder, int progressStep1, int progressStep2, int progressStep3, int progressStep4) {
-        var baseId = item.getRegistryName().getPath();
-        String folder = !textureFolder.isEmpty() ? textureFolder + "/" : "";
-
-        if (progressStep1 == 0 && progressStep2 == 0 && progressStep3 == 0 && progressStep4 == 0)
-            withExistingParent(baseId, "item/generated")
-                    .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId));
-
-        else if (progressStep1 != 0 && progressStep2 == 0 && progressStep3 == 0 && progressStep4 == 0) {
-            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_1"), "item/" + folder, item.getRegistryName().getPath() + "_1");
-
-            withExistingParent(baseId, "item/generated")
-                    .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId + "_0"))
-                    // 2nd incomplete stage
-                    .override()
-                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep1)
-                    .model(model1)
-                    .end();
-        } else if (progressStep2 != 0 && progressStep3 == 0 && progressStep4 == 0) {
-            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_1"), "item/" + folder, item.getRegistryName().getPath() + "_1");
-            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_2"), "item/" + folder, item.getRegistryName().getPath() + "_2");
-
-            withExistingParent(baseId, "item/generated")
-                    .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId + "_0"))
-                    // 2nd incomplete stage
-                    .override()
-                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep1)
-                    .model(model1)
-                    .end()
-                    // 3nd incomplete stage
-                    .override()
-                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep2)
-                    .model(model2)
-                    .end();
-        } else if (progressStep3 != 0 && progressStep4 == 0) {
-            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_2"), "item/" + folder, item.getRegistryName().getPath() + "_2");
-            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_1"), "item/" + folder, item.getRegistryName().getPath() + "_1");
-            var model3 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_3"), "item/" + folder, item.getRegistryName().getPath() + "_3");
-
-            withExistingParent(baseId, "item/generated")
-                    .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId + "_0"))
-                    // 2nd incomplete stage
-                    .override()
-                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep1)
-                    .model(model1)
-                    .end()
-                    // 3nd incomplete stage
-                    .override()
-                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep2)
-                    .model(model2)
-                    .end()
-                    // 4nd incomplete stage
-                    .override()
-                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep3)
-                    .model(model3)
-                    .end();
-        } else {
-            var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_1"), "item/" + folder, item.getRegistryName().getPath() + "_1");
-            var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_2"), "item/" + folder, item.getRegistryName().getPath() + "_2");
-            var model3 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_3"), "item/" + folder, item.getRegistryName().getPath() + "_3");
-            var model4 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_4"), "item/" + folder, item.getRegistryName().getPath() + "_4");
-
-            withExistingParent(baseId, "item/generated")
-                    .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId + "_0"))
-                    // 2nd incomplete stage
-                    .override()
-                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep1)
-                    .model(model1)
-                    .end()
-                    // 3nd incomplete stage
-                    .override()
-                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep2)
-                    .model(model2)
-                    .end()
-                    // 4nd incomplete stage
-                    .override()
-                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep3)
-                    .model(model3)
-                    .end()
-                    // 5nd incomplete stage
-                    .override()
-                    .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressStep4)
-                    .model(model4)
-                    .end();
+    private void sequencedAssemblyItem(Item item, String textureFolder, int... progressStep) {
+        List<Integer> progressSteps = new ArrayList<>();
+        for (int step : progressStep) {
+            progressSteps.add(step);
         }
+        sequencedAssemblyItem(item, textureFolder, progressSteps);
     }
 
-    private void minecraftIngotItem(Item item, int deg1, int deg2) {
+    private void sequencedAssemblyItem(Item item, String textureFolder, List<Integer> progressSteps){
+        var baseId = item.getRegistryName().getPath();
+        String folder = !textureFolder.isEmpty() ? textureFolder + "/" : "";
+        int countSteps = progressSteps.size();
+
+        if (countSteps > 0 && countSteps <= 4) {
+            if (progressSteps.get(0) == 0 && progressSteps.get(1) == 0 && progressSteps.get(2) == 0 && progressSteps.get(3) == 0)
+                withExistingParent(baseId, "item/generated")
+                        .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId));
+
+            else if (progressSteps.get(0) != 0 && progressSteps.get(1) == 0 && progressSteps.get(2) == 0 && progressSteps.get(3) == 0) {
+                var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_1"), "item/" + folder, item.getRegistryName().getPath() + "_1");
+
+                withExistingParent(baseId, "item/generated")
+                        .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId + "_0"))
+                        // 2nd incomplete stage
+                        .override()
+                        .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressSteps.get(0))
+                        .model(model1)
+                        .end();
+            } else if (progressSteps.get(1) != 0 && progressSteps.get(2) == 0 && progressSteps.get(3) == 0) {
+                var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_1"), "item/" + folder, item.getRegistryName().getPath() + "_1");
+                var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_2"), "item/" + folder, item.getRegistryName().getPath() + "_2");
+
+                withExistingParent(baseId, "item/generated")
+                        .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId + "_0"))
+                        // 2nd incomplete stage
+                        .override()
+                        .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressSteps.get(0))
+                        .model(model1)
+                        .end()
+                        // 3nd incomplete stage
+                        .override()
+                        .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressSteps.get(1))
+                        .model(model2)
+                        .end();
+            } else if (progressSteps.get(2) != 0 && progressSteps.get(3) == 0) {
+                var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_2"), "item/" + folder, item.getRegistryName().getPath() + "_2");
+                var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_1"), "item/" + folder, item.getRegistryName().getPath() + "_1");
+                var model3 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_3"), "item/" + folder, item.getRegistryName().getPath() + "_3");
+
+                withExistingParent(baseId, "item/generated")
+                        .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId + "_0"))
+                        // 2nd incomplete stage
+                        .override()
+                        .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressSteps.get(0))
+                        .model(model1)
+                        .end()
+                        // 3nd incomplete stage
+                        .override()
+                        .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressSteps.get(1))
+                        .model(model2)
+                        .end()
+                        // 4nd incomplete stage
+                        .override()
+                        .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressSteps.get(2))
+                        .model(model3)
+                        .end();
+            } else {
+                var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_1"), "item/" + folder, item.getRegistryName().getPath() + "_1");
+                var model2 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_2"), "item/" + folder, item.getRegistryName().getPath() + "_2");
+                var model3 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_3"), "item/" + folder, item.getRegistryName().getPath() + "_3");
+                var model4 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_4"), "item/" + folder, item.getRegistryName().getPath() + "_4");
+
+                withExistingParent(baseId, "item/generated")
+                        .texture("layer0", new ResourceLocation(MOD_ID, "item/" + folder + baseId + "_0"))
+                        // 2nd incomplete stage
+                        .override()
+                        .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressSteps.get(0))
+                        .model(model1)
+                        .end()
+                        // 3nd incomplete stage
+                        .override()
+                        .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressSteps.get(1))
+                        .model(model2)
+                        .end()
+                        // 4nd incomplete stage
+                        .override()
+                        .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressSteps.get(2))
+                        .model(model3)
+                        .end()
+                        // 5nd incomplete stage
+                        .override()
+                        .predicate(ModItemModelsProperties.SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID, progressSteps.get(3))
+                        .model(model4)
+                        .end();
+            }
+        }
+
+    }
+
+    private void minecraftIngotItem(Item item, List<Integer> deg) {
         var baseId = item.getRegistryName().getPath();
 
         var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "ingot_red_hot");
@@ -444,22 +483,32 @@ public class CAFItemModelProvider extends ItemModelProvider {
                 .texture("layer0", new ResourceLocation("item/" + baseId))
                 // 2nd degree stage
                 .override()
-                .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg1)
+                .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg.get(0))
                 .model(model1)
                 .end()
                 // 3rd degree stage
                 .override()
-                .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
+                .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg.get(1))
                 .model(model2)
                 .end();
     }
 
+    private void minecraftIngotItem(Item item, int deg1, int deg2) {
+        List<Integer> deg = new ArrayList<>();
+        deg.add(0, deg1);
+        deg.add(1, deg2);
+        minecraftIngotItem(item, deg);
+    }
+
     private void minecraftIngotItem(Item item) {
-        minecraftIngotItem(item, 550, 1300);
+        List<Integer> deg = new ArrayList<>();
+        deg.add(0, 550);
+        deg.add(1, 1300);
+        minecraftIngotItem(item, deg);
     }
 
     private void ingotItem(Item item, Metals type, int deg1, int deg2) {
-        if (type.equals(Metals.DEFAULT)){
+        if (type.equals(Metals.DEFAULT)) {
             var baseId = item.getRegistryName().getPath();
 
             var model1 = simpleItem(new ResourceLocation(MOD_ID, baseId + "_red_hot"), "item/metals/hot/", "ingot_red_hot");
@@ -477,6 +526,11 @@ public class CAFItemModelProvider extends ItemModelProvider {
                     .predicate(ModItemModelsProperties.DEGREE_PREDICATE_ID, deg2)
                     .model(model2)
                     .end();
+        } else if (type.equals(Metals.OSMIUM)) {
+            var baseId = item.getRegistryName().getPath();
+
+            withExistingParent(baseId, "item/generated")
+                    .texture("layer0", new ResourceLocation(MOD_ID, "item/metals/" + baseId));
 
         } else if (type.equals(Metals.BRASS)) {
             var baseId = item.getRegistryName().getPath();
@@ -522,7 +576,11 @@ public class CAFItemModelProvider extends ItemModelProvider {
     }
 
     private void ingotItem(Item item, Metals type) {
-        ingotItem(item, type, 550, 1300);
+        if (type.equals(Metals.OSMIUM)) {
+            ingotItem(item, type, 0, 0);
+        } else {
+            ingotItem(item, type, 550, 1300);
+        }
     }
 
     private void ingotItem(Item item) {

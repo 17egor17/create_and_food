@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "caf:item/metals/electrum_ingot"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "caf:degree": 680.0
+      },
+      "model": "caf:item/electrum_ingot_red_hot"
+    },
+    {
+      "predicate": {
+        "caf:degree": 1300.0
+      },
+      "model": "caf:item/electrum_ingot_white_hot"
+    }
+  ]
+}

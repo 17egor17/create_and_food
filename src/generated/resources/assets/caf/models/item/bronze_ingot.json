@@ -1,0 +1,20 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "caf:item/metals/bronze_ingot"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "caf:degree": 600.0
+      },
+      "model": "caf:item/bronze_ingot_red_hot"
+    },
+    {
+      "predicate": {
+        "caf:degree": 1100.0
+      },
+      "model": "caf:item/bronze_ingot_white_hot"
+    }
+  ]
+}
