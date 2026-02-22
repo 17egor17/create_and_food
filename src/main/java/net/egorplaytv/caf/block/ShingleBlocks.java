@@ -17,8 +17,16 @@ import java.util.function.Function;
 import static net.egorplaytv.caf.block.ShingleBlockPattern.*;
 
 public enum ShingleBlocks {
-    SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.BAKED_CLAY.getBaseBlock().get())
-
+    SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.BAKED_CLAY.getBaseBlock().get()),
+    BLACK_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.BLACK_BAKED_CLAY.getBaseBlock().get()),
+    BLUE_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.BLUE_BAKED_CLAY.getBaseBlock().get()),
+    CYAN_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.CYAN_BAKED_CLAY.getBaseBlock().get()),
+    GRAY_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.GRAY_BAKED_CLAY.getBaseBlock().get()),
+    GREEN_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.GREEN_BAKED_CLAY.getBaseBlock().get()),
+    ORANGE_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.ORANGE_BAKED_CLAY.getBaseBlock().get()),
+    RED_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.RED_BAKED_CLAY.getBaseBlock().get()),
+    WHITE_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.WHITE_BAKED_CLAY.getBaseBlock().get()),
+    YELLOW_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.YELLOW_BAKED_CLAY.getBaseBlock().get())
     ;
 
     private final Function<CAFRegistrate, NonNullSupplier<Block>> factory;

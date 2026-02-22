@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:blue_saman_dark_oak_shingle"
+    ]
+  },
+  "criteria": {
+    "has_blue_baked_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:blue_baked_clay"
+            ]
+          }
+        ]
+      }
+    },
+    "has_dark_oak_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:dark_oak_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:blue_saman_dark_oak_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_blue_baked_clay",
+      "has_dark_oak_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

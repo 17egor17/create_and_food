@@ -682,8 +682,8 @@ public class CAFBlocks {
     new framedWallGolden(REGISTRATE);
     new framedWallSmallBrick(REGISTRATE);
     PaletteStoneTypes.register(REGISTRATE);
-    ShingleBlocks.register(REGISTRATE);
-}
+    }
+
 
     public static final BlockEntry<EncasedShaftBlock> STEEL_ENCASED_STEEL_SHAFT =
             REGISTRATE.block("steel_encased_steel_shaft", p -> new EncasedShaftBlock(p, CAFBlocks.STEEL_CASING::get))
@@ -728,7 +728,11 @@ public class CAFBlocks {
                 .register();
     }
 
+    static {
+        REGISTRATE.creativeModeTab(() -> CAFCreativeModeTab.CREATE_AND_FOOD_ROOFS);
 
+        ShingleBlocks.register(REGISTRATE);
+    }
 
 
 

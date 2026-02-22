@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "10 ",
+    "110"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:blue_baked_clay"
+    },
+    "1": {
+      "item": "minecraft:acacia_planks"
+    }
+  },
+  "result": {
+    "item": "caf:blue_saman_acacia_shingle",
+    "count": 3
+  }
+}
