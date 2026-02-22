@@ -1,5 +1,6 @@
 package net.egorplaytv.caf.block;
 
+import com.google.common.collect.Maps;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.decoration.MetalScaffoldingBlock;
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
@@ -55,7 +56,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
@@ -682,7 +685,7 @@ public class CAFBlocks {
     new framedWallGolden(REGISTRATE);
     new framedWallSmallBrick(REGISTRATE);
     PaletteStoneTypes.register(REGISTRATE);
-
+    ShingleBlocks.register(REGISTRATE);
 }
 
     public static final BlockEntry<EncasedShaftBlock> STEEL_ENCASED_STEEL_SHAFT =
