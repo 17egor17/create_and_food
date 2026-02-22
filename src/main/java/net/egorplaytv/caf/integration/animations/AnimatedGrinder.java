@@ -6,7 +6,7 @@ import com.simibubi.create.compat.jei.category.animations.AnimatedKinetics;
 
 import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.block.custom.GrinderBlock;
-import net.egorplaytv.caf.block.custom.connect.ModPartialModels;
+import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
 import net.minecraft.core.Direction;
 
 public class AnimatedGrinder extends AnimatedKinetics {
@@ -31,7 +31,7 @@ public class AnimatedGrinder extends AnimatedKinetics {
                 .scale(scale)
                 .render(matrixStack);
 
-        blockElement(ModPartialModels.GRINDER_BELT_ACTIVE)
+        blockElement(CAFPartialModels.GRINDER_BELT_ACTIVE)
                 .rotateBlock(0, 90, 0)
                 .scale(scale)
                 .render(matrixStack);

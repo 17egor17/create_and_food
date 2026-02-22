@@ -4,7 +4,7 @@ import com.google.common.collect.Maps;
 import com.simibubi.create.AllFluids;
 import com.simibubi.create.foundation.fluid.CombinedTankWrapper;
 import net.egorplaytv.caf.block.custom.FermentationBarrelBlock;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.entity.WrappedFluidHandler;
 import net.egorplaytv.caf.entity.WrappedHandler;
 import net.egorplaytv.caf.networking.CAFMessages;
@@ -48,7 +48,6 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -144,7 +143,7 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
     int time;
     protected final ContainerData data;
     public FermentationBarrelBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.FERMENTATION_BARREL_ENTITY.get(), pPos, pBlockState);
+        super(CAFBlockEntities.FERMENTATION_BARREL_ENTITY.get(), pPos, pBlockState);
         this.data = new ContainerData() {
             public int get(int index) {
                 switch (index) {

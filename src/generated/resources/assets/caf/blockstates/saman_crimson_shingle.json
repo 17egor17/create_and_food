@@ -1,154 +1,124 @@
 {
   "variants": {
     "facing=north,shape=straight,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_north_straight",
-      "y": 270
+      "model": "caf:block/saman_crimson_shingle_north_straight"
     },
     "facing=south,shape=straight,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_south_straight",
-      "y": 90
+      "model": "caf:block/saman_crimson_shingle_south_straight"
     },
     "facing=west,shape=straight,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_west_straight",
-      "y": 180
+      "model": "caf:block/saman_crimson_shingle_west_straight"
     },
     "facing=east,shape=straight,waterlogged=false": {
       "model": "caf:block/saman_crimson_shingle"
     },
     "facing=north,shape=inner_left,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_north_inner_left",
-      "y": 180
+      "model": "caf:block/saman_crimson_shingle_west_inner"
     },
     "facing=south,shape=inner_left,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_south_inner_left"
+      "model": "caf:block/saman_crimson_shingle_east_inner"
     },
     "facing=west,shape=inner_left,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_west_inner_left",
-      "y": 90
+      "model": "caf:block/saman_crimson_shingle_south_inner"
     },
     "facing=east,shape=inner_left,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_east_inner_left",
-      "y": 270
+      "model": "caf:block/saman_crimson_shingle_north_inner"
     },
     "facing=north,shape=inner_right,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_north_inner_right",
-      "y": 270
+      "model": "caf:block/saman_crimson_shingle_north_inner"
     },
     "facing=south,shape=inner_right,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_south_inner_right",
-      "y": 90
+      "model": "caf:block/saman_crimson_shingle_south_inner"
     },
     "facing=west,shape=inner_right,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_west_inner_right",
-      "y": 180
+      "model": "caf:block/saman_crimson_shingle_west_inner"
     },
     "facing=east,shape=inner_right,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_east_inner_right"
+      "model": "caf:block/saman_crimson_shingle_east_inner"
     },
     "facing=north,shape=outer_left,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_north_outer_left",
-      "y": 180
+      "model": "caf:block/saman_crimson_shingle_west_outer"
     },
     "facing=south,shape=outer_left,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_south_outer_left"
+      "model": "caf:block/saman_crimson_shingle_east_outer"
     },
     "facing=west,shape=outer_left,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_west_outer_left",
-      "y": 90
+      "model": "caf:block/saman_crimson_shingle_south_outer"
     },
     "facing=east,shape=outer_left,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_east_outer_left",
-      "y": 270
+      "model": "caf:block/saman_crimson_shingle_north_outer"
     },
     "facing=north,shape=outer_right,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_north_outer_right",
-      "y": 270
+      "model": "caf:block/saman_crimson_shingle_north_outer"
     },
     "facing=south,shape=outer_right,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_south_outer_right",
-      "y": 90
+      "model": "caf:block/saman_crimson_shingle_south_outer"
     },
     "facing=west,shape=outer_right,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_west_outer_right",
-      "y": 180
+      "model": "caf:block/saman_crimson_shingle_west_outer"
     },
     "facing=east,shape=outer_right,waterlogged=false": {
-      "model": "caf:block/saman_crimson_shingle_east_outer_right"
+      "model": "caf:block/saman_crimson_shingle_east_outer"
     },
     "facing=north,shape=straight,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_north_straight",
-      "y": 270
+      "model": "caf:block/saman_crimson_shingle_north_straight"
     },
     "facing=south,shape=straight,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_south_straight",
-      "y": 90
+      "model": "caf:block/saman_crimson_shingle_south_straight"
     },
     "facing=west,shape=straight,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_west_straight",
-      "y": 180
+      "model": "caf:block/saman_crimson_shingle_west_straight"
     },
     "facing=east,shape=straight,waterlogged=true": {
       "model": "caf:block/saman_crimson_shingle"
     },
     "facing=north,shape=inner_left,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_north_inner_left",
-      "y": 180
+      "model": "caf:block/saman_crimson_shingle_west_inner"
     },
     "facing=south,shape=inner_left,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_south_inner_left"
+      "model": "caf:block/saman_crimson_shingle_east_inner"
     },
     "facing=west,shape=inner_left,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_west_inner_left",
-      "y": 90
+      "model": "caf:block/saman_crimson_shingle_south_inner"
     },
     "facing=east,shape=inner_left,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_east_inner_left",
-      "y": 270
+      "model": "caf:block/saman_crimson_shingle_north_inner"
     },
     "facing=north,shape=inner_right,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_north_inner_right",
-      "y": 270
+      "model": "caf:block/saman_crimson_shingle_north_inner"
     },
     "facing=south,shape=inner_right,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_south_inner_right",
-      "y": 90
+      "model": "caf:block/saman_crimson_shingle_south_inner"
     },
     "facing=west,shape=inner_right,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_west_inner_right",
-      "y": 180
+      "model": "caf:block/saman_crimson_shingle_west_inner"
     },
     "facing=east,shape=inner_right,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_east_inner_right"
+      "model": "caf:block/saman_crimson_shingle_east_inner"
     },
     "facing=north,shape=outer_left,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_north_outer_left",
-      "y": 180
+      "model": "caf:block/saman_crimson_shingle_west_outer"
     },
     "facing=south,shape=outer_left,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_south_outer_left"
+      "model": "caf:block/saman_crimson_shingle_east_outer"
     },
     "facing=west,shape=outer_left,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_west_outer_left",
-      "y": 90
+      "model": "caf:block/saman_crimson_shingle_south_outer"
     },
     "facing=east,shape=outer_left,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_east_outer_left",
-      "y": 270
+      "model": "caf:block/saman_crimson_shingle_north_outer"
     },
     "facing=north,shape=outer_right,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_north_outer_right",
-      "y": 270
+      "model": "caf:block/saman_crimson_shingle_north_outer"
     },
     "facing=south,shape=outer_right,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_south_outer_right",
-      "y": 90
+      "model": "caf:block/saman_crimson_shingle_south_outer"
     },
     "facing=west,shape=outer_right,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_west_outer_right",
-      "y": 180
+      "model": "caf:block/saman_crimson_shingle_west_outer"
     },
     "facing=east,shape=outer_right,waterlogged=true": {
-      "model": "caf:block/saman_crimson_shingle_east_outer_right"
+      "model": "caf:block/saman_crimson_shingle_east_outer"
     }
   }
 }

@@ -6,7 +6,7 @@ import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRender
 import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
 import net.egorplaytv.caf.block.custom.ScalesBlock;
-import net.egorplaytv.caf.block.custom.connect.ModPartialModels;
+import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
 import net.egorplaytv.caf.block.entity.custom.ScalesBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -32,7 +32,7 @@ public class ScalesBlockRenderer<BE extends ScalesBlockEntity> extends SafeBlock
 
         float ticks = be.weighingTicks * -0.01F;
 
-        SuperByteBuffer scales = CachedBufferer.partial(ModPartialModels.SCALES_HEAD, state);
+        SuperByteBuffer scales = CachedBufferer.partial(CAFPartialModels.SCALES_HEAD, state);
 
         if (be.isWeighing) {
             scales.translate(0, ticks, 0);

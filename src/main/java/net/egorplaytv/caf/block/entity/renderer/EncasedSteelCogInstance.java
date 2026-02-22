@@ -13,7 +13,7 @@ import com.simibubi.create.content.kinetics.base.KineticBlockEntityInstance;
 import com.simibubi.create.content.kinetics.base.flwdata.RotatingData;
 import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockEntityRenderer;
 import com.simibubi.create.foundation.utility.Iterate;
-import net.egorplaytv.caf.block.custom.connect.ModPartialModels;
+import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -57,7 +57,7 @@ public class EncasedSteelCogInstance extends KineticBlockEntityInstance<KineticB
         for (Direction d : Iterate.directionsInAxis(axis)) {
             if (!def.hasShaftTowards(blockEntity.getLevel(), blockEntity.getBlockPos(), blockState, d))
                 continue;
-            RotatingData data = setup(getRotatingMaterial().getModel(ModPartialModels.STEEL_SHAFT_HALF, blockState, d)
+            RotatingData data = setup(getRotatingMaterial().getModel(CAFPartialModels.STEEL_SHAFT_HALF, blockState, d)
                     .createInstance());
             if (large)
                 data.setRotationOffset(BracketedKineticBlockEntityRenderer.getShaftAngleOffset(axis, pos));
@@ -93,7 +93,7 @@ public class EncasedSteelCogInstance extends KineticBlockEntityInstance<KineticB
         BlockState referenceState = blockEntity.getBlockState();
         Direction facing =
                 Direction.fromAxisAndDirection(referenceState.getValue(BlockStateProperties.AXIS), Direction.AxisDirection.POSITIVE);
-        PartialModel partial = large ? ModPartialModels.LARGE_STEEL_COGWHEEL : ModPartialModels.STEEL_COGWHEEL;
+        PartialModel partial = large ? CAFPartialModels.LARGE_STEEL_COGWHEEL : CAFPartialModels.STEEL_COGWHEEL;
 
         return getRotatingMaterial().getModel(partial, referenceState, facing, () -> {
             PoseStack poseStack = new PoseStack();

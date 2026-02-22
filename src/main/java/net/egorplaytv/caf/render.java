@@ -1,8 +1,8 @@
 package net.egorplaytv.caf;
 
 import net.egorplaytv.caf.block.CAFBlocks;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
-import net.egorplaytv.caf.block.entity.ModWoodTypes;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFWoodTypes;
 import net.egorplaytv.caf.block.entity.renderer.*;
 import net.egorplaytv.caf.fluid.CAFFluids;
 import net.egorplaytv.caf.screen.*;
@@ -116,21 +116,21 @@ public class render {
         MenuScreens.register(CAFMenuTypes.BLASTING_MENU.get(), MarbleBlastFurnaceScreen::new);
         MenuScreens.register(CAFMenuTypes.SAMPLE_MENU.get(), SampleOfMetalsScreen::new);
 
-        WoodType.register(ModWoodTypes.ALMOND);
+        WoodType.register(CAFWoodTypes.ALMOND);
 
-        BlockEntityRenderers.register(ModBlockEntities.SCALES_BLOCK_ENTITY.get(), ScalesBlockRenderer::new);
-        BlockEntityRenderers.register(ModBlockEntities.VASE_BLOCK_ENTITY.get(), VaseBlockRenderer::new);
+        BlockEntityRenderers.register(CAFBlockEntities.SCALES_BLOCK_ENTITY.get(), ScalesBlockRenderer::new);
+        BlockEntityRenderers.register(CAFBlockEntities.VASE_BLOCK_ENTITY.get(), VaseBlockRenderer::new);
 
-        BlockEntityRenderers.register(ModBlockEntities.SIGN_BLOCK_ENTITIES.get(), SignRenderer::new);
+        BlockEntityRenderers.register(CAFBlockEntities.SIGN_BLOCK_ENTITIES.get(), SignRenderer::new);
 
-        BlockEntityRenderers.register(ModBlockEntities.OAK_CUTTING_BOARD.get(), OakCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(ModBlockEntities.SPRUCE_CUTTING_BOARD.get(), SpruceCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(ModBlockEntities.BIRCH_CUTTING_BOARD.get(), BirchCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(ModBlockEntities.JUNGLE_CUTTING_BOARD.get(), JungleCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(ModBlockEntities.ACACIA_CUTTING_BOARD.get(), AcaciaCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(ModBlockEntities.DARK_OAK_CUTTING_BOARD.get(), DarkOakCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(ModBlockEntities.CRIMSON_CUTTING_BOARD.get(), CrimsonCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(ModBlockEntities.WARPED_CUTTING_BOARD.get(), WarpedCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(ModBlockEntities.ALMOND_CUTTING_BOARD.get(), AlmondCuttingBoardRenderer::new);
+        BlockEntityRenderers.register(CAFBlockEntities.OAK_CUTTING_BOARD.get(), OakCuttingBoardRenderer::new);
+        BlockEntityRenderers.register(CAFBlockEntities.SPRUCE_CUTTING_BOARD.get(), SpruceCuttingBoardRenderer::new);
+        BlockEntityRenderers.register(CAFBlockEntities.BIRCH_CUTTING_BOARD.get(), BirchCuttingBoardRenderer::new);
+        BlockEntityRenderers.register(CAFBlockEntities.JUNGLE_CUTTING_BOARD.get(), JungleCuttingBoardRenderer::new);
+        BlockEntityRenderers.register(CAFBlockEntities.ACACIA_CUTTING_BOARD.get(), AcaciaCuttingBoardRenderer::new);
+        BlockEntityRenderers.register(CAFBlockEntities.DARK_OAK_CUTTING_BOARD.get(), DarkOakCuttingBoardRenderer::new);
+        BlockEntityRenderers.register(CAFBlockEntities.CRIMSON_CUTTING_BOARD.get(), CrimsonCuttingBoardRenderer::new);
+        BlockEntityRenderers.register(CAFBlockEntities.WARPED_CUTTING_BOARD.get(), WarpedCuttingBoardRenderer::new);
+        BlockEntityRenderers.register(CAFBlockEntities.ALMOND_CUTTING_BOARD.get(), AlmondCuttingBoardRenderer::new);
     }
 }

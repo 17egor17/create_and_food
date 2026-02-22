@@ -9,7 +9,7 @@ import com.simibubi.create.content.kinetics.simpleRelays.SimpleKineticBlockEntit
 import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
 import com.simibubi.create.foundation.utility.AnimationTickHolder;
-import net.egorplaytv.caf.block.custom.connect.ModPartialModels;
+import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.BlockPos;
@@ -39,7 +39,7 @@ public class CAFCogwheelRenderer extends KineticBlockEntityRenderer<SimpleKineti
         Direction.Axis axis = getRotationAxisOf(be);
         Direction facing = Direction.fromAxisAndDirection(axis, Direction.AxisDirection.POSITIVE);
 
-        PartialModel model = ModPartialModels.LARGE_STEEL_COGWHEEL;
+        PartialModel model = CAFPartialModels.LARGE_STEEL_COGWHEEL;
 
 
         renderRotatingBuffer(be,
@@ -48,7 +48,7 @@ public class CAFCogwheelRenderer extends KineticBlockEntityRenderer<SimpleKineti
 
         float angle = getAngleForLargeCogShaft(be, axis);
         SuperByteBuffer shaft =
-                CachedBufferer.partialFacingVertical(ModPartialModels.COGWHEEL_STEEL_SHAFT, be.getBlockState(), facing);
+                CachedBufferer.partialFacingVertical(CAFPartialModels.COGWHEEL_STEEL_SHAFT, be.getBlockState(), facing);
         kineticRotationTransform(shaft, be, axis, angle, light);
         shaft.renderInto(ms, buffer.getBuffer(RenderType.solid()));
 

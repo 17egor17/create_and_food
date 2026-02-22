@@ -20,7 +20,7 @@ import com.simibubi.create.foundation.utility.AngleHelper;
 import com.simibubi.create.foundation.utility.VecHelper;
 
 import net.egorplaytv.caf.block.custom.GrinderBlock;
-import net.egorplaytv.caf.block.custom.connect.ModPartialModels;
+import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
 import net.egorplaytv.caf.block.entity.custom.GrinderBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -58,11 +58,11 @@ public class GrinderRenderer extends SafeBlockEntityRenderer<GrinderBlockEntity>
         float speed = be.getSpeed();
 
         if (speed > 0) {
-            partial = ModPartialModels.GRINDER_BELT_ACTIVE;
+            partial = CAFPartialModels.GRINDER_BELT_ACTIVE;
         } else if (speed < 0) {
-            partial = ModPartialModels.GRINDER_BELT_REVERSED;
+            partial = CAFPartialModels.GRINDER_BELT_REVERSED;
         } else {
-            partial =  ModPartialModels.GRINDER_BELT_INACTIVE;
+            partial =  CAFPartialModels.GRINDER_BELT_INACTIVE;
         }
 
         SuperByteBuffer superBuffer = CachedBufferer.partialFacing(partial, blockState, blockState.getValue(HORIZONTAL_FACING)).rotateCentered(Direction.UP, blockState.getValue(HORIZONTAL_FACING) == Direction.WEST || blockState.getValue(HORIZONTAL_FACING) == Direction.NORTH ? 0 : (180*(float)Math.PI/180f));
@@ -156,9 +156,9 @@ public class GrinderRenderer extends SafeBlockEntityRenderer<GrinderBlockEntity>
 
         SuperByteBuffer superBuffer;
         if (shouldAnimate)
-            superBuffer = CachedBufferer.partial(ModPartialModels.GRINDER_BELT_ACTIVE, state);
+            superBuffer = CachedBufferer.partial(CAFPartialModels.GRINDER_BELT_ACTIVE, state);
         else
-            superBuffer = CachedBufferer.partial(ModPartialModels.GRINDER_BELT_INACTIVE, state);
+            superBuffer = CachedBufferer.partial(CAFPartialModels.GRINDER_BELT_INACTIVE, state);
 
         superBuffer.transform(matrices.getModel())
                 .centre()

@@ -5,7 +5,7 @@ import com.simibubi.create.foundation.item.KineticStats;
 import com.simibubi.create.foundation.item.TooltipHelper;
 import com.simibubi.create.foundation.item.TooltipModifier;
 import com.tterrag.registrate.providers.ProviderType;
-import net.egorplaytv.caf.block.entity.ModWoodTypes;
+import net.egorplaytv.caf.block.entity.CAFWoodTypes;
 import net.egorplaytv.caf.config.CAFConfigs;
 import net.egorplaytv.caf.config.CreateAndFoodClientConfigs;
 import net.egorplaytv.caf.config.CreateAndFoodCommonConfigs;
@@ -127,7 +127,7 @@ public class CreateAndFood {
             new Sample();
             new Weight();
 
-            Sheets.addWoodType(ModWoodTypes.ALMOND);
+            Sheets.addWoodType(CAFWoodTypes.ALMOND);
         });
 
         CAFMessages.register();

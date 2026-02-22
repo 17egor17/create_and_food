@@ -4,7 +4,7 @@ import com.simibubi.create.content.contraptions.ContraptionWorld;
 import com.simibubi.create.content.decoration.slidingDoor.SlidingDoorShapes;
 import com.simibubi.create.content.equipment.wrench.IWrenchable;
 import com.simibubi.create.foundation.block.IBE;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.custom.SlidingDoorBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -268,7 +268,7 @@ public class SlidingDoorBlock extends DoorBlock implements IWrenchable, IBE<Slid
 
     @Override
     public BlockEntityType<? extends SlidingDoorBlockEntity> getBlockEntityType() {
-        return ModBlockEntities.SLIDING_DOOR.get();
+        return CAFBlockEntities.SLIDING_DOOR.get();
     }
 
 }

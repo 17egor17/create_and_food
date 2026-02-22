@@ -1,7 +1,7 @@
 package net.egorplaytv.caf.block.entity.custom;
 
 import com.google.common.collect.Maps;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.screen.SampleOfMetalsMenu;
 import net.egorplaytv.caf.util.CAFTags;
 import net.minecraft.SharedConstants;
@@ -146,7 +146,7 @@ public class TerminalBlockEntity extends BlockEntity implements MenuProvider {
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
     public TerminalBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.TABLET_ENTITY.get(), pPos, pBlockState);
+        super(CAFBlockEntities.TABLET_ENTITY.get(), pPos, pBlockState);
         getMetals();
     }
 

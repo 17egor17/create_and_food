@@ -14,7 +14,7 @@ import com.simibubi.create.content.kinetics.simpleRelays.BracketedKineticBlockEn
 import com.simibubi.create.content.kinetics.simpleRelays.ICogWheel;
 import com.simibubi.create.content.kinetics.simpleRelays.SimpleKineticBlockEntity;
 import com.simibubi.create.foundation.render.AllMaterialSpecs;
-import net.egorplaytv.caf.block.custom.connect.ModPartialModels;
+import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 
@@ -40,7 +40,7 @@ public class CAFCogwheelInstance extends SingleRotatingInstance<SimpleKineticBlo
         BlockPos pos = blockEntity.getBlockPos();
         float offset = BracketedKineticBlockEntityRenderer.getShaftAngleOffset(axis, pos);
         Direction facing = Direction.fromAxisAndDirection(axis, Direction.AxisDirection.POSITIVE);
-        Instancer<RotatingData> half = getRotatingMaterial().getModel(ModPartialModels.COGWHEEL_STEEL_SHAFT, blockState,
+        Instancer<RotatingData> half = getRotatingMaterial().getModel(CAFPartialModels.COGWHEEL_STEEL_SHAFT, blockState,
                 facing, () -> this.rotateToAxis(axis));
 
         additionalShaft = setup(half.createInstance(), speed);
@@ -60,7 +60,7 @@ public class CAFCogwheelInstance extends SingleRotatingInstance<SimpleKineticBlo
 
 
 
-        PartialModel model = ModPartialModels.LARGE_STEEL_COGWHEEL;
+        PartialModel model = CAFPartialModels.LARGE_STEEL_COGWHEEL;
 
 
 

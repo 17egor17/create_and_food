@@ -1,6 +1,6 @@
 package net.egorplaytv.caf.block.entity.custom;
 
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.entity.WrappedFluidHandler;
 import net.egorplaytv.caf.fluid.CAFFluids;
 import net.minecraft.core.BlockPos;
@@ -32,7 +32,7 @@ public class VaseBlockEntity extends BlockEntity {
     private boolean isOpen = false;
 
     public VaseBlockEntity(BlockPos pPos, BlockState pBlockState){
-        super(ModBlockEntities.VASE_BLOCK_ENTITY.get(), pPos, pBlockState);
+        super(CAFBlockEntities.VASE_BLOCK_ENTITY.get(), pPos, pBlockState);
         setFluid(new FluidStack(CAFFluids.NIXIE_FLUID.get(), random(pBlockState)));
     }
 

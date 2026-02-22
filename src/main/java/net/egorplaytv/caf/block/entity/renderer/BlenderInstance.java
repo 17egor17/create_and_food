@@ -8,7 +8,7 @@ import com.simibubi.create.content.kinetics.base.flwdata.RotatingData;
 import com.simibubi.create.content.kinetics.simpleRelays.encased.EncasedCogInstance;
 import com.simibubi.create.foundation.render.AllMaterialSpecs;
 import com.simibubi.create.foundation.utility.AnimationTickHolder;
-import net.egorplaytv.caf.block.custom.connect.ModPartialModels;
+import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
 import net.egorplaytv.caf.block.entity.custom.MechanicalBlenderBlockEntity;
 import net.minecraft.core.Direction;
 
@@ -23,13 +23,13 @@ public class BlenderInstance extends EncasedCogInstance implements DynamicInstan
 
         blenderHead = materialManager.defaultCutout()
                 .material(AllMaterialSpecs.ROTATING)
-                .getModel(ModPartialModels.MECHANICAL_BLENDER_HEAD, blockState)
+                .getModel(CAFPartialModels.MECHANICAL_BLENDER_HEAD, blockState)
                 .createInstance();
 
         blenderHead.setRotationAxis(Direction.Axis.Y);
 
         blenderPole = getOrientedMaterial()
-                .getModel(ModPartialModels.MECHANICAL_BLENDER_POLE, blockState)
+                .getModel(CAFPartialModels.MECHANICAL_BLENDER_POLE, blockState)
                 .createInstance();
 
 
@@ -43,7 +43,7 @@ public class BlenderInstance extends EncasedCogInstance implements DynamicInstan
     protected Instancer<RotatingData> getCogModel() {
         return materialManager.defaultSolid()
                 .material(AllMaterialSpecs.ROTATING)
-                .getModel(ModPartialModels.STEEL_COGWHEEL, blockEntity.getBlockState());
+                .getModel(CAFPartialModels.STEEL_COGWHEEL, blockEntity.getBlockState());
     }
 
     @Override

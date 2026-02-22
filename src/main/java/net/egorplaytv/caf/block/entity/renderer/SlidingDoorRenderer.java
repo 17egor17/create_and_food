@@ -9,7 +9,7 @@ import com.simibubi.create.foundation.render.SuperByteBuffer;
 import com.simibubi.create.foundation.utility.AngleHelper;
 import com.simibubi.create.foundation.utility.Couple;
 import com.simibubi.create.foundation.utility.Iterate;
-import net.egorplaytv.caf.block.custom.connect.ModPartialModels;
+import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
 import net.egorplaytv.caf.block.custom.connect.SlidingDoorBlock;
 import net.egorplaytv.caf.block.entity.custom.SlidingDoorBlockEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -51,7 +51,7 @@ public class SlidingDoorRenderer extends SafeBlockEntityRenderer<SlidingDoorBloc
                         .scale(value2 * 1 / 32f));
 
         if (((SlidingDoorBlock) blockState.getBlock()).isFoldingDoor()) {
-            Couple<PartialModel> partials = ModPartialModels.FOLDING_DOORS.get(ForgeRegistries.BLOCKS.getKey(blockState.getBlock()));
+            Couple<PartialModel> partials = CAFPartialModels.FOLDING_DOORS.get(ForgeRegistries.BLOCKS.getKey(blockState.getBlock()));
 
             boolean flip = blockState.getValue(DoorBlock.HINGE) == DoorHingeSide.RIGHT;
             for (boolean left : Iterate.trueAndFalse) {

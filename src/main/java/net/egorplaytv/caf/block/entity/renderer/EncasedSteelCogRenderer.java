@@ -10,7 +10,7 @@ import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
 import com.simibubi.create.foundation.utility.Iterate;
 import net.egorplaytv.caf.block.custom.connect.EncasedCogwheelBlock;
-import net.egorplaytv.caf.block.custom.connect.ModPartialModels;
+import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -57,7 +57,7 @@ public class EncasedSteelCogRenderer extends KineticBlockEntityRenderer<SimpleKi
         for (Direction d : Iterate.directionsInAxis(getRotationAxisOf(be))) {
             if (!def.hasShaftTowards(be.getLevel(), be.getBlockPos(), blockState, d))
                 continue;
-            SuperByteBuffer shaft = CachedBufferer.partialFacing(ModPartialModels.STEEL_SHAFT_HALF, be.getBlockState(), d);
+            SuperByteBuffer shaft = CachedBufferer.partialFacing(CAFPartialModels.STEEL_SHAFT_HALF, be.getBlockState(), d);
             kineticRotationTransform(shaft, be, axis, angle, light);
             shaft.renderInto(ms, buffer.getBuffer(RenderType.solid()));
         }
@@ -66,7 +66,7 @@ public class EncasedSteelCogRenderer extends KineticBlockEntityRenderer<SimpleKi
     @Override
     protected SuperByteBuffer getRotatedModel(SimpleKineticBlockEntity be, BlockState state) {
         return CachedBufferer.partialFacingVertical(
-                large ? ModPartialModels.LARGE_STEEL_COGWHEEL : ModPartialModels.STEEL_COGWHEEL, state,
+                large ? CAFPartialModels.LARGE_STEEL_COGWHEEL : CAFPartialModels.STEEL_COGWHEEL, state,
                 Direction.fromAxisAndDirection(state.getValue(EncasedCogwheelBlock.AXIS), Direction.AxisDirection.POSITIVE));
     }
 

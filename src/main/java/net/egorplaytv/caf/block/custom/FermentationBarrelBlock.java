@@ -1,6 +1,6 @@
 package net.egorplaytv.caf.block.custom;
 
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.custom.FermentationBarrelBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -84,7 +84,7 @@ public class FermentationBarrelBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.FERMENTATION_BARREL_ENTITY.get(),
+        return createTickerHelper(pBlockEntityType, CAFBlockEntities.FERMENTATION_BARREL_ENTITY.get(),
                 FermentationBarrelBlockEntity::tick);
     }
 }

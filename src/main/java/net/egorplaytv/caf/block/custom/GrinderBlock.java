@@ -5,7 +5,7 @@ import com.simibubi.create.content.kinetics.base.HorizontalKineticBlock;
 import com.simibubi.create.content.kinetics.drill.DrillBlock;
 import com.simibubi.create.foundation.block.IBE;
 
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.custom.GrinderBlockEntity;
 import net.egorplaytv.caf.damage.CAFDamageSource;
 import net.minecraft.core.BlockPos;
@@ -68,7 +68,7 @@ public class GrinderBlock extends HorizontalKineticBlock implements IBE<GrinderB
 
     @Override
     public BlockEntityType<? extends GrinderBlockEntity> getBlockEntityType() {
-        return ModBlockEntities.GRINDER.get();
+        return CAFBlockEntities.GRINDER.get();
     }
 
     @Override

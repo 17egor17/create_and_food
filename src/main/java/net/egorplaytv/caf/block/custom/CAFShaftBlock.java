@@ -13,7 +13,7 @@ import com.simibubi.create.foundation.placement.PlacementHelpers;
 import com.simibubi.create.foundation.placement.PlacementOffset;
 import com.simibubi.create.foundation.placement.PoleHelper;
 import net.egorplaytv.caf.block.CAFBlocks;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -137,6 +137,6 @@ public class CAFShaftBlock extends ShaftBlock {
 
     @Override
     public BlockEntityType<? extends KineticBlockEntity> getBlockEntityType() {
-        return ModBlockEntities.CAF_COGWHEEL.get();
+        return CAFBlockEntities.CAF_COGWHEEL.get();
     }
 }
