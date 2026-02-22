@@ -3,6 +3,7 @@ package net.egorplaytv.caf.block;
 import com.google.common.collect.ImmutableList;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.builders.ItemBuilder;
+import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.DataIngredient;
@@ -32,7 +33,7 @@ public class ShingleVariantEntry {
     public final ImmutableList<BlockEntry<? extends Block>> registeredBlocks;
     public final ImmutableList<BlockEntry<? extends Block>> registeredPartials;
 
-    public ShingleVariantEntry(String name, ShingleBlocks shingleBlocks, PaletteStoneTypes stoneTypes) {
+    public ShingleVariantEntry(String name, ShingleBlocks shingleBlocks) {
         ImmutableList.Builder<BlockEntry<? extends Block>> registeredBlocks = ImmutableList.builder();
         ImmutableList.Builder<BlockEntry<? extends Block>> registeredPartials = ImmutableList.builder();
         NonNullSupplier<Block> baseBlock = shingleBlocks.baseBlock;
@@ -62,7 +63,7 @@ public class ShingleVariantEntry {
                 builder.addLayer(() -> RenderType::translucent);
 
             builder.recipe((c, p) -> {
-                createRecipe(stoneTypes, c, p, pattern);
+                createRecipe(baseBlock, c, p, pattern);
                 pattern.addRecipes(baseBlock, c, p);
             });
 
@@ -77,17 +78,8 @@ public class ShingleVariantEntry {
         this.registeredPartials = registeredPartials.build();
     }
 
-    private <T extends ItemLike & IForgeRegistryEntry<?>> void createRecipe(PaletteStoneTypes stoneTypes, Supplier<? extends T> c, RegistrateRecipeProvider p,
-                                                                            ShingleBlockPattern[] variantTypes) {
-        for (ShingleBlockPattern pattern : variantTypes) {
-            createRecipe(stoneTypes, c, p, pattern);
-        }
-    }
-
-
-    private <T extends ItemLike & IForgeRegistryEntry<?>> void createRecipe(PaletteStoneTypes stoneTypes, Supplier<? extends T> c, RegistrateRecipeProvider p,
+    private <T extends ItemLike & IForgeRegistryEntry<?>> void createRecipe(NonNullSupplier<Block> baseBlock, Supplier<? extends T> c, RegistrateRecipeProvider p,
                               ShingleBlockPattern pattern) {
-        DataIngredient ingredient = DataIngredient.tag(stoneTypes.materialTag);
         Item ingredient1;
         if (pattern == ShingleBlockPattern.OAK_SHINGLE) {
             ingredient1 = Items.OAK_PLANKS;
@@ -111,9 +103,10 @@ public class ShingleVariantEntry {
 
         ShapedRecipeBuilder.shaped(c.get(), 3)
                 .pattern("0  ").pattern("10 ").pattern("110")
-                .define('0', stoneTypes.materialTag)
+                .define('0', baseBlock.get().asItem())
                 .define('1', ingredient1)
-                .unlockedBy("has_" + p.safeName(ingredient), ingredient.getCritereon(p))
+                .unlockedBy("has_" + baseBlock.get().asItem().getRegistryName().getPath(),
+                        inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock.get().asItem()).build()))
                 .unlockedBy("has_" + ingredient1.getRegistryName().getPath(),
                         inventoryTrigger(ItemPredicate.Builder.item().of(ingredient1).build()))
                 .save(p, p.safeId(c.get()));

@@ -158,7 +158,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(270)
-                                .uvLock(true)
                                 .build();
                     } else if (facing == Direction.SOUTH && shape == StairsShape.STRAIGHT) {
                         return ConfiguredModel.builder()
@@ -169,7 +168,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(90)
-                                .uvLock(true)
                                 .build();
                     } else if (facing == Direction.WEST && shape == StairsShape.STRAIGHT) {
                         return ConfiguredModel.builder()
@@ -180,7 +178,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(180)
-                                .uvLock(true)
                                 .build();
                     } else if (facing == Direction.EAST && shape == StairsShape.STRAIGHT) {
                         return ConfiguredModel.builder()
@@ -200,7 +197,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(180)
-                                .uvLock(true)
                                 .build();
                     } else if (facing == Direction.SOUTH && shape == StairsShape.INNER_LEFT) {
                         return ConfiguredModel.builder()
@@ -220,7 +216,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(90)
-                                .uvLock(true)
                                 .build();
                     } else if (facing == Direction.EAST && shape == StairsShape.INNER_LEFT) {
                         return ConfiguredModel.builder()
@@ -231,7 +226,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(270)
-                                .uvLock(true)
                                 .build();
                     } else if (facing == Direction.NORTH && shape == StairsShape.INNER_RIGHT) {
                         return ConfiguredModel.builder()
@@ -242,7 +236,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(270)
-                                .uvLock(true)
                                 .build();
                     } else if (facing == Direction.SOUTH && shape == StairsShape.INNER_RIGHT) {
                         return ConfiguredModel.builder()
@@ -253,7 +246,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(90)
-                                .uvLock(true)
                                 .build();
                     } else if (facing == Direction.WEST && shape == StairsShape.INNER_RIGHT) {
                         return ConfiguredModel.builder()
@@ -264,7 +256,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(180)
-                                .uvLock(true)
                                 .build();
                     } else if (facing == Direction.EAST && shape == StairsShape.INNER_RIGHT) {
                         return ConfiguredModel.builder()
@@ -284,7 +275,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(180)
-                                .uvLock(true)
                                 .build();
                     } else if (facing == Direction.SOUTH && shape == StairsShape.OUTER_LEFT) {
                         return ConfiguredModel.builder()
@@ -304,7 +294,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(90)
-                                .uvLock(true)
                                 .build();
                     } else if (facing == Direction.EAST && shape == StairsShape.OUTER_LEFT) {
                         return ConfiguredModel.builder()
@@ -315,7 +304,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(270)
-                                .uvLock(true)
                                 .build();
                     } else if (facing == Direction.NORTH && shape == StairsShape.OUTER_RIGHT) {
                         return ConfiguredModel.builder()
@@ -326,7 +314,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(270)
-                                .uvLock(true)
                                 .build();
                     } else if (facing == Direction.SOUTH && shape == StairsShape.OUTER_RIGHT) {
                         return ConfiguredModel.builder()
@@ -337,7 +324,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(90)
-                                .uvLock(true)
                                 .build();
                     } else if (facing == Direction.WEST && shape == StairsShape.OUTER_RIGHT) {
                         return ConfiguredModel.builder()
@@ -348,7 +334,6 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .rotationY(180)
-                                .uvLock(true)
                                 .build();
                     } else {
                         return ConfiguredModel.builder()

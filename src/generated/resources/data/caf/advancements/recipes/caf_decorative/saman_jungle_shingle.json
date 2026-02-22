@@ -6,12 +6,14 @@
     ]
   },
   "criteria": {
-    "has_stone_types_baked_clay": {
+    "has_baked_clay": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "caf:stone_types/baked_clay"
+            "items": [
+              "caf:baked_clay"
+            ]
           }
         ]
       }
@@ -37,7 +39,7 @@
   },
   "requirements": [
     [
-      "has_stone_types_baked_clay",
+      "has_baked_clay",
       "has_jungle_planks",
       "has_the_recipe"
     ]

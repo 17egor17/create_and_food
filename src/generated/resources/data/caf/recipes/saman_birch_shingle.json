@@ -7,7 +7,7 @@
   ],
   "key": {
     "0": {
-      "tag": "caf:stone_types/baked_clay"
+      "item": "caf:baked_clay"
     },
     "1": {
       "item": "minecraft:birch_planks"
