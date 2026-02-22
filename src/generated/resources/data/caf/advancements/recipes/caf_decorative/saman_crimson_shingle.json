@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:saman_crimson_shingle"
+    ]
+  },
+  "criteria": {
+    "has_stone_types_baked_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "caf:stone_types/baked_clay"
+          }
+        ]
+      }
+    },
+    "has_crimson_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:crimson_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:saman_crimson_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_stone_types_baked_clay",
+      "has_crimson_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

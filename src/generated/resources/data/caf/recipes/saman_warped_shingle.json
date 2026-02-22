@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "10 ",
+    "110"
+  ],
+  "key": {
+    "0": {
+      "tag": "caf:stone_types/baked_clay"
+    },
+    "1": {
+      "item": "minecraft:warped_planks"
+    }
+  },
+  "result": {
+    "item": "caf:saman_warped_shingle",
+    "count": 3
+  }
+}

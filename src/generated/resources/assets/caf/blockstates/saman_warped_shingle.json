@@ -1,0 +1,184 @@
+{
+  "variants": {
+    "facing=north,shape=straight,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_north_straight",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=south,shape=straight,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_south_straight",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=west,shape=straight,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_west_straight",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east,shape=straight,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle"
+    },
+    "facing=north,shape=inner_left,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_north_inner_left",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,shape=inner_left,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_south_inner_left"
+    },
+    "facing=west,shape=inner_left,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_west_inner_left",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=east,shape=inner_left,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_east_inner_left",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=north,shape=inner_right,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_north_inner_right",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=south,shape=inner_right,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_south_inner_right",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=west,shape=inner_right,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_west_inner_right",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east,shape=inner_right,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_east_inner_right"
+    },
+    "facing=north,shape=outer_left,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_north_outer_left",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,shape=outer_left,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_south_outer_left"
+    },
+    "facing=west,shape=outer_left,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_west_outer_left",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=east,shape=outer_left,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_east_outer_left",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=north,shape=outer_right,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_north_outer_right",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=south,shape=outer_right,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_south_outer_right",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=west,shape=outer_right,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_west_outer_right",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east,shape=outer_right,waterlogged=false": {
+      "model": "caf:block/saman_warped_shingle_east_outer_right"
+    },
+    "facing=north,shape=straight,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_north_straight",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=south,shape=straight,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_south_straight",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=west,shape=straight,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_west_straight",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east,shape=straight,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle"
+    },
+    "facing=north,shape=inner_left,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_north_inner_left",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,shape=inner_left,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_south_inner_left"
+    },
+    "facing=west,shape=inner_left,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_west_inner_left",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=east,shape=inner_left,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_east_inner_left",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=north,shape=inner_right,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_north_inner_right",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=south,shape=inner_right,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_south_inner_right",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=west,shape=inner_right,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_west_inner_right",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east,shape=inner_right,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_east_inner_right"
+    },
+    "facing=north,shape=outer_left,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_north_outer_left",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=south,shape=outer_left,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_south_outer_left"
+    },
+    "facing=west,shape=outer_left,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_west_outer_left",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=east,shape=outer_left,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_east_outer_left",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=north,shape=outer_right,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_north_outer_right",
+      "y": 270,
+      "uvlock": true
+    },
+    "facing=south,shape=outer_right,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_south_outer_right",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=west,shape=outer_right,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_west_outer_right",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east,shape=outer_right,waterlogged=true": {
+      "model": "caf:block/saman_warped_shingle_east_outer_right"
+    }
+  }
+}
