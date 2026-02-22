@@ -17,7 +17,7 @@ import java.util.function.Function;
 import static net.egorplaytv.caf.block.ShingleBlockPattern.*;
 
 public enum ShingleBlocks {
-    SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.BAKED_CLAY.getBaseBlock().get());
+    SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.BAKED_CLAY.getBaseBlock().get())
 
     ;
 

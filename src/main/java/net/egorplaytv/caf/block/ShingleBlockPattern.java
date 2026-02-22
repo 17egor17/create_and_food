@@ -72,21 +72,21 @@ public class ShingleBlockPattern {
 
     static final String TEXTURE_LOCATION = "block/shingles/%s/%s";
 
-    private ShingleBlockPattern.PatternNameType nameType;
+    private PatternNameType nameType;
     private String[] textures;
     private String id;
     private boolean isTranslucent;
     private TagKey<Block>[] blockTags;
     private TagKey<Item>[] itemTags;
 
-    private ShingleBlockPattern.IPatternBlockStateGenerator blockStateGenerator;
+    private IPatternBlockStateGenerator blockStateGenerator;
     private NonNullFunction<BlockBehaviour.Properties, ? extends Block> blockFactory;
     private NonNullFunction<NonNullSupplier<Block>, NonNullBiConsumer<DataGenContext<Block, ? extends Block>, RegistrateRecipeProvider>> additionalRecipes;
 
     @OnlyIn(Dist.CLIENT)
     private RenderType renderType;
 
-    private static ShingleBlockPattern create(String name, ShingleBlockPattern.PatternNameType nameType) {
+    private static ShingleBlockPattern create(String name, PatternNameType nameType) {
         ShingleBlockPattern pattern = new ShingleBlockPattern();
         pattern.id = name;
         pattern.additionalRecipes = $ -> NonNullBiConsumer.noop();
@@ -97,7 +97,7 @@ public class ShingleBlockPattern {
         return pattern;
     }
 
-    public ShingleBlockPattern.IPatternBlockStateGenerator getBlockStateGenerator() {
+    public IPatternBlockStateGenerator getBlockStateGenerator() {
         return blockStateGenerator;
     }
 
@@ -107,10 +107,6 @@ public class ShingleBlockPattern {
 
     public NonNullFunction<BlockBehaviour.Properties, ? extends Block> getBlockFactory() {
         return blockFactory;
-    }
-
-    public String getTexture(int index) {
-        return textures[index];
     }
 
     public TagKey<Block>[] getBlockTags() {
@@ -129,7 +125,7 @@ public class ShingleBlockPattern {
 
     // Builder
 
-    private ShingleBlockPattern blockStateFactory(ShingleBlockPattern.IPatternBlockStateGenerator factory) {
+    private ShingleBlockPattern blockStateFactory(IPatternBlockStateGenerator factory) {
         blockStateGenerator = factory;
         return this;
     }
