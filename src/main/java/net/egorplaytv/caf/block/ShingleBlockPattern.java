@@ -29,42 +29,33 @@ import static net.egorplaytv.caf.CreateAndFood.MOD_ID;
 public class ShingleBlockPattern {
 
     public static final ShingleBlockPattern
-    OAK_SHINGLE = create("oak_shingle", PatternNameType.SUFFIX)
+    OAK_SHINGLE = create("oak_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
+            .block(ShingleBlock::new)
+            .textures("shingle_top", "shingle_bottom", "shingle_angle"),
+    SPRUCE_SHINGLE = create("spruce_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
+            .block(ShingleBlock::new)
+            .textures("shingle_top", "shingle_bottom", "shingle_angle"),
+    BIRCH_SHINGLE = create("birch_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
+            .block(ShingleBlock::new)
+            .textures("shingle_top", "shingle_bottom", "shingle_angle"),
+    JUNGLE_SHINGLE = create("jungle_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
+            .block(ShingleBlock::new)
+            .textures("shingle_top", "shingle_bottom", "shingle_angle"),
+    ACACIA_SHINGLE = create("acacia_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
+            .block(ShingleBlock::new)
+            .textures("shingle_top", "shingle_bottom", "shingle_angle"),
+    DARK_OAK_SHINGLE = create("dark_oak_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
+            .block(ShingleBlock::new)
+            .textures("shingle_top", "shingle_bottom", "shingle_angle"),
+    CRIMSON_SHINGLE = create("crimson_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
+            .block(ShingleBlock::new)
+            .textures("shingle_top", "shingle_bottom", "shingle_angle"),
+    WARPED_SHINGLE = create("warped_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
+            .block(ShingleBlock::new)
+            .textures("shingle_top", "shingle_bottom", "shingle_angle"),
+    ALMOND_SHINGLE = create("almond_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
             .block(ShingleBlock::new)
             .textures("shingle_top", "shingle_bottom", "shingle_angle")
-            .blockStateFactory(p -> p::shingleBlock),
-    SPRUCE_SHINGLE = create("spruce_shingle", PatternNameType.SUFFIX)
-            .block(ShingleBlock::new)
-            .textures("shingle_top", "shingle_bottom", "shingle_angle")
-            .blockStateFactory(p -> p::shingleBlock),
-    BIRCH_SHINGLE = create("birch_shingle", PatternNameType.SUFFIX)
-            .block(ShingleBlock::new)
-            .textures("shingle_top", "shingle_bottom", "shingle_angle")
-            .blockStateFactory(p -> p::shingleBlock),
-    JUNGLE_SHINGLE = create("jungle_shingle", PatternNameType.SUFFIX)
-            .block(ShingleBlock::new)
-            .textures("shingle_top", "shingle_bottom", "shingle_angle")
-            .blockStateFactory(p -> p::shingleBlock),
-    ACACIA_SHINGLE = create("acacia_shingle", PatternNameType.SUFFIX)
-            .block(ShingleBlock::new)
-            .textures("shingle_top", "shingle_bottom", "shingle_angle")
-            .blockStateFactory(p -> p::shingleBlock),
-    DARK_OAK_SHINGLE = create("dark_oak_shingle", PatternNameType.SUFFIX)
-            .block(ShingleBlock::new)
-            .textures("shingle_top", "shingle_bottom", "shingle_angle")
-            .blockStateFactory(p -> p::shingleBlock),
-    CRIMSON_SHINGLE = create("crimson_shingle", PatternNameType.SUFFIX)
-            .block(ShingleBlock::new)
-            .textures("shingle_top", "shingle_bottom", "shingle_angle")
-            .blockStateFactory(p -> p::shingleBlock),
-    WARPED_SHINGLE = create("warped_shingle", PatternNameType.SUFFIX)
-            .block(ShingleBlock::new)
-            .textures("shingle_top", "shingle_bottom", "shingle_angle")
-            .blockStateFactory(p -> p::shingleBlock),
-    ALMOND_SHINGLE = create("almond_shingle", PatternNameType.SUFFIX)
-            .block(ShingleBlock::new)
-            .textures("shingle_top", "shingle_bottom", "shingle_angle")
-            .blockStateFactory(p -> p::shingleBlock)
 
     ;
 

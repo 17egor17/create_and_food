@@ -48,12 +48,12 @@ public class PaletteBlockPattern {
 
     LAYERED = create("layered", PREFIX).blockStateFactory(p -> p::cubeColumn)
             .textures("layered", "cap")
-			.connectedTextures(v -> new HorizontalCTBehaviour(ct(v, PaletteBlockPattern.CTs.LAYERED), ct(v, PaletteBlockPattern.CTs.CAP))),
+			.connectedTextures(v -> new HorizontalCTBehaviour(ct(v, CTs.LAYERED), ct(v, CTs.CAP))),
 
     PILLAR = create("pillar", SUFFIX).blockStateFactory(p -> p::pillar)
             .block(ConnectedPillarBlock::new)
 			.textures("pillar", "cap")
-			.connectedTextures(v -> new RotatedPillarCTBehaviour(ct(v, PaletteBlockPattern.CTs.PILLAR), ct(v, PaletteBlockPattern.CTs.CAP)))
+			.connectedTextures(v -> new RotatedPillarCTBehaviour(ct(v, CTs.PILLAR), ct(v, CTs.CAP)))
 
     ;
 
@@ -63,7 +63,7 @@ public class PaletteBlockPattern {
 
     static final String TEXTURE_LOCATION = "block/palettes/stone_types/%s/%s";
 
-    private PaletteBlockPattern.PatternNameType nameType;
+    private PatternNameType nameType;
     private String[] textures;
     private String id;
     private boolean isTranslucent;
@@ -79,7 +79,7 @@ public class PaletteBlockPattern {
     @OnlyIn(Dist.CLIENT)
     private RenderType renderType;
 
-    private static PaletteBlockPattern create(String name, PaletteBlockPattern.PatternNameType nameType,
+    private static PaletteBlockPattern create(String name, PatternNameType nameType,
         PaletteBlockPartial<?>... partials) {
         PaletteBlockPattern pattern = new PaletteBlockPattern();
         pattern.id = name;
@@ -94,7 +94,7 @@ public class PaletteBlockPattern {
         return pattern;
     }
 
-    public PaletteBlockPattern.IPatternBlockStateGenerator getBlockStateGenerator() {
+    public IPatternBlockStateGenerator getBlockStateGenerator() {
         return blockStateGenerator;
     }
 
@@ -134,7 +134,7 @@ public class PaletteBlockPattern {
 
     // Builder
 
-    private PaletteBlockPattern blockStateFactory(PaletteBlockPattern.IPatternBlockStateGenerator factory) {
+    private PaletteBlockPattern blockStateFactory(IPatternBlockStateGenerator factory) {
         blockStateGenerator = factory;
         return this;
     }
@@ -156,13 +156,13 @@ public class PaletteBlockPattern {
 
     // Model generators
 
-    public PaletteBlockPattern.IBlockStateProvider cubeAll(String variant) {
+    public IBlockStateProvider cubeAll(String variant) {
         ResourceLocation all = toLocation(variant, textures[0]);
         return (ctx, prov) -> prov.simpleBlock(ctx.get(), prov.models()
                 .cubeAll(createName(variant), all));
     }
 
-    public PaletteBlockPattern.IBlockStateProvider cubeBottomTop(String variant) {
+    public IBlockStateProvider cubeBottomTop(String variant) {
         ResourceLocation side = toLocation(variant, textures[0]);
         ResourceLocation bottom = toLocation(variant, textures[1]);
         ResourceLocation top = toLocation(variant, textures[2]);
@@ -170,7 +170,7 @@ public class PaletteBlockPattern {
                 .cubeBottomTop(createName(variant), side, bottom, top));
     }
 
-    public PaletteBlockPattern.IBlockStateProvider pillar(String variant) {
+    public IBlockStateProvider pillar(String variant) {
         ResourceLocation side = toLocation(variant, textures[0]);
         ResourceLocation end = toLocation(variant, textures[1]);
 
@@ -194,7 +194,7 @@ public class PaletteBlockPattern {
                         ConnectedPillarBlock.EAST, ConnectedPillarBlock.WEST);
     }
 
-    public PaletteBlockPattern.IBlockStateProvider cubeColumn(String variant) {
+    public IBlockStateProvider cubeColumn(String variant) {
         ResourceLocation side = toLocation(variant, textures[0]);
         ResourceLocation end = toLocation(variant, textures[1]);
         return (ctx, prov) -> prov.simpleBlock(ctx.get(), prov.models()
@@ -237,7 +237,7 @@ public class PaletteBlockPattern {
 
     @FunctionalInterface
     static interface IPatternBlockStateGenerator
-            extends Function<PaletteBlockPattern, Function<String, PaletteBlockPattern.IBlockStateProvider>> {
+            extends Function<PaletteBlockPattern, Function<String, IBlockStateProvider>> {
     }
 
     @FunctionalInterface

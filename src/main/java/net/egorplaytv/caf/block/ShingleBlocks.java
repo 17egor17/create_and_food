@@ -17,7 +17,7 @@ import java.util.function.Function;
 import static net.egorplaytv.caf.block.ShingleBlockPattern.*;
 
 public enum ShingleBlocks {
-    SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.BAKED_CLAY.getBaseBlock().get())
+    SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.BAKED_CLAY.getBaseBlock().get(), PaletteStoneTypes.BAKED_CLAY)
 
     ;
 
@@ -27,11 +27,13 @@ public enum ShingleBlocks {
     public NonNullSupplier<Block> baseBlock;
     public final ShingleBlockPattern[] variantTypes;
     public TagKey<Item> materialTag;
+    public PaletteStoneTypes stoneTypes;
 
     ShingleBlocks(ShingleBlockPattern[] variantTypes,
-                      Function<CAFRegistrate, NonNullSupplier<Block>> factory) {
+                      Function<CAFRegistrate, NonNullSupplier<Block>> factory, PaletteStoneTypes stoneTypes) {
         this.factory = factory;
         this.variantTypes = variantTypes;
+        this.stoneTypes = stoneTypes;
     }
 
     public NonNullSupplier<Block> getBaseBlock() {
@@ -48,7 +50,7 @@ public enum ShingleBlocks {
             String id = Lang.asId(shingleBlocks.name());
             shingleBlocks.materialTag =
                     AllTags.optionalTag(ForgeRegistries.ITEMS, CreateAndFood.asResource("shingles/" + id));
-            shingleBlocks.variants = new ShingleVariantEntry(id, shingleBlocks);
+            shingleBlocks.variants = new ShingleVariantEntry(id, shingleBlocks, shingleBlocks.stoneTypes);
         }
     }
 }
