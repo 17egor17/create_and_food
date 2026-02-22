@@ -2,7 +2,13 @@ package net.egorplaytv.caf.item;
 
 import net.egorplaytv.caf.block.CAFBlocks;
 //import net.minecraft.core.registries.Registries;
+import net.egorplaytv.caf.block.ShingleBlocks;
+import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public class CAFCreativeModeTab {
@@ -48,6 +54,13 @@ public class CAFCreativeModeTab {
             return new ItemStack(CAFBlocks.OAK_CUTTING_BOARD.get());
         }
     };
+    public static final CreativeModeTab CREATE_AND_FOOD_ROOFS = new CreativeModeTab("caf_roofs") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ShingleBlocks.SAMAN.getVariants().getBlocks().get());
+        }
+    };
+
 // for 1.19.2
 //    public static void register(IEventBus bus){
 //        CREATIVE_MODE_TABS.register(bus);
