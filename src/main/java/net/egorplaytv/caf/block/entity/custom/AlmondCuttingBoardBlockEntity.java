@@ -1,7 +1,7 @@
 package net.egorplaytv.caf.block.entity.custom;
 
 import net.egorplaytv.caf.block.custom.AlmondCuttingBoardBlock;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -55,7 +55,7 @@ public class AlmondCuttingBoardBlockEntity extends SyncedBlockEntity {
     private boolean isItemCarvingBoard = false;
 
     public AlmondCuttingBoardBlockEntity(BlockPos pos, BlockState state) {
-        super((BlockEntityType) ModBlockEntities.ALMOND_CUTTING_BOARD.get(), pos, state);
+        super((BlockEntityType) CAFBlockEntities.ALMOND_CUTTING_BOARD.get(), pos, state);
     }
 
     public void load(CompoundTag compound) {

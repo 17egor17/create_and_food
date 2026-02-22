@@ -5,7 +5,7 @@ import com.simibubi.create.AllShapes;
 import com.simibubi.create.content.kinetics.base.KineticBlock;
 import com.simibubi.create.content.kinetics.simpleRelays.ICogWheel;
 import com.simibubi.create.foundation.block.IBE;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.custom.MechanicalBlenderBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -71,7 +71,7 @@ public class MechanicalBlenderBlock extends KineticBlock implements IBE<Mechanic
 
     @Override
     public BlockEntityType<? extends MechanicalBlenderBlockEntity> getBlockEntityType() {
-        return ModBlockEntities.MECHANICAL_BLENDER.get();
+        return CAFBlockEntities.MECHANICAL_BLENDER.get();
     }
 
     @Override

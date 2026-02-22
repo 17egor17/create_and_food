@@ -1,5 +1,5 @@
 {
-  "parent": "caf:custom/block/shingles/shingle_straight",
+  "parent": "caf:custom/block/shingles/shingle_straight_south",
   "textures": {
     "shingle_top": "caf:block/shingles/shingle_top/saman_shingle_top",
     "shingle_bottom": "caf:block/shingles/shingle_bottom/saman_shingle_bottom",

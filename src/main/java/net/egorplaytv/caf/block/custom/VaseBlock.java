@@ -1,6 +1,6 @@
 package net.egorplaytv.caf.block.custom;
 
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.custom.VaseBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -178,6 +178,6 @@ public class VaseBlock extends BaseEntityBlock implements SimpleWaterloggedBlock
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState,
                                                                   BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.VASE_BLOCK_ENTITY.get(), VaseBlockEntity::tick);
+        return createTickerHelper(pBlockEntityType, CAFBlockEntities.VASE_BLOCK_ENTITY.get(), VaseBlockEntity::tick);
     }
 }

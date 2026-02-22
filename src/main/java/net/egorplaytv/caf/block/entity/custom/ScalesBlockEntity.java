@@ -1,7 +1,7 @@
 package net.egorplaytv.caf.block.entity.custom;
 
 import com.google.common.collect.Maps;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.util.CAFTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -437,7 +437,7 @@ public class ScalesBlockEntity extends SyncedBlockEntity {
     }
 
     public ScalesBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.SCALES_BLOCK_ENTITY.get(), pos, state);
+        super(CAFBlockEntities.SCALES_BLOCK_ENTITY.get(), pos, state);
     }
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, ScalesBlockEntity pBlockEntity) {

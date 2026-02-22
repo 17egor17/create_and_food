@@ -7,7 +7,7 @@ import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
 import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
 import com.simibubi.create.foundation.utility.AnimationTickHolder;
-import net.egorplaytv.caf.block.custom.connect.ModPartialModels;
+import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
 import net.egorplaytv.caf.block.entity.custom.MechanicalBlenderBlockEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -35,7 +35,7 @@ public class MechanicalBlenderRenderer extends KineticBlockEntityRenderer<Mechan
 
         VertexConsumer vb = buffer.getBuffer(RenderType.solid());
 
-        SuperByteBuffer superBuffer = CachedBufferer.partial(ModPartialModels.STEEL_COGWHEEL, blockState);
+        SuperByteBuffer superBuffer = CachedBufferer.partial(CAFPartialModels.STEEL_COGWHEEL, blockState);
         standardKineticRotationTransform(superBuffer, be, light).renderInto(ms, vb);
 
         float renderedHeadOffset = be.getRenderedHeadOffset(partialTicks);
@@ -43,13 +43,13 @@ public class MechanicalBlenderRenderer extends KineticBlockEntityRenderer<Mechan
         float time = AnimationTickHolder.getRenderTime(be.getLevel());
         float angle = ((time * speed * 6 / 10f) % 360) / 180 * (float) Math.PI;
 
-        SuperByteBuffer poleRender = CachedBufferer.partial(ModPartialModels.MECHANICAL_BLENDER_POLE, blockState);
+        SuperByteBuffer poleRender = CachedBufferer.partial(CAFPartialModels.MECHANICAL_BLENDER_POLE, blockState);
         poleRender.translate(0, -renderedHeadOffset, 0)
                 .light(light)
                 .renderInto(ms, vb);
 
         VertexConsumer vbCutout = buffer.getBuffer(RenderType.cutoutMipped());
-        SuperByteBuffer headRender = CachedBufferer.partial(ModPartialModels.MECHANICAL_BLENDER_HEAD, blockState);
+        SuperByteBuffer headRender = CachedBufferer.partial(CAFPartialModels.MECHANICAL_BLENDER_HEAD, blockState);
         headRender.rotateCentered(Direction.UP, angle)
                 .translate(0, -renderedHeadOffset, 0)
                 .light(light)

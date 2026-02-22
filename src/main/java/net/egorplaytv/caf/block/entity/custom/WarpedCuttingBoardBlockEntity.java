@@ -1,7 +1,7 @@
 package net.egorplaytv.caf.block.entity.custom;
 
 import net.egorplaytv.caf.block.custom.WarpedCuttingBoardBlock;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -55,7 +55,7 @@ public class WarpedCuttingBoardBlockEntity extends SyncedBlockEntity {
     private boolean isItemCarvingBoard = false;
 
     public WarpedCuttingBoardBlockEntity(BlockPos pos, BlockState state) {
-        super((BlockEntityType) ModBlockEntities.WARPED_CUTTING_BOARD.get(), pos, state);
+        super((BlockEntityType) CAFBlockEntities.WARPED_CUTTING_BOARD.get(), pos, state);
     }
 
     public void load(CompoundTag compound) {

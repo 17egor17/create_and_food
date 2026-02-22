@@ -5,7 +5,7 @@ import com.google.common.collect.Maps;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.egorplaytv.caf.block.custom.MarbleBlastFurnaceBlock;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.config.CreateAndFoodCommonConfigs;
 import net.egorplaytv.caf.entity.WrappedHandler;
 import net.egorplaytv.caf.item.custom.MetalItem;
@@ -212,7 +212,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
 
 
     public MarbleBlastFurnaceBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.MARBLE_BLAST_FURNACE_ENTITY.get(), pPos, pBlockState);
+        super(CAFBlockEntities.MARBLE_BLAST_FURNACE_ENTITY.get(), pPos, pBlockState);
         getFuel();
         this.experience = new Object2IntOpenHashMap<>();
         this.data = new ContainerData() {

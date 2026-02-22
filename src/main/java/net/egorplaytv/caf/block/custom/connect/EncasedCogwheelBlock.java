@@ -17,7 +17,7 @@ import com.simibubi.create.foundation.utility.VoxelShaper;
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.egorplaytv.caf.block.CAFBlocks;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.NonNullList;
@@ -61,7 +61,7 @@ public class EncasedCogwheelBlock extends RotatedPillarKineticBlock
     private final BlockEntityEntry<SimpleKineticBlockEntity> beLarge;
 
     public static EncasedCogwheelBlock steel(Properties properties, boolean large, Supplier<Block> casing){
-        return new EncasedCogwheelBlock(properties, large, casing, CAFBlocks.STEEL_COGWHEEL, CAFBlocks.LARGE_STEEL_COGWHEEL, ModBlockEntities.ENCASED_STEEL_COGWHEEL, ModBlockEntities.ENCASED_LARGE_STEEL_COGWHEEL);
+        return new EncasedCogwheelBlock(properties, large, casing, CAFBlocks.STEEL_COGWHEEL, CAFBlocks.LARGE_STEEL_COGWHEEL, CAFBlockEntities.ENCASED_STEEL_COGWHEEL, CAFBlockEntities.ENCASED_LARGE_STEEL_COGWHEEL);
     }
 
     public EncasedCogwheelBlock(Properties properties, boolean large, Supplier<Block> casing, BlockEntry<?> blockSmall, BlockEntry<?> blockLarge, BlockEntityEntry<SimpleKineticBlockEntity> beSmall, BlockEntityEntry<SimpleKineticBlockEntity> beLarge) {

@@ -1,6 +1,6 @@
 package net.egorplaytv.caf.block.entity.custom;
 
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.SignBlockEntity;
@@ -13,6 +13,6 @@ public class ModSignBlockEntity extends SignBlockEntity {
 
     @Override
     public BlockEntityType<?> getType() {
-        return ModBlockEntities.SIGN_BLOCK_ENTITIES.get();
+        return CAFBlockEntities.SIGN_BLOCK_ENTITIES.get();
     }
 }

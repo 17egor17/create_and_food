@@ -1,7 +1,7 @@
 package net.egorplaytv.caf.block.entity.custom;
 
 import net.egorplaytv.caf.block.custom.JungleCuttingBoardBlock;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -55,7 +55,7 @@ public class JungleCuttingBoardBlockEntity extends SyncedBlockEntity {
     private boolean isItemCarvingBoard = false;
 
     public JungleCuttingBoardBlockEntity(BlockPos pos, BlockState state) {
-        super((BlockEntityType) ModBlockEntities.JUNGLE_CUTTING_BOARD.get(), pos, state);
+        super((BlockEntityType) CAFBlockEntities.JUNGLE_CUTTING_BOARD.get(), pos, state);
     }
 
     public void load(CompoundTag compound) {

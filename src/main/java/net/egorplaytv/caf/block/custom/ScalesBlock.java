@@ -1,6 +1,6 @@
 package net.egorplaytv.caf.block.custom;
 
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.custom.ScalesBlockEntity;
 import net.egorplaytv.caf.config.CreateAndFoodCommonConfigs;
 import net.egorplaytv.caf.util.TextUtils;
@@ -170,7 +170,7 @@ public class ScalesBlock extends BaseEntityBlock implements SimpleWaterloggedBlo
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState,
                                                                   BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.SCALES_BLOCK_ENTITY.get(), ScalesBlockEntity::tick);
+        return createTickerHelper(pBlockEntityType, CAFBlockEntities.SCALES_BLOCK_ENTITY.get(), ScalesBlockEntity::tick);
     }
 
     @Override

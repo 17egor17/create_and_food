@@ -4,7 +4,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.simibubi.create.foundation.blockEntity.renderer.SafeBlockEntityRenderer;
 import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
-import net.egorplaytv.caf.block.custom.connect.ModPartialModels;
+import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
 import net.egorplaytv.caf.block.entity.custom.VaseBlockEntity;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -27,7 +27,7 @@ public class VaseBlockRenderer<BE extends VaseBlockEntity> extends SafeBlockEnti
         }
 
 
-        SuperByteBuffer fluid = CachedBufferer.partial(ModPartialModels.FLUID_BOX, state);
+        SuperByteBuffer fluid = CachedBufferer.partial(CAFPartialModels.FLUID_BOX, state);
 
         fluid.scale(1 , level, 1);
 

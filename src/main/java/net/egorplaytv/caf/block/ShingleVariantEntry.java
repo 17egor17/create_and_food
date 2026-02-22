@@ -3,14 +3,11 @@ package net.egorplaytv.caf.block;
 import com.google.common.collect.ImmutableList;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.builders.ItemBuilder;
-import com.tterrag.registrate.providers.DataGenContext;
 import com.tterrag.registrate.providers.ProviderType;
 import com.tterrag.registrate.providers.RegistrateRecipeProvider;
-import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.egorplaytv.caf.CreateAndFood;
-import net.egorplaytv.caf.block.custom.connect.PaletteStoneTypes;
 import net.egorplaytv.caf.data.CAFRegistrate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.client.renderer.RenderType;
@@ -78,8 +75,15 @@ public class ShingleVariantEntry {
         this.registeredPartials = registeredPartials.build();
     }
 
+    public NonNullSupplier<? extends Block> getBlocks() {
+        for (BlockEntry<? extends Block> block : registeredBlocks) {
+            return block;
+        }
+        return null;
+    }
+
     private <T extends ItemLike & IForgeRegistryEntry<?>> void createRecipe(NonNullSupplier<Block> baseBlock, Supplier<? extends T> c, RegistrateRecipeProvider p,
-                              ShingleBlockPattern pattern) {
+                                                                            ShingleBlockPattern pattern) {
         Item ingredient1;
         if (pattern == ShingleBlockPattern.OAK_SHINGLE) {
             ingredient1 = Items.OAK_PLANKS;

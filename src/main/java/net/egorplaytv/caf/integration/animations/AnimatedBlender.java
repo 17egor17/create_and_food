@@ -6,7 +6,7 @@ import com.simibubi.create.AllBlocks;
 import com.simibubi.create.compat.jei.category.animations.AnimatedKinetics;
 import com.simibubi.create.foundation.utility.AnimationTickHolder;
 import net.egorplaytv.caf.block.CAFBlocks;
-import net.egorplaytv.caf.block.custom.connect.ModPartialModels;
+import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
 import net.minecraft.util.Mth;
 
 public class AnimatedBlender extends AnimatedKinetics {
@@ -18,7 +18,7 @@ public class AnimatedBlender extends AnimatedKinetics {
         matrixStack.mulPose(Vector3f.YP.rotationDegrees(22.5f));
         int scale = 23;
 
-        blockElement(ModPartialModels.STEEL_COGWHEEL)
+        blockElement(CAFPartialModels.STEEL_COGWHEEL)
                 .rotateBlock(0, getCurrentAngle() * 2, 0)
                 .atLocal(0, 0, 0)
                 .scale(scale)
@@ -31,12 +31,12 @@ public class AnimatedBlender extends AnimatedKinetics {
 
         float animation = ((Mth.sin(AnimationTickHolder.getRenderTime() / 32f) + 1) / 5) + .5f;
 
-        blockElement(ModPartialModels.MECHANICAL_BLENDER_POLE)
+        blockElement(CAFPartialModels.MECHANICAL_BLENDER_POLE)
                 .atLocal(0, animation, 0)
                 .scale(scale)
                 .render(matrixStack);
 
-        blockElement(ModPartialModels.MECHANICAL_BLENDER_HEAD)
+        blockElement(CAFPartialModels.MECHANICAL_BLENDER_HEAD)
                 .rotateBlock(0, getCurrentAngle() * 4, 0)
                 .atLocal(0, animation, 0)
                 .scale(scale)

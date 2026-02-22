@@ -1,7 +1,7 @@
 package net.egorplaytv.caf;
 
 import net.egorplaytv.caf.block.CAFBlocks;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.entity.CAFEntityTypes;
 import net.egorplaytv.caf.fluid.CAFFluids;
 import net.egorplaytv.caf.item.CAFItems;
@@ -19,7 +19,7 @@ public class register {
     public register(IEventBus eventBus) {
         CAFItems.register(eventBus);
         CAFBlocks.register(eventBus);
-        ModBlockEntities.register(eventBus);
+        CAFBlockEntities.register(eventBus);
         CAFMenuTypes.register(eventBus);
         CAFFluids.register(eventBus);
         CAFEntityTypes.register(eventBus);

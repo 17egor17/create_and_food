@@ -8,7 +8,7 @@ import com.simibubi.create.content.schematics.requirement.ISpecialBlockItemRequi
 import com.simibubi.create.content.schematics.requirement.ItemRequirement;
 import com.simibubi.create.foundation.block.IBE;
 import net.egorplaytv.caf.block.CAFBlocks;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.InteractionHand;
@@ -72,7 +72,7 @@ public class EncasedShaftBlock extends AbstractEncasedShaftBlock
 
     @Override
     public BlockEntityType<? extends KineticBlockEntity> getBlockEntityType() {
-        return ModBlockEntities.ENCASED_STEEL_SHAFT.get();
+        return CAFBlockEntities.ENCASED_STEEL_SHAFT.get();
     }
 
     @Override

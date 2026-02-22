@@ -1,6 +1,5 @@
 package net.egorplaytv.caf.block;
 
-import com.google.common.collect.Maps;
 import com.simibubi.create.AllTags;
 import com.simibubi.create.content.decoration.MetalScaffoldingBlock;
 import com.simibubi.create.content.decoration.encasing.CasingBlock;
@@ -25,7 +24,7 @@ import net.egorplaytv.caf.block.custom.lanterns.*;
 import net.egorplaytv.caf.block.custom.berry.*;
 import net.egorplaytv.caf.block.custom.connect.*;
 import net.egorplaytv.caf.block.custom.lanterns.LanternBlock;
-import net.egorplaytv.caf.block.entity.ModWoodTypes;
+import net.egorplaytv.caf.block.entity.CAFWoodTypes;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderGenerator;
 import net.egorplaytv.caf.item.CAFCreativeModeTab;
 import net.egorplaytv.caf.item.CAFItems;
@@ -56,9 +55,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
@@ -112,9 +109,9 @@ public class CAFBlocks {
 
 
     public static final RegistryObject<Block> ALMOND_WALL_SIGN = registryBlockWithoutBlockItem("almond_wall_sign",
-            () -> new ModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), ModWoodTypes.ALMOND));
+            () -> new ModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), CAFWoodTypes.ALMOND));
     public static final RegistryObject<Block> ALMOND_SIGN = registryBlockWithoutBlockItem("almond_sign",
-            () -> new ModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), ModWoodTypes.ALMOND));
+            () -> new ModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), CAFWoodTypes.ALMOND));
     public static final RegistryObject<Block> ALMOND_DOOR = registryBlock("almond_door",
             () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_DOOR)
                     .noOcclusion()), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);

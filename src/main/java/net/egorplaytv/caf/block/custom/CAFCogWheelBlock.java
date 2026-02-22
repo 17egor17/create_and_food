@@ -12,7 +12,7 @@ import com.simibubi.create.content.kinetics.simpleRelays.ICogWheel;
 import com.simibubi.create.content.kinetics.speedController.SpeedControllerBlock;
 import com.simibubi.create.foundation.advancement.AllAdvancements;
 import com.simibubi.create.foundation.utility.Iterate;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -214,6 +214,6 @@ public class CAFCogWheelBlock extends AbstractSimpleShaftBlock implements ICogWh
 
     @Override
     public BlockEntityType<? extends KineticBlockEntity> getBlockEntityType() {
-        return ModBlockEntities.CAF_COGWHEEL.get();
+        return CAFBlockEntities.CAF_COGWHEEL.get();
     }
 }

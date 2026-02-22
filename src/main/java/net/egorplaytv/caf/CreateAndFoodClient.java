@@ -1,7 +1,7 @@
 package net.egorplaytv.caf;
 
 import net.egorplaytv.caf.block.CAFBlocks;
-import net.egorplaytv.caf.block.custom.connect.ModPartialModels;
+import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
 import net.egorplaytv.caf.color.CAFFoliageColor;
 import net.egorplaytv.caf.datagen.custom.ModItemModelsProperties;
 import net.minecraft.client.color.block.BlockColors;
@@ -23,7 +23,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class CreateAndFoodClient {
     public CreateAndFoodClient() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        ModPartialModels.init();
+        CAFPartialModels.init();
         eventBus.addListener(this::modelRegistryEvent);
         eventBus.addListener(this::registerEntityRenderers);
         eventBus.addListener(this::registerCAFBlockColors);

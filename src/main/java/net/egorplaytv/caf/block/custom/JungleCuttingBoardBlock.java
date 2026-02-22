@@ -1,7 +1,7 @@
 package net.egorplaytv.caf.block.custom;
 
 import net.egorplaytv.caf.CreateAndFood;
-import net.egorplaytv.caf.block.entity.ModBlockEntities;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.custom.JungleCuttingBoardBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -188,7 +188,7 @@ public class JungleCuttingBoardBlock extends BaseEntityBlock implements SimpleWa
 
     @Nullable
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return ((BlockEntityType) ModBlockEntities.JUNGLE_CUTTING_BOARD.get()).create(pos, state);
+        return ((BlockEntityType) CAFBlockEntities.JUNGLE_CUTTING_BOARD.get()).create(pos, state);
     }
 
     public BlockState rotate(BlockState pState, Rotation pRot) {
