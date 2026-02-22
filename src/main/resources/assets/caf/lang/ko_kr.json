@@ -289,6 +289,17 @@
   "block.caf.rye_plant": "호밀 콩나물",
   "block.caf.red_sand_farmland": "붉은 모래 농지",
   "block.caf.red_sandstone_walkway": "붉은 사암 길",
+
+  "block.caf.saman_acacia_shingle": "아카시아 사만 대상포진",
+  "block.caf.saman_almond_shingle": "아몬드나무 사만 대상포진",
+  "block.caf.saman_birch_shingle": "자작나무 사만 대상포진",
+  "block.caf.saman_crimson_shingle": "진홍빛 사만 대상포진",
+  "block.caf.saman_dark_oak_shingle": "짙은 참나무 사만 대상포진",
+  "block.caf.saman_jungle_shingle": "정글나무 사만 대상포진",
+  "block.caf.saman_oak_shingle": "참나무 사만 대상포진",
+  "block.caf.saman_spruce_shingle": "가문비나무 사만 대상포진",
+  "block.caf.saman_warped_shingle": "뒤틀린 사만 대상포진",
+
   "block.caf.sand_farmland": "모래 농지",
   "block.caf.sandstone_walkway": "사암 길",
   "block.caf.scales": "저울",

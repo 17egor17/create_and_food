@@ -289,6 +289,17 @@
   "block.caf.rye_plant": "ライ麦の芽",
   "block.caf.red_sand_farmland": "赤い砂の耕地",
   "block.caf.red_sandstone_walkway": "赤い砂岩の道",
+
+  "block.caf.saman_acacia_shingle": "アカシア・サマンの屋根材",
+  "block.caf.saman_almond_shingle": "アーモンド・サマンの屋根材",
+  "block.caf.saman_birch_shingle": "シラカバ・サマンの屋根材",
+  "block.caf.saman_crimson_shingle": "真紅・サマンの屋根材",
+  "block.caf.saman_dark_oak_shingle": "ダークオーク・サマンの屋根材",
+  "block.caf.saman_jungle_shingle": "ジャングル・サマンの屋根材",
+  "block.caf.saman_oak_shingle": "オーク・サマンの屋根材",
+  "block.caf.saman_spruce_shingle": "トウヒ・サマンの屋根材",
+  "block.caf.saman_warped_shingle": "歪んだ・サマンの屋根材",
+
   "block.caf.sand_farmland": "砂の耕地",
   "block.caf.sandstone_walkway": "砂岩の道",
   "block.caf.scales": "体重計",
