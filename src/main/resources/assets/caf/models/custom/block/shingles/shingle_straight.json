@@ -1,12 +1,7 @@
 {
-	"format_version": "1.21.11",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"shingle_top": "caf:block/shingles/shingle_top/saman_shingle_top",
-		"shingle_bottom": "caf:block/shingles/shingle_bottom/saman_shingle_bottom",
-		"particle": "caf:block/shingles/shingle_angle/saman_shingle_angle",
-		"shingle_angle": "caf:block/shingles/shingle_angle/saman_shingle_angle",
-		"base": "oak_planks"
+		"particle": "#base"
 	},
 	"elements": [
 		{
@@ -276,19 +271,5 @@
 		"fixed": {
 			"scale": [0.5, 0.5, 0.5]
 		}
-	},
-	"groups": [
-		{
-			"name": "shingle",
-			"origin": [8, 8, 8],
-			"color": 0,
-			"children": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-		},
-		{
-			"name": "framed",
-			"origin": [8, 8, 8],
-			"color": 0,
-			"children": [12, 13, 14, 15, 16, 17, 18, 19]
-		}
-	]
+	}
 }

@@ -1,12 +1,7 @@
 {
-	"format_version": "1.21.11",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "saman_shingle_top",
-		"shingle_top": "saman_shingle_top",
-		"shingle_bottom": "saman_shingle_bottom",
-		"shingle_angle": "saman_shingle_angle",
-		"base": "oak_planks"
+		"particle": "#base"
 	},
 	"elements": [
 		{
@@ -216,7 +211,7 @@
 			"name": "shingle_down.2",
 			"from": [16.002, 8.76084, 10.65394],
 			"to": [19.998, 11.75684, 19.64994],
-			"rotation": {"x": -22.5, "y": 0, "z": 0, "origin": [8, 1.4, 8]},
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 1.4, 8]},
 			"faces": {
 				"north": {"uv": [12, 11, 16, 14], "texture": "#shingle_top"},
 				"east": {"uv": [0, 0, 9, 3], "texture": "#shingle_angle"},
@@ -229,7 +224,7 @@
 			"name": "shingle_down.2",
 			"from": [16.002, 5.78426, 3.46784],
 			"to": [19.998, 8.78026, 13.46384],
-			"rotation": {"x": -22.5, "y": 0, "z": 0, "origin": [8, 1.4, 8]},
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 1.4, 8]},
 			"faces": {
 				"north": {"uv": [12, 11, 16, 14], "texture": "#shingle_top"},
 				"east": {"uv": [0, 0, 10, 3], "texture": "#shingle_angle"},
@@ -242,7 +237,7 @@
 			"name": "shingle_down.2",
 			"from": [16.002, 2.8562, -3.50874],
 			"to": [19.998, 5.8522, 7.48726],
-			"rotation": {"x": -22.5, "y": 0, "z": 0, "origin": [8, 1.4, 8]},
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 1.4, 8]},
 			"faces": {
 				"north": {"uv": [12, 11, 16, 14], "texture": "#shingle_top"},
 				"east": {"uv": [0, 0, 11, 3], "texture": "#shingle_angle"},
@@ -413,20 +408,6 @@
 				"up": {"uv": [0, 4, 4, 6], "rotation": 90, "texture": "#base"},
 				"down": {"uv": [0, 12, 4, 14], "rotation": 90, "texture": "#base"}
 			}
-		}
-	],
-	"groups": [
-		{
-			"name": "shingle",
-			"origin": [8, 8, 8],
-			"color": 0,
-			"children": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
-		},
-		{
-			"name": "framed",
-			"origin": [8, 8, 8],
-			"color": 0,
-			"children": [24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34]
 		}
 	]
 }
