@@ -15,7 +15,6 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import static com.simibubi.create.foundation.data.CreateRegistrate.connectedTextures;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 
 public class ShingleVariantEntry {
@@ -23,12 +22,12 @@ public class ShingleVariantEntry {
     public final ImmutableList<BlockEntry<? extends Block>> registeredBlocks;
     public final ImmutableList<BlockEntry<? extends Block>> registeredPartials;
 
-    public ShingleVariantEntry(String name, ShingleBlocks paletteStoneVariants) {
+    public ShingleVariantEntry(String name, ShingleBlocks shingleBlocks) {
         ImmutableList.Builder<BlockEntry<? extends Block>> registeredBlocks = ImmutableList.builder();
         ImmutableList.Builder<BlockEntry<? extends Block>> registeredPartials = ImmutableList.builder();
-        NonNullSupplier<Block> baseBlock = paletteStoneVariants.baseBlock;
+        NonNullSupplier<Block> baseBlock = shingleBlocks.baseBlock;
 
-        for (ShingleBlockPattern pattern : paletteStoneVariants.variantTypes) {
+        for (ShingleBlockPattern pattern : shingleBlocks.variantTypes) {
             BlockBuilder<? extends Block, CAFRegistrate> builder =
                     CreateAndFood.REGISTRATE.block(pattern.createName(name), pattern.getBlockFactory())
                             .initialProperties(baseBlock)
@@ -47,13 +46,13 @@ public class ShingleVariantEntry {
             if (itemTags != null)
                 itemBuilder.tag(itemTags);
 
-            itemBuilder.tag(paletteStoneVariants.materialTag);
+            itemBuilder.tag(shingleBlocks.materialTag);
 
             if (pattern.isTranslucent())
                 builder.addLayer(() -> RenderType::translucent);
 
             builder.recipe((c, p) -> {
-                p.stonecutting(DataIngredient.tag(paletteStoneVariants.materialTag), c);
+                p.stonecutting(DataIngredient.tag(shingleBlocks.materialTag), c);
                 pattern.addRecipes(baseBlock, c, p);
             });
 
@@ -62,7 +61,7 @@ public class ShingleVariantEntry {
             registeredBlocks.add(block);
         }
 
-        CreateAndFood.REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, p -> p.tag(paletteStoneVariants.materialTag));
+        CreateAndFood.REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, p -> p.tag(shingleBlocks.materialTag));
 
         this.registeredBlocks = registeredBlocks.build();
         this.registeredPartials = registeredPartials.build();

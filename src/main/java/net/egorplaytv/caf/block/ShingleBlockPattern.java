@@ -45,7 +45,7 @@ public class ShingleBlockPattern {
             .block(ShingleBlock::new)
             .textures("shingle_top", "shingle_bottom", "shingle_angle")
             .blockStateFactory(p -> p::shingleBlock),
-    ACACIA_SHINGLE = create("spruce_shingle", PatternNameType.SUFFIX)
+    ACACIA_SHINGLE = create("acacia_shingle", PatternNameType.SUFFIX)
             .block(ShingleBlock::new)
             .textures("shingle_top", "shingle_bottom", "shingle_angle")
             .blockStateFactory(p -> p::shingleBlock),
@@ -154,9 +154,10 @@ public class ShingleBlockPattern {
         boolean isAlmondPlanks = split[0].equals("almond");
         boolean isDarkOakPlanks = split[0].equals("dark");
         String plank = isDarkOakPlanks ? "dark_oak_planks" : split[0] + "_planks";
-        ResourceLocation planks = isAlmondPlanks ? new ResourceLocation(MOD_ID, plank) : new ResourceLocation(plank);
+        ResourceLocation planks = isAlmondPlanks ? new ResourceLocation(MOD_ID, "block/" + plank)
+                : new ResourceLocation("block/" + plank);
 
-        return (ctx, prov) -> prov.getVariantBuilder(ctx.getEntry())
+        return (ctx, prov) -> prov.getVariantBuilder(ctx.get())
                 .forAllStates(state -> {
                     Direction facing = state.getValue(ShingleBlock.FACING);
                     StairsShape shape = state.getValue(ShingleBlock.SHAPE);
@@ -196,7 +197,7 @@ public class ShingleBlockPattern {
                                 .build();
                     } else if (facing == Direction.EAST && shape == StairsShape.STRAIGHT) {
                         return ConfiguredModel.builder()
-                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_east_straight",
+                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath(),
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_straight"))
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)

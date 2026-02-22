@@ -18,7 +18,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.stream.IntStream;
 
-public class ShingleBlock extends Block implements SimpleWaterloggedBlock{
+public class ShingleBlock extends Block implements SimpleWaterloggedBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final EnumProperty<StairsShape> SHAPE = BlockStateProperties.STAIRS_SHAPE;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
