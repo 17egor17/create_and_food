@@ -1,0 +1,9 @@
+{
+  "parent": "caf:custom/block/shingles/shingle_inner_north",
+  "textures": {
+    "shingle_top": "caf:block/shingles/shingle_top/cyan_saman_shingle_top",
+    "shingle_bottom": "caf:block/shingles/shingle_bottom/cyan_saman_shingle_bottom",
+    "shingle_angle": "caf:block/shingles/shingle_angle/cyan_saman_shingle_angle",
+    "base": "minecraft:block/oak_planks"
+  }
+}

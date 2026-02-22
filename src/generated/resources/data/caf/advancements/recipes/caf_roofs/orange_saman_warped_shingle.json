@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:orange_saman_warped_shingle"
+    ]
+  },
+  "criteria": {
+    "has_orange_baked_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:orange_baked_clay"
+            ]
+          }
+        ]
+      }
+    },
+    "has_warped_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:warped_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:orange_saman_warped_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_orange_baked_clay",
+      "has_warped_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

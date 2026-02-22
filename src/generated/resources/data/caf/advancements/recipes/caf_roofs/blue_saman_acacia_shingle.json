@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:blue_saman_acacia_shingle"
+    ]
+  },
+  "criteria": {
+    "has_blue_baked_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:blue_baked_clay"
+            ]
+          }
+        ]
+      }
+    },
+    "has_acacia_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:acacia_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:blue_saman_acacia_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_blue_baked_clay",
+      "has_acacia_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "10 ",
+    "110"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:red_baked_clay"
+    },
+    "1": {
+      "item": "minecraft:dark_oak_planks"
+    }
+  },
+  "result": {
+    "item": "caf:red_saman_dark_oak_shingle",
+    "count": 3
+  }
+}

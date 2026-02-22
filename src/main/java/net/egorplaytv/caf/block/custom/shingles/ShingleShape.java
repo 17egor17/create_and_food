@@ -11,7 +11,7 @@ public enum ShingleShape implements StringRepresentable {
 
     private final String name;
 
-    private ShingleShape(String pName) {
+    ShingleShape(String pName) {
         this.name = pName;
     }
 

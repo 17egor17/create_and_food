@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:white_saman_almond_shingle"
+    ]
+  },
+  "criteria": {
+    "has_white_baked_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:white_baked_clay"
+            ]
+          }
+        ]
+      }
+    },
+    "has_almond_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:almond_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:white_saman_almond_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_white_baked_clay",
+      "has_almond_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

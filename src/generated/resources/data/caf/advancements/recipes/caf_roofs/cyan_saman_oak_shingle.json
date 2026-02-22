@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:cyan_saman_oak_shingle"
+    ]
+  },
+  "criteria": {
+    "has_cyan_baked_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:cyan_baked_clay"
+            ]
+          }
+        ]
+      }
+    },
+    "has_oak_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:oak_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:cyan_saman_oak_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cyan_baked_clay",
+      "has_oak_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

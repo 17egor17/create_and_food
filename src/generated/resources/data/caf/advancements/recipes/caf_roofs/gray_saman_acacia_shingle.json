@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:gray_saman_acacia_shingle"
+    ]
+  },
+  "criteria": {
+    "has_gray_baked_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:gray_baked_clay"
+            ]
+          }
+        ]
+      }
+    },
+    "has_acacia_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:acacia_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:gray_saman_acacia_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gray_baked_clay",
+      "has_acacia_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

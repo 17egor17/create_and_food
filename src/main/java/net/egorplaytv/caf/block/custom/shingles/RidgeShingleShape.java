@@ -12,7 +12,7 @@ public enum RidgeShingleShape implements StringRepresentable {
 
     private final String name;
 
-    private RidgeShingleShape(String pName) {
+    RidgeShingleShape(String pName) {
         this.name = pName;
     }
 

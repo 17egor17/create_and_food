@@ -1,0 +1,9 @@
+{
+  "parent": "caf:custom/block/shingles/shingle_inner_east",
+  "textures": {
+    "shingle_top": "caf:block/shingles/shingle_top/green_saman_shingle_top",
+    "shingle_bottom": "caf:block/shingles/shingle_bottom/green_saman_shingle_bottom",
+    "shingle_angle": "caf:block/shingles/shingle_angle/green_saman_shingle_angle",
+    "base": "minecraft:block/acacia_planks"
+  }
+}

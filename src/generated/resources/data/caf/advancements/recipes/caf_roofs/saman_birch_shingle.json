@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:saman_birch_shingle"
+    ]
+  },
+  "criteria": {
+    "has_baked_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:baked_clay"
+            ]
+          }
+        ]
+      }
+    },
+    "has_birch_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:birch_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:saman_birch_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_baked_clay",
+      "has_birch_planks",
+      "has_the_recipe"
+    ]
+  ]
+}
