@@ -5,7 +5,6 @@
 	},
 	"elements": [
 		{
-			"name": "top ending/back",
 			"from": [11.999, 13.999, 11.999],
 			"to": [16.001, 16.251, 16.001],
 			"rotation": {"angle": 0, "axis": "y", "origin": [0.1, 0, 0.1]},
@@ -18,7 +17,6 @@
 			}
 		},
 		{
-			"name": "shingle_top_c",
 			"from": [-0.6, 10.5, 7.9],
 			"to": [11.4, 15.5, 11.9],
 			"rotation": {"angle": -45, "axis": "y", "origin": [7.4, 10.5, 15.9]},
@@ -31,7 +29,6 @@
 			}
 		},
 		{
-			"name": "shingle_middle_c",
 			"from": [-5.5, 5.5, 3],
 			"to": [6.5, 10.5, 7],
 			"rotation": {"angle": -45, "axis": "y", "origin": [2.5, 5.5, 11]},
@@ -44,7 +41,6 @@
 			}
 		},
 		{
-			"name": "shingle_down_c",
 			"from": [-10.4, 0.5, -1.9],
 			"to": [1.6, 5.5, 2.1],
 			"rotation": {"angle": -45, "axis": "y", "origin": [-2.4, 0.5, 6.1]},
@@ -57,7 +53,6 @@
 			}
 		},
 		{
-			"name": "shingle_top_b",
 			"from": [7, 12.3, 12],
 			"to": [15, 15.3, 16],
 			"rotation": {"angle": 22.5, "axis": "z", "origin": [15, 12.3, 20]},
@@ -69,7 +64,6 @@
 			}
 		},
 		{
-			"name": "shingle_top_b.2",
 			"from": [7, 12.3, 8],
 			"to": [10, 15.3, 12],
 			"rotation": {"angle": 22.5, "axis": "z", "origin": [15, 12.3, 16]},
@@ -79,7 +73,6 @@
 			}
 		},
 		{
-			"name": "shingle_top",
 			"from": [12, 12.3, 7],
 			"to": [16, 15.3, 15],
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [20, 12.3, 15]},
@@ -91,7 +84,6 @@
 			}
 		},
 		{
-			"name": "shingle_top.2",
 			"from": [8, 12.3, 7],
 			"to": [12, 15.3, 10],
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [16, 12.3, 15]},
@@ -101,7 +93,6 @@
 			}
 		},
 		{
-			"name": "shingle_middle.2",
 			"from": [4, 6.8, 1.5],
 			"to": [8, 9.8, 6.5],
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [12, 6.8, 9.5]},
@@ -112,7 +103,6 @@
 			}
 		},
 		{
-			"name": "shingle_middle",
 			"from": [8, 6.8, 1.5],
 			"to": [16, 9.8, 11.5],
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [16, 6.8, 9.5]},
@@ -124,7 +114,6 @@
 			}
 		},
 		{
-			"name": "shingle_middle_b.2",
 			"from": [1.5, 6.8, 4],
 			"to": [6.5, 9.8, 8],
 			"rotation": {"angle": 22.5, "axis": "z", "origin": [9.5, 6.8, 12]},
@@ -135,7 +124,6 @@
 			}
 		},
 		{
-			"name": "shingle_middle_b",
 			"from": [1.5, 6.8, 8],
 			"to": [11.5, 9.8, 16],
 			"rotation": {"angle": 22.5, "axis": "z", "origin": [9.5, 6.8, 16]},
@@ -147,7 +135,6 @@
 			}
 		},
 		{
-			"name": "shingle_down_b",
 			"from": [-3.8, 1.4, 4],
 			"to": [7.2, 4.4, 16],
 			"rotation": {"angle": 22.5, "axis": "z", "origin": [4.2, 1.4, 12]},
@@ -159,7 +146,6 @@
 			}
 		},
 		{
-			"name": "shingle_down_b.2",
 			"from": [-3.8, 1.4, 0],
 			"to": [3.2, 4.4, 4],
 			"rotation": {"angle": 22.5, "axis": "z", "origin": [4.2, 1.4, 8]},
@@ -171,7 +157,6 @@
 			}
 		},
 		{
-			"name": "shingle_down",
 			"from": [4, 1.4, -3.8],
 			"to": [16, 4.4, 7.2],
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [12, 1.4, 4.2]},
@@ -183,7 +168,6 @@
 			}
 		},
 		{
-			"name": "shingle_down.2",
 			"from": [0, 1.4, -3.8],
 			"to": [4, 4.4, 3.2],
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 1.4, 4.2]},
@@ -195,7 +179,6 @@
 			}
 		},
 		{
-			"name": "top ending",
 			"from": [14.001, 14.001, -3.999],
 			"to": [15.999, 15.999, -0.001],
 			"rotation": {"x": 0, "y": -90, "z": 0, "origin": [8, 1.4, 8]},
@@ -208,7 +191,6 @@
 			}
 		},
 		{
-			"name": "shingle_down.2",
 			"from": [16.002, 8.76084, 10.65394],
 			"to": [19.998, 11.75684, 19.64994],
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 1.4, 8]},
@@ -221,7 +203,6 @@
 			}
 		},
 		{
-			"name": "shingle_down.2",
 			"from": [16.002, 5.78426, 3.46784],
 			"to": [19.998, 8.78026, 13.46384],
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 1.4, 8]},
@@ -234,7 +215,6 @@
 			}
 		},
 		{
-			"name": "shingle_down.2",
 			"from": [16.002, 2.8562, -3.50874],
 			"to": [19.998, 5.8522, 7.48726],
 			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 1.4, 8]},
@@ -247,7 +227,6 @@
 			}
 		},
 		{
-			"name": "top ending",
 			"from": [13.998, 13.998, 15.998],
 			"to": [16.002, 16.002, 20.002],
 			"rotation": {"angle": 0, "axis": "y", "origin": [0.2, 0, 8]},
@@ -260,7 +239,6 @@
 			}
 		},
 		{
-			"name": "shingle_down.2",
 			"from": [-4.001, 8.75784, 10.65094],
 			"to": [0.001, 11.75984, 19.65294],
 			"rotation": {"x": 0, "y": 90, "z": 22.5, "origin": [8, 1.4, 8]},
@@ -273,7 +251,6 @@
 			}
 		},
 		{
-			"name": "shingle_down.2",
 			"from": [-4.001, 5.78126, 3.46484],
 			"to": [0.001, 8.78326, 13.46684],
 			"rotation": {"x": 0, "y": 90, "z": 22.5, "origin": [8, 1.4, 8]},
@@ -286,7 +263,6 @@
 			}
 		},
 		{
-			"name": "shingle_down.2",
 			"from": [-4.001, 2.8532, -3.51174],
 			"to": [0.001, 5.8552, 7.49026],
 			"rotation": {"x": 0, "y": 90, "z": 22.5, "origin": [8, 1.4, 8]},
