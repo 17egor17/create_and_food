@@ -20,7 +20,7 @@ import java.util.stream.IntStream;
 
 public class ShingleBlock extends Block implements SimpleWaterloggedBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final EnumProperty<StairsShape> SHAPE = BlockStateProperties.STAIRS_SHAPE;
+    public static final EnumProperty<ShingleShape> SHAPE = net.egorplaytv.caf.block.praperties.BlockStateProperties.SHINGLE_SHAPE;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     protected static final VoxelShape BOTTOM_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
     protected static final VoxelShape OCTET_NPN = Block.box(0.0D, 8.0D, 0.0D, 8.0D, 16.0D, 8.0D);
@@ -61,7 +61,7 @@ public class ShingleBlock extends Block implements SimpleWaterloggedBlock {
 
     public ShingleBlock(Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(SHAPE, StairsShape.STRAIGHT).setValue(WATERLOGGED, Boolean.valueOf(false)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(SHAPE, ShingleShape.STRAIGHT).setValue(WATERLOGGED, Boolean.valueOf(false)));
     }
 
     @Override
@@ -96,17 +96,17 @@ public class ShingleBlock extends Block implements SimpleWaterloggedBlock {
         return pFacing.getAxis().isHorizontal() ? pState.setValue(SHAPE, getStairsShape(pState, pLevel, pCurrentPos)) : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
     }
 
-    private static StairsShape getStairsShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+    private static ShingleShape getStairsShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
         Direction direction = pState.getValue(FACING);
         BlockState blockstate = pLevel.getBlockState(pPos.relative(direction));
         if (isShingles(blockstate)) {
             Direction direction1 = blockstate.getValue(FACING);
             if (direction1.getAxis() != pState.getValue(FACING).getAxis() && canTakeShape(pState, pLevel, pPos, direction1.getOpposite())) {
                 if (direction1 == direction.getCounterClockWise()) {
-                    return StairsShape.OUTER_LEFT;
+                    return ShingleShape.OUTER_LEFT;
                 }
 
-                return StairsShape.OUTER_RIGHT;
+                return ShingleShape.OUTER_RIGHT;
             }
         }
 
@@ -115,14 +115,14 @@ public class ShingleBlock extends Block implements SimpleWaterloggedBlock {
             Direction direction2 = blockstate1.getValue(FACING);
             if (direction2.getAxis() != pState.getValue(FACING).getAxis() && canTakeShape(pState, pLevel, pPos, direction2)) {
                 if (direction2 == direction.getCounterClockWise()) {
-                    return StairsShape.INNER_LEFT;
+                    return ShingleShape.INNER_LEFT;
                 }
 
-                return StairsShape.INNER_RIGHT;
+                return ShingleShape.INNER_RIGHT;
             }
         }
 
-        return StairsShape.STRAIGHT;
+        return ShingleShape.STRAIGHT;
     }
 
     private static boolean canTakeShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pFace) {
@@ -142,19 +142,19 @@ public class ShingleBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public BlockState mirror(BlockState pState, Mirror pMirror) {
         Direction direction = pState.getValue(FACING);
-        StairsShape stairsshape = pState.getValue(SHAPE);
+        ShingleShape stairsshape = pState.getValue(SHAPE);
         switch(pMirror) {
             case LEFT_RIGHT:
                 if (direction.getAxis() == Direction.Axis.Z) {
                     switch(stairsshape) {
                         case INNER_LEFT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, StairsShape.INNER_RIGHT);
+                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, ShingleShape.INNER_RIGHT);
                         case INNER_RIGHT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, StairsShape.INNER_LEFT);
+                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, ShingleShape.INNER_LEFT);
                         case OUTER_LEFT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, StairsShape.OUTER_RIGHT);
+                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, ShingleShape.OUTER_RIGHT);
                         case OUTER_RIGHT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, StairsShape.OUTER_LEFT);
+                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, ShingleShape.OUTER_LEFT);
                         default:
                             return pState.rotate(Rotation.CLOCKWISE_180);
                     }
@@ -164,13 +164,13 @@ public class ShingleBlock extends Block implements SimpleWaterloggedBlock {
                 if (direction.getAxis() == Direction.Axis.X) {
                     switch(stairsshape) {
                         case INNER_LEFT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, StairsShape.INNER_LEFT);
+                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, ShingleShape.INNER_LEFT);
                         case INNER_RIGHT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, StairsShape.INNER_RIGHT);
+                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, ShingleShape.INNER_RIGHT);
                         case OUTER_LEFT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, StairsShape.OUTER_RIGHT);
+                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, ShingleShape.OUTER_RIGHT);
                         case OUTER_RIGHT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, StairsShape.OUTER_LEFT);
+                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, ShingleShape.OUTER_LEFT);
                         case STRAIGHT:
                             return pState.rotate(Rotation.CLOCKWISE_180);
                     }
