@@ -18,16 +18,6 @@
         ]
       }
     },
-    "has_planks": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "tag": "minecraft:planks"
-          }
-        ]
-      }
-    },
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
@@ -38,7 +28,6 @@
   "requirements": [
     [
       "has_red_baked_clay",
-      "has_planks",
       "has_the_recipe"
     ]
   ]

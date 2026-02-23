@@ -1,0 +1,9 @@
+{
+  "parent": "caf:custom/block/shingles/ridge_shingle_three_west",
+  "textures": {
+    "shingle_top": "caf:block/shingles/shingle_top/black_saman_shingle_top",
+    "shingle_bottom": "caf:block/shingles/shingle_bottom/black_saman_shingle_bottom",
+    "shingle_angle": "caf:block/shingles/shingle_angle/black_saman_shingle_angle",
+    "base": "caf:block/palettes/stone_types/black_baked_clay"
+  }
+}
