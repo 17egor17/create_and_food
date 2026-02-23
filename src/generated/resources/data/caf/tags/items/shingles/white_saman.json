@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "caf:white_saman_oak_shingle",
-    "caf:white_saman_oak_ridge_shingle",
     "caf:white_saman_spruce_shingle",
     "caf:white_saman_birch_shingle",
     "caf:white_saman_jungle_shingle",
@@ -10,6 +9,7 @@
     "caf:white_saman_dark_oak_shingle",
     "caf:white_saman_crimson_shingle",
     "caf:white_saman_warped_shingle",
-    "caf:white_saman_almond_shingle"
+    "caf:white_saman_almond_shingle",
+    "caf:white_saman_oak_ridge_shingle"
   ]
 }
