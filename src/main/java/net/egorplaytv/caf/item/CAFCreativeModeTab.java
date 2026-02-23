@@ -57,7 +57,7 @@ public class CAFCreativeModeTab {
     public static final CreativeModeTab CREATE_AND_FOOD_ROOFS = new CreativeModeTab("caf_roofs") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ShingleBlocks.SAMAN.getVariants().getBlocks().get());
+            return new ItemStack(ShingleBlocks.SAMAN.getVariants().getBlocks().get().asItem());
         }
     };
 

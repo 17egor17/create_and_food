@@ -26,28 +26,28 @@ public enum PaletteStoneTypes {
 
     MARBLE(MARBLE_RANGE, r -> r.paletteStoneBlock("marble", () -> Blocks.TERRACOTTA, false, true)
             .properties(p -> p.destroyTime(1.5f).sound(SoundType.STONE)
-                    .color(MaterialColor.COLOR_GRAY))
+                    .color(MaterialColor.COLOR_LIGHT_GRAY))
             .loot((l, b) -> l.add(b,
                             RegistrateBlockLootTables.createSingleItemTableWithSilkTouch(b, CAFBlocks.COBBLED_MARBLE.get())))
             .register()),
 
     MARBLE_BLACK_GALAXY(MARBLE_RANGE, r -> r.paletteStoneBlock("marble_black_galaxy", () -> Blocks.TERRACOTTA, false, true)
             .properties(p -> p.destroyTime(1.5f).sound(SoundType.STONE)
-                    .color(MaterialColor.COLOR_GRAY))
+                    .color(MaterialColor.COLOR_BLACK))
             .loot((l, b) -> l.add(b,
                     RegistrateBlockLootTables.createSingleItemTableWithSilkTouch(b, CAFBlocks.COBBLED_MARBLE_BLACK_GALAXY.get())))
             .register()),
 
     MARBLE_PERLIN_PINK(MARBLE_RANGE, r -> r.paletteStoneBlock("marble_perlin_pink", () -> Blocks.TERRACOTTA, false, true)
             .properties(p -> p.destroyTime(1.5f).sound(SoundType.STONE)
-                    .color(MaterialColor.COLOR_GRAY))
+                    .color(MaterialColor.COLOR_PINK))
             .loot((l, b) -> l.add(b,
                     RegistrateBlockLootTables.createSingleItemTableWithSilkTouch(b, CAFBlocks.COBBLED_MARBLE_PERLIN_PINK.get())))
             .register()),
 
     BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("baked_clay", () -> Blocks.TERRACOTTA, false, false)
             .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
-                    .color(MaterialColor.COLOR_BROWN))
+                    .color(MaterialColor.TERRACOTTA_ORANGE))
             .register()),
     BLACK_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("black_baked_clay", () -> Blocks.TERRACOTTA, false, false)
             .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)

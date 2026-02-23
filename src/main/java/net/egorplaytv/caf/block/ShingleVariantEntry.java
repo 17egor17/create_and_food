@@ -1,6 +1,7 @@
 package net.egorplaytv.caf.block;
 
 import com.google.common.collect.ImmutableList;
+import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.builders.ItemBuilder;
 import com.tterrag.registrate.providers.ProviderType;
@@ -24,6 +25,7 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import java.util.function.Supplier;
 
+import static com.simibubi.create.foundation.data.TagGen.axeOnly;
 import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
 import static com.tterrag.registrate.providers.RegistrateRecipeProvider.inventoryTrigger;
 
@@ -38,13 +40,36 @@ public class ShingleVariantEntry {
         NonNullSupplier<Block> baseBlock = shingleBlocks.baseBlock;
 
         for (ShingleBlockPattern pattern : shingleBlocks.variantTypes) {
-            BlockBuilder<? extends Block, CAFRegistrate> builder =
-                    CreateAndFood.REGISTRATE.block(pattern.createName(name), pattern.getBlockFactory())
+            BlockBuilder<? extends Block, CAFRegistrate> builder;
+            if (pattern == ShingleBlockPattern.RIDGE_SHINGLE) {
+                builder = CreateAndFood.REGISTRATE.block(pattern.createName(name), pattern.getBlockFactory())
+                        .initialProperties(baseBlock)
+                        .transform(pickaxeOnly())
+                        .blockstate(pattern.getBlockStateGenerator()
+                                .apply(pattern)
+                                .apply(name)::accept);
+            } else {
+                if (pattern == ShingleBlockPattern.OAK_SHINGLE || pattern == ShingleBlockPattern.SPRUCE_SHINGLE
+                || pattern == ShingleBlockPattern.BIRCH_SHINGLE || pattern == ShingleBlockPattern.JUNGLE_SHINGLE
+                || pattern == ShingleBlockPattern.ACACIA_SHINGLE || pattern == ShingleBlockPattern.DARK_OAK_SHINGLE
+                || pattern == ShingleBlockPattern.CRIMSON_SHINGLE || pattern == ShingleBlockPattern.WARPED_SHINGLE
+                || pattern == ShingleBlockPattern.ALMOND_SHINGLE) {
+                    builder = CreateAndFood.REGISTRATE.block(pattern.createName(name), pattern.getBlockFactory())
+                            .initialProperties(SharedProperties::wooden)
+                            .properties(p -> p.color(baseBlock.get().defaultMaterialColor()))
+                            .transform(axeOnly())
+                            .blockstate(pattern.getBlockStateGenerator()
+                                    .apply(pattern)
+                                    .apply(name)::accept);
+                } else {
+                    builder = CreateAndFood.REGISTRATE.block(pattern.createName(name), pattern.getBlockFactory())
                             .initialProperties(baseBlock)
                             .transform(pickaxeOnly())
                             .blockstate(pattern.getBlockStateGenerator()
                                     .apply(pattern)
                                     .apply(name)::accept);
+                }
+            }
 
             ItemBuilder<BlockItem, ? extends BlockBuilder<? extends Block, CAFRegistrate>> itemBuilder =
                     builder.item();
