@@ -12,8 +12,7 @@
 			"faces": {
 				"north": {"uv": [12, 2, 16, 16], "texture": "#base"},
 				"south": {"uv": [0, 2, 4, 16], "texture": "#base"},
-				"west": {"uv": [0, 2, 16, 16], "texture": "#base"},
-				"down": {"uv": [4, 16, 0, 0], "rotation": 180, "texture": "#base"}
+				"west": {"uv": [0, 2, 16, 16], "texture": "#base"}
 			}
 		},
 		{
@@ -22,8 +21,7 @@
 			"rotation": {"angle": 0, "axis": "x", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [8, 5, 12, 16], "texture": "#base"},
-				"south": {"uv": [4, 5, 8, 16], "texture": "#base"},
-				"down": {"uv": [8, 16, 4, 0], "rotation": 180, "texture": "#base"}
+				"south": {"uv": [4, 5, 8, 16], "texture": "#base"}
 			}
 		},
 		{
@@ -32,8 +30,7 @@
 			"rotation": {"angle": 0, "axis": "x", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [3, 9, 8, 16], "texture": "#base"},
-				"south": {"uv": [8, 9, 13, 16], "texture": "#base"},
-				"down": {"uv": [13, 16, 8, 0], "rotation": 180, "texture": "#base"}
+				"south": {"uv": [8, 9, 13, 16], "texture": "#base"}
 			}
 		},
 		{
@@ -42,8 +39,7 @@
 			"rotation": {"angle": 0, "axis": "x", "origin": [8, 0, 8]},
 			"faces": {
 				"north": {"uv": [0, 14, 3, 16], "texture": "#base"},
-				"south": {"uv": [13, 14, 16, 16], "texture": "#base"},
-				"down": {"uv": [16, 16, 13, 0], "rotation": 180, "texture": "#base"}
+				"south": {"uv": [13, 14, 16, 16], "texture": "#base"}
 			}
 		},
 		{
@@ -92,6 +88,13 @@
 				"west": {"uv": [4, 8, 0, 10], "texture": "#base"},
 				"up": {"uv": [0, 6, 4, 4], "rotation": 270, "texture": "#base"},
 				"down": {"uv": [0, 12, 4, 14], "rotation": 270, "texture": "#base"}
+			}
+		},
+		{
+			"from": [0, 0, 0],
+			"to": [16, 0, 16],
+			"faces": {
+				"down": {"uv": [0, 0, 16, 16], "texture": "#base"}
 			}
 		},
 		{
@@ -234,13 +237,13 @@
 			"name": "base",
 			"origin": [8, 0, 8],
 			"color": 0,
-			"children": [0, 1, 2, 3, 4, 5, 6, 7]
+			"children": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 		},
 		{
 			"name": "single",
 			"origin": [8, 0, 8],
 			"color": 0,
-			"children": [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+			"children": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 		}
 	]
 }
