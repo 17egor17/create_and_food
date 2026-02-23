@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:gray_saman_oak_ridge_shingle"
+    ]
+  },
+  "criteria": {
+    "has_gray_baked_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:gray_baked_clay"
+            ]
+          }
+        ]
+      }
+    },
+    "has_almond_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:almond_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:gray_saman_oak_ridge_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gray_baked_clay",
+      "has_almond_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

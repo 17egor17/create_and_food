@@ -1,5 +1,8 @@
 package net.egorplaytv.caf.block.custom.shingles;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -10,61 +13,34 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-import java.util.stream.IntStream;
+import java.util.Map;
 
 public class RidgeShingleBlock extends Block implements SimpleWaterloggedBlock {
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final EnumProperty<RidgeShingleShape> SHAPE = net.egorplaytv.caf.block.praperties.BlockStateProperties.RIDGE_SHINGLE_SHAPE;
+    public static final BooleanProperty NORTH = BlockStateProperties.NORTH;
+    public static final BooleanProperty EAST = BlockStateProperties.EAST;
+    public static final BooleanProperty SOUTH = BlockStateProperties.SOUTH;
+    public static final BooleanProperty WEST = BlockStateProperties.WEST;
+    public static final Map<Direction, BooleanProperty> PROPERTY_BY_DIRECTION = ImmutableMap.copyOf(Util.make(Maps.newEnumMap(Direction.class), (p_55164_) -> {
+        p_55164_.put(Direction.NORTH, NORTH);
+        p_55164_.put(Direction.EAST, EAST);
+        p_55164_.put(Direction.SOUTH, SOUTH);
+        p_55164_.put(Direction.WEST, WEST);
+    }));
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
-    protected static final VoxelShape BOTTOM_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
-    protected static final VoxelShape OCTET_NPN = Block.box(0.0D, 8.0D, 0.0D, 8.0D, 16.0D, 8.0D);
-    protected static final VoxelShape OCTET_NPP = Block.box(0.0D, 8.0D, 8.0D, 8.0D, 16.0D, 16.0D);
-    protected static final VoxelShape OCTET_PPN = Block.box(8.0D, 8.0D, 0.0D, 16.0D, 16.0D, 8.0D);
-    protected static final VoxelShape OCTET_PPP = Block.box(8.0D, 8.0D, 8.0D, 16.0D, 16.0D, 16.0D);
-    protected static final VoxelShape[] BOTTOM_SHAPES = makeShapes(BOTTOM_AABB, OCTET_NPN, OCTET_PPN, OCTET_NPP, OCTET_PPP);
-    private static final int[] SHAPE_BY_STATE = new int[]{12, 5, 3, 10, 14, 13, 7, 11, 13, 7, 11, 14, 8, 4, 1, 2, 4, 1, 2, 8};
-
-    private static VoxelShape[] makeShapes(VoxelShape pSlabShape, VoxelShape pNwCorner, VoxelShape pNeCorner, VoxelShape pSwCorner, VoxelShape pSeCorner) {
-        return IntStream.range(0, 16).mapToObj((p_56945_) -> {
-            return makeStairShape(p_56945_, pSlabShape, pNwCorner, pNeCorner, pSwCorner, pSeCorner);
-        }).toArray((p_56949_) -> {
-            return new VoxelShape[p_56949_];
-        });
-    }
-
-    private static VoxelShape makeStairShape(int pBitfield, VoxelShape pSlabShape, VoxelShape pNwCorner, VoxelShape pNeCorner, VoxelShape pSwCorner, VoxelShape pSeCorner) {
-        VoxelShape voxelshape = pSlabShape;
-        if ((pBitfield & 1) != 0) {
-            voxelshape = Shapes.or(pSlabShape, pNwCorner);
-        }
-
-        if ((pBitfield & 2) != 0) {
-            voxelshape = Shapes.or(voxelshape, pNeCorner);
-        }
-
-        if ((pBitfield & 4) != 0) {
-            voxelshape = Shapes.or(voxelshape, pSwCorner);
-        }
-
-        if ((pBitfield & 8) != 0) {
-            voxelshape = Shapes.or(voxelshape, pSeCorner);
-        }
-
-        return voxelshape;
-    }
+    protected static final VoxelShape AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
 
     public RidgeShingleBlock(Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(SHAPE, RidgeShingleShape.STRAIGHT).setValue(WATERLOGGED, Boolean.valueOf(false)));
+        this.registerDefaultState(this.stateDefinition.any().setValue(NORTH, Boolean.valueOf(false))
+                .setValue(EAST, Boolean.valueOf(false)).setValue(SOUTH, Boolean.valueOf(false))
+                .setValue(WEST, Boolean.valueOf(false)).setValue(WATERLOGGED, Boolean.valueOf(false)));
     }
 
     @Override
@@ -74,118 +50,30 @@ public class RidgeShingleBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return (BOTTOM_SHAPES)[SHAPE_BY_STATE[this.getShapeIndex(pState)]];
-    }
-
-    private int getShapeIndex(BlockState pState) {
-        return pState.getValue(SHAPE).ordinal() * 4 + pState.getValue(FACING).get2DDataValue();
+        return AABB;
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        Direction direction = pContext.getClickedFace();
         BlockPos blockpos = pContext.getClickedPos();
         FluidState fluidstate = pContext.getLevel().getFluidState(blockpos);
-        BlockState blockstate = this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection()).setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
-        return blockstate.setValue(SHAPE, getStairsShape(blockstate, pContext.getLevel(), blockpos));
+        return this.defaultBlockState().setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
     }
 
     @Override
-    public BlockState updateShape(BlockState pState, Direction pFacing, BlockState pFacingState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-        if (pState.getValue(WATERLOGGED)) {
-            pLevel.scheduleTick(pCurrentPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel));
-        }
-
-        return pFacing.getAxis().isHorizontal() ? pState.setValue(SHAPE, getStairsShape(pState, pLevel, pCurrentPos)) : super.updateShape(pState, pFacing, pFacingState, pLevel, pCurrentPos, pFacingPos);
+    public BlockState updateShape(BlockState pState, Direction direction, BlockState neighbor, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
+        return  direction.getAxis().isHorizontal() ? pState.setValue(PROPERTY_BY_DIRECTION.get(direction),
+                Boolean.valueOf(isRidgeShingles(neighbor, neighbor.isFaceSturdy(pLevel, pFacingPos, direction.getOpposite()))))
+                : super.updateShape(pState, direction, neighbor, pLevel, pCurrentPos, pFacingPos);
     }
 
-    private static RidgeShingleShape getStairsShape(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
-        Direction direction = pState.getValue(FACING);
-        BlockState blockstate = pLevel.getBlockState(pPos.relative(direction));
-        if (isShingles(blockstate)) {
-            Direction direction1 = blockstate.getValue(FACING);
-            if (direction1.getAxis() != pState.getValue(FACING).getAxis() && canTakeShape(pState, pLevel, pPos, direction1.getOpposite())) {
-                if (direction1 == direction.getCounterClockWise()) {
-                    return RidgeShingleShape.OUTER_LEFT;
-                }
-
-                return RidgeShingleShape.OUTER_RIGHT;
-            }
-        }
-
-        BlockState blockstate1 = pLevel.getBlockState(pPos.relative(direction.getOpposite()));
-        if (isShingles(blockstate1)) {
-            Direction direction2 = blockstate1.getValue(FACING);
-            if (direction2.getAxis() != pState.getValue(FACING).getAxis() && canTakeShape(pState, pLevel, pPos, direction2)) {
-                if (direction2 == direction.getCounterClockWise()) {
-                    return RidgeShingleShape.INNER_LEFT;
-                }
-
-                return RidgeShingleShape.INNER_RIGHT;
-            }
-        }
-
-        return RidgeShingleShape.STRAIGHT;
-    }
-
-    private static boolean canTakeShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, Direction pFace) {
-        BlockState blockstate = pLevel.getBlockState(pPos.relative(pFace));
-        return !isShingles(blockstate) || blockstate.getValue(FACING) != pState.getValue(FACING);
-    }
-
-    public static boolean isShingles(BlockState pState) {
-        return pState.getBlock() instanceof RidgeShingleBlock;
-    }
-
-    @Override
-    public BlockState rotate(BlockState pState, Rotation pRot) {
-        return pState.setValue(FACING, pRot.rotate(pState.getValue(FACING)));
-    }
-
-    @Override
-    public BlockState mirror(BlockState pState, Mirror pMirror) {
-        Direction direction = pState.getValue(FACING);
-        RidgeShingleShape stairsshape = pState.getValue(SHAPE);
-        switch(pMirror) {
-            case LEFT_RIGHT:
-                if (direction.getAxis() == Direction.Axis.Z) {
-                    switch(stairsshape) {
-                        case INNER_LEFT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, RidgeShingleShape.INNER_RIGHT);
-                        case INNER_RIGHT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, RidgeShingleShape.INNER_LEFT);
-                        case OUTER_LEFT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, RidgeShingleShape.OUTER_RIGHT);
-                        case OUTER_RIGHT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, RidgeShingleShape.OUTER_LEFT);
-                        default:
-                            return pState.rotate(Rotation.CLOCKWISE_180);
-                    }
-                }
-                break;
-            case FRONT_BACK:
-                if (direction.getAxis() == Direction.Axis.X) {
-                    switch(stairsshape) {
-                        case INNER_LEFT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, RidgeShingleShape.INNER_LEFT);
-                        case INNER_RIGHT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, RidgeShingleShape.INNER_RIGHT);
-                        case OUTER_LEFT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, RidgeShingleShape.OUTER_RIGHT);
-                        case OUTER_RIGHT:
-                            return pState.rotate(Rotation.CLOCKWISE_180).setValue(SHAPE, RidgeShingleShape.OUTER_LEFT);
-                        case STRAIGHT:
-                            return pState.rotate(Rotation.CLOCKWISE_180);
-                    }
-                }
-        }
-
-        return super.mirror(pState, pMirror);
+    public static boolean isRidgeShingles(BlockState pState, boolean pSolidSide) {
+        return (pState.getBlock() instanceof RidgeShingleBlock) || pSolidSide;
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING, SHAPE, WATERLOGGED);
+        pBuilder.add(NORTH, EAST, SOUTH, WEST, WATERLOGGED);
     }
 
     @Override

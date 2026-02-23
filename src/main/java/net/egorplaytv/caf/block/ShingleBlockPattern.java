@@ -7,7 +7,10 @@ import com.tterrag.registrate.util.nullness.NonNullBiConsumer;
 import com.tterrag.registrate.util.nullness.NonNullFunction;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.egorplaytv.caf.CreateAndFood;
+import net.egorplaytv.caf.block.custom.shingles.RidgeShingleBlock;
+import net.egorplaytv.caf.block.custom.shingles.RidgeShingleShape;
 import net.egorplaytv.caf.block.custom.shingles.ShingleBlock;
+import net.egorplaytv.caf.block.custom.shingles.ShingleShape;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -15,6 +18,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -29,6 +34,9 @@ public class ShingleBlockPattern {
     public static final ShingleBlockPattern
     OAK_SHINGLE = create("oak_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
             .block(ShingleBlock::new)
+            .textures("shingle_top", "shingle_bottom", "shingle_angle"),
+    OAK_RIDGE_SHINGLE = create("oak_ridge_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::ridgeShingleBlock)
+            .block(RidgeShingleBlock::new)
             .textures("shingle_top", "shingle_bottom", "shingle_angle"),
     SPRUCE_SHINGLE = create("spruce_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
             .block(ShingleBlock::new)
@@ -57,7 +65,8 @@ public class ShingleBlockPattern {
 
     ;
 
-    public static final ShingleBlockPattern[] SHINGLE_RANGE = { OAK_SHINGLE, SPRUCE_SHINGLE, BIRCH_SHINGLE, JUNGLE_SHINGLE, ACACIA_SHINGLE, DARK_OAK_SHINGLE, CRIMSON_SHINGLE, WARPED_SHINGLE, ALMOND_SHINGLE };
+    public static final ShingleBlockPattern[] SHINGLE_RANGE = { OAK_SHINGLE, SPRUCE_SHINGLE, BIRCH_SHINGLE, JUNGLE_SHINGLE,
+            ACACIA_SHINGLE, DARK_OAK_SHINGLE, CRIMSON_SHINGLE, WARPED_SHINGLE, ALMOND_SHINGLE, OAK_RIDGE_SHINGLE };
 
     static final String TEXTURE_LOCATION = "block/shingles/%s/%s";
 
@@ -145,9 +154,9 @@ public class ShingleBlockPattern {
         return (ctx, prov) -> prov.getVariantBuilder(ctx.get())
                 .forAllStates(state -> {
                     Direction facing = state.getValue(ShingleBlock.FACING);
-                    StairsShape shape = state.getValue(ShingleBlock.SHAPE);
+                    ShingleShape shape = state.getValue(ShingleBlock.SHAPE);
 
-                    if (facing == Direction.NORTH && shape == StairsShape.STRAIGHT) {
+                    if (facing == Direction.NORTH && shape == ShingleShape.STRAIGHT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_north_straight",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_straight_north"))
@@ -156,7 +165,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.SOUTH && shape == StairsShape.STRAIGHT) {
+                    } else if (facing == Direction.SOUTH && shape == ShingleShape.STRAIGHT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_south_straight",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_straight_south"))
@@ -165,7 +174,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.WEST && shape == StairsShape.STRAIGHT) {
+                    } else if (facing == Direction.WEST && shape == ShingleShape.STRAIGHT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_west_straight",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_straight_west"))
@@ -174,7 +183,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.EAST && shape == StairsShape.STRAIGHT) {
+                    } else if (facing == Direction.EAST && shape == ShingleShape.STRAIGHT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath(),
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_straight_east"))
@@ -183,7 +192,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.NORTH && shape == StairsShape.INNER_LEFT) {
+                    } else if (facing == Direction.NORTH && shape == ShingleShape.INNER_LEFT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_west_inner",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_inner_west"))
@@ -192,7 +201,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.SOUTH && shape == StairsShape.INNER_LEFT) {
+                    } else if (facing == Direction.SOUTH && shape == ShingleShape.INNER_LEFT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_east_inner",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_inner_east"))
@@ -201,7 +210,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.WEST && shape == StairsShape.INNER_LEFT) {
+                    } else if (facing == Direction.WEST && shape == ShingleShape.INNER_LEFT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_south_inner",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_inner_south"))
@@ -210,7 +219,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.EAST && shape == StairsShape.INNER_LEFT) {
+                    } else if (facing == Direction.EAST && shape == ShingleShape.INNER_LEFT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_north_inner",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_inner_north"))
@@ -219,7 +228,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.NORTH && shape == StairsShape.INNER_RIGHT) {
+                    } else if (facing == Direction.NORTH && shape == ShingleShape.INNER_RIGHT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_north_inner",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_inner_north"))
@@ -228,7 +237,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.SOUTH && shape == StairsShape.INNER_RIGHT) {
+                    } else if (facing == Direction.SOUTH && shape == ShingleShape.INNER_RIGHT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_south_inner",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_inner_south"))
@@ -237,7 +246,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.WEST && shape == StairsShape.INNER_RIGHT) {
+                    } else if (facing == Direction.WEST && shape == ShingleShape.INNER_RIGHT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_west_inner",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_inner_west"))
@@ -246,7 +255,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.EAST && shape == StairsShape.INNER_RIGHT) {
+                    } else if (facing == Direction.EAST && shape == ShingleShape.INNER_RIGHT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_east_inner",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_inner_east"))
@@ -255,7 +264,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.NORTH && shape == StairsShape.OUTER_LEFT) {
+                    } else if (facing == Direction.NORTH && shape == ShingleShape.OUTER_LEFT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_west_outer",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_outer_west"))
@@ -264,7 +273,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.SOUTH && shape == StairsShape.OUTER_LEFT) {
+                    } else if (facing == Direction.SOUTH && shape == ShingleShape.OUTER_LEFT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_east_outer",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_outer_east"))
@@ -273,7 +282,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.WEST && shape == StairsShape.OUTER_LEFT) {
+                    } else if (facing == Direction.WEST && shape == ShingleShape.OUTER_LEFT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_south_outer",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_outer_south"))
@@ -282,7 +291,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.EAST && shape == StairsShape.OUTER_LEFT) {
+                    } else if (facing == Direction.EAST && shape == ShingleShape.OUTER_LEFT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_north_outer",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_outer_north"))
@@ -291,7 +300,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.NORTH && shape == StairsShape.OUTER_RIGHT) {
+                    } else if (facing == Direction.NORTH && shape == ShingleShape.OUTER_RIGHT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_north_outer",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_outer_north"))
@@ -300,7 +309,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.SOUTH && shape == StairsShape.OUTER_RIGHT) {
+                    } else if (facing == Direction.SOUTH && shape == ShingleShape.OUTER_RIGHT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_south_outer",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_outer_south"))
@@ -309,7 +318,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
-                    } else if (facing == Direction.WEST && shape == StairsShape.OUTER_RIGHT) {
+                    } else if (facing == Direction.WEST && shape == ShingleShape.OUTER_RIGHT) {
                         return ConfiguredModel.builder()
                                 .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_west_outer",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/shingle_outer_west"))
@@ -327,6 +336,95 @@ public class ShingleBlockPattern {
                                         .texture("shingle_angle", shingle_angle)
                                         .texture("base", planks))
                                 .build();
+                    }
+                });
+    }
+
+
+    public IBlockStateProvider ridgeShingleBlock(String variant) {
+        ResourceLocation shingle_top = toLocation(variant, textures[0]);
+        ResourceLocation shingle_bottom = toLocation(variant, textures[1]);
+        ResourceLocation shingle_angle = toLocation(variant, textures[2]);
+        String[] split = id.split("_");
+        boolean isAlmondPlanks = split[0].equals("almond");
+        boolean isDarkOakPlanks = split[0].equals("dark");
+        String plank = isDarkOakPlanks ? "dark_oak_planks" : split[0] + "_planks";
+        ResourceLocation planks = isAlmondPlanks ? new ResourceLocation(MOD_ID, "block/" + plank)
+                : new ResourceLocation("block/" + plank);
+
+        return (ctx, prov) -> prov.getVariantBuilder(ctx.get())
+                .forAllStates(state -> {
+                    boolean north = state.getValue(BlockStateProperties.NORTH);
+                    boolean east = state.getValue(BlockStateProperties.EAST);
+                    boolean south = state.getValue(BlockStateProperties.SOUTH);
+                    boolean west = state.getValue(BlockStateProperties.WEST);
+                    boolean nothing = (!north && !east && !south && !west);
+
+                    if (nothing) {
+                        return ConfiguredModel.builder()
+                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath(),
+                                                new ResourceLocation(MOD_ID, "custom/block/shingles/ridge_shingle_single"))
+                                        .texture("shingle_top", shingle_top)
+                                        .texture("shingle_bottom", shingle_bottom)
+                                        .texture("shingle_angle", shingle_angle)
+                                        .texture("base", planks))
+                                .build();
+                    } else if (north && south) {
+                        return ConfiguredModel.builder()
+                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_ridge_shingle_straight_z",
+                                                new ResourceLocation(MOD_ID, "custom/block/shingles/ridge_shingle_straight_z"))
+                                        .texture("shingle_top", shingle_top)
+                                        .texture("shingle_bottom", shingle_bottom)
+                                        .texture("shingle_angle", shingle_angle)
+                                        .texture("base", planks))
+                                .build();
+                    } else if (west && east) {
+                        return ConfiguredModel.builder()
+                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_ridge_shingle_straight_x",
+                                                new ResourceLocation(MOD_ID, "custom/block/shingles/ridge_shingle_straight_x"))
+                                        .texture("shingle_top", shingle_top)
+                                        .texture("shingle_bottom", shingle_bottom)
+                                        .texture("shingle_angle", shingle_angle)
+                                        .texture("base", planks))
+                                .build();
+                    } else if (north) {
+                        return ConfiguredModel.builder()
+                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_ridge_shingle_north_end",
+                                                new ResourceLocation(MOD_ID, "custom/block/shingles/ridge_shingle_north_end"))
+                                        .texture("shingle_top", shingle_top)
+                                        .texture("shingle_bottom", shingle_bottom)
+                                        .texture("shingle_angle", shingle_angle)
+                                        .texture("base", planks))
+                                .build();
+                    } else if (south) {
+                        return ConfiguredModel.builder()
+                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_ridge_shingle_south_end",
+                                                new ResourceLocation(MOD_ID, "custom/block/shingles/ridge_shingle_south_end"))
+                                        .texture("shingle_top", shingle_top)
+                                        .texture("shingle_bottom", shingle_bottom)
+                                        .texture("shingle_angle", shingle_angle)
+                                        .texture("base", planks))
+                                .build();
+                    } else if (west) {
+                        return ConfiguredModel.builder()
+                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_ridge_shingle_west_end",
+                                                new ResourceLocation(MOD_ID, "custom/block/shingles/ridge_shingle_west_end"))
+                                        .texture("shingle_top", shingle_top)
+                                        .texture("shingle_bottom", shingle_bottom)
+                                        .texture("shingle_angle", shingle_angle)
+                                        .texture("base", planks))
+                                .build();
+                    } else if (east) {
+                        return ConfiguredModel.builder()
+                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_ridge_shingle_east_end",
+                                                new ResourceLocation(MOD_ID, "custom/block/shingles/ridge_shingle_east_end"))
+                                        .texture("shingle_top", shingle_top)
+                                        .texture("shingle_bottom", shingle_bottom)
+                                        .texture("shingle_angle", shingle_angle)
+                                        .texture("base", planks))
+                                .build();
+                    } else {
+                        return null;
                     }
                 });
     }
