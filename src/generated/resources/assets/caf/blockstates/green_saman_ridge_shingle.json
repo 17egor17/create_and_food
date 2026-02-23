@@ -1,0 +1,100 @@
+{
+  "variants": {
+    "east=false,north=false,south=false,waterlogged=false,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle"
+    },
+    "east=true,north=false,south=false,waterlogged=false,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle_east_end"
+    },
+    "east=false,north=true,south=false,waterlogged=false,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle_north_end"
+    },
+    "east=true,north=true,south=false,waterlogged=false,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle_north_end"
+    },
+    "east=false,north=false,south=true,waterlogged=false,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle_south_end"
+    },
+    "east=true,north=false,south=true,waterlogged=false,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle_south_end"
+    },
+    "east=false,north=true,south=true,waterlogged=false,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle_straight_z"
+    },
+    "east=true,north=true,south=true,waterlogged=false,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle_straight_z"
+    },
+    "east=false,north=false,south=false,waterlogged=true,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle"
+    },
+    "east=true,north=false,south=false,waterlogged=true,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle_east_end"
+    },
+    "east=false,north=true,south=false,waterlogged=true,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle_north_end"
+    },
+    "east=true,north=true,south=false,waterlogged=true,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle_north_end"
+    },
+    "east=false,north=false,south=true,waterlogged=true,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle_south_end"
+    },
+    "east=true,north=false,south=true,waterlogged=true,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle_south_end"
+    },
+    "east=false,north=true,south=true,waterlogged=true,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle_straight_z"
+    },
+    "east=true,north=true,south=true,waterlogged=true,west=false": {
+      "model": "caf:block/green_saman_ridge_shingle_straight_z"
+    },
+    "east=false,north=false,south=false,waterlogged=false,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_west_end"
+    },
+    "east=true,north=false,south=false,waterlogged=false,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_straight_x"
+    },
+    "east=false,north=true,south=false,waterlogged=false,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_north_end"
+    },
+    "east=true,north=true,south=false,waterlogged=false,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_straight_x"
+    },
+    "east=false,north=false,south=true,waterlogged=false,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_south_end"
+    },
+    "east=true,north=false,south=true,waterlogged=false,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_straight_x"
+    },
+    "east=false,north=true,south=true,waterlogged=false,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_straight_z"
+    },
+    "east=true,north=true,south=true,waterlogged=false,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_straight_z"
+    },
+    "east=false,north=false,south=false,waterlogged=true,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_west_end"
+    },
+    "east=true,north=false,south=false,waterlogged=true,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_straight_x"
+    },
+    "east=false,north=true,south=false,waterlogged=true,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_north_end"
+    },
+    "east=true,north=true,south=false,waterlogged=true,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_straight_x"
+    },
+    "east=false,north=false,south=true,waterlogged=true,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_south_end"
+    },
+    "east=true,north=false,south=true,waterlogged=true,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_straight_x"
+    },
+    "east=false,north=true,south=true,waterlogged=true,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_straight_z"
+    },
+    "east=true,north=true,south=true,waterlogged=true,west=true": {
+      "model": "caf:block/green_saman_ridge_shingle_straight_z"
+    }
+  }
+}

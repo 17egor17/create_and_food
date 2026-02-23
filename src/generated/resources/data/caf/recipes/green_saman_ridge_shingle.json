@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 0 ",
+    "010"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:green_baked_clay"
+    },
+    "1": {
+      "tag": "minecraft:planks"
+    }
+  },
+  "result": {
+    "item": "caf:green_saman_ridge_shingle",
+    "count": 3
+  }
+}

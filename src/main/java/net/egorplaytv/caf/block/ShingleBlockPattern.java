@@ -24,6 +24,7 @@ import net.minecraft.world.level.block.state.properties.StairsShape;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Function;
 
@@ -34,9 +35,6 @@ public class ShingleBlockPattern {
     public static final ShingleBlockPattern
     OAK_SHINGLE = create("oak_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
             .block(ShingleBlock::new)
-            .textures("shingle_top", "shingle_bottom", "shingle_angle"),
-    OAK_RIDGE_SHINGLE = create("oak_ridge_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::ridgeShingleBlock)
-            .block(RidgeShingleBlock::new)
             .textures("shingle_top", "shingle_bottom", "shingle_angle"),
     SPRUCE_SHINGLE = create("spruce_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
             .block(ShingleBlock::new)
@@ -61,14 +59,19 @@ public class ShingleBlockPattern {
             .textures("shingle_top", "shingle_bottom", "shingle_angle"),
     ALMOND_SHINGLE = create("almond_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
             .block(ShingleBlock::new)
+            .textures("shingle_top", "shingle_bottom", "shingle_angle"),
+    RIDGE_SHINGLE = create("ridge_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::ridgeShingleBlock)
+            .block(RidgeShingleBlock::new)
             .textures("shingle_top", "shingle_bottom", "shingle_angle")
 
     ;
 
     public static final ShingleBlockPattern[] SHINGLE_RANGE = { OAK_SHINGLE, SPRUCE_SHINGLE, BIRCH_SHINGLE, JUNGLE_SHINGLE,
-            ACACIA_SHINGLE, DARK_OAK_SHINGLE, CRIMSON_SHINGLE, WARPED_SHINGLE, ALMOND_SHINGLE, OAK_RIDGE_SHINGLE };
+            ACACIA_SHINGLE, DARK_OAK_SHINGLE, CRIMSON_SHINGLE, WARPED_SHINGLE, ALMOND_SHINGLE, RIDGE_SHINGLE };
 
     static final String TEXTURE_LOCATION = "block/shingles/%s/%s";
+
+    static final String LOCATION = "block/palettes/stone_types/%s";
 
     private PatternNameType nameType;
     private String[] textures;
@@ -144,12 +147,7 @@ public class ShingleBlockPattern {
         ResourceLocation shingle_top = toLocation(variant, textures[0]);
         ResourceLocation shingle_bottom = toLocation(variant, textures[1]);
         ResourceLocation shingle_angle = toLocation(variant, textures[2]);
-        String[] split = id.split("_");
-        boolean isAlmondPlanks = split[0].equals("almond");
-        boolean isDarkOakPlanks = split[0].equals("dark");
-        String plank = isDarkOakPlanks ? "dark_oak_planks" : split[0] + "_planks";
-        ResourceLocation planks = isAlmondPlanks ? new ResourceLocation(MOD_ID, "block/" + plank)
-                : new ResourceLocation("block/" + plank);
+        ResourceLocation planks = getResourceLocation();
 
         return (ctx, prov) -> prov.getVariantBuilder(ctx.get())
                 .forAllStates(state -> {
@@ -345,12 +343,7 @@ public class ShingleBlockPattern {
         ResourceLocation shingle_top = toLocation(variant, textures[0]);
         ResourceLocation shingle_bottom = toLocation(variant, textures[1]);
         ResourceLocation shingle_angle = toLocation(variant, textures[2]);
-        String[] split = id.split("_");
-        boolean isAlmondPlanks = split[0].equals("almond");
-        boolean isDarkOakPlanks = split[0].equals("dark");
-        String plank = isDarkOakPlanks ? "dark_oak_planks" : split[0] + "_planks";
-        ResourceLocation planks = isAlmondPlanks ? new ResourceLocation(MOD_ID, "block/" + plank)
-                : new ResourceLocation("block/" + plank);
+        ResourceLocation planks = toLocation(variant);
 
         return (ctx, prov) -> prov.getVariantBuilder(ctx.get())
                 .forAllStates(state -> {
@@ -431,6 +424,15 @@ public class ShingleBlockPattern {
 
     // Utility
 
+    private @NotNull ResourceLocation getResourceLocation() {
+        String[] split = id.split("_");
+        boolean isAlmondPlanks = split[0].equals("almond");
+        boolean isDarkOakPlanks = split[0].equals("dark");
+        String planks = isDarkOakPlanks ? "dark_oak_planks"  : split[0] + "_planks";
+        return isAlmondPlanks ? new ResourceLocation(MOD_ID, "block/" + planks)
+                : new ResourceLocation("block/" + planks);
+    }
+
     protected String createName(String variant) {
         if (nameType == PatternNameType.WRAP) {
             String[] split = id.split("_");
@@ -446,6 +448,19 @@ public class ShingleBlockPattern {
     protected static ResourceLocation toLocation(String variant, String texture) {
         return CreateAndFood.asResource(
                 String.format(TEXTURE_LOCATION, texture, variant + "_" + texture));
+    }
+
+    protected static ResourceLocation toLocation(String variant) {
+        String[] split = variant.split("_");
+        String material;
+        if (split[0].equals("saman")) {
+            material = "baked_clay";
+        } else {
+            material = split[0] + "_baked_clay";
+        }
+
+        return CreateAndFood.asResource(
+                String.format(LOCATION, material));
     }
 
     @FunctionalInterface

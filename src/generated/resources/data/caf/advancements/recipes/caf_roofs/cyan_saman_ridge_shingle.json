@@ -1,0 +1,45 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:cyan_saman_ridge_shingle"
+    ]
+  },
+  "criteria": {
+    "has_cyan_baked_clay": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:cyan_baked_clay"
+            ]
+          }
+        ]
+      }
+    },
+    "has_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "minecraft:planks"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:cyan_saman_ridge_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cyan_baked_clay",
+      "has_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

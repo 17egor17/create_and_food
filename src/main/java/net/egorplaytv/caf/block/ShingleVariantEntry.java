@@ -12,10 +12,12 @@ import net.egorplaytv.caf.data.CAFRegistrate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.IForgeRegistryEntry;
@@ -105,14 +107,23 @@ public class ShingleVariantEntry {
             ingredient1 = CAFBlocks.ALMOND_PLANKS.get().asItem();
         }
 
-        ShapedRecipeBuilder.shaped(c.get(), 3)
-                .pattern("0  ").pattern("10 ").pattern("110")
-                .define('0', baseBlock.get().asItem())
-                .define('1', ingredient1)
-                .unlockedBy("has_" + baseBlock.get().asItem().getRegistryName().getPath(),
-                        inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock.get().asItem()).build()))
-                .unlockedBy("has_" + ingredient1.getRegistryName().getPath(),
-                        inventoryTrigger(ItemPredicate.Builder.item().of(ingredient1).build()))
-                .save(p, p.safeId(c.get()));
+        if (pattern == ShingleBlockPattern.RIDGE_SHINGLE) {
+            ShapedRecipeBuilder.shaped(c.get(), 3)
+                    .pattern(" 0 ").pattern("0 0")
+                    .define('0', baseBlock.get().asItem())
+                    .unlockedBy("has_" + baseBlock.get().asItem().getRegistryName().getPath(),
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock.get().asItem()).build()))
+                    .save(p, p.safeId(c.get()));
+        } else {
+            ShapedRecipeBuilder.shaped(c.get(), 3)
+                    .pattern("0  ").pattern("10 ").pattern("110")
+                    .define('0', baseBlock.get().asItem())
+                    .define('1', ingredient1)
+                    .unlockedBy("has_" + baseBlock.get().asItem().getRegistryName().getPath(),
+                            inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock.get().asItem()).build()))
+                    .unlockedBy("has_" + ingredient1.getRegistryName().getPath(),
+                            inventoryTrigger(ItemPredicate.Builder.item().of(ingredient1).build()))
+                    .save(p, p.safeId(c.get()));
+        }
     }
 }
