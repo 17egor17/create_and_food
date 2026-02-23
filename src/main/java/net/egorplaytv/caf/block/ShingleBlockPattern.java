@@ -371,7 +371,7 @@ public class ShingleBlockPattern {
                                 .build();
                     } else if (north && south) {
                         return ConfiguredModel.builder()
-                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_ridge_shingle_straight_z",
+                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_straight_z",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/ridge_shingle_straight_z"))
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
@@ -380,7 +380,7 @@ public class ShingleBlockPattern {
                                 .build();
                     } else if (west && east) {
                         return ConfiguredModel.builder()
-                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_ridge_shingle_straight_x",
+                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_straight_x",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/ridge_shingle_straight_x"))
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
@@ -389,7 +389,7 @@ public class ShingleBlockPattern {
                                 .build();
                     } else if (north) {
                         return ConfiguredModel.builder()
-                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_ridge_shingle_north_end",
+                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_north_end",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/ridge_shingle_north_end"))
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
@@ -398,7 +398,7 @@ public class ShingleBlockPattern {
                                 .build();
                     } else if (south) {
                         return ConfiguredModel.builder()
-                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_ridge_shingle_south_end",
+                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_south_end",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/ridge_shingle_south_end"))
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
@@ -407,7 +407,7 @@ public class ShingleBlockPattern {
                                 .build();
                     } else if (west) {
                         return ConfiguredModel.builder()
-                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_ridge_shingle_west_end",
+                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_west_end",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/ridge_shingle_west_end"))
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
@@ -416,7 +416,7 @@ public class ShingleBlockPattern {
                                 .build();
                     } else if (east) {
                         return ConfiguredModel.builder()
-                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_ridge_shingle_east_end",
+                                .modelFile(prov.models().withExistingParent(ctx.get().getRegistryName().getPath() + "_east_end",
                                                 new ResourceLocation(MOD_ID, "custom/block/shingles/ridge_shingle_east_end"))
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
