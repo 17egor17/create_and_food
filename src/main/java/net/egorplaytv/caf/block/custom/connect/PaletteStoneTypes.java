@@ -92,6 +92,7 @@ public enum PaletteStoneTypes {
 
     public NonNullSupplier<Block> baseBlock;
     public final PaletteBlockPattern[] variantTypes;
+    public TagKey<Block> materialBlockTag;
     public TagKey<Item> materialTag;
 
     PaletteStoneTypes(PaletteBlockPattern[] variantTypes,
@@ -112,6 +113,8 @@ public enum PaletteStoneTypes {
         for (PaletteStoneTypes paletteStoneVariants : values()) {
             paletteStoneVariants.baseBlock = paletteStoneVariants.factory.apply(registration);
             String id = Lang.asId(paletteStoneVariants.name());
+            paletteStoneVariants.materialBlockTag =
+                    AllTags.optionalTag(ForgeRegistries.BLOCKS, CreateAndFood.asResource("stone_types/" + id));
             paletteStoneVariants.materialTag =
                     AllTags.optionalTag(ForgeRegistries.ITEMS, CreateAndFood.asResource("stone_types/" + id));
             paletteStoneVariants.variants = new PalettesVariantEntry(id, paletteStoneVariants);

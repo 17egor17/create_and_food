@@ -15,9 +15,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -31,40 +31,56 @@ public class ShingleBlockPattern {
 
     public static final ShingleBlockPattern
     OAK_SHINGLE = create("oak_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
-            .block(ShingleBlock::new)
+            .block(ShingleBlock::new).wallMaterial(Items.OAK_PLANKS)
             .textures("shingle_top", "shingle_bottom", "shingle_angle"),
     SPRUCE_SHINGLE = create("spruce_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
-            .block(ShingleBlock::new)
+            .block(ShingleBlock::new).wallMaterial(Items.SPRUCE_PLANKS)
             .textures("shingle_top", "shingle_bottom", "shingle_angle"),
     BIRCH_SHINGLE = create("birch_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
-            .block(ShingleBlock::new)
+            .block(ShingleBlock::new).wallMaterial(Items.BIRCH_PLANKS)
             .textures("shingle_top", "shingle_bottom", "shingle_angle"),
     JUNGLE_SHINGLE = create("jungle_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
-            .block(ShingleBlock::new)
+            .block(ShingleBlock::new).wallMaterial(Items.JUNGLE_PLANKS)
             .textures("shingle_top", "shingle_bottom", "shingle_angle"),
     ACACIA_SHINGLE = create("acacia_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
-            .block(ShingleBlock::new)
+            .block(ShingleBlock::new).wallMaterial(Items.ACACIA_PLANKS)
             .textures("shingle_top", "shingle_bottom", "shingle_angle"),
     DARK_OAK_SHINGLE = create("dark_oak_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
-            .block(ShingleBlock::new)
+            .block(ShingleBlock::new).wallMaterial(Items.DARK_OAK_PLANKS)
             .textures("shingle_top", "shingle_bottom", "shingle_angle"),
     CRIMSON_SHINGLE = create("crimson_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
-            .block(ShingleBlock::new)
+            .block(ShingleBlock::new).wallMaterial(Items.CRIMSON_PLANKS)
             .textures("shingle_top", "shingle_bottom", "shingle_angle"),
     WARPED_SHINGLE = create("warped_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
-            .block(ShingleBlock::new)
+            .block(ShingleBlock::new).wallMaterial(Items.WARPED_PLANKS)
             .textures("shingle_top", "shingle_bottom", "shingle_angle"),
     ALMOND_SHINGLE = create("almond_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
             .block(ShingleBlock::new)
             .textures("shingle_top", "shingle_bottom", "shingle_angle"),
+
+
+
+
+
+
+
+
+
+
+
     RIDGE_SHINGLE = create("ridge_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::ridgeShingleBlock)
             .block(RidgeShingleBlock::new)
             .textures("shingle_top", "shingle_bottom", "shingle_angle")
 
     ;
 
+
     public static final ShingleBlockPattern[] SHINGLE_RANGE = { OAK_SHINGLE, SPRUCE_SHINGLE, BIRCH_SHINGLE, JUNGLE_SHINGLE,
             ACACIA_SHINGLE, DARK_OAK_SHINGLE, CRIMSON_SHINGLE, WARPED_SHINGLE, ALMOND_SHINGLE, RIDGE_SHINGLE };
+
+
+
+
 
     static final String TEXTURE_LOCATION = "block/shingles/%s/%s";
 
@@ -74,6 +90,7 @@ public class ShingleBlockPattern {
     private String[] textures;
     private String id;
     private boolean isTranslucent;
+    private Item wallMaterial;
     private TagKey<Block>[] blockTags;
     private TagKey<Item>[] itemTags;
 
@@ -90,6 +107,7 @@ public class ShingleBlockPattern {
         pattern.additionalRecipes = $ -> NonNullBiConsumer.noop();
         pattern.nameType = nameType;
         pattern.isTranslucent = false;
+        pattern.wallMaterial = Items.AIR;
         pattern.blockFactory = Block::new;
         pattern.textures = new String[] { name };
         return pattern;
@@ -105,6 +123,10 @@ public class ShingleBlockPattern {
 
     public NonNullFunction<BlockBehaviour.Properties, ? extends Block> getBlockFactory() {
         return blockFactory;
+    }
+
+    public Item getWallMaterial() {
+        return wallMaterial;
     }
 
     public TagKey<Block>[] getBlockTags() {
@@ -135,6 +157,16 @@ public class ShingleBlockPattern {
 
     private ShingleBlockPattern block(NonNullFunction<BlockBehaviour.Properties, ? extends Block> blockFactory) {
         this.blockFactory = blockFactory;
+        return this;
+    }
+
+    private ShingleBlockPattern wallMaterial(Block material) {
+        this.wallMaterial = material.asItem();
+        return this;
+    }
+
+    private ShingleBlockPattern wallMaterial(Item material) {
+        this.wallMaterial = material;
         return this;
     }
 

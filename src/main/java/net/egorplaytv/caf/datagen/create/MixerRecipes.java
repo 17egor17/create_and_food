@@ -25,7 +25,7 @@ public class MixerRecipes {
         MixingRecipeBuilder.mixingRecipe(CAFFluids.APPLE_VINEGAR.get(), 1000, HEATED)
                 .addIngredient(Items.SUGAR).addIngredient(Items.SUGAR).addIngredient(Items.SUGAR).addIngredient(Items.SUGAR)
                 .addIngredient(Items.APPLE).addIngredient(Items.APPLE).addIngredient(Fluids.WATER, 1000)
-                .addIngredient(CAFTags.forgeFluidTag("honey"), 500)
+                .addIngredient(CAFTags.Fluids.forgeTag("honey"), 500)
                 .save(pConsumer, getMixing(getRecipeId(CAFFluids.APPLE_VINEGAR.get())));
 
         MixingRecipeBuilder.mixingRecipe(AllFluids.CHOCOLATE.get().getSource(), 500, HEATED)
@@ -113,7 +113,7 @@ public class MixerRecipes {
                 .save(pConsumer, getMixing(getRecipeId(CAFFluids.WARPED_PULP.get().getSource())));
 
         MixingRecipeBuilder.mixingRecipe(CAFFluids.PAPER_PULP.get().getSource(), 500, HEATED)
-                .addIngredient(CAFTags.CAFFluidTag("pulp"), 500)
+                .addIngredient(CAFTags.Fluids.modTag("pulp"), 500)
                 .addIngredient(Items.WHITE_DYE).addIngredient(Items.WHITE_DYE)
                 .addIngredient(Items.WHITE_DYE).addIngredient(Items.WHITE_DYE)
                 .save(pConsumer, getMixing(getRecipeId(CAFFluids.PAPER_PULP.get().getSource())));

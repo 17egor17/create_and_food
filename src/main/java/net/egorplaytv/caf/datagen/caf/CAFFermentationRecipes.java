@@ -47,7 +47,7 @@ public class CAFFermentationRecipes {
                 .addIngredient(Items.GLOW_BERRIES).addTimeInSeconds(40)
                 .save(pConsumer, getFermentationCompat(getRecipeId(IEFluids.ETHANOL.getStill(), Items.GLOW_BERRIES), ModID.IE));
 
-        FermentationRecipeBuilder.fermentationRecipe(CAFTags.forgeFluidTag("honey"), 250, IEFluids.ETHANOL.getStill(), 250)
+        FermentationRecipeBuilder.fermentationRecipe(CAFTags.Fluids.forgeTag("honey"), 250, IEFluids.ETHANOL.getStill(), 250)
                 .addTimeInSeconds(40)
                 .save(pConsumer, getFermentationCompat(getRecipeId(IEFluids.ETHANOL.getStill(), AllFluids.HONEY.get().getSource()), ModID.IE));
 

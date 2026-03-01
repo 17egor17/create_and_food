@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "#forge:almond",
+    "#caf:cutting_boards",
+    "caf:pastry_table",
+    "caf:kitchen_table",
+    "caf:kitchen_table_inner",
+    "caf:kitchen_table_outer"
+  ]
+}

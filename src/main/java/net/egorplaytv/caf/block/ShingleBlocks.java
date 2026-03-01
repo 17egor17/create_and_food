@@ -34,6 +34,7 @@ public enum ShingleBlocks {
 
     public NonNullSupplier<Block> baseBlock;
     public final ShingleBlockPattern[] variantTypes;
+    public TagKey<Block> materialBlockTag;
     public TagKey<Item> materialTag;
 
     ShingleBlocks(ShingleBlockPattern[] variantTypes,
@@ -54,6 +55,8 @@ public enum ShingleBlocks {
         for (ShingleBlocks shingleBlocks : values()) {
             shingleBlocks.baseBlock = shingleBlocks.factory.apply(registration);
             String id = Lang.asId(shingleBlocks.name());
+            shingleBlocks.materialBlockTag =
+                    AllTags.optionalTag(ForgeRegistries.BLOCKS, CreateAndFood.asResource("shingles/" + id));
             shingleBlocks.materialTag =
                     AllTags.optionalTag(ForgeRegistries.ITEMS, CreateAndFood.asResource("shingles/" + id));
             shingleBlocks.variants = new ShingleVariantEntry(id, shingleBlocks);

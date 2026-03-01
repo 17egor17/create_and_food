@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "caf:apple_vinegar",
+    "caf:apple_vinegar_flowing",
+    "caf:cocoa_oil",
+    "caf:cocoa_oil_flowing",
+    "caf:white_chocolate",
+    "caf:white_chocolate_flowing",
+    "caf:red_grape_juice",
+    "caf:red_grape_juice_flowing"
+  ]
+}

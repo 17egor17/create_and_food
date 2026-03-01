@@ -60,7 +60,7 @@ public class MetalItem extends Item {
                 if (pStack.getItem() instanceof MetalItem metal) {
                     if (!entity.gameMode.getGameModeForPlayer().isCreative()) {
                         if (entity.getItemInHand(InteractionHand.MAIN_HAND).is(metal) && metal.getDeg(pStack) >= 50
-                                && !entity.getItemInHand(InteractionHand.OFF_HAND).is(CAFTags.forgeItemTag("tongs"))) {
+                                && !entity.getItemInHand(InteractionHand.OFF_HAND).is(CAFTags.Items.forgeTag("tongs"))) {
                             CAFDamageSource.hotMetal(entity, 5.0F);
                             entity.drop(entity.getItemInHand(InteractionHand.MAIN_HAND), false, false);
                             entity.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
@@ -73,7 +73,7 @@ public class MetalItem extends Item {
             if (pStack.getItem() instanceof MetalItem metal) {
                 if (!entity.gameMode.getGameModeForPlayer().isCreative()) {
                     if (entity.getItemInHand(InteractionHand.OFF_HAND).is(metal) && metal.getDeg(pStack) >= 50
-                            && !entity.getItemInHand(InteractionHand.MAIN_HAND).is(CAFTags.forgeItemTag("tongs"))) {
+                            && !entity.getItemInHand(InteractionHand.MAIN_HAND).is(CAFTags.Items.forgeTag("tongs"))) {
                         CAFDamageSource.hotMetal(entity, 5.0F);
                         entity.drop(entity.getItemInHand(InteractionHand.OFF_HAND), false, false);
                         entity.setItemInHand(InteractionHand.OFF_HAND, ItemStack.EMPTY);

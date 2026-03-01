@@ -28,7 +28,6 @@ public class CAFTags {
 
         public static final TagKey<Block> ALMOND = forgeTag("almond");
         public static final TagKey<Block> ALMOND_LOGS = modTag("almond_logs");
-        public static final TagKey<Block> FARMLAND_INTO_BARREL = modTag("farmland_into_barrel");
         public static final TagKey<Block> FRAMED_WALLS = modTag("framed_walls");
         public static final TagKey<Block> BASALT_ORE_REPLACEABLE = modTag("basalt_ore_replaceable");
         public static final TagKey<Block> BLACKSTONE_ORE_REPLACEABLE = modTag("blackstone_ore_replaceable");
@@ -49,13 +48,13 @@ public class CAFTags {
 
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_FREEZING = modTag("fan_processing_catalysts/freezing");
 
+
         public static TagKey<Block> modTag(String name) {
             return BlockTags.create(new ResourceLocation("caf", name));
         }
         public static TagKey<Block> forgeTag(String name) {
             return BlockTags.create(new ResourceLocation("forge", name));
         }
-
         public static TagKey<Block> tag(String name){
             return BlockTags.create(new ResourceLocation("minecraft", name));
         }
@@ -91,6 +90,14 @@ public class CAFTags {
 
         public static final TagKey<Item> IRON_SHEET = forgeTag("plates/iron");
         public static final TagKey<Item> MEAT = forgeTag("meat");
+
+        public static final TagKey<Item> RED_JUICE = modTag("grapes/red_juice");
+        public static final TagKey<Item> WHITE_JUICE = modTag("grapes/white_juice");
+        public static final TagKey<Item> GRAPES = modTag("grapes");
+
+        public static final TagKey<Item> EGG = modTag("eggs/egg");
+        public static final TagKey<Item> SPAWN_EGGS = modTag("eggs/spawn_eggs");
+        public static final TagKey<Item> TURTLE_EGG = modTag("eggs/turtle_egg");
         public static final TagKey<Item> EGGS = modTag("eggs");
         public static final TagKey<Item> BANNER_PATTERNS = forgeTag("banner_patterns");
         public static final TagKey<Item> MACARONI = forgeTag("macaroni");
@@ -124,7 +131,6 @@ public class CAFTags {
         public static TagKey<Item> forgeTag(String name) {
             return ItemTags.create(new ResourceLocation("forge", name));
         }
-
         public static TagKey<Item> tag(String name){
             return ItemTags.create(new ResourceLocation("minecraft", name));
         }
@@ -133,54 +139,16 @@ public class CAFTags {
     public static class Fluids {
         private static void init(){}
 
+
         public static TagKey<Fluid> modTag(String name) {
             return FluidTags.create(new ResourceLocation("caf", name));
         }
         public static TagKey<Fluid> forgeTag(String name) {
             return FluidTags.create(new ResourceLocation("forge", name));
         }
-
         public static TagKey<Fluid> tag(String name){
             return FluidTags.create(new ResourceLocation("minecraft", name));
         }
-    }
-
-    public static <T extends IForgeRegistryEntry<T>> TagKey<T> optionalTag(IForgeRegistry<T> registry,
-                                                                           ResourceLocation id) {
-        return registry.tags()
-                .createOptionalTagKey(id, Collections.emptySet());
-    }
-
-    public static <T extends IForgeRegistryEntry<T>> TagKey<T> forgeTag(IForgeRegistry<T> registry, String path) {
-        return optionalTag(registry, new ResourceLocation("forge", path));
-    }
-
-    public static <T extends IForgeRegistryEntry<T>> TagKey<T> CAFTag(IForgeRegistry<T> registry, String path) {
-        return optionalTag(registry, new ResourceLocation(CreateAndFood.MOD_ID, path));
-    }
-
-    public static TagKey<Block> forgeBlockTag(String path) {
-        return forgeTag(ForgeRegistries.BLOCKS, path);
-    }
-
-    public static TagKey<Item> forgeItemTag(String path) {
-        return forgeTag(ForgeRegistries.ITEMS, path);
-    }
-
-    public static TagKey<Fluid> forgeFluidTag(String path) {
-        return forgeTag(ForgeRegistries.FLUIDS, path);
-    }
-
-    public static TagKey<Block> CAFBlockTag(String path) {
-        return CAFTag(ForgeRegistries.BLOCKS, path);
-    }
-
-    public static TagKey<Item> CAFItemTag(String path) {
-        return CAFTag(ForgeRegistries.ITEMS, path);
-    }
-
-    public static TagKey<Fluid> CAFFluidTag(String path) {
-        return CAFTag(ForgeRegistries.FLUIDS, path);
     }
 }
 

@@ -15,14 +15,14 @@ import static net.egorplaytv.caf.CreateAndFood.MOD_ID;
 
 public class CuttingRecipes {
     private static void cutting(Consumer<FinishedRecipe> pConsumer) {
-        CuttingBoardRecipeBuilder.cuttingRecipe(Items.EGG, CAFTags.forgeItemTag("tools/knives"), CAFItems.RAW_EGG.get())
+        CuttingBoardRecipeBuilder.cuttingRecipe(Items.EGG, CAFTags.Items.forgeTag("tools/knives"), CAFItems.RAW_EGG.get())
                 .addResult(CAFItems.EGG_SHELL.get())
                 .save(pConsumer, getCutting(getRecipeId(Items.EGG)));
 
-        CuttingBoardRecipeBuilder.cuttingRecipe(CAFItems.PIZZA.get(), CAFTags.forgeItemTag("tools/knives"), CAFItems.PIZZA_SLICE.get(), 8)
+        CuttingBoardRecipeBuilder.cuttingRecipe(CAFItems.PIZZA.get(), CAFTags.Items.forgeTag("tools/knives"), CAFItems.PIZZA_SLICE.get(), 8)
                 .save(pConsumer, getCutting(getRecipeId(CAFItems.PIZZA_SLICE.get())));
 
-        CuttingBoardRecipeBuilder.cuttingRecipe(AllItems.DOUGH.get(), CAFTags.forgeItemTag("tools/knives"), CAFItems.SMALL_DOUGH.get(), 4)
+        CuttingBoardRecipeBuilder.cuttingRecipe(AllItems.DOUGH.get(), CAFTags.Items.forgeTag("tools/knives"), CAFItems.SMALL_DOUGH.get(), 4)
                 .save(pConsumer, getCutting(getRecipeId(CAFItems.SMALL_DOUGH.get())));
 
         CuttingBoardRecipeBuilder.cuttingRecipe(CAFItems.RAW_EGG.get(), CAFItems.EGG_SHELL.get(), CAFItems.RAW_PROTEIN.get())

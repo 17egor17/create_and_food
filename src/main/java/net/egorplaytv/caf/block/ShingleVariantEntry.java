@@ -9,6 +9,7 @@ import com.tterrag.registrate.providers.RegistrateRecipeProvider;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.egorplaytv.caf.CreateAndFood;
+import net.egorplaytv.caf.block.custom.shingles.RidgeShingleBlock;
 import net.egorplaytv.caf.data.CAFRegistrate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.client.renderer.RenderType;
@@ -97,6 +98,7 @@ public class ShingleVariantEntry {
         }
 
         CreateAndFood.REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, p -> p.tag(shingleBlocks.materialTag));
+        CreateAndFood.REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, p -> p.tag(shingleBlocks.materialBlockTag));
 
         this.registeredBlocks = registeredBlocks.build();
         this.registeredPartials = registeredPartials.build();
@@ -111,28 +113,14 @@ public class ShingleVariantEntry {
 
     private <T extends ItemLike & IForgeRegistryEntry<?>> void createRecipe(NonNullSupplier<Block> baseBlock, Supplier<? extends T> c, RegistrateRecipeProvider p,
                                                                             ShingleBlockPattern pattern) {
-        Item ingredient1;
-        if (pattern == ShingleBlockPattern.OAK_SHINGLE) {
-            ingredient1 = Items.OAK_PLANKS;
-        } else if (pattern == ShingleBlockPattern.SPRUCE_SHINGLE) {
-            ingredient1 = Items.SPRUCE_PLANKS;
-        } else if (pattern == ShingleBlockPattern.BIRCH_SHINGLE) {
-            ingredient1 = Items.BIRCH_PLANKS;
-        } else if (pattern == ShingleBlockPattern.JUNGLE_SHINGLE) {
-            ingredient1 = Items.JUNGLE_PLANKS;
-        } else if (pattern == ShingleBlockPattern.ACACIA_SHINGLE) {
-            ingredient1 = Items.ACACIA_PLANKS;
-        } else if (pattern == ShingleBlockPattern.DARK_OAK_SHINGLE) {
-            ingredient1 = Items.DARK_OAK_PLANKS;
-        } else if (pattern == ShingleBlockPattern.CRIMSON_SHINGLE) {
-            ingredient1 = Items.CRIMSON_PLANKS;
-        } else if (pattern == ShingleBlockPattern.WARPED_SHINGLE) {
-            ingredient1 = Items.WARPED_PLANKS;
+        Item ingredient;
+        if (pattern == ShingleBlockPattern.ALMOND_SHINGLE) {
+            ingredient = CAFBlocks.ALMOND_PLANKS.get().asItem();
         } else {
-            ingredient1 = CAFBlocks.ALMOND_PLANKS.get().asItem();
+            ingredient = pattern.getWallMaterial();
         }
 
-        if (pattern == ShingleBlockPattern.RIDGE_SHINGLE) {
+        if (c.get() instanceof RidgeShingleBlock) {
             ShapedRecipeBuilder.shaped(c.get(), 3)
                     .pattern(" 0 ").pattern("0 0")
                     .define('0', baseBlock.get().asItem())
@@ -140,14 +128,14 @@ public class ShingleVariantEntry {
                             inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock.get().asItem()).build()))
                     .save(p, p.safeId(c.get()));
         } else {
-            ShapedRecipeBuilder.shaped(c.get(), 3)
+            ShapedRecipeBuilder.shaped(c.get(), 6)
                     .pattern("0  ").pattern("10 ").pattern("110")
                     .define('0', baseBlock.get().asItem())
-                    .define('1', ingredient1)
+                    .define('1', ingredient)
                     .unlockedBy("has_" + baseBlock.get().asItem().getRegistryName().getPath(),
                             inventoryTrigger(ItemPredicate.Builder.item().of(baseBlock.get().asItem()).build()))
-                    .unlockedBy("has_" + ingredient1.getRegistryName().getPath(),
-                            inventoryTrigger(ItemPredicate.Builder.item().of(ingredient1).build()))
+                    .unlockedBy("has_" + ingredient.getRegistryName().getPath(),
+                            inventoryTrigger(ItemPredicate.Builder.item().of(ingredient).build()))
                     .save(p, p.safeId(c.get()));
         }
     }

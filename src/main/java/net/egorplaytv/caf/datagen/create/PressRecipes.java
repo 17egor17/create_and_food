@@ -51,8 +51,8 @@ public class PressRecipes {
                 .save(pConsumer, getCompacting(getRecipeId(CAFFluids.COCOA_OIL.get())));
 
         CompactingRecipeBuilder.compactingRecipe(Items.DIAMOND, HeatCondition.SUPERHEATED)
-                .addIngredient(CAFTags.forgeItemTag("dusts/coal")).addIngredient(CAFTags.forgeItemTag("dusts/coal"))
-                .addIngredient(CAFTags.forgeItemTag("dusts/coal")).addIngredient(CAFTags.forgeItemTag("dusts/coal"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/coal")).addIngredient(CAFTags.Items.forgeTag("dusts/coal"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/coal")).addIngredient(CAFTags.Items.forgeTag("dusts/coal"))
                 .save(pConsumer, getCompacting(getRecipeId(Items.DIAMOND)));
 
         CompactingRecipeBuilder.compactingRecipe(CAFItems.SMALL_DOUGH_BASE.get())

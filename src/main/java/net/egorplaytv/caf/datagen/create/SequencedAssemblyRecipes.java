@@ -83,21 +83,21 @@ public class SequencedAssemblyRecipes {
         SequencedAssemblyRecipeBuilder.sequencedAssemblyRecipe(CAFItems.RAW_BERRY_CAKE.get(),
                         CAFItems.SMALL_DOUGH_BASE.get(), CAFItems.INCOMPLETE_RAW_BERRY_CAKE.get())
                 .addStep(FillingRecipe::new, r -> r.require(AllFluids.CHOCOLATE.get(), 250))
-                .addStep(FillingRecipe::new, r -> r.require(CAFTags.CAFFluidTag("creams"), 250))
+                .addStep(FillingRecipe::new, r -> r.require(CAFTags.Fluids.modTag("creams"), 250))
                 .addStep(DeployerApplicationRecipe::new, r -> r.require(Items.SWEET_BERRIES))
                 .save(pConsumer, getSequencedAssembly(getRecipeId(CAFItems.RAW_BERRY_CAKE.get())));
 
         SequencedAssemblyRecipeBuilder.sequencedAssemblyRecipe(CAFItems.RAW_CAKE.get(),
                         CAFItems.BASE_OF_DOUGH.get(), CAFItems.INCOMPLETE_RAW_CAKE.get())
                 .addStep(FillingRecipe::new, r -> r.require(AllFluids.CHOCOLATE.get(), 500))
-                .addStep(FillingRecipe::new, r -> r.require(CAFTags.CAFFluidTag("creams"), 250))
+                .addStep(FillingRecipe::new, r -> r.require(CAFTags.Fluids.modTag("creams"), 250))
                 .addStep(DeployerApplicationRecipe::new, r -> r.require(Items.SWEET_BERRIES))
                 .save(pConsumer, getSequencedAssembly(getRecipeId(CAFItems.RAW_CAKE.get())));
 
         SequencedAssemblyRecipeBuilder.sequencedAssemblyRecipe(CAFItems.RAW_GLOW_BERRY_CAKE.get(),
                         CAFItems.SMALL_DOUGH_BASE.get(), CAFItems.INCOMPLETE_RAW_GLOW_BERRY_CAKE.get())
-                .addStep(FillingRecipe::new, r -> r.require(CAFTags.forgeFluidTag("honey"), 250))
-                .addStep(FillingRecipe::new, r -> r.require(CAFTags.CAFFluidTag("creams"), 250))
+                .addStep(FillingRecipe::new, r -> r.require(CAFTags.Fluids.forgeTag("honey"), 250))
+                .addStep(FillingRecipe::new, r -> r.require(CAFTags.Fluids.modTag("creams"), 250))
                 .addStep(DeployerApplicationRecipe::new, r -> r.require(Items.GLOW_BERRIES))
                 .save(pConsumer, getSequencedAssembly(getRecipeId(CAFItems.RAW_GLOW_BERRY_CAKE.get())));
 

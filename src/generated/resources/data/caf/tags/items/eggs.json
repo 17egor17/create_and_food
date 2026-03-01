@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "#caf:eggs/egg",
+    "#caf:eggs/spawn_eggs",
+    "#caf:eggs/turtle_egg"
+  ]
+}

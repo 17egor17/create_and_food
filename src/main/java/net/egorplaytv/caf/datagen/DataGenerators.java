@@ -18,5 +18,8 @@ public class DataGenerators {
         generator.addProvider(new CAFLootTableProvider(generator));
         generator.addProvider(new CAFBlockStateProvider(generator, existingFileHelper));
         generator.addProvider(new CAFItemModelProvider(generator, existingFileHelper));
+        generator.addProvider(new CAFBlockTagsProvider(generator, existingFileHelper));
+        generator.addProvider(new CAFItemTagsProvider(generator, existingFileHelper));
+        generator.addProvider(new CAFFluidTagsProvider(generator, existingFileHelper));
     }
 }

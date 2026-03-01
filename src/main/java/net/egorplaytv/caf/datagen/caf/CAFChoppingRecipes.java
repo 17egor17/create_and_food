@@ -76,7 +76,7 @@ public class CAFChoppingRecipes {
                 .save(pConsumer, getChopping(getRecipeId(ModItems.RAW_PASTA.get())));
 
         ChoppingRecipeBuilder.choppingRecipe(CAFFluids.RED_GRAPE_JUICE.get(), 250)
-                .addIngredient(CAFTags.CAFItemTag("grapes/red_juice"))
+                .addIngredient(CAFTags.Items.modTag("grapes/red_juice"))
                 .save(pConsumer, getChopping(getRecipeId(CAFFluids.RED_GRAPE_JUICE.get())));
 
         ChoppingRecipeBuilder.choppingRecipe(Items.RED_DYE, 2)

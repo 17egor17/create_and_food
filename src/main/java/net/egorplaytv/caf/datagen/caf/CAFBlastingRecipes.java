@@ -24,12 +24,12 @@ public class CAFBlastingRecipes {
         BlastingRecipeBuilder.blastingRecipe(AllItems.ANDESITE_ALLOY.get(), 4, 400, 1538, 0.9F)
                 .addIngredient(Items.ANDESITE)
                 .addIngredient(Items.ANDESITE)
-                .addIngredient(CAFTags.forgeItemTag("ingots/iron"))
+                .addIngredient(CAFTags.Items.forgeTag("ingots/iron"))
                 .save(pConsumer, getCAFBlasting(getRecipeId(AllItems.ANDESITE_ALLOY.get())));
 
         BlastingRecipeBuilder.blastingRecipe(AllItems.BRASS_INGOT.get(), 2, 800, 1085, 0.9F)
-                .addIngredient(CAFTags.forgeItemTag("ingots/copper"))
-                .addIngredient(CAFTags.forgeItemTag("ingots/zinc"))
+                .addIngredient(CAFTags.Items.forgeTag("ingots/copper"))
+                .addIngredient(CAFTags.Items.forgeTag("ingots/zinc"))
                 .save(pConsumer, getCAFBlasting(getRecipeId(AllItems.BRASS_INGOT.get())));
 
         BlastingRecipeBuilder.blastingRecipe(AllItems.BRASS_INGOT.get(), 2, 800, 1085, 0.9F)
@@ -51,7 +51,7 @@ public class CAFBlastingRecipes {
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCrushed(CAFItems.COPPER_INGOT.get())));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.COPPER_INGOT.get(), 400, 1085, 0.1F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/copper"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/copper"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.COPPER_INGOT.get())));
 
         BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 200, 1085, 0.1F)
@@ -64,7 +64,7 @@ public class CAFBlastingRecipes {
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.GLOWING_BRASS_INGOT.get(), 2, 1200, 950, 0.2F)
                 .addIngredient(AllItems.POLISHED_ROSE_QUARTZ.get())
-                .addIngredient(CAFTags.forgeItemTag("ingots/brass"))
+                .addIngredient(CAFTags.Items.forgeTag("ingots/brass"))
                 .addIngredient(Items.GLOWSTONE_DUST)
                 .save(pConsumer, getCAFBlasting(getRecipeId(CAFItems.GLOWING_BRASS_INGOT.get())));
 
@@ -77,12 +77,12 @@ public class CAFBlastingRecipes {
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCrushed(CAFItems.GOLD_INGOT.get())));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.GOLD_INGOT.get(), 400, 1064, 0.7F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/gold"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/gold"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.GOLD_INGOT.get())));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.GOLD_INGOT.get(), 400, 1064, 0.5F)
                 .addIngredient(CAFItems.PIECE_OF_GOLD.get()).addIngredient(CAFItems.PIECE_OF_GOLD.get())
-                .addIngredient(CAFTags.forgeItemTag("nuggets/gold"))
+                .addIngredient(CAFTags.Items.forgeTag("nuggets/gold"))
                 .save(pConsumer, getCAFBlasting(getRecipeId(CAFItems.GOLD_INGOT.get()) + "_from_piece"));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.GOLD_NUGGET.get(), 200, 1064, 0.1F)
@@ -102,7 +102,7 @@ public class CAFBlastingRecipes {
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCrushed(CAFItems.IRON_INGOT.get())));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.IRON_INGOT.get(), 400, 1538, 0.7F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/iron"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/iron"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.IRON_INGOT.get())));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.IRON_NUGGET.get(), 200, 1538, 0.1F)
@@ -114,16 +114,16 @@ public class CAFBlastingRecipes {
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCoin(CAFItems.IRON_NUGGET.get(), CoinType.BROKEN)));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.NETHERITE_INGOT.get(), 400, 3133, 0.7F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/netherite"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/netherite"))
                 .save(pConsumer, getCAFBlasting(getRecipeId(CAFItems.NETHERITE_INGOT.get())));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.STEEL_INGOT.get(), 400, 1538, 0.9F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/coal")).addIngredient(CAFTags.forgeItemTag("dusts/coal"))
-                .addIngredient(CAFTags.forgeItemTag("ingots/iron"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/coal")).addIngredient(CAFTags.Items.forgeTag("dusts/coal"))
+                .addIngredient(CAFTags.Items.forgeTag("ingots/iron"))
                 .save(pConsumer, getCAFBlasting(getRecipeId(CAFItems.STEEL_INGOT.get())));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.STEEL_INGOT.get(), 400, 1538, 0.7F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/steel"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/steel"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.STEEL_INGOT.get())));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.TANTALUM_INGOT.get(), 400, 3016, 0.1F)
@@ -173,7 +173,7 @@ public class CAFBlastingRecipes {
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCrushed(CAFItems.COPPER_INGOT.get()), RecipeType.DOUBLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.COPPER_INGOT.get(), 2, 800, 1085, 0.2F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/copper")).addIngredient(CAFTags.forgeItemTag("dusts/copper"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/copper")).addIngredient(CAFTags.Items.forgeTag("dusts/copper"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.COPPER_INGOT.get()), RecipeType.DOUBLE));
 
         BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 2, 400, 1085, 0.2F)
@@ -193,7 +193,7 @@ public class CAFBlastingRecipes {
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCrushed(CAFItems.GOLD_INGOT.get()), RecipeType.DOUBLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.GOLD_INGOT.get(), 2, 800, 1064, 1.4F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/gold")).addIngredient(CAFTags.forgeItemTag("dusts/gold"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/gold")).addIngredient(CAFTags.Items.forgeTag("dusts/gold"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.GOLD_INGOT.get()), RecipeType.DOUBLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.GOLD_NUGGET.get(), 2, 400, 1064, 0.2F)
@@ -213,7 +213,7 @@ public class CAFBlastingRecipes {
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCrushed(CAFItems.IRON_INGOT.get()), RecipeType.DOUBLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.IRON_INGOT.get(), 2, 800, 1538, 1.4F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/iron")).addIngredient(CAFTags.forgeItemTag("dusts/iron"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/iron")).addIngredient(CAFTags.Items.forgeTag("dusts/iron"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.IRON_INGOT.get()), RecipeType.DOUBLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.IRON_NUGGET.get(), 2, 400, 1538, 0.2F)
@@ -225,11 +225,11 @@ public class CAFBlastingRecipes {
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCoin(CAFItems.IRON_NUGGET.get(), CoinType.BROKEN), RecipeType.DOUBLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.NETHERITE_INGOT.get(), 2, 800, 3133, 1.4F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/netherite")).addIngredient(CAFTags.forgeItemTag("dusts/netherite"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/netherite")).addIngredient(CAFTags.Items.forgeTag("dusts/netherite"))
                 .save(pConsumer, getCAFBlasting(getRecipeId(CAFItems.NETHERITE_INGOT.get()), RecipeType.DOUBLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.STEEL_INGOT.get(), 2, 800, 1538, 1.4F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/steel")).addIngredient(CAFTags.forgeItemTag("dusts/steel"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/steel")).addIngredient(CAFTags.Items.forgeTag("dusts/steel"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.STEEL_INGOT.get()), RecipeType.DOUBLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.TANTALUM_INGOT.get(), 2, 800, 3016, 0.2F)
@@ -269,8 +269,8 @@ public class CAFBlastingRecipes {
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCrushed(CAFItems.COPPER_INGOT.get()), RecipeType.TRIPLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.COPPER_INGOT.get(), 3, 1200, 1085, 0.3F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/copper")).addIngredient(CAFTags.forgeItemTag("dusts/copper"))
-                .addIngredient(CAFTags.forgeItemTag("dusts/copper"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/copper")).addIngredient(CAFTags.Items.forgeTag("dusts/copper"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/copper"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.COPPER_INGOT.get()), RecipeType.TRIPLE));
 
         BlastingRecipeBuilder.blastingRecipe(AllItems.COPPER_NUGGET.get(), 3, 600, 1085, 0.3F)
@@ -294,8 +294,8 @@ public class CAFBlastingRecipes {
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCrushed(CAFItems.GOLD_INGOT.get()), RecipeType.TRIPLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.GOLD_INGOT.get(), 3, 1200, 1064, 2.1F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/gold")).addIngredient(CAFTags.forgeItemTag("dusts/gold"))
-                .addIngredient(CAFTags.forgeItemTag("dusts/gold"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/gold")).addIngredient(CAFTags.Items.forgeTag("dusts/gold"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/gold"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.GOLD_INGOT.get()), RecipeType.TRIPLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.GOLD_NUGGET.get(), 3, 600, 1064, 0.3F)
@@ -319,8 +319,8 @@ public class CAFBlastingRecipes {
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCrushed(CAFItems.IRON_INGOT.get()), RecipeType.TRIPLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.IRON_INGOT.get(), 3, 1200, 1538, 2.1F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/iron")).addIngredient(CAFTags.forgeItemTag("dusts/iron"))
-                .addIngredient(CAFTags.forgeItemTag("dusts/iron"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/iron")).addIngredient(CAFTags.Items.forgeTag("dusts/iron"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/iron"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.IRON_INGOT.get()), RecipeType.TRIPLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.IRON_NUGGET.get(), 3, 600, 1538, 0.3F)
@@ -334,13 +334,13 @@ public class CAFBlastingRecipes {
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromCoin(CAFItems.IRON_NUGGET.get(), CoinType.BROKEN), RecipeType.TRIPLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.NETHERITE_INGOT.get(), 3, 1200, 3133, 2.1F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/netherite")).addIngredient(CAFTags.forgeItemTag("dusts/netherite"))
-                .addIngredient(CAFTags.forgeItemTag("dusts/netherite"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/netherite")).addIngredient(CAFTags.Items.forgeTag("dusts/netherite"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/netherite"))
                 .save(pConsumer, getCAFBlasting(getRecipeId(CAFItems.NETHERITE_INGOT.get()), RecipeType.TRIPLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.STEEL_INGOT.get(), 3, 1200, 1538, 2.1F)
-                .addIngredient(CAFTags.forgeItemTag("dusts/steel")).addIngredient(CAFTags.forgeItemTag("dusts/steel"))
-                .addIngredient(CAFTags.forgeItemTag("dusts/steel"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/steel")).addIngredient(CAFTags.Items.forgeTag("dusts/steel"))
+                .addIngredient(CAFTags.Items.forgeTag("dusts/steel"))
                 .save(pConsumer, getCAFBlasting(getRecipeIdFromDust(CAFItems.STEEL_INGOT.get()), RecipeType.TRIPLE));
 
         BlastingRecipeBuilder.blastingRecipe(CAFItems.TANTALUM_INGOT.get(), 3, 1200, 3016, 0.3F)
@@ -387,12 +387,12 @@ public class CAFBlastingRecipes {
                             getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.ALUMINUM, ModID.IE), ModID.IE), ModID.IE));
 
             BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.CONSTANTAN, ModID.IE), 2, 800, 1455, 0.9F)
-                    .addIngredient(CAFTags.forgeItemTag("ingots/copper")).addIngredient(CAFTags.forgeItemTag("ingots/nickel"))
+                    .addIngredient(CAFTags.Items.forgeTag("ingots/copper")).addIngredient(CAFTags.Items.forgeTag("ingots/nickel"))
                     .save(pConsumer,
                             getCAFBlastingCompat(getRIDCompat(getIngots(Metals.CONSTANTAN, ModID.IE), ModID.IE), ModID.IE));
 
             BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.ELECTRUM, ModID.IE), 2, 800, 1064, 0.9F)
-                    .addIngredient(CAFTags.forgeItemTag("ingots/gold")).addIngredient(CAFTags.forgeItemTag("ingots/silver"))
+                    .addIngredient(CAFTags.Items.forgeTag("ingots/gold")).addIngredient(CAFTags.Items.forgeTag("ingots/silver"))
                     .save(pConsumer,
                             getCAFBlastingCompat(getRIDCompat(getIngots(Metals.ELECTRUM, ModID.IE), ModID.IE), ModID.IE));
 
@@ -424,8 +424,8 @@ public class CAFBlastingRecipes {
 
         if (CreateAndFood.MEKIsPresent){
             BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.BRONZE, ModID.MEKANISM), 3, 1200, 1085, 1.0F)
-                    .addIngredient(CAFTags.forgeItemTag("ingots/tin")).addIngredient(CAFTags.forgeItemTag("ingots/copper"))
-                    .addIngredient(CAFTags.forgeItemTag("ingots/copper"))
+                    .addIngredient(CAFTags.Items.forgeTag("ingots/tin")).addIngredient(CAFTags.Items.forgeTag("ingots/copper"))
+                    .addIngredient(CAFTags.Items.forgeTag("ingots/copper"))
                     .save(pConsumer,
                             getCAFBlastingCompat(getRIDCompat(getIngots(Metals.BRONZE, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM));
 
@@ -482,8 +482,8 @@ public class CAFBlastingRecipes {
 
         if (CreateAndFood.THIsPresent){
             BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.BRONZE, ModID.THERMAL), 3, 1200, 1085, 1.0F)
-                    .addIngredient(CAFTags.forgeItemTag("ingots/tin")).addIngredient(CAFTags.forgeItemTag("ingots/copper"))
-                    .addIngredient(CAFTags.forgeItemTag("ingots/copper"))
+                    .addIngredient(CAFTags.Items.forgeTag("ingots/tin")).addIngredient(CAFTags.Items.forgeTag("ingots/copper"))
+                    .addIngredient(CAFTags.Items.forgeTag("ingots/copper"))
                     .save(pConsumer,
                             getCAFBlastingCompat(getRIDCompat(getIngots(Metals.BRONZE, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL));
 
@@ -493,18 +493,18 @@ public class CAFBlastingRecipes {
                             getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.BRONZE, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL));
 
             BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.CONSTANTAN, ModID.THERMAL), 2, 800, 1455, 0.9F)
-                    .addIngredient(CAFTags.forgeItemTag("ingots/copper")).addIngredient(CAFTags.forgeItemTag("ingots/nickel"))
+                    .addIngredient(CAFTags.Items.forgeTag("ingots/copper")).addIngredient(CAFTags.Items.forgeTag("ingots/nickel"))
                     .save(pConsumer,
                             getCAFBlastingCompat(getRIDCompat(getIngots(Metals.CONSTANTAN, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL));
 
             BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.ELECTRUM, ModID.THERMAL), 2, 800, 1064, 0.9F)
-                    .addIngredient(CAFTags.forgeItemTag("ingots/gold")).addIngredient(CAFTags.forgeItemTag("ingots/silver"))
+                    .addIngredient(CAFTags.Items.forgeTag("ingots/gold")).addIngredient(CAFTags.Items.forgeTag("ingots/silver"))
                     .save(pConsumer,
                             getCAFBlastingCompat(getRIDCompat(getIngots(Metals.ELECTRUM, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL));
 
             BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.INVAR, ModID.THERMAL), 3, 1200, 1538, 0.9F)
-                    .addIngredient(CAFTags.forgeItemTag("ingots/iron")).addIngredient(CAFTags.forgeItemTag("ingots/iron"))
-                    .addIngredient(CAFTags.forgeItemTag("ingots/nickel"))
+                    .addIngredient(CAFTags.Items.forgeTag("ingots/iron")).addIngredient(CAFTags.Items.forgeTag("ingots/iron"))
+                    .addIngredient(CAFTags.Items.forgeTag("ingots/nickel"))
                     .save(pConsumer,
                             getCAFBlastingCompat(getRIDCompat(getIngots(Metals.INVAR, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL));
 

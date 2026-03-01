@@ -16,33 +16,33 @@ import static net.egorplaytv.caf.CreateAndFood.MOD_ID;
 public class ItemApplicationRecipes {
     private static void itemApplication(Consumer<FinishedRecipe> pConsumer) {
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.ALLOY_SOULS_CASING.get())
-                .addIngredient(CAFTags.forgeItemTag("stripped_logs"))
+                .addIngredient(CAFTags.Items.forgeTag("stripped_logs"))
                 .addIngredient(CAFItems.ALLOY_SOULS.get())
                 .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.ALLOY_SOULS_CASING.get())));
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.ALLOY_SOULS_GLASS.get())
-                .addIngredient(CAFTags.forgeItemTag("glass/colorless"))
+                .addIngredient(CAFTags.Items.forgeTag("glass/colorless"))
                 .addIngredient(CAFItems.ALLOY_SOULS.get())
                 .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.ALLOY_SOULS_GLASS.get())));
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.BLACK_FRAMED_WALL.get())
                 .addIngredient(CAFBlocks.FRAMED_WALL.get())
-                .addIngredient(CAFTags.forgeItemTag("dyes/black"))
+                .addIngredient(CAFTags.Items.forgeTag("dyes/black"))
                 .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.BLACK_FRAMED_WALL.get())));
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.BLUE_FRAMED_WALL.get())
                 .addIngredient(CAFBlocks.FRAMED_WALL.get())
-                .addIngredient(CAFTags.forgeItemTag("dyes/blue"))
+                .addIngredient(CAFTags.Items.forgeTag("dyes/blue"))
                 .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.BLUE_FRAMED_WALL.get())));
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.BROWN_FRAMED_WALL.get())
                 .addIngredient(CAFBlocks.FRAMED_WALL.get())
-                .addIngredient(CAFTags.forgeItemTag("dyes/brown"))
+                .addIngredient(CAFTags.Items.forgeTag("dyes/brown"))
                 .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.BROWN_FRAMED_WALL.get())));
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.CYAN_FRAMED_WALL.get())
                 .addIngredient(CAFBlocks.FRAMED_WALL.get())
-                .addIngredient(CAFTags.forgeItemTag("dyes/cyan"))
+                .addIngredient(CAFTags.Items.forgeTag("dyes/cyan"))
                 .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.CYAN_FRAMED_WALL.get())));
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.FRAMED_WALL.get())
@@ -52,12 +52,12 @@ public class ItemApplicationRecipes {
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.GOLDEN_WALL.get())
                 .addIngredient(CAFBlocks.RUBY_BLOCK.get())
-                .addIngredient(CAFTags.forgeItemTag("plates/gold"))
+                .addIngredient(CAFTags.Items.forgeTag("plates/gold"))
                 .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.GOLDEN_WALL.get())));
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.GREEN_FRAMED_WALL.get())
                 .addIngredient(CAFBlocks.FRAMED_WALL.get())
-                .addIngredient(CAFTags.forgeItemTag("dyes/green"))
+                .addIngredient(CAFTags.Items.forgeTag("dyes/green"))
                 .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.GREEN_FRAMED_WALL.get())));
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.LUMINOUS_FRAMED_WALL.get())
@@ -67,17 +67,17 @@ public class ItemApplicationRecipes {
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.ORANGE_FRAMED_WALL.get())
                 .addIngredient(CAFBlocks.FRAMED_WALL.get())
-                .addIngredient(CAFTags.forgeItemTag("dyes/orange"))
+                .addIngredient(CAFTags.Items.forgeTag("dyes/orange"))
                 .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.ORANGE_FRAMED_WALL.get())));
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.RED_FRAMED_WALL.get())
                 .addIngredient(CAFBlocks.FRAMED_WALL.get())
-                .addIngredient(CAFTags.forgeItemTag("dyes/red"))
+                .addIngredient(CAFTags.Items.forgeTag("dyes/red"))
                 .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.RED_FRAMED_WALL.get())));
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.STEEL_CASING.get())
-                .addIngredient(CAFTags.forgeItemTag("stripped_logs"))
-                .addIngredient(CAFTags.forgeItemTag("ingots/steel"))
+                .addIngredient(CAFTags.Items.forgeTag("stripped_logs"))
+                .addIngredient(CAFTags.Items.forgeTag("ingots/steel"))
                 .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.STEEL_CASING.get())));
 
         ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.UNBAKED_CLAY.get())

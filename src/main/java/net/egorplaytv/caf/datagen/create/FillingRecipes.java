@@ -16,7 +16,7 @@ public class FillingRecipes {
     private static void filling(Consumer<FinishedRecipe> pConsumer) {
         FillingRecipeBuilder.fillingRecipe(CAFItems.RAW_SWEET_ROLL.get())
                 .addIngredient(AllItems.DOUGH.get()) // Item
-                .addIngredient(CAFTags.CAFFluidTag("creams"), 250) // Fluid
+                .addIngredient(CAFTags.Fluids.modTag("creams"), 250) // Fluid
                 .save(pConsumer, getFilling(getRecipeId(CAFItems.RAW_SWEET_ROLL.get())));
 
 //        FillingRecipeBuilder.fillingRecipe()

@@ -60,16 +60,16 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.ALMOND_DOOR.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.ALMOND_FENCE.get(), 3)
-                .define('0', CAFTags.forgeItemTag("rods/wooden")).define('1', CAFBlocks.ALMOND_PLANKS.get())
+                .define('0', CAFTags.Items.forgeTag("rods/wooden")).define('1', CAFBlocks.ALMOND_PLANKS.get())
                 .pattern("101").pattern("101")
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .unlockedBy("has_almond_planks", inventoryTrigger(ItemPredicate.Builder.item().of(CAFBlocks.ALMOND_PLANKS.get()).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.ALMOND_FENCE.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.ALMOND_FENCE_GATE.get())
-                .define('0', CAFTags.forgeItemTag("rods/wooden")).define('1', CAFBlocks.ALMOND_PLANKS.get())
+                .define('0', CAFTags.Items.forgeTag("rods/wooden")).define('1', CAFBlocks.ALMOND_PLANKS.get())
                 .pattern("010").pattern("010")
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .unlockedBy("has_almond_planks", inventoryTrigger(ItemPredicate.Builder.item().of(CAFBlocks.ALMOND_PLANKS.get()).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.ALMOND_FENCE_GATE.get())));
 
@@ -87,9 +87,9 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.ALMOND_PRESSURE_PLATE.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.ALMOND_SIGN.get(), 3)
-                .define('0', CAFTags.forgeItemTag("rods/wooden")).define('1', CAFBlocks.ALMOND_PLANKS.get())
+                .define('0', CAFTags.Items.forgeTag("rods/wooden")).define('1', CAFBlocks.ALMOND_PLANKS.get())
                 .pattern("111").pattern("111").pattern(" 0 ")
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .unlockedBy("has_almond_planks", inventoryTrigger(ItemPredicate.Builder.item().of(CAFBlocks.ALMOND_PLANKS.get()).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.ALMOND_SIGN.get())));
 
@@ -136,86 +136,86 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(vectorwing.farmersdelight.common.registry.ModItems.CHOCOLATE_PIE.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.COPPER_COIL.get(), 2)
-                .define('0', ItemTags.WOODEN_BUTTONS).define('1', CAFTags.forgeItemTag("plates/copper"))
-                .define('2', CAFTags.forgeItemTag("nuggets/copper")).define('3', CAFTags.forgeItemTag("rods/wooden"))
+                .define('0', ItemTags.WOODEN_BUTTONS).define('1', CAFTags.Items.forgeTag("plates/copper"))
+                .define('2', CAFTags.Items.forgeTag("nuggets/copper")).define('3', CAFTags.Items.forgeTag("rods/wooden"))
                 .pattern("202").pattern("131").pattern("202")
                 .unlockedBy("has_wooden_button", inventoryTrigger(ItemPredicate.Builder.item().of(ItemTags.WOODEN_BUTTONS).build()))
-                .unlockedBy("has_copper_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("plates/copper")).build()))
-                .unlockedBy("has_copper_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("nuggets/copper")).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_copper_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("plates/copper")).build()))
+                .unlockedBy("has_copper_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("nuggets/copper")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.COPPER_COIL.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.ACACIA_CUTTING_BOARD.get())
-                .define('0', CAFTags.forgeItemTag("rods/wooden")).define('1', Items.ACACIA_PLANKS)
+                .define('0', CAFTags.Items.forgeTag("rods/wooden")).define('1', Items.ACACIA_PLANKS)
                 .pattern("011").pattern("011")
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .unlockedBy("has_acacia_planks", inventoryTrigger(ItemPredicate.Builder.item().of(Items.ACACIA_PLANKS).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.ACACIA_CUTTING_BOARD.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.ALMOND_CUTTING_BOARD.get())
-                .define('0', CAFTags.forgeItemTag("rods/wooden")).define('1', CAFBlocks.ALMOND_PLANKS.get())
+                .define('0', CAFTags.Items.forgeTag("rods/wooden")).define('1', CAFBlocks.ALMOND_PLANKS.get())
                 .pattern("011").pattern("011")
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .unlockedBy("has_almond_planks", inventoryTrigger(ItemPredicate.Builder.item().of(CAFBlocks.ALMOND_PLANKS.get()).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.ALMOND_CUTTING_BOARD.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.BIRCH_CUTTING_BOARD.get())
-                .define('0', CAFTags.forgeItemTag("rods/wooden")).define('1', Items.BIRCH_PLANKS)
+                .define('0', CAFTags.Items.forgeTag("rods/wooden")).define('1', Items.BIRCH_PLANKS)
                 .pattern("011").pattern("011")
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .unlockedBy("has_birch_planks", inventoryTrigger(ItemPredicate.Builder.item().of(Items.BIRCH_PLANKS).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.BIRCH_CUTTING_BOARD.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.CRIMSON_CUTTING_BOARD.get())
-                .define('0', CAFTags.forgeItemTag("rods/wooden")).define('1', Items.CRIMSON_PLANKS)
+                .define('0', CAFTags.Items.forgeTag("rods/wooden")).define('1', Items.CRIMSON_PLANKS)
                 .pattern("011").pattern("011")
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .unlockedBy("has_crimson_planks", inventoryTrigger(ItemPredicate.Builder.item().of(Items.CRIMSON_PLANKS).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.CRIMSON_CUTTING_BOARD.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.DARK_OAK_CUTTING_BOARD.get())
-                .define('0', CAFTags.forgeItemTag("rods/wooden")).define('1', Items.DARK_OAK_PLANKS)
+                .define('0', CAFTags.Items.forgeTag("rods/wooden")).define('1', Items.DARK_OAK_PLANKS)
                 .pattern("011").pattern("011")
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .unlockedBy("has_dark_oak_planks", inventoryTrigger(ItemPredicate.Builder.item().of(Items.DARK_OAK_PLANKS).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.DARK_OAK_CUTTING_BOARD.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.JUNGLE_CUTTING_BOARD.get())
-                .define('0', CAFTags.forgeItemTag("rods/wooden")).define('1', Items.JUNGLE_PLANKS)
+                .define('0', CAFTags.Items.forgeTag("rods/wooden")).define('1', Items.JUNGLE_PLANKS)
                 .pattern("011").pattern("011")
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .unlockedBy("has_jungle_planks", inventoryTrigger(ItemPredicate.Builder.item().of(Items.JUNGLE_PLANKS).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.JUNGLE_CUTTING_BOARD.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.OAK_CUTTING_BOARD.get())
-                .define('0', CAFTags.forgeItemTag("rods/wooden")).define('1', Items.OAK_PLANKS)
+                .define('0', CAFTags.Items.forgeTag("rods/wooden")).define('1', Items.OAK_PLANKS)
                 .pattern("011").pattern("011")
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .unlockedBy("has_oak_planks", inventoryTrigger(ItemPredicate.Builder.item().of(Items.OAK_PLANKS).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.OAK_CUTTING_BOARD.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.SPRUCE_CUTTING_BOARD.get())
-                .define('0', CAFTags.forgeItemTag("rods/wooden")).define('1', Items.SPRUCE_PLANKS)
+                .define('0', CAFTags.Items.forgeTag("rods/wooden")).define('1', Items.SPRUCE_PLANKS)
                 .pattern("011").pattern("011")
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .unlockedBy("has_spruce_planks", inventoryTrigger(ItemPredicate.Builder.item().of(Items.SPRUCE_PLANKS).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.SPRUCE_CUTTING_BOARD.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.WARPED_CUTTING_BOARD.get())
-                .define('0', CAFTags.forgeItemTag("rods/wooden")).define('1', Items.WARPED_PLANKS)
+                .define('0', CAFTags.Items.forgeTag("rods/wooden")).define('1', Items.WARPED_PLANKS)
                 .pattern("011").pattern("011")
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .unlockedBy("has_warped_planks", inventoryTrigger(ItemPredicate.Builder.item().of(Items.WARPED_PLANKS).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.WARPED_CUTTING_BOARD.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.ALUMINUM_COIL.get(), 2)
-                .define('0', ItemTags.WOODEN_BUTTONS).define('1', CAFTags.forgeItemTag("plates/aluminum"))
-                .define('2', CAFTags.forgeItemTag("nuggets/aluminum")).define('3', CAFTags.forgeItemTag("rods/wooden"))
+                .define('0', ItemTags.WOODEN_BUTTONS).define('1', CAFTags.Items.forgeTag("plates/aluminum"))
+                .define('2', CAFTags.Items.forgeTag("nuggets/aluminum")).define('3', CAFTags.Items.forgeTag("rods/wooden"))
                 .pattern("202").pattern("131").pattern("202")
                 .unlockedBy("has_wooden_button", inventoryTrigger(ItemPredicate.Builder.item().of(ItemTags.WOODEN_BUTTONS).build()))
-                .unlockedBy("has_aluminum_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("plates/aluminum")).build()))
-                .unlockedBy("has_aluminum_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("nuggets/aluminum")).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_aluminum_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("plates/aluminum")).build()))
+                .unlockedBy("has_aluminum_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("nuggets/aluminum")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.ALUMINUM_COIL.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.CRIMSON_BARREL.get())
@@ -239,22 +239,22 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.DEEPSLATE_WALKWAY.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.ELECTRUM_COIL.get(), 2)
-                .define('0', ItemTags.WOODEN_BUTTONS).define('1', CAFTags.forgeItemTag("plates/electrum"))
-                .define('2', CAFTags.forgeItemTag("nuggets/electrum")).define('3', CAFTags.forgeItemTag("rods/wooden"))
+                .define('0', ItemTags.WOODEN_BUTTONS).define('1', CAFTags.Items.forgeTag("plates/electrum"))
+                .define('2', CAFTags.Items.forgeTag("nuggets/electrum")).define('3', CAFTags.Items.forgeTag("rods/wooden"))
                 .pattern("202").pattern("131").pattern("202")
                 .unlockedBy("has_wooden_button", inventoryTrigger(ItemPredicate.Builder.item().of(ItemTags.WOODEN_BUTTONS).build()))
-                .unlockedBy("has_electrum_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("plates/electrum")).build()))
-                .unlockedBy("has_electrum_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("nuggets/electrum")).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_electrum_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("plates/electrum")).build()))
+                .unlockedBy("has_electrum_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("nuggets/electrum")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.ELECTRUM_COIL.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.FERMENTATION_BARREL.get())
                 .define('0', AllBlocks.FLUID_PIPE.get()).define('1', AllBlocks.COPPER_CASING.get())
-                .define('2', CAFTags.forgeItemTag("plates/copper"))
+                .define('2', CAFTags.Items.forgeTag("plates/copper"))
                 .pattern("0").pattern("2").pattern("1")
                 .unlockedBy("has_fluid_pipe", inventoryTrigger(ItemPredicate.Builder.item().of(AllBlocks.FLUID_PIPE.get()).build()))
                 .unlockedBy("has_copper_casing", inventoryTrigger(ItemPredicate.Builder.item().of(AllBlocks.COPPER_CASING.get()).build()))
-                .unlockedBy("has_copper_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("plates/copper")).build()))
+                .unlockedBy("has_copper_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("plates/copper")).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.FERMENTATION_BARREL.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.FERTILIZED_RED_SAND.get(), 2)
@@ -358,12 +358,12 @@ public class CraftingTableRecipes {
 
         ShapedRecipeBuilder.shaped(CAFBlocks.PASTRY_TABLE.get())
                 .define('0', Items.RED_CARPET).define('1', AllItems.BRASS_INGOT.get())
-                .define('2', CAFTags.forgeItemTag("rods/wooden")).define('3', AllItems.BRASS_SHEET.get())
+                .define('2', CAFTags.Items.forgeTag("rods/wooden")).define('3', AllItems.BRASS_SHEET.get())
                 .define('4', AllItems.BRASS_NUGGET.get()).define('5', ItemTags.PLANKS)
                 .pattern("101").pattern("232").pattern("454")
                 .unlockedBy("has_carpet", inventoryTrigger(ItemPredicate.Builder.item().of(Items.RED_CARPET).build()))
                 .unlockedBy("has_brass_ingot", inventoryTrigger(ItemPredicate.Builder.item().of(AllItems.BRASS_INGOT.get()).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .unlockedBy("has_brass_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(AllItems.BRASS_SHEET.get()).build()))
                 .unlockedBy("has_brass_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(AllItems.BRASS_NUGGET.get()).build()))
                 .unlockedBy("has_planks", inventoryTrigger(ItemPredicate.Builder.item().of(ItemTags.PLANKS).build()))
@@ -415,10 +415,10 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.SANDSTONE_WALKWAY.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.SECURE_BLOCK.get(), 3)
-                .define('0', CAFTags.forgeItemTag("plates/brass")).define('1', CAFTags.forgeItemTag("plates/steel"))
+                .define('0', CAFTags.Items.forgeTag("plates/brass")).define('1', CAFTags.Items.forgeTag("plates/steel"))
                 .pattern("101").pattern("010").pattern("101")
-                .unlockedBy("has_brass_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("plates/brass")).build()))
-                .unlockedBy("has_steel_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("plates/steel")).build()))
+                .unlockedBy("has_brass_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("plates/brass")).build()))
+                .unlockedBy("has_steel_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("plates/steel")).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.SECURE_BLOCK.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.SOUL_LANTERN.get())
@@ -458,20 +458,20 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.STEEL_COGWHEEL.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.STEEL_COIL.get(), 2)
-                .define('0', ItemTags.WOODEN_BUTTONS).define('1', CAFTags.forgeItemTag("plates/steel"))
-                .define('2', CAFTags.forgeItemTag("nuggets/steel")).define('3', CAFTags.forgeItemTag("rods/wooden"))
+                .define('0', ItemTags.WOODEN_BUTTONS).define('1', CAFTags.Items.forgeTag("plates/steel"))
+                .define('2', CAFTags.Items.forgeTag("nuggets/steel")).define('3', CAFTags.Items.forgeTag("rods/wooden"))
                 .pattern("202").pattern("131").pattern("202")
                 .unlockedBy("has_wooden_button", inventoryTrigger(ItemPredicate.Builder.item().of(ItemTags.WOODEN_BUTTONS).build()))
-                .unlockedBy("has_steel_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("plates/steel")).build()))
-                .unlockedBy("has_steel_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("nuggets/steel")).build()))
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_steel_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("plates/steel")).build()))
+                .unlockedBy("has_steel_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("nuggets/steel")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.STEEL_COIL.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.STEEL_DUST.get())
-                .define('0', CAFTags.forgeItemTag("dusts/coal")).define('1', CAFTags.forgeItemTag("dusts/iron"))
+                .define('0', CAFTags.Items.forgeTag("dusts/coal")).define('1', CAFTags.Items.forgeTag("dusts/iron"))
                 .pattern("10").pattern("01")
-                .unlockedBy("has_coal_dust", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("dusts/coal")).build()))
-                .unlockedBy("has_iron_dust", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("dusts/iron")).build()))
+                .unlockedBy("has_coal_dust", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("dusts/coal")).build()))
+                .unlockedBy("has_iron_dust", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("dusts/iron")).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.STEEL_DUST.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.STEEL_HOE.get())
@@ -484,9 +484,9 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.STEEL_HOE.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.STEEL_INGOT.get())
-                .define('0', CAFItems.STEEL_NUGGET.get()).define('1', CAFTags.forgeItemTag("nuggets/steel"))
+                .define('0', CAFItems.STEEL_NUGGET.get()).define('1', CAFTags.Items.forgeTag("nuggets/steel"))
                 .pattern("111").pattern("101").pattern("111")
-                .unlockedBy("has_steel_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("nuggets/steel")).build()))
+                .unlockedBy("has_steel_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("nuggets/steel")).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.STEEL_INGOT.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.STEEL_PICKAXE.get())
@@ -500,11 +500,11 @@ public class CraftingTableRecipes {
 
         ShapedRecipeBuilder.shaped(CAFBlocks.STEEL_LAMP_BLOCK.get())
                 .define('0', Items.REDSTONE).define('1', CAFItems.RUBY.get())
-                .define('2', CAFTags.forgeItemTag("plates/steel"))
+                .define('2', CAFTags.Items.forgeTag("plates/steel"))
                 .pattern("212").pattern("101").pattern("212")
                 .unlockedBy("has_redstone", inventoryTrigger(ItemPredicate.Builder.item().of(Items.REDSTONE).build()))
                 .unlockedBy("has_ruby", inventoryTrigger(ItemPredicate.Builder.item().of(CAFItems.RUBY.get()).build()))
-                .unlockedBy("has_steel_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("plates/steel")).build()))
+                .unlockedBy("has_steel_sheet", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("plates/steel")).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.STEEL_LAMP_BLOCK.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.STEEL_SHAFT.get(), 18)
@@ -542,9 +542,9 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.STRIPPED_ALMOND_WOOD.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.TANTALUM_INGOT.get())
-                .define('0', CAFItems.TANTALUM_NUGGET.get()).define('1', CAFTags.forgeItemTag("nuggets/tantalum"))
+                .define('0', CAFItems.TANTALUM_NUGGET.get()).define('1', CAFTags.Items.forgeTag("nuggets/tantalum"))
                 .pattern("111").pattern("101").pattern("111")
-                .unlockedBy("has_tantalum_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("nuggets/tantalum")).build()))
+                .unlockedBy("has_tantalum_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("nuggets/tantalum")).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.TANTALUM_INGOT.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.TORN_SOUL_CHAIN.get())
@@ -564,9 +564,9 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.TORN_SOUL_LANTERN.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.TUNGSTEN_INGOT.get())
-                .define('0', CAFItems.TUNGSTEN_NUGGET.get()).define('1', CAFTags.forgeItemTag("nuggets/tungsten"))
+                .define('0', CAFItems.TUNGSTEN_NUGGET.get()).define('1', CAFTags.Items.forgeTag("nuggets/tungsten"))
                 .pattern("111").pattern("101").pattern("111")
-                .unlockedBy("has_tungsten_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("nuggets/tungsten")).build()))
+                .unlockedBy("has_tungsten_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("nuggets/tungsten")).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.TUNGSTEN_INGOT.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.WARPED_BARREL.get())
@@ -587,9 +587,9 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.SCALES.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.FRAMED_CALCITE.get(), 4)
-                .define('0', CAFTags.forgeItemTag("rods/wooden")).define('1', Blocks.CALCITE)
+                .define('0', CAFTags.Items.forgeTag("rods/wooden")).define('1', Blocks.CALCITE)
                 .pattern("010").pattern("101").pattern("010")
-                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.forgeItemTag("rods/wooden")).build()))
+                .unlockedBy("has_stick", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.forgeTag("rods/wooden")).build()))
                 .unlockedBy("has_calcite", inventoryTrigger(ItemPredicate.Builder.item().of(Blocks.CALCITE).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.FRAMED_CALCITE.get())));
 

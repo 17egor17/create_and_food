@@ -75,6 +75,8 @@ public class PalettesVariantEntry {
         CreateAndFood.REGISTRATE.addDataGenerator(ProviderType.ITEM_TAGS, p -> p.tag(paletteStoneVariants.materialTag)
                 .add(baseBlock.get()
                         .asItem()));
+        CreateAndFood.REGISTRATE.addDataGenerator(ProviderType.BLOCK_TAGS, p -> p.tag(paletteStoneVariants.materialBlockTag)
+                .add(baseBlock.get()));
 
         this.registeredBlocks = registeredBlocks.build();
         this.registeredPartials = registeredPartials.build();
