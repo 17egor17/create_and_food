@@ -5214,7 +5214,6 @@ fb0883df3a23ecc0d22437ce581c23a36764cb5c data/forge/tags/items/dusts.json
 657d1a2a118802d1377b9fbe7dde7e40d291472b data/forge/tags/items/dusts/coal.json
 64dc166e913a02e3f35b5b234308877c05756ada data/forge/tags/items/dusts/iron.json
 9ef81fc2a2abae1ad6b0bcce84ece112024a57ad data/forge/tags/items/dusts/steel.json
-fa86c30ee3a260c6a131033a5a258f018ba29dc3 data/forge/tags/items/fence_gates.json
 beec170e79c72ffcb36843e3a78ce57da966367d data/forge/tags/items/ingots.json
 b46e8f774d32f1cf96598cdc24a2c7642c25f43e data/forge/tags/items/ingots/copper.json
 5666370dc2087dd705ecb19349add25c841116de data/forge/tags/items/ingots/gold.json
@@ -5343,6 +5342,7 @@ feb8f2e1bd0ffe0760379989252050eb9465145e data/minecraft/tags/blocks/wooden_trapd
 d24388b68cc7066ac4a61c0d426859ff532dce0f data/minecraft/tags/fluids/water.json
 949f08390da63d242777a75cb4f78eaaf44732fe data/minecraft/tags/items/dead_corals.json
 816edd9daf082fcdf43bde9824655b319af0c535 data/minecraft/tags/items/doors.json
+fa86c30ee3a260c6a131033a5a258f018ba29dc3 data/minecraft/tags/items/fence_gates.json
 2f9d9e223385f5cb5304f7e6fb522ac99bb9bb11 data/minecraft/tags/items/fox_food.json
 ab461ce82bfac904d59fdf14abae1fb48de994b1 data/minecraft/tags/items/leaves.json
 f97156066d77a001ca60790f81e766c7a03c149e data/minecraft/tags/items/logs_that_burn.json

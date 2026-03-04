@@ -30,7 +30,7 @@ public class CAFItemTagsProvider extends TagsProvider<Item> {
                 .add(Items.DEAD_BUBBLE_CORAL_FAN).add(Items.DEAD_FIRE_CORAL_FAN)
                 .add(Items.DEAD_HORN_CORAL_FAN).add(Items.DEAD_TUBE_CORAL_FAN);
         this.tag(ItemTags.DOORS).add(CAFBlocks.ALMOND_DOOR.get().asItem()).add(CAFBlocks.STEEL_DOOR.get().asItem());
-        this.tag(Tags.Items.FENCE_GATES).add(CAFBlocks.ALMOND_FENCE_GATE.get().asItem());
+        this.tag(CAFTags.Items.FENCE_GATES).add(CAFBlocks.ALMOND_FENCE_GATE.get().asItem());
         this.tag(ItemTags.FOX_FOOD).addTag(CAFTags.Items.BERRIES);
         this.tag(ItemTags.LEAVES).add(CAFBlocks.ALMOND_LEAVES.get().asItem());
         this.tag(ItemTags.LOGS_THAT_BURN).addTag(CAFTags.Items.ALMOND_LOGS);
