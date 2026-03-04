@@ -153,7 +153,10 @@ public class CAFBlockTagsProvider extends TagsProvider<Block> {
         this.tag(CAFTags.Blocks.FAN_PROCESSING_CATALYSTS_FREEZING)
                 .add(Blocks.POWDER_SNOW).add(Blocks.SNOW).add(Blocks.SNOW_BLOCK);
         this.tag(CAFTags.Blocks.MINEABLE_WITH_HAMMER).addTag(BlockTags.MINEABLE_WITH_AXE)
-                .addTag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(CAFTags.Blocks.forgeTag("mineable/hammer"));
+                .addTag(BlockTags.MINEABLE_WITH_PICKAXE);
+        this.tag(CAFTags.Blocks.NEEDS_COPPER_TOOL);
+        this.tag(CAFTags.Blocks.NEEDS_TANTALUM_TOOL);
+        this.tag(CAFTags.Blocks.NEEDS_TUNGSTEN_TOOL);
         this.tag(CAFTags.Blocks.ORES_RUBY).add(CAFBlocks.RUBY_ORE.get()).add(CAFBlocks.DEEPSLATE_RUBY_ORE.get());
         this.tag(CAFTags.Blocks.ORES_TANTALUM)
                 .add(CAFBlocks.STONE_TANTALUM_ORE.get()).add(CAFBlocks.DEEPSLATE_TANTALUM_ORE.get())

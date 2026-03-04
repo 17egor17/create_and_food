@@ -31,7 +31,6 @@ public class CAFTags {
         public static final TagKey<Block> ORES_TUNGSTEN = forgeTag("ores/tungsten");
 
 
-
         // Create And Food Tags
         public static final TagKey<Block> ALMOND_LOGS = modTag("almond_logs");
         public static final TagKey<Block> FRAMED_WALLS = modTag("framed_walls");
