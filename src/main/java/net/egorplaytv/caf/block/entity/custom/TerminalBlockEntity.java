@@ -59,28 +59,28 @@ public class TerminalBlockEntity extends BlockEntity implements MenuProvider {
     public static String modId;
 
     public static Map<Item, Integer> getMetals(){
-        add(CAFTags.Items.ALUMINUM, 7, "metal", "aluminum");
-        add(CAFTags.Items.BRASS, 7, "alloy", "brass");
-        add(CAFTags.Items.BRONZE, 7, "alloy", "bronze");
-        add(CAFTags.Items.CONSTANTAN, 7, "alloy", "constantan");
+        add(CAFTags.Items.INGOTS_ALUMINUM, 7, "metal", "aluminum");
+        add(CAFTags.Items.INGOTS_BRASS, 7, "alloy", "brass");
+        add(CAFTags.Items.INGOTS_BRONZE, 7, "alloy", "bronze");
+        add(CAFTags.Items.INGOTS_CONSTANTAN, 7, "alloy", "constantan");
         add(Tags.Items.INGOTS_COPPER, 7, "metal", "copper");
-        add(CAFTags.Items.ELECTRUM, 7, "alloy", "electrum");
-        add(CAFTags.Items.ENDERIUM, 7, 2, "alloy", "enderium");
+        add(CAFTags.Items.INGOTS_ELECTRUM, 7, "alloy", "electrum");
+        add(CAFTags.Items.INGOTS_ENDERIUM, 7, 2, "alloy", "enderium");
         add(Tags.Items.INGOTS_GOLD, 7, "metal", "gold");
-        add(CAFTags.Items.INVAR, 7, "alloy", "invar");
+        add(CAFTags.Items.INGOTS_INVAR, 7, "alloy", "invar");
         add(Tags.Items.INGOTS_IRON, 7, "metal", "iron");
-        add(CAFTags.Items.LEAD, 7, "metal", "lead");
-        add(CAFTags.Items.LUMIUM, 7, 2, "alloy", "lumium");
+        add(CAFTags.Items.INGOTS_LEAD, 7, "metal", "lead");
+        add(CAFTags.Items.INGOTS_LUMIUM, 7, 2, "alloy", "lumium");
         add(Tags.Items.INGOTS_NETHERITE, 7, "alloy", "netherite");
-        add(CAFTags.Items.NICKEL, 7, "metal", "nickel");
-        add(CAFTags.Items.OSMIUM, 7, "metal", "osmium");
-        add(CAFTags.Items.SIGNALUM, 7, "alloy", "signalum");
-        add(CAFTags.Items.SILVER, 7, "metal", "silver");
-        add(CAFTags.Items.STEEL, 7, "alloy", "steel");
-        add(CAFTags.Items.TIN, 7, "metal", "tin");
-        add(CAFTags.Items.TUNGSTEN, 7, "metal", "tungsten");
-        add(CAFTags.Items.URANIUM, 7, "metal", "uranium");
-        add(CAFTags.Items.ZINC, 7, "metal", "zinc");
+        add(CAFTags.Items.INGOTS_NICKEL, 7, "metal", "nickel");
+        add(CAFTags.Items.INGOTS_OSMIUM, 7, "metal", "osmium");
+        add(CAFTags.Items.INGOTS_SIGNALUM, 7, "alloy", "signalum");
+        add(CAFTags.Items.INGOTS_SILVER, 7, "metal", "silver");
+        add(CAFTags.Items.INGOTS_STEEL, 7, "alloy", "steel");
+        add(CAFTags.Items.INGOTS_TIN, 7, "metal", "tin");
+        add(CAFTags.Items.INGOTS_TUNGSTEN, 7, "metal", "tungsten");
+        add(CAFTags.Items.INGOTS_URANIUM, 7, "metal", "uranium");
+        add(CAFTags.Items.INGOTS_ZINC, 7, "metal", "zinc");
         return METALS;
     }
 

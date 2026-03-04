@@ -28,7 +28,7 @@ public class PressRecipes {
                 .save(pConsumer, getPressing(getRecipeId(CAFItems.GLOWING_BRASS_SHEET.get())));
 
         PressingRecipeBuilder.pressingRecipe(CAFItems.STEEL_SHEET.get())
-                .addIngredient(CAFTags.Items.STEEL)
+                .addIngredient(CAFTags.Items.INGOTS_STEEL)
                 .save(pConsumer, getPressing(getRecipeId(CAFItems.STEEL_SHEET.get())));
 
 //        PressingRecipeBuilder.pressingRecipe()

@@ -61,7 +61,7 @@ public class MixerRecipes {
                 .save(pConsumer, getMixing(getRecipeId(CAFFluids.GLAZE.get().getSource())));
 
         MixingRecipeBuilder.mixingRecipe(CAFItems.GLOWING_BRASS_INGOT.get(), 2, HEATED)
-                .addIngredient(CAFTags.Items.BRASS).addIngredient(Items.GLOWSTONE_DUST)
+                .addIngredient(CAFTags.Items.INGOTS_BRASS).addIngredient(Items.GLOWSTONE_DUST)
                 .addIngredient(Items.GLOWSTONE_DUST).addIngredient(AllItems.POLISHED_ROSE_QUARTZ.get())
                 .save(pConsumer, getMixing(getRecipeId(CAFItems.GLOWING_BRASS_INGOT.get())));
 

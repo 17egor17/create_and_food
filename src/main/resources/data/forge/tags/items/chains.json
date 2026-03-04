@@ -1,8 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#forge:chains/chain",
-    "#forge:chains/soul_chain",
-    "#forge:chains/steel_chain"
-  ]
-}

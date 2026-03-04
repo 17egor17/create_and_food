@@ -1,8 +1,0 @@
-{
-    "replace":false,
-    "values": [
-      "#forge:dusts/coal",
-      "#forge:dusts/steel",
-      "#forge:dusts/iron"
-    ]
-}

@@ -5,18 +5,15 @@ import net.egorplaytv.caf.CreateAndFood;
 import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.item.CAFItems;
 import net.egorplaytv.caf.util.CAFTags;
-import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
-
-import java.util.function.Function;
+import vectorwing.farmersdelight.common.tag.ModTags;
 
 public class CAFItemTagsProvider extends TagsProvider<Item> {
     public CAFItemTagsProvider(DataGenerator pGenerator, ExistingFileHelper existingFileHelper) {
@@ -49,6 +46,28 @@ public class CAFItemTagsProvider extends TagsProvider<Item> {
         this.tag(ItemTags.WOODEN_TRAPDOORS).add(CAFBlocks.ALMOND_TRAPDOOR.get().asItem());
         this.tag(Tags.Items.BARRELS_WOODEN).addTag(CAFTags.Items.BARRELS);
         this.tag(Tags.Items.CROPS).addTag(CAFTags.Items.CROPS_RICE).addTag(CAFTags.Items.CROPS_RYE);
+        this.tag(CAFTags.Items.CHAINS)
+                .addTag(CAFTags.Items.CHAINS_IRON).addTag(CAFTags.Items.CHAINS_SOUL)
+                .addTag(CAFTags.Items.CHAINS_STEEL);
+        this.tag(CAFTags.Items.DUSTS)
+                .addTag(CAFTags.Items.DUSTS_COAL).addTag(CAFTags.Items.DUSTS_IRON)
+                .addTag(CAFTags.Items.DUSTS_STEEL);
+        this.tag(CAFTags.Items.INGOTS)
+                .addTag(CAFTags.Items.INGOTS_COPPER).addTag(CAFTags.Items.INGOTS_GOLD)
+                .addTag(CAFTags.Items.INGOTS_IRON).addTag(CAFTags.Items.INGOTS_NETHERITE)
+                .addTag(CAFTags.Items.INGOTS_STEEL).addTag(CAFTags.Items.INGOTS_TANTALUM)
+                .addTag(CAFTags.Items.INGOTS_TUNGSTEN);
+        this.tag(CAFTags.Items.NUGGETS)
+                .addTag(CAFTags.Items.NUGGETS_COPPER).addTag(CAFTags.Items.NUGGETS_GOLD)
+                .addTag(CAFTags.Items.NUGGETS_IRON).addTag(CAFTags.Items.NUGGETS_STEEL)
+                .addTag(CAFTags.Items.NUGGETS_TANTALUM).addTag(CAFTags.Items.NUGGETS_TUNGSTEN);
+        this.tag(CAFTags.Items.PLATES).addTag(CAFTags.Items.PLATES_BRASS).addTag(CAFTags.Items.PLATES_STEEL);
+        this.tag(CAFTags.Items.SMALL_BASE).addTag(CAFTags.Items.SMALL_BASE_CHOCOLATE).addTag(CAFTags.Items.SMALL_BASE_HONEY);
+        this.tag(CAFTags.Items.STRIPPED_LOGS).add(CAFBlocks.STRIPPED_ALMOND_LOG.get().asItem());
+        this.tag(CAFTags.Items.STRIPPED_WOOD).add(CAFBlocks.STRIPPED_ALMOND_WOOD.get().asItem());
+        this.tag(CAFTags.Items.TONGS).addTag(CAFTags.Items.TONGS_WOOD);
+        this.tag(CAFTags.Items.TOOLS).addTag(CAFTags.Items.TOOLS_KNIVES);
+        this.tag(CAFTags.Items.TORCHES).addTag(CAFTags.Items.TORCHES_SOUL).addTag(CAFTags.Items.TORCHES_TORCH);
 
         // Create And Food Tags
         this.tag(CAFTags.Items.ALMOND_LOGS)
@@ -119,7 +138,7 @@ public class CAFItemTagsProvider extends TagsProvider<Item> {
                 .addTag(Tags.Items.FENCE_GATES).addTag(ItemTags.SIGNS)
                 .addTag(ItemTags.WOOL).addTag(ItemTags.COALS)
                 .addTag(ItemTags.BOATS).addTag(Tags.Items.CHESTS_WOODEN)
-                .addTag(CAFTags.Items.COAL_DUST).addTag(CAFTags.Items.CREATIVE_FUEL)
+                .addTag(CAFTags.Items.DUSTS_COAL).addTag(CAFTags.Items.CREATIVE_FUEL)
                 .add(Items.LADDER).add(Items.STICK)
                 .add(Items.BOWL).add(Items.BOW)
                 .add(Items.WOODEN_AXE).add(Items.WOODEN_HOE)
@@ -143,8 +162,45 @@ public class CAFItemTagsProvider extends TagsProvider<Item> {
                 .add(CAFBlocks.OAK_TERRACE.get().asItem()).add(CAFBlocks.OAK_TERRACE_STAIRS.get().asItem())
                 .add(CAFBlocks.SPRUCE_TERRACE.get().asItem()).add(CAFBlocks.SPRUCE_TERRACE_STAIRS.get().asItem())
                 .add(CAFBlocks.WARPED_TERRACE.get().asItem()).add(CAFBlocks.WARPED_TERRACE_STAIRS.get().asItem());
+        this.tag(CAFTags.Items.BANNER_PATTERNS)
+                .add(Items.CREEPER_BANNER_PATTERN).add(Items.FLOWER_BANNER_PATTERN)
+                .add(Items.GLOBE_BANNER_PATTERN).add(Items.MOJANG_BANNER_PATTERN)
+                .add(Items.PIGLIN_BANNER_PATTERN).add(Items.SKULL_BANNER_PATTERN);
+        this.tag(CAFTags.Items.BOTTLES).add(Items.POTION).add(Items.HONEY_BOTTLE);
         this.tag(CAFTags.Items.CROPS_RICE).add(CAFBlocks.RICE_CROP.get().asItem());
         this.tag(CAFTags.Items.CROPS_RYE).add(CAFBlocks.RYE_PLANT.get().asItem());
+        this.tag(CAFTags.Items.CHAINS_IRON).add(Items.CHAIN);
+        this.tag(CAFTags.Items.CHAINS_SOUL).add(CAFItems.TORN_SOUL_CHAIN.get());
+        this.tag(CAFTags.Items.CHAINS_STEEL).add(CAFItems.STEEL_CHAIN.get());
+        this.tag(CAFTags.Items.CUT_TOOLS).addTag(CAFTags.Items.TOOLS_KNIVES).add(Items.SHEARS);
+        this.tag(CAFTags.Items.DUSTS_COAL).add(CAFItems.COAL_DUST.get());
+        this.tag(CAFTags.Items.DUSTS_IRON).add(CAFItems.IRON_DUST.get());
+        this.tag(CAFTags.Items.DUSTS_STEEL).add(CAFItems.STEEL_DUST.get());
+        this.tag(CAFTags.Items.INGOTS_COPPER).add(CAFItems.COPPER_INGOT.get());
+        this.tag(CAFTags.Items.INGOTS_GOLD).add(CAFItems.GOLD_INGOT.get());
+        this.tag(CAFTags.Items.INGOTS_IRON).add(CAFItems.IRON_INGOT.get());
+        this.tag(CAFTags.Items.INGOTS_NETHERITE).add(CAFItems.NETHERITE_INGOT.get());
+        this.tag(CAFTags.Items.INGOTS_STEEL).add(CAFItems.STEEL_INGOT.get());
+        this.tag(CAFTags.Items.INGOTS_TANTALUM).add(CAFItems.TANTALUM_INGOT.get());
+        this.tag(CAFTags.Items.INGOTS_TUNGSTEN).add(CAFItems.TUNGSTEN_INGOT.get());
+        this.tag(CAFTags.Items.MACARONI)
+                .add(CAFItems.MACARONI.get()).add(CAFItems.RED_MACARONI.get())
+                .add(CAFItems.WHITE_MACARONI.get()).add(CAFItems.PINK_MACARONI.get());
+        this.tag(CAFTags.Items.NUGGETS_COPPER).add(CAFItems.COPPER_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_GOLD).add(CAFItems.GOLD_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_IRON).add(CAFItems.IRON_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_STEEL).add(CAFItems.STEEL_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_TANTALUM).add(CAFItems.TANTALUM_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_TUNGSTEN).add(CAFItems.TUNGSTEN_NUGGET.get());
+        this.tag(CAFTags.Items.PLATES_BRASS).add(CAFItems.GLOWING_BRASS_SHEET.get());
+        this.tag(CAFTags.Items.PLATES_STEEL).add(CAFItems.STEEL_SHEET.get());
+        this.tag(CAFTags.Items.SMALL_BASE_CHOCOLATE).add(CAFItems.SMALL_DOUGH_BASE_WHiH_CHOCOLATE.get());
+        this.tag(CAFTags.Items.SMALL_BASE_HONEY).add(CAFItems.SMALL_DOUGH_BASE_WHiH_HONEY.get());
+        this.tag(CAFTags.Items.TONGS_WOOD).add(Items.STICK);
+        this.tag(CAFTags.Items.TOOLS_KNIVES).addTag(ModTags.KNIVES);
+        this.tag(CAFTags.Items.TORCHES_SOUL).add(Items.SOUL_TORCH);
+        this.tag(CAFTags.Items.TORCHES_TORCH).add(Items.TORCH);
+
     }
 
     @Override

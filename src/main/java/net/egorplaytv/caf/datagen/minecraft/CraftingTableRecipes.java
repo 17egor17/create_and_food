@@ -436,11 +436,11 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.SPRUCE_BARREL.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.STEEL_AXE.get())
-                .define('0', CAFItems.TOOL_HANDLE.get()).define('1', CAFTags.Items.STEEL)
+                .define('0', CAFItems.TOOL_HANDLE.get()).define('1', CAFTags.Items.INGOTS_STEEL)
                 .define('2', Items.GOLD_NUGGET)
                 .pattern("11").pattern("10").pattern(" 2")
                 .unlockedBy("has_tool_handle", inventoryTrigger(ItemPredicate.Builder.item().of(CAFItems.TOOL_HANDLE.get()).build()))
-                .unlockedBy("has_steel", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.STEEL).build()))
+                .unlockedBy("has_steel", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.INGOTS_STEEL).build()))
                 .unlockedBy("has_gold_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(Items.GOLD_NUGGET).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.STEEL_AXE.get())));
 
@@ -475,11 +475,11 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.STEEL_DUST.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.STEEL_HOE.get())
-                .define('0', CAFItems.TOOL_HANDLE.get()).define('1', CAFTags.Items.STEEL)
+                .define('0', CAFItems.TOOL_HANDLE.get()).define('1', CAFTags.Items.INGOTS_STEEL)
                 .define('2', Items.GOLD_NUGGET)
                 .pattern("11").pattern(" 0").pattern(" 2")
                 .unlockedBy("has_tool_handle", inventoryTrigger(ItemPredicate.Builder.item().of(CAFItems.TOOL_HANDLE.get()).build()))
-                .unlockedBy("has_steel", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.STEEL).build()))
+                .unlockedBy("has_steel", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.INGOTS_STEEL).build()))
                 .unlockedBy("has_gold_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(Items.GOLD_NUGGET).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.STEEL_HOE.get())));
 
@@ -490,11 +490,11 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.STEEL_INGOT.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.STEEL_PICKAXE.get())
-                .define('0', CAFItems.TOOL_HANDLE.get()).define('1', CAFTags.Items.STEEL)
+                .define('0', CAFItems.TOOL_HANDLE.get()).define('1', CAFTags.Items.INGOTS_STEEL)
                 .define('2', Items.GOLD_NUGGET)
                 .pattern("111").pattern(" 0 ").pattern(" 2 ")
                 .unlockedBy("has_tool_handle", inventoryTrigger(ItemPredicate.Builder.item().of(CAFItems.TOOL_HANDLE.get()).build()))
-                .unlockedBy("has_steel", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.STEEL).build()))
+                .unlockedBy("has_steel", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.INGOTS_STEEL).build()))
                 .unlockedBy("has_gold_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(Items.GOLD_NUGGET).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.STEEL_PICKAXE.get())));
 
@@ -508,25 +508,25 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.STEEL_LAMP_BLOCK.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.STEEL_SHAFT.get(), 18)
-                .define('0', CAFTags.Items.STEEL)
+                .define('0', CAFTags.Items.INGOTS_STEEL)
                 .pattern("0").pattern("0")
-                .unlockedBy("has_", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.STEEL).build()))
+                .unlockedBy("has_", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.INGOTS_STEEL).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.STEEL_SHAFT.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.STEEL_SHOVEL.get())
-                .define('0', CAFItems.TOOL_HANDLE.get()).define('1', CAFTags.Items.STEEL)
+                .define('0', CAFItems.TOOL_HANDLE.get()).define('1', CAFTags.Items.INGOTS_STEEL)
                 .define('2', Items.GOLD_NUGGET)
                 .pattern("1").pattern("0").pattern("2")
                 .unlockedBy("has_tool_handle", inventoryTrigger(ItemPredicate.Builder.item().of(CAFItems.TOOL_HANDLE.get()).build()))
-                .unlockedBy("has_steel", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.STEEL).build()))
+                .unlockedBy("has_steel", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.INGOTS_STEEL).build()))
                 .unlockedBy("has_gold_nugget", inventoryTrigger(ItemPredicate.Builder.item().of(Items.GOLD_NUGGET).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.STEEL_SHOVEL.get())));
 
         ShapedRecipeBuilder.shaped(CAFItems.STEEL_SWORD.get())
-                .define('0', CAFItems.TOOL_HANDLE.get()).define('1', CAFTags.Items.STEEL)
+                .define('0', CAFItems.TOOL_HANDLE.get()).define('1', CAFTags.Items.INGOTS_STEEL)
                 .pattern("1").pattern("1").pattern("0")
                 .unlockedBy("has_tool_handle", inventoryTrigger(ItemPredicate.Builder.item().of(CAFItems.TOOL_HANDLE.get()).build()))
-                .unlockedBy("has_steel", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.STEEL).build()))
+                .unlockedBy("has_steel", inventoryTrigger(ItemPredicate.Builder.item().of(CAFTags.Items.INGOTS_STEEL).build()))
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFItems.STEEL_SWORD.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.STONE_WALKWAY.get(), 4)
@@ -577,7 +577,7 @@ public class CraftingTableRecipes {
                 .save(pConsumer, getCraftingTable(getRecipeId(CAFBlocks.WARPED_BARREL.get())));
 
         ShapedRecipeBuilder.shaped(CAFBlocks.SCALES.get())
-                .define('0', AllItems.ANDESITE_ALLOY.get()).define('1', CAFTags.Items.IRON_SHEET)
+                .define('0', AllItems.ANDESITE_ALLOY.get()).define('1', CAFTags.Items.PLATES_IRON)
                 .define('2', AllItems.PRECISION_MECHANISM.get()).define('3', AllBlocks.ANDESITE_CASING.get())
                 .pattern("111").pattern("020").pattern("030")
                 .unlockedBy("has_precision_mechanism", inventoryTrigger(ItemPredicate.Builder.item().of(AllItems.PRECISION_MECHANISM.get()).build()))

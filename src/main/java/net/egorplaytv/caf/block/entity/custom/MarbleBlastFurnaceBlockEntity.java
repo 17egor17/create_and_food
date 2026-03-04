@@ -120,7 +120,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         add(Items.BLAZE_ROD, i1);
         add(Items.COAL, i1);
         add(Items.CHARCOAL, i1);
-        add(CAFTags.Items.COAL_DUST, i1);
+        add(CAFTags.Items.DUSTS_COAL, i1);
         add(Blocks.COAL_BLOCK, i2);
         add(ItemTags.BOATS, i3);
         add(ItemTags.LOGS, i4);

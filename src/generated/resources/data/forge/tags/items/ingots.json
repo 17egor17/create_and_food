@@ -1,9 +1,6 @@
 {
   "replace": false,
   "values": [
-    "caf:glowing_brass_ingot",
-    "caf:alloy_souls_ingot",
-    "caf:alloy_souls",
     "#forge:ingots/copper",
     "#forge:ingots/gold",
     "#forge:ingots/iron",

@@ -1,7 +1,0 @@
-{
-  "replace": false,
-  "values": [
-    "#forge:torches/torch",
-    "#forge:torches/soul_torch"
-  ]
-}

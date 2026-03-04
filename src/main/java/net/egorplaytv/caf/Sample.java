@@ -18,7 +18,7 @@ public class Sample {
 
 
         //Create And Food
-        add(CAFTags.Items.TANTALUM, 7, "alloy", "tantalum");
+        add(CAFTags.Items.INGOTS_TANTALUM, 7, "alloy", "tantalum");
 
 
         //Forge
