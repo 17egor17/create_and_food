@@ -26,11 +26,27 @@ public class CAFItemTagsProvider extends TagsProvider<Item> {
     @Override
     protected void addTags() {
         // Minecraft Tags
+        this.tag(CAFTags.Items.DEAD_CORALS)
+                .add(Items.DEAD_BRAIN_CORAL).add(Items.DEAD_BUBBLE_CORAL)
+                .add(Items.DEAD_FIRE_CORAL).add(Items.DEAD_HORN_CORAL)
+                .add(Items.DEAD_TUBE_CORAL).add(Items.DEAD_BRAIN_CORAL_FAN)
+                .add(Items.DEAD_BUBBLE_CORAL_FAN).add(Items.DEAD_FIRE_CORAL_FAN)
+                .add(Items.DEAD_HORN_CORAL_FAN).add(Items.DEAD_TUBE_CORAL_FAN);
         this.tag(ItemTags.DOORS).add(CAFBlocks.ALMOND_DOOR.get().asItem()).add(CAFBlocks.STEEL_DOOR.get().asItem());
+        this.tag(Tags.Items.FENCE_GATES).add(CAFBlocks.ALMOND_FENCE_GATE.get().asItem());
         this.tag(ItemTags.FOX_FOOD).addTag(CAFTags.Items.BERRIES);
         this.tag(ItemTags.LEAVES).add(CAFBlocks.ALMOND_LEAVES.get().asItem());
         this.tag(ItemTags.LOGS_THAT_BURN).addTag(CAFTags.Items.ALMOND_LOGS);
-
+        this.tag(ItemTags.PLANKS).add(CAFBlocks.ALMOND_PLANKS.get().asItem());
+        this.tag(ItemTags.SAPLINGS).add(CAFBlocks.ALMOND_SAPLING.get().asItem());
+        this.tag(ItemTags.SIGNS).add(CAFBlocks.ALMOND_SIGN.get().asItem());
+        this.tag(ItemTags.WOODEN_BUTTONS).add(CAFBlocks.ALMOND_BUTTON.get().asItem());
+        this.tag(ItemTags.WOODEN_DOORS).add(CAFBlocks.ALMOND_DOOR.get().asItem()).add(CAFBlocks.STEEL_DOOR.get().asItem());
+        this.tag(ItemTags.WOODEN_FENCES).add(CAFBlocks.ALMOND_FENCE.get().asItem());
+        this.tag(ItemTags.WOODEN_PRESSURE_PLATES).add(CAFBlocks.ALMOND_PRESSURE_PLATE.get().asItem());
+        this.tag(ItemTags.WOODEN_SLABS).add(CAFBlocks.ALMOND_SLAB.get().asItem());
+        this.tag(ItemTags.WOODEN_STAIRS).add(CAFBlocks.ALMOND_STAIRS.get().asItem());
+        this.tag(ItemTags.WOODEN_TRAPDOORS).add(CAFBlocks.ALMOND_TRAPDOOR.get().asItem());
 
         // Create and Food Tags
         this.tag(CAFTags.Items.ALMOND_LOGS)
