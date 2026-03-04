@@ -126,8 +126,8 @@ public class CAFTags {
         public static final TagKey<Item> TOOLS = forgeTag("tools");
         public static final TagKey<Item> TOOLS_KNIVES = forgeTag("tools/knives");
         public static final TagKey<Item> TORCHES = forgeTag("torches");
-        public static final TagKey<Item> TORCHES_SOUL = forgeTag("torches");
-        public static final TagKey<Item> TORCHES_TORCH = forgeTag("torches");
+        public static final TagKey<Item> TORCHES_SOUL = forgeTag("torches/soul");
+        public static final TagKey<Item> TORCHES_TORCH = forgeTag("torches/torch");
 
         // Create And Food Tags
         public static final TagKey<Item> RED_JUICE = modTag("grapes/red_juice");
