@@ -20,13 +20,13 @@ public class CAFTags {
     public static class Blocks {
         private static void init(){ }
 
-        //Forge Tags
+        // Forge Tags
         public static final TagKey<Block> ALMOND = forgeTag("almond");
         public static final TagKey<Block> NEEDS_COPPER_TOOL = forgeTag("needs_copper_tool");
         public static final TagKey<Block> NEEDS_TANTALUM_TOOL = forgeTag("needs_tantalum_tool");
         public static final TagKey<Block> NEEDS_TUNGSTEN_TOOL = forgeTag("needs_tungsten_tool");
 
-        //Create And Food Tags
+        // Create And Food Tags
         public static final TagKey<Block> ALMOND_LOGS = modTag("almond_logs");
         public static final TagKey<Block> FRAMED_WALLS = modTag("framed_walls");
         public static final TagKey<Block> BASALT_ORE_REPLACEABLE = modTag("basalt_ore_replaceable");
@@ -41,7 +41,7 @@ public class CAFTags {
         public static final TagKey<Block> MINEABLE_WITH_HAMMER = modTag("mineable/hammer");
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_FREEZING = modTag("fan_processing_catalysts/freezing");
 
-        //Minecraft Tags
+        // Minecraft Tags
 
 
         // Utility
@@ -59,7 +59,7 @@ public class CAFTags {
     public static class Items {
         private static void init(){ }
 
-        //Forge Tags
+        // Forge Tags
         public static final TagKey<Item> STEEL = forgeTag("ingots/steel");
         public static final TagKey<Item> BRASS = forgeTag("ingots/brass");
         public static final TagKey<Item> ZINC = forgeTag("ingots/zinc");
@@ -93,7 +93,7 @@ public class CAFTags {
         public static final TagKey<Item> CUT_TOOLS = forgeTag("cut_tools");
         public static final TagKey<Item> BERRIES = forgeTag("berries");
 
-        //Create And Food Tags
+        // Create And Food Tags
         public static final TagKey<Item> RED_JUICE = modTag("grapes/red_juice");
         public static final TagKey<Item> WHITE_JUICE = modTag("grapes/white_juice");
         public static final TagKey<Item> GRAPES = modTag("grapes");
@@ -112,7 +112,7 @@ public class CAFTags {
         public static final TagKey<Item> FUEL = modTag("fuel");
         public static final TagKey<Item> CREATIVE_FUEL = modTag("creative_fuel");
 
-        //Minecraft Tags
+        // Minecraft Tags
         public static final TagKey<Item> FENCE_GATES = tag("fence_gates");
         public static final TagKey<Item> TERRACOTTA = tag("terracotta");
         public static final TagKey<Item> DEAD_CORALS = tag("dead_corals");
@@ -133,13 +133,13 @@ public class CAFTags {
     public static class Fluids {
         private static void init(){ }
 
-        //Forge Tags
+        // Forge Tags
 
 
-        //Create And Food Tags
+        // Create And Food Tags
 
 
-        //Minecraft Tags
+        // Minecraft Tags
 
 
         // Utility
