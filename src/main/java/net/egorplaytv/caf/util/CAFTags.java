@@ -25,6 +25,12 @@ public class CAFTags {
         public static final TagKey<Block> NEEDS_COPPER_TOOL = forgeTag("needs_copper_tool");
         public static final TagKey<Block> NEEDS_TANTALUM_TOOL = forgeTag("needs_tantalum_tool");
         public static final TagKey<Block> NEEDS_TUNGSTEN_TOOL = forgeTag("needs_tungsten_tool");
+        public static final TagKey<Block> MINEABLE_WITH_HAMMER = forgeTag("mineable/hammer");
+        public static final TagKey<Block> ORES_RUBY = forgeTag("ores/ruby");
+        public static final TagKey<Block> ORES_TANTALUM = forgeTag("ores/tantalum");
+        public static final TagKey<Block> ORES_TUNGSTEN = forgeTag("ores/tungsten");
+
+
 
         // Create And Food Tags
         public static final TagKey<Block> ALMOND_LOGS = modTag("almond_logs");
@@ -38,7 +44,6 @@ public class CAFTags {
         public static final TagKey<Block> BERRY_BUSHES = modTag("berry_bushes");
         public static final TagKey<Block> BARRELS = modTag("barrels");
         public static final TagKey<Block> CUTTING_BOARDS = modTag("cutting_boards");
-        public static final TagKey<Block> MINEABLE_WITH_HAMMER = modTag("mineable/hammer");
         public static final TagKey<Block> FAN_PROCESSING_CATALYSTS_FREEZING = modTag("fan_processing_catalysts/freezing");
 
         // Minecraft Tags
@@ -92,6 +97,8 @@ public class CAFTags {
         public static final TagKey<Item> BOTTLES = forgeTag("bottles");
         public static final TagKey<Item> CUT_TOOLS = forgeTag("cut_tools");
         public static final TagKey<Item> BERRIES = forgeTag("berries");
+        public static final TagKey<Item> CROPS_RICE = forgeTag("crops/rice");
+        public static final TagKey<Item> CROPS_RYE = forgeTag("crops/rye");
 
         // Create And Food Tags
         public static final TagKey<Item> RED_JUICE = modTag("grapes/red_juice");

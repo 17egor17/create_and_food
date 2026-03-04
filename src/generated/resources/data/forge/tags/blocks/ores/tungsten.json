@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "caf:tungsten_ore",
+    "caf:stone_tungsten_ore",
+    "caf:deepslate_tungsten_ore"
+  ]
+}

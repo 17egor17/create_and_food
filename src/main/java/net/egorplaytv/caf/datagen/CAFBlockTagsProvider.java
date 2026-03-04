@@ -8,13 +8,11 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.server.packs.PackType;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.Tag;
-import net.minecraft.tags.TagKey;
-import net.minecraft.tags.TagManager;
+import net.minecraft.tags.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.function.Function;
@@ -108,6 +106,10 @@ public class CAFBlockTagsProvider extends TagsProvider<Block> {
         this.tag(BlockTags.WOODEN_SLABS).add(CAFBlocks.ALMOND_SLAB.get());
         this.tag(BlockTags.WOODEN_STAIRS).add(CAFBlocks.ALMOND_STAIRS.get());
         this.tag(BlockTags.WOODEN_TRAPDOORS).add(CAFBlocks.ALMOND_TRAPDOOR.get());
+        this.tag(Tags.Blocks.BARRELS_WOODEN).addTag(CAFTags.Blocks.BARRELS);
+        this.tag(Tags.Blocks.ORES)
+                .addTag(CAFTags.Blocks.ORES_RUBY).addTag(CAFTags.Blocks.ORES_TANTALUM)
+                .addTag(CAFTags.Blocks.ORES_TUNGSTEN);
 
         //Create and Food Tags
         this.tag(CAFTags.Blocks.ALMOND)
@@ -152,6 +154,13 @@ public class CAFBlockTagsProvider extends TagsProvider<Block> {
                 .add(Blocks.POWDER_SNOW).add(Blocks.SNOW).add(Blocks.SNOW_BLOCK);
         this.tag(CAFTags.Blocks.MINEABLE_WITH_HAMMER).addTag(BlockTags.MINEABLE_WITH_AXE)
                 .addTag(BlockTags.MINEABLE_WITH_PICKAXE).addTag(CAFTags.Blocks.forgeTag("mineable/hammer"));
+        this.tag(CAFTags.Blocks.ORES_RUBY).add(CAFBlocks.RUBY_ORE.get()).add(CAFBlocks.DEEPSLATE_RUBY_ORE.get());
+        this.tag(CAFTags.Blocks.ORES_TANTALUM)
+                .add(CAFBlocks.STONE_TANTALUM_ORE.get()).add(CAFBlocks.DEEPSLATE_TANTALUM_ORE.get())
+                .add(CAFBlocks.TANTALUM_ORE.get()).add(CAFBlocks.BLACKSTONE_TANTALUM_ORE.get());
+        this.tag(CAFTags.Blocks.ORES_TUNGSTEN)
+                .add(CAFBlocks.TUNGSTEN_ORE.get()).add(CAFBlocks.STONE_TUNGSTEN_ORE.get())
+                .add(CAFBlocks.DEEPSLATE_TUNGSTEN_ORE.get());
     }
 
     @Override

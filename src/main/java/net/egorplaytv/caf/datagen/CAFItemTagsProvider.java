@@ -47,8 +47,10 @@ public class CAFItemTagsProvider extends TagsProvider<Item> {
         this.tag(ItemTags.WOODEN_SLABS).add(CAFBlocks.ALMOND_SLAB.get().asItem());
         this.tag(ItemTags.WOODEN_STAIRS).add(CAFBlocks.ALMOND_STAIRS.get().asItem());
         this.tag(ItemTags.WOODEN_TRAPDOORS).add(CAFBlocks.ALMOND_TRAPDOOR.get().asItem());
+        this.tag(Tags.Items.BARRELS_WOODEN).addTag(CAFTags.Items.BARRELS);
+        this.tag(Tags.Items.CROPS).addTag(CAFTags.Items.CROPS_RICE).addTag(CAFTags.Items.CROPS_RYE);
 
-        // Create and Food Tags
+        // Create And Food Tags
         this.tag(CAFTags.Items.ALMOND_LOGS)
                 .add(CAFBlocks.ALMOND_WOOD.get().asItem()).add(CAFBlocks.ALMOND_LOG.get().asItem())
                 .add(CAFBlocks.STRIPPED_ALMOND_WOOD.get().asItem()).add(CAFBlocks.STRIPPED_ALMOND_LOG.get().asItem());
@@ -141,6 +143,8 @@ public class CAFItemTagsProvider extends TagsProvider<Item> {
                 .add(CAFBlocks.OAK_TERRACE.get().asItem()).add(CAFBlocks.OAK_TERRACE_STAIRS.get().asItem())
                 .add(CAFBlocks.SPRUCE_TERRACE.get().asItem()).add(CAFBlocks.SPRUCE_TERRACE_STAIRS.get().asItem())
                 .add(CAFBlocks.WARPED_TERRACE.get().asItem()).add(CAFBlocks.WARPED_TERRACE_STAIRS.get().asItem());
+        this.tag(CAFTags.Items.CROPS_RICE).add(CAFBlocks.RICE_CROP.get().asItem());
+        this.tag(CAFTags.Items.CROPS_RYE).add(CAFBlocks.RYE_PLANT.get().asItem());
     }
 
     @Override

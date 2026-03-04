@@ -5034,7 +5034,6 @@ c5b465fa8d2b73345a6462965c1c010a3fd68169 data/caf/recipes/yellow_saman_oak_shing
 e79926a88e1f065c2ec5f72388c8afb21dc7cca2 data/caf/tags/blocks/cutting_boards.json
 24900f8a1a59fb4fdddb41bfd546c1f24acfc8a3 data/caf/tags/blocks/end_ore_replaceable.json
 56a03ed95f40fdc60d1cd834deb8fff7e3a3ee4b data/caf/tags/blocks/fan_processing_catalysts/freezing.json
-86afa85d79029a11a5a987eabeaf621840f86315 data/caf/tags/blocks/mineable/hammer.json
 00fc3e470dc39f9eb8fcd5dcef109ba5f0e2d77b data/caf/tags/blocks/netherrack_ore_replaceable.json
 74700d556ca80c7a1db5fd4efb09c3ddb26cad66 data/caf/tags/blocks/shingles/black_saman.json
 74700d556ca80c7a1db5fd4efb09c3ddb26cad66 data/caf/tags/blocks/shingles/blue_saman.json
@@ -5189,7 +5188,17 @@ e9eeba1fd14b38cc437fe14a1b7973c42e8a996b data/create/tags/blocks/casing.json
 e9eeba1fd14b38cc437fe14a1b7973c42e8a996b data/create/tags/items/casing.json
 8f89a92d2140bfb6f2d39f8598afc0b2634ea442 data/create/tags/items/contraption_controlled.json
 587d061ec740da16cff478c2d99c8d130aed448d data/forge/tags/blocks/almond.json
+631652fea0d205002dfcae5f1cf7959dd35f9563 data/forge/tags/blocks/barrels/wooden.json
+86afa85d79029a11a5a987eabeaf621840f86315 data/forge/tags/blocks/mineable/hammer.json
+4030f35d3e518687b5b0c6eb40ef1e47fcf98c6a data/forge/tags/blocks/ores.json
+a0cbd696ebb9f5ca8d2a3ba0a449c6a1165ceef0 data/forge/tags/blocks/ores/ruby.json
+98280e0d04222334d1a3b7b2c73f9afc4375b254 data/forge/tags/blocks/ores/tantalum.json
+9badf0f1e7ddcbbb902196ef1f1f3c63aa27bd82 data/forge/tags/blocks/ores/tungsten.json
+631652fea0d205002dfcae5f1cf7959dd35f9563 data/forge/tags/items/barrels/wooden.json
 17f0ca2ccfecd81ecec458909f4139548ae60f97 data/forge/tags/items/berries.json
+dde64ad4e8d248aeef4d0fd81ce3dc77101b23fb data/forge/tags/items/crops.json
+66b29fc35f9d0cc2e5c16a7398ae55b500c801ad data/forge/tags/items/crops/rice.json
+a50fbbefe6c13677feb8102de6373f53adae1181 data/forge/tags/items/crops/rye.json
 fa86c30ee3a260c6a131033a5a258f018ba29dc3 data/forge/tags/items/fence_gates.json
 8538a475acbd9c50804a905f0d4ecf20f2a5e30e data/immersiveengineering/recipes/blasting/double/ingot_aluminum_compat_immersiveengineering.json
 c1fe4e350d73e6925d38028846377afbe1fc22a3 data/immersiveengineering/recipes/blasting/double/ingot_aluminum_from_dust_compat_immersiveengineering.json
