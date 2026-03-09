@@ -6,6 +6,16 @@
     "caf:pastry_table",
     "caf:kitchen_table",
     "caf:kitchen_table_inner",
-    "caf:kitchen_table_outer"
+    "caf:kitchen_table_outer",
+    "#caf:shingles/black_saman",
+    "#caf:shingles/blue_saman",
+    "#caf:shingles/cyan_saman",
+    "#caf:shingles/gray_saman",
+    "#caf:shingles/green_saman",
+    "#caf:shingles/orange_saman",
+    "#caf:shingles/red_saman",
+    "#caf:shingles/saman",
+    "#caf:shingles/white_saman",
+    "#caf:shingles/yellow_saman"
   ]
 }

@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
+    "caf:cut_white_baked_clay",
+    "caf:cut_white_baked_clay_bricks",
+    "caf:small_white_baked_clay_bricks",
+    "caf:layered_white_baked_clay",
+    "caf:white_baked_clay_pillar",
     "caf:white_baked_clay"
   ]
 }

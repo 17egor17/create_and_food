@@ -91,6 +91,7 @@ public class ShingleBlockPattern {
     private String id;
     private boolean isTranslucent;
     private Item wallMaterial;
+    private WallType wallType;
     private TagKey<Block>[] blockTags;
     private TagKey<Item>[] itemTags;
 
@@ -129,6 +130,10 @@ public class ShingleBlockPattern {
         return wallMaterial;
     }
 
+    public WallType getWallType() {
+        return wallType;
+    }
+
     public TagKey<Block>[] getBlockTags() {
         return blockTags;
     }
@@ -160,14 +165,18 @@ public class ShingleBlockPattern {
         return this;
     }
 
-    private ShingleBlockPattern wallMaterial(Block material) {
-        this.wallMaterial = material.asItem();
+    private ShingleBlockPattern wallMaterial(Item material, WallType type) {
+        this.wallMaterial = material;
+        this.wallType = type;
         return this;
     }
 
+    private ShingleBlockPattern wallMaterial(Block material) {
+        return wallMaterial(material.asItem(), WallType.WOOD);
+    }
+
     private ShingleBlockPattern wallMaterial(Item material) {
-        this.wallMaterial = material;
-        return this;
+        return wallMaterial(material, WallType.WOOD);
     }
 
     // Model generators
@@ -581,5 +590,9 @@ public class ShingleBlockPattern {
 
     enum PatternNameType {
         PREFIX, SUFFIX, WRAP
+    }
+
+    enum WallType {
+        WOOD, STONE, SOIL
     }
 }

@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
+    "caf:cut_marble_perlin_pink",
+    "caf:polished_cut_marble_perlin_pink",
+    "caf:cut_marble_perlin_pink_bricks",
+    "caf:small_marble_perlin_pink_bricks",
+    "caf:marble_perlin_pink_pillar",
     "caf:marble_perlin_pink"
   ]
 }

@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
+    "caf:cut_red_baked_clay",
+    "caf:cut_red_baked_clay_bricks",
+    "caf:small_red_baked_clay_bricks",
+    "caf:layered_red_baked_clay",
+    "caf:red_baked_clay_pillar",
     "caf:red_baked_clay"
   ]
 }

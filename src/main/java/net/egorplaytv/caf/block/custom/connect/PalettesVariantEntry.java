@@ -48,6 +48,7 @@ public class PalettesVariantEntry {
                 itemBuilder.tag(itemTags);
 
             itemBuilder.tag(paletteStoneVariants.materialTag);
+            builder.tag(paletteStoneVariants.materialBlockTag);
 
             if (pattern.isTranslucent())
                 builder.addLayer(() -> RenderType::translucent);

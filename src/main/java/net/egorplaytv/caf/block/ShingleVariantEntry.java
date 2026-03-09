@@ -1,6 +1,7 @@
 package net.egorplaytv.caf.block;
 
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import com.simibubi.create.foundation.data.SharedProperties;
 import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.builders.ItemBuilder;
@@ -13,6 +14,7 @@ import net.egorplaytv.caf.block.custom.shingles.RidgeShingleBlock;
 import net.egorplaytv.caf.data.CAFRegistrate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.core.NonNullList;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
@@ -22,12 +24,13 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 import java.util.function.Supplier;
 
-import static com.simibubi.create.foundation.data.TagGen.axeOnly;
-import static com.simibubi.create.foundation.data.TagGen.pickaxeOnly;
+import static com.simibubi.create.foundation.data.TagGen.*;
 import static com.tterrag.registrate.providers.RegistrateRecipeProvider.inventoryTrigger;
 
 public class ShingleVariantEntry {
@@ -39,33 +42,34 @@ public class ShingleVariantEntry {
         ImmutableList.Builder<BlockEntry<? extends Block>> registeredBlocks = ImmutableList.builder();
         ImmutableList.Builder<BlockEntry<? extends Block>> registeredPartials = ImmutableList.builder();
         NonNullSupplier<Block> baseBlock = shingleBlocks.baseBlock;
+        NonNullSupplier<Block> soilBlock = NonNullSupplier.of(() -> Blocks.DIRT);
 
         for (ShingleBlockPattern pattern : shingleBlocks.variantTypes) {
             BlockBuilder<? extends Block, CAFRegistrate> builder;
             if (pattern == ShingleBlockPattern.RIDGE_SHINGLE) {
                 builder = CreateAndFood.REGISTRATE.block(pattern.createName(name), pattern.getBlockFactory())
                         .initialProperties(baseBlock)
-                        .transform(pickaxeOnly())
+                        .transform(axeOrPickaxe())
                         .blockstate(pattern.getBlockStateGenerator()
                                 .apply(pattern)
                                 .apply(name)::accept);
             } else {
-                if (pattern == ShingleBlockPattern.OAK_SHINGLE || pattern == ShingleBlockPattern.SPRUCE_SHINGLE
-                || pattern == ShingleBlockPattern.BIRCH_SHINGLE || pattern == ShingleBlockPattern.JUNGLE_SHINGLE
-                || pattern == ShingleBlockPattern.ACACIA_SHINGLE || pattern == ShingleBlockPattern.DARK_OAK_SHINGLE
-                || pattern == ShingleBlockPattern.CRIMSON_SHINGLE || pattern == ShingleBlockPattern.WARPED_SHINGLE
-                || pattern == ShingleBlockPattern.ALMOND_SHINGLE) {
+                if (pattern.getWallType() == ShingleBlockPattern.WallType.WOOD
+                        || pattern.getWallType() == ShingleBlockPattern.WallType.SOIL) {
                     builder = CreateAndFood.REGISTRATE.block(pattern.createName(name), pattern.getBlockFactory())
-                            .initialProperties(SharedProperties::wooden)
-                            .properties(p -> p.color(baseBlock.get().defaultMaterialColor()))
-                            .transform(axeOnly())
+                            .properties(p -> p.color(baseBlock.get().defaultMaterialColor())
+                                    .sound(baseBlock.get().getSoundType(baseBlock.get().defaultBlockState()))
+                                    .strength(2.0F))
+                            .transform(axeOrPickaxe())
                             .blockstate(pattern.getBlockStateGenerator()
                                     .apply(pattern)
                                     .apply(name)::accept);
                 } else {
                     builder = CreateAndFood.REGISTRATE.block(pattern.createName(name), pattern.getBlockFactory())
-                            .initialProperties(baseBlock)
-                            .transform(pickaxeOnly())
+                            .properties(p -> p.color(baseBlock.get().defaultMaterialColor())
+                                    .sound(baseBlock.get().getSoundType(baseBlock.get().defaultBlockState()))
+                                    .strength(2.0F).requiresCorrectToolForDrops())
+                            .transform(axeOrPickaxe())
                             .blockstate(pattern.getBlockStateGenerator()
                                     .apply(pattern)
                                     .apply(name)::accept);
@@ -83,6 +87,7 @@ public class ShingleVariantEntry {
                 itemBuilder.tag(itemTags);
 
             itemBuilder.tag(shingleBlocks.materialTag);
+            builder.tag(shingleBlocks.materialBlockTag);
 
             if (pattern.isTranslucent())
                 builder.addLayer(() -> RenderType::translucent);

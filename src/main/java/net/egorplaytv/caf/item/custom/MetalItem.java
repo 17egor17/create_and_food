@@ -28,8 +28,9 @@ import java.util.List;
 public class MetalItem extends Item {
     private final int meltingPoint;
     private int tick;
-    private int damageTick;
     protected int heatingSpeed;
+    protected Metals metalType;
+    private int radiationTick;
     public static final String TAG_DEGREE = "deg";
     public static final String TAG_PREVENT_MAGNET = "PreventRemoteMovement";
 
@@ -60,6 +61,18 @@ public class MetalItem extends Item {
 
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+        if (metalType == Metals.URANIUM) {
+            if (pEntity instanceof ServerPlayer entity) {
+                radiationTick++;
+                if (radiationTick >= 80) {
+                    CAFDamageSource.radiation(entity, 0.1F);
+                    radiationTick = 0;
+                }
+            }
+        } else {
+            return;
+        }
+
         if (pIsSelected) {
             if (pEntity instanceof ServerPlayer entity) {
                 if (pStack.getItem() instanceof MetalItem metal) {

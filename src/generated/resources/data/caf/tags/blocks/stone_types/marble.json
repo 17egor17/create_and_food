@@ -1,6 +1,11 @@
 {
   "replace": false,
   "values": [
+    "caf:cut_marble",
+    "caf:polished_cut_marble",
+    "caf:cut_marble_bricks",
+    "caf:small_marble_bricks",
+    "caf:marble_pillar",
     "caf:marble"
   ]
 }

@@ -29,7 +29,12 @@ public class CAFBlockTagsProvider extends TagsProvider<Block> {
         this.tag(BlockTags.MINEABLE_WITH_AXE).addTag(CAFTags.Blocks.ALMOND)
                 .addTag(CAFTags.Blocks.CUTTING_BOARDS).add(CAFBlocks.PASTRY_TABLE.get())
                 .add(CAFBlocks.KITCHEN_TABLE.get()).add(CAFBlocks.KITCHEN_TABLE_INNER.get())
-                .add(CAFBlocks.KITCHEN_TABLE_OUTER.get());
+                .add(CAFBlocks.KITCHEN_TABLE_OUTER.get()).addTag(CAFTags.Blocks.modTag("shingles/black_saman"))
+                .addTag(CAFTags.Blocks.modTag("shingles/blue_saman")).addTag(CAFTags.Blocks.modTag("shingles/cyan_saman"))
+                .addTag(CAFTags.Blocks.modTag("shingles/gray_saman")).addTag(CAFTags.Blocks.modTag("shingles/green_saman"))
+                .addTag(CAFTags.Blocks.modTag("shingles/orange_saman")).addTag(CAFTags.Blocks.modTag("shingles/red_saman"))
+                .addTag(CAFTags.Blocks.modTag("shingles/saman")).addTag(CAFTags.Blocks.modTag("shingles/white_saman"))
+                .addTag(CAFTags.Blocks.modTag("shingles/yellow_saman"));
         this.tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(CAFBlocks.ALMOND_LEAVES.get());
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
