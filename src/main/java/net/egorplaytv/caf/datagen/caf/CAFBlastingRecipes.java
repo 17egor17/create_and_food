@@ -376,415 +376,415 @@ public class CAFBlastingRecipes {
 
     private static void blastingCompat(Consumer<FinishedRecipe> pConsumer) {
         if (CreateAndFood.IEIsPresent){
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.ALUMINUM, ModID.IE), 400, 660, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.ALUMINUM_INGOT.get(), 400, 660, 0.1F)
                     .addIngredient(AllItems.CRUSHED_BAUXITE.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.ALUMINUM, ModID.IE), ModID.IE), ModID.IE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.ALUMINUM_INGOT.get(), ModID.IE), ModID.IE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.ALUMINUM, ModID.IE), 400, 660, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.ALUMINUM_INGOT.get(), 400, 660, 0.1F)
                     .addIngredient(getDusts(Metals.ALUMINUM, ModID.IE))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.ALUMINUM, ModID.IE), ModID.IE), ModID.IE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.ALUMINUM_INGOT.get(), ModID.IE), ModID.IE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.CONSTANTAN, ModID.IE), 2, 800, 1455, 0.9F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.CONSTANTAN_INGOT.get(), 2, 800, 1455, 0.9F)
                     .addIngredient(CAFTags.Items.forgeTag("ingots/copper")).addIngredient(CAFTags.Items.forgeTag("ingots/nickel"))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.CONSTANTAN, ModID.IE), ModID.IE), ModID.IE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.CONSTANTAN_INGOT.get(), ModID.IE), ModID.IE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.ELECTRUM, ModID.IE), 2, 800, 1064, 0.9F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.ELECTRUM_INGOT.get(), 2, 800, 1064, 0.9F)
                     .addIngredient(CAFTags.Items.forgeTag("ingots/gold")).addIngredient(CAFTags.Items.forgeTag("ingots/silver"))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.ELECTRUM, ModID.IE), ModID.IE), ModID.IE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.ELECTRUM_INGOT.get(), ModID.IE), ModID.IE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.IE), 400, 327, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.LEAD_INGOT.get(), 400, 327, 0.1F)
                     .addIngredient(AllItems.CRUSHED_LEAD.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.LEAD, ModID.IE), ModID.IE), ModID.IE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.LEAD_INGOT.get(), ModID.IE), ModID.IE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.NICKEL, ModID.IE), 400, 1455, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.NICKEL_INGOT.get(), 400, 1455, 0.1F)
                     .addIngredient(AllItems.CRUSHED_NICKEL.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.NICKEL, ModID.IE), ModID.IE), ModID.IE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.NICKEL_INGOT.get(), ModID.IE), ModID.IE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.SILVER, ModID.IE), 400, 961, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.SILVER_INGOT.get(), 400, 961, 0.1F)
                     .addIngredient(AllItems.CRUSHED_SILVER.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.SILVER, ModID.IE), ModID.IE), ModID.IE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.SILVER_INGOT.get(), ModID.IE), ModID.IE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.STEEL, ModID.IE), 400, 1538, 0.7F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.STEEL_INGOT.get(), 400, 1538, 0.7F)
                     .addIngredient(getDusts(Metals.STEEL, ModID.IE))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.STEEL, ModID.IE), ModID.IE), ModID.IE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.STEEL_INGOT.get(), ModID.IE), ModID.IE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.IE), 400, 1132, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.URANIUM_INGOT.get(), 400, 1132, 0.1F)
                     .addIngredient(AllItems.CRUSHED_URANIUM.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.URANIUM, ModID.IE), ModID.IE), ModID.IE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.URANIUM_INGOT.get(), ModID.IE), ModID.IE));
         }
 
         if (CreateAndFood.MEKIsPresent){
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.BRONZE, ModID.MEKANISM), 3, 1200, 1085, 1.0F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.BRONZE_INGOT.get(), 3, 1200, 1085, 1.0F)
                     .addIngredient(CAFTags.Items.forgeTag("ingots/tin")).addIngredient(CAFTags.Items.forgeTag("ingots/copper"))
                     .addIngredient(CAFTags.Items.forgeTag("ingots/copper"))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.BRONZE, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.BRONZE_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.BRONZE, ModID.MEKANISM), 400, 1000, 0.5F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.BRONZE_INGOT.get(), 400, 1000, 0.5F)
                     .addIngredient(MekanismItems.BRONZE_DUST.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.BRONZE, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.BRONZE_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.MEKANISM), 400, 327, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.LEAD_INGOT.get(), 400, 327, 0.1F)
                     .addIngredient(AllItems.CRUSHED_LEAD.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.LEAD, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.LEAD_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.MEKANISM), 400, 327, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.LEAD_INGOT.get(), 400, 327, 0.1F)
                     .addIngredient(getDusts(Metals.LEAD, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.LEAD, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.LEAD_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.OSMIUM, ModID.MEKANISM), 400, 3033, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.OSMIUM_INGOT.get(), 400, 3033, 0.1F)
                     .addIngredient(AllItems.CRUSHED_OSMIUM.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.OSMIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.OSMIUM_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.OSMIUM, ModID.MEKANISM), 400, 3033, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.OSMIUM_INGOT.get(), 400, 3033, 0.1F)
                     .addIngredient(getDusts(Metals.OSMIUM, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.OSMIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.OSMIUM_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.STEEL, ModID.MEKANISM), 400, 1538, 0.7F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.STEEL_INGOT.get(), 400, 1538, 0.7F)
                     .addIngredient(getDusts(Metals.STEEL, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.STEEL, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.STEEL_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.TIN, ModID.MEKANISM), 400, 231, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.TIN_INGOT.get(), 400, 231, 0.1F)
                     .addIngredient(AllItems.CRUSHED_TIN.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.TIN, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.TIN_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.TIN, ModID.MEKANISM), 400, 231, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.TIN_INGOT.get(), 400, 231, 0.1F)
                     .addIngredient(getDusts(Metals.TIN, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.TIN, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.TIN_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.MEKANISM), 400, 1132, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.URANIUM_INGOT.get(), 400, 1132, 0.1F)
                     .addIngredient(AllItems.CRUSHED_URANIUM.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.URANIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.URANIUM_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.MEKANISM), 400, 1132, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.URANIUM_INGOT.get(), 400, 1132, 0.1F)
                     .addIngredient(getDusts(Metals.URANIUM, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.URANIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.URANIUM_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM));
         }
 
         if (CreateAndFood.THIsPresent){
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.BRONZE, ModID.THERMAL), 3, 1200, 1085, 1.0F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.BRONZE_INGOT.get(), 3, 1200, 1085, 1.0F)
                     .addIngredient(CAFTags.Items.forgeTag("ingots/tin")).addIngredient(CAFTags.Items.forgeTag("ingots/copper"))
                     .addIngredient(CAFTags.Items.forgeTag("ingots/copper"))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.BRONZE, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.BRONZE_INGOT.get(), ModID.THERMAL), ModID.THERMAL));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.BRONZE, ModID.THERMAL), 800, 1000, 0.5F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.BRONZE_INGOT.get(), 800, 1000, 0.5F)
                     .addIngredient(getDusts(Metals.BRONZE, ModID.THERMAL))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.BRONZE, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.BRONZE_INGOT.get(), ModID.THERMAL), ModID.THERMAL));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.CONSTANTAN, ModID.THERMAL), 2, 800, 1455, 0.9F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.CONSTANTAN_INGOT.get(), 2, 800, 1455, 0.9F)
                     .addIngredient(CAFTags.Items.forgeTag("ingots/copper")).addIngredient(CAFTags.Items.forgeTag("ingots/nickel"))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.CONSTANTAN, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.CONSTANTAN_INGOT.get(), ModID.THERMAL), ModID.THERMAL));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.ELECTRUM, ModID.THERMAL), 2, 800, 1064, 0.9F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.ELECTRUM_INGOT.get(), 2, 800, 1064, 0.9F)
                     .addIngredient(CAFTags.Items.forgeTag("ingots/gold")).addIngredient(CAFTags.Items.forgeTag("ingots/silver"))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.ELECTRUM, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.ELECTRUM_INGOT.get(), ModID.THERMAL), ModID.THERMAL));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.INVAR, ModID.THERMAL), 3, 1200, 1538, 0.9F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.INVAR_INGOT.get(), 3, 1200, 1538, 0.9F)
                     .addIngredient(CAFTags.Items.forgeTag("ingots/iron")).addIngredient(CAFTags.Items.forgeTag("ingots/iron"))
                     .addIngredient(CAFTags.Items.forgeTag("ingots/nickel"))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.INVAR, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.INVAR_INGOT.get(), ModID.THERMAL), ModID.THERMAL));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.THERMAL), 400, 327, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.LEAD_INGOT.get(), 400, 327, 0.1F)
                     .addIngredient(AllItems.CRUSHED_LEAD.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.LEAD, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.LEAD_INGOT.get(), ModID.THERMAL), ModID.THERMAL));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.NICKEL, ModID.THERMAL), 400, 1455, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.NICKEL_INGOT.get(), 400, 1455, 0.1F)
                     .addIngredient(AllItems.CRUSHED_NICKEL.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.NICKEL, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.NICKEL_INGOT.get(), ModID.THERMAL), ModID.THERMAL));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.SILVER, ModID.THERMAL), 400, 961, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.SILVER_INGOT.get(), 400, 961, 0.1F)
                     .addIngredient(AllItems.CRUSHED_SILVER.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.SILVER, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.SILVER_INGOT.get(), ModID.THERMAL), ModID.THERMAL));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.TIN, ModID.THERMAL), 400, 231, 0.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.TIN_INGOT.get(), 400, 231, 0.1F)
                     .addIngredient(AllItems.CRUSHED_TIN.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.TIN, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.TIN_INGOT.get(), ModID.THERMAL), ModID.THERMAL));
         }
     }
 
     private static void doubleBlastingCompat(Consumer<FinishedRecipe> pConsumer) {
         if (CreateAndFood.IEIsPresent){
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.ALUMINUM, ModID.IE), 2, 800, 660, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.ALUMINUM_INGOT.get(), 2, 800, 660, 0.2F)
                     .addIngredient(AllItems.CRUSHED_BAUXITE.get()).addIngredient(AllItems.CRUSHED_BAUXITE.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.ALUMINUM, ModID.IE), ModID.IE), ModID.IE, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.ALUMINUM_INGOT.get(), ModID.IE), ModID.IE, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.ALUMINUM, ModID.IE), 2, 800, 660, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.ALUMINUM_INGOT.get(), 2, 800, 660, 0.2F)
                     .addIngredient(getDusts(Metals.ALUMINUM, ModID.IE)).addIngredient(getDusts(Metals.ALUMINUM, ModID.IE))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.ALUMINUM, ModID.IE), ModID.IE), ModID.IE, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.ALUMINUM_INGOT.get(), ModID.IE), ModID.IE, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.IE), 2, 800, 327, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.LEAD_INGOT.get(), 2, 800, 327, 0.2F)
                     .addIngredient(AllItems.CRUSHED_LEAD.get()).addIngredient(AllItems.CRUSHED_LEAD.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.LEAD, ModID.IE), ModID.IE), ModID.IE, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.LEAD_INGOT.get(), ModID.IE), ModID.IE, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.NICKEL, ModID.IE), 2, 800, 1455, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.NICKEL_INGOT.get(), 2, 800, 1455, 0.2F)
                     .addIngredient(AllItems.CRUSHED_NICKEL.get()).addIngredient(AllItems.CRUSHED_NICKEL.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.NICKEL, ModID.IE), ModID.IE), ModID.IE, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.NICKEL_INGOT.get(), ModID.IE), ModID.IE, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.SILVER, ModID.IE), 2, 800, 961, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.SILVER_INGOT.get(), 2, 800, 961, 0.2F)
                     .addIngredient(AllItems.CRUSHED_SILVER.get()).addIngredient(AllItems.CRUSHED_SILVER.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.SILVER, ModID.IE), ModID.IE), ModID.IE, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.SILVER_INGOT.get(), ModID.IE), ModID.IE, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.STEEL, ModID.IE), 2, 800, 1538, 1.4F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.STEEL_INGOT.get(), 2, 800, 1538, 1.4F)
                     .addIngredient(getDusts(Metals.STEEL, ModID.IE)).addIngredient(getDusts(Metals.STEEL, ModID.IE))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.STEEL, ModID.IE), ModID.IE), ModID.IE, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.STEEL_INGOT.get(), ModID.IE), ModID.IE, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.IE), 2, 800, 1132, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.URANIUM_INGOT.get(), 2, 800, 1132, 0.2F)
                     .addIngredient(AllItems.CRUSHED_URANIUM.get()).addIngredient(AllItems.CRUSHED_URANIUM.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.URANIUM, ModID.IE), ModID.IE), ModID.IE, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.URANIUM_INGOT.get(), ModID.IE), ModID.IE, RecipeType.DOUBLE));
         }
 
         if (CreateAndFood.MEKIsPresent){
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.BRONZE, ModID.MEKANISM), 2, 800, 1000, 1.0F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.BRONZE_INGOT.get(), 2, 800, 1000, 1.0F)
                     .addIngredient(MekanismItems.BRONZE_DUST.get()).addIngredient(MekanismItems.BRONZE_DUST.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.BRONZE, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.BRONZE_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.MEKANISM), 2, 800, 327, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.LEAD_INGOT.get(), 2, 800, 327, 0.2F)
                     .addIngredient(AllItems.CRUSHED_LEAD.get()).addIngredient(AllItems.CRUSHED_LEAD.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.LEAD, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.LEAD_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.MEKANISM), 2, 800, 327, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.LEAD_INGOT.get(), 2, 800, 327, 0.2F)
                     .addIngredient(getDusts(Metals.LEAD, ModID.MEKANISM)).addIngredient(getDusts(Metals.LEAD, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.LEAD, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.LEAD_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.OSMIUM, ModID.MEKANISM), 2, 800, 3033, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.OSMIUM_INGOT.get(), 2, 800, 3033, 0.2F)
                     .addIngredient(AllItems.CRUSHED_OSMIUM.get()).addIngredient(AllItems.CRUSHED_OSMIUM.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.OSMIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.OSMIUM_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.OSMIUM, ModID.MEKANISM), 2, 800, 3033, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.OSMIUM_INGOT.get(), 2, 800, 3033, 0.2F)
                     .addIngredient(getDusts(Metals.OSMIUM, ModID.MEKANISM)).addIngredient(getDusts(Metals.OSMIUM, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.OSMIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.OSMIUM_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.STEEL, ModID.MEKANISM), 2, 800, 1538, 1.4F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.STEEL_INGOT.get(), 2, 800, 1538, 1.4F)
                     .addIngredient(getDusts(Metals.STEEL, ModID.MEKANISM)).addIngredient(getDusts(Metals.STEEL, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.STEEL, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.STEEL_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.TIN, ModID.MEKANISM), 2, 800, 231, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.TIN_INGOT.get(), 2, 800, 231, 0.2F)
                     .addIngredient(AllItems.CRUSHED_TIN.get()).addIngredient(AllItems.CRUSHED_TIN.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.TIN, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.TIN_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.TIN, ModID.MEKANISM), 2, 800, 231, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.TIN_INGOT.get(), 2, 800, 231, 0.2F)
                     .addIngredient(getDusts(Metals.TIN, ModID.MEKANISM)).addIngredient(getDusts(Metals.TIN, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.TIN, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.TIN_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.MEKANISM), 2, 800, 1132, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.URANIUM_INGOT.get(), 2, 800, 1132, 0.2F)
                     .addIngredient(AllItems.CRUSHED_URANIUM.get()).addIngredient(AllItems.CRUSHED_URANIUM.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.URANIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.URANIUM_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.MEKANISM), 2, 800, 1132, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.URANIUM_INGOT.get(), 2, 800, 1132, 0.2F)
                     .addIngredient(getDusts(Metals.URANIUM, ModID.MEKANISM)).addIngredient(getDusts(Metals.URANIUM, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.URANIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.URANIUM_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
         }
 
         if (CreateAndFood.THIsPresent){
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.BRONZE, ModID.THERMAL), 2, 800, 1000, 1.0F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.BRONZE_INGOT.get(), 2, 800, 1000, 1.0F)
                     .addIngredient(getDusts(Metals.BRONZE, ModID.THERMAL)).addIngredient(getDusts(Metals.BRONZE, ModID.THERMAL))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.BRONZE, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.BRONZE_INGOT.get(), ModID.THERMAL), ModID.THERMAL, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.THERMAL), 2, 800, 327, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.LEAD_INGOT.get(), 2, 800, 327, 0.2F)
                     .addIngredient(AllItems.CRUSHED_LEAD.get()).addIngredient(AllItems.CRUSHED_LEAD.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.LEAD, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.LEAD_INGOT.get(), ModID.THERMAL), ModID.THERMAL, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.NICKEL, ModID.THERMAL), 2, 800, 1455, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.NICKEL_INGOT.get(), 2, 800, 1455, 0.2F)
                     .addIngredient(AllItems.CRUSHED_NICKEL.get()).addIngredient(AllItems.CRUSHED_NICKEL.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.NICKEL, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.NICKEL_INGOT.get(), ModID.THERMAL), ModID.THERMAL, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.SILVER, ModID.THERMAL), 2, 800, 961, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.SILVER_INGOT.get(), 2, 800, 961, 0.2F)
                     .addIngredient(AllItems.CRUSHED_SILVER.get()).addIngredient(AllItems.CRUSHED_SILVER.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.SILVER, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.SILVER_INGOT.get(), ModID.THERMAL), ModID.THERMAL, RecipeType.DOUBLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.TIN, ModID.THERMAL), 2, 800, 231, 0.2F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.TIN_INGOT.get(), 2, 800, 231, 0.2F)
                     .addIngredient(AllItems.CRUSHED_TIN.get()).addIngredient(AllItems.CRUSHED_TIN.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.TIN, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL, RecipeType.DOUBLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.TIN_INGOT.get(), ModID.THERMAL), ModID.THERMAL, RecipeType.DOUBLE));
         }
     }
 
     private static void tripleBlastingCompat(Consumer<FinishedRecipe> pConsumer) {
         if (CreateAndFood.IEIsPresent){
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.ALUMINUM, ModID.IE), 3, 1200, 660, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.ALUMINUM_INGOT.get(), 3, 1200, 660, 0.3F)
                     .addIngredient(AllItems.CRUSHED_BAUXITE.get()).addIngredient(AllItems.CRUSHED_BAUXITE.get())
                     .addIngredient(AllItems.CRUSHED_BAUXITE.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.ALUMINUM, ModID.IE), ModID.IE), ModID.IE, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.ALUMINUM_INGOT.get(), ModID.IE), ModID.IE, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.ALUMINUM, ModID.IE), 3, 1200, 660, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.ALUMINUM_INGOT.get(), 3, 1200, 660, 0.3F)
                     .addIngredient(getDusts(Metals.ALUMINUM, ModID.IE)).addIngredient(getDusts(Metals.ALUMINUM, ModID.IE))
                     .addIngredient(getDusts(Metals.ALUMINUM, ModID.IE))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.ALUMINUM, ModID.IE), ModID.IE), ModID.IE, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.ALUMINUM_INGOT.get(), ModID.IE), ModID.IE, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.IE), 3, 1200, 327, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.LEAD_INGOT.get(), 3, 1200, 327, 0.3F)
                     .addIngredient(AllItems.CRUSHED_LEAD.get()).addIngredient(AllItems.CRUSHED_LEAD.get())
                     .addIngredient(AllItems.CRUSHED_LEAD.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.LEAD, ModID.IE), ModID.IE), ModID.IE, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.LEAD_INGOT.get(), ModID.IE), ModID.IE, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.NICKEL, ModID.IE), 3, 1200, 1455, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.NICKEL_INGOT.get(), 3, 1200, 1455, 0.3F)
                     .addIngredient(AllItems.CRUSHED_NICKEL.get()).addIngredient(AllItems.CRUSHED_NICKEL.get())
                     .addIngredient(AllItems.CRUSHED_NICKEL.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.NICKEL, ModID.IE), ModID.IE), ModID.IE, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.NICKEL_INGOT.get(), ModID.IE), ModID.IE, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.SILVER, ModID.IE), 3, 1200, 961, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.SILVER_INGOT.get(), 3, 1200, 961, 0.3F)
                     .addIngredient(AllItems.CRUSHED_SILVER.get()).addIngredient(AllItems.CRUSHED_SILVER.get())
                     .addIngredient(AllItems.CRUSHED_SILVER.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.SILVER, ModID.IE), ModID.IE), ModID.IE, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.SILVER_INGOT.get(), ModID.IE), ModID.IE, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.STEEL, ModID.IE), 3, 1200, 1538, 2.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.STEEL_INGOT.get(), 3, 1200, 1538, 2.1F)
                     .addIngredient(getDusts(Metals.STEEL, ModID.IE)).addIngredient(getDusts(Metals.STEEL, ModID.IE))
                     .addIngredient(getDusts(Metals.STEEL, ModID.IE))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.STEEL, ModID.IE), ModID.IE), ModID.IE, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.STEEL_INGOT.get(), ModID.IE), ModID.IE, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.IE), 3, 1200, 1132, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.URANIUM_INGOT.get(), 3, 1200, 1132, 0.3F)
                     .addIngredient(AllItems.CRUSHED_URANIUM.get()).addIngredient(AllItems.CRUSHED_URANIUM.get())
                     .addIngredient(AllItems.CRUSHED_URANIUM.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.URANIUM, ModID.IE), ModID.IE), ModID.IE, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.URANIUM_INGOT.get(), ModID.IE), ModID.IE, RecipeType.TRIPLE));
         }
 
         if (CreateAndFood.MEKIsPresent){
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.BRONZE, ModID.MEKANISM), 3, 800, 1000, 1.5F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.BRONZE_INGOT.get(), 3, 800, 1000, 1.5F)
                     .addIngredient(MekanismItems.BRONZE_DUST.get()).addIngredient(MekanismItems.BRONZE_DUST.get())
                     .addIngredient(MekanismItems.BRONZE_DUST.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.BRONZE, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.BRONZE_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.MEKANISM), 3, 800, 327, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.LEAD_INGOT.get(), 3, 800, 327, 0.3F)
                     .addIngredient(AllItems.CRUSHED_LEAD.get()).addIngredient(AllItems.CRUSHED_LEAD.get())
                     .addIngredient(AllItems.CRUSHED_LEAD.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.LEAD, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.LEAD_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.MEKANISM), 3, 800, 327, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.LEAD_INGOT.get(), 3, 800, 327, 0.3F)
                     .addIngredient(getDusts(Metals.LEAD, ModID.MEKANISM)).addIngredient(getDusts(Metals.LEAD, ModID.MEKANISM))
                     .addIngredient(getDusts(Metals.LEAD, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.LEAD, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.LEAD_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.OSMIUM, ModID.MEKANISM), 3, 800, 3033, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.OSMIUM_INGOT.get(), 3, 800, 3033, 0.3F)
                     .addIngredient(AllItems.CRUSHED_OSMIUM.get()).addIngredient(AllItems.CRUSHED_OSMIUM.get())
                     .addIngredient(AllItems.CRUSHED_OSMIUM.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.OSMIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.OSMIUM_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.OSMIUM, ModID.MEKANISM), 3, 800, 3033, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.OSMIUM_INGOT.get(), 3, 800, 3033, 0.3F)
                     .addIngredient(getDusts(Metals.OSMIUM, ModID.MEKANISM)).addIngredient(getDusts(Metals.OSMIUM, ModID.MEKANISM))
                     .addIngredient(getDusts(Metals.OSMIUM, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.OSMIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.OSMIUM_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.STEEL, ModID.MEKANISM), 3, 800, 1538, 2.1F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.STEEL_INGOT.get(), 3, 800, 1538, 2.1F)
                     .addIngredient(getDusts(Metals.STEEL, ModID.MEKANISM)).addIngredient(getDusts(Metals.STEEL, ModID.MEKANISM))
                     .addIngredient(getDusts(Metals.STEEL, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.STEEL, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.STEEL_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.TIN, ModID.MEKANISM), 3, 800, 231, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.TIN_INGOT.get(), 3, 800, 231, 0.3F)
                     .addIngredient(AllItems.CRUSHED_TIN.get()).addIngredient(AllItems.CRUSHED_TIN.get())
                     .addIngredient(AllItems.CRUSHED_TIN.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.TIN, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.TIN_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.TIN, ModID.MEKANISM), 3, 800, 231, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.TIN_INGOT.get(), 3, 800, 231, 0.3F)
                     .addIngredient(getDusts(Metals.TIN, ModID.MEKANISM)).addIngredient(getDusts(Metals.TIN, ModID.MEKANISM))
                     .addIngredient(getDusts(Metals.TIN, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.TIN, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.TIN_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.MEKANISM), 3, 800, 1132, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.URANIUM_INGOT.get(), 3, 800, 1132, 0.3F)
                     .addIngredient(AllItems.CRUSHED_URANIUM.get()).addIngredient(AllItems.CRUSHED_URANIUM.get())
                     .addIngredient(AllItems.CRUSHED_URANIUM.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.URANIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.URANIUM_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.URANIUM, ModID.MEKANISM), 3, 800, 1132, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.URANIUM_INGOT.get(), 3, 800, 1132, 0.3F)
                     .addIngredient(getDusts(Metals.URANIUM, ModID.MEKANISM)).addIngredient(getDusts(Metals.URANIUM, ModID.MEKANISM))
                     .addIngredient(getDusts(Metals.URANIUM, ModID.MEKANISM))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.URANIUM, ModID.MEKANISM), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.URANIUM_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
         }
 
         if (CreateAndFood.THIsPresent){
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.BRONZE, ModID.THERMAL), 3, 1200, 1000, 1.5F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.BRONZE_INGOT.get(), 3, 1200, 1000, 1.5F)
                     .addIngredient(getDusts(Metals.BRONZE, ModID.THERMAL)).addIngredient(getDusts(Metals.BRONZE, ModID.THERMAL))
                     .addIngredient(getDusts(Metals.BRONZE, ModID.THERMAL))
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDFromDustCompat(getIngots(Metals.BRONZE, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.BRONZE_INGOT.get(), ModID.THERMAL), ModID.THERMAL, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.LEAD, ModID.THERMAL), 3, 1200, 327, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.LEAD_INGOT.get(), 3, 1200, 327, 0.3F)
                     .addIngredient(AllItems.CRUSHED_LEAD.get()).addIngredient(AllItems.CRUSHED_LEAD.get())
                     .addIngredient(AllItems.CRUSHED_LEAD.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.LEAD, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.LEAD_INGOT.get(), ModID.THERMAL), ModID.THERMAL, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.NICKEL, ModID.THERMAL), 3, 1200, 1455, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.NICKEL_INGOT.get(), 3, 1200, 1455, 0.3F)
                     .addIngredient(AllItems.CRUSHED_NICKEL.get()).addIngredient(AllItems.CRUSHED_NICKEL.get())
                     .addIngredient(AllItems.CRUSHED_NICKEL.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.NICKEL, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.NICKEL_INGOT.get(), ModID.THERMAL), ModID.THERMAL, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.SILVER, ModID.THERMAL), 3, 1200, 961, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.SILVER_INGOT.get(), 3, 1200, 961, 0.3F)
                     .addIngredient(AllItems.CRUSHED_SILVER.get()).addIngredient(AllItems.CRUSHED_SILVER.get())
                     .addIngredient(AllItems.CRUSHED_SILVER.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.SILVER, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.SILVER_INGOT.get(), ModID.THERMAL), ModID.THERMAL, RecipeType.TRIPLE));
 
-            BlastingRecipeBuilder.blastingRecipe(getIngots(Metals.TIN, ModID.THERMAL), 3, 1200, 231, 0.3F)
+            BlastingRecipeBuilder.blastingRecipe(CAFItems.TIN_INGOT.get(), 3, 1200, 231, 0.3F)
                     .addIngredient(AllItems.CRUSHED_TIN.get()).addIngredient(AllItems.CRUSHED_TIN.get())
                     .addIngredient(AllItems.CRUSHED_TIN.get())
                     .save(pConsumer,
-                            getCAFBlastingCompat(getRIDCompat(getIngots(Metals.TIN, ModID.THERMAL), ModID.THERMAL), ModID.THERMAL, RecipeType.TRIPLE));
+                            getCAFBlastingCompat(getRIDCompat(CAFItems.TIN_INGOT.get(), ModID.THERMAL), ModID.THERMAL, RecipeType.TRIPLE));
         }
     }
 

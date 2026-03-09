@@ -7,6 +7,17 @@
     "#forge:ingots/netherite",
     "#forge:ingots/steel",
     "#forge:ingots/tantalum",
-    "#forge:ingots/tungsten"
+    "#forge:ingots/tungsten",
+    "#forge:ingots/aluminum",
+    "#forge:ingots/lead",
+    "#forge:ingots/nickel",
+    "#forge:ingots/osmium",
+    "#forge:ingots/silver",
+    "#forge:ingots/tin",
+    "#forge:ingots/uranium",
+    "#forge:ingots/bronze",
+    "#forge:ingots/constantan",
+    "#forge:ingots/electrum",
+    "#forge:ingots/invar"
   ]
 }
