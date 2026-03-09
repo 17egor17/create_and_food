@@ -2,10 +2,12 @@ package net.egorplaytv.caf.item.custom;
 
 import net.egorplaytv.caf.damage.CAFDamageSource;
 import net.egorplaytv.caf.datagen.custom.ModItemModelsProperties;
+import net.egorplaytv.caf.item.custom.interfaces.IMetalItem;
 import net.egorplaytv.caf.item.entity.custom.MIEntity;
 import net.egorplaytv.caf.util.CAFTags;
 import net.egorplaytv.caf.util.Metals;
 import net.egorplaytv.caf.util.TextUtils;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -21,11 +23,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class MetalItem extends Item {
+public class MetalItem extends Item implements IMetalItem {
     private final int meltingPoint;
     private int tick;
     protected int heatingSpeed;
@@ -42,6 +46,7 @@ public class MetalItem extends Item {
             case INGOT, SHEET -> this.heatingSpeed = 1;
             case NUGGET, COIN, DUST -> this.heatingSpeed = 3;
         }
+        this.metalType = metalType;
         ModItemModelsProperties.registerMetalItem(this, metalType);
     }
 
@@ -49,6 +54,8 @@ public class MetalItem extends Item {
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pIsAdvanced) {
         if (pStack.getItem() instanceof MetalItem metal) {
             pTooltip.add(TextUtils.getToolTipTranslation("doesnt_despawn"));
+            if (metal.metalType == Metals.URANIUM)
+                pTooltip.add(TextUtils.getToolTipTranslation("ingot.radiation"));
             pTooltip.add(TextUtils.getToolTipTranslation("degrees", meltingPoint));
             if (metal.getDeg(pStack) >= 24) {
                 pTooltip.add(TextUtils.getToolTipTranslation("ingot.degrees", metal.getDeg(pStack)));
@@ -61,16 +68,16 @@ public class MetalItem extends Item {
 
     @Override
     public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-        if (metalType == Metals.URANIUM) {
-            if (pEntity instanceof ServerPlayer entity) {
-                radiationTick++;
-                if (radiationTick >= 80) {
-                    CAFDamageSource.radiation(entity, 0.1F);
-                    radiationTick = 0;
+        if (pStack.getItem() instanceof MetalItem metal) {
+            if (metal.metalType == Metals.URANIUM) {
+                if (pEntity instanceof ServerPlayer entity) {
+                    ++radiationTick;
+                    if (radiationTick >= 80) {
+                        CAFDamageSource.radiation(entity, 0.1F);
+                        radiationTick = 0;
+                    }
                 }
             }
-        } else {
-            return;
         }
 
         if (pIsSelected) {
@@ -180,6 +187,11 @@ public class MetalItem extends Item {
         if (this.allowdedIn(category)){
             items.add(new ItemStack(this, 1));
         }
+    }
+
+    @Override
+    public float getCoolingFluid(BlockState state, @Nullable Level level, @Nullable BlockPos pos) {
+        return state.getFluidState().is(Fluids.WATER) ? 1 : 0;
     }
 
     public enum Type {

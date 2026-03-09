@@ -58,7 +58,15 @@ public class ShingleBlockPattern {
             .block(ShingleBlock::new)
             .textures("shingle_top", "shingle_bottom", "shingle_angle"),
 
-
+    BRICKS_SINGLE = create("bricks_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
+            .block(ShingleBlock::new).wallMaterial(Items.BRICKS)
+            .textures("shingle_top", "shingle_bottom", "shingle_angle"),
+    STONE_SINGLE = create("stone_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
+            .block(ShingleBlock::new).wallMaterial(Items.STONE)
+            .textures("shingle_top", "shingle_bottom", "shingle_angle"),
+    COBBLESTONE_SINGLE = create("cobblestone_shingle", PatternNameType.SUFFIX).blockStateFactory(p -> p::shingleBlock)
+            .block(ShingleBlock::new).wallMaterial(Items.COBBLESTONE)
+            .textures("shingle_top", "shingle_bottom", "shingle_angle"),
 
 
 
@@ -75,8 +83,10 @@ public class ShingleBlockPattern {
     ;
 
 
-    public static final ShingleBlockPattern[] SHINGLE_RANGE = { OAK_SHINGLE, SPRUCE_SHINGLE, BIRCH_SHINGLE, JUNGLE_SHINGLE,
-            ACACIA_SHINGLE, DARK_OAK_SHINGLE, CRIMSON_SHINGLE, WARPED_SHINGLE, ALMOND_SHINGLE, RIDGE_SHINGLE };
+    public static final ShingleBlockPattern[] SHINGLE_RANGE = {
+            OAK_SHINGLE, SPRUCE_SHINGLE, BIRCH_SHINGLE, JUNGLE_SHINGLE, ACACIA_SHINGLE, DARK_OAK_SHINGLE, CRIMSON_SHINGLE,
+            WARPED_SHINGLE, ALMOND_SHINGLE, BRICKS_SINGLE, STONE_SINGLE, COBBLESTONE_SINGLE, RIDGE_SHINGLE
+    };
 
 
 
@@ -108,7 +118,7 @@ public class ShingleBlockPattern {
         pattern.additionalRecipes = $ -> NonNullBiConsumer.noop();
         pattern.nameType = nameType;
         pattern.isTranslucent = false;
-        pattern.wallMaterial = Items.AIR;
+        pattern.wallMaterial = null;
         pattern.blockFactory = Block::new;
         pattern.textures = new String[] { name };
         return pattern;
@@ -185,7 +195,7 @@ public class ShingleBlockPattern {
         ResourceLocation shingle_top = toLocation(variant, textures[0]);
         ResourceLocation shingle_bottom = toLocation(variant, textures[1]);
         ResourceLocation shingle_angle = toLocation(variant, textures[2]);
-        ResourceLocation planks = getResourceLocation();
+        ResourceLocation base = getResourceLocation();
 
         return (ctx, prov) -> prov.getVariantBuilder(ctx.get())
                 .forAllStates(state -> {
@@ -199,7 +209,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.SOUTH && shape == ShingleShape.STRAIGHT) {
                         return ConfiguredModel.builder()
@@ -208,7 +218,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.WEST && shape == ShingleShape.STRAIGHT) {
                         return ConfiguredModel.builder()
@@ -217,7 +227,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.EAST && shape == ShingleShape.STRAIGHT) {
                         return ConfiguredModel.builder()
@@ -226,7 +236,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.NORTH && shape == ShingleShape.INNER_LEFT) {
                         return ConfiguredModel.builder()
@@ -235,7 +245,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.SOUTH && shape == ShingleShape.INNER_LEFT) {
                         return ConfiguredModel.builder()
@@ -244,7 +254,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.WEST && shape == ShingleShape.INNER_LEFT) {
                         return ConfiguredModel.builder()
@@ -253,7 +263,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.EAST && shape == ShingleShape.INNER_LEFT) {
                         return ConfiguredModel.builder()
@@ -262,7 +272,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.NORTH && shape == ShingleShape.INNER_RIGHT) {
                         return ConfiguredModel.builder()
@@ -271,7 +281,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.SOUTH && shape == ShingleShape.INNER_RIGHT) {
                         return ConfiguredModel.builder()
@@ -280,7 +290,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.WEST && shape == ShingleShape.INNER_RIGHT) {
                         return ConfiguredModel.builder()
@@ -289,7 +299,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.EAST && shape == ShingleShape.INNER_RIGHT) {
                         return ConfiguredModel.builder()
@@ -298,7 +308,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.NORTH && shape == ShingleShape.OUTER_LEFT) {
                         return ConfiguredModel.builder()
@@ -307,7 +317,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.SOUTH && shape == ShingleShape.OUTER_LEFT) {
                         return ConfiguredModel.builder()
@@ -316,7 +326,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.WEST && shape == ShingleShape.OUTER_LEFT) {
                         return ConfiguredModel.builder()
@@ -325,7 +335,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.EAST && shape == ShingleShape.OUTER_LEFT) {
                         return ConfiguredModel.builder()
@@ -334,7 +344,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.NORTH && shape == ShingleShape.OUTER_RIGHT) {
                         return ConfiguredModel.builder()
@@ -343,7 +353,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.SOUTH && shape == ShingleShape.OUTER_RIGHT) {
                         return ConfiguredModel.builder()
@@ -352,7 +362,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (facing == Direction.WEST && shape == ShingleShape.OUTER_RIGHT) {
                         return ConfiguredModel.builder()
@@ -361,7 +371,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else {
                         return ConfiguredModel.builder()
@@ -370,7 +380,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     }
                 });
@@ -381,7 +391,7 @@ public class ShingleBlockPattern {
         ResourceLocation shingle_top = toLocation(variant, textures[0]);
         ResourceLocation shingle_bottom = toLocation(variant, textures[1]);
         ResourceLocation shingle_angle = toLocation(variant, textures[2]);
-        ResourceLocation planks = toLocation(variant);
+        ResourceLocation base = toLocation(variant);
 
         return (ctx, prov) -> prov.getVariantBuilder(ctx.get())
                 .forAllStates(state -> {
@@ -397,7 +407,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (east && south && north) {
                         return ConfiguredModel.builder()
@@ -406,7 +416,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (west && south && north) {
                         return ConfiguredModel.builder()
@@ -415,7 +425,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (north && east && west) {
                         return ConfiguredModel.builder()
@@ -424,7 +434,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (south && east && west) {
                         return ConfiguredModel.builder()
@@ -433,7 +443,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (north && south) {
                         return ConfiguredModel.builder()
@@ -442,7 +452,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (west && east) {
                         return ConfiguredModel.builder()
@@ -451,7 +461,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (east && south) {
                         return ConfiguredModel.builder()
@@ -460,7 +470,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (east && north) {
                         return ConfiguredModel.builder()
@@ -469,7 +479,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (north && west) {
                         return ConfiguredModel.builder()
@@ -478,7 +488,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (west && south) {
                         return ConfiguredModel.builder()
@@ -487,7 +497,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (north) {
                         return ConfiguredModel.builder()
@@ -496,7 +506,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (south) {
                         return ConfiguredModel.builder()
@@ -505,7 +515,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (west) {
                         return ConfiguredModel.builder()
@@ -514,7 +524,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else if (east) {
                         return ConfiguredModel.builder()
@@ -523,7 +533,7 @@ public class ShingleBlockPattern {
                                         .texture("shingle_top", shingle_top)
                                         .texture("shingle_bottom", shingle_bottom)
                                         .texture("shingle_angle", shingle_angle)
-                                        .texture("base", planks))
+                                        .texture("base", base))
                                 .build();
                     } else
                          return ConfiguredModel.builder()
@@ -532,7 +542,7 @@ public class ShingleBlockPattern {
                                          .texture("shingle_top", shingle_top)
                                          .texture("shingle_bottom", shingle_bottom)
                                          .texture("shingle_angle", shingle_angle)
-                                         .texture("base", planks))
+                                         .texture("base", base))
                                  .build();
                 });
     }
@@ -540,12 +550,36 @@ public class ShingleBlockPattern {
     // Utility
 
     private @NotNull ResourceLocation getResourceLocation() {
+        Item baseWallMaterial = this.getWallMaterial();
+        String base = getBase();
+
+        if (baseWallMaterial != null){
+            String id = baseWallMaterial.getRegistryName().getNamespace();
+            if (id.equals("minecraft")) {
+                return new ResourceLocation("block/" + base);
+            } else {
+                return new ResourceLocation(id, "block/" + base);
+            }
+        } else {
+            return new ResourceLocation(MOD_ID, "block/" + base);
+        }
+    }
+
+    private @NotNull String getBase() {
         String[] split = id.split("_");
-        boolean isAlmondPlanks = split[0].equals("almond");
+        String base;
+
+        boolean isWood = split[0].equals("oak") || split[0].equals("spruce") || split[0].equals("birch")
+                || split[0].equals("jungle") || split[0].equals("acacia") || split[0].equals("dark")
+                || split[0].equals("crimson") || split[0].equals("warped") || split[0].equals("almond");
         boolean isDarkOakPlanks = split[0].equals("dark");
-        String planks = isDarkOakPlanks ? "dark_oak_planks"  : split[0] + "_planks";
-        return isAlmondPlanks ? new ResourceLocation(MOD_ID, "block/" + planks)
-                : new ResourceLocation("block/" + planks);
+
+        if (isWood) {
+            base = isDarkOakPlanks ? "dark_oak_planks"  : split[0] + "_planks";
+        } else {
+            base = split[0];
+        }
+        return base;
     }
 
     protected String createName(String variant) {

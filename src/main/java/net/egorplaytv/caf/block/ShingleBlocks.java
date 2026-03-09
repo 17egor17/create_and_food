@@ -43,10 +43,6 @@ public enum ShingleBlocks {
         this.variantTypes = variantTypes;
     }
 
-    public NonNullSupplier<Block> getBaseBlock() {
-        return baseBlock;
-    }
-
     public ShingleVariantEntry getVariants() {
         return variants;
     }

@@ -2,6 +2,7 @@ package net.egorplaytv.caf.item.entity.custom;
 
 import net.egorplaytv.caf.item.ItemEntities;
 import net.egorplaytv.caf.item.custom.MetalItem;
+import net.egorplaytv.caf.item.custom.interfaces.IMetalItem;
 import net.egorplaytv.caf.item.entity.CAFItemEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
@@ -10,7 +11,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.Fluids;
 
 public class MIEntity extends CAFItemEntity {
     private int tick;
@@ -24,13 +24,6 @@ public class MIEntity extends CAFItemEntity {
         this.setExtendedLifetime();
     }
 
-    final int x = Mth.floor(this.getX());
-    final int y = Mth.floor((this.getBoundingBox().minY + this.getBoundingBox().maxY) / 2.0D);
-    final int z = Mth.floor(this.getZ());
-
-    BlockPos pos = new BlockPos(x, y, z);
-    final BlockState state = this.level.getBlockState(pos);
-
     @Override
     public void tick() {
         super.tick();
@@ -38,17 +31,25 @@ public class MIEntity extends CAFItemEntity {
         final ItemStack is = this.getItem();
         final Item gc = is.getItem();
 
-        if (!(gc instanceof MetalItem))
+        if (!(gc instanceof IMetalItem))
             return;
 
-        decreaseDegree(is);
+        decreaseDegree((IMetalItem) gc, is);
     }
 
-    private void decreaseDegree(ItemStack is) {
-        int deg = is.getTag() != null ? is.getTag().getInt(TAG_DEGREE) : 0;
-        int inWater = state.getFluidState().is(Fluids.WATER) ? 1 : 0;
+    private void decreaseDegree(IMetalItem gc, ItemStack is) {
+        final int x = Mth.floor(this.getX());
+        final int y = Mth.floor((this.getBoundingBox().minY + this.getBoundingBox().maxY) / 2.0D);
+        final int z = Mth.floor(this.getZ());
 
-        if (inWater == 1){
+        BlockPos pos = new BlockPos(x, y, z);
+        final BlockState state = this.level.getBlockState(pos);
+
+        final float cooling = gc.getCoolingFluid(state, level, pos);
+
+        int deg = is.getTag() != null ? is.getTag().getInt(TAG_DEGREE) : 0;
+
+        if (cooling == 1){
             if (deg >= 5000) {
                 int degree = 25;
                 deg = deg - degree;

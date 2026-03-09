@@ -41,10 +41,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 import java.util.Random;
 
-public class CopperLanternBlock extends Block implements SimpleWaterloggedBlock, WeatheringCopperLantern {
-    public static final BooleanProperty WATERLOGGED =
-            net.minecraft.world.level.block.state.properties.BlockStateProperties.WATERLOGGED;
-    public static final EnumProperty<LanternAttachType> ATTACHMENT = BlockStateProperties.LANTERN_ATTACHMENT;
+public class CopperLanternBlock extends LanternBlock implements SimpleWaterloggedBlock, WeatheringCopperLantern {
     private static final VoxelShape FLOOR =
             Shapes.or(Block.box(5D, 0D, 5D, 11D, 11D, 11D),
                     Block.box(4D, 1D, 4D, 12D, 9D, 12D),
@@ -111,8 +108,6 @@ public class CopperLanternBlock extends Block implements SimpleWaterloggedBlock,
 
     public CopperLanternBlock(Properties pProperties, WeatherState weatherState) {
         super(pProperties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(ATTACHMENT, LanternAttachType.FLOOR)
-                .setValue(WATERLOGGED, Boolean.valueOf(false)));
         this.weatherState = weatherState;
     }
 
@@ -186,101 +181,6 @@ public class CopperLanternBlock extends Block implements SimpleWaterloggedBlock,
         }
 
         return InteractionResult.PASS;
-    }
-
-    @Nullable
-    @Override
-    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        FluidState fluidstate = pContext.getLevel().getFluidState(pContext.getClickedPos());
-        Direction direction = pContext.getClickedFace();
-        BlockPos blockpos = pContext.getClickedPos();
-        Level level = pContext.getLevel();
-        Direction.Axis direction$axis = direction.getAxis();
-        if (direction$axis == Direction.Axis.Y) {
-            BlockState blockstate = this.defaultBlockState()
-                    .setValue(ATTACHMENT, direction == Direction.DOWN ? LanternAttachType.HANGING : LanternAttachType.FLOOR);
-            if (blockstate.canSurvive(pContext.getLevel(), blockpos)) {
-                return blockstate.setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
-            }
-        } else if (direction$axis == Direction.Axis.X) {
-            BlockState blockstate = this.defaultBlockState()
-                    .setValue(ATTACHMENT, direction == Direction.WEST ? LanternAttachType.EAST : LanternAttachType.WEST);
-            if (blockstate.canSurvive(pContext.getLevel(), blockpos)) {
-                return blockstate.setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
-            }
-        } else if (direction$axis == Direction.Axis.Z) {
-            BlockState blockstate = this.defaultBlockState()
-                    .setValue(ATTACHMENT, direction == Direction.NORTH ? LanternAttachType.SOUTH : LanternAttachType.NORTH);
-            if (blockstate.canSurvive(pContext.getLevel(), blockpos)) {
-                return blockstate.setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
-            }
-        } else {
-            boolean flag = level.getBlockState(blockpos.below()).isFaceSturdy(level, blockpos.below(), Direction.WEST);
-            BlockState blockstate1 = this.defaultBlockState()
-                    .setValue(ATTACHMENT, flag ? LanternAttachType.EAST : LanternAttachType.WEST);
-            if (blockstate1.canSurvive(pContext.getLevel(), pContext.getClickedPos())) {
-                return blockstate1.setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
-            }
-            boolean flag1 = level.getBlockState(blockpos.below()).isFaceSturdy(level, blockpos.below(), Direction.SOUTH);
-            blockstate1 = blockstate1.setValue(ATTACHMENT, flag1 ? LanternAttachType.NORTH : LanternAttachType.SOUTH);
-            if (blockstate1.canSurvive(pContext.getLevel(), pContext.getClickedPos())) {
-                return blockstate1.setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
-            }
-
-            boolean flag2 = level.getBlockState(blockpos.below()).isFaceSturdy(level, blockpos.below(), Direction.UP);
-            blockstate1 = blockstate1.setValue(ATTACHMENT, flag2 ? LanternAttachType.FLOOR : LanternAttachType.HANGING);
-            if (blockstate1.canSurvive(pContext.getLevel(), pContext.getClickedPos())) {
-                return blockstate1.setValue(WATERLOGGED, Boolean.valueOf(fluidstate.getType() == Fluids.WATER));
-            }
-        }
-
-        return null;
-    }
-
-    @Override
-    public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
-        if (pState.getValue(WATERLOGGED)) {
-            pLevel.scheduleTick(pCurrentPos, Fluids.WATER, Fluids.WATER.getTickDelay(pLevel));
-        }
-
-        return getConnectedDirection(pState).getOpposite() == pDirection
-                && !pState.canSurvive(pLevel, pCurrentPos) ? Blocks.AIR.defaultBlockState() : super.updateShape(pState, pDirection, pNeighborState, pLevel, pCurrentPos, pNeighborPos);
-    }
-
-    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
-        Direction direction = getConnectedDirection(pState).getOpposite();
-        return Block.canSupportCenter(pLevel, pPos.relative(direction), direction.getOpposite());
-    }
-
-
-    private static Direction getConnectedDirection(BlockState pState){
-        return switch ((LanternAttachType) pState.getValue(ATTACHMENT)) {
-            case FLOOR -> Direction.UP;
-            case HANGING -> Direction.DOWN;
-            case NORTH -> Direction.SOUTH;
-            case EAST -> Direction.WEST;
-            case WEST -> Direction.EAST;
-            default -> Direction.NORTH;
-        };
-    }
-
-    @Override
-    public PushReaction getPistonPushReaction(BlockState pState) {
-        return PushReaction.DESTROY;
-    }
-
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(ATTACHMENT, WATERLOGGED);
-    }
-
-    @Override
-    public FluidState getFluidState(BlockState pState) {
-        return pState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(pState);
-    }
-
-    @Override
-    public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
-        return false;
     }
 
     @Override

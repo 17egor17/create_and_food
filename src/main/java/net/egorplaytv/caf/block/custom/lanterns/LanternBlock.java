@@ -1,7 +1,12 @@
 package net.egorplaytv.caf.block.custom.lanterns;
 
+import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.Maps;
+import com.simibubi.create.content.contraptions.ITransformableBlock;
+import com.simibubi.create.content.contraptions.StructureTransform;
 import net.egorplaytv.caf.block.praperties.BlockStateProperties;
 import net.egorplaytv.caf.block.praperties.LanternAttachType;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -9,9 +14,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.SimpleWaterloggedBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -26,10 +29,13 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Map;
+
 public class LanternBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED =
             net.minecraft.world.level.block.state.properties.BlockStateProperties.WATERLOGGED;
     public static final EnumProperty<LanternAttachType> ATTACHMENT = BlockStateProperties.LANTERN_ATTACHMENT;
+
     private static final VoxelShape FLOOR =
             Shapes.or(Block.box(5D, 0D, 5D, 11D, 11D, 11D),
                     Block.box(4D, 1D, 4D, 12D, 9D, 12D),

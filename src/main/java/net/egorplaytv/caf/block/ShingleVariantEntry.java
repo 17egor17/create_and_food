@@ -42,7 +42,6 @@ public class ShingleVariantEntry {
         ImmutableList.Builder<BlockEntry<? extends Block>> registeredBlocks = ImmutableList.builder();
         ImmutableList.Builder<BlockEntry<? extends Block>> registeredPartials = ImmutableList.builder();
         NonNullSupplier<Block> baseBlock = shingleBlocks.baseBlock;
-        NonNullSupplier<Block> soilBlock = NonNullSupplier.of(() -> Blocks.DIRT);
 
         for (ShingleBlockPattern pattern : shingleBlocks.variantTypes) {
             BlockBuilder<? extends Block, CAFRegistrate> builder;
