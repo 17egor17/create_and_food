@@ -403,11 +403,11 @@ public class CAFItems {
     public static final RegistryObject<Item> COAL_DUST = registerItem("coal_dust",
             () -> new FuelItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD), 1600));
 
-    public static final RegistryObject<Item> IRON_DUST = registerItem("iron_dust",
-            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+    public static final RegistryObject<MetalItem> IRON_DUST = registerItem("iron_dust",
+            () -> new MetalItem(1538, Type.DUST, Metals.IRON, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
-    public static final RegistryObject<Item> STEEL_DUST = registerItem("steel_dust",
-            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+    public static final RegistryObject<MetalItem> STEEL_DUST = registerItem("steel_dust",
+            () -> new MetalItem(1530, Type.DUST, Metals.STEEL, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> BRICK_DUST = registerItem("brick_dust",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));

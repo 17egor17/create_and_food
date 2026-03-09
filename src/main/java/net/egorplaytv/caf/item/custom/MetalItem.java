@@ -39,7 +39,7 @@ public class MetalItem extends Item {
         switch (type) {
             case RAW, CRASHED_RAW, PIECE -> this.heatingSpeed = 2;
             case INGOT, SHEET -> this.heatingSpeed = 1;
-            case NUGGET, COIN -> this.heatingSpeed = 3;
+            case NUGGET, COIN, DUST -> this.heatingSpeed = 3;
         }
         ModItemModelsProperties.registerMetalItem(this, metalType);
     }
@@ -49,7 +49,12 @@ public class MetalItem extends Item {
         if (pStack.getItem() instanceof MetalItem metal) {
             pTooltip.add(TextUtils.getToolTipTranslation("doesnt_despawn"));
             pTooltip.add(TextUtils.getToolTipTranslation("degrees", meltingPoint));
-            pTooltip.add(TextUtils.getToolTipTranslation("ingot.degrees", metal.getDeg(pStack)));
+            if (metal.getDeg(pStack) >= 24) {
+                pTooltip.add(TextUtils.getToolTipTranslation("ingot.degrees", metal.getDeg(pStack)));
+            } else {
+                metal.setDeg(pStack, 24);
+            }
+
         }
     }
 
@@ -61,9 +66,9 @@ public class MetalItem extends Item {
                     if (!entity.gameMode.getGameModeForPlayer().isCreative()) {
                         if (entity.getItemInHand(InteractionHand.MAIN_HAND).is(metal) && metal.getDeg(pStack) >= 50
                                 && !entity.getItemInHand(InteractionHand.OFF_HAND).is(CAFTags.Items.forgeTag("tongs"))) {
-                            CAFDamageSource.hotMetal(entity, 5.0F);
                             entity.drop(entity.getItemInHand(InteractionHand.MAIN_HAND), false, false);
                             entity.setItemInHand(InteractionHand.MAIN_HAND, ItemStack.EMPTY);
+                            CAFDamageSource.hotMetal(entity, 5.0F);
                         }
                     }
                 }
@@ -74,9 +79,9 @@ public class MetalItem extends Item {
                 if (!entity.gameMode.getGameModeForPlayer().isCreative()) {
                     if (entity.getItemInHand(InteractionHand.OFF_HAND).is(metal) && metal.getDeg(pStack) >= 50
                             && !entity.getItemInHand(InteractionHand.MAIN_HAND).is(CAFTags.Items.forgeTag("tongs"))) {
-                        CAFDamageSource.hotMetal(entity, 5.0F);
                         entity.drop(entity.getItemInHand(InteractionHand.OFF_HAND), false, false);
                         entity.setItemInHand(InteractionHand.OFF_HAND, ItemStack.EMPTY);
+                        CAFDamageSource.hotMetal(entity, 5.0F);
                     }
                 }
             }
@@ -165,6 +170,6 @@ public class MetalItem extends Item {
     }
 
     public enum Type {
-        RAW, CRASHED_RAW, INGOT, NUGGET, SHEET, PIECE, COIN
+        RAW, CRASHED_RAW, INGOT, NUGGET, SHEET, PIECE, COIN, DUST
     }
 }
