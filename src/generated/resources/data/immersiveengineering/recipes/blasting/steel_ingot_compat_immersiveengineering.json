@@ -6,11 +6,11 @@
     }
   ],
   "result": {
-    "item": "caf:steel_ingot"
+    "item": "caf:steel_ingot",
+    "count": 400
   },
   "comment_time": "min 200 time",
-  "time": 400,
+  "time": 1538,
   "comment": "min 100 deg, max 5000 deg",
-  "degree": 1538,
-  "experience": 0.7
+  "degree": 100.0
 }

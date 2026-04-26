@@ -223,8 +223,8 @@ public class FermentationBarrelBlockEntity extends BlockEntity implements MenuPr
     }
 
     @Override
-    public void setRemoved() {
-        super.setRemoved();
+    public void invalidateCaps() {
+        super.invalidateCaps();
         lazyItemHandler.invalidate();
         lazyFluidHandler.invalidate();
     }

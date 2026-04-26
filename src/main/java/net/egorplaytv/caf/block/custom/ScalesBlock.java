@@ -2,7 +2,7 @@ package net.egorplaytv.caf.block.custom;
 
 import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.custom.ScalesBlockEntity;
-import net.egorplaytv.caf.config.CreateAndFoodCommonConfigs;
+import net.egorplaytv.caf.config.CAFConfigs;
 import net.egorplaytv.caf.util.TextUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -87,8 +87,8 @@ public class ScalesBlock extends BaseEntityBlock implements SimpleWaterloggedBlo
                 }
                 if (handIn.equals(InteractionHand.MAIN_HAND) && player.getItemInHand(InteractionHand.MAIN_HAND).isEmpty()) {
                     if (getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) != null) {
-                        if (CreateAndFoodCommonConfigs.ENABLE_KILOGRAMS.get() && CreateAndFoodCommonConfigs.ENABLE_GRAMS.get()
-                                && CreateAndFoodCommonConfigs.ENABLE_TONES.get()) {
+                        if (CAFConfigs.common().gameSettings.enableKilograms.get() && CAFConfigs.common().gameSettings.enableGrams.get()
+                                && CAFConfigs.common().gameSettings.enableTones.get()) {
                             if (getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) >= 1000000) {
                                 float tn = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000000;
                                 player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_tn", tn)), true);
@@ -99,13 +99,13 @@ public class ScalesBlock extends BaseEntityBlock implements SimpleWaterloggedBlo
                                 float g = getWeight().get(entity.getInventory().getStackInSlot(0).getItem());
                                 player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_g", g)), true);
                             }
-                        } else if (CreateAndFoodCommonConfigs.ENABLE_KILOGRAMS.get()){
+                        } else if (CAFConfigs.common().gameSettings.enableKilograms.get()){
                             float kg = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000;
                             player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_kg", kg)), true);
-                        } else if (CreateAndFoodCommonConfigs.ENABLE_GRAMS.get()){
+                        } else if (CAFConfigs.common().gameSettings.enableGrams.get()){
                             float g = getWeight().get(entity.getInventory().getStackInSlot(0).getItem());
                             player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_g", g)), true);
-                        } else if (CreateAndFoodCommonConfigs.ENABLE_TONES.get()){
+                        } else if (CAFConfigs.common().gameSettings.enableTones.get()){
                             float tn = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000000;
                             player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_tn", tn)), true);
                         } else {

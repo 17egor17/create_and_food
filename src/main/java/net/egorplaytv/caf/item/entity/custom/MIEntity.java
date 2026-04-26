@@ -47,37 +47,41 @@ public class MIEntity extends CAFItemEntity {
 
         final float cooling = gc.getCoolingFluid(state, level, pos);
 
-        int deg = is.getTag() != null ? is.getTag().getInt(TAG_DEGREE) : 0;
+        float deg = is.getTag() != null ? is.getTag().getFloat(TAG_DEGREE) : 0;
 
-        if (cooling == 1){
+        if (cooling == 1) {
             if (deg >= 5000) {
-                int degree = 25;
-                deg = deg - degree;
+                deg -= 25.11F;
             } else if (deg >= 1000) {
-                int degree = 20;
-                deg = deg - degree;
+                deg -= 20.11F;
             } else if (deg >= 500) {
-                int degree = 15;
-                deg = deg - degree;
+                deg -= 15.11F;
             } else if (deg >= 100) {
-                int degree = 10;
-                deg = deg - degree;
+                deg -= 10.11F;
             } else if (deg >= 60) {
-                int degree = 5;
-                deg = deg - degree;
+                deg -= 5.11F;
+            } else if (deg > 30) {
+                deg -= 1.11F;
+            } else if (deg > 25) {
+                deg -= 0.1F;
             } else if (deg > 24) {
-                --deg;
+                deg -= 0.01F;
             }
-            is.getOrCreateTag().putInt(TAG_DEGREE, deg);
+            is.getOrCreateTag().putFloat(TAG_DEGREE, deg);
         } else {
-            ++tick;
             if (tick >= 200) {
-                if (deg > 24) {
-                    --deg;
+                if (deg > 30) {
+                    deg -= 1;
+                    tick = 0;
+                } else if (deg > 25) {
+                    deg -= 0.1F;
+                    tick = 0;
+                } else if (deg > 24) {
+                    deg -= 0.01F;
                     tick = 0;
                 }
             }
-            is.getOrCreateTag().putInt(TAG_DEGREE, deg);
+            is.getOrCreateTag().putFloat(TAG_DEGREE, deg);
         }
 
         if (!level.isClientSide()){

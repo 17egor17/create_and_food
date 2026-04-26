@@ -8,7 +8,7 @@ import net.minecraft.world.item.ItemStack;
 public class DependentMetalItem extends MetalItem {
     private final Boolean[] dependent;
 
-    public DependentMetalItem(int meltingPoint, Type type, Metals metalType, Properties pProperties, Boolean... dependent) {
+    public DependentMetalItem(float meltingPoint, Type type, Metals metalType, Properties pProperties, Boolean... dependent) {
         super(meltingPoint, type, metalType, pProperties);
         this.dependent = dependent;
     }

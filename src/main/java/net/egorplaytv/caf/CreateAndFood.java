@@ -7,9 +7,8 @@ import com.simibubi.create.foundation.item.TooltipModifier;
 import com.tterrag.registrate.providers.ProviderType;
 import net.egorplaytv.caf.block.entity.CAFWoodTypes;
 import net.egorplaytv.caf.config.CAFConfigs;
-import net.egorplaytv.caf.config.CreateAndFoodClientConfigs;
-import net.egorplaytv.caf.config.CreateAndFoodCommonConfigs;
 import net.egorplaytv.caf.data.CAFRegistrate;
+import net.egorplaytv.caf.energy.energy_interface.EnergyCapability;
 import net.egorplaytv.caf.item.ItemEntities;
 import net.egorplaytv.caf.networking.CAFMessages;
 import net.egorplaytv.caf.ponder.CAFPonders;
@@ -21,6 +20,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
@@ -92,14 +92,17 @@ public class CreateAndFood {
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::gatherData);
         eventBus.addGenericListener(EntityType.class, this::registerEntities);
+        eventBus.addListener(this::registerCapabilities);
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, CreateAndFoodClientConfigs.SPEC, "create_and_food-client.toml");
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, CreateAndFoodCommonConfigs.SPEC, "create_and_food-common.toml");
         CAFConfigs.register(modLoadingContext);
 
         MinecraftForge.EVENT_BUS.addListener(VillageStructures::addNewVillageBuilding);
         MinecraftForge.EVENT_BUS.register(this);
         DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> CreateAndFoodClient::new);
+    }
+
+    public void registerCapabilities(RegisterCapabilitiesEvent event) {
+        EnergyCapability.register(event);
     }
 
     private void registerEntities(RegistryEvent.Register<EntityType<?>> event) {

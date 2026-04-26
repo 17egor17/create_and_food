@@ -6,11 +6,11 @@
     }
   ],
   "result": {
-    "item": "caf:aluminum_ingot"
+    "item": "caf:aluminum_ingot",
+    "count": 400
   },
   "comment_time": "min 200 time",
-  "time": 400,
+  "time": 660,
   "comment": "min 100 deg, max 5000 deg",
-  "degree": 660,
-  "experience": 0.1
+  "degree": 100.0
 }

@@ -1,7 +1,7 @@
 package net.egorplaytv.caf.event.loot;
 
 import com.google.gson.JsonObject;
-import net.egorplaytv.caf.config.CreateAndFoodCommonConfigs;
+import net.egorplaytv.caf.config.CAFConfigs;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.item.ItemStack;
@@ -25,7 +25,7 @@ public class AddModLootTableModifier extends LootModifier {
 
     @Nonnull
     protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
-        if (CreateAndFoodCommonConfigs.GENERATE_CAF_CHEST_LOOT.get()) {
+        if (CAFConfigs.common().worldGen.lootTableGeneration.get()) {
             LootTable extraTable = context.getLootTable(this.lootTable);
             Objects.requireNonNull(generatedLoot);
             extraTable.getRandomItems(context, generatedLoot::add);

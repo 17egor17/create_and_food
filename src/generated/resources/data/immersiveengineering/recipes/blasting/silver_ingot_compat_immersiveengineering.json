@@ -6,11 +6,11 @@
     }
   ],
   "result": {
-    "item": "caf:silver_ingot"
+    "item": "caf:silver_ingot",
+    "count": 400
   },
   "comment_time": "min 200 time",
-  "time": 400,
+  "time": 961,
   "comment": "min 100 deg, max 5000 deg",
-  "degree": 961,
-  "experience": 0.1
+  "degree": 100.0
 }

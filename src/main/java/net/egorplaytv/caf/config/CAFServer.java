@@ -13,6 +13,6 @@ public class CAFServer extends ConfigBase {
 
     private static class Comments {
         static String recipes = "Packmakers' control panel for internal recipe compat";
-        static String kinetics = "Parameters and abilities of Vintage Improvements's kinetic mechanisms";
+        static String kinetics = "Parameters and abilities of Create And Food's kinetic mechanisms";
     }
 }

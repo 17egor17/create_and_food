@@ -27,10 +27,10 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
     private final Item result;
     private final int count;
     private final int blastingTime;
-    private final int blastingDeg;
+    private final float blastingDeg;
     private final float experience;
 
-    public BlastingRecipeBuilder(Item result, int count, int time, int degree, float experience) {
+    public BlastingRecipeBuilder(Item result, int count, int time, float degree, float experience) {
         this.result = result;
         this.count = count;
         this.blastingTime = time;
@@ -38,19 +38,19 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
         this.experience = experience;
     }
 
-    public static BlastingRecipeBuilder blastingRecipe(Item result, int count, int time, int degree, float experience) {
+    public static BlastingRecipeBuilder blastingRecipe(Item result, int count, int time, float degree, float experience) {
         return new BlastingRecipeBuilder(result, count, time, degree, experience);
     }
 
-    public static BlastingRecipeBuilder blastingRecipe(Item result, int count, int time, int degree) {
+    public static BlastingRecipeBuilder blastingRecipe(Item result, int count, int time, float degree) {
         return new BlastingRecipeBuilder(result, count, time, degree, 0.0F);
     }
 
-    public static BlastingRecipeBuilder blastingRecipe(Item result, int time, int degree, float experience) {
+    public static BlastingRecipeBuilder blastingRecipe(Item result, int time, float degree, float experience) {
         return new BlastingRecipeBuilder(result, 1, time, degree, experience);
     }
 
-    public static BlastingRecipeBuilder blastingRecipe(Item result, int time, int degree) {
+    public static BlastingRecipeBuilder blastingRecipe(Item result, int time, float degree) {
         return new BlastingRecipeBuilder(result, 1, time, degree, 0.0F);
     }
 
@@ -119,10 +119,10 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
         private final Item result;
         private final int count;
         private int blastingTime;
-        private int blastingDeg;
+        private float blastingDeg;
         private final float experience;
 
-        public Result(ResourceLocation pId, Item pResult, int pCount, int pTime, int pDeg, float pExperience,
+        public Result(ResourceLocation pId, Item pResult, int pCount, int pTime, float pDeg, float pExperience,
                       List<Ingredient> ingredients) {
             this.id = pId;
             this.result = pResult;

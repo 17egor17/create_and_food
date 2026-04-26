@@ -11,7 +11,7 @@ import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.egorplaytv.caf.CreateAndFood;
-import net.egorplaytv.caf.config.CreateAndFoodCommonConfigs;
+import net.egorplaytv.caf.config.CAFConfigs;
 import net.egorplaytv.caf.config.DegreeUnits;
 import net.egorplaytv.caf.recipe.IJeiFuelingRecipe;
 import net.egorplaytv.caf.recipe.RecipeTypes;
@@ -91,11 +91,11 @@ public class FuelingRecipeCategory implements IRecipeCategory<IJeiFuelingRecipe>
         Minecraft minecraft = Minecraft.getInstance();
         Font font = minecraft.font;
 
-        if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_CELSIUS) {
+        if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS) {
             font.draw(stack, degC, 31, 8, 0xFF505050);
-        } else if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_FAHRENHEIT) {
+        } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_FAHRENHEIT) {
             font.draw(stack, degF, 31, 8, 0xFF505050);
-        } else if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_KELVIN) {
+        } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_KELVIN) {
             font.draw(stack, degK, 31, 8, 0xFF505050);
         }
     }

@@ -13,7 +13,7 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.egorplaytv.caf.CreateAndFood;
 import net.egorplaytv.caf.block.CAFBlocks;
-import net.egorplaytv.caf.config.CreateAndFoodCommonConfigs;
+import net.egorplaytv.caf.config.CAFConfigs;
 import net.egorplaytv.caf.config.DegreeUnits;
 import net.egorplaytv.caf.item.custom.MetalItem;
 import net.egorplaytv.caf.recipe.MarbleFurnaceRecipe;
@@ -69,7 +69,7 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
         }
     }
     private void degrees(MarbleFurnaceRecipe recipe, PoseStack stack, int x, int y) {
-        int degC = recipe.getDeg();
+        float degC = recipe.getDeg();
         float degF = degC*1.8F+32;
         float degK = degC+273.15F;
         TranslatableComponent timeStringC = new TranslatableComponent("jei.caf.blasting.degC", degC);
@@ -77,11 +77,11 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
         TranslatableComponent timeStringK = new TranslatableComponent("jei.caf.blasting.degK", degK);
         Minecraft minecraft = Minecraft.getInstance();
         Font fontRenderer = minecraft.font;
-        if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_CELSIUS) {
+        if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS) {
             fontRenderer.draw(stack, timeStringC, x, y, 0xFF424242);
-        } else if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_FAHRENHEIT) {
+        } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_FAHRENHEIT) {
             fontRenderer.draw(stack, timeStringF, x, y, 0xFF424242);
-        } else if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_KELVIN) {
+        } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_KELVIN) {
             fontRenderer.draw(stack, timeStringK, x, y, 0xFF424242);
         }
     }
@@ -125,11 +125,10 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
             builder.addSlot(RecipeIngredientRole.INPUT, 31, 11).addIngredients(recipe.getIngredients().get(1));
             builder.addSlot(RecipeIngredientRole.INPUT, 21, 31).addIngredients(recipe.getIngredients().get(2));
         }
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 91, 37).addItemStack(recipe.getResultItem());
-
         if (recipe.getResultItem().getItem() instanceof MetalItem item) {
             item.setDeg(recipe.getResultItem(), recipe.getDeg() - 50);
         }
 
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 91, 37).addItemStack(recipe.getResultItem());
     }
 }

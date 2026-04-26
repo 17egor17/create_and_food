@@ -50,8 +50,6 @@ public class MarbleBlastFurnaceScreen extends AbstractContainerScreen<MarbleBlas
 
 
     protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
-        int x = (width - imageWidth) / 2;
-        int y = (height - imageHeight) / 2;
         this.font.draw(poseStack, CAFBlocks.MARBLE_BLAST_FURNACE.get().getName(), 3, 4, 0xFFffffff);
         this.font.draw(poseStack, new TranslatableComponent("ui.inventory"), 63, 75, 0xFF808080);
         this.font.draw(poseStack, menu.getDegreeProgress(), 5, 134, 0xFF606060);

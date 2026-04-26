@@ -20,13 +20,20 @@ import org.apache.commons.lang3.tuple.Pair;
 @EventBusSubscriber(bus = EventBusSubscriber.Bus.MOD)
 public class CAFConfigs {
 
-
     private static final Map<ModConfig.Type, ConfigBase> CONFIGS = new EnumMap<>(ModConfig.Type.class);
 
     private static CAFServer server;
+//    private static CAFClient client;
+    private static CAFCommon common;
 
     public static CAFServer server() {
         return server;
+    }
+//    public static CAFClient client() {
+//        return client;
+//    }
+    public static CAFCommon common() {
+            return common;
     }
 
     public static ConfigBase byType(ModConfig.Type type) {
@@ -48,6 +55,8 @@ public class CAFConfigs {
 
     public static void register(ModLoadingContext context) {
         server = register(CAFServer::new, ModConfig.Type.SERVER);
+//        client = register(CAFClient::new, ModConfig.Type.CLIENT);
+        common = register(CAFCommon::new, ModConfig.Type.COMMON);
 
         for (Entry<ModConfig.Type, ConfigBase> pair : CONFIGS.entrySet())
             context.registerConfig(pair.getKey(), pair.getValue().specification);

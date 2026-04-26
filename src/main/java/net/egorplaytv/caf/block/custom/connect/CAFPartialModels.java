@@ -23,9 +23,7 @@ public class CAFPartialModels {
             GRINDER_BELT_ACTIVE = block("mechanical_grinder/belt_active"),
             GRINDER_BELT_INACTIVE = block("mechanical_grinder/belt_inactive"),
             GRINDER_BELT_REVERSED = block("mechanical_grinder/belt_reversed"),
-            SHINGLE_STRAIGHT = customBlock("block/shingles/shingle_straight"),
-            SHINGLE_INNER = customBlock("block/shingles/shingle_inner"),
-            SHINGLE_OUTER = customBlock("block/shingles/shingle_outer")
+            ENERGY_CONVERTOR_SHAFT = block("energy_convertor/shaft")
             ;
 
     static {

@@ -20,7 +20,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import static net.egorplaytv.caf.block.CAFBlocks.*;
 
-public class ModBlockLootTables extends BlockLoot {
+public class CAFBlockLootTables extends BlockLoot {
 
     private static final float[] NORMAL_LEAVES_SAPLING_CHANCES = new float[] { 0.05F, 0.0625F, 0.083333336F, 0.1F };
 

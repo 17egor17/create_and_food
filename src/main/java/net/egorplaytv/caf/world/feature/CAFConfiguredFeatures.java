@@ -3,7 +3,7 @@ package net.egorplaytv.caf.world.feature;
 import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.block.custom.berry.WildPumpkinAndMelonBlock;
 import net.egorplaytv.caf.block.custom.connect.PaletteStoneTypes;
-import net.egorplaytv.caf.config.CreateAndFoodCommonConfigs;
+import net.egorplaytv.caf.config.CAFConfigs;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -123,23 +123,23 @@ public class CAFConfiguredFeatures {
             OreConfiguration.target(OreFeatures.NETHER_ORE_REPLACEABLES, PaletteStoneTypes.MARBLE_PERLIN_PINK.getBaseBlock().get().defaultBlockState()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> RUBY_ORE = FeatureUtils.register("ruby_ore",
-          Feature.ORE, new OreConfiguration(OVERWORLD_RUBY_ORES, CreateAndFoodCommonConfigs.RUBY_ORE_VEINS_SIZE.get()));
+          Feature.ORE, new OreConfiguration(OVERWORLD_RUBY_ORES, CAFConfigs.common().worldGen.rubyOreVeinsSize.get()));
 
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> MARBLE = FeatureUtils.register("marble",
-            Feature.ORE, new OreConfiguration(OVERWORLD_MARBLE, CreateAndFoodCommonConfigs.MARBLE_VEINS_SIZE.get()));
+            Feature.ORE, new OreConfiguration(OVERWORLD_MARBLE, CAFConfigs.common().worldGen.marbleVeinSize.get()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> MARBLE_BLACK_GALAXY = FeatureUtils.register("marble_black_galaxy",
-            Feature.ORE, new OreConfiguration(OVERWORLD_MARBLE_BLACK_GALAXY, CreateAndFoodCommonConfigs.MARBLE_VEINS_SIZE.get()));
+            Feature.ORE, new OreConfiguration(OVERWORLD_MARBLE_BLACK_GALAXY, CAFConfigs.common().worldGen.marbleVeinSize.get()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> MARBLE_PERLIN_PINK = FeatureUtils.register("marble_perlin_pink",
-            Feature.ORE, new OreConfiguration(OVERWORLD_MARBLE_PERLIN_PINK, CreateAndFoodCommonConfigs.MARBLE_VEINS_SIZE.get()));
+            Feature.ORE, new OreConfiguration(OVERWORLD_MARBLE_PERLIN_PINK, CAFConfigs.common().worldGen.marbleVeinSize.get()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> OVERWORLD_TANTALUM_ORE = FeatureUtils.register("tantalum_ore",
-        Feature.ORE, new OreConfiguration(OVERWORLD_TANTALUM_ORES, CreateAndFoodCommonConfigs.TANTALUM_ORE_VEINS_SIZE.get()));
+        Feature.ORE, new OreConfiguration(OVERWORLD_TANTALUM_ORES, CAFConfigs.common().worldGen.tantalumOreVeinsSize.get()));
 
     public static final Holder<ConfiguredFeature<OreConfiguration, ?>> NETHER_TANTALUM_ORE = FeatureUtils.register("nether_tantalum_ore",
-            Feature.ORE, new OreConfiguration(NETHER_TANTALUM_ORES, CreateAndFoodCommonConfigs.TANTALUM_ORE_VEINS_SIZE.get()));
+            Feature.ORE, new OreConfiguration(NETHER_TANTALUM_ORES, CAFConfigs.common().worldGen.tantalumOreVeinsSize.get()));
 
 
     public static RandomPatchConfiguration getWildCropConfiguration(Block block, int tries, int xzSpread, BlockPredicate plantedOn) {

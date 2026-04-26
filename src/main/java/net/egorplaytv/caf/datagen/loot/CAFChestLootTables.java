@@ -15,7 +15,7 @@ import java.util.function.BiConsumer;
 
 import static net.egorplaytv.caf.item.CAFItems.*;
 
-public class ModChestLootTables extends ChestLoot {
+public class CAFChestLootTables extends ChestLoot {
     public static final ResourceLocation VILLAGE_CONFECTIONER_HOUSE =
             new ResourceLocation(CreateAndFood.MOD_ID, "chests/loot_in_confectioner_house");
     public static final ResourceLocation VILLAGE_HOUSE =

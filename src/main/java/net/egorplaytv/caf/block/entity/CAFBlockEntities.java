@@ -5,10 +5,13 @@ import com.simibubi.create.content.kinetics.simpleRelays.SimpleKineticBlockEntit
 import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import net.egorplaytv.caf.CreateAndFood;
 import net.egorplaytv.caf.block.CAFBlocks;
-import net.egorplaytv.caf.block.ShingleBlocks;
 import net.egorplaytv.caf.block.entity.custom.*;
 import net.egorplaytv.caf.block.entity.renderer.*;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderInstance;
+import net.egorplaytv.caf.energy.block.entity.EnergyConvertorBlockEntity;
+import net.egorplaytv.caf.energy.block.entity.WireBlockEntity;
+import net.egorplaytv.caf.energy.block.entity.renderer.EnergyConverterInstance;
+import net.egorplaytv.caf.energy.block.entity.renderer.EnergyConverterRenderer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -143,6 +146,20 @@ public class CAFBlockEntities {
             .instance(() -> EncasedSteelCogInstance::large, false)
             .validBlocks(CAFBlocks.STEEL_ENCASED_LARGE_STEEL_COGWHEEL)
             .renderer(() -> EncasedSteelCogRenderer::large)
+            .register();
+
+    // Energy
+
+    public static final BlockEntityEntry<WireBlockEntity> WIRE_BLOCK = CreateAndFood.REGISTRATE
+            .blockEntity("wire_block", WireBlockEntity::new)
+            .validBlocks(CAFBlocks.WIRE_BLOCK)
+            .register();
+
+    public static final BlockEntityEntry<EnergyConvertorBlockEntity> ENERGY_CONVERTER = CreateAndFood.REGISTRATE
+            .blockEntity("energy_converter", EnergyConvertorBlockEntity::new)
+            .instance(() -> EnergyConverterInstance::new, false)
+            .validBlocks(CAFBlocks.ENERGY_CONVERTOR)
+            .renderer(() -> EnergyConverterRenderer::new)
             .register();
 
 
