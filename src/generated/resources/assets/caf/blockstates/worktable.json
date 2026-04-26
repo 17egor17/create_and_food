@@ -1,0 +1,94 @@
+{
+  "variants": {
+    "facing=north,type=single,waterlogged=false": {
+      "model": "caf:block/worktable"
+    },
+    "facing=south,type=single,waterlogged=false": {
+      "model": "caf:block/worktable",
+      "y": 180
+    },
+    "facing=west,type=single,waterlogged=false": {
+      "model": "caf:block/worktable",
+      "y": 270
+    },
+    "facing=east,type=single,waterlogged=false": {
+      "model": "caf:block/worktable",
+      "y": 90
+    },
+    "facing=north,type=left,waterlogged=false": {
+      "model": "caf:block/worktable_left"
+    },
+    "facing=south,type=left,waterlogged=false": {
+      "model": "caf:block/worktable_left",
+      "y": 180
+    },
+    "facing=west,type=left,waterlogged=false": {
+      "model": "caf:block/worktable_left",
+      "y": 270
+    },
+    "facing=east,type=left,waterlogged=false": {
+      "model": "caf:block/worktable_left",
+      "y": 90
+    },
+    "facing=north,type=right,waterlogged=false": {
+      "model": "caf:block/worktable_right"
+    },
+    "facing=south,type=right,waterlogged=false": {
+      "model": "caf:block/worktable_right",
+      "y": 180
+    },
+    "facing=west,type=right,waterlogged=false": {
+      "model": "caf:block/worktable_right",
+      "y": 270
+    },
+    "facing=east,type=right,waterlogged=false": {
+      "model": "caf:block/worktable_right",
+      "y": 90
+    },
+    "facing=north,type=single,waterlogged=true": {
+      "model": "caf:block/worktable"
+    },
+    "facing=south,type=single,waterlogged=true": {
+      "model": "caf:block/worktable",
+      "y": 180
+    },
+    "facing=west,type=single,waterlogged=true": {
+      "model": "caf:block/worktable",
+      "y": 270
+    },
+    "facing=east,type=single,waterlogged=true": {
+      "model": "caf:block/worktable",
+      "y": 90
+    },
+    "facing=north,type=left,waterlogged=true": {
+      "model": "caf:block/worktable_left"
+    },
+    "facing=south,type=left,waterlogged=true": {
+      "model": "caf:block/worktable_left",
+      "y": 180
+    },
+    "facing=west,type=left,waterlogged=true": {
+      "model": "caf:block/worktable_left",
+      "y": 270
+    },
+    "facing=east,type=left,waterlogged=true": {
+      "model": "caf:block/worktable_left",
+      "y": 90
+    },
+    "facing=north,type=right,waterlogged=true": {
+      "model": "caf:block/worktable_right"
+    },
+    "facing=south,type=right,waterlogged=true": {
+      "model": "caf:block/worktable_right",
+      "y": 180
+    },
+    "facing=west,type=right,waterlogged=true": {
+      "model": "caf:block/worktable_right",
+      "y": 270
+    },
+    "facing=east,type=right,waterlogged=true": {
+      "model": "caf:block/worktable_right",
+      "y": 90
+    }
+  }
+}

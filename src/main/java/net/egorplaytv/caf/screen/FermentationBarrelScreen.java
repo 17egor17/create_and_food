@@ -24,9 +24,11 @@ public class FermentationBarrelScreen extends AbstractContainerScreen<Fermentati
             new ResourceLocation(CreateAndFood.MOD_ID, "textures/gui/widgets.png");
 
     private FluidTankRenderer renderer;
+    protected final Component playerInventoryTitle;
 
     public FermentationBarrelScreen(FermentationBarrelMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
+        this.playerInventoryTitle = pPlayerInventory.getDisplayName();
     }
 
     @Override
@@ -70,7 +72,7 @@ public class FermentationBarrelScreen extends AbstractContainerScreen<Fermentati
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
         this.font.draw(poseStack, CAFBlocks.FERMENTATION_BARREL.get().getName(), 3, 4, 0xFF606060);
-        this.font.draw(poseStack, new TranslatableComponent("ui.inventory"), 28, 86, 0xFF606060);
+        this.font.draw(poseStack, playerInventoryTitle, 28, 86, 0xFF606060);
 
         renderFluidAreaInputTooltips(poseStack, mouseX, mouseY, x, y);
         renderFluidAreaOutputTooltips(poseStack, mouseX, mouseY, x, y);

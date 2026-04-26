@@ -14,6 +14,9 @@ public class BlockStateProperties {
     public static final EnumProperty<TerraceAttachType> TERRACE_ATTACHMENT =
             EnumProperty.create("attachment", TerraceAttachType.class);
 
+    public static final EnumProperty<WorktableType> WORKTABLE_TYPE =
+            EnumProperty.create("type", WorktableType.class);
+
     public static final int MAX_AGE_14 = 14;
     public static final IntegerProperty AGE_14 = IntegerProperty.create("age",0,14);
 

@@ -342,6 +342,7 @@ public class CAFItemModelProvider extends ItemModelProvider {
         blockItem(KITCHEN_TABLE.get(), "kitchen");
         blockItem(KITCHEN_TABLE_INNER.get(), "kitchen");
         blockItem(KITCHEN_TABLE_OUTER.get(), "kitchen");
+        customBlockItem(WORKTABLE.get(), "block/worktable", "worktable");
         blockItem(FERMENTATION_BARREL.get(), "item");
         blockItem(SCALES.get(), "kitchen_scales", "item");
         blockItem(OAK_CUTTING_BOARD.get(), "cutting_board");
@@ -907,6 +908,10 @@ public class CAFItemModelProvider extends ItemModelProvider {
         }
     }
 
+    private ItemModelBuilder customBlockItem(Block block, String modelName){
+        return customBlockItem(block, "", modelName);
+    }
+
     private ItemModelBuilder terraceItemModel(Block block, Block terrace, String modelName) {
         return withExistingParent(block.getRegistryName().getPath(),
                 new ResourceLocation(MOD_ID, "custom/block/terrace/" + modelName))
@@ -922,4 +927,5 @@ public class CAFItemModelProvider extends ItemModelProvider {
         return withExistingParent(block.getRegistryName().getPath(),
                 new ResourceLocation(MOD_ID, "block/" + path + "/" + block.getRegistryName().getPath()));
     }
+
 }

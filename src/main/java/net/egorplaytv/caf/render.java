@@ -92,6 +92,7 @@ public class render {
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.KITCHEN_TABLE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.KITCHEN_TABLE_INNER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.KITCHEN_TABLE_OUTER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.WORKTABLE.get(), RenderType.cutout());
 
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.OAK_TERRACE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.OAK_TERRACE_STAIRS.get(), RenderType.cutout());
@@ -115,6 +116,9 @@ public class render {
         MenuScreens.register(CAFMenuTypes.FERMENTATION_BARREL_MENU.get(), FermentationBarrelScreen::new);
         MenuScreens.register(CAFMenuTypes.BLASTING_MENU.get(), MarbleBlastFurnaceScreen::new);
         MenuScreens.register(CAFMenuTypes.SAMPLE_MENU.get(), SampleOfMetalsScreen::new);
+
+        MenuScreens.register(CAFMenuTypes.WORKTABLE_MENU.get(), WorktableScreen::new);
+        MenuScreens.register(CAFMenuTypes.WORKTABLE_DOUBLE_MENU.get(), WorktableDoubleScreen::new);
 
         WoodType.register(CAFWoodTypes.ALMOND);
 

@@ -18,8 +18,11 @@ public class MarbleBlastFurnaceScreen extends AbstractContainerScreen<MarbleBlas
     private static final ResourceLocation WIDGETS =
             new ResourceLocation(CreateAndFood.MOD_ID, "textures/gui/widgets.png");
 
+    protected final Component playerInventoryTitle;
+
     public MarbleBlastFurnaceScreen(MarbleBlastFurnaceMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
+        this.playerInventoryTitle = pPlayerInventory.getDisplayName();
     }
 
     @Override
@@ -51,7 +54,7 @@ public class MarbleBlastFurnaceScreen extends AbstractContainerScreen<MarbleBlas
 
     protected void renderLabels(PoseStack poseStack, int mouseX, int mouseY) {
         this.font.draw(poseStack, CAFBlocks.MARBLE_BLAST_FURNACE.get().getName(), 3, 4, 0xFFffffff);
-        this.font.draw(poseStack, new TranslatableComponent("ui.inventory"), 63, 75, 0xFF808080);
+        this.font.draw(poseStack, playerInventoryTitle, 63, 75, 0xFF808080);
         this.font.draw(poseStack, menu.getDegreeProgress(), 5, 134, 0xFF606060);
         if (menu.isDeg()) {
             this.font.draw(poseStack, menu.getDegProgress(), 46, 57, 0xFF8b8b8b);

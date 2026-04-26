@@ -21,6 +21,17 @@ public class CAFMenuTypes {
     public static final RegistryObject<MenuType<SampleOfMetalsMenu>> SAMPLE_MENU =
             registerMenuType(SampleOfMetalsMenu::new, "sample_menu");
 
+    public static final RegistryObject<MenuType<WorktableMenu>> WORKTABLE_MENU =
+            registerMenu(WorktableMenu::worktable, "worktable_menu");
+
+    public static final RegistryObject<MenuType<WorktableMenu>> WORKTABLE_DOUBLE_MENU =
+            registerMenu(WorktableMenu::worktableDouble, "worktable_double_menu");
+
+    public static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenu(MenuType.MenuSupplier<T> factory,
+                                                                                            String name) {
+        return MENUS.register(name, () -> new MenuType<>(factory));
+    }
+
     public static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory,
                                                                                                 String name) {
         return MENUS.register(name, () -> IForgeMenuType.create(factory));

@@ -24,6 +24,8 @@ import net.egorplaytv.caf.block.custom.lanterns.*;
 import net.egorplaytv.caf.block.custom.berry.*;
 import net.egorplaytv.caf.block.custom.connect.*;
 import net.egorplaytv.caf.block.custom.lanterns.LanternBlock;
+import net.egorplaytv.caf.block.custom.worktable.WorktableBlock;
+import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.CAFWoodTypes;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderGenerator;
 import net.egorplaytv.caf.energy.block.EnergyConvertorBlock;
@@ -503,6 +505,12 @@ public class CAFBlocks {
     public static final RegistryObject<Block> KITCHEN_TABLE_OUTER = registryBlock("kitchen_table_outer",
             () -> new KitchenTable(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noOcclusion()
                     .strength(0.2F, 0.3F)), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
+
+    public static final RegistryObject<WorktableBlock> WORKTABLE = registryBlock("worktable",
+            () -> new WorktableBlock(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL)
+                    .strength(2.0F).noOcclusion().requiresCorrectToolForDrops(), () -> {
+                return CAFBlockEntities.WORKTABLE_ENTITY.get();
+            }), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
 
     public static final RegistryObject<Block> FERMENTATION_BARREL = registryFermentationBarrel("fermentation_barrel",
             () -> new FermentationBarrelBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2.0F)

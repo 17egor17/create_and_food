@@ -21,6 +21,7 @@ public enum CAFGuiTextures implements ScreenElement {
     STEEL_INVENTORY_RIGHT("steel_inventory", 0, 112, 170, 105),
     JEI_FRAGILE("widgets", 48, 49, 13, 23)
     ;
+
     public final ResourceLocation location;
     public final int width, height;
     public final int startX, startY;

@@ -6,6 +6,7 @@ import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import net.egorplaytv.caf.CreateAndFood;
 import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.block.entity.custom.*;
+import net.egorplaytv.caf.block.entity.custom.worktable.WorktableBlockEntity;
 import net.egorplaytv.caf.block.entity.renderer.*;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderInstance;
 import net.egorplaytv.caf.energy.block.entity.EnergyConvertorBlockEntity;
@@ -34,6 +35,11 @@ public class CAFBlockEntities {
             BLOCK_ENTITIES.register("tablet_entity", () ->
                     BlockEntityType.Builder.of(TerminalBlockEntity::new,
                             CAFBlocks.TERMINAL.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<WorktableBlockEntity>> WORKTABLE_ENTITY =
+            BLOCK_ENTITIES.register("worktable_entity", () ->
+                    BlockEntityType.Builder.of(WorktableBlockEntity::new,
+                            CAFBlocks.WORKTABLE.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<ModSignBlockEntity>> SIGN_BLOCK_ENTITIES =
             BLOCK_ENTITIES.register("sign_block_entity", () ->

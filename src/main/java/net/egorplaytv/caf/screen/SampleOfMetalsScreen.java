@@ -19,8 +19,11 @@ public class SampleOfMetalsScreen extends AbstractContainerScreen<SampleOfMetals
     private static final ResourceLocation TEXTURE =
             new ResourceLocation(MOD_ID, "textures/gui/sample_of_metals.png");
 
+    protected final Component playerInventoryTitle;
+
     public SampleOfMetalsScreen(SampleOfMetalsMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
+        this.playerInventoryTitle = pPlayerInventory.getDisplayName();
     }
 
     @Override
@@ -45,7 +48,7 @@ public class SampleOfMetalsScreen extends AbstractContainerScreen<SampleOfMetals
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
         this.font.draw(poseStack, CAFBlocks.TERMINAL.get().getName(), 38, 9, 0xFFffffff);
-        this.font.draw(poseStack, new TranslatableComponent("ui.inventory"), 165, 134, 0xFF808080);
+        this.font.draw(poseStack, playerInventoryTitle, 165, 134, 0xFF808080);
         if (menu.isItem()) {
             this.font.draw(poseStack, menu.blockEntity.getItemName(), 38, 21, 0xFF808080);
             Item item = menu.blockEntity.itemHandler.getStackInSlot(0).getItem();

@@ -5,6 +5,7 @@ import net.egorplaytv.caf.block.custom.berry.PumpkinAndMelonBlock;
 import net.egorplaytv.caf.block.custom.lanterns.LanternBlock;
 import net.egorplaytv.caf.block.praperties.LanternAttachType;
 import net.egorplaytv.caf.block.praperties.TerraceAttachType;
+import net.egorplaytv.caf.block.praperties.WorktableType;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -205,6 +206,7 @@ public class CAFBlockStateProvider extends BlockStateProvider {
         rotatingBlock(KITCHEN_TABLE.get(), "block/kitchen");
         rotatingBlock(KITCHEN_TABLE_INNER.get(), "block/kitchen");
         rotatingBlock(KITCHEN_TABLE_OUTER.get(), "block/kitchen");
+        worktableBlock(WORKTABLE.get(), "custom/block/worktable", "worktable");
         customBlock(FERMENTATION_BARREL.get(), "block/item");
         rotatingBlock(SCALES.get(), "block/kitchen_scales", "block");
         rotatingBlock(OAK_CUTTING_BOARD.get(), "block/cutting_board");
@@ -308,6 +310,89 @@ public class CAFBlockStateProvider extends BlockStateProvider {
 
     public void rotatingBlock(Block block, String pathModel){
         rotatingBlock(block, pathModel, block.getRegistryName().getPath());
+    }
+
+    public void worktableBlock(Block block, String pathModel, String modelName){
+        getVariantBuilder(block).forAllStates(state -> {
+            WorktableType type = state.getValue(net.egorplaytv.caf.block.praperties.BlockStateProperties.WORKTABLE_TYPE);
+            Direction direction = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+            if (type.equals(WorktableType.SINGLE)){
+                if (direction.equals(Direction.NORTH)){
+                    return ConfiguredModel.builder()
+                            .modelFile(models().withExistingParent(block.getRegistryName().getPath(),
+                                    new ResourceLocation(MOD_ID, pathModel + "/" + modelName)))
+                            .build();
+                } else if (direction.equals(Direction.EAST)){
+                    return ConfiguredModel.builder()
+                            .modelFile(models().withExistingParent(block.getRegistryName().getPath(),
+                                    new ResourceLocation(MOD_ID, pathModel + "/" + modelName)))
+                            .rotationY(90)
+                            .build();
+                } else if (direction.equals(Direction.SOUTH)){
+                    return ConfiguredModel.builder()
+                            .modelFile(models().withExistingParent(block.getRegistryName().getPath(),
+                                    new ResourceLocation(MOD_ID, pathModel + "/" + modelName)))
+                            .rotationY(180)
+                            .build();
+                } else {
+                    return ConfiguredModel.builder()
+                            .modelFile(models().withExistingParent(block.getRegistryName().getPath(),
+                                    new ResourceLocation(MOD_ID, pathModel + "/" + modelName)))
+                            .rotationY(270)
+                            .build();
+                }
+            } else if (type.equals(WorktableType.LEFT)) {
+                if (direction.equals(Direction.NORTH)){
+                    return ConfiguredModel.builder()
+                            .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_left",
+                                    new ResourceLocation(MOD_ID, pathModel + "/" + modelName + "_left")))
+                            .build();
+                } else if (direction.equals(Direction.EAST)){
+                    return ConfiguredModel.builder()
+                            .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_left",
+                                    new ResourceLocation(MOD_ID, pathModel + "/" + modelName + "_left")))
+                            .rotationY(90)
+                            .build();
+                } else if (direction.equals(Direction.SOUTH)){
+                    return ConfiguredModel.builder()
+                            .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_left",
+                                    new ResourceLocation(MOD_ID, pathModel + "/" + modelName + "_left")))
+                            .rotationY(180)
+                            .build();
+                } else {
+                    return ConfiguredModel.builder()
+                            .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_left",
+                                    new ResourceLocation(MOD_ID, pathModel + "/" + modelName + "_left")))
+                            .rotationY(270)
+                            .build();
+                }
+            } else {
+                if (direction.equals(Direction.NORTH)){
+                    return ConfiguredModel.builder()
+                            .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_right",
+                                    new ResourceLocation(MOD_ID, pathModel + "/" + modelName + "_right")))
+                            .build();
+                } else if (direction.equals(Direction.EAST)){
+                    return ConfiguredModel.builder()
+                            .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_right",
+                                    new ResourceLocation(MOD_ID, pathModel + "/" + modelName + "_right")))
+                            .rotationY(90)
+                            .build();
+                } else if (direction.equals(Direction.SOUTH)){
+                    return ConfiguredModel.builder()
+                            .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_right",
+                                    new ResourceLocation(MOD_ID, pathModel + "/" + modelName + "_right")))
+                            .rotationY(180)
+                            .build();
+                } else {
+                    return ConfiguredModel.builder()
+                            .modelFile(models().withExistingParent(block.getRegistryName().getPath() + "_right",
+                                    new ResourceLocation(MOD_ID, pathModel + "/" + modelName + "_right")))
+                            .rotationY(270)
+                            .build();
+                }
+            }
+        });
     }
 
     public void nixieVaseBlock(Block block, String pathModel, String closeModelName, String openModelName, String outside, String inside, String particle){
