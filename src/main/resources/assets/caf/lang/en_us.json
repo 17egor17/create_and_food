@@ -771,10 +771,10 @@
   "color.caf.white": "§8Color: §fWhite§r",
   "color.caf.yellow": "§8Color: §eYellow§r",
 
-  "ui.inventory": "Inventory",
   "ui.marble_furnace.degC": "%s°C",
   "ui.marble_furnace.degF": "%s°F",
   "ui.marble_furnace.degK": "%s K",
+  "ui.worktableDouble": "Large Worktable",
 
   "_comment": "_______________________________Ponder_______________________________",
   "caf.ponder.blast_furnace.header": "Black Marble Blast Furnace",

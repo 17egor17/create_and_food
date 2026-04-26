@@ -771,10 +771,10 @@
   "color.caf.white": "§8Цвет: §fБелый§r",
   "color.caf.yellow": "§8Цвет: §eЖелтый§r",
 
-  "ui.inventory": "Инвентарь",
   "ui.marble_furnace.degC": "%s°C",
   "ui.marble_furnace.degF": "%s°F",
   "ui.marble_furnace.degK": "%s K",
+  "ui.worktableDouble": "Большой производственный стол",
 
   "_comment": "_______________________________Ponder_______________________________",
   "caf.ponder.blast_furnace.header": "Плавильней из черного мрамора",

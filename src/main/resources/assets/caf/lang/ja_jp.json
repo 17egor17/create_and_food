@@ -771,10 +771,10 @@
   "color.caf.white": "§8カラー: §fホワイト§r",
   "color.caf.yellow": "§8カラー: §eイエロー§r",
 
-  "ui.inventory": "インベントリ",
   "ui.marble_furnace.degC": "%s°C",
   "ui.marble_furnace.degF": "%s°F",
   "ui.marble_furnace.degK": "%s K",
+  "ui.worktableDouble": "Large Worktable",
 
   "_comment": "_______________________________Ponder_______________________________",
   "caf.ponder.blast_furnace.header": "溶鉱炉黒い大理石",
