@@ -26,6 +26,8 @@ import net.egorplaytv.caf.block.custom.connect.*;
 import net.egorplaytv.caf.block.custom.lanterns.LanternBlock;
 import net.egorplaytv.caf.block.entity.CAFWoodTypes;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderGenerator;
+import net.egorplaytv.caf.energy.block.EnergyConvertorBlock;
+import net.egorplaytv.caf.energy.block.WireBlock;
 import net.egorplaytv.caf.item.CAFCreativeModeTab;
 import net.egorplaytv.caf.item.CAFItems;
 import net.egorplaytv.caf.item.custom.CAFCogwheelBlockItem;
@@ -38,6 +40,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.BlockGetter;
@@ -49,6 +52,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -70,7 +74,7 @@ public class CAFBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, CreateAndFood.MOD_ID);
 
-//________________________Create and Food: Decorative________________________\\
+    //________________________Create and Food: Decorative________________________\\
     public static final RegistryObject<Block> TORN_SOUL_CHAIN = registryBlockWithoutBlockItem("torn_soul_chain",
             () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN).noOcclusion().requiresCorrectToolForDrops()));
     public static final RegistryObject<Block> STEEL_CHAIN = registryBlockWithoutBlockItem("steel_chain",
@@ -197,6 +201,11 @@ public class CAFBlocks {
 
 
     public static BlockEntry<GrinderBlock> MECHANICAL_GRINDER;
+
+
+    public static BlockEntry<EnergyConvertorBlock> ENERGY_CONVERTOR;
+    public static BlockEntry<WireBlock> WIRE_BLOCK;
+
 
     public static BlockEntry<CasingBlock> ALLOY_SOULS_CASING;
     public static BlockEntry<ConnectedGlassBlock> ALLOY_SOULS_GLASS;
@@ -334,11 +343,11 @@ public class CAFBlocks {
                     .requiresCorrectToolForDrops()), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
     public static final RegistryObject<Block> RAW_RUBY_BLOCK = registryBlock("raw_ruby_block",
-            () -> new Block(BlockBehaviour.Properties.of(Material.AMETHYST).sound(SoundType.AMETHYST).strength(5.0F,6.0F)
+            () -> new Block(BlockBehaviour.Properties.of(Material.AMETHYST).sound(SoundType.AMETHYST).strength(5.0F, 6.0F)
                     .requiresCorrectToolForDrops()), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
     public static final RegistryObject<Block> RUBY_BLOCK = registryBlock("ruby_block",
-            () -> new Block(BlockBehaviour.Properties.of(Material.AMETHYST).sound(SoundType.AMETHYST).strength(5.0F,6.0F)
+            () -> new Block(BlockBehaviour.Properties.of(Material.AMETHYST).sound(SoundType.AMETHYST).strength(5.0F, 6.0F)
                     .requiresCorrectToolForDrops()), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
     public static final RegistryObject<Block> STONE_TANTALUM_ORE = registryBlock("stone_tantalum_ore",
@@ -375,8 +384,6 @@ public class CAFBlocks {
                     .requiresCorrectToolForDrops()), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
 
-
-
     public static final RegistryObject<Block> FARMLAND_SUMP_SAND = registryBlock("farmland_sump_sand",
             () -> new SumpBlock(BlockBehaviour.Properties.of(Material.SAND).sound(SoundType.SAND).noOcclusion().strength(0.6F)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
@@ -391,13 +398,13 @@ public class CAFBlocks {
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
     public static final RegistryObject<Block> FERTILIZED_SAND = registryBlock("fertilized_sand",
-            () -> new SandFertilized(14406560 ,BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.SAND)
+            () -> new SandFertilized(14406560, BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.SAND)
                     .strength(0.6F)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
     public static final RegistryObject<Block> SAND_FARMLAND = registryBlock("sand_farmland",
             () -> new SandFarmBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND).sound(SoundType.SAND).strength(0.6F)
                     .isViewBlocking(CAFBlocks::always).isSuffocating(CAFBlocks::always)), CreativeModeTab.TAB_SEARCH);
     public static final RegistryObject<Block> FERTILIZED_RED_SAND = registryBlock("fertilized_red_sand",
-            () -> new RedSandFertilized(11098145 ,BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.SAND)
+            () -> new RedSandFertilized(11098145, BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.SAND)
                     .strength(0.6F)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
     public static final RegistryObject<Block> RED_SAND_FARMLAND = registryBlock("red_sand_farmland",
             () -> new RedSandFarmBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND).sound(SoundType.SAND).strength(0.6F)
@@ -486,11 +493,6 @@ public class CAFBlocks {
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
 
-
-
-
-
-
     //________________________Create and Food: Kitchen________________________\\
     public static final RegistryObject<Block> KITCHEN_TABLE = registryBlock("kitchen_table",
             () -> new KitchenTable(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noOcclusion()
@@ -540,15 +542,6 @@ public class CAFBlocks {
             CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
 
 
-
-
-
-
-
-
-
-
-
 //________________________Create and Food: CTM________________________\\
 
     static {
@@ -567,121 +560,200 @@ public class CAFBlocks {
     }
 
     static {
-    REGISTRATE.creativeModeTab(() -> CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+        REGISTRATE.creativeModeTab(() -> CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+
+        ENERGY_CONVERTOR = REGISTRATE.block("energy_convertor", EnergyConvertorBlock::new)
+                .initialProperties(Material.STONE)
+                .properties(p -> p.strength(2.0F, 6.0F).noOcclusion())
+                .transform(BlockStressDefaults.setImpact(2.0))
+                .transform(axeOrPickaxe())
+                .blockstate((c, p) ->
+                        p.getVariantBuilder(c.get()).forAllStates(state -> {
+                            Direction facing = state.getValue(EnergyConvertorBlock.HORIZONTAL_FACING);
+                            if (facing == Direction.EAST) {
+                                return ConfiguredModel.builder()
+                                        .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath(),
+                                                new ResourceLocation(CreateAndFood.MOD_ID, "block/energy_convertor/block")))
+                                        .rotationY(270)
+                                        .build();
+                            } else if (facing == Direction.SOUTH) {
+                                return ConfiguredModel.builder()
+                                        .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath(),
+                                                new ResourceLocation(CreateAndFood.MOD_ID, "block/energy_convertor/block")))
+                                        .build();
+                            } else if (facing == Direction.WEST) {
+                                return ConfiguredModel.builder()
+                                        .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath(),
+                                                new ResourceLocation(CreateAndFood.MOD_ID, "block/energy_convertor/block")))
+                                        .rotationY(90)
+                                        .build();
+                            } else {
+                                return ConfiguredModel.builder()
+                                        .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath(),
+                                                new ResourceLocation(CreateAndFood.MOD_ID, "block/energy_convertor/block")))
+                                        .rotationY(180)
+                                        .build();
+                            }
+                        }))
+                .item()
+                .transform(customItemModel())
+                .register();
+
+        WIRE_BLOCK = REGISTRATE.block("wire_block", WireBlock::new)
+                .initialProperties(Material.WOOL)
+                .properties(p -> p.strength(2.0F, 6.0F).noOcclusion())
+                .transform(axeOrPickaxe())
+                .blockstate((c, p) ->
+                        p.getMultipartBuilder(c.get())
+                                .part()
+                                .addModel()
+                                .end()
+
+                                .part()
+                                .addModel()
+                                .condition(WireBlock.NORTH, true)
+                                .end()
+
+                                .part()
+                                .addModel()
+                                .condition(WireBlock.EAST, true)
+                                .end()
+
+                                .part()
+                                .addModel()
+                                .condition(WireBlock.SOUTH, true)
+                                .end()
+
+                                .part()
+                                .addModel()
+                                .condition(WireBlock.WEST, true)
+                                .end()
+
+                                .part()
+                                .addModel()
+                                .condition(WireBlock.UP, true)
+                                .end()
+
+                                .part()
+                                .addModel()
+                                .condition(WireBlock.DOWN, true)
+                                .end())
+                .item()
+                .transform(customItemModel())
+                .register();
+
+        STEEL_SHAFT = REGISTRATE.block("steel_shaft", CAFShaftBlock::new)
+                .initialProperties(SharedProperties::stone)
+                .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
+                .transform(BlockStressDefaults.setNoImpact())
+                .transform(pickaxeOnly())
+                .blockstate(BlockStateGen.axisBlockProvider(false))
+                .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
+                .simpleItem()
+                .register();
+
+        STEEL_COGWHEEL = REGISTRATE.block("steel_cogwheel", CAFCogWheelBlock::small)
+                .initialProperties(SharedProperties::stone)
+                .properties(p -> p.sound(SoundType.METAL).color(MaterialColor.TERRACOTTA_GRAY))
+                .transform(BlockStressDefaults.setNoImpact())
+                .transform(pickaxeOnly())
+                .blockstate(BlockStateGen.axisBlockProvider(false))
+                .transform(BlockStressDefaults.setImpact(1.5))
+                .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
+                .item(CAFCogwheelBlockItem::new)
+                .build()
+                .register();
+
+        LARGE_STEEL_COGWHEEL = REGISTRATE.block("large_steel_cogwheel", CAFCogWheelBlock::large)
+                .initialProperties(SharedProperties::stone)
+                .properties(p -> p.sound(SoundType.METAL).color(MaterialColor.TERRACOTTA_GRAY))
+                .transform(pickaxeOnly())
+                .transform(BlockStressDefaults.setNoImpact())
+                .blockstate(BlockStateGen.axisBlockProvider(false))
+                .transform(BlockStressDefaults.setImpact(3.0))
+                .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
+                .item(CAFCogwheelBlockItem::new)
+                .build()
+                .register();
 
 
-    STEEL_SHAFT = REGISTRATE.block("steel_shaft", CAFShaftBlock::new)
-            .initialProperties(SharedProperties::stone)
-            .properties(p -> p.color(MaterialColor.TERRACOTTA_GRAY))
-            .transform(BlockStressDefaults.setNoImpact())
-            .transform(pickaxeOnly())
-            .blockstate(BlockStateGen.axisBlockProvider(false))
-            .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
-            .simpleItem()
-            .register();
+        ALLOY_SOULS_CASING = REGISTRATE.block("alloy_souls_casing", CasingBlock::new)
+                .properties(p -> p.color(MaterialColor.PODZOL))
+                .transform(BuilderTransformers.casing(() -> SpriteShifts.ALLOY_SOULS_CASING))
+                .properties(p -> p.lightLevel($ -> 10))
+                .register();
 
-    STEEL_COGWHEEL = REGISTRATE.block("steel_cogwheel", CAFCogWheelBlock::small)
-            .initialProperties(SharedProperties::stone)
-            .properties(p -> p.sound(SoundType.METAL).color(MaterialColor.TERRACOTTA_GRAY))
-            .transform(BlockStressDefaults.setNoImpact())
-            .transform(pickaxeOnly())
-            .blockstate(BlockStateGen.axisBlockProvider(false))
-            .transform(BlockStressDefaults.setImpact(1.5))
-            .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
-            .item(CAFCogwheelBlockItem::new)
-            .build()
-            .register();
+        STEEL_BLOCK = REGISTRATE.block("steel_block", CasingBlock::new)
+                .properties(p -> p.color(MaterialColor.METAL))
+                .transform(BuilderTransformers.casing(() -> SpriteShifts.STEEL_BLOCK))
+                .properties(p -> p.sound(SoundType.METAL))
+                .register();
 
-    LARGE_STEEL_COGWHEEL = REGISTRATE.block("large_steel_cogwheel", CAFCogWheelBlock::large)
-            .initialProperties(SharedProperties::stone)
-            .properties(p -> p.sound(SoundType.METAL).color(MaterialColor.TERRACOTTA_GRAY))
-            .transform(pickaxeOnly())
-            .transform(BlockStressDefaults.setNoImpact())
-            .blockstate(BlockStateGen.axisBlockProvider(false))
-            .transform(BlockStressDefaults.setImpact(3.0))
-            .onRegister(CreateRegistrate.blockModel(() -> BracketedKineticBlockModel::new))
-            .item(CAFCogwheelBlockItem::new)
-            .build()
-            .register();
+        STEEL_CASING = REGISTRATE.block("steel_casing", CasingBlock::new)
+                .properties(p -> p.color(MaterialColor.PODZOL))
+                .transform(BuilderTransformers.casing(() -> SpriteShifts.STEEL_CASING))
+                .properties(p -> p.sound(SoundType.WOOD))
+                .register();
 
+        STEEL_DOOR = REGISTRATE.block("steel_door", p -> new SlidingDoorBlock(p, true))
+                .transform(BuilderTransformers.slidingDoor("steel"))
+                .properties(p -> p.color(MaterialColor.METAL)
+                        .sound(SoundType.METAL)
+                        .noOcclusion()
+                ).register();
 
-    ALLOY_SOULS_CASING = REGISTRATE.block("alloy_souls_casing", CasingBlock::new)
-            .properties(p -> p.color(MaterialColor.PODZOL))
-            .transform(BuilderTransformers.casing(() -> SpriteShifts.ALLOY_SOULS_CASING))
-            .properties(p -> p.lightLevel($ -> 10))
-            .register();
+        STEEL_SCAFFOLD = REGISTRATE.block("steel_scaffolding", MetalScaffoldingBlock::new)
+                .transform(BuilderTransformers.steelScaffold("steel",
+                        () -> DataIngredient.tag(AllTags.forgeItemTag("ingots/steel")), MaterialColor.TERRACOTTA_YELLOW,
+                        SpriteShifts.STEEL_SCAFFOLD, SpriteShifts.STEEL_SCAFFOLD_INSIDE, SpriteShifts.STEEL_CASING))
+                .register();
 
-    STEEL_BLOCK = REGISTRATE.block("steel_block", CasingBlock::new)
-            .properties(p -> p.color(MaterialColor.METAL))
-            .transform(BuilderTransformers.casing(() -> SpriteShifts.STEEL_BLOCK))
-            .properties(p -> p.sound(SoundType.METAL))
-            .register();
+        GOLDEN_WALL = goldenWall("golden_wall",
+                () -> new HorizontalCTBehaviour(SpriteShifts.GOLDEN_WALL, SpriteShifts.GOLDEN_WALL_TOP));
 
-    STEEL_CASING = REGISTRATE.block("steel_casing", CasingBlock::new)
-            .properties(p -> p.color(MaterialColor.PODZOL))
-            .transform(BuilderTransformers.casing(() -> SpriteShifts.STEEL_CASING))
-            .properties(p -> p.sound(SoundType.WOOD))
-            .register();
+        ALMOND_GLASS = almondGlass("almond_glass",
+                () -> new SimpleCTBehaviour(SpriteShifts.ALMOND_GLASS));
 
-    STEEL_DOOR = REGISTRATE.block("steel_door", p -> new SlidingDoorBlock(p, true))
-            .transform(BuilderTransformers.slidingDoor("steel"))
-            .properties(p -> p.color(MaterialColor.METAL)
-                    .sound(SoundType.METAL)
-                    .noOcclusion()
-            ).register();
+        ALLOY_SOULS_GLASS = alloySoulsGlass("alloy_souls_glass",
+                () -> new SimpleCTBehaviour(SpriteShifts.ALLOY_SOULS_GLASS));
 
-    STEEL_SCAFFOLD = REGISTRATE.block("steel_scaffolding", MetalScaffoldingBlock::new)
-            .transform(BuilderTransformers.steelScaffold("steel",
-                    () -> DataIngredient.tag(AllTags.forgeItemTag("ingots/steel")), MaterialColor.TERRACOTTA_YELLOW,
-                    SpriteShifts.STEEL_SCAFFOLD, SpriteShifts.STEEL_SCAFFOLD_INSIDE, SpriteShifts.STEEL_CASING))
-            .register();
+        SECURE_BLOCK = (REGISTRATE.block("secure_block", CasingBlock::new)
+                .properties(p -> p.color(MaterialColor.METAL))
+                .transform(BuilderTransformers.casing(() -> SpriteShifts.SECURE_BLOCK))
+                .properties(p -> p.sound(SoundType.METAL)))
+                .register();
 
-    GOLDEN_WALL = goldenWall("golden_wall",
-            () -> new HorizontalCTBehaviour(SpriteShifts.GOLDEN_WALL, SpriteShifts.GOLDEN_WALL_TOP));
+        STONE_WALKWAY = (REGISTRATE.block("stone_walkway", CTFramedWall::new)
+                .properties(p -> p.color(MaterialColor.METAL))
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.STONE_WALKWAY))
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.DEEPSLATE_WALKWAY)))
+                .register();
 
-    ALMOND_GLASS = almondGlass("almond_glass",
-            () -> new SimpleCTBehaviour(SpriteShifts.ALMOND_GLASS));
+        DEEPSLATE_WALKWAY = (REGISTRATE.block("deepslate_walkway", CTFramedWall::new)
+                .properties(p -> p.color(MaterialColor.METAL))
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.DEEPSLATE_WALKWAY))
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.STONE_WALKWAY))
+                .properties(p -> p.sound(SoundType.DEEPSLATE)))
+                .register();
 
-    ALLOY_SOULS_GLASS = alloySoulsGlass("alloy_souls_glass",
-            () -> new SimpleCTBehaviour(SpriteShifts.ALLOY_SOULS_GLASS));
+        SANDSTONE_WALKWAY = (REGISTRATE.block("sandstone_walkway", CTFramedWall::new)
+                .properties(p -> p.color(MaterialColor.METAL))
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.SANDSTONE_WALKWAY))
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.RED_SANDSTONE_WALKWAY)))
+                .register();
 
-    SECURE_BLOCK = (REGISTRATE.block("secure_block", CasingBlock::new)
-            .properties(p -> p.color(MaterialColor.METAL))
-            .transform(BuilderTransformers.casing(() -> SpriteShifts.SECURE_BLOCK))
-            .properties(p -> p.sound(SoundType.METAL)))
-            .register();
-
-    STONE_WALKWAY = (REGISTRATE.block("stone_walkway", CTFramedWall::new)
-            .properties(p -> p.color(MaterialColor.METAL))
-            .transform(BuilderTransformers.walkway(() -> SpriteShifts.STONE_WALKWAY))
-            .transform(BuilderTransformers.walkway(() -> SpriteShifts.DEEPSLATE_WALKWAY)))
-            .register();
-
-    DEEPSLATE_WALKWAY = (REGISTRATE.block("deepslate_walkway", CTFramedWall::new)
-            .properties(p -> p.color(MaterialColor.METAL))
-            .transform(BuilderTransformers.walkway(() -> SpriteShifts.DEEPSLATE_WALKWAY))
-            .transform(BuilderTransformers.walkway(() -> SpriteShifts.STONE_WALKWAY))
-            .properties(p -> p.sound(SoundType.DEEPSLATE)))
-            .register();
-
-    SANDSTONE_WALKWAY = (REGISTRATE.block("sandstone_walkway", CTFramedWall::new)
-            .properties(p -> p.color(MaterialColor.METAL))
-            .transform(BuilderTransformers.walkway(() -> SpriteShifts.SANDSTONE_WALKWAY))
-            .transform(BuilderTransformers.walkway(() -> SpriteShifts.RED_SANDSTONE_WALKWAY)))
-            .register();
-
-    RED_SANDSTONE_WALKWAY = (REGISTRATE.block("red_sandstone_walkway", CTFramedWall::new)
-            .properties(p -> p.color(MaterialColor.METAL))
-            .transform(BuilderTransformers.walkway(() -> SpriteShifts.RED_SANDSTONE_WALKWAY))
-            .transform(BuilderTransformers.walkway(() -> SpriteShifts.SANDSTONE_WALKWAY)))
-            .register();
+        RED_SANDSTONE_WALKWAY = (REGISTRATE.block("red_sandstone_walkway", CTFramedWall::new)
+                .properties(p -> p.color(MaterialColor.METAL))
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.RED_SANDSTONE_WALKWAY))
+                .transform(BuilderTransformers.walkway(() -> SpriteShifts.SANDSTONE_WALKWAY)))
+                .register();
 
 
-    new framedWall(REGISTRATE);
-    new framedWallBrick(REGISTRATE);
-    new framedWallGolden(REGISTRATE);
-    new framedWallSmallBrick(REGISTRATE);
-    PaletteStoneTypes.register(REGISTRATE);
+        new framedWall(REGISTRATE);
+        new framedWallBrick(REGISTRATE);
+        new framedWallGolden(REGISTRATE);
+        new framedWallSmallBrick(REGISTRATE);
+        PaletteStoneTypes.register(REGISTRATE);
     }
 
 
@@ -735,8 +807,6 @@ public class CAFBlocks {
     }
 
 
-
-
 //________________________Add________________________\\
 
     private static boolean never(BlockState p_50806_, BlockGetter p_50807_, BlockPos p_50808_) {
@@ -750,15 +820,17 @@ public class CAFBlocks {
     private static LeavesBlock leaves(MaterialColor color) {
         return new LeavesBlock(BlockBehaviour.Properties.of(Material.LEAVES, color).strength(0.2F).randomTicks()
                 .sound(SoundType.GRASS).noOcclusion().isValidSpawn(CAFBlocks::ocelotOrParrot)
-                .isSuffocating(CAFBlocks::never).isViewBlocking(CAFBlocks::never)){
+                .isSuffocating(CAFBlocks::never).isViewBlocking(CAFBlocks::never)) {
             @Override
             public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
                 return true;
             }
+
             @Override
-            public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face){
+            public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
                 return 60;
             }
+
             @Override
             public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
                 return 30;
@@ -766,17 +838,19 @@ public class CAFBlocks {
         };
     }
 
-    private static Block planks(MaterialColor color){
+    private static Block planks(MaterialColor color) {
         return new Block(BlockBehaviour.Properties.of(Material.WOOD, color)
                 .strength(2.0F, 3.0F).sound(SoundType.WOOD)) {
             @Override
             public boolean isFlammable(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
                 return true;
             }
+
             @Override
-            public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face){
+            public int getFlammability(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
                 return 20;
             }
+
             @Override
             public int getFireSpreadSpeed(BlockState state, BlockGetter world, BlockPos pos, Direction face) {
                 return 5;
@@ -787,14 +861,16 @@ public class CAFBlocks {
     private static <T extends Block> RegistryObject<T> registryBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);
     }
+
     private static <T extends Block> RegistryObject<T> registryBlockWithoutBlockItemDesc(String name, Supplier<T> block, String Desc_ID) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockWithoutBlockItemDesc(name, toReturn, Desc_ID);
         return toReturn;
     }
+
     private static <T extends Block> RegistryObject<BlockItem> registerBlockWithoutBlockItemDesc(String name, RegistryObject<T> block, String Id) {
         return CAFItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties()){
+                new Item.Properties()) {
             @Override
             public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
                 if (Screen.hasShiftDown()) {
@@ -813,25 +889,28 @@ public class CAFBlocks {
         registerFermentationBarrelItem(name, toReturn, tab);
         return toReturn;
     }
+
     private static <T extends Block> RegistryObject<Item> registerFermentationBarrelItem(String name, RegistryObject<T> block,
-                                                                                CreativeModeTab tab) {
+                                                                                         CreativeModeTab tab) {
         return CAFItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().tab(tab)){
+                new Item.Properties().tab(tab)) {
             @Override
             public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-                    pTooltip.add(new TranslatableComponent("tooltip.caf." + name +".seconds"));
-                    pTooltip.add(new TranslatableComponent("tooltip.caf." + name +".minutes"));
-                    pTooltip.add(new TranslatableComponent("tooltip.caf." + name +".days"));
+                pTooltip.add(new TranslatableComponent("tooltip.caf." + name + ".seconds"));
+                pTooltip.add(new TranslatableComponent("tooltip.caf." + name + ".minutes"));
+                pTooltip.add(new TranslatableComponent("tooltip.caf." + name + ".days"));
             }
         });
     }
+
     private static <T extends Block> RegistryObject<T> registryBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn, tab);
         return toReturn;
     }
-    private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block,
-                                                                           CreativeModeTab tab) {
+
+    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block,
+                                                                            CreativeModeTab tab) {
         return CAFItems.ITEMS.register(name, () -> new BlockItem(block.get(),
                 new Item.Properties().tab(tab)));
     }
@@ -841,21 +920,24 @@ public class CAFBlocks {
         registerMeltBlockItem(name, degrees, toReturn, tab);
         return toReturn;
     }
-    private static <T extends Block>RegistryObject<Item> registerMeltBlockItem(String name, int degrees, RegistryObject<T> block,
-                                                                           CreativeModeTab tab) {
+
+    private static <T extends Block> RegistryObject<Item> registerMeltBlockItem(String name, int degrees, RegistryObject<T> block,
+                                                                                CreativeModeTab tab) {
         return CAFItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().tab(tab)){
+                new Item.Properties().tab(tab)) {
             @Override
             public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
-                pTooltip.add(new TranslatableComponent("tooltip.caf.degrees",degrees));
+                pTooltip.add(new TranslatableComponent("tooltip.caf.degrees", degrees));
             }
         });
     }
+
     private static ToIntFunction<BlockState> litBlockEmission(int pLightValue) {
         return (p_50763_) -> {
             return p_50763_.getValue(BlockStateProperties.LIT) ? pLightValue : 0;
         };
     }
+
     private static boolean always(BlockState p_50775_, BlockGetter p_50776_, BlockPos p_50777_) {
         return true;
     }

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "caf:block/energy_convertor",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "caf:block/energy_convertor"
+    },
+    "facing=west": {
+      "model": "caf:block/energy_convertor",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "caf:block/energy_convertor",
+      "y": 270
+    }
+  }
+}

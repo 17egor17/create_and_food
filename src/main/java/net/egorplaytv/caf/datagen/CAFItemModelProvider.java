@@ -281,24 +281,24 @@ public class CAFItemModelProvider extends ItemModelProvider {
         blockItem(COBBLED_MARBLE_BLACK_GALAXY.get(), "marbles");
         blockItem(COBBLED_MARBLE_PERLIN_PINK.get(), "marbles");
         blockItem(FIRECLAY_BRICKS.get(), "item", "fireclay_bricks_0");
-        blockItemModel(ACACIA_TERRACE.get(), "terrace_block");
-        blockItemModel(ACACIA_TERRACE_STAIRS.get(), ACACIA_TERRACE.get(), "terrace_stairs_west");
-        blockItemModel(ALMOND_TERRACE.get(), "terrace_block");
-        blockItemModel(ALMOND_TERRACE_STAIRS.get(), ALMOND_TERRACE.get(), "terrace_stairs_west");
-        blockItemModel(BIRCH_TERRACE.get(), "terrace_block");
-        blockItemModel(BIRCH_TERRACE_STAIRS.get(), BIRCH_TERRACE.get(), "terrace_stairs_west");
-        blockItemModel(CRIMSON_TERRACE.get(), "terrace_block");
-        blockItemModel(CRIMSON_TERRACE_STAIRS.get(), CRIMSON_TERRACE.get(), "terrace_stairs_west");
-        blockItemModel(DARK_OAK_TERRACE.get(), "terrace_block");
-        blockItemModel(DARK_OAK_TERRACE_STAIRS.get(), DARK_OAK_TERRACE.get(),"terrace_stairs_west");
-        blockItemModel(JUNGLE_TERRACE.get(), "terrace_block");
-        blockItemModel(JUNGLE_TERRACE_STAIRS.get(), JUNGLE_TERRACE.get(), "terrace_stairs_west");
-        blockItemModel(OAK_TERRACE.get(), "terrace_block");
-        blockItemModel(OAK_TERRACE_STAIRS.get(), OAK_TERRACE.get(), "terrace_stairs_west");
-        blockItemModel(SPRUCE_TERRACE.get(), "terrace_block");
-        blockItemModel(SPRUCE_TERRACE_STAIRS.get(), SPRUCE_TERRACE.get(), "terrace_stairs_west");
-        blockItemModel(WARPED_TERRACE.get(), "terrace_block");
-        blockItemModel(WARPED_TERRACE_STAIRS.get(), WARPED_TERRACE.get(), "terrace_stairs_west");
+        terraceItemModel(ACACIA_TERRACE.get(), "terrace_block");
+        terraceItemModel(ACACIA_TERRACE_STAIRS.get(), ACACIA_TERRACE.get(), "terrace_stairs_west");
+        terraceItemModel(ALMOND_TERRACE.get(), "terrace_block");
+        terraceItemModel(ALMOND_TERRACE_STAIRS.get(), ALMOND_TERRACE.get(), "terrace_stairs_west");
+        terraceItemModel(BIRCH_TERRACE.get(), "terrace_block");
+        terraceItemModel(BIRCH_TERRACE_STAIRS.get(), BIRCH_TERRACE.get(), "terrace_stairs_west");
+        terraceItemModel(CRIMSON_TERRACE.get(), "terrace_block");
+        terraceItemModel(CRIMSON_TERRACE_STAIRS.get(), CRIMSON_TERRACE.get(), "terrace_stairs_west");
+        terraceItemModel(DARK_OAK_TERRACE.get(), "terrace_block");
+        terraceItemModel(DARK_OAK_TERRACE_STAIRS.get(), DARK_OAK_TERRACE.get(),"terrace_stairs_west");
+        terraceItemModel(JUNGLE_TERRACE.get(), "terrace_block");
+        terraceItemModel(JUNGLE_TERRACE_STAIRS.get(), JUNGLE_TERRACE.get(), "terrace_stairs_west");
+        terraceItemModel(OAK_TERRACE.get(), "terrace_block");
+        terraceItemModel(OAK_TERRACE_STAIRS.get(), OAK_TERRACE.get(), "terrace_stairs_west");
+        terraceItemModel(SPRUCE_TERRACE.get(), "terrace_block");
+        terraceItemModel(SPRUCE_TERRACE_STAIRS.get(), SPRUCE_TERRACE.get(), "terrace_stairs_west");
+        terraceItemModel(WARPED_TERRACE.get(), "terrace_block");
+        terraceItemModel(WARPED_TERRACE_STAIRS.get(), WARPED_TERRACE.get(), "terrace_stairs_west");
         blockItem(FRAMED_CALCITE.get(), "wall");
         blockItem(STEEL_LAMP_BLOCK.get(), "lamps", "steel_ruby_lamp_block_off");
         blockItem(RUBY_ORE.get(), "item");
@@ -907,15 +907,15 @@ public class CAFItemModelProvider extends ItemModelProvider {
         }
     }
 
-    private ItemModelBuilder blockItemModel(Block block, Block terrace, String modelName) {
+    private ItemModelBuilder terraceItemModel(Block block, Block terrace, String modelName) {
         return withExistingParent(block.getRegistryName().getPath(),
                 new ResourceLocation(MOD_ID, "custom/block/terrace/" + modelName))
                 .texture("terrace", new ResourceLocation(MOD_ID, "block/" + terrace.getRegistryName().getPath()));
 
     }
 
-    private ItemModelBuilder blockItemModel(Block block, String modelName){
-        return blockItemModel(block, block, modelName);
+    private ItemModelBuilder terraceItemModel(Block block, String modelName){
+        return terraceItemModel(block, block, modelName);
     }
 
     private ItemModelBuilder blockItem(Block block, String path){

@@ -2,9 +2,12 @@ package net.egorplaytv.caf.screen;
 
 import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.block.entity.custom.MarbleBlastFurnaceBlockEntity;
-import net.egorplaytv.caf.config.CreateAndFoodCommonConfigs;
+import net.egorplaytv.caf.config.CAFConfigs;
 import net.egorplaytv.caf.config.DegreeUnits;
+import net.egorplaytv.caf.data.SimpleContainerDegData;
+import net.egorplaytv.caf.recipe.MarbleFurnaceRecipe;
 import net.egorplaytv.caf.screen.slot.CAFFurnaceResultSlot;
+import net.egorplaytv.caf.data.ContainerDegData;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.player.Inventory;
@@ -17,18 +20,20 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
     public MarbleBlastFurnaceBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
+    private final float deg;
     public final ItemStackHandler inventory;
 
     public MarbleBlastFurnaceMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, getTileEntity(inv, extraData), new SimpleContainerData(4));
+        this(pContainerId, inv, getTileEntity(inv, extraData), new SimpleContainerData(3), 0F);
     }
 
-    public MarbleBlastFurnaceMenu(int pContainerId, Inventory inv, MarbleBlastFurnaceBlockEntity entity, ContainerData data) {
+    public MarbleBlastFurnaceMenu(int pContainerId, Inventory inv, MarbleBlastFurnaceBlockEntity entity, ContainerData data, float deg) {
         super(CAFMenuTypes.BLASTING_MENU.get(), pContainerId);
 //    // DON'T FORGET TO CHANGE THE NUMBER\/
 //        checkContainerSize(inv, 5);
@@ -36,6 +41,7 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
         inventory = entity.getItemHandler();
         level = inv.player.level;
         this.data = data;
+        this.deg = deg;
 
         this.addSlot(new SlotItemHandler(this.inventory, 0, 26,86));
         this.addSlot(new SlotItemHandler(this.inventory, 1, 16,28));
@@ -67,7 +73,8 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
         return data.get(2) > 0;
     }
     public boolean isDeg() {
-        return data.get(3) > 0;
+        System.out.println(deg);
+        return deg > 0;
     }
 
     public MarbleBlastFurnaceBlockEntity getBlockEntity() {
@@ -92,9 +99,9 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
     public TranslatableComponent getDegreeProgress() {
         int progress_degC = this.data.get(2);
 
-        if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_CELSIUS){
+        if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS){
             return new TranslatableComponent("ui.marble_furnace.degC", progress_degC);
-        } else if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_FAHRENHEIT){
+        } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_FAHRENHEIT){
             float progress_degF = progress_degC*1.8F+32;
             return new TranslatableComponent("ui.marble_furnace.degF", progress_degF);
         } else {
@@ -103,11 +110,11 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
         }
     }
     public TranslatableComponent getDegProgress() {
-        int degC = this.data.get(3);
+        float degC = this.deg;
 
-        if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_CELSIUS){
+        if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS){
             return new TranslatableComponent("ui.marble_furnace.degC", degC);
-        } else if (CreateAndFoodCommonConfigs.getUnits() == DegreeUnits.DEGREES_FAHRENHEIT){
+        } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_FAHRENHEIT){
             float degF = degC*1.8F+32;
             return new TranslatableComponent("ui.marble_furnace.degF", degF);
         } else {

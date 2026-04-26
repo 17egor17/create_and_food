@@ -2,8 +2,8 @@ package net.egorplaytv.caf.datagen;
 
 import com.google.common.collect.ImmutableList;
 import com.mojang.datafixers.util.Pair;
-import net.egorplaytv.caf.datagen.loot.ModBlockLootTables;
-import net.egorplaytv.caf.datagen.loot.ModChestLootTables;
+import net.egorplaytv.caf.datagen.loot.CAFBlockLootTables;
+import net.egorplaytv.caf.datagen.loot.CAFChestLootTables;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -21,8 +21,8 @@ import java.util.function.Supplier;
 
 public class CAFLootTableProvider extends LootTableProvider {
     private final List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>>
-            loot_tables = ImmutableList.of(Pair.of(ModBlockLootTables::new, LootContextParamSets.BLOCK),
-            Pair.of(ModChestLootTables::new, LootContextParamSets.CHEST));
+            loot_tables = ImmutableList.of(Pair.of(CAFBlockLootTables::new, LootContextParamSets.BLOCK),
+            Pair.of(CAFChestLootTables::new, LootContextParamSets.CHEST));
 
     public CAFLootTableProvider(DataGenerator pGenerator) {
         super(pGenerator);

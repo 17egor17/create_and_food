@@ -1,5 +1,7 @@
 package net.egorplaytv.caf.item.custom;
 
+import net.egorplaytv.caf.config.CAFConfigs;
+import net.egorplaytv.caf.config.DegreeUnits;
 import net.egorplaytv.caf.damage.CAFDamageSource;
 import net.egorplaytv.caf.datagen.custom.ModItemModelsProperties;
 import net.egorplaytv.caf.item.custom.interfaces.IMetalItem;
@@ -15,13 +17,10 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.GameType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
@@ -30,7 +29,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class MetalItem extends Item implements IMetalItem {
-    private final int meltingPoint;
+    private final float meltingPoint;
     private int tick;
     protected int heatingSpeed;
     protected Metals metalType;
@@ -38,7 +37,7 @@ public class MetalItem extends Item implements IMetalItem {
     public static final String TAG_DEGREE = "deg";
     public static final String TAG_PREVENT_MAGNET = "PreventRemoteMovement";
 
-    public MetalItem(int meltingPoint, MetalItem.Type type, Metals metalType, Properties pProperties) {
+    public MetalItem(float meltingPoint, MetalItem.Type type, Metals metalType, Properties pProperties) {
         super(pProperties);
         this.meltingPoint = meltingPoint;
         switch (type) {
@@ -56,9 +55,27 @@ public class MetalItem extends Item implements IMetalItem {
             pTooltip.add(TextUtils.getToolTipTranslation("doesnt_despawn"));
             if (metal.metalType == Metals.URANIUM)
                 pTooltip.add(TextUtils.getToolTipTranslation("ingot.radiation"));
-            pTooltip.add(TextUtils.getToolTipTranslation("degrees", meltingPoint));
+            if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS){
+                pTooltip.add(TextUtils.getToolTipTranslation("degreesC", meltingPoint));
+            } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_FAHRENHEIT){
+                float degF = meltingPoint*1.8F+32;
+                pTooltip.add(TextUtils.getToolTipTranslation("degreesF", degF));
+            } else {
+                float degK = meltingPoint+273.15F;
+                pTooltip.add(TextUtils.getToolTipTranslation("degreesK", degK));
+            }
             if (metal.getDeg(pStack) >= 24) {
-                pTooltip.add(TextUtils.getToolTipTranslation("ingot.degrees", metal.getDeg(pStack)));
+                float degC = metal.getDeg(pStack);
+
+                if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS){
+                    pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesC", degC));
+                } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_FAHRENHEIT){
+                    float degF = degC*1.8F+32;
+                    pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesF", degF));
+                } else {
+                    float degK = degC+273.15F;
+                    pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesK", degK));
+                }
             } else {
                 metal.setDeg(pStack, 24);
             }
@@ -108,12 +125,18 @@ public class MetalItem extends Item implements IMetalItem {
         }
 
         if (pStack.getItem() instanceof MetalItem metal) {
-            int deg = metal.getDeg(pStack);
+            float deg = metal.getDeg(pStack);
 
             ++tick;
             if (tick >= 200) {
-                if (deg > 24) {
-                    --deg;
+                if (deg > 30) {
+                    deg -= 1.11F;
+                    tick = 0;
+                } else if (deg > 25) {
+                    deg -= 0.1F;
+                    tick = 0;
+                } else if (deg > 24) {
+                    deg -= 0.01F;
                     tick = 0;
                 }
             }
@@ -140,7 +163,7 @@ public class MetalItem extends Item implements IMetalItem {
         return entity;
     }
 
-    public int getMeltingPoint() {
+    public float getMeltingPoint() {
         return meltingPoint;
     }
 
@@ -148,37 +171,38 @@ public class MetalItem extends Item implements IMetalItem {
         return heatingSpeed;
     }
 
-    public int getDeg(ItemStack is) {
+    public float getDeg(ItemStack is) {
         CompoundTag tag = is.getTag();
-        return tag != null ? tag.getInt(TAG_DEGREE) : 0;
+        return tag != null ? (Math.round(tag.getFloat(TAG_DEGREE) * 100) / 100F) : 0;
     }
 
-    public void setDeg(ItemStack is, int degree) {
-        is.getOrCreateTag().putInt(TAG_DEGREE, degree);
+    public void setDeg(ItemStack is, float degree) {
+        is.getOrCreateTag().putFloat(TAG_DEGREE, degree);
     }
 
     @Override
     public boolean isBarVisible(ItemStack pStack) {
         MetalItem ingot = (MetalItem) pStack.getItem();
-        if (ingot.getDeg(pStack) <= 24){
-            return false;
-        } else {
-            return true;
-        }
+        return ingot.getDeg(pStack) > 24;
     }
 
     @Override
     public int getBarWidth(ItemStack pStack) {
         MetalItem ingot = (MetalItem) pStack.getItem();
         float meltingPoint = ingot.getMeltingPoint();
-        return Math.round(ingot.getDeg(pStack) * 13.0F / meltingPoint);
+        float deg = ingot.getDeg(pStack);
+        if (deg > meltingPoint) {
+            return Math.round(meltingPoint * 13.0F / meltingPoint);
+        } else {
+            return Math.round(deg * 13.0F / meltingPoint);
+        }
     }
 
     @Override
     public int getBarColor(ItemStack pStack) {
         MetalItem ingot = (MetalItem) pStack.getItem();
         float meltingPoint = ingot.getMeltingPoint();
-        float f = Math.max(0.0F, (meltingPoint - (float)ingot.getDeg(pStack)) / meltingPoint);
+        float f = Math.max(0.0F, (meltingPoint - ingot.getDeg(pStack)) / meltingPoint);
         return Mth.hsvToRgb(f / 3.0F, 1.0F, 1.0F);
     }
 

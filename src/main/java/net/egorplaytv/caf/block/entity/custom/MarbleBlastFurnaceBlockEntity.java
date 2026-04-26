@@ -6,12 +6,13 @@ import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.egorplaytv.caf.block.custom.MarbleBlastFurnaceBlock;
 import net.egorplaytv.caf.block.entity.CAFBlockEntities;
-import net.egorplaytv.caf.config.CreateAndFoodCommonConfigs;
+import net.egorplaytv.caf.config.CAFConfigs;
 import net.egorplaytv.caf.entity.WrappedHandler;
 import net.egorplaytv.caf.item.custom.MetalItem;
 import net.egorplaytv.caf.recipe.MarbleFurnaceRecipe;
 import net.egorplaytv.caf.screen.MarbleBlastFurnaceMenu;
 import net.egorplaytv.caf.util.CAFTags;
+import net.egorplaytv.caf.data.ContainerDegData;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.core.*;
@@ -99,15 +100,11 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     private int progress_tick = 0;
     private int progress = 0;
     private int i = 0;
-    private int deg;
+    private float deg;
     private int time;
     private boolean isCreativeDeg = false;
     private final Object2IntOpenHashMap<ResourceLocation> experience;
     public static Map<Item, Integer> FUELS = Maps.newLinkedHashMap();
-
-    public int getDeg() {
-        return progress_deg;
-    }
 
     public static Map<Item, Integer> getFuel(){
         int i = 1000;
@@ -224,8 +221,6 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                         return MarbleBlastFurnaceBlockEntity.this.time;
                     case 2:
                         return MarbleBlastFurnaceBlockEntity.this.progress_deg;
-                    case 3:
-                        return MarbleBlastFurnaceBlockEntity.this.deg;
                     default:
                         return 0;
                 }
@@ -242,14 +237,11 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                     case 2:
                         MarbleBlastFurnaceBlockEntity.this.progress_deg = value;
                         break;
-                    case 3:
-                        MarbleBlastFurnaceBlockEntity.this.deg = value;
-                        break;
                 }
             }
 
             public int getCount() {
-                return 4;
+                return 3;
             }
         };
     }
@@ -263,7 +255,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return new MarbleBlastFurnaceMenu(pContainerId, pInventory, this, this.data);
+        return new MarbleBlastFurnaceMenu(pContainerId, pInventory, this, this.data, getDeg());
     }
 
     @NotNull
@@ -311,7 +303,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         tag.putInt("marble_furnace.progress", progress);
         tag.putInt("marble_furnace.time", time);
         tag.putInt("marble_furnace.progress_deg", progress_deg);
-        tag.putInt("marble_furnace.deg", deg);
+        tag.putFloat("marble_furnace.deg", deg);
 
         CompoundTag compoundRecipes = new CompoundTag();
         this.experience.forEach((recipeId, craftedAmount) -> {
@@ -328,7 +320,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         progress = tag.getInt("marble_furnace.progress");
         time = tag.getInt("marble_furnace.time");
         progress_deg = tag.getInt("marble_furnace.progress_deg");
-        deg = tag.getInt("marble_furnace.deg");
+        deg = tag.getFloat("marble_furnace.deg");
         itemHandler.deserializeNBT(tag.getCompound("inventory"));
 
         CompoundTag compoundRecipes = tag.getCompound("RecipesUsed");
@@ -359,7 +351,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         }
 
         if (hasRecipe(pBlockEntity, pLevel)) {
-            pBlockEntity.deg = recipe.map(MarbleFurnaceRecipe::getDeg).orElse(100);
+            pBlockEntity.deg = recipe.map(MarbleFurnaceRecipe::getDeg).orElse(100F);
             pBlockEntity.time = recipe.map(MarbleFurnaceRecipe::getTime).orElse(300);
         } else {
             pBlockEntity.resetDeg();
@@ -422,7 +414,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
 
         if (!pBlockEntity.isCreativeDeg) {
             if (hasTemperature(pBlockEntity)) {
-                int tick = CreateAndFoodCommonConfigs.SPEED_ATTENUATION_FURNACE.get() * 20;
+                int tick = CAFConfigs.common().gameSettings.speedAttenuationBlastFurnace.get() * 20;
                 pBlockEntity.progress_tick++;
                 if (pBlockEntity.progress_tick >= tick) {
                     pBlockEntity.progress_deg--;
@@ -980,6 +972,11 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     private void resetTemperature(){
         this.progress_deg = 0;
     }
+
+    public float getDeg() {
+        return this.deg;
+    }
+
     private void resetDeg() {
         this.deg = 0;
     }
@@ -992,7 +989,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     private static boolean hasTemperatureZero(MarbleBlastFurnaceBlockEntity pBlockEntity) {
         return pBlockEntity.progress_deg <= 0;
     }
-    private static boolean hasDegree(MarbleBlastFurnaceBlockEntity pBlockEntity, int deg) {
+    private static boolean hasDegree(MarbleBlastFurnaceBlockEntity pBlockEntity, float deg) {
         return pBlockEntity.progress_deg >= deg;
     }
     private static boolean hasFuel(MarbleBlastFurnaceBlockEntity pBlockEntity) {
