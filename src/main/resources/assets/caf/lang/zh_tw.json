@@ -766,10 +766,10 @@
   "color.caf.white": "§8顏色: §f白色§r",
   "color.caf.yellow": "§8Color: §e黃色§r",
 
-  "ui.inventory": "物品欄",
   "ui.marble_furnace.degC": "%s°C",
   "ui.marble_furnace.degF": "%s°F",
   "ui.marble_furnace.degK": "%s K",
+  "ui.worktableDouble": "Large Worktable",
 
   "_comment": "_______________________________Ponder_______________________________",
   "caf.ponder.blast_furnace.header": "黑色大理石高爐",

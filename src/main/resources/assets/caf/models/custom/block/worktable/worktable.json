@@ -67,9 +67,9 @@
 			}
 		},
 		{
-			"from": [0, 16, 16],
-			"to": [16, 18, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, 16, 15]},
+			"from": [0, 16, 15.925],
+			"to": [16, 18, 15.925],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 16, 14.925]},
 			"faces": {
 				"north": {"uv": [0, 0, 8, 1], "texture": "#wt"},
 				"south": {"uv": [8, 15, 16, 16], "texture": "#wt"}

@@ -766,10 +766,10 @@
   "color.caf.white": "§8색상: §f하얀색§r",
   "color.caf.yellow": "§8색상: §e노란색§r",
 
-  "ui.inventory": "보관함",
   "ui.marble_furnace.degC": "%s°C",
   "ui.marble_furnace.degF": "%s°F",
   "ui.marble_furnace.degK": "%s K",
+  "ui.worktableDouble": "Large Worktable",
 
   "_comment": "_______________________________Ponder_______________________________",
   "caf.ponder.blast_furnace.header": "검은색 대리석 난로",

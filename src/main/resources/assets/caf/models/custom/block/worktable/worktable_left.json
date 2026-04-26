@@ -31,9 +31,9 @@
 			}
 		},
 		{
-			"from": [0, 16, 16],
-			"to": [16, 18, 16],
-			"rotation": {"angle": 0, "axis": "y", "origin": [0, 16, 15]},
+			"from": [0, 16, 15.925],
+			"to": [16, 18, 15.925],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 16, 14.925]},
 			"faces": {
 				"north": {"uv": [0, 1, 8, 2], "texture": "#wtc"},
 				"south": {"uv": [0, 4, 8, 5], "texture": "#wtc"}
