@@ -319,6 +319,20 @@
   "block.caf.black_saman_warped_shingle": "黒サマンと歪んだで作られた屋根瓦",
   "block.caf.black_saman_ridge_shingle": "黒サマンで作られた屋根瓦の棟",
 
+  "block.caf.blue_saman_acacia_shingle": "青サマンとアカシアで作られた屋根瓦",
+  "block.caf.blue_saman_almond_shingle": "青サマンとアーモンドで作られた屋根瓦",
+  "block.caf.blue_saman_birch_shingle": "青サマンとシラカバで作られた屋根瓦",
+  "block.caf.blue_saman_bricks_shingle": "青サマンとレンガで作られた屋根瓦",
+  "block.caf.blue_saman_crimson_shingle": "青サマンと真紅で作られた屋根瓦",
+  "block.caf.blue_saman_cobblestone_shingle": "青サマンと丸石で作られた屋根瓦",
+  "block.caf.blue_saman_dark_oak_shingle": "青サマンとダークオークで作られた屋根瓦",
+  "block.caf.blue_saman_jungle_shingle": "青サマンとジャングルで作られた屋根瓦",
+  "block.caf.blue_saman_oak_shingle": "青サマンとオークで作られた屋根瓦",
+  "block.caf.blue_saman_spruce_shingle": "青サマンとトウヒで作られた屋根瓦",
+  "block.caf.blue_saman_stone_shingle": "青サマンと石で作られた屋根瓦",
+  "block.caf.blue_saman_warped_shingle": "青サマンと歪んだで作られた屋根瓦",
+  "block.caf.blue_saman_ridge_shingle": "青サマンで作られた屋根瓦の棟",
+
   "block.caf.sand_farmland": "砂の耕地",
   "block.caf.sandstone_walkway": "砂岩でできた道",
   "block.caf.scales": "体重計",
@@ -416,6 +430,7 @@
   "block.caf.wild_purple_grape_bush": "野生の紫いブドウの茂木",
   "block.caf.wild_raspberry_bush": "野生のラズベリーの茂木",
   "block.caf.wild_red_grape_bush": "野生の赤いブドウの茂木",
+  "block.caf.worktable": "生産用テーブル",
   "block.caf.yellow_baked_clay": "黄色サマン",
   "block.caf.yellow_baked_clay_pillar": "黄色サマンの柱",
 
@@ -774,7 +789,7 @@
   "ui.marble_furnace.degC": "%s°C",
   "ui.marble_furnace.degF": "%s°F",
   "ui.marble_furnace.degK": "%s K",
-  "ui.worktableDouble": "Large Worktable",
+  "ui.worktableDouble": "大きな生産用テーブル",
 
   "_comment": "_______________________________Ponder_______________________________",
   "caf.ponder.blast_furnace.header": "溶鉱炉黒い大理石",

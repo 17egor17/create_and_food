@@ -318,6 +318,20 @@
   "block.caf.black_saman_warped_shingle": "검은색 사만과 뒤틀린로 만든 기와",
   "block.caf.black_saman_ridge_shingle": "검은색 사만로 만든 기와 능선",
 
+  "block.caf.blue_saman_acacia_shingle": "파란색 사만과 아카시아로 만든 기와",
+  "block.caf.blue_saman_almond_shingle": "파란색 사만과 아몬드나무로 만든 기와",
+  "block.caf.blue_saman_birch_shingle": "파란색 사만과 자작나무로 만든 기와",
+  "block.caf.blue_saman_bricks_shingle": "파란색 사만과 벽돌로 만든 기와",
+  "block.caf.blue_saman_crimson_shingle": "파란색 사만과 진홍빛로 만든 기와",
+  "block.caf.blue_saman_cobblestone_shingle": "파란색 사만과 조약돌로 만든 기와",
+  "block.caf.blue_saman_dark_oak_shingle": "파란색 사만과 짙은 참나무로 만든 기와",
+  "block.caf.blue_saman_jungle_shingle": "파란색 사만과 정글나무로 만든 기와",
+  "block.caf.blue_saman_oak_shingle": "파란색 사만과 참나무로 만든 기와",
+  "block.caf.blue_saman_spruce_shingle": "파란색 사만과 가문비나무로 만든 기와",
+  "block.caf.blue_saman_stone_shingle": "파란색 사만과 돌로 만든 기와",
+  "block.caf.blue_saman_warped_shingle": "파란색 사만과 뒤틀린로 만든 기와",
+  "block.caf.blue_saman_ridge_shingle": "파란색 사만로 만든 기와 능선",
+
   "block.caf.sand_farmland": "모래 농지",
   "block.caf.sandstone_walkway": "사암로 길",
   "block.caf.scales": "저울",
@@ -415,6 +429,7 @@
   "block.caf.wild_purple_grape_bush": "야생 보라색 포도 덤불",
   "block.caf.wild_raspberry_bush": "야생 라즈베리 덤불",
   "block.caf.wild_red_grape_bush": "야생 붉은 포도 덤불",
+  "block.caf.worktable": "생산 테이블",
   "block.caf.yellow_baked_clay": "노란색 사만",
   "block.caf.yellow_baked_clay_pillar": "노란색 사만 기둥",
 
@@ -769,7 +784,7 @@
   "ui.marble_furnace.degC": "%s°C",
   "ui.marble_furnace.degF": "%s°F",
   "ui.marble_furnace.degK": "%s K",
-  "ui.worktableDouble": "Large Worktable",
+  "ui.worktableDouble": "큰 생산 테이블",
 
   "_comment": "_______________________________Ponder_______________________________",
   "caf.ponder.blast_furnace.header": "검은색 대리석 난로",

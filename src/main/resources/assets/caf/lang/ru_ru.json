@@ -319,6 +319,20 @@
   "block.caf.black_saman_warped_shingle": "Черепица из черного самана и искаженного дерева",
   "block.caf.black_saman_ridge_shingle": "Черепичный конек из черного самана",
 
+  "block.caf.blue_saman_acacia_shingle": "Черепица из синего самана и акации",
+  "block.caf.blue_saman_almond_shingle": "Черепица из синего самана и миндаля",
+  "block.caf.blue_saman_birch_shingle": "Черепица из синего самана и берёзы",
+  "block.caf.blue_saman_bricks_shingle": "Черепица из синего самана и кирпича",
+  "block.caf.blue_saman_crimson_shingle": "Черепица из синего самана и багрового дерева",
+  "block.caf.blue_saman_cobblestone_shingle": "Черепица из синего самана и булыжника",
+  "block.caf.blue_saman_dark_oak_shingle": "Черепица из синего самана и темного дуба",
+  "block.caf.blue_saman_jungle_shingle": "Черепица из синего самана и тропического дерева",
+  "block.caf.blue_saman_oak_shingle": "Черепица из синего самана и дуба",
+  "block.caf.blue_saman_spruce_shingle": "Черепица из синего самана и ели",
+  "block.caf.blue_saman_stone_shingle": "Черепица из синего самана и камня",
+  "block.caf.blue_saman_warped_shingle": "Черепица из синего самана и искаженного дерева",
+  "block.caf.blue_saman_ridge_shingle": "Черепичный конек из синего самана",
+
   "block.caf.sand_farmland": "Песочная пашня",
   "block.caf.sandstone_walkway": "Дорожка из песчаника",
   "block.caf.scales": "Весы",
@@ -416,6 +430,7 @@
   "block.caf.wild_purple_grape_bush": "Дикий куст фиолетового винограда",
   "block.caf.wild_raspberry_bush": "Дикий куст малины",
   "block.caf.wild_red_grape_bush": "Дикий куст красного винограда",
+  "block.caf.worktable": "Производственный стол",
   "block.caf.yellow_baked_clay": "Желтый саман",
   "block.caf.yellow_baked_clay_pillar": "Колонна из желтого самана",
 
