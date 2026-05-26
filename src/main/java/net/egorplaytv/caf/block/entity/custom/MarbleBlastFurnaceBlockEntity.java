@@ -252,12 +252,6 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         return new TextComponent("");
     }
 
-    @Nullable
-    @Override
-    public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return new MarbleBlastFurnaceMenu(pContainerId, pInventory, this, this.data, getDeg());
-    }
-
     @NotNull
     @Override
     public <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @javax.annotation.Nullable Direction side) {
@@ -414,7 +408,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
 
         if (!pBlockEntity.isCreativeDeg) {
             if (hasTemperature(pBlockEntity)) {
-                int tick = CAFConfigs.common().gameSettings.speedAttenuationBlastFurnace.get() * 20;
+                int tick = (CAFConfigs.common().gameSettings.speedAttenuationBlastFurnace.get() * 20) / 2;
                 pBlockEntity.progress_tick++;
                 if (pBlockEntity.progress_tick >= tick) {
                     pBlockEntity.progress_deg--;
@@ -1019,5 +1013,11 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     }
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory, ItemStack resultItem) {
         return inventory.getItem(4).getMaxStackSize() >= inventory.getItem(4).getCount() + resultItem.getCount();
+    }
+
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
+        return new MarbleBlastFurnaceMenu(pContainerId, pInventory, this, this.data, getDeg());
     }
 }

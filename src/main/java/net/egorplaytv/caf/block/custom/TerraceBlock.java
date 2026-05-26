@@ -1,6 +1,6 @@
 package net.egorplaytv.caf.block.custom;
 
-import net.egorplaytv.caf.block.praperties.BlockStateProperties;
+import net.egorplaytv.caf.block.praperties.CAFBlockStateProperties;
 import net.egorplaytv.caf.block.praperties.TerraceAttachType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
 public class TerraceBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty WATERLOGGED =
             net.minecraft.world.level.block.state.properties.BlockStateProperties.WATERLOGGED;
-    public static final EnumProperty<TerraceAttachType> ATTACHMENT = BlockStateProperties.TERRACE_ATTACHMENT;
+    public static final EnumProperty<TerraceAttachType> ATTACHMENT = CAFBlockStateProperties.TERRACE_ATTACHMENT;
     public TerraceBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState(this.stateDefinition.any().setValue(ATTACHMENT, TerraceAttachType.SINGLE)

@@ -427,7 +427,7 @@ public class CAFBlocks {
     public static final RegistryObject<Block> NIXIE_VASE_BLACK_GALAXY = registryBlock("nixie_vase_black_galaxy",
             () -> new VaseBlock(BlockBehaviour.Properties.of(Material.GLASS).noCollission()),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-
+    
 
     public static final RegistryObject<Block> ALMOND_SAPLING = registryBlock("almond_sapling",
             () -> new SaplingBlock(new AlmondTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)),

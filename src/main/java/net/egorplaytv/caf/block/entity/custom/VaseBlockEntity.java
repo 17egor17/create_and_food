@@ -1,5 +1,6 @@
 package net.egorplaytv.caf.block.entity.custom;
 
+import com.simibubi.create.foundation.utility.animation.LerpedFloat;
 import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.entity.WrappedFluidHandler;
 import net.egorplaytv.caf.fluid.CAFFluids;
@@ -91,11 +92,17 @@ public class VaseBlockEntity extends BlockEntity {
     public void load(CompoundTag pTag) {
         super.load(pTag);
         isOpen = pTag.getBoolean("isOpen");
+
         FLUID_TANK.readFromNBT(pTag);
     }
 
     public static void tick(Level level, BlockPos blockPos, BlockState blockState, VaseBlockEntity entity) {
     }
+
+    public float getFillState() {
+        return (float) this.FLUID_TANK.getFluid().getAmount() / this.FLUID_TANK.getCapacity();
+    }
+
     public boolean getIsOpen() {
         return isOpen;
     }

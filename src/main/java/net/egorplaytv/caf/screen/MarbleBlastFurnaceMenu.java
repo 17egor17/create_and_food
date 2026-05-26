@@ -73,7 +73,6 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
         return data.get(2) > 0;
     }
     public boolean isDeg() {
-        System.out.println(deg);
         return deg > 0;
     }
 

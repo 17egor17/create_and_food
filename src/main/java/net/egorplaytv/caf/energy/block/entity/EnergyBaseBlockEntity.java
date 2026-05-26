@@ -1,6 +1,7 @@
 package net.egorplaytv.caf.energy.block.entity;
 
 import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
+import net.egorplaytv.caf.block.pattern.interfaces.IHaveGoggleInformation;
 import net.egorplaytv.caf.energy.EnergyPacket;
 import net.egorplaytv.caf.energy.EnergyStorage;
 import net.egorplaytv.caf.energy.energy_interface.EnergyCapability;
@@ -18,7 +19,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-public abstract class EnergyBaseBlockEntity extends KineticBlockEntity implements IEnergyStored {
+public abstract class EnergyBaseBlockEntity extends KineticBlockEntity implements IHaveGoggleInformation, IEnergyStored {
 
     protected final EnergyStorage energyStorage;
 

@@ -3,6 +3,7 @@ package net.egorplaytv.caf.datagen;
 import net.egorplaytv.caf.block.custom.*;
 import net.egorplaytv.caf.block.custom.berry.PumpkinAndMelonBlock;
 import net.egorplaytv.caf.block.custom.lanterns.LanternBlock;
+import net.egorplaytv.caf.block.praperties.CAFBlockStateProperties;
 import net.egorplaytv.caf.block.praperties.LanternAttachType;
 import net.egorplaytv.caf.block.praperties.TerraceAttachType;
 import net.egorplaytv.caf.block.praperties.WorktableType;
@@ -314,7 +315,7 @@ public class CAFBlockStateProvider extends BlockStateProvider {
 
     public void worktableBlock(Block block, String pathModel, String modelName){
         getVariantBuilder(block).forAllStates(state -> {
-            WorktableType type = state.getValue(net.egorplaytv.caf.block.praperties.BlockStateProperties.WORKTABLE_TYPE);
+            WorktableType type = state.getValue(CAFBlockStateProperties.WORKTABLE_TYPE);
             Direction direction = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
             if (type.equals(WorktableType.SINGLE)){
                 if (direction.equals(Direction.NORTH)){

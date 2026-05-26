@@ -3,7 +3,7 @@ Looking to contribute with a localization? You've almost come to the right place
 
 Localizations for Create And Food are now being kindly hosted on Crowdin.  
 If you want to help translate, please go to the following link:  
-https://crowdin.com/project/create-and-food
+https://crowdin.com/project/create-and-food/invite?h=bc3d4fc4a1a03c64e72736b2bc0462332758778
 All you need to do is create an account on the Crowdin site, and you should be good to go.
 
 

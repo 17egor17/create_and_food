@@ -1,17 +1,15 @@
 package net.egorplaytv.caf.block.custom.worktable;
 
 import net.egorplaytv.caf.block.entity.custom.worktable.WorktableBlockEntity;
+import net.egorplaytv.caf.block.praperties.CAFBlockStateProperties;
 import net.egorplaytv.caf.block.praperties.WorktableType;
 import net.egorplaytv.caf.screen.WorktableMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.animal.Cat;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -29,22 +27,18 @@ import net.minecraft.world.level.block.state.properties.*;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraftforge.network.NetworkHooks;
 
 import javax.annotation.Nullable;
-import java.util.List;
 import java.util.Optional;
 import java.util.function.BiPredicate;
 import java.util.function.Supplier;
 
 public class WorktableBlock extends AbstractWorktableBlock<WorktableBlockEntity> implements SimpleWaterloggedBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final EnumProperty<WorktableType> TYPE = net.egorplaytv.caf.block.praperties.BlockStateProperties.WORKTABLE_TYPE;
+    public static final EnumProperty<WorktableType> TYPE = CAFBlockStateProperties.WORKTABLE_TYPE;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
     private static final DoubleBlockCombiner.Combiner<WorktableBlockEntity, Optional<Container>> WORKTABLE_COMBINER = new DoubleBlockCombiner.Combiner<WorktableBlockEntity, Optional<Container>>() {

@@ -1,5 +1,6 @@
 package net.egorplaytv.caf.block.custom.shingles;
 
+import net.egorplaytv.caf.block.praperties.CAFBlockStateProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -20,7 +21,7 @@ import java.util.stream.IntStream;
 
 public class ShingleBlock extends Block implements SimpleWaterloggedBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final EnumProperty<ShingleShape> SHAPE = net.egorplaytv.caf.block.praperties.BlockStateProperties.SHINGLE_SHAPE;
+    public static final EnumProperty<ShingleShape> SHAPE = CAFBlockStateProperties.SHINGLE_SHAPE;
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     protected static final VoxelShape BOTTOM_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D);
     protected static final VoxelShape OCTET_NPN = Block.box(0.0D, 8.0D, 0.0D, 8.0D, 16.0D, 8.0D);

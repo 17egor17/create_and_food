@@ -6,6 +6,7 @@ import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import net.egorplaytv.caf.CreateAndFood;
 import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.block.entity.custom.*;
+import net.egorplaytv.caf.block.entity.custom.combi_steamer.CombiSteamerBlockEntity;
 import net.egorplaytv.caf.block.entity.custom.worktable.WorktableBlockEntity;
 import net.egorplaytv.caf.block.entity.renderer.*;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderInstance;
@@ -39,6 +40,11 @@ public class CAFBlockEntities {
     public static final RegistryObject<BlockEntityType<WorktableBlockEntity>> WORKTABLE_ENTITY =
             BLOCK_ENTITIES.register("worktable_entity", () ->
                     BlockEntityType.Builder.of(WorktableBlockEntity::new,
+                            CAFBlocks.WORKTABLE.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<CombiSteamerBlockEntity>> COMBI_STEAMER_ENTITY =
+            BLOCK_ENTITIES.register("combi_steamer_entity", () ->
+                    BlockEntityType.Builder.of(CombiSteamerBlockEntity::new,
                             CAFBlocks.WORKTABLE.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<ModSignBlockEntity>> SIGN_BLOCK_ENTITIES =
@@ -104,6 +110,7 @@ public class CAFBlockEntities {
                     BlockEntityType.Builder.of(VaseBlockEntity::new,
                             CAFBlocks.NIXIE_VASE.get(), CAFBlocks.NIXIE_VASE_PERLIN_PINK.get(),
                             CAFBlocks.NIXIE_VASE_BLACK_GALAXY.get()).build(null));
+
 
     public static final BlockEntityEntry<SlidingDoorBlockEntity> SLIDING_DOOR =
             CreateAndFood.REGISTRATE.blockEntity("sliding_door", SlidingDoorBlockEntity::new)

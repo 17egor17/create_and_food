@@ -2,6 +2,7 @@ package net.egorplaytv.caf.energy.block.entity;
 
 import com.simibubi.create.foundation.utility.LangBuilder;
 import net.egorplaytv.caf.energy.EnergyPacket;
+import net.egorplaytv.caf.energy.energy_interface.EnergyCapability;
 import net.egorplaytv.caf.util.Lang;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -70,52 +71,6 @@ public class WireBlockEntity extends EnergyBaseBlockEntity {
     @Override
     public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
         super.addToGoggleTooltip(tooltip, isPlayerSneaking);
-
-        int energyStored = this.energyStorage.getEnergyStored();
-        int maxEnergyStorage = this.energyStorage.getMaxEnergyStored();
-
-        LangBuilder caf = Lang.text("CAF");
-        LangBuilder kcaf = Lang.text("kCAF");
-
-        Lang.translate("gui.goggles.energy_stats")
-                .forGoggles(tooltip);
-
-        if (energyStored < 1000) {
-            if (maxEnergyStorage >= 1000) {
-                Lang.builder()
-                        .add(Lang.number(energyStored)
-                                .add(caf)
-                                .style(ChatFormatting.GOLD))
-                        .text(ChatFormatting.GRAY, " / ")
-                        .add(Lang.number((maxEnergyStorage / 1000F))
-                                .add(kcaf)
-                                .style(ChatFormatting.GRAY))
-                        .forGoggles(tooltip);
-            } else {
-                Lang.builder()
-                        .add(Lang.number(energyStored)
-                                .add(caf)
-                                .style(ChatFormatting.GOLD))
-                        .text(ChatFormatting.GRAY, " / ")
-                        .add(Lang.number(maxEnergyStorage)
-                                .add(caf)
-                                .style(ChatFormatting.GRAY))
-                        .forGoggles(tooltip);
-            }
-        } else {
-            if (maxEnergyStorage >= 1000) {
-                Lang.builder()
-                        .add(Lang.number((energyStored / 1000F))
-                                .add(kcaf)
-                                .style(ChatFormatting.GOLD))
-                        .text(ChatFormatting.GRAY, " / ")
-                        .add(Lang.number((maxEnergyStorage / 1000F))
-                                .add(kcaf)
-                                .style(ChatFormatting.GRAY))
-                        .forGoggles(tooltip);
-            }
-        }
-
-        return true;
+        return containedEnergyTooltip(tooltip, isPlayerSneaking, this.getCapability(EnergyCapability.ENERGY));
     }
 }
