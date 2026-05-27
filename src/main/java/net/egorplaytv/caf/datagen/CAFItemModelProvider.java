@@ -343,6 +343,9 @@ public class CAFItemModelProvider extends ItemModelProvider {
         blockItem(KITCHEN_TABLE_INNER.get(), "kitchen");
         blockItem(KITCHEN_TABLE_OUTER.get(), "kitchen");
         customBlockItem(WORKTABLE.get(), "block/worktable", "worktable");
+        simpleBlockItem(CS_CONTROLLER.get());
+        simpleBlockItem(CS_ENERGY_COMMUNICATION.get());
+        simpleBlockItem(CS_FLUID_COMMUNICATION.get());
         blockItem(FERMENTATION_BARREL.get(), "item");
         blockItem(SCALES.get(), "kitchen_scales", "item");
         blockItem(OAK_CUTTING_BOARD.get(), "cutting_board");
@@ -926,6 +929,16 @@ public class CAFItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder blockItem(Block block, String path){
         return withExistingParent(block.getRegistryName().getPath(),
                 new ResourceLocation(MOD_ID, "block/" + path + "/" + block.getRegistryName().getPath()));
+    }
+
+    private ItemModelBuilder simpleBlockItem(Block block) {
+        return simpleBlockItem(block, block.getRegistryName().getPath());
+    }
+
+    private ItemModelBuilder simpleBlockItem(Block block, String textureName) {
+        return withExistingParent(block.getRegistryName().getPath(),
+                new ResourceLocation("block/cube_all"))
+                .texture("all", new ResourceLocation(MOD_ID, "block/" + textureName));
     }
 
 }

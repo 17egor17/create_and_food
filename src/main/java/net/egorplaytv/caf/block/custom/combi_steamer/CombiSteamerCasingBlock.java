@@ -1,28 +1,35 @@
-package net.egorplaytv.caf.block.pattern;
+package net.egorplaytv.caf.block.custom.combi_steamer;
 
-import net.egorplaytv.caf.block.pattern.interfaces.ICombiSteamerBlock;
+import com.simibubi.create.content.decoration.encasing.CasingBlock;
+import net.egorplaytv.caf.block.pattern.CombiSteamerBaseBlock;
 import net.egorplaytv.caf.block.praperties.CAFBlockStateProperties;
+import net.egorplaytv.caf.block.praperties.CombiSteamerBaseBlockType;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.Random;
 
-public abstract class CombiSteamerBaseBlock extends BaseEntityBlock implements ICombiSteamerBlock {
+public class CombiSteamerCasingBlock extends CasingBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final EnumProperty<CombiSteamerBaseBlockType> TYPE = CAFBlockStateProperties.CSType;
     public static final BooleanProperty COMPLETED = CAFBlockStateProperties.COMPLETED;
+    public static boolean complete = false;
 
-    public CombiSteamerBaseBlock(Properties pProperties) {
-        super(pProperties);
+    public CombiSteamerCasingBlock(Properties properties) {
+        super(properties);
     }
 
     private static final VoxelShape SHAPE = box(0,0,0,16,16,16);
@@ -30,6 +37,11 @@ public abstract class CombiSteamerBaseBlock extends BaseEntityBlock implements I
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE;
+    }
+
+    @Override
+    public void tick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {
+        setComplete(pState.getValue(COMPLETED));
     }
 
     /* FACING */
@@ -47,29 +59,17 @@ public abstract class CombiSteamerBaseBlock extends BaseEntityBlock implements I
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
 
-    /* BLOCK ENTITY */
 
-    @Override
-    public RenderShape getRenderShape(BlockState pState) {
-        return RenderShape.MODEL;
+    public boolean getComplete() {
+        return complete;
     }
 
-    @Override
-    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, Random pRandom) {
-        super.animateTick(pState, pLevel, pPos, pRandom);
-    }
-
-
-    public boolean getComplete(BlockState state) {
-        return state.getValue(COMPLETED);
-    }
-
-    public void setCompleted(BlockState state, boolean value){
-        state.setValue(COMPLETED, Boolean.valueOf(value));
+    public void setComplete(boolean value) {
+        complete = value;
     }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING, COMPLETED);
+        pBuilder.add(FACING, COMPLETED, TYPE);
     }
 }

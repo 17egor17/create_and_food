@@ -51,6 +51,7 @@ public class SpriteShifts {
             ORANGE_FRAMED_WALL_GOLDEN = omniWall("orange_framed_wall_golden"),
             RED_FRAMED_WALL_GOLDEN = omniWall("red_framed_wall_golden"),
             SECURE_BLOCK = omniCasing("secure_block"),
+            CS_CASING = omniCasing("combi_steamer_casing"),
             STONE_WALKWAY = omniCasing("stone_walkway"),
             DEEPSLATE_WALKWAY = omniCasing("deepslate_walkway"),
             SANDSTONE_WALKWAY = omniCasing("sandstone_walkway"),

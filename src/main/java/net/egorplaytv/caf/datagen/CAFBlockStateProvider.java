@@ -208,6 +208,9 @@ public class CAFBlockStateProvider extends BlockStateProvider {
         rotatingBlock(KITCHEN_TABLE_INNER.get(), "block/kitchen");
         rotatingBlock(KITCHEN_TABLE_OUTER.get(), "block/kitchen");
         worktableBlock(WORKTABLE.get(), "custom/block/worktable", "worktable");
+        simpleBlock(CS_CONTROLLER.get());
+        simpleBlock(CS_ENERGY_COMMUNICATION.get());
+        simpleBlock(CS_FLUID_COMMUNICATION.get());
         customBlock(FERMENTATION_BARREL.get(), "block/item");
         rotatingBlock(SCALES.get(), "block/kitchen_scales", "block");
         rotatingBlock(OAK_CUTTING_BOARD.get(), "block/cutting_board");

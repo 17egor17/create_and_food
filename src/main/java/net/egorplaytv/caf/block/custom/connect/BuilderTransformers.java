@@ -19,7 +19,11 @@ import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
 import net.egorplaytv.caf.CreateAndFood;
+import net.egorplaytv.caf.block.custom.combi_steamer.CombiSteamerCasingBlock;
+import net.egorplaytv.caf.block.pattern.CombiSteamerBaseBlock;
+import net.egorplaytv.caf.block.praperties.CombiSteamerBaseBlockType;
 import net.egorplaytv.caf.data.CAFRegistrate;
+import net.egorplaytv.caf.energy.block.EnergyConvertorBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.core.Direction;
 import net.minecraft.data.loot.BlockLoot;
@@ -42,6 +46,7 @@ import static com.simibubi.create.AllInteractionBehaviours.interactionBehaviour;
 import static com.simibubi.create.AllMovementBehaviours.movementBehaviour;
 import static com.simibubi.create.foundation.data.BlockStateGen.axisBlock;
 import static com.simibubi.create.foundation.data.TagGen.*;
+import static net.egorplaytv.caf.CreateAndFood.MOD_ID;
 import static net.egorplaytv.caf.data.CAFRegistrate.*;
 
 public class BuilderTransformers {
@@ -51,6 +56,136 @@ public class BuilderTransformers {
                 .properties(p -> p.sound(SoundType.WOOD))
                 .transform(axeOrPickaxe())
                 .blockstate((c, p) -> p.simpleBlock(c.get()))
+                .onRegister(connectedTextures(() -> new EncasedCTBehaviour(ct.get())))
+                .onRegister(casingConnectivity((block, cc) -> cc.makeCasing(block, ct.get())))
+                .tag(AllTags.AllBlockTags.CASING.tag)
+                .item()
+                .tag(AllTags.AllItemTags.CASING.tag)
+                .build();
+    }
+
+    public static <B extends CasingBlock> NonNullUnaryOperator<BlockBuilder<B, CAFRegistrate>> cs_casing(
+            Supplier<CTSpriteShiftEntry> ct) {
+        return b -> b.initialProperties(SharedProperties::stone)
+                .properties(p -> p.sound(SoundType.WOOD))
+                .transform(axeOrPickaxe())
+                .blockstate((c, p) ->
+                        p.getVariantBuilder(c.get()).forAllStates(state -> {
+                            Direction facing = state.getValue(CombiSteamerCasingBlock.FACING);
+                            CombiSteamerBaseBlockType type = state.getValue(CombiSteamerCasingBlock.TYPE);
+                            boolean isCompleted = state.getValue(CombiSteamerCasingBlock.COMPLETED);
+                            if (type == CombiSteamerBaseBlockType.CS_B_L) {
+//                                if (isCompleted) {
+//                                    if (facing == Direction.NORTH) {
+//                                        return null;
+//                                    } else if (facing == Direction.SOUTH) {
+//                                        return null;
+//                                    } else if (facing == Direction.EAST) {
+//                                        return null;
+//                                    } else {
+//                                        return null;
+//                                    }
+//                                } else {
+//                                    return ConfiguredModel.builder()
+//                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+//                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+//                                            .build();
+//                                }
+                                return ConfiguredModel.builder()
+                                        .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+                                                new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+                                        .build();
+                            } else if (type == CombiSteamerBaseBlockType.CS_B_U) {
+//                                if (isCompleted) {
+//                                    if (facing == Direction.NORTH) {
+//                                        return null;
+//                                    } else if (facing == Direction.SOUTH) {
+//                                        return null;
+//                                    } else if (facing == Direction.EAST) {
+//                                        return null;
+//                                    } else {
+//                                        return null;
+//                                    }
+//                                } else {
+//                                    return ConfiguredModel.builder()
+//                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+//                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+//                                            .build();
+//                                }
+                                return ConfiguredModel.builder()
+                                        .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+                                                new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+                                        .build();
+                            } else if (type == CombiSteamerBaseBlockType.CS_U) {
+//                                if (isCompleted) {
+//                                    if (facing == Direction.NORTH) {
+//                                        return null;
+//                                    } else if (facing == Direction.SOUTH) {
+//                                        return null;
+//                                    } else if (facing == Direction.EAST) {
+//                                        return null;
+//                                    } else {
+//                                        return null;
+//                                    }
+//                                } else {
+//                                    return ConfiguredModel.builder()
+//                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+//                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+//                                            .build();
+//                                }
+                                return ConfiguredModel.builder()
+                                        .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+                                                new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+                                        .build();
+                            } else if (type == CombiSteamerBaseBlockType.CS_R_L) {
+//                                if (isCompleted) {
+//                                    if (facing == Direction.NORTH) {
+//                                        return null;
+//                                    } else if (facing == Direction.SOUTH) {
+//                                        return null;
+//                                    } else if (facing == Direction.EAST) {
+//                                        return null;
+//                                    } else {
+//                                        return null;
+//                                    }
+//                                } else {
+//                                    return ConfiguredModel.builder()
+//                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+//                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+//                                            .build();
+//                                }
+                                return ConfiguredModel.builder()
+                                        .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+                                                new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+                                        .build();
+                            } else if (type == CombiSteamerBaseBlockType.CS_R_U) {
+//                                if (isCompleted) {
+//                                    if (facing == Direction.NORTH) {
+//                                        return null;
+//                                    } else if (facing == Direction.SOUTH) {
+//                                        return null;
+//                                    } else if (facing == Direction.EAST) {
+//                                        return null;
+//                                    } else {
+//                                        return null;
+//                                    }
+//                                } else {
+//                                    return ConfiguredModel.builder()
+//                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+//                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+//                                            .build();
+//                                }
+                                return ConfiguredModel.builder()
+                                        .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+                                                new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+                                        .build();
+                            } else {
+                                return ConfiguredModel.builder()
+                                        .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+                                                new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+                                        .build();
+                            }
+                        }))
                 .onRegister(connectedTextures(() -> new EncasedCTBehaviour(ct.get())))
                 .onRegister(casingConnectivity((block, cc) -> cc.makeCasing(block, ct.get())))
                 .tag(AllTags.AllBlockTags.CASING.tag)

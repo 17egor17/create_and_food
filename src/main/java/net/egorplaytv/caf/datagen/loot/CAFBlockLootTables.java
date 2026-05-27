@@ -320,6 +320,9 @@ public class CAFBlockLootTables extends BlockLoot {
         this.dropSelf(KITCHEN_TABLE_INNER.get());
         this.dropSelf(KITCHEN_TABLE_OUTER.get());
         this.dropSelf(WORKTABLE.get());
+        this.dropSelf(CS_CONTROLLER.get());
+        this.dropSelf(CS_ENERGY_COMMUNICATION.get());
+        this.dropSelf(CS_FLUID_COMMUNICATION.get());
         this.dropSelf(FERMENTATION_BARREL.get());
         this.dropSelf(SCALES.get());
         this.dropSelf(OAK_CUTTING_BOARD.get());

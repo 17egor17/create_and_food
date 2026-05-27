@@ -28,16 +28,21 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class CombiSteamerBlockEntity extends BlockEntity implements IHaveGoggleInformation {
-    protected FluidTank fluidInventory;
+    protected FluidTank fluidInventory = new FluidTank(2000) {
+        @Override
+        protected void onContentsChanged() {
+            setChanged();
+        }
+    };
     protected LazyOptional<IFluidHandler> fluidCapability = LazyOptional.of(() -> fluidInventory);
-    protected ItemStackHandler inventory = new ItemStackHandler(0) {
+    protected ItemStackHandler inventory = new ItemStackHandler(10) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
         }
     };
     protected LazyOptional<IItemHandler> itemCapability = LazyOptional.of(() -> inventory);
-    protected EnergyStorage energyStorage = new EnergyStorage(0);
+    protected EnergyStorage energyStorage = new EnergyStorage(10000);
     protected LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(() -> energyStorage);
 
     protected BlockPos energyCommunication;
@@ -47,15 +52,6 @@ public class CombiSteamerBlockEntity extends BlockEntity implements IHaveGoggleI
 
     public CombiSteamerBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(CAFBlockEntities.COMBI_STEAMER_ENTITY.get(), pPos, pBlockState);
-    }
-
-    @Override
-    public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        CombiSteamerBlockEntity entity = (CombiSteamerBlockEntity) level.getBlockEntity(controller);
-        if (entity == null)
-            return false;
-        return containedFluidTooltip(tooltip, isPlayerSneaking, entity.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY))
-                && containedEnergyTooltip(tooltip, isPlayerSneaking, entity.getCapability(EnergyCapability.ENERGY));
     }
 
     public <T extends BlockEntity> void tick(Level pLevel, BlockState pState, BlockPos pPos, T pBlockEntity) {
@@ -70,6 +66,15 @@ public class CombiSteamerBlockEntity extends BlockEntity implements IHaveGoggleI
             if (iCombiSteamerBlock.isController())
                 controller = pPos;
         }
+    }
+
+    @Override
+    public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
+        CombiSteamerBlockEntity entity = (CombiSteamerBlockEntity) level.getBlockEntity(controller);
+        if (entity == null)
+            return false;
+        return containedFluidTooltip(tooltip, isPlayerSneaking, entity.getCapability(CapabilityFluidHandler.FLUID_HANDLER_CAPABILITY))
+                && containedEnergyTooltip(tooltip, isPlayerSneaking, entity.getCapability(EnergyCapability.ENERGY));
     }
 
     @Override
