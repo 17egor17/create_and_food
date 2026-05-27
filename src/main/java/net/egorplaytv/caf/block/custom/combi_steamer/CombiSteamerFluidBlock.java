@@ -30,7 +30,7 @@ public class CombiSteamerFluidBlock extends CombiSteamerBaseBlock implements ICo
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        if (getComplete())
+        if (getComplete(pState))
             return new CombiSteamerBlockEntity(pPos, pState);
         return null;
     }

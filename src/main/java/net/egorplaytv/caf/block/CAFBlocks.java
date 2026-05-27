@@ -20,6 +20,10 @@ import com.tterrag.registrate.util.DataIngredient;
 import com.tterrag.registrate.util.entry.BlockEntry;
 import net.egorplaytv.caf.CreateAndFood;
 import net.egorplaytv.caf.block.custom.*;
+import net.egorplaytv.caf.block.custom.combi_steamer.CombiSteamerCasingBlock;
+import net.egorplaytv.caf.block.custom.combi_steamer.CombiSteamerController;
+import net.egorplaytv.caf.block.custom.combi_steamer.CombiSteamerEnergyBlock;
+import net.egorplaytv.caf.block.custom.combi_steamer.CombiSteamerFluidBlock;
 import net.egorplaytv.caf.block.custom.lanterns.*;
 import net.egorplaytv.caf.block.custom.berry.*;
 import net.egorplaytv.caf.block.custom.connect.*;
@@ -512,6 +516,20 @@ public class CAFBlocks {
                 return CAFBlockEntities.WORKTABLE_ENTITY.get();
             }), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
 
+    public static final RegistryObject<CombiSteamerController> CS_CONTROLLER = registryBlock("combi_steamer_controller",
+            () -> new CombiSteamerController(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL)
+                    .strength(2.0F).requiresCorrectToolForDrops()), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
+
+    public static final RegistryObject<CombiSteamerEnergyBlock> CS_ENERGY_COMMUNICATION = registryBlock("combi_steamer_energy_communication",
+            () -> new CombiSteamerEnergyBlock(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL)
+                    .strength(2.0F).requiresCorrectToolForDrops()), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
+
+    public static final RegistryObject<CombiSteamerFluidBlock> CS_FLUID_COMMUNICATION = registryBlock("combi_steamer_fluid_communication",
+            () -> new CombiSteamerFluidBlock(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL)
+                    .strength(2.0F).requiresCorrectToolForDrops()), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
+
+    public static final BlockEntry<CombiSteamerCasingBlock> CS_CASING;
+
     public static final RegistryObject<Block> FERMENTATION_BARREL = registryFermentationBarrel("fermentation_barrel",
             () -> new FermentationBarrelBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2.0F)
                     .requiresCorrectToolForDrops().noOcclusion().sound(SoundType.COPPER)), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
@@ -805,6 +823,12 @@ public class CAFBlocks {
                 .transform(BlockStressDefaults.setImpact(4.0))
                 .item(AssemblyOperatorBlockItem::new)
                 .transform(customItemModel())
+                .register();
+
+        CS_CASING = (REGISTRATE.block("combi_steamer_casing", CombiSteamerCasingBlock::new)
+                .properties(p -> p.color(MaterialColor.METAL))
+                .transform(BuilderTransformers.cs_casing(() -> SpriteShifts.CS_CASING))
+                .properties(p -> p.sound(SoundType.METAL)))
                 .register();
     }
 

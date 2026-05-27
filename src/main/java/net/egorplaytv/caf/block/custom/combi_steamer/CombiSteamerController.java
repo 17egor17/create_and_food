@@ -38,15 +38,15 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
             BlockState energyBlock = pLevel.getBlockState(energyBlockPos);
             BlockState communicationBlock = pLevel.getBlockState(communicationBlockPos);
 
-            if (baseBlock1.getBlock() instanceof CombiSteamerBaseBlock && baseBlock2.getBlock() instanceof CombiSteamerBaseBlock
-                    && baseBlock3.getBlock() instanceof CombiSteamerBaseBlock && baseBlock4.getBlock() instanceof CombiSteamerBaseBlock
-                    && baseBlock5.getBlock() instanceof CombiSteamerBaseBlock && energyBlock.getBlock() instanceof CombiSteamerBaseBlock
-                    && communicationBlock.getBlock() instanceof ICommunicationBlock) {
-                baseBlock1 = baseBlock1.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.NORTH);
-                baseBlock2 = baseBlock2.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.NORTH);
-                baseBlock3 = baseBlock3.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.NORTH);
-                baseBlock4 = baseBlock4.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.NORTH);
-                baseBlock5 = baseBlock5.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.NORTH);
+            if (baseBlock1.getBlock() instanceof CombiSteamerCasingBlock && baseBlock2.getBlock() instanceof CombiSteamerCasingBlock
+                    && baseBlock3.getBlock() instanceof CombiSteamerCasingBlock && baseBlock4.getBlock() instanceof CombiSteamerCasingBlock
+                    && baseBlock5.getBlock() instanceof CombiSteamerCasingBlock && energyBlock.getBlock() instanceof CombiSteamerEnergyBlock
+                    && communicationBlock.getBlock() instanceof CombiSteamerFluidBlock) {
+                baseBlock1 = baseBlock1.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.NORTH);
+                baseBlock2 = baseBlock2.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.NORTH);
+                baseBlock3 = baseBlock3.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.NORTH);
+                baseBlock4 = baseBlock4.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.NORTH);
+                baseBlock5 = baseBlock5.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.NORTH);
                 energyBlock = energyBlock.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.NORTH);
                 communicationBlock = communicationBlock.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.NORTH);
                 pLevel.setBlock(baseBlockPos1, baseBlock1, 3);
@@ -56,7 +56,6 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
                 pLevel.setBlock(baseBlockPos5, baseBlock5, 3);
                 pLevel.setBlock(energyBlockPos, energyBlock, 3);
                 pLevel.setBlock(communicationBlockPos, communicationBlock, 3);
-                setComplete(Boolean.valueOf(true));
                 return pState.setValue(COMPLETED, Boolean.valueOf(true));
             }
         } else if (pDirection == Direction.SOUTH) {
@@ -76,15 +75,15 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
             BlockState energyBlock = pLevel.getBlockState(energyBlockPos);
             BlockState communicationBlock = pLevel.getBlockState(communicationBlockPos);
 
-            if (baseBlock1.getBlock() instanceof CombiSteamerBaseBlock && baseBlock2.getBlock() instanceof CombiSteamerBaseBlock
-                    && baseBlock3.getBlock() instanceof CombiSteamerBaseBlock && baseBlock4.getBlock() instanceof CombiSteamerBaseBlock
-                    && baseBlock5.getBlock() instanceof CombiSteamerBaseBlock && energyBlock.getBlock() instanceof CombiSteamerBaseBlock
-                    && communicationBlock.getBlock() instanceof ICommunicationBlock) {
-                baseBlock1 = baseBlock1.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.SOUTH);
-                baseBlock2 = baseBlock2.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.SOUTH);
-                baseBlock3 = baseBlock3.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.SOUTH);
-                baseBlock4 = baseBlock4.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.SOUTH);
-                baseBlock5 = baseBlock5.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.SOUTH);
+            if (baseBlock1.getBlock() instanceof CombiSteamerCasingBlock && baseBlock2.getBlock() instanceof CombiSteamerCasingBlock
+                    && baseBlock3.getBlock() instanceof CombiSteamerCasingBlock && baseBlock4.getBlock() instanceof CombiSteamerCasingBlock
+                    && baseBlock5.getBlock() instanceof CombiSteamerCasingBlock && energyBlock.getBlock() instanceof CombiSteamerEnergyBlock
+                    && communicationBlock.getBlock() instanceof CombiSteamerFluidBlock) {
+                baseBlock1 = baseBlock1.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.SOUTH);
+                baseBlock2 = baseBlock2.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.SOUTH);
+                baseBlock3 = baseBlock3.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.SOUTH);
+                baseBlock4 = baseBlock4.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.SOUTH);
+                baseBlock5 = baseBlock5.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.SOUTH);
                 energyBlock = energyBlock.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.SOUTH);
                 communicationBlock = communicationBlock.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.SOUTH);
                 pLevel.setBlock(baseBlockPos1, baseBlock1, 3);
@@ -94,7 +93,6 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
                 pLevel.setBlock(baseBlockPos5, baseBlock5, 3);
                 pLevel.setBlock(energyBlockPos, energyBlock, 3);
                 pLevel.setBlock(communicationBlockPos, communicationBlock, 3);
-                setComplete(Boolean.valueOf(true));
                 return pState.setValue(COMPLETED, Boolean.valueOf(true));
             }
         } else if (pDirection == Direction.WEST) {
@@ -114,15 +112,15 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
             BlockState energyBlock = pLevel.getBlockState(energyBlockPos);
             BlockState communicationBlock = pLevel.getBlockState(communicationBlockPos);
 
-            if (baseBlock1.getBlock() instanceof CombiSteamerBaseBlock && baseBlock2.getBlock() instanceof CombiSteamerBaseBlock
-                    && baseBlock3.getBlock() instanceof CombiSteamerBaseBlock && baseBlock4.getBlock() instanceof CombiSteamerBaseBlock
-                    && baseBlock5.getBlock() instanceof CombiSteamerBaseBlock && energyBlock.getBlock() instanceof CombiSteamerBaseBlock
-                    && communicationBlock.getBlock() instanceof ICommunicationBlock) {
-                baseBlock1 = baseBlock1.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.WEST);
-                baseBlock2 = baseBlock2.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.WEST);
-                baseBlock3 = baseBlock3.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.WEST);
-                baseBlock4 = baseBlock4.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.WEST);
-                baseBlock5 = baseBlock5.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.WEST);
+            if (baseBlock1.getBlock() instanceof CombiSteamerCasingBlock && baseBlock2.getBlock() instanceof CombiSteamerCasingBlock
+                    && baseBlock3.getBlock() instanceof CombiSteamerCasingBlock && baseBlock4.getBlock() instanceof CombiSteamerCasingBlock
+                    && baseBlock5.getBlock() instanceof CombiSteamerCasingBlock && energyBlock.getBlock() instanceof CombiSteamerEnergyBlock
+                    && communicationBlock.getBlock() instanceof CombiSteamerFluidBlock) {
+                baseBlock1 = baseBlock1.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.WEST);
+                baseBlock2 = baseBlock2.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.WEST);
+                baseBlock3 = baseBlock3.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.WEST);
+                baseBlock4 = baseBlock4.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.WEST);
+                baseBlock5 = baseBlock5.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.WEST);
                 energyBlock = energyBlock.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.WEST);
                 communicationBlock = communicationBlock.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.WEST);
                 pLevel.setBlock(baseBlockPos1, baseBlock1, 3);
@@ -132,7 +130,6 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
                 pLevel.setBlock(baseBlockPos5, baseBlock5, 3);
                 pLevel.setBlock(energyBlockPos, energyBlock, 3);
                 pLevel.setBlock(communicationBlockPos, communicationBlock, 3);
-                setComplete(Boolean.valueOf(true));
                 return pState.setValue(COMPLETED, Boolean.valueOf(true));
             }
         } else {
@@ -152,15 +149,15 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
             BlockState energyBlock = pLevel.getBlockState(energyBlockPos);
             BlockState communicationBlock = pLevel.getBlockState(communicationBlockPos);
 
-            if (baseBlock1.getBlock() instanceof CombiSteamerBaseBlock && baseBlock2.getBlock() instanceof CombiSteamerBaseBlock
-                    && baseBlock3.getBlock() instanceof CombiSteamerBaseBlock && baseBlock4.getBlock() instanceof CombiSteamerBaseBlock
-                    && baseBlock5.getBlock() instanceof CombiSteamerBaseBlock && energyBlock.getBlock() instanceof CombiSteamerBaseBlock
-                    && communicationBlock.getBlock() instanceof ICommunicationBlock) {
-                baseBlock1 = baseBlock1.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.EAST);
-                baseBlock2 = baseBlock2.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.EAST);
-                baseBlock3 = baseBlock3.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.EAST);
-                baseBlock4 = baseBlock4.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.EAST);
-                baseBlock5 = baseBlock5.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.EAST);
+            if (baseBlock1.getBlock() instanceof CombiSteamerCasingBlock && baseBlock2.getBlock() instanceof CombiSteamerCasingBlock
+                    && baseBlock3.getBlock() instanceof CombiSteamerCasingBlock && baseBlock4.getBlock() instanceof CombiSteamerCasingBlock
+                    && baseBlock5.getBlock() instanceof CombiSteamerCasingBlock && energyBlock.getBlock() instanceof CombiSteamerEnergyBlock
+                    && communicationBlock.getBlock() instanceof CombiSteamerFluidBlock) {
+                baseBlock1 = baseBlock1.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.EAST);
+                baseBlock2 = baseBlock2.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.EAST);
+                baseBlock3 = baseBlock3.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.EAST);
+                baseBlock4 = baseBlock4.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.EAST);
+                baseBlock5 = baseBlock5.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.EAST);
                 energyBlock = energyBlock.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.EAST);
                 communicationBlock = communicationBlock.setValue(COMPLETED, Boolean.valueOf(true)).setValue(FACING, Direction.EAST);
                 pLevel.setBlock(baseBlockPos1, baseBlock1, 3);
@@ -170,7 +167,6 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
                 pLevel.setBlock(baseBlockPos5, baseBlock5, 3);
                 pLevel.setBlock(energyBlockPos, energyBlock, 3);
                 pLevel.setBlock(communicationBlockPos, communicationBlock, 3);
-                setComplete(Boolean.valueOf(true));
                 return pState.setValue(COMPLETED, Boolean.valueOf(true));
             }
         }
@@ -179,7 +175,7 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        if (getComplete())
+        if (getComplete(pState))
             return new CombiSteamerBlockEntity(pPos, pState);
         return null;
     }

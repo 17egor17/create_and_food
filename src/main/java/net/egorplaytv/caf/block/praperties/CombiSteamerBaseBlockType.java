@@ -3,6 +3,7 @@ package net.egorplaytv.caf.block.praperties;
 import net.minecraft.util.StringRepresentable;
 
 public enum CombiSteamerBaseBlockType implements StringRepresentable {
+    DEFAULT("default"),
     CS_B_L("cs_b_l"),
     CS_B_U("cs_b_u"),
     CS_U("cs_u"),

@@ -30,7 +30,7 @@ public class CombiSteamerEnergyBlock extends CombiSteamerBaseBlock implements IC
 
     @Override
     public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        if (getComplete())
+        if (getComplete(pState))
             return new CombiSteamerBlockEntity(pPos, pState);
         return null;
     }
