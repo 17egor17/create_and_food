@@ -19,6 +19,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class ScalesBlockRenderer<BE extends ScalesBlockEntity> extends SafeBlockEntityRenderer<BE> {
+
     public ScalesBlockRenderer(BlockEntityRendererProvider.Context context){
     }
 

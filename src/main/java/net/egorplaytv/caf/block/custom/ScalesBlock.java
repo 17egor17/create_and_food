@@ -91,30 +91,30 @@ public class ScalesBlock extends BaseEntityBlock implements SimpleWaterloggedBlo
                                 && CAFConfigs.common().gameSettings.enableTones.get()) {
                             if (getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) >= 1000000) {
                                 float tn = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000000;
-                                player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_tn", tn)), true);
+                                player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_tn", tn)), true);
                             } else if (getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) >= 1000) {
                                 float kg = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000;
-                                player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_kg", kg)), true);
+                                player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_kg", kg)), true);
                             } else {
                                 float g = getWeight().get(entity.getInventory().getStackInSlot(0).getItem());
-                                player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_g", g)), true);
+                                player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_g", g)), true);
                             }
                         } else if (CAFConfigs.common().gameSettings.enableKilograms.get()){
                             float kg = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000;
-                            player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_kg", kg)), true);
+                            player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_kg", kg)), true);
                         } else if (CAFConfigs.common().gameSettings.enableGrams.get()){
                             float g = getWeight().get(entity.getInventory().getStackInSlot(0).getItem());
-                            player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_g", g)), true);
+                            player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_g", g)), true);
                         } else if (CAFConfigs.common().gameSettings.enableTones.get()){
                             float tn = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000000;
-                            player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_tn", tn)), true);
+                            player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_tn", tn)), true);
                         } else {
                             float caf = (float)(getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) * 3.14) / 10;
                             if (caf >= 1000) {
                                 float kCaf = caf / 1000;
-                                player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_kcaf", kCaf)), true);
+                                player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_kcaf", kCaf)), true);
                             } else {
-                                player.displayClientMessage(new TranslatableComponent("create_and_food.scales_weight", TextUtils.getModTranslation("scales_weight_caf", caf)), true);
+                                player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_caf", caf)), true);
                             }
                         }
                     } else {

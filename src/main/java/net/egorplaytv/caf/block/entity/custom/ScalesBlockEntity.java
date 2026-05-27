@@ -2,12 +2,15 @@ package net.egorplaytv.caf.block.entity.custom;
 
 import com.google.common.collect.Maps;
 import net.egorplaytv.caf.block.entity.CAFBlockEntities;
+import net.egorplaytv.caf.config.CAFConfigs;
 import net.egorplaytv.caf.util.CAFTags;
+import net.egorplaytv.caf.util.TextUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
@@ -433,6 +436,49 @@ public class ScalesBlockEntity extends SyncedBlockEntity {
             if (weight > 0) {
                 WEIGHT.put(holder.value().asItem(), weight);
             }
+        }
+    }
+
+    public String getStringWeight(Item item) {
+        if (item != Items.AIR) {
+            if (getWeight().get(item) != null) {
+                String weight;
+                if (CAFConfigs.common().gameSettings.enableKilograms.get() && CAFConfigs.common().gameSettings.enableGrams.get()
+                        && CAFConfigs.common().gameSettings.enableTones.get()) {
+                    if (getWeight().get(item) >= 1000000) {
+                        float tn = (float) getWeight().get(item) / 1000000;
+                        weight = String.valueOf(TextUtils.getModTranslation("scales_weight_tn", tn));
+                    } else if (getWeight().get(item) >= 1000) {
+                        float kg = (float) getWeight().get(item) / 1000;
+                        weight = String.valueOf(TextUtils.getModTranslation("scales_weight_kg", kg));
+                    } else {
+                        float g = getWeight().get(item);
+                        weight = String.valueOf(TextUtils.getModTranslation("scales_weight_g", g));
+                    }
+                } else if (CAFConfigs.common().gameSettings.enableKilograms.get()){
+                    float kg = (float) getWeight().get(item) / 1000;
+                    weight = String.valueOf(TextUtils.getModTranslation("scales_weight_kg", kg));
+                } else if (CAFConfigs.common().gameSettings.enableGrams.get()){
+                    float g = getWeight().get(item);
+                    weight = String.valueOf(TextUtils.getModTranslation("scales_weight_g", g));
+                } else if (CAFConfigs.common().gameSettings.enableTones.get()){
+                    float tn = (float) getWeight().get(item) / 1000000;
+                    weight = String.valueOf(TextUtils.getModTranslation("scales_weight_tn", tn));
+                } else {
+                    float caf = (float)(getWeight().get(item) * 3.14) / 10;
+                    if (caf >= 1000) {
+                        float kCaf = caf / 1000;
+                        weight = String.valueOf(TextUtils.getModTranslation("scales_weight_kcaf", kCaf));
+                    } else {
+                        weight = String.valueOf(TextUtils.getModTranslation("scales_weight_caf", caf));
+                    }
+                }
+                return weight;
+            } else {
+                return "0-Ld";
+            }
+        } else {
+            return String.valueOf(0);
         }
     }
 
