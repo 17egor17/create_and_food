@@ -4,12 +4,14 @@ import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.block.entity.custom.MarbleBlastFurnaceBlockEntity;
 import net.egorplaytv.caf.config.CAFConfigs;
 import net.egorplaytv.caf.config.DegreeUnits;
-import net.egorplaytv.caf.data.SimpleContainerDegData;
 import net.egorplaytv.caf.recipe.MarbleFurnaceRecipe;
 import net.egorplaytv.caf.screen.slot.CAFFurnaceResultSlot;
-import net.egorplaytv.caf.data.ContainerDegData;
+import net.egorplaytv.caf.util.degree.DegreeValue;
+import net.egorplaytv.caf.util.degree.DegreeValueData;
+import net.egorplaytv.caf.util.degree.SimpleDegreeValueData;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -26,14 +28,13 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
     public MarbleBlastFurnaceBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
-    private final float deg;
     public final ItemStackHandler inventory;
 
     public MarbleBlastFurnaceMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, getTileEntity(inv, extraData), new SimpleContainerData(3), 0F);
+        this(pContainerId, inv, getTileEntity(inv, extraData), new SimpleContainerData(3));
     }
 
-    public MarbleBlastFurnaceMenu(int pContainerId, Inventory inv, MarbleBlastFurnaceBlockEntity entity, ContainerData data, float deg) {
+    public MarbleBlastFurnaceMenu(int pContainerId, Inventory inv, MarbleBlastFurnaceBlockEntity entity, ContainerData data) {
         super(CAFMenuTypes.BLASTING_MENU.get(), pContainerId);
 //    // DON'T FORGET TO CHANGE THE NUMBER\/
 //        checkContainerSize(inv, 5);
@@ -41,7 +42,6 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
         inventory = entity.getItemHandler();
         level = inv.player.level;
         this.data = data;
-        this.deg = deg;
 
         this.addSlot(new SlotItemHandler(this.inventory, 0, 26,86));
         this.addSlot(new SlotItemHandler(this.inventory, 1, 16,28));
@@ -73,7 +73,15 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
         return data.get(2) > 0;
     }
     public boolean isDeg() {
-        return deg > 0;
+        SimpleContainer inventory = new SimpleContainer(this.inventory.getSlots());
+        for (int i = 0; i < this.inventory.getSlots(); i++) {
+            inventory.setItem(i, this.inventory.getStackInSlot(i));
+        }
+
+        Optional<MarbleFurnaceRecipe> recipe = this.level.getRecipeManager()
+                .getRecipeFor(MarbleFurnaceRecipe.Type.INSTANCE, inventory, this.level);
+
+        return (recipe.map(MarbleFurnaceRecipe::getDeg).orElse(new DegreeValue())).getDegree() > 0;
     }
 
     public MarbleBlastFurnaceBlockEntity getBlockEntity() {
@@ -109,7 +117,15 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
         }
     }
     public TranslatableComponent getDegProgress() {
-        float degC = this.deg;
+        SimpleContainer inventory = new SimpleContainer(this.inventory.getSlots());
+        for (int i = 0; i < this.inventory.getSlots(); i++) {
+            inventory.setItem(i, this.inventory.getStackInSlot(i));
+        }
+
+        Optional<MarbleFurnaceRecipe> recipe = this.level.getRecipeManager()
+                .getRecipeFor(MarbleFurnaceRecipe.Type.INSTANCE, inventory, this.level);
+
+        float degC = (recipe.map(MarbleFurnaceRecipe::getDeg).orElse(new DegreeValue())).getDegree();
 
         if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS){
             return new TranslatableComponent("ui.marble_furnace.degC", degC);
@@ -160,7 +176,6 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
 
         return itemstack;
     }
-
 
     @Override
     public boolean stillValid(Player pPlayer) {

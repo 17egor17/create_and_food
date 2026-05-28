@@ -12,7 +12,7 @@ import net.egorplaytv.caf.item.custom.MetalItem;
 import net.egorplaytv.caf.recipe.MarbleFurnaceRecipe;
 import net.egorplaytv.caf.screen.MarbleBlastFurnaceMenu;
 import net.egorplaytv.caf.util.CAFTags;
-import net.egorplaytv.caf.data.ContainerDegData;
+import net.egorplaytv.caf.util.degree.DegreeValue;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.core.*;
@@ -36,7 +36,6 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
@@ -100,10 +99,10 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     private int progress_tick = 0;
     private int progress = 0;
     private int i = 0;
-    private float deg;
+    private DegreeValue deg;
     private int time;
     private boolean isCreativeDeg = false;
-    private final Object2IntOpenHashMap<ResourceLocation> experience;
+    private final Object2IntOpenHashMap<ResourceLocation> recipesUsed;
     public static Map<Item, Integer> FUELS = Maps.newLinkedHashMap();
 
     public static Map<Item, Integer> getFuel(){
@@ -211,7 +210,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     public MarbleBlastFurnaceBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(CAFBlockEntities.MARBLE_BLAST_FURNACE_ENTITY.get(), pPos, pBlockState);
         getFuel();
-        this.experience = new Object2IntOpenHashMap<>();
+        this.recipesUsed = new Object2IntOpenHashMap<>();
         this.data = new ContainerData() {
             public int get(int index) {
                 switch (index) {
@@ -297,10 +296,10 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         tag.putInt("marble_furnace.progress", progress);
         tag.putInt("marble_furnace.time", time);
         tag.putInt("marble_furnace.progress_deg", progress_deg);
-        tag.putFloat("marble_furnace.deg", deg);
+        tag.putFloat("marble_furnace.deg", deg.getDegree());
 
         CompoundTag compoundRecipes = new CompoundTag();
-        this.experience.forEach((recipeId, craftedAmount) -> {
+        this.recipesUsed.forEach((recipeId, craftedAmount) -> {
             compoundRecipes.putInt(recipeId.toString(), craftedAmount);
         });
         tag.put("RecipesUsed", compoundRecipes);
@@ -314,15 +313,16 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         progress = tag.getInt("marble_furnace.progress");
         time = tag.getInt("marble_furnace.time");
         progress_deg = tag.getInt("marble_furnace.progress_deg");
-        deg = tag.getFloat("marble_furnace.deg");
+        deg = new DegreeValue(tag.getFloat("marble_furnace.deg"));
         itemHandler.deserializeNBT(tag.getCompound("inventory"));
 
         CompoundTag compoundRecipes = tag.getCompound("RecipesUsed");
 
         for (String key : compoundRecipes.getAllKeys()) {
-            this.experience.put(new ResourceLocation(key), compoundRecipes.getInt(key));
+            this.recipesUsed.put(new ResourceLocation(key), compoundRecipes.getInt(key));
         }
     }
+
     public void drops() {
         SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
         for (int i = 0; i < itemHandler.getSlots(); i++) {
@@ -345,7 +345,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         }
 
         if (hasRecipe(pBlockEntity, pLevel)) {
-            pBlockEntity.deg = recipe.map(MarbleFurnaceRecipe::getDeg).orElse(100F);
+            pBlockEntity.deg = recipe.map(MarbleFurnaceRecipe::getDeg).orElse(new DegreeValue(100F));
             pBlockEntity.time = recipe.map(MarbleFurnaceRecipe::getTime).orElse(300);
         } else {
             pBlockEntity.resetDeg();
@@ -353,23 +353,23 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         }
 
         if (hasRecipe(pBlockEntity, pLevel) && hasDegree(pBlockEntity, recipe.get().getDeg()) && hasSmeltingPointIsFull(pBlockEntity)) {
-            if (pBlockEntity.progress_deg > recipe.get().getDeg() + 4000) {
+            if (pBlockEntity.progress_deg > recipe.get().getDeg().getDegree() + 4000) {
                 int time = 40;
                 pBlockEntity.progress = pBlockEntity.progress + time;
-            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 3000) {
+            } else if (pBlockEntity.progress_deg > recipe.get().getDeg().getDegree() + 3000) {
                 int time = 30;
                 pBlockEntity.progress = pBlockEntity.progress + time;
-            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 2000) {
+            } else if (pBlockEntity.progress_deg > recipe.get().getDeg().getDegree() + 2000) {
                 int time = 20;
                 pBlockEntity.progress = pBlockEntity.progress + time;
-            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 1000) {
+            } else if (pBlockEntity.progress_deg > recipe.get().getDeg().getDegree() + 1000) {
                 int time = 10;
                 pBlockEntity.progress = pBlockEntity.progress + time;
-            } else if (pBlockEntity.progress_deg > recipe.get().getDeg() + 500) {
+            } else if (pBlockEntity.progress_deg > recipe.get().getDeg().getDegree() + 500) {
                 int time = 5;
                 pBlockEntity.progress = pBlockEntity.progress + time;
-            } else if (pBlockEntity.progress_deg < recipe.get().getDeg() ||
-                    pBlockEntity.progress_deg >= recipe.get().getDeg()) {
+            } else if (pBlockEntity.progress_deg < recipe.get().getDeg().getDegree() ||
+                    pBlockEntity.progress_deg >= recipe.get().getDeg().getDegree()) {
                 pBlockEntity.progress++;
             }
 
@@ -379,7 +379,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
             if (pBlockEntity.progress >= pBlockEntity.time) {
                 craftItem(pBlockEntity, pLevel);
             }
-        } else if (hasRecipe(pBlockEntity, pLevel) && pBlockEntity.progress_deg < pBlockEntity.deg) {
+        } else if (hasRecipe(pBlockEntity, pLevel) && pBlockEntity.progress_deg < pBlockEntity.deg.getDegree()) {
             if (pBlockEntity.progress > 0) {
                 pBlockEntity.progress--;
                 setChanged(pLevel, pPos, pState);
@@ -432,21 +432,21 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                     pBlockEntity.i++;
                     if (pBlockEntity.i >= 20) {
                         if (pBlockEntity.progress_deg >= 4000) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (40 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (40 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (40 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (40 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + 5) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 5
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (40 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (40 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())
@@ -454,21 +454,21 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else if (pBlockEntity.progress_deg >= 2000) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (30 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (30 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (15 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (15 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (7 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (7 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + 4) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 4
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (30 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (30 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (15 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (15 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (7 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (7 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + 4) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 4
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (30 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (15 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (15 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (7 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (7 * slot3.getHeatingSpeed())
@@ -476,50 +476,50 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else if (pBlockEntity.progress_deg >= 1000) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + 5) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 5
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + 5) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 5
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else if (pBlockEntity.progress_deg >= 500) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + 5) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 5
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + 5) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 5
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + 5) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 5
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + 5) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 5
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
@@ -530,14 +530,14 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                     pBlockEntity.i++;
                     if (pBlockEntity.i >= 20) {
                         if (pBlockEntity.progress_deg >= 4000) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (40 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (40 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (40 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (40 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())
@@ -545,14 +545,14 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
                         } else if (pBlockEntity.progress_deg >= 2000) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (30 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (30 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (15 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (15 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (7 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (7 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + 4) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 4
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (30 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (30 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (15 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (15 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (7 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (7 * slot2.getHeatingSpeed())
@@ -560,35 +560,35 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
                         } else if (pBlockEntity.progress_deg >= 1000) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + 5) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 5
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
                         } else if (pBlockEntity.progress_deg >= 500) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + 5) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 5
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
                         } else {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + 5) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 5
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
@@ -599,14 +599,14 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                     pBlockEntity.i++;
                     if (pBlockEntity.i >= 20) {
                         if (pBlockEntity.progress_deg >= 4000) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (40 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (40 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (40 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (40 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())
@@ -614,14 +614,14 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else if (pBlockEntity.progress_deg >= 2000) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (30 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (30 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (15 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (15 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (7 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (7 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + 4) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 4
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (30 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (15 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (15 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (7 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (7 * slot3.getHeatingSpeed())
@@ -629,35 +629,35 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else if (pBlockEntity.progress_deg >= 1000) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + 5) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 5
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else if (pBlockEntity.progress_deg >= 500) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + 5) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 5
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + 5) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 5
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
@@ -668,14 +668,14 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                     pBlockEntity.i++;
                     if (pBlockEntity.i >= 20) {
                         if (pBlockEntity.progress_deg >= 4000) {
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (40 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (40 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + 5) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 5
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (40 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (40 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())
@@ -683,14 +683,14 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else if (pBlockEntity.progress_deg >= 2000) {
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (30 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (30 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (15 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (15 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (7 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (7 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + 4) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 4
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (30 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (15 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (15 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (7 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (7 * slot3.getHeatingSpeed())
@@ -698,35 +698,35 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else if (pBlockEntity.progress_deg >= 1000) {
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + 5) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 5
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + 5) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 5
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else if (pBlockEntity.progress_deg >= 500) {
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + 5) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 5
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + 5) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 5
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else {
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + 5) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 5
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + 5) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 5
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
@@ -737,7 +737,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                     pBlockEntity.i++;
                     if (pBlockEntity.i >= 20) {
                         if (pBlockEntity.progress_deg >= 4000) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (40 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (40 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())
@@ -745,7 +745,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
                         } else if (pBlockEntity.progress_deg >= 2000) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (30 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (30 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (15 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (15 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (7 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (7 * slot1.getHeatingSpeed())
@@ -753,20 +753,20 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
                         } else if (pBlockEntity.progress_deg >= 1000) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (20 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
                         } else if (pBlockEntity.progress_deg >= 500) {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + (10 * slot1.getHeatingSpeed())
                                     : (slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
                         } else {
-                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint() + maxDegreeRange
+                            slot1.setDeg(itemStackSlot1, slot1.getDeg(itemStackSlot1) < slot1.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot1.getDeg(itemStackSlot1) + 5) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 5
                                     : (slot1.getDeg(itemStackSlot1) + 1) < pBlockEntity.progress_deg ? slot1.getDeg(itemStackSlot1) + 1
                                     : slot1.getDeg(itemStackSlot1)) : slot1.getDeg(itemStackSlot1));
@@ -777,7 +777,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                     pBlockEntity.i++;
                     if (pBlockEntity.i >= 20) {
                         if (pBlockEntity.progress_deg >= 4000) {
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (40 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (40 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())
@@ -785,7 +785,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
                         } else if (pBlockEntity.progress_deg >= 2000) {
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (30 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (30 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (15 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (15 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (7 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (7 * slot2.getHeatingSpeed())
@@ -793,20 +793,20 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
                         } else if (pBlockEntity.progress_deg >= 1000) {
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (20 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + 5) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 5
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
                         } else if (pBlockEntity.progress_deg >= 500) {
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + (10 * slot2.getHeatingSpeed())
                                     : (slot2.getDeg(itemStackSlot2) + 5) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 5
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
                         } else {
-                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint() + maxDegreeRange
+                            slot2.setDeg(itemStackSlot2, slot2.getDeg(itemStackSlot2) < slot2.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot2.getDeg(itemStackSlot2) + 5) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 5
                                     : (slot2.getDeg(itemStackSlot2) + 1) < pBlockEntity.progress_deg ? slot2.getDeg(itemStackSlot2) + 1
                                     : slot2.getDeg(itemStackSlot2)) : slot2.getDeg(itemStackSlot2));
@@ -817,7 +817,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                     pBlockEntity.i++;
                     if (pBlockEntity.i >= 20) {
                         if (pBlockEntity.progress_deg >= 4000) {
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (40 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (40 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())
@@ -825,7 +825,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else if (pBlockEntity.progress_deg >= 2000) {
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (30 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (15 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (15 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (7 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (7 * slot3.getHeatingSpeed())
@@ -833,20 +833,20 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else if (pBlockEntity.progress_deg >= 1000) {
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (20 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + 5) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 5
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else if (pBlockEntity.progress_deg >= 500) {
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + (10 * slot3.getHeatingSpeed())
                                     : (slot3.getDeg(itemStackSlot3) + 5) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 5
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
                         } else {
-                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint() + maxDegreeRange
+                            slot3.setDeg(itemStackSlot3, slot3.getDeg(itemStackSlot3) < slot3.getMeltingPoint().getDegree() + maxDegreeRange
                                     ? ((slot3.getDeg(itemStackSlot3) + 5) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 5
                                     : (slot3.getDeg(itemStackSlot3) + 1) < pBlockEntity.progress_deg ? slot3.getDeg(itemStackSlot3) + 1
                                     : slot3.getDeg(itemStackSlot3)) : slot3.getDeg(itemStackSlot3));
@@ -866,7 +866,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     public void RecipeExperience(@javax.annotation.Nullable Recipe<?> recipe) {
         if (recipe != null) {
             ResourceLocation recipeID = recipe.getId();
-            this.experience.addTo(recipeID, 1);
+            this.recipesUsed.addTo(recipeID, 1);
         }
 
     }
@@ -874,16 +874,16 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     public void clearUsedRecipes(ServerPlayer player) {
         List<Recipe<?>> list = this.grantStoredRecipeExperience(player.getLevel(), player.position());
         player.awardRecipes(list);
-        this.experience.clear();
+        this.recipesUsed.clear();
     }
 
     public List<Recipe<?>> grantStoredRecipeExperience(ServerLevel world, Vec3 pos) {
         List<Recipe<?>> list = Lists.newArrayList();
 
-        for(Object2IntMap.Entry<ResourceLocation> entry : this.experience.object2IntEntrySet()) {
+        for(Object2IntMap.Entry<ResourceLocation> entry : this.recipesUsed.object2IntEntrySet()) {
             world.getRecipeManager().byKey(entry.getKey()).ifPresent((recipe) -> {
                 list.add(recipe);
-                splitAndSpawnExperience(world, pos, entry.getIntValue(), ((AbstractCookingRecipe)recipe).getExperience());
+                splitAndSpawnExperience(world, pos, entry.getIntValue(), ((MarbleFurnaceRecipe)recipe).getExperience());
             });
         }
 
@@ -906,21 +906,21 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         ItemStack itemStackSlot3 = pBlockEntity.itemHandler.getStackInSlot(3);
         if (itemStackSlot1.getItem() instanceof MetalItem slot1 && itemStackSlot2.getItem() instanceof MetalItem slot2
                 && itemStackSlot3.getItem() instanceof MetalItem slot3) {
-            return slot1.getDeg(itemStackSlot1) >= slot1.getMeltingPoint() && slot2.getDeg(itemStackSlot2) >= slot2.getMeltingPoint()
-                    && slot3.getDeg(itemStackSlot3) >= slot3.getMeltingPoint();
+            return slot1.getDeg(itemStackSlot1) >= slot1.getMeltingPoint().getDegree() && slot2.getDeg(itemStackSlot2) >= slot2.getMeltingPoint().getDegree()
+                    && slot3.getDeg(itemStackSlot3) >= slot3.getMeltingPoint().getDegree();
         } else if (itemStackSlot1.getItem() instanceof MetalItem slot1 && itemStackSlot2.getItem() instanceof MetalItem slot2) {
-            return slot1.getDeg(itemStackSlot1) >= slot1.getMeltingPoint() && slot2.getDeg(itemStackSlot2) >= slot2.getMeltingPoint();
+            return slot1.getDeg(itemStackSlot1) >= slot1.getMeltingPoint().getDegree() && slot2.getDeg(itemStackSlot2) >= slot2.getMeltingPoint().getDegree();
         } else if (itemStackSlot1.getItem() instanceof MetalItem slot1 && itemStackSlot3.getItem() instanceof MetalItem slot3) {
-            return slot1.getDeg(itemStackSlot1) >= slot1.getMeltingPoint() && slot3.getDeg(itemStackSlot3) >= slot3.getMeltingPoint();
+            return slot1.getDeg(itemStackSlot1) >= slot1.getMeltingPoint().getDegree() && slot3.getDeg(itemStackSlot3) >= slot3.getMeltingPoint().getDegree();
         } else if (itemStackSlot2.getItem() instanceof MetalItem slot2
                 && itemStackSlot3.getItem() instanceof MetalItem slot3) {
-            return slot2.getDeg(itemStackSlot2) >= slot2.getMeltingPoint() && slot3.getDeg(itemStackSlot3) >= slot3.getMeltingPoint();
+            return slot2.getDeg(itemStackSlot2) >= slot2.getMeltingPoint().getDegree() && slot3.getDeg(itemStackSlot3) >= slot3.getMeltingPoint().getDegree();
         } else if (itemStackSlot1.getItem() instanceof MetalItem slot1) {
-            return slot1.getDeg(itemStackSlot1) >= slot1.getMeltingPoint();
+            return slot1.getDeg(itemStackSlot1) >= slot1.getMeltingPoint().getDegree();
         } else if (itemStackSlot2.getItem() instanceof MetalItem slot2) {
-            return slot2.getDeg(itemStackSlot2) >= slot2.getMeltingPoint();
+            return slot2.getDeg(itemStackSlot2) >= slot2.getMeltingPoint().getDegree();
         } else if (itemStackSlot3.getItem() instanceof MetalItem slot3) {
-            return slot3.getDeg(itemStackSlot3) >= slot3.getMeltingPoint();
+            return slot3.getDeg(itemStackSlot3) >= slot3.getMeltingPoint().getDegree();
         } else {
             return true;
         }
@@ -955,7 +955,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                     entity.itemHandler.getStackInSlot(4).getCount() + match.get().getResultItem().getCount()));
 
             if (entity.itemHandler.getStackInSlot(4).getItem() instanceof MetalItem item) {
-                item.setDeg(entity.itemHandler.getStackInSlot(4), match.get().getDeg() - 50);
+                item.setDeg(entity.itemHandler.getStackInSlot(4), match.get().getDeg().getDegree() - 50);
             }
             entity.resetProgress();
         }
@@ -967,12 +967,12 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         this.progress_deg = 0;
     }
 
-    public float getDeg() {
+    public DegreeValue getDeg() {
         return this.deg;
     }
 
     private void resetDeg() {
-        this.deg = 0;
+        this.deg = new DegreeValue();
     }
     private void resetProgressTick () {
         this.progress_tick = 0;
@@ -983,8 +983,8 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     private static boolean hasTemperatureZero(MarbleBlastFurnaceBlockEntity pBlockEntity) {
         return pBlockEntity.progress_deg <= 0;
     }
-    private static boolean hasDegree(MarbleBlastFurnaceBlockEntity pBlockEntity, float deg) {
-        return pBlockEntity.progress_deg >= deg;
+    private static boolean hasDegree(MarbleBlastFurnaceBlockEntity pBlockEntity, DegreeValue deg) {
+        return pBlockEntity.progress_deg >= deg.getDegree();
     }
     private static boolean hasFuel(MarbleBlastFurnaceBlockEntity pBlockEntity) {
         if (getFuel().get(pBlockEntity.itemHandler.getStackInSlot(0).getItem()) != null) {
@@ -1018,6 +1018,6 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return new MarbleBlastFurnaceMenu(pContainerId, pInventory, this, this.data, getDeg());
+        return new MarbleBlastFurnaceMenu(pContainerId, pInventory, this, this.data);
     }
 }
