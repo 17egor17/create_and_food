@@ -4,6 +4,7 @@ import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
 import net.egorplaytv.caf.color.CAFFoliageColor;
 import net.egorplaytv.caf.datagen.custom.ModItemModelsProperties;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.core.BlockPos;

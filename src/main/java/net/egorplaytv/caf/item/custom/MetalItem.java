@@ -7,6 +7,7 @@ import net.egorplaytv.caf.datagen.custom.ModItemModelsProperties;
 import net.egorplaytv.caf.item.custom.interfaces.IMetalItem;
 import net.egorplaytv.caf.item.entity.custom.MIEntity;
 import net.egorplaytv.caf.util.CAFTags;
+import net.egorplaytv.caf.util.degree.DegreeValue;
 import net.egorplaytv.caf.util.Metals;
 import net.egorplaytv.caf.util.TextUtils;
 import net.minecraft.core.BlockPos;
@@ -29,7 +30,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class MetalItem extends Item implements IMetalItem {
-    private final float meltingPoint;
+    private final DegreeValue meltingPoint;
     private int tick;
     protected int heatingSpeed;
     protected Metals metalType;
@@ -39,7 +40,7 @@ public class MetalItem extends Item implements IMetalItem {
 
     public MetalItem(float meltingPoint, MetalItem.Type type, Metals metalType, Properties pProperties) {
         super(pProperties);
-        this.meltingPoint = meltingPoint;
+        this.meltingPoint = new DegreeValue(meltingPoint);
         switch (type) {
             case RAW, CRASHED_RAW, PIECE -> this.heatingSpeed = 2;
             case INGOT, SHEET -> this.heatingSpeed = 1;
@@ -56,12 +57,12 @@ public class MetalItem extends Item implements IMetalItem {
             if (metal.metalType == Metals.URANIUM)
                 pTooltip.add(TextUtils.getToolTipTranslation("ingot.radiation"));
             if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS){
-                pTooltip.add(TextUtils.getToolTipTranslation("degreesC", meltingPoint));
+                pTooltip.add(TextUtils.getToolTipTranslation("degreesC", meltingPoint.getDegree()));
             } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_FAHRENHEIT){
-                float degF = meltingPoint*1.8F+32;
+                float degF = meltingPoint.getDegree()*1.8F+32;
                 pTooltip.add(TextUtils.getToolTipTranslation("degreesF", degF));
             } else {
-                float degK = meltingPoint+273.15F;
+                float degK = meltingPoint.getDegree()+273.15F;
                 pTooltip.add(TextUtils.getToolTipTranslation("degreesK", degK));
             }
             if (metal.getDeg(pStack) >= 24) {
@@ -163,12 +164,21 @@ public class MetalItem extends Item implements IMetalItem {
         return entity;
     }
 
-    public float getMeltingPoint() {
+    public DegreeValue getMeltingPoint() {
         return meltingPoint;
     }
 
     public int getHeatingSpeed() {
         return heatingSpeed;
+    }
+
+
+    public DegreeValue getDegree(ItemStack is) {
+        return new DegreeValue(getDeg(is));
+    }
+
+    public void setDeg(ItemStack is, DegreeValue degree) {
+        this.setDeg(is, degree.getDegree());
     }
 
     public float getDeg(ItemStack is) {
@@ -189,20 +199,20 @@ public class MetalItem extends Item implements IMetalItem {
     @Override
     public int getBarWidth(ItemStack pStack) {
         MetalItem ingot = (MetalItem) pStack.getItem();
-        float meltingPoint = ingot.getMeltingPoint();
+        DegreeValue meltingPoint = ingot.getMeltingPoint();
         float deg = ingot.getDeg(pStack);
-        if (deg > meltingPoint) {
-            return Math.round(meltingPoint * 13.0F / meltingPoint);
+        if (deg > meltingPoint.getDegree()) {
+            return Math.round(meltingPoint.getDegree() * 13.0F / meltingPoint.getDegree());
         } else {
-            return Math.round(deg * 13.0F / meltingPoint);
+            return Math.round(deg * 13.0F / meltingPoint.getDegree());
         }
     }
 
     @Override
     public int getBarColor(ItemStack pStack) {
         MetalItem ingot = (MetalItem) pStack.getItem();
-        float meltingPoint = ingot.getMeltingPoint();
-        float f = Math.max(0.0F, (meltingPoint - ingot.getDeg(pStack)) / meltingPoint);
+        DegreeValue meltingPoint = ingot.getMeltingPoint();
+        float f = Math.max(0.0F, (meltingPoint.getDegree() - ingot.getDeg(pStack)) / meltingPoint.getDegree());
         return Mth.hsvToRgb(f / 3.0F, 1.0F, 1.0F);
     }
 

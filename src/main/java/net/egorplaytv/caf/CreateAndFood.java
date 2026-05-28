@@ -28,7 +28,6 @@ import net.minecraftforge.fml.ModContainer;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -96,8 +95,8 @@ public class CreateAndFood {
 
         CAFConfigs.register(modLoadingContext);
 
-        MinecraftForge.EVENT_BUS.addListener(VillageStructures::addNewVillageBuilding);
-        MinecraftForge.EVENT_BUS.register(this);
+        forgeBus.addListener(VillageStructures::addNewVillageBuilding);
+        forgeBus.register(this);
         DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> CreateAndFoodClient::new);
     }
 
