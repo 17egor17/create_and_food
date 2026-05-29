@@ -1,0 +1,22 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "caf:block/wire",
+		"wire": "caf:block/wire"
+	},
+	"elements": [
+		{
+			"from": [5.25, 5.25, 0],
+			"to": [10.75, 10.75, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 6, 6, 12], "texture": "#wire"},
+				"east": {"uv": [8, 0, 0, 6], "texture": "#wire"},
+				"west": {"uv": [0, 0, 8, 6], "texture": "#wire"},
+				"up": {"uv": [8, 0, 0, 6], "rotation": 270, "texture": "#wire"},
+				"down": {"uv": [8, 0, 0, 6], "rotation": 90, "texture": "#wire"}
+			}
+		}
+	]
+}

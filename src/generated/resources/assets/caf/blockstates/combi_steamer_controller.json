@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "caf:block/combi_steamer_controller"
+    }
+  }
+}

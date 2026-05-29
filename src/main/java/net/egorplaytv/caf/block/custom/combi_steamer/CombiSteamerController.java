@@ -3,6 +3,7 @@ package net.egorplaytv.caf.block.custom.combi_steamer;
 import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.custom.combi_steamer.CombiSteamerControllerBlockEntity;
 import net.egorplaytv.caf.block.pattern.CombiSteamerBaseBlock;
+import net.egorplaytv.caf.block.praperties.CombiSteamerBaseBlockType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -58,14 +59,19 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
                     && baseBlock5.getBlock() instanceof CombiSteamerCasingBlock && energyBlock.getBlock() instanceof CombiSteamerEnergyBlock
                     && communicationBlock.getBlock() instanceof CombiSteamerFluidBlock) {
                 pLevel.setBlock(baseBlockPos1, baseBlock1.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos2, baseBlock2.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos3, baseBlock3.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos4, baseBlock4.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos5, baseBlock5.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(energyBlockPos, energyBlock.setValue(CombiSteamerEnergyBlock.COMPLETED, Boolean.valueOf(true))
                         .setValue(CombiSteamerEnergyBlock.FACING, dir), 3);
@@ -98,14 +104,19 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
                     && baseBlock5.getBlock() instanceof CombiSteamerCasingBlock && energyBlock.getBlock() instanceof CombiSteamerEnergyBlock
                     && communicationBlock.getBlock() instanceof CombiSteamerFluidBlock) {
                 pLevel.setBlock(baseBlockPos1, baseBlock1.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos2, baseBlock2.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos3, baseBlock3.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos4, baseBlock4.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos5, baseBlock5.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(energyBlockPos, energyBlock.setValue(CombiSteamerEnergyBlock.COMPLETED, Boolean.valueOf(true))
                         .setValue(CombiSteamerEnergyBlock.FACING, dir), 3);
@@ -138,14 +149,19 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
                     && baseBlock5.getBlock() instanceof CombiSteamerCasingBlock && energyBlock.getBlock() instanceof CombiSteamerEnergyBlock
                     && communicationBlock.getBlock() instanceof CombiSteamerFluidBlock) {
                 pLevel.setBlock(baseBlockPos1, baseBlock1.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos2, baseBlock2.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos3, baseBlock3.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos4, baseBlock4.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos5, baseBlock5.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(energyBlockPos, energyBlock.setValue(CombiSteamerEnergyBlock.COMPLETED, Boolean.valueOf(true))
                         .setValue(CombiSteamerEnergyBlock.FACING, dir), 3);
@@ -178,14 +194,19 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
                     && baseBlock5.getBlock() instanceof CombiSteamerCasingBlock && energyBlock.getBlock() instanceof CombiSteamerEnergyBlock
                     && communicationBlock.getBlock() instanceof CombiSteamerFluidBlock) {
                 pLevel.setBlock(baseBlockPos1, baseBlock1.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos2, baseBlock2.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos3, baseBlock3.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos4, baseBlock4.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos5, baseBlock5.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(energyBlockPos, energyBlock.setValue(CombiSteamerEnergyBlock.COMPLETED, Boolean.valueOf(true))
                         .setValue(CombiSteamerEnergyBlock.FACING, dir), 3);
@@ -223,14 +244,19 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
                     && baseBlock5.getBlock() instanceof CombiSteamerCasingBlock && energyBlock.getBlock() instanceof CombiSteamerEnergyBlock
                     && communicationBlock.getBlock() instanceof CombiSteamerFluidBlock) {
                 pLevel.setBlock(baseBlockPos1, baseBlock1.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos2, baseBlock2.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos3, baseBlock3.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos4, baseBlock4.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos5, baseBlock5.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(energyBlockPos, energyBlock.setValue(CombiSteamerEnergyBlock.COMPLETED, Boolean.valueOf(true))
                         .setValue(CombiSteamerEnergyBlock.FACING, dir), 3);
@@ -263,14 +289,19 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
                     && baseBlock5.getBlock() instanceof CombiSteamerCasingBlock && energyBlock.getBlock() instanceof CombiSteamerEnergyBlock
                     && communicationBlock.getBlock() instanceof CombiSteamerFluidBlock) {
                 pLevel.setBlock(baseBlockPos1, baseBlock1.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos2, baseBlock2.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos3, baseBlock3.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos4, baseBlock4.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos5, baseBlock5.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(energyBlockPos, energyBlock.setValue(CombiSteamerEnergyBlock.COMPLETED, Boolean.valueOf(true))
                         .setValue(CombiSteamerEnergyBlock.FACING, dir), 3);
@@ -303,14 +334,19 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
                     && baseBlock5.getBlock() instanceof CombiSteamerCasingBlock && energyBlock.getBlock() instanceof CombiSteamerEnergyBlock
                     && communicationBlock.getBlock() instanceof CombiSteamerFluidBlock) {
                 pLevel.setBlock(baseBlockPos1, baseBlock1.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos2, baseBlock2.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos3, baseBlock3.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos4, baseBlock4.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos5, baseBlock5.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(energyBlockPos, energyBlock.setValue(CombiSteamerEnergyBlock.COMPLETED, Boolean.valueOf(true))
                         .setValue(CombiSteamerEnergyBlock.FACING, dir), 3);
@@ -343,14 +379,19 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
                     && baseBlock5.getBlock() instanceof CombiSteamerCasingBlock && energyBlock.getBlock() instanceof CombiSteamerEnergyBlock
                     && communicationBlock.getBlock() instanceof CombiSteamerFluidBlock) {
                 pLevel.setBlock(baseBlockPos1, baseBlock1.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos2, baseBlock2.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_R_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos3, baseBlock3.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos4, baseBlock4.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_U)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(baseBlockPos5, baseBlock5.setValue(CombiSteamerCasingBlock.COMPLETED, Boolean.valueOf(true))
+                        .setValue(CombiSteamerCasingBlock.TYPE, CombiSteamerBaseBlockType.CS_B_L)
                         .setValue(CombiSteamerCasingBlock.FACING, dir), 3);
                 pLevel.setBlock(energyBlockPos, energyBlock.setValue(CombiSteamerEnergyBlock.COMPLETED, Boolean.valueOf(true))
                         .setValue(CombiSteamerEnergyBlock.FACING, dir), 3);

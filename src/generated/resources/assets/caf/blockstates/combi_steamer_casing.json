@@ -1,0 +1,163 @@
+{
+  "variants": {
+    "completed=false,facing=north,type=default": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=north,type=default": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=false,facing=south,type=default": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=south,type=default": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=false,facing=west,type=default": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=west,type=default": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=false,facing=east,type=default": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=east,type=default": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=false,facing=north,type=cs_b_l": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=north,type=cs_b_l": {
+      "model": "caf:block/combi_steamer_casing_b_l_north"
+    },
+    "completed=false,facing=south,type=cs_b_l": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=south,type=cs_b_l": {
+      "model": "caf:block/combi_steamer_casing_b_l_south",
+      "y": 180
+    },
+    "completed=false,facing=west,type=cs_b_l": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=west,type=cs_b_l": {
+      "model": "caf:block/combi_steamer_casing_b_l_west",
+      "y": 270
+    },
+    "completed=false,facing=east,type=cs_b_l": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=east,type=cs_b_l": {
+      "model": "caf:block/combi_steamer_casing_b_l_east",
+      "y": 90
+    },
+    "completed=false,facing=north,type=cs_b_u": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=north,type=cs_b_u": {
+      "model": "caf:block/combi_steamer_casing_b_u_north"
+    },
+    "completed=false,facing=south,type=cs_b_u": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=south,type=cs_b_u": {
+      "model": "caf:block/combi_steamer_casing_b_u_south",
+      "y": 180
+    },
+    "completed=false,facing=west,type=cs_b_u": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=west,type=cs_b_u": {
+      "model": "caf:block/combi_steamer_casing_b_u_west",
+      "y": 270
+    },
+    "completed=false,facing=east,type=cs_b_u": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=east,type=cs_b_u": {
+      "model": "caf:block/combi_steamer_casing_b_u_east",
+      "y": 90
+    },
+    "completed=false,facing=north,type=cs_u": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=north,type=cs_u": {
+      "model": "caf:block/combi_steamer_casing_u_north"
+    },
+    "completed=false,facing=south,type=cs_u": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=south,type=cs_u": {
+      "model": "caf:block/combi_steamer_casing_u_south",
+      "y": 180
+    },
+    "completed=false,facing=west,type=cs_u": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=west,type=cs_u": {
+      "model": "caf:block/combi_steamer_casing_u_west",
+      "y": 270
+    },
+    "completed=false,facing=east,type=cs_u": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=east,type=cs_u": {
+      "model": "caf:block/combi_steamer_casing_u_east",
+      "y": 90
+    },
+    "completed=false,facing=north,type=cs_r_l": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=north,type=cs_r_l": {
+      "model": "caf:block/combi_steamer_casing_r_l_north"
+    },
+    "completed=false,facing=south,type=cs_r_l": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=south,type=cs_r_l": {
+      "model": "caf:block/combi_steamer_casing_r_l_south",
+      "y": 180
+    },
+    "completed=false,facing=west,type=cs_r_l": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=west,type=cs_r_l": {
+      "model": "caf:block/combi_steamer_casing_r_l_west",
+      "y": 270
+    },
+    "completed=false,facing=east,type=cs_r_l": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=east,type=cs_r_l": {
+      "model": "caf:block/combi_steamer_casing_r_l_east",
+      "y": 90
+    },
+    "completed=false,facing=north,type=cs_r_u": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=north,type=cs_r_u": {
+      "model": "caf:block/combi_steamer_casing_r_u_north"
+    },
+    "completed=false,facing=south,type=cs_r_u": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=south,type=cs_r_u": {
+      "model": "caf:block/combi_steamer_casing_r_u_south",
+      "y": 180
+    },
+    "completed=false,facing=west,type=cs_r_u": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=west,type=cs_r_u": {
+      "model": "caf:block/combi_steamer_casing_r_u_west",
+      "y": 270
+    },
+    "completed=false,facing=east,type=cs_r_u": {
+      "model": "caf:block/combi_steamer_casing"
+    },
+    "completed=true,facing=east,type=cs_r_u": {
+      "model": "caf:block/combi_steamer_casing_r_u_east",
+      "y": 90
+    }
+  }
+}

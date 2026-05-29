@@ -59,6 +59,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -71,6 +72,7 @@ import java.util.function.ToIntFunction;
 
 import static com.simibubi.create.foundation.data.ModelGen.customItemModel;
 import static com.simibubi.create.foundation.data.TagGen.*;
+import static net.egorplaytv.caf.CreateAndFood.MOD_ID;
 import static net.egorplaytv.caf.CreateAndFood.REGISTRATE;
 import static net.egorplaytv.caf.block.custom.connect.CTBlocks.*;
 import static net.egorplaytv.caf.block.custom.connect.EncasedCogwheelBlock.steel;
@@ -518,15 +520,15 @@ public class CAFBlocks {
 
     public static final RegistryObject<CombiSteamerController> CS_CONTROLLER = registryBlock("combi_steamer_controller",
             () -> new CombiSteamerController(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL)
-                    .strength(2.0F).requiresCorrectToolForDrops()), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
+                    .strength(2.0F).requiresCorrectToolForDrops().noOcclusion()), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
 
     public static final RegistryObject<CombiSteamerEnergyBlock> CS_ENERGY_COMMUNICATION = registryBlock("combi_steamer_energy_communication",
             () -> new CombiSteamerEnergyBlock(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL)
-                    .strength(2.0F).requiresCorrectToolForDrops()), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
+                    .strength(2.0F).requiresCorrectToolForDrops().noOcclusion()), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
 
     public static final RegistryObject<CombiSteamerFluidBlock> CS_FLUID_COMMUNICATION = registryBlock("combi_steamer_fluid_communication",
             () -> new CombiSteamerFluidBlock(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL)
-                    .strength(2.0F).requiresCorrectToolForDrops()), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
+                    .strength(2.0F).requiresCorrectToolForDrops().noOcclusion()), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
 
     public static final BlockEntry<CombiSteamerCasingBlock> CS_CASING;
 
@@ -625,46 +627,63 @@ public class CAFBlocks {
                 .transform(customItemModel())
                 .register();
 
-        WIRE_BLOCK = REGISTRATE.block("wire_block", WireBlock::new)
+        WIRE_BLOCK = REGISTRATE.block("wire", WireBlock::new)
                 .initialProperties(Material.WOOL)
                 .properties(p -> p.strength(2.0F, 6.0F).noOcclusion())
                 .transform(axeOrPickaxe())
-                .blockstate((c, p) ->
+                .blockstate((c, p) -> {
+                        ModelFile.ExistingModelFile wireConnect = p.models()
+                                .getExistingFile(new ResourceLocation(MOD_ID, "block/wire/wire_connect"));
+                        ModelFile.ExistingModelFile wireSingle = p.models()
+                                .getExistingFile(new ResourceLocation(MOD_ID, "block/wire/wire_single"));
+
                         p.getMultipartBuilder(c.get())
                                 .part()
+                                .modelFile(wireSingle)
                                 .addModel()
                                 .end()
 
                                 .part()
+                                .modelFile(wireConnect)
                                 .addModel()
                                 .condition(WireBlock.NORTH, true)
                                 .end()
 
                                 .part()
+                                .modelFile(wireConnect)
+                                .rotationY(90)
                                 .addModel()
                                 .condition(WireBlock.EAST, true)
                                 .end()
 
                                 .part()
+                                .modelFile(wireConnect)
+                                .rotationY(180)
                                 .addModel()
                                 .condition(WireBlock.SOUTH, true)
                                 .end()
 
                                 .part()
+                                .modelFile(wireConnect)
+                                .rotationY(270)
                                 .addModel()
                                 .condition(WireBlock.WEST, true)
                                 .end()
 
                                 .part()
+                                .modelFile(wireConnect)
+                                .rotationX(270)
                                 .addModel()
                                 .condition(WireBlock.UP, true)
                                 .end()
 
                                 .part()
+                                .modelFile(wireConnect)
+                                .rotationX(90)
                                 .addModel()
                                 .condition(WireBlock.DOWN, true)
-                                .end())
-                .item()
+                                .end();
+                }).item()
                 .transform(customItemModel())
                 .register();
 
@@ -826,7 +845,7 @@ public class CAFBlocks {
                 .register();
 
         CS_CASING = (REGISTRATE.block("combi_steamer_casing", CombiSteamerCasingBlock::new)
-                .properties(p -> p.color(MaterialColor.METAL))
+                .properties(p -> p.color(MaterialColor.METAL).noOcclusion())
                 .transform(BuilderTransformers.cs_casing(() -> SpriteShifts.CS_CASING))
                 .properties(p -> p.sound(SoundType.METAL)))
                 .register();

@@ -93,6 +93,10 @@ public class render {
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.KITCHEN_TABLE_INNER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.KITCHEN_TABLE_OUTER.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.WORKTABLE.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.CS_CONTROLLER.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.CS_ENERGY_COMMUNICATION.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.CS_FLUID_COMMUNICATION.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.CS_CASING.get(), RenderType.cutout());
 
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.OAK_TERRACE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.OAK_TERRACE_STAIRS.get(), RenderType.cutout());
