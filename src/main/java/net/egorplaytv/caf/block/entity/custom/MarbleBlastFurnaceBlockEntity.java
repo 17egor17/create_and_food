@@ -99,7 +99,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     private int progress_tick = 0;
     private int progress = 0;
     private int i = 0;
-    private DegreeValue deg;
+    private DegreeValue deg = new DegreeValue();
     private int time;
     private boolean isCreativeDeg = false;
     private final Object2IntOpenHashMap<ResourceLocation> recipesUsed;
@@ -220,6 +220,8 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                         return MarbleBlastFurnaceBlockEntity.this.time;
                     case 2:
                         return MarbleBlastFurnaceBlockEntity.this.progress_deg;
+                    case 3:
+                        return new DegreeValue.DegreeValueInteger(MarbleBlastFurnaceBlockEntity.this.deg).getDegree();
                     default:
                         return 0;
                 }
@@ -236,11 +238,13 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                     case 2:
                         MarbleBlastFurnaceBlockEntity.this.progress_deg = value;
                         break;
+                    case 3:
+                        MarbleBlastFurnaceBlockEntity.this.deg = new DegreeValue(value);
                 }
             }
 
             public int getCount() {
-                return 3;
+                return 4;
             }
         };
     }

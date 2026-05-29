@@ -23,6 +23,7 @@ public abstract class CombiSteamerBaseBlock extends BaseEntityBlock implements I
 
     public CombiSteamerBaseBlock(Properties pProperties) {
         super(pProperties);
+        this.defaultBlockState().setValue(COMPLETED, Boolean.valueOf(false));
     }
 
     private static final VoxelShape SHAPE = box(0,0,0,16,16,16);
@@ -36,7 +37,8 @@ public abstract class CombiSteamerBaseBlock extends BaseEntityBlock implements I
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
-        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
+        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite())
+                .setValue(COMPLETED, Boolean.valueOf(false));
     }
     @Override
     public BlockState rotate(BlockState pState, Rotation pRotation) {
@@ -59,13 +61,8 @@ public abstract class CombiSteamerBaseBlock extends BaseEntityBlock implements I
         super.animateTick(pState, pLevel, pPos, pRandom);
     }
 
-
     public boolean getComplete(BlockState state) {
         return state.getValue(COMPLETED);
-    }
-
-    public void setCompleted(BlockState state, boolean value){
-        state.setValue(COMPLETED, Boolean.valueOf(value));
     }
 
     @Override

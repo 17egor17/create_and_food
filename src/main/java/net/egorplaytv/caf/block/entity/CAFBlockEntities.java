@@ -6,7 +6,9 @@ import com.tterrag.registrate.util.entry.BlockEntityEntry;
 import net.egorplaytv.caf.CreateAndFood;
 import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.block.entity.custom.*;
-import net.egorplaytv.caf.block.entity.custom.combi_steamer.CombiSteamerBlockEntity;
+import net.egorplaytv.caf.block.entity.custom.combi_steamer.CombiSteamerControllerBlockEntity;
+import net.egorplaytv.caf.block.entity.custom.combi_steamer.CombiSteamerEnergyCommunicationBlockEntity;
+import net.egorplaytv.caf.block.entity.custom.combi_steamer.CombiSteamerFluidCommunicationBlockEntity;
 import net.egorplaytv.caf.block.entity.custom.worktable.WorktableBlockEntity;
 import net.egorplaytv.caf.block.entity.renderer.*;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderInstance;
@@ -42,10 +44,20 @@ public class CAFBlockEntities {
                     BlockEntityType.Builder.of(WorktableBlockEntity::new,
                             CAFBlocks.WORKTABLE.get()).build(null));
 
-    public static final RegistryObject<BlockEntityType<CombiSteamerBlockEntity>> COMBI_STEAMER_ENTITY =
-            BLOCK_ENTITIES.register("combi_steamer_entity", () ->
-                    BlockEntityType.Builder.of(CombiSteamerBlockEntity::new,
-                            CAFBlocks.WORKTABLE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<CombiSteamerControllerBlockEntity>> COMBI_STEAMER_CONTROLLER_ENTITY =
+            BLOCK_ENTITIES.register("combi_steamer_controller_entity", () ->
+                    BlockEntityType.Builder.of(CombiSteamerControllerBlockEntity::new,
+                            CAFBlocks.CS_CONTROLLER.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<CombiSteamerFluidCommunicationBlockEntity>> COMBI_STEAMER_FLUID_COMMUNICATION_ENTITY =
+            BLOCK_ENTITIES.register("combi_steamer_fluid_communication_entity", () ->
+                    BlockEntityType.Builder.of(CombiSteamerFluidCommunicationBlockEntity::new,
+                            CAFBlocks.CS_FLUID_COMMUNICATION.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<CombiSteamerEnergyCommunicationBlockEntity>> COMBI_STEAMER_ENERGY_COMMUNICATION_ENTITY =
+            BLOCK_ENTITIES.register("combi_steamer_energy_communication_entity", () ->
+                    BlockEntityType.Builder.of(CombiSteamerEnergyCommunicationBlockEntity::new,
+                            CAFBlocks.CS_ENERGY_COMMUNICATION.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<ModSignBlockEntity>> SIGN_BLOCK_ENTITIES =
             BLOCK_ENTITIES.register("sign_block_entity", () ->

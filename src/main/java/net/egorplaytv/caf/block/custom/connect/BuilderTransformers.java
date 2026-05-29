@@ -75,110 +75,165 @@ public class BuilderTransformers {
                             CombiSteamerBaseBlockType type = state.getValue(CombiSteamerCasingBlock.TYPE);
                             boolean isCompleted = state.getValue(CombiSteamerCasingBlock.COMPLETED);
                             if (type == CombiSteamerBaseBlockType.CS_B_L) {
-//                                if (isCompleted) {
-//                                    if (facing == Direction.NORTH) {
-//                                        return null;
-//                                    } else if (facing == Direction.SOUTH) {
-//                                        return null;
-//                                    } else if (facing == Direction.EAST) {
-//                                        return null;
-//                                    } else {
-//                                        return null;
-//                                    }
-//                                } else {
-//                                    return ConfiguredModel.builder()
-//                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
-//                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
-//                                            .build();
-//                                }
-                                return ConfiguredModel.builder()
-                                        .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
-                                                new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
-                                        .build();
+                                if (isCompleted) {
+                                    if (facing == Direction.NORTH) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_b_l_north",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_b_l")))
+                                                .build();
+                                    } else if (facing == Direction.SOUTH) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_b_l_south",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_b_l")))
+                                                .rotationY(180)
+                                                .build();
+                                    } else if (facing == Direction.EAST) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_b_l_east",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_b_l")))
+                                                .rotationY(90)
+                                                .build();
+                                    } else {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_b_l_west",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_b_l")))
+                                                .rotationY(270)
+                                                .build();
+                                    }
+                                } else {
+                                    return ConfiguredModel.builder()
+                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+                                            .build();
+                                }
                             } else if (type == CombiSteamerBaseBlockType.CS_B_U) {
-//                                if (isCompleted) {
-//                                    if (facing == Direction.NORTH) {
-//                                        return null;
-//                                    } else if (facing == Direction.SOUTH) {
-//                                        return null;
-//                                    } else if (facing == Direction.EAST) {
-//                                        return null;
-//                                    } else {
-//                                        return null;
-//                                    }
-//                                } else {
-//                                    return ConfiguredModel.builder()
-//                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
-//                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
-//                                            .build();
-//                                }
-                                return ConfiguredModel.builder()
-                                        .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
-                                                new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
-                                        .build();
+                                if (isCompleted) {
+                                    if (facing == Direction.NORTH) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_b_u_north",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_b_u")))
+                                                .build();
+                                    } else if (facing == Direction.SOUTH) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_b_u_south",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_b_u")))
+                                                .rotationY(180)
+                                                .build();
+                                    } else if (facing == Direction.EAST) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_b_u_east",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_b_u")))
+                                                .rotationY(90)
+                                                .build();
+                                    } else {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_b_u_west",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_b_u")))
+                                                .rotationY(270)
+                                                .build();
+                                    }
+                                } else {
+                                    return ConfiguredModel.builder()
+                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+                                            .build();
+                                }
                             } else if (type == CombiSteamerBaseBlockType.CS_U) {
-//                                if (isCompleted) {
-//                                    if (facing == Direction.NORTH) {
-//                                        return null;
-//                                    } else if (facing == Direction.SOUTH) {
-//                                        return null;
-//                                    } else if (facing == Direction.EAST) {
-//                                        return null;
-//                                    } else {
-//                                        return null;
-//                                    }
-//                                } else {
-//                                    return ConfiguredModel.builder()
-//                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
-//                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
-//                                            .build();
-//                                }
-                                return ConfiguredModel.builder()
-                                        .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
-                                                new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
-                                        .build();
+                                if (isCompleted) {
+                                    if (facing == Direction.NORTH) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_u_north",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_u")))
+                                                .build();
+                                    } else if (facing == Direction.SOUTH) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_u_south",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_u")))
+                                                .rotationY(180)
+                                                .build();
+                                    } else if (facing == Direction.EAST) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_u_east",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_u")))
+                                                .rotationY(90)
+                                                .build();
+                                    } else {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_u_west",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_u")))
+                                                .rotationY(270)
+                                                .build();
+                                    }
+                                } else {
+                                    return ConfiguredModel.builder()
+                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+                                            .build();
+                                }
                             } else if (type == CombiSteamerBaseBlockType.CS_R_L) {
-//                                if (isCompleted) {
-//                                    if (facing == Direction.NORTH) {
-//                                        return null;
-//                                    } else if (facing == Direction.SOUTH) {
-//                                        return null;
-//                                    } else if (facing == Direction.EAST) {
-//                                        return null;
-//                                    } else {
-//                                        return null;
-//                                    }
-//                                } else {
-//                                    return ConfiguredModel.builder()
-//                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
-//                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
-//                                            .build();
-//                                }
-                                return ConfiguredModel.builder()
-                                        .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
-                                                new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
-                                        .build();
+                                if (isCompleted) {
+                                    if (facing == Direction.NORTH) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_r_l_north",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_r_l")))
+                                                .build();
+                                    } else if (facing == Direction.SOUTH) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_r_l_south",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_r_l")))
+                                                .rotationY(180)
+                                                .build();
+                                    } else if (facing == Direction.EAST) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_r_l_east",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_r_l")))
+                                                .rotationY(90)
+                                                .build();
+                                    } else {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_r_l_west",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_r_l")))
+                                                .rotationY(270)
+                                                .build();
+                                    }
+                                } else {
+                                    return ConfiguredModel.builder()
+                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+                                            .build();
+                                }
                             } else if (type == CombiSteamerBaseBlockType.CS_R_U) {
-//                                if (isCompleted) {
-//                                    if (facing == Direction.NORTH) {
-//                                        return null;
-//                                    } else if (facing == Direction.SOUTH) {
-//                                        return null;
-//                                    } else if (facing == Direction.EAST) {
-//                                        return null;
-//                                    } else {
-//                                        return null;
-//                                    }
-//                                } else {
-//                                    return ConfiguredModel.builder()
-//                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
-//                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
-//                                            .build();
-//                                }
-                                return ConfiguredModel.builder()
-                                        .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
-                                                new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
-                                        .build();
+                                if (isCompleted) {
+                                    if (facing == Direction.NORTH) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_r_u_north",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_r_u")))
+                                                .build();
+                                    } else if (facing == Direction.SOUTH) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_r_u_south",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_r_u")))
+                                                .rotationY(180)
+                                                .build();
+                                    } else if (facing == Direction.EAST) {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_r_u_east",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_r_u")))
+                                                .rotationY(90)
+                                                .build();
+                                    } else {
+                                        return ConfiguredModel.builder()
+                                                .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath() + "_r_u_west",
+                                                        new ResourceLocation(MOD_ID, "block/combi_steamer/" + c.get().getRegistryName().getPath() + "_r_u")))
+                                                .rotationY(270)
+                                                .build();
+                                    }
+                                } else {
+                                    return ConfiguredModel.builder()
+                                            .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),
+                                                    new ResourceLocation(MOD_ID, "block/" + c.get().getRegistryName().getPath())))
+                                            .build();
+                                }
                             } else {
                                 return ConfiguredModel.builder()
                                         .modelFile(p.models().cubeAll(c.get().getRegistryName().getPath(),

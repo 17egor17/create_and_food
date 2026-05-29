@@ -16,7 +16,7 @@ public class DegreeValue {
     }
 
     public float getDegree() {
-        return this.degree;
+        return ((Math.round(this.degree * 100)) / 100F);
     }
 
     public void setDegree(float degree) {
@@ -34,5 +34,45 @@ public class DegreeValue {
 
     public static void toNetwork(FriendlyByteBuf buf, DegreeValue value) {
         buf.writeFloat(value.getDegree());
+    }
+
+    public static class DegreeValueInteger {
+        private int degree;
+
+        public DegreeValueInteger() {
+            this.degree = 0;
+        }
+
+        public DegreeValueInteger(int degree) {
+            this.degree = degree;
+        }
+
+        public DegreeValueInteger(float degree) {
+            this.degree = Math.round(degree);
+        }
+
+        public DegreeValueInteger(DegreeValue degree) {
+            this.degree = Math.round(degree.getDegree());
+        }
+
+        public int getDegree() {
+            return this.degree;
+        }
+
+        public void setDegree(int degree) {
+            this.degree = degree;
+        }
+
+        public static DegreeValueInteger fromJson(JsonObject json) {
+            return new DegreeValueInteger(GsonHelper.getAsFloat(json, "degree", 100));
+        }
+
+        public static DegreeValueInteger fromNetwork(FriendlyByteBuf buf) {
+            return new DegreeValueInteger(buf.readFloat());
+        }
+
+        public static void toNetwork(FriendlyByteBuf buf, DegreeValueInteger value) {
+            buf.writeFloat(value.getDegree());
+        }
     }
 }

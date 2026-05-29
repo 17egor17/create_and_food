@@ -31,7 +31,7 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
     public final ItemStackHandler inventory;
 
     public MarbleBlastFurnaceMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, getTileEntity(inv, extraData), new SimpleContainerData(3));
+        this(pContainerId, inv, getTileEntity(inv, extraData), new SimpleContainerData(4));
     }
 
     public MarbleBlastFurnaceMenu(int pContainerId, Inventory inv, MarbleBlastFurnaceBlockEntity entity, ContainerData data) {
@@ -73,15 +73,7 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
         return data.get(2) > 0;
     }
     public boolean isDeg() {
-        SimpleContainer inventory = new SimpleContainer(this.inventory.getSlots());
-        for (int i = 0; i < this.inventory.getSlots(); i++) {
-            inventory.setItem(i, this.inventory.getStackInSlot(i));
-        }
-
-        Optional<MarbleFurnaceRecipe> recipe = this.level.getRecipeManager()
-                .getRecipeFor(MarbleFurnaceRecipe.Type.INSTANCE, inventory, this.level);
-
-        return (recipe.map(MarbleFurnaceRecipe::getDeg).orElse(new DegreeValue())).getDegree() > 0;
+        return data.get(3) > 0;
     }
 
     public MarbleBlastFurnaceBlockEntity getBlockEntity() {
@@ -117,15 +109,7 @@ public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
         }
     }
     public TranslatableComponent getDegProgress() {
-        SimpleContainer inventory = new SimpleContainer(this.inventory.getSlots());
-        for (int i = 0; i < this.inventory.getSlots(); i++) {
-            inventory.setItem(i, this.inventory.getStackInSlot(i));
-        }
-
-        Optional<MarbleFurnaceRecipe> recipe = this.level.getRecipeManager()
-                .getRecipeFor(MarbleFurnaceRecipe.Type.INSTANCE, inventory, this.level);
-
-        float degC = (recipe.map(MarbleFurnaceRecipe::getDeg).orElse(new DegreeValue())).getDegree();
+        float degC = data.get(3);
 
         if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS){
             return new TranslatableComponent("ui.marble_furnace.degC", degC);
