@@ -219,7 +219,7 @@ dependencies {
     implementation fg.deobf("com.jozufozu.flywheel:flywheel-forge-${mc_version}:${flywheel_version}")
     implementation fg.deobf("com.tterrag.registrate:Registrate:${registrate_version}")
     if (dynamic_trees_enable.toBoolean()) {
-        implementation fg.deobf("curse.maven:dynamictrees-252818:${dynamic_trees_version}")
+        implementation fg.deobf("com.ferreusveritas.dynamictrees:DynamicTrees-${mc_version}:${dynamic_trees_version}")
     }
 
     implementation fg.deobf("curse.maven:SereneSeasons-291874:${ssVersion}")

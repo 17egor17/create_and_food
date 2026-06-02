@@ -495,6 +495,8 @@ public class CAFBlocks {
     public static final RegistryObject<Block> WILD_MELON_BUSH = registryBlockWithoutBlockItem("wild_melon_bush",
             () -> new WildMelonBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
 
+
+
     //BAKED CLAY//
     public static final RegistryObject<Block> UNBAKED_CLAY = registryBlock("unbaked_clay",
             () -> new Block(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).strength(1.5F)),

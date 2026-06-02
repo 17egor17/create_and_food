@@ -13,6 +13,7 @@ import net.egorplaytv.caf.item.ItemEntities;
 import net.egorplaytv.caf.networking.CAFMessages;
 import net.egorplaytv.caf.ponder.CAFPonders;
 import net.egorplaytv.caf.villager.CAFVillagers;
+import net.egorplaytv.caf.world.CAFWorldEvents;
 import net.egorplaytv.caf.world.VillageStructures;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.data.DataGenerator;
@@ -35,6 +36,7 @@ import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Date;
 import java.util.Optional;
 import java.util.function.BiConsumer;
 
@@ -87,6 +89,7 @@ public class CreateAndFood {
 
         new register(eventBus);
 
+        forgeBus.addListener(CAFWorldEvents::onBiomeLoad);
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::gatherData);
@@ -116,6 +119,16 @@ public class CreateAndFood {
         return new ResourceLocation(MOD_ID, "fluid/" + path);
     }
 
+    public static String CAFDebugFormat() {
+        int hours = new Date().getHours();
+        int minutes = new Date().getMinutes();
+        int seconds = new Date().getSeconds();
+
+        String timeFormat = String.format("[%02d:%02d:%02d] ", hours, minutes, seconds);
+
+        return timeFormat + "[Create And Food/DEBUG]: ";
+    }
+
     private void clientSetup(final FMLClientSetupEvent event) {
         new render();
         event.enqueueWork(CAFPonders::register);
@@ -134,6 +147,7 @@ public class CreateAndFood {
 
         CAFMessages.register();
     }
+
 
     public void gatherData(GatherDataEvent event){
         DataGenerator gen = event.getGenerator();

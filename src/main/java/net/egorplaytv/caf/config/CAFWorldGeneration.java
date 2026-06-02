@@ -6,6 +6,8 @@ public class CAFWorldGeneration extends ConfigBase {
 
     public final ConfigGroup worldGen = group(0, "worldGen");
 
+    public final ConfigBool genCAFWildBushes = b(true, "genCAFWildBushes", Comments.genCAFWildBushes);
+
     public final ConfigGroup wildBlueberryBushGeneration = group(1, "wildBlueberryBush", Comments.wildBlueberryBush);
     public final ConfigInt wildBlueberryChance = i(16, 0, Integer.MAX_VALUE, "chance", Comments.chance);
 
@@ -49,7 +51,6 @@ public class CAFWorldGeneration extends ConfigBase {
     public final ConfigGroup lootTableGeneration = group(1, "lootTableGeneration", Comments.lootTableGeneration);
     public final ConfigBool generateCAFChestLoot = b(true, "generateCAFChestLoot", Comments.generateCAFChestLoot);
 
-
     @Override
     public String getName() {
         return "worldgen";
@@ -64,6 +65,7 @@ public class CAFWorldGeneration extends ConfigBase {
         static String wildGreenGrapeBush = "Wild Green Grape Bush Generation";
         static String wildPurpleGrapeBush = "Wild Purple Grape Bush Generation";
         static String wildRedGrapeBush = "Wild Red Grape Bush Generation";
+        static String genCAFWildBushes = "Generating in the World Wild Bushes from Create And Food";
         static String oreGen = "Ore Generation Configs";
         static String wildPumpkinBush = "Wild Pumpkin Bush Generation Configs";
         static String wildMelonBush = "Wild Melon Bush Generation Configs";
