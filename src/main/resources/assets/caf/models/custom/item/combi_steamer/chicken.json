@@ -1,6 +1,7 @@
 {
 	"format_version": "1.21.11",
 	"credit": "Made with Blockbench",
+	"parent": "caf:custom/block/gastrocapacity/gastrocapacity",
 	"textures": {
 		"chicken": "caf:item/combi_steamer/chicken/raw_chicken"
 	},
