@@ -34,7 +34,7 @@ public class CAFWorldEvents {
     public static void onBiomeLoad(final BiomeLoadingEvent event) {
         String biome = event.getName().getPath();
 
-        if (!CAFConfigs.common().worldGen.genCAFWildBushes.get())
+        if (CAFConfigs.common().worldGen.genCAFWildBushes.get())
             event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION).removeIf(holder -> {
                 PlacedFeature placedFeature = holder.value();
                 Holder<ConfiguredFeature<?, ?>> configuredFeatureHolder = placedFeature.feature();
@@ -49,7 +49,7 @@ public class CAFWorldEvents {
                         System.out.println(CreateAndFood.CAFDebugFormat() + "PlacedFeature in " + biome + ": " + name + " deleted");
                     }
 
-                   return  name.equals(new ResourceLocation("patch_melon")) ||
+                    return  name.equals(new ResourceLocation("patch_melon")) ||
                             name.equals(new ResourceLocation("patch_pumpkin")) ||
                             name.equals(new ResourceLocation("patch_berry_bush"));
             });
