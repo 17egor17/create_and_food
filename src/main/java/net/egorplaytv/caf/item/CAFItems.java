@@ -6,6 +6,7 @@ import net.egorplaytv.caf.fluid.CAFFluids;
 import net.egorplaytv.caf.item.custom.MetalItem.Type;
 import net.egorplaytv.caf.item.custom.*;
 import net.egorplaytv.caf.util.Metals;
+import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -157,7 +158,7 @@ public class CAFItems {
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
     public static final RegistryObject<Item> SWEET_BERRIES = registerItem("sweet_berries",
-            () -> new Item(new Item.Properties().food(CAFFoods.BERRIES).tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
+            () -> new Item(new Item.Properties().food(Foods.SWEET_BERRIES).tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
     public static final RegistryObject<Item> SWEET_BERRIES_SAPLING = registerItem("sweet_berries_sapling",
             () -> new ItemNameBlockItem(CAFBlocks.SWEET_BERRY_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));

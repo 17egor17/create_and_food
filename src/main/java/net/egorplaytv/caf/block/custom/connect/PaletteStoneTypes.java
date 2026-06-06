@@ -8,7 +8,6 @@ import net.egorplaytv.caf.CreateAndFood;
 import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.data.CAFRegistrate;
 import net.egorplaytv.caf.sound.CAFSounds;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -17,7 +16,6 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.ForgeRegistries;
 
-import java.util.Objects;
 import java.util.function.Function;
 
 import static net.egorplaytv.caf.block.custom.connect.PaletteBlockPattern.*;
@@ -45,43 +43,43 @@ public enum PaletteStoneTypes {
                     RegistrateBlockLootTables.createSingleItemTableWithSilkTouch(b, CAFBlocks.COBBLED_MARBLE_PERLIN_PINK.get())))
             .register()),
 
-    BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("baked_clay", () -> Blocks.TERRACOTTA, false, false)
+    PACKED_MUD(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("packed_mud", () -> Blocks.TERRACOTTA, false, false)
             .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.TERRACOTTA_ORANGE))
             .register()),
-    BLACK_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("black_baked_clay", () -> Blocks.TERRACOTTA, false, false)
+    BLACK_PACKED_MUD(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("black_packed_mud", () -> Blocks.TERRACOTTA, false, false)
             .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_BLACK))
             .register()),
-    BLUE_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("blue_baked_clay", () -> Blocks.TERRACOTTA, false, false)
+    BLUE_PACKED_MUD(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("blue_packed_mud", () -> Blocks.TERRACOTTA, false, false)
             .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_BLUE))
             .register()),
-    CYAN_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("cyan_baked_clay", () -> Blocks.TERRACOTTA, false, false)
+    CYAN_PACKED_MUD(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("cyan_packed_mud", () -> Blocks.TERRACOTTA, false, false)
             .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_CYAN))
             .register()),
-    GRAY_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("gray_baked_clay", () -> Blocks.TERRACOTTA, false, false)
+    GRAY_PACKED_MUD(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("gray_packed_mud", () -> Blocks.TERRACOTTA, false, false)
             .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_GRAY))
             .register()),
-    GREEN_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("green_baked_clay", () -> Blocks.TERRACOTTA, false, false)
+    GREEN_PACKED_MUD(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("green_packed_mud", () -> Blocks.TERRACOTTA, false, false)
             .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_GREEN))
             .register()),
-    ORANGE_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("orange_baked_clay", () -> Blocks.TERRACOTTA, false, false)
+    ORANGE_PACKED_MUD(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("orange_packed_mud", () -> Blocks.TERRACOTTA, false, false)
             .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_ORANGE))
             .register()),
-    RED_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("red_baked_clay", () -> Blocks.TERRACOTTA, false, false)
+    RED_PACKED_MUD(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("red_packed_mud", () -> Blocks.TERRACOTTA, false, false)
             .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_RED))
             .register()),
-    WHITE_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("white_baked_clay", () -> Blocks.TERRACOTTA, false, false)
+    WHITE_PACKED_MUD(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("white_packed_mud", () -> Blocks.TERRACOTTA, false, false)
             .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_LIGHT_GRAY))
             .register()),
-    YELLOW_BAKED_CLAY(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("yellow_baked_clay", () -> Blocks.TERRACOTTA, false, false)
+    YELLOW_PACKED_MUD(BAKED_CLAY_RANGE, r -> r.paletteStoneBlock("yellow_packed_mud", () -> Blocks.TERRACOTTA, false, false)
             .properties(p -> p.destroyTime(1.25f).sound(CAFSounds.BAKED_CLAY)
                     .color(MaterialColor.COLOR_YELLOW))
             .register())
