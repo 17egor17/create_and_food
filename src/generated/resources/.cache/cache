@@ -492,7 +492,7 @@ c990b9191619d234d54d043e99d2ad80854a78f8 assets/caf/blockstates/white_saman_oak_
 d599e81e8fc5769954171bdf45b428e4cb0b5d98 assets/caf/blockstates/white_saman_spruce_shingle.json
 198e1f94a94615be6442c7994d0aab87e8490239 assets/caf/blockstates/white_saman_stone_shingle.json
 c6e4f3c42286f890422894deb8efee7446156424 assets/caf/blockstates/white_saman_warped_shingle.json
-0c5fb099c4bea7291cf9537bdeff35d45f707e66 assets/caf/blockstates/wire.json
+add4ba214c4bcf8affcaab419e92fe26c07cb8c7 assets/caf/blockstates/wire.json
 4f77ceb64a9390faae474d5e53b9cb56b121d4a6 assets/caf/blockstates/worktable.json
 b77f2f1111c38e36ce919cec18c30556bab993c2 assets/caf/blockstates/yellow_baked_clay.json
 2838c306e556a7fff1e1b90f119fd2cda0c825f3 assets/caf/blockstates/yellow_baked_clay_pillar.json
@@ -3661,6 +3661,8 @@ bb959902dc5255dc9c9e79b37aabea379591ffba assets/caf/models/item/steel_sword.json
 473b43083d956860b62c235ec2d536c7418db553 assets/caf/models/item/stone_walkway.json
 99b7fcedd2091bb8f2076478ff73083c74d74944 assets/caf/models/item/stripped_almond_log.json
 376448bd47fe0bde5666fe0a8c1dbb7a87a04e28 assets/caf/models/item/stripped_almond_wood.json
+e1a36de23033ccab3278df43fb1e54781353f97d assets/caf/models/item/sweet_berries.json
+49d9f157b838119b011493b06569c6aca74e6065 assets/caf/models/item/sweet_berries_sapling.json
 11fad737be93c6dc7fb4925ddec73c985f0fdab6 assets/caf/models/item/tantalum_axe.json
 29b70a7584676292ac887e3db4714d8557d03211 assets/caf/models/item/tantalum_hammer.json
 ac2f063e5df7e072b4d625e2f761d6b81916d77b assets/caf/models/item/tantalum_hoe.json
@@ -4784,6 +4786,7 @@ a05161f3227b899dfb444009302388beb10a24e5 data/caf/loot_tables/blocks/steel_ruby_
 c94edc0752cde58449c1f994e36fa41d78f3671b data/caf/loot_tables/blocks/stone_walkway.json
 483838e4cc6619e664083d8f12a0c3a688052e1e data/caf/loot_tables/blocks/stripped_almond_log.json
 7da7476089388978c98632dfaa9661259c7c1b68 data/caf/loot_tables/blocks/stripped_almond_wood.json
+bf519c2e7550a62dda43281a044c806a9a2a873e data/caf/loot_tables/blocks/sweet_berry_bush.json
 c32e5f238c5a1c5dd45ca604527c8e5d0fab24d0 data/caf/loot_tables/blocks/tantalum_ore.json
 87e07d5fc9ec229924bd7651cfbb2f5e0e6a6c85 data/caf/loot_tables/blocks/terminal.json
 3526d385971c542999c4db59353b29b48d30fe4d data/caf/loot_tables/blocks/torn_soul_chain.json
@@ -4818,6 +4821,7 @@ f38f14745337820b502b6b28cb096c2f3f179b16 data/caf/loot_tables/blocks/wild_green_
 c00a8afbcd1190ebc3b8cfd57519fa89cc0aef01 data/caf/loot_tables/blocks/wild_purple_grape_bush.json
 a10099efd115893c9718baff25ba84c3f812b02d data/caf/loot_tables/blocks/wild_raspberry_bush.json
 3007eef167dc14c41bd9c4a210a194ce1fc61da5 data/caf/loot_tables/blocks/wild_red_grape_bush.json
+3b0567da04dbdfddd43bd615e5c38d9a398e96c6 data/caf/loot_tables/blocks/wild_sweet_berry_bush.json
 a1c679125e5a3b0f647522e45ab00a3532e6fc5c data/caf/loot_tables/blocks/wire.json
 5e2d0b3d3a21a89109d2c3263e937bc8caaed0d5 data/caf/loot_tables/blocks/worktable.json
 99ba96f199455864dc49ca4fa5025a4930a83667 data/caf/loot_tables/blocks/yellow_baked_clay.json
@@ -5587,7 +5591,7 @@ c5b465fa8d2b73345a6462965c1c010a3fd68169 data/caf/recipes/yellow_saman_oak_shing
 999ba5e12425b2d33ded6256fc8ba68f226541ca data/caf/tags/blocks/almond_logs.json
 040c376807a9615a6d3ddd3a914e412094611143 data/caf/tags/blocks/barrels.json
 2ba62f59a585f199c310ac0a6e79d6f40f4c3a8f data/caf/tags/blocks/basalt_ore_replaceable.json
-76877e9177fc986ff35609bd96aff531c23be83b data/caf/tags/blocks/berry_bushes.json
+88a9d47633bc72047988fd77e53695f7e4af5a3e data/caf/tags/blocks/berry_bushes.json
 768d05380d1ff64c9aae7d5253777e1a2c4b1fda data/caf/tags/blocks/blackstone_ore_replaceable.json
 94401dd5d1eab272c6360c7e46f493ad189b0ad5 data/caf/tags/blocks/crimson_ore_replaceable.json
 e79926a88e1f065c2ec5f72388c8afb21dc7cca2 data/caf/tags/blocks/cutting_boards.json
@@ -5624,7 +5628,7 @@ ed397ec3a81deac76288eac6b494b759ed29ae1b data/caf/tags/fluids/nixie_fluid.json
 c54e791ec813e5b9ef10ba3c3d59306693c36821 data/caf/tags/fluids/pulp.json
 999ba5e12425b2d33ded6256fc8ba68f226541ca data/caf/tags/items/almond_logs.json
 040c376807a9615a6d3ddd3a914e412094611143 data/caf/tags/items/barrels.json
-2c5a5d50399ac3421d32ab7ac9531d9f9ce3ccfe data/caf/tags/items/berries.json
+d63a9b638ec919e0395a21c4385e949095a3ceb7 data/caf/tags/items/berries.json
 7fa5a001b272828c0177a291e0a310dd0116d9ba data/caf/tags/items/creative_fuel.json
 e79926a88e1f065c2ec5f72388c8afb21dc7cca2 data/caf/tags/items/cutting_boards.json
 40fb311ccb8d32b4764ace9e53019ad3bc51db85 data/caf/tags/items/eggs.json

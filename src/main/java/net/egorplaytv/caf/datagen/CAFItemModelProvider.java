@@ -69,6 +69,8 @@ public class CAFItemModelProvider extends ItemModelProvider {
         simpleItem(PURPLE_GRAPE_SAPLING.get(), "berry/saplings");
         simpleItem(RED_GRAPE.get(), "berry", "red_grapes");
         simpleItem(RED_GRAPE_SAPLING.get(), "berry/saplings");
+        minecraftItem(SWEET_BERRIES.get());
+        simpleItem(SWEET_BERRIES_SAPLING.get(), "berry/saplings");
         minecraftItem(PUMPKIN_SEEDS.get());
         minecraftItem(MELON_SEEDS.get());
         simpleItem(APPLE_VINEGAR_BUCKET.get());

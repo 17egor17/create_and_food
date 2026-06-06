@@ -509,7 +509,7 @@
   "death.attack.caf.raspberry_bush": "%1$s искололся(ась) до смерти в кустах малины",
 
   "_comment": "_______________________________DynamicTrees_______________________________",
-  "block.dynamictrees.almond_tree_branch": "Миндальное дерево",
+  "block.dynamictrees.almond_branch": "Миндальное дерево",
   "block.dynamictrees.azalea_branch": "Дерево азалии",
 
   "desc.dynamictrees.seasonal.fertile_seasons": "Плодородные сезоны",
@@ -522,7 +522,7 @@
   "entity.dynamictrees.falling_tree": "Падающее дерево",
 
   "item.dynamictrees.acacia_seed": "Семя акации",
-  "item.dynamictrees.almond_tree_seed": "Миндальное семечко",
+  "item.dynamictrees.almond_seed": "Миндальное семечко",
   "item.dynamictrees.azalea_seed": "Семена азалии",
   "item.dynamictrees.apple_oak_seed": "Яблочное зёрнышко",
   "item.dynamictrees.birch_seed": "Березовая сережка",
@@ -538,7 +538,7 @@
   "item.dynamictrees.staff": "Лесной посох",
   "block.dynamictrees.potted_sapling": "Саженец в горшке",
 
-  "species.dynamictrees.almond_tree": "Миндаль",
+  "species.dynamictrees.almond": "Миндаль",
   "species.dynamictrees.azalea": "Азалия",
   "species.dynamictrees.cocoa": "Какао",
 

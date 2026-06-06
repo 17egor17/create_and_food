@@ -87,7 +87,8 @@ public class CAFItemTagsProvider extends TagsProvider<Item> {
         this.tag(CAFTags.Items.MOD_BERRIES)
                 .add(CAFItems.BLUEBERRY.get()).add(CAFItems.CRANBERRY.get())
                 .add(CAFItems.BLUE_GRAPE.get()).add(CAFItems.GREEN_GRAPE.get())
-                .add(CAFItems.PURPLE_GRAPE.get()).add(CAFItems.RED_GRAPE.get());
+                .add(CAFItems.PURPLE_GRAPE.get()).add(CAFItems.RED_GRAPE.get())
+                .add(CAFItems.SWEET_BERRIES.get());
         this.tag(CAFTags.Items.BERRIES).addTag(CAFTags.Items.MOD_BERRIES);
         this.tag(CAFTags.Items.CREATIVE_FUEL).add(AllItems.CREATIVE_BLAZE_CAKE.get());
         this.tag(CAFTags.Items.CUTTING_BOARDS)

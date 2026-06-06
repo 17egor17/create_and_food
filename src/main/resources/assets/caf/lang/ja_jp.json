@@ -509,7 +509,7 @@
   "death.attack.caf.raspberry_bush": "%1$sはラズベリーの棘が刺さって死んだ",
 
   "_comment": "_______________________________DynamicTrees_______________________________",
-  "block.dynamictrees.almond_tree_branch": "アーモンドの木",
+  "block.dynamictrees.almond_branch": "アーモンドの木",
   "block.dynamictrees.azalea_branch": "木ツツジ",
 
   "desc.dynamictrees.seasonal.fertile_seasons": "肥沃な季節",
@@ -522,7 +522,7 @@
   "entity.dynamictrees.falling_tree": "倒れる木",
 
   "item.dynamictrees.acacia_seed": "アカシア種子",
-  "item.dynamictrees.almond_tree_seed": "アーモンド種子",
+  "item.dynamictrees.almond_seed": "アーモンド種子",
   "item.dynamictrees.azalea_seed": "ツツジ種子",
   "item.dynamictrees.apple_oak_seed": "リンゴの骨",
   "item.dynamictrees.birch_seed": "白樺の尾状花序",
@@ -538,7 +538,7 @@
   "item.dynamictrees.staff": "森のスタッフ",
   "block.dynamictrees.potted_sapling": "ポットの中の苗木",
 
-  "species.dynamictrees.almond_tree": "アーモンド",
+  "species.dynamictrees.almond": "アーモンド",
   "species.dynamictrees.azalea": "ツツジ",
   "species.dynamictrees.cocoa": "カカオ",
 

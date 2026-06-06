@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "rolls": 1.0,
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:block_state_property",
+              "block": "dynamictrees:almond",
+              "properties": {
+                "age": "3"
+              }
+            }
+          ],
+          "name": "caf:almond_nut"
+        }
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ]
+}

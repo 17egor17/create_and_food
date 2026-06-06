@@ -83,127 +83,127 @@ public class CAFBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, CreateAndFood.MOD_ID);
 
     //________________________Create and Food: Decorative________________________\\
-    public static final RegistryObject<Block> TORN_SOUL_CHAIN = registryBlockWithoutBlockItem("torn_soul_chain",
+    public static final RegistryObject<ChainBlock> TORN_SOUL_CHAIN = registryBlockWithoutBlockItem("torn_soul_chain",
             () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN).noOcclusion().requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> STEEL_CHAIN = registryBlockWithoutBlockItem("steel_chain",
+    public static final RegistryObject<ChainBlock> STEEL_CHAIN = registryBlockWithoutBlockItem("steel_chain",
             () -> new ChainBlock(BlockBehaviour.Properties.copy(Blocks.CHAIN).noOcclusion().requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> TORN_SOUL_LANTERN = registryBlockWithoutBlockItem("torn_soul_lantern",
+    public static final RegistryObject<TornSoulLantern> TORN_SOUL_LANTERN = registryBlockWithoutBlockItem("torn_soul_lantern",
             () -> new TornSoulLantern(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion()));
 
-    public static final RegistryObject<Block> GLOWING_BRASS_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_copper_lantern",
+    public static final RegistryObject<LanternBlock> GLOWING_BRASS_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_copper_lantern",
             () -> new CopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops(),
                     WeatheringCopperLantern.WeatherState.UNAFFECTED));
-    public static final RegistryObject<Block> GLOWING_BRASS_EXPOSED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_exposed_copper_lantern",
+    public static final RegistryObject<LanternBlock> GLOWING_BRASS_EXPOSED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_exposed_copper_lantern",
             () -> new CopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops(),
                     WeatheringCopperLantern.WeatherState.EXPOSED));
-    public static final RegistryObject<Block> GLOWING_BRASS_WEATHERED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_weathered_copper_lantern",
+    public static final RegistryObject<LanternBlock> GLOWING_BRASS_WEATHERED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_weathered_copper_lantern",
             () -> new CopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops(),
                     WeatheringCopperLantern.WeatherState.WEATHERED));
-    public static final RegistryObject<Block> GLOWING_BRASS_OXIDIZED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_oxidized_copper_lantern",
+    public static final RegistryObject<LanternBlock> GLOWING_BRASS_OXIDIZED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_oxidized_copper_lantern",
             () -> new CopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops(),
                     WeatheringCopperLantern.WeatherState.OXIDIZED));
-    public static final RegistryObject<Block> GLOWING_BRASS_WAXED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_copper_lantern",
+    public static final RegistryObject<LanternBlock> GLOWING_BRASS_WAXED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_copper_lantern",
             () -> new WaxedCopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> GLOWING_BRASS_WAXED_EXPOSED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_exposed_copper_lantern",
+    public static final RegistryObject<LanternBlock> GLOWING_BRASS_WAXED_EXPOSED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_exposed_copper_lantern",
             () -> new WaxedCopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> GLOWING_BRASS_WAXED_WEATHERED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_weathered_copper_lantern",
+    public static final RegistryObject<LanternBlock> GLOWING_BRASS_WAXED_WEATHERED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_weathered_copper_lantern",
             () -> new WaxedCopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> GLOWING_BRASS_WAXED_OXIDIZED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_oxidized_copper_lantern",
+    public static final RegistryObject<LanternBlock> GLOWING_BRASS_WAXED_OXIDIZED_COPPER_LANTERN = registryBlockWithoutBlockItem("glowing_brass_waxed_oxidized_copper_lantern",
             () -> new WaxedCopperLanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
 
-    public static final RegistryObject<Block> GLOWING_BRASS_STEEL_LANTERN = registryBlockWithoutBlockItem("glowing_brass_steel_lantern",
+    public static final RegistryObject<LanternBlock> GLOWING_BRASS_STEEL_LANTERN = registryBlockWithoutBlockItem("glowing_brass_steel_lantern",
             () -> new LanternBlock(BlockBehaviour.Properties.copy(Blocks.LANTERN).noOcclusion().requiresCorrectToolForDrops()));
 
-    public static final RegistryObject<Block> LANTERN = registryBlockWithoutBlockItem("lantern",
+    public static final RegistryObject<MinecraftLantern> LANTERN = registryBlockWithoutBlockItem("lantern",
             () -> new MinecraftLantern(BlockBehaviour.Properties.copy(Blocks.LANTERN).noCollission().requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> SOUL_LANTERN = registryBlockWithoutBlockItem("soul_lantern",
+    public static final RegistryObject<MinecraftLantern> SOUL_LANTERN = registryBlockWithoutBlockItem("soul_lantern",
             () -> new MinecraftLantern(BlockBehaviour.Properties.copy(Blocks.SOUL_LANTERN).noCollission().requiresCorrectToolForDrops()));
 
 
-    public static final RegistryObject<Block> ALMOND_WALL_SIGN = registryBlockWithoutBlockItem("almond_wall_sign",
+    public static final RegistryObject<ModWallSignBlock> ALMOND_WALL_SIGN = registryBlockWithoutBlockItem("almond_wall_sign",
             () -> new ModWallSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WALL_SIGN), CAFWoodTypes.ALMOND));
-    public static final RegistryObject<Block> ALMOND_SIGN = registryBlockWithoutBlockItem("almond_sign",
+    public static final RegistryObject<ModStandingSignBlock> ALMOND_SIGN = registryBlockWithoutBlockItem("almond_sign",
             () -> new ModStandingSignBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SIGN), CAFWoodTypes.ALMOND));
-    public static final RegistryObject<Block> ALMOND_DOOR = registryBlock("almond_door",
+    public static final RegistryObject<DoorBlock> ALMOND_DOOR = registryBlock("almond_door",
             () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_DOOR)
                     .noOcclusion()), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> ALMOND_TRAPDOOR = registryBlock("almond_trapdoor",
+    public static final RegistryObject<TrapDoorBlock> ALMOND_TRAPDOOR = registryBlock("almond_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)
                     .noOcclusion()), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
-    public static final RegistryObject<Block> ALMOND_BUTTON = registryBlock("almond_button",
+    public static final RegistryObject<WoodButtonBlock> ALMOND_BUTTON = registryBlock("almond_button",
             () -> new WoodButtonBlock(BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON)
                     .noCollission()), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
-    public static final RegistryObject<Block> ALMOND_PRESSURE_PLATE = registryBlock("almond_pressure_plate",
+    public static final RegistryObject<PressurePlateBlock> ALMOND_PRESSURE_PLATE = registryBlock("almond_pressure_plate",
             () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE)
             ), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
-    public static final RegistryObject<Block> ALMOND_FENCE = registryBlock("almond_fence",
+    public static final RegistryObject<FenceBlock> ALMOND_FENCE = registryBlock("almond_fence",
             () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
-    public static final RegistryObject<Block> ALMOND_FENCE_GATE = registryBlock("almond_fence_gate",
+    public static final RegistryObject<FenceGateBlock> ALMOND_FENCE_GATE = registryBlock("almond_fence_gate",
             () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> ALMOND_LOG = registryBlock("almond_log",
+    public static final RegistryObject<ModFlammableRotatedPillarBlock> ALMOND_LOG = registryBlock("almond_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> STRIPPED_ALMOND_LOG = registryBlock("stripped_almond_log",
+    public static final RegistryObject<ModFlammableRotatedPillarBlock> STRIPPED_ALMOND_LOG = registryBlock("stripped_almond_log",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> ALMOND_WOOD = registryBlock("almond_wood",
+    public static final RegistryObject<ModFlammableRotatedPillarBlock> ALMOND_WOOD = registryBlock("almond_wood",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> STRIPPED_ALMOND_WOOD = registryBlock("stripped_almond_wood",
+    public static final RegistryObject<ModFlammableRotatedPillarBlock> STRIPPED_ALMOND_WOOD = registryBlock("stripped_almond_wood",
             () -> new ModFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
     public static final RegistryObject<Block> ALMOND_PLANKS = registryBlock("almond_planks",
             () -> planks(MaterialColor.WOOD), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
-    public static final RegistryObject<Block> ALMOND_STAIRS = registryBlock("almond_stairs",
+    public static final RegistryObject<StairBlock> ALMOND_STAIRS = registryBlock("almond_stairs",
             () -> new StairBlock(() -> CAFBlocks.ALMOND_PLANKS.get().defaultBlockState(),
                     BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> ALMOND_SLAB = registryBlock("almond_slab",
+    public static final RegistryObject<SlabBlock> ALMOND_SLAB = registryBlock("almond_slab",
             () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
     public static BlockEntry<ConnectedGlassBlock> ALMOND_GLASS;
-    public static final RegistryObject<Block> ALMOND_LEAVES = registryBlock("almond_leaves",
+    public static final RegistryObject<LeavesBlock> ALMOND_LEAVES = registryBlock("almond_leaves",
             () -> leaves(MaterialColor.TERRACOTTA_LIGHT_GREEN), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
-    public static final RegistryObject<Block> PASTRY_TABLE = registryBlock("pastry_table",
+    public static final RegistryObject<PastryTable> PASTRY_TABLE = registryBlock("pastry_table",
             () -> new PastryTable(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F)
                     .noOcclusion().sound(SoundType.WOOD)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> FURNITURE_CUTTER = registryBlock("furniture_cutter",
+    public static final RegistryObject<FurnitureCutterBlock> FURNITURE_CUTTER = registryBlock("furniture_cutter",
             () -> new FurnitureCutterBlock(BlockBehaviour.Properties.of(Material.STONE).strength(2.0F)
                     .sound(SoundType.STONE).requiresCorrectToolForDrops()), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> MARBLE_BLAST_FURNACE = registryBlock("marble_black_galaxy_blast_furnace",
+    public static final RegistryObject<MarbleBlastFurnaceBlock> MARBLE_BLAST_FURNACE = registryBlock("marble_black_galaxy_blast_furnace",
             () -> new MarbleBlastFurnaceBlock(BlockBehaviour.Properties.of(Material.STONE).strength(2.0F)
                     .sound(SoundType.STONE).requiresCorrectToolForDrops().lightLevel(litBlockEmission(13))),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> OAK_BARREL = registryBlock("oak_barrel",
+    public static final RegistryObject<BarrelBlock> OAK_BARREL = registryBlock("oak_barrel",
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> SPRUCE_BARREL = registryBlock("spruce_barrel",
+    public static final RegistryObject<BarrelBlock> SPRUCE_BARREL = registryBlock("spruce_barrel",
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> BIRCH_BARREL = registryBlock("birch_barrel",
+    public static final RegistryObject<BarrelBlock> BIRCH_BARREL = registryBlock("birch_barrel",
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> JUNGLE_BARREL = registryBlock("jungle_barrel",
+    public static final RegistryObject<BarrelBlock> JUNGLE_BARREL = registryBlock("jungle_barrel",
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> ACACIA_BARREL = registryBlock("acacia_barrel",
+    public static final RegistryObject<BarrelBlock> ACACIA_BARREL = registryBlock("acacia_barrel",
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> DARK_OAK_BARREL = registryBlock("dark_oak_barrel",
+    public static final RegistryObject<BarrelBlock> DARK_OAK_BARREL = registryBlock("dark_oak_barrel",
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> CRIMSON_BARREL = registryBlock("crimson_barrel",
+    public static final RegistryObject<BarrelBlock> CRIMSON_BARREL = registryBlock("crimson_barrel",
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> WARPED_BARREL = registryBlock("warped_barrel",
+    public static final RegistryObject<BarrelBlock> WARPED_BARREL = registryBlock("warped_barrel",
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> ALMOND_BARREL = registryBlock("almond_barrel",
+    public static final RegistryObject<BarrelBlock> ALMOND_BARREL = registryBlock("almond_barrel",
             () -> new BarrelBlock(BlockBehaviour.Properties.copy(Blocks.BARREL).strength(2.5F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
-    public static final RegistryObject<Block> TERMINAL = registryBlock("terminal",
+    public static final RegistryObject<TerminalBlock> TERMINAL = registryBlock("terminal",
             () -> new TerminalBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2.0F)
                     .sound(SoundType.METAL).requiresCorrectToolForDrops()), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
@@ -234,58 +234,58 @@ public class CAFBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.BRICKS).strength(2.0F, 6.0F)
                     .requiresCorrectToolForDrops().sound(SoundType.STONE)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
-    public static final RegistryObject<Block> OAK_TERRACE = registryBlock("oak_terrace",
+    public static final RegistryObject<TerraceBlock> OAK_TERRACE = registryBlock("oak_terrace",
             () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> OAK_TERRACE_STAIRS = registryBlock("oak_terrace_stairs",
+    public static final RegistryObject<TerraceStairsBlock> OAK_TERRACE_STAIRS = registryBlock("oak_terrace_stairs",
             () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> SPRUCE_TERRACE = registryBlock("spruce_terrace",
+    public static final RegistryObject<TerraceBlock> SPRUCE_TERRACE = registryBlock("spruce_terrace",
             () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> SPRUCE_TERRACE_STAIRS = registryBlock("spruce_terrace_stairs",
+    public static final RegistryObject<TerraceStairsBlock> SPRUCE_TERRACE_STAIRS = registryBlock("spruce_terrace_stairs",
             () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> BIRCH_TERRACE = registryBlock("birch_terrace",
+    public static final RegistryObject<TerraceBlock> BIRCH_TERRACE = registryBlock("birch_terrace",
             () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> BIRCH_TERRACE_STAIRS = registryBlock("birch_terrace_stairs",
+    public static final RegistryObject<TerraceStairsBlock> BIRCH_TERRACE_STAIRS = registryBlock("birch_terrace_stairs",
             () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> JUNGLE_TERRACE = registryBlock("jungle_terrace",
+    public static final RegistryObject<TerraceBlock> JUNGLE_TERRACE = registryBlock("jungle_terrace",
             () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> JUNGLE_TERRACE_STAIRS = registryBlock("jungle_terrace_stairs",
+    public static final RegistryObject<TerraceStairsBlock> JUNGLE_TERRACE_STAIRS = registryBlock("jungle_terrace_stairs",
             () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> ACACIA_TERRACE = registryBlock("acacia_terrace",
+    public static final RegistryObject<TerraceBlock> ACACIA_TERRACE = registryBlock("acacia_terrace",
             () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> ACACIA_TERRACE_STAIRS = registryBlock("acacia_terrace_stairs",
+    public static final RegistryObject<TerraceStairsBlock> ACACIA_TERRACE_STAIRS = registryBlock("acacia_terrace_stairs",
             () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> DARK_OAK_TERRACE = registryBlock("dark_oak_terrace",
+    public static final RegistryObject<TerraceBlock> DARK_OAK_TERRACE = registryBlock("dark_oak_terrace",
             () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> DARK_OAK_TERRACE_STAIRS = registryBlock("dark_oak_terrace_stairs",
+    public static final RegistryObject<TerraceStairsBlock> DARK_OAK_TERRACE_STAIRS = registryBlock("dark_oak_terrace_stairs",
             () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> CRIMSON_TERRACE = registryBlock("crimson_terrace",
+    public static final RegistryObject<TerraceBlock> CRIMSON_TERRACE = registryBlock("crimson_terrace",
             () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> CRIMSON_TERRACE_STAIRS = registryBlock("crimson_terrace_stairs",
+    public static final RegistryObject<TerraceStairsBlock> CRIMSON_TERRACE_STAIRS = registryBlock("crimson_terrace_stairs",
             () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> WARPED_TERRACE = registryBlock("warped_terrace",
+    public static final RegistryObject<TerraceBlock> WARPED_TERRACE = registryBlock("warped_terrace",
             () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> WARPED_TERRACE_STAIRS = registryBlock("warped_terrace_stairs",
+    public static final RegistryObject<TerraceStairsBlock> WARPED_TERRACE_STAIRS = registryBlock("warped_terrace_stairs",
             () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> ALMOND_TERRACE = registryBlock("almond_terrace",
+    public static final RegistryObject<TerraceBlock> ALMOND_TERRACE = registryBlock("almond_terrace",
             () -> new TerraceBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> ALMOND_TERRACE_STAIRS = registryBlock("almond_terrace_stairs",
+    public static final RegistryObject<TerraceStairsBlock> ALMOND_TERRACE_STAIRS = registryBlock("almond_terrace_stairs",
             () -> new TerraceStairsBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
@@ -392,110 +392,113 @@ public class CAFBlocks {
                     .requiresCorrectToolForDrops()), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
 
-    public static final RegistryObject<Block> FARMLAND_SUMP_SAND = registryBlock("farmland_sump_sand",
+    public static final RegistryObject<SumpBlock> FARMLAND_SUMP_SAND = registryBlock("farmland_sump_sand",
             () -> new SumpBlock(BlockBehaviour.Properties.of(Material.SAND).sound(SoundType.SAND).noOcclusion().strength(0.6F)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> FARMLAND_SUMP_RED_SAND = registryBlock("farmland_sump_red_sand",
+    public static final RegistryObject<SumpBlock> FARMLAND_SUMP_RED_SAND = registryBlock("farmland_sump_red_sand",
             () -> new SumpBlock(BlockBehaviour.Properties.of(Material.SAND).sound(SoundType.SAND).noOcclusion().strength(0.6F)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> FARMLAND_SUMP_RICH_SOIL = registryBlock("farmland_sump_rich_soil",
+    public static final RegistryObject<DirtSlabBlock> FARMLAND_SUMP_RICH_SOIL = registryBlock("farmland_sump_rich_soil",
             () -> new DirtSlabBlock(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).noOcclusion().strength(0.6F)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> FARMLAND_SUMP_DIRT = registryBlock("farmland_sump_dirt",
+    public static final RegistryObject<DirtSlabBlock> FARMLAND_SUMP_DIRT = registryBlock("farmland_sump_dirt",
             () -> new DirtSlabBlock(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).noOcclusion().strength(0.6F)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
-    public static final RegistryObject<Block> FERTILIZED_SAND = registryBlock("fertilized_sand",
+    public static final RegistryObject<SandFertilized> FERTILIZED_SAND = registryBlock("fertilized_sand",
             () -> new SandFertilized(14406560, BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.SAND)
                     .strength(0.6F)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> SAND_FARMLAND = registryBlock("sand_farmland",
+    public static final RegistryObject<SandFarmBlock> SAND_FARMLAND = registryBlock("sand_farmland",
             () -> new SandFarmBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND).sound(SoundType.SAND).strength(0.6F)
                     .isViewBlocking(CAFBlocks::always).isSuffocating(CAFBlocks::always)), CreativeModeTab.TAB_SEARCH);
-    public static final RegistryObject<Block> FERTILIZED_RED_SAND = registryBlock("fertilized_red_sand",
+    public static final RegistryObject<RedSandFertilized> FERTILIZED_RED_SAND = registryBlock("fertilized_red_sand",
             () -> new RedSandFertilized(11098145, BlockBehaviour.Properties.copy(Blocks.DIRT).sound(SoundType.SAND)
                     .strength(0.6F)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> RED_SAND_FARMLAND = registryBlock("red_sand_farmland",
+    public static final RegistryObject<RedSandFarmBlock> RED_SAND_FARMLAND = registryBlock("red_sand_farmland",
             () -> new RedSandFarmBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND).sound(SoundType.SAND).strength(0.6F)
                     .isViewBlocking(CAFBlocks::always).isSuffocating(CAFBlocks::always)), CreativeModeTab.TAB_SEARCH);
 
-    public static final RegistryObject<Block> FLOODED_FARMLAND = registryBlock("flooded_farmland",
+    public static final RegistryObject<FloodedFarmlandBlock> FLOODED_FARMLAND = registryBlock("flooded_farmland",
             () -> new FloodedFarmlandBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND)), CreativeModeTab.TAB_SEARCH);
 
-    public static final RegistryObject<Block> FLOODED_RICH_SOIL_FARMLAND = registryBlock("flooded_rich_soil_farmland",
+    public static final RegistryObject<FloodedRichSoilFarmlandBlock> FLOODED_RICH_SOIL_FARMLAND = registryBlock("flooded_rich_soil_farmland",
             () -> new FloodedRichSoilFarmlandBlock(BlockBehaviour.Properties.copy(Blocks.FARMLAND)), CreativeModeTab.TAB_SEARCH);
 
-    public static final RegistryObject<Block> NIXIE_VASE = registryBlock("nixie_vase",
+    public static final RegistryObject<VaseBlock> NIXIE_VASE = registryBlock("nixie_vase",
             () -> new VaseBlock(BlockBehaviour.Properties.of(Material.GLASS).noCollission()),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> NIXIE_VASE_PERLIN_PINK = registryBlock("nixie_vase_perlin_pink",
+    public static final RegistryObject<VaseBlock> NIXIE_VASE_PERLIN_PINK = registryBlock("nixie_vase_perlin_pink",
             () -> new VaseBlock(BlockBehaviour.Properties.of(Material.GLASS).noCollission()),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
-    public static final RegistryObject<Block> NIXIE_VASE_BLACK_GALAXY = registryBlock("nixie_vase_black_galaxy",
+    public static final RegistryObject<VaseBlock> NIXIE_VASE_BLACK_GALAXY = registryBlock("nixie_vase_black_galaxy",
             () -> new VaseBlock(BlockBehaviour.Properties.of(Material.GLASS).noCollission()),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
     
 
-    public static final RegistryObject<Block> ALMOND_SAPLING = registryBlock("almond_sapling",
+    public static final RegistryObject<SaplingBlock> ALMOND_SAPLING = registryBlock("almond_sapling",
             () -> new SaplingBlock(new AlmondTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)),
             CAFCreativeModeTab.CREATE_AND_FOOD);
-    public static final RegistryObject<Block> RYE_PLANT = registryBlockWithoutBlockItem("rye_plant",
+    public static final RegistryObject<RyePlantBlock> RYE_PLANT = registryBlockWithoutBlockItem("rye_plant",
             () -> new RyePlantBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()));
 
-    public static final RegistryObject<Block> RICE_PLANT = registryBlockWithoutBlockItem("rice_plant",
+    public static final RegistryObject<RicePlantBlock> RICE_PLANT = registryBlockWithoutBlockItem("rice_plant",
             () -> new RicePlantBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noCollission()));
 
-    public static final RegistryObject<Block> RICE_CROP = registryBlockWithoutBlockItem("rice",
+    public static final RegistryObject<RiceBlock> RICE_CROP = registryBlockWithoutBlockItem("rice",
             () -> new RiceBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).strength(0.2F).noOcclusion()));
 
-    public static final RegistryObject<Block> RICE_CROP_PANICLES = registryBlockWithoutBlockItem("rice_panicles",
+    public static final RegistryObject<RicePaniclesBlock> RICE_CROP_PANICLES = registryBlockWithoutBlockItem("rice_panicles",
             () -> new RicePaniclesBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noOcclusion()));
 
-    public static final RegistryObject<Block> BLUEBERRY_BUSH = registryBlockWithoutBlockItem("blueberry_bush",
+    public static final RegistryObject<BlueberryBlock> BLUEBERRY_BUSH = registryBlockWithoutBlockItem("blueberry_bush",
             () -> new BlueberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
-    public static final RegistryObject<Block> WILD_BLUEBERRY_BUSH = registryBlockWithoutBlockItem("wild_blueberry_bush",
+    public static final RegistryObject<WildBlueberryBlock> WILD_BLUEBERRY_BUSH = registryBlockWithoutBlockItem("wild_blueberry_bush",
             () -> new WildBlueberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
 
-    public static final RegistryObject<Block> CRANBERRY_BUSH = registryBlockWithoutBlockItem("cranberry_bush",
+    public static final RegistryObject<CranberryBlock> CRANBERRY_BUSH = registryBlockWithoutBlockItem("cranberry_bush",
             () -> new CranberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
-    public static final RegistryObject<Block> WILD_CRANBERRY_BUSH = registryBlockWithoutBlockItem("wild_cranberry_bush",
+    public static final RegistryObject<WildCranberryBlock> WILD_CRANBERRY_BUSH = registryBlockWithoutBlockItem("wild_cranberry_bush",
             () -> new WildCranberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
 
-    public static final RegistryObject<Block> RASPBERRY_BUSH = registryBlockWithoutBlockItem("raspberry_bush",
+    public static final RegistryObject<RaspberryBlock> RASPBERRY_BUSH = registryBlockWithoutBlockItem("raspberry_bush",
             () -> new RaspberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
-    public static final RegistryObject<Block> WILD_RASPBERRY_BUSH = registryBlockWithoutBlockItem("wild_raspberry_bush",
+    public static final RegistryObject<WildRaspberryBlock> WILD_RASPBERRY_BUSH = registryBlockWithoutBlockItem("wild_raspberry_bush",
             () -> new WildRaspberryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
 
-    public static final RegistryObject<Block> BLUE_GRAPE_BUSH = registryBlockWithoutBlockItem("blue_grape_bush",
+    public static final RegistryObject<BlueGrapeBlock> BLUE_GRAPE_BUSH = registryBlockWithoutBlockItem("blue_grape_bush",
             () -> new BlueGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
-    public static final RegistryObject<Block> WILD_BLUE_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_blue_grape_bush",
+    public static final RegistryObject<WildBlueGrapeBlock> WILD_BLUE_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_blue_grape_bush",
             () -> new WildBlueGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
 
-    public static final RegistryObject<Block> GREEN_GRAPE_BUSH = registryBlockWithoutBlockItem("green_grape_bush",
+    public static final RegistryObject<GreenGrapeBlock> GREEN_GRAPE_BUSH = registryBlockWithoutBlockItem("green_grape_bush",
             () -> new GreenGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
-    public static final RegistryObject<Block> WILD_GREEN_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_green_grape_bush",
+    public static final RegistryObject<WildGreenGrapeBlock> WILD_GREEN_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_green_grape_bush",
             () -> new WildGreenGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
 
-    public static final RegistryObject<Block> PURPLE_GRAPE_BUSH = registryBlockWithoutBlockItem("purple_grape_bush",
+    public static final RegistryObject<PurpleGrapeBlock> PURPLE_GRAPE_BUSH = registryBlockWithoutBlockItem("purple_grape_bush",
             () -> new PurpleGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
-    public static final RegistryObject<Block> WILD_PURPLE_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_purple_grape_bush",
+    public static final RegistryObject<WildPurpleGrapeBlock> WILD_PURPLE_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_purple_grape_bush",
             () -> new WildPurpleGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
 
-    public static final RegistryObject<Block> RED_GRAPE_BUSH = registryBlockWithoutBlockItem("red_grape_bush",
+    public static final RegistryObject<RedGrapeBlock> RED_GRAPE_BUSH = registryBlockWithoutBlockItem("red_grape_bush",
             () -> new RedGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
-    public static final RegistryObject<Block> WILD_RED_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_red_grape_bush",
+    public static final RegistryObject<WildRedGrapeBlock> WILD_RED_GRAPE_BUSH = registryBlockWithoutBlockItem("wild_red_grape_bush",
             () -> new WildRedGrapeBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(0.2F)));
 
-    public static final RegistryObject<Block> PUMPKIN_BUSH = registryBlockWithoutBlockItem("pumpkin_bush",
+    public static final RegistryObject<SweetBerryBlock> SWEET_BERRY_BUSH = registryBlockWithoutBlockItem("sweet_berry_bush",
+            () -> new SweetBerryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
+    public static final RegistryObject<WildSweetBerryBlock> WILD_SWEET_BERRY_BUSH = registryBlockWithoutBlockItem("wild_sweet_berry_bush",
+            () -> new WildSweetBerryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
+
+    public static final RegistryObject<PumpkinBushBlock> PUMPKIN_BUSH = registryBlockWithoutBlockItem("pumpkin_bush",
             () -> new PumpkinBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
-    public static final RegistryObject<Block> WILD_PUMPKIN_BUSH = registryBlockWithoutBlockItem("wild_pumpkin_bush",
+    public static final RegistryObject<WildPumpkinBushBlock> WILD_PUMPKIN_BUSH = registryBlockWithoutBlockItem("wild_pumpkin_bush",
             () -> new WildPumpkinBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
 
-    public static final RegistryObject<Block> MELON_BUSH = registryBlockWithoutBlockItem("melon_bush",
+    public static final RegistryObject<MelonBushBlock> MELON_BUSH = registryBlockWithoutBlockItem("melon_bush",
             () -> new MelonBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
-    public static final RegistryObject<Block> WILD_MELON_BUSH = registryBlockWithoutBlockItem("wild_melon_bush",
+    public static final RegistryObject<WildMelonBushBlock> WILD_MELON_BUSH = registryBlockWithoutBlockItem("wild_melon_bush",
             () -> new WildMelonBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
-
-
 
     //BAKED CLAY//
     public static final RegistryObject<Block> UNBAKED_CLAY = registryBlock("unbaked_clay",
@@ -504,13 +507,13 @@ public class CAFBlocks {
 
 
     //________________________Create and Food: Kitchen________________________\\
-    public static final RegistryObject<Block> KITCHEN_TABLE = registryBlock("kitchen_table",
+    public static final RegistryObject<KitchenTable> KITCHEN_TABLE = registryBlock("kitchen_table",
             () -> new KitchenTable(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noOcclusion()
                     .strength(0.2F, 0.3F)), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
-    public static final RegistryObject<Block> KITCHEN_TABLE_INNER = registryBlock("kitchen_table_inner",
+    public static final RegistryObject<KitchenTable> KITCHEN_TABLE_INNER = registryBlock("kitchen_table_inner",
             () -> new KitchenTable(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noOcclusion()
                     .strength(0.2F, 0.3F)), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
-    public static final RegistryObject<Block> KITCHEN_TABLE_OUTER = registryBlock("kitchen_table_outer",
+    public static final RegistryObject<KitchenTable> KITCHEN_TABLE_OUTER = registryBlock("kitchen_table_outer",
             () -> new KitchenTable(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noOcclusion()
                     .strength(0.2F, 0.3F)), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
 
@@ -534,41 +537,41 @@ public class CAFBlocks {
 
     public static final BlockEntry<CombiSteamerCasingBlock> CS_CASING;
 
-    public static final RegistryObject<Block> FERMENTATION_BARREL = registryFermentationBarrel("fermentation_barrel",
+    public static final RegistryObject<FermentationBarrelBlock> FERMENTATION_BARREL = registryFermentationBarrel("fermentation_barrel",
             () -> new FermentationBarrelBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2.0F)
                     .requiresCorrectToolForDrops().noOcclusion().sound(SoundType.COPPER)), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
 
-    public static final RegistryObject<Block> SCALES = registryBlock("scales",
+    public static final RegistryObject<ScalesBlock> SCALES = registryBlock("scales",
             () -> new ScalesBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2.0F)), CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
 
     public static final BlockEntry<MechanicalBlenderBlock> MECHANICAL_BLENDER;
 
-    public static final RegistryObject<Block> OAK_CUTTING_BOARD = registryBlock("oak_cutting_board",
-            () -> new OakCuttingBoardBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD)),
+    public static final RegistryObject<CuttingBoardBlock> OAK_CUTTING_BOARD = registryBlock("oak_cutting_board",
+            () -> new CuttingBoardBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
-    public static final RegistryObject<Block> SPRUCE_CUTTING_BOARD = registryBlock("spruce_cutting_board",
-            () -> new SpruceCuttingBoardBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD)),
+    public static final RegistryObject<CuttingBoardBlock> SPRUCE_CUTTING_BOARD = registryBlock("spruce_cutting_board",
+            () -> new CuttingBoardBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
-    public static final RegistryObject<Block> BIRCH_CUTTING_BOARD = registryBlock("birch_cutting_board",
-            () -> new BirchCuttingBoardBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD)),
+    public static final RegistryObject<CuttingBoardBlock> BIRCH_CUTTING_BOARD = registryBlock("birch_cutting_board",
+            () -> new CuttingBoardBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
-    public static final RegistryObject<Block> JUNGLE_CUTTING_BOARD = registryBlock("jungle_cutting_board",
-            () -> new JungleCuttingBoardBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD)),
+    public static final RegistryObject<CuttingBoardBlock> JUNGLE_CUTTING_BOARD = registryBlock("jungle_cutting_board",
+            () -> new CuttingBoardBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
-    public static final RegistryObject<Block> ACACIA_CUTTING_BOARD = registryBlock("acacia_cutting_board",
-            () -> new AcaciaCuttingBoardBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD)),
+    public static final RegistryObject<CuttingBoardBlock> ACACIA_CUTTING_BOARD = registryBlock("acacia_cutting_board",
+            () -> new CuttingBoardBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
-    public static final RegistryObject<Block> DARK_OAK_CUTTING_BOARD = registryBlock("dark_oak_cutting_board",
-            () -> new DarkOakCuttingBoardBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD)),
+    public static final RegistryObject<CuttingBoardBlock> DARK_OAK_CUTTING_BOARD = registryBlock("dark_oak_cutting_board",
+            () -> new CuttingBoardBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
-    public static final RegistryObject<Block> CRIMSON_CUTTING_BOARD = registryBlock("crimson_cutting_board",
-            () -> new CrimsonCuttingBoardBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.CRIMSON_STEM).strength(2.0F).sound(SoundType.WOOD)),
+    public static final RegistryObject<CuttingBoardBlock> CRIMSON_CUTTING_BOARD = registryBlock("crimson_cutting_board",
+            () -> new CuttingBoardBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.CRIMSON_STEM).strength(2.0F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
-    public static final RegistryObject<Block> WARPED_CUTTING_BOARD = registryBlock("warped_cutting_board",
-            () -> new WarpedCuttingBoardBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.WARPED_STEM).strength(2.0F).sound(SoundType.WOOD)),
+    public static final RegistryObject<CuttingBoardBlock> WARPED_CUTTING_BOARD = registryBlock("warped_cutting_board",
+            () -> new CuttingBoardBlock(BlockBehaviour.Properties.of(Material.NETHER_WOOD, MaterialColor.WARPED_STEM).strength(2.0F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
-    public static final RegistryObject<Block> ALMOND_CUTTING_BOARD = registryBlock("almond_cutting_board",
-            () -> new AlmondCuttingBoardBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD)),
+    public static final RegistryObject<CuttingBoardBlock> ALMOND_CUTTING_BOARD = registryBlock("almond_cutting_board",
+            () -> new CuttingBoardBlock(BlockBehaviour.Properties.of(Material.WOOD).strength(2.0F).sound(SoundType.WOOD)),
             CAFCreativeModeTab.CREATE_AND_FOOD_KITCHEN);
 
 

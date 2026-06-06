@@ -4,6 +4,7 @@ import net.egorplaytv.caf.world.feature.CAFPlacedFeatures;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
@@ -21,6 +22,15 @@ public class CAFWildBushGeneration {
                 event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
         if (!types.contains(BiomeDictionary.Type.JUNGLE)) {
             base.add(CAFPlacedFeatures.WILD_PUMPKIN_PLACED);
+        }
+
+        if (types.contains(BiomeDictionary.Type.FOREST)){
+            Set<ResourceKey<Biome>> forest_biomes = BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST);
+            if (forest_biomes.contains(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("taiga")))
+                    && forest_biomes.contains(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("snowy_taiga"))) &&
+                    forest_biomes.contains(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("old_growth_pine_taiga")))
+                    && forest_biomes.contains(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("old_growth_spruce_taiga"))))
+                base.add(CAFPlacedFeatures.WILD_SWEET_BERRY_BUSH_PLACED);
         }
 
         if (types.contains(BiomeDictionary.Type.JUNGLE)){

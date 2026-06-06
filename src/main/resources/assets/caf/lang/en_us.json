@@ -509,7 +509,7 @@
   "death.attack.caf.raspberry_bush": "%1$s was poked to death by a raspberry bush",
 
   "_comment": "_______________________________DynamicTrees_______________________________",
-  "block.dynamictrees.almond_tree_branch": "Almond Tree",
+  "block.dynamictrees.almond_branch": "Almond Tree",
   "block.dynamictrees.azalea_branch": "Azalea Tree",
 
   "desc.dynamictrees.seasonal.fertile_seasons": "Fertile Seasons",
@@ -522,7 +522,7 @@
   "entity.dynamictrees.falling_tree": "Falling Tree",
 
   "item.dynamictrees.acacia_seed": "Acacia Seed",
-  "item.dynamictrees.almond_tree_seed": "Almond seed",
+  "item.dynamictrees.almond_seed": "Almond seed",
   "item.dynamictrees.azalea_seed": "Azalea Seed",
   "item.dynamictrees.apple_oak_seed": "Apple Pip",
   "item.dynamictrees.birch_seed": "Birch Catkin",
@@ -538,7 +538,7 @@
   "item.dynamictrees.staff": "Woodland Staff",
   "block.dynamictrees.potted_sapling": "Potted Sapling",
 
-  "species.dynamictrees.almond_tree": "Almond",
+  "species.dynamictrees.almond": "Almond",
   "species.dynamictrees.azalea": "Azalea",
   "species.dynamictrees.cocoa": "Cocoa",
 

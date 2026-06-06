@@ -46,7 +46,7 @@
       },
       "apply": {
         "model": "caf:block/wire/wire_connect",
-        "x": 90
+        "x": 270
       }
     },
     {
@@ -55,7 +55,7 @@
       },
       "apply": {
         "model": "caf:block/wire/wire_connect",
-        "x": 270
+        "x": 90
       }
     }
   ]

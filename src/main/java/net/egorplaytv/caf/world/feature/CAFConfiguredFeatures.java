@@ -2,6 +2,7 @@ package net.egorplaytv.caf.world.feature;
 
 import net.egorplaytv.caf.CreateAndFood;
 import net.egorplaytv.caf.block.CAFBlocks;
+import net.egorplaytv.caf.block.custom.berry.WildBerryBushBlock;
 import net.egorplaytv.caf.block.custom.berry.WildBlueberryBlock;
 import net.egorplaytv.caf.block.custom.berry.WildPumpkinAndMelonBlock;
 import net.egorplaytv.caf.block.custom.connect.PaletteStoneTypes;
@@ -54,37 +55,42 @@ public class CAFConfiguredFeatures {
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_BLUEBERRY_BUSH =
             register("wild_blueberry_bush", Feature.RANDOM_PATCH,
-                    getWildCropConfiguration(CAFBlocks.WILD_BLUEBERRY_BUSH.get().defaultBlockState().setValue(WildBlueberryBlock.AGE, Integer.valueOf(2)).getBlock(), 32, 6,
+                    getWildCropConfiguration(CAFBlocks.WILD_BLUEBERRY_BUSH.get().defaultBlockState().setValue(WildBerryBushBlock.AGE, Integer.valueOf(2)).getBlock(), 32, 6,
                             BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_CRANBERRY_BUSH =
             register("wild_cranberry_bush", Feature.RANDOM_PATCH,
-                    getWildCropConfiguration(CAFBlocks.WILD_CRANBERRY_BUSH.get().defaultBlockState().setValue(WildBlueberryBlock.AGE, Integer.valueOf(2)).getBlock(), 32, 6,
+                    getWildCropConfiguration(CAFBlocks.WILD_CRANBERRY_BUSH.get().defaultBlockState().setValue(WildBerryBushBlock.AGE, Integer.valueOf(2)).getBlock(), 32, 6,
                             BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_RASPBERRY_BUSH =
             register("wild_raspberry_bush", Feature.RANDOM_PATCH,
-                    getWildCropConfiguration(CAFBlocks.WILD_RASPBERRY_BUSH.get().defaultBlockState().setValue(WildBlueberryBlock.AGE, Integer.valueOf(2)).getBlock(), 32, 6,
+                    getWildCropConfiguration(CAFBlocks.WILD_RASPBERRY_BUSH.get().defaultBlockState().setValue(WildBerryBushBlock.AGE, Integer.valueOf(2)).getBlock(), 32, 6,
                             BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_BLUE_GRAPE_BUSH =
             register("wild_blue_grape_bush", Feature.RANDOM_PATCH,
-                    getWildCropConfiguration(CAFBlocks.WILD_BLUE_GRAPE_BUSH.get().defaultBlockState().setValue(WildBlueberryBlock.AGE, Integer.valueOf(2)).getBlock(), 32, 6,
+                    getWildCropConfiguration(CAFBlocks.WILD_BLUE_GRAPE_BUSH.get().defaultBlockState().setValue(WildBerryBushBlock.AGE, Integer.valueOf(2)).getBlock(), 32, 6,
                             BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_GREEN_GRAPE_BUSH =
             register("wild_green_grape_bush", Feature.RANDOM_PATCH,
-                    getWildCropConfiguration(CAFBlocks.WILD_GREEN_GRAPE_BUSH.get().defaultBlockState().setValue(WildBlueberryBlock.AGE, Integer.valueOf(2)).getBlock(), 32, 6,
+                    getWildCropConfiguration(CAFBlocks.WILD_GREEN_GRAPE_BUSH.get().defaultBlockState().setValue(WildBerryBushBlock.AGE, Integer.valueOf(2)).getBlock(), 32, 6,
                             BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_PURPLE_GRAPE_BUSH =
             register("wild_purple_grape_bush", Feature.RANDOM_PATCH,
-                    getWildCropConfiguration(CAFBlocks.WILD_PURPLE_GRAPE_BUSH.get().defaultBlockState().setValue(WildBlueberryBlock.AGE, Integer.valueOf(2)).getBlock(), 32, 6,
+                    getWildCropConfiguration(CAFBlocks.WILD_PURPLE_GRAPE_BUSH.get().defaultBlockState().setValue(WildBerryBushBlock.AGE, Integer.valueOf(2)).getBlock(), 32, 6,
                             BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_RED_GRAPE_BUSH =
             register("wild_red_grape_bush", Feature.RANDOM_PATCH,
-                    getWildCropConfiguration(CAFBlocks.WILD_RED_GRAPE_BUSH.get().defaultBlockState().setValue(WildBlueberryBlock.AGE, Integer.valueOf(2)).getBlock(), 32, 6,
+                    getWildCropConfiguration(CAFBlocks.WILD_RED_GRAPE_BUSH.get().defaultBlockState().setValue(WildBerryBushBlock.AGE, Integer.valueOf(2)).getBlock(), 32, 6,
+                            BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
+
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_SWEET_BERRY_BUSH =
+            register("wild_sweet_berry_bush", Feature.RANDOM_PATCH,
+                    getWildCropConfiguration(CAFBlocks.WILD_SWEET_BERRY_BUSH.get().defaultBlockState().setValue(WildBerryBushBlock.AGE, Integer.valueOf(2)).getBlock(), 96, 7,
                             BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_PUMPKIN_BUSH =

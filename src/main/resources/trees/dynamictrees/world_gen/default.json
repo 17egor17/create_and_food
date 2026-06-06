@@ -21,7 +21,7 @@
     "apply": {
       "species" : {
         "random" : {
-          "almond_tree": 3,
+          "almond": 3,
           "oak" : 4,
           "birch" : 1
         }
@@ -52,7 +52,7 @@
       "species" : {
         "random": {
           "acacia": 2,
-          "almond_tree": 2
+          "almond": 2
         }
       },
       "density": [ 0.1 ],
@@ -70,7 +70,7 @@
     "apply": {
       "species" : {
         "random" : {
-          "almond_tree": 5,
+          "almond": 5,
           "jungle" : 15,
           "mega_jungle" : 3,
           "cocoa" : 1

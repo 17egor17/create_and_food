@@ -156,6 +156,12 @@ public class CAFItems {
             () -> new ItemNameBlockItem(CAFBlocks.RED_GRAPE_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
+    public static final RegistryObject<Item> SWEET_BERRIES = registerItem("sweet_berries",
+            () -> new Item(new Item.Properties().food(CAFFoods.BERRIES).tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
+    public static final RegistryObject<Item> SWEET_BERRIES_SAPLING = registerItem("sweet_berries_sapling",
+            () -> new ItemNameBlockItem(CAFBlocks.SWEET_BERRY_BUSH.get(),
+                    new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
+
     public static final RegistryObject<Item> PUMPKIN_SEEDS = registerItem("pumpkin_seeds",
             () -> new ItemNameBlockItem(CAFBlocks.PUMPKIN_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));

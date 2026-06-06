@@ -286,6 +286,25 @@ public class CAFBlockLootTables extends BlockLoot {
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildRedGrapeBlock.AGE, 2)))
                                 .add(LootItem.lootTableItem(CAFItems.RED_GRAPE.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
 
+        this.add(SWEET_BERRY_BUSH.get(), (block) ->
+                applyExplosionDecay(block, LootTable.lootTable()
+                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(CAFItems.SWEET_BERRIES_SAPLING.get()))
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
+                        .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(SWEET_BERRY_BUSH.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBlock.AGE, 6)))
+                                .add(LootItem.lootTableItem(CAFItems.SWEET_BERRIES.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                        .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(SWEET_BERRY_BUSH.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(SweetBerryBlock.AGE, 7)))
+                                .add(LootItem.lootTableItem(CAFItems.SWEET_BERRIES.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+        this.add(WILD_SWEET_BERRY_BUSH.get(), (block) ->
+                applyExplosionDecay(block, LootTable.lootTable()
+                        .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_SWEET_BERRY_BUSH.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildSweetBerryBlock.AGE, 1)))
+                                .add(LootItem.lootTableItem(CAFItems.SWEET_BERRIES.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                        .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_SWEET_BERRY_BUSH.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildSweetBerryBlock.AGE, 2)))
+                                .add(LootItem.lootTableItem(CAFItems.SWEET_BERRIES.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+
         this.add(PUMPKIN_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
                         .withPool(LootPool.lootPool()

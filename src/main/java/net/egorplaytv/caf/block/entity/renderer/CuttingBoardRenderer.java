@@ -2,8 +2,8 @@ package net.egorplaytv.caf.block.entity.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
-import net.egorplaytv.caf.block.custom.OakCuttingBoardBlock;
-import net.egorplaytv.caf.block.entity.custom.OakCuttingBoardBlockEntity;
+import net.egorplaytv.caf.block.custom.CuttingBoardBlock;
+import net.egorplaytv.caf.block.entity.custom.CuttingBoardBlockEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
@@ -14,12 +14,12 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.*;
 
-public class OakCuttingBoardRenderer implements BlockEntityRenderer<OakCuttingBoardBlockEntity> {
-    public OakCuttingBoardRenderer(BlockEntityRendererProvider.Context context){
+public class CuttingBoardRenderer implements BlockEntityRenderer<CuttingBoardBlockEntity> {
+    public CuttingBoardRenderer(BlockEntityRendererProvider.Context context){
     }
 
-    public void render(OakCuttingBoardBlockEntity cuttingBoardEntity, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
-        Direction direction = ((Direction)cuttingBoardEntity.getBlockState().getValue(OakCuttingBoardBlock.FACING)).getOpposite();
+    public void render(CuttingBoardBlockEntity cuttingBoardEntity, float partialTicks, PoseStack poseStack, MultiBufferSource buffer, int combinedLight, int combinedOverlay) {
+        Direction direction = ((Direction)cuttingBoardEntity.getBlockState().getValue(CuttingBoardBlock.FACING)).getOpposite();
         ItemStack boardStack = cuttingBoardEntity.getStoredItem();
         int posLong = (int)cuttingBoardEntity.getBlockPos().asLong();
         if (!boardStack.isEmpty()) {

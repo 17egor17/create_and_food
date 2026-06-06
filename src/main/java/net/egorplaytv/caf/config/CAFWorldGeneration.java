@@ -29,6 +29,9 @@ public class CAFWorldGeneration extends ConfigBase {
     public final ConfigGroup wildRedGrapeBushGeneration = group(1, "wildRedGrapeBush", Comments.wildRedGrapeBush);
     public final ConfigInt wildRedGrapeChance = i(16, 0, Integer.MAX_VALUE, "chance", Comments.chance);
 
+    public final ConfigGroup wildSweetBerryBushGeneration = group(1, "wildSweetBerryBush", Comments.wildSweetBerryBush);
+    public final ConfigInt wildSweetBerryChance = i(16, 0, Integer.MAX_VALUE, "chance", Comments.chance);
+
     public final ConfigGroup oreGen = group(1, "oreGen", Comments.oreGen);
     public final ConfigInt rubyOreVeinsPerChunk = i(7, "rubyOreVeinsPerChunk", Comments.rubyOreVeinsPerChunk);
     public final ConfigInt rubyOreVeinsSize = i(9, 4, 20, "rubyOreVeinsSize", Comments.rubyOreVeinsSize);
@@ -38,7 +41,7 @@ public class CAFWorldGeneration extends ConfigBase {
     public final ConfigInt tungstenOreVeinsSize = i(9, 4, 20, "tungstenOreVeinsSize", Comments.tungstenOreVeinsSize);
 
     public final ConfigGroup wildPumpkinBush = group(1, "wildPumpkinBush", Comments.wildPumpkinBush);
-    public final ConfigInt wildPumpkinBushChance = i(16, 0, Integer.MAX_VALUE, "chance", Comments.chance);
+    public final ConfigInt wildPumpkinBushChance = i(32, 0, Integer.MAX_VALUE, "chance", Comments.chance);
 
     public final ConfigGroup wildMelonBush = group(1, "wildMelonBush", Comments.wildMelonBush);
     public final ConfigInt wildMelonBushChance = i(16, 0, Integer.MAX_VALUE, "chance", Comments.chance);
@@ -65,6 +68,7 @@ public class CAFWorldGeneration extends ConfigBase {
         static String wildGreenGrapeBush = "Wild Green Grape Bush Generation";
         static String wildPurpleGrapeBush = "Wild Purple Grape Bush Generation";
         static String wildRedGrapeBush = "Wild Red Grape Bush Generation";
+        static String wildSweetBerryBush = "Wild Sweet Berry Bush Generation";
         static String genCAFWildBushes = "Generating in the World Wild Bushes from Create And Food";
         static String oreGen = "Ore Generation Configs";
         static String wildPumpkinBush = "Wild Pumpkin Bush Generation Configs";

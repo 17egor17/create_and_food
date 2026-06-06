@@ -1,6 +1,6 @@
 package net.egorplaytv.caf.block.entity.custom;
 
-import net.egorplaytv.caf.block.custom.BirchCuttingBoardBlock;
+import net.egorplaytv.caf.block.custom.CuttingBoardBlock;
 import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -46,7 +46,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
-public class BirchCuttingBoardBlockEntity extends SyncedBlockEntity {
+public class CuttingBoardBlockEntity extends SyncedBlockEntity {
     private final ItemStackHandler inventory = this.createHandler();
     private final LazyOptional<IItemHandler> inputHandler = LazyOptional.of(() -> {
         return this.inventory;
@@ -54,8 +54,8 @@ public class BirchCuttingBoardBlockEntity extends SyncedBlockEntity {
     private ResourceLocation lastRecipeID;
     private boolean isItemCarvingBoard = false;
 
-    public BirchCuttingBoardBlockEntity(BlockPos pos, BlockState state) {
-        super((BlockEntityType) CAFBlockEntities.BIRCH_CUTTING_BOARD.get(), pos, state);
+    public CuttingBoardBlockEntity(BlockPos pos, BlockState state) {
+        super((BlockEntityType) CAFBlockEntities.CUTTING_BOARDS.get(), pos, state);
     }
 
     public void load(CompoundTag compound) {
@@ -81,7 +81,7 @@ public class BirchCuttingBoardBlockEntity extends SyncedBlockEntity {
 
                 while(var5.hasNext()) {
                     ItemStack resultStack = (ItemStack)var5.next();
-                    Direction direction = ((Direction)this.getBlockState().getValue(BirchCuttingBoardBlock.FACING)).getCounterClockWise();
+                    Direction direction = ((Direction)this.getBlockState().getValue(CuttingBoardBlock.FACING)).getCounterClockWise();
                     ItemUtils.spawnItemEntity(this.level, resultStack.copy(), (double)this.worldPosition.getX() + 0.5 + (double)direction.getStepX() * 0.2, (double)this.worldPosition.getY() + 0.2, (double)this.worldPosition.getZ() + 0.5 + (double)direction.getStepZ() * 0.2, (double)((float)direction.getStepX() * 0.2F), 0.0, (double)((float)direction.getStepZ() * 0.2F));
                 }
 
@@ -225,7 +225,6 @@ public class BirchCuttingBoardBlockEntity extends SyncedBlockEntity {
         super.setRemoved();
         this.inputHandler.invalidate();
     }
-
     private ItemStackHandler createHandler() {
         return new ItemStackHandler() {
             public int getSlotLimit(int slot) {
@@ -233,7 +232,7 @@ public class BirchCuttingBoardBlockEntity extends SyncedBlockEntity {
             }
 
             protected void onContentsChanged(int slot) {
-                BirchCuttingBoardBlockEntity.this.inventoryChanged();
+                CuttingBoardBlockEntity.this.inventoryChanged();
             }
         };
     }

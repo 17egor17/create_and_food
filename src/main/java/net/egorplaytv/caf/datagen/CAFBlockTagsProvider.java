@@ -143,7 +143,8 @@ public class CAFBlockTagsProvider extends TagsProvider<Block> {
                 .add(CAFBlocks.BLUE_GRAPE_BUSH.get()).add(CAFBlocks.WILD_BLUE_GRAPE_BUSH.get())
                 .add(CAFBlocks.GREEN_GRAPE_BUSH.get()).add(CAFBlocks.WILD_GREEN_GRAPE_BUSH.get())
                 .add(CAFBlocks.PURPLE_GRAPE_BUSH.get()).add(CAFBlocks.WILD_PURPLE_GRAPE_BUSH.get())
-                .add(CAFBlocks.RED_GRAPE_BUSH.get()).add(CAFBlocks.WILD_RED_GRAPE_BUSH.get());
+                .add(CAFBlocks.RED_GRAPE_BUSH.get()).add(CAFBlocks.WILD_RED_GRAPE_BUSH.get())
+                .add(CAFBlocks.SWEET_BERRY_BUSH.get()).add(CAFBlocks.WILD_SWEET_BERRY_BUSH.get());
         this.tag(CAFTags.Blocks.BLACKSTONE_ORE_REPLACEABLE).add(Blocks.BLACKSTONE);
         this.tag(CAFTags.Blocks.CRIMSON_ORE_REPLACEABLE).add(Blocks.CRIMSON_NYLIUM);
         this.tag(CAFTags.Blocks.CUTTING_BOARDS)

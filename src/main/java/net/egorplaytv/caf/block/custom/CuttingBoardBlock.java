@@ -2,7 +2,7 @@ package net.egorplaytv.caf.block.custom;
 
 import net.egorplaytv.caf.CreateAndFood;
 import net.egorplaytv.caf.block.entity.CAFBlockEntities;
-import net.egorplaytv.caf.block.entity.custom.BirchCuttingBoardBlockEntity;
+import net.egorplaytv.caf.block.entity.custom.CuttingBoardBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ItemParticleOption;
@@ -42,12 +42,12 @@ import vectorwing.farmersdelight.common.tag.ModTags;
 
 import javax.annotation.Nullable;
 
-public class BirchCuttingBoardBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
+public class CuttingBoardBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
     public static final DirectionProperty FACING;
     public static final BooleanProperty WATERLOGGED;
     protected static final VoxelShape SHAPE;
 
-    public BirchCuttingBoardBlock(Properties pProperties) {
+    public CuttingBoardBlock(Properties pProperties) {
         super(pProperties);
         this.registerDefaultState((BlockState)((BlockState)((BlockState)this.getStateDefinition().any()).setValue(FACING, Direction.NORTH)).setValue(WATERLOGGED, false));
     }
@@ -78,7 +78,7 @@ public class BirchCuttingBoardBlock extends BaseEntityBlock implements SimpleWat
 
     public InteractionResult use(BlockState state, Level worldIn, BlockPos pos, Player player, InteractionHand handIn, BlockHitResult hit) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        if (tileEntity instanceof BirchCuttingBoardBlockEntity cuttingBoardEntity) {
+        if (tileEntity instanceof CuttingBoardBlockEntity cuttingBoardEntity) {
             ItemStack heldStack = player.getItemInHand(handIn);
             ItemStack offhandStack = player.getOffhandItem();
             if (cuttingBoardEntity.isEmpty()) {
@@ -132,8 +132,8 @@ public class BirchCuttingBoardBlock extends BaseEntityBlock implements SimpleWat
     public void onRemove(BlockState state, Level worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-            if (tileEntity instanceof BirchCuttingBoardBlockEntity) {
-                Containers.dropItemStack(worldIn, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), ((BirchCuttingBoardBlockEntity)tileEntity).getStoredItem());
+            if (tileEntity instanceof CuttingBoardBlockEntity) {
+                Containers.dropItemStack(worldIn, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), ((CuttingBoardBlockEntity)tileEntity).getStoredItem());
                 worldIn.updateNeighbourForOutputSignal(pos, this);
             }
 
@@ -179,8 +179,8 @@ public class BirchCuttingBoardBlock extends BaseEntityBlock implements SimpleWat
 
     public int getAnalogOutputSignal(BlockState blockState, Level worldIn, BlockPos pos) {
         BlockEntity tileEntity = worldIn.getBlockEntity(pos);
-        if (tileEntity instanceof BirchCuttingBoardBlockEntity) {
-            return !((BirchCuttingBoardBlockEntity)tileEntity).isEmpty() ? 15 : 0;
+        if (tileEntity instanceof CuttingBoardBlockEntity) {
+            return !((CuttingBoardBlockEntity)tileEntity).isEmpty() ? 15 : 0;
         } else {
             return 0;
         }
@@ -188,7 +188,7 @@ public class BirchCuttingBoardBlock extends BaseEntityBlock implements SimpleWat
 
     @Nullable
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return ((BlockEntityType) CAFBlockEntities.BIRCH_CUTTING_BOARD.get()).create(pos, state);
+        return ((BlockEntityType) CAFBlockEntities.CUTTING_BOARDS.get()).create(pos, state);
     }
 
     public BlockState rotate(BlockState pState, Rotation pRot) {
@@ -220,8 +220,8 @@ public class BirchCuttingBoardBlock extends BaseEntityBlock implements SimpleWat
             Player player = event.getPlayer();
             ItemStack heldStack = player.getMainHandItem();
             BlockEntity tileEntity = world.getBlockEntity(event.getPos());
-            if (player.isSecondaryUseActive() && !heldStack.isEmpty() && tileEntity instanceof BirchCuttingBoardBlockEntity && (heldStack.getItem() instanceof TieredItem || heldStack.getItem() instanceof TridentItem || heldStack.getItem() instanceof ShearsItem)) {
-                boolean success = ((BirchCuttingBoardBlockEntity)tileEntity).carveToolOnBoard(player.getAbilities().instabuild ? heldStack.copy() : heldStack);
+            if (player.isSecondaryUseActive() && !heldStack.isEmpty() && tileEntity instanceof CuttingBoardBlockEntity && (heldStack.getItem() instanceof TieredItem || heldStack.getItem() instanceof TridentItem || heldStack.getItem() instanceof ShearsItem)) {
+                boolean success = ((CuttingBoardBlockEntity)tileEntity).carveToolOnBoard(player.getAbilities().instabuild ? heldStack.copy() : heldStack);
                 if (success) {
                     world.playSound((Player)null, (double)pos.getX(), (double)pos.getY(), (double)pos.getZ(), SoundEvents.WOOD_PLACE, SoundSource.BLOCKS, 1.0F, 0.8F);
                     event.setCanceled(true);

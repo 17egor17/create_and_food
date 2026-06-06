@@ -107,7 +107,7 @@ public abstract class WildBerryBushBlock extends BushBlock implements Bonemealab
         if (pEntity instanceof LivingEntity && pEntity.getType() != EntityType.FOX && pEntity.getType() != EntityType.BEE) {
             pEntity.makeStuckInBlock(pState, new Vec3((double) 0.8F, 0.75D, (double) 0.8F));
             if (getIsPrickly()) {
-                if (!pLevel.isClientSide && pState.getValue(AGE) > 0 && (pEntity.xOld != pEntity.getX() || pEntity.zOld != pEntity.getZ())) {
+                if (!pLevel.isClientSide && pState.getValue(AGE) >= 0 && (pEntity.xOld != pEntity.getX() || pEntity.zOld != pEntity.getZ())) {
                     double d0 = Math.abs(pEntity.getX() - pEntity.xOld);
                     double d1 = Math.abs(pEntity.getZ() - pEntity.zOld);
                     if (d0 >= (double)0.003F || d1 >= (double)0.003F) {

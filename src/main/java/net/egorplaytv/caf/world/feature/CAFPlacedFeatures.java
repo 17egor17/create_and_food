@@ -47,6 +47,10 @@ public class CAFPlacedFeatures {
             CAFConfiguredFeatures.WILD_RED_GRAPE_BUSH, RarityFilter.onAverageOnceEvery(CAFConfigs.common().worldGen.wildRedGrapeChance.get()),
             InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
 
+    public static final Holder<PlacedFeature> WILD_SWEET_BERRY_BUSH_PLACED = register("wild_sweet_berry_bush_placed",
+            CAFConfiguredFeatures.WILD_SWEET_BERRY_BUSH, RarityFilter.onAverageOnceEvery(CAFConfigs.common().worldGen.wildSweetBerryChance.get()),
+            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+
     public static final Holder<PlacedFeature> WILD_PUMPKIN_PLACED = register("wild_pumpkin_placed",
             CAFConfiguredFeatures.WILD_PUMPKIN_BUSH, RarityFilter.onAverageOnceEvery(CAFConfigs.common().worldGen.wildPumpkinBushChance.get()),
             InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());

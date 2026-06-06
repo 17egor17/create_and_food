@@ -43,6 +43,8 @@ public class render {
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.MELON_BUSH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.WILD_PUMPKIN_BUSH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.WILD_MELON_BUSH.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.SWEET_BERRY_BUSH.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.WILD_SWEET_BERRY_BUSH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.ALMOND_DOOR.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.ALMOND_TRAPDOOR.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(CAFFluids.APPLE_VINEGAR.get(), RenderType.translucent());
@@ -131,14 +133,6 @@ public class render {
 
         BlockEntityRenderers.register(CAFBlockEntities.SIGN_BLOCK_ENTITIES.get(), SignRenderer::new);
 
-        BlockEntityRenderers.register(CAFBlockEntities.OAK_CUTTING_BOARD.get(), OakCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(CAFBlockEntities.SPRUCE_CUTTING_BOARD.get(), SpruceCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(CAFBlockEntities.BIRCH_CUTTING_BOARD.get(), BirchCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(CAFBlockEntities.JUNGLE_CUTTING_BOARD.get(), JungleCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(CAFBlockEntities.ACACIA_CUTTING_BOARD.get(), AcaciaCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(CAFBlockEntities.DARK_OAK_CUTTING_BOARD.get(), DarkOakCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(CAFBlockEntities.CRIMSON_CUTTING_BOARD.get(), CrimsonCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(CAFBlockEntities.WARPED_CUTTING_BOARD.get(), WarpedCuttingBoardRenderer::new);
-        BlockEntityRenderers.register(CAFBlockEntities.ALMOND_CUTTING_BOARD.get(), AlmondCuttingBoardRenderer::new);
+        BlockEntityRenderers.register(CAFBlockEntities.CUTTING_BOARDS.get(), CuttingBoardRenderer::new);
     }
 }

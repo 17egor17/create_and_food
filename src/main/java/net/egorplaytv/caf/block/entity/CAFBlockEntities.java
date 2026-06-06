@@ -65,52 +65,15 @@ public class CAFBlockEntities {
                             CAFBlocks.ALMOND_WALL_SIGN.get(),
                             CAFBlocks.ALMOND_SIGN.get()).build(null));
 
-    public static final RegistryObject<BlockEntityType<OakCuttingBoardBlockEntity>> OAK_CUTTING_BOARD =
-            BLOCK_ENTITIES.register("oak_cutting_board", () -> {
-                    return BlockEntityType.Builder.of(OakCuttingBoardBlockEntity::new,
-                            new Block[]{(Block) CAFBlocks.OAK_CUTTING_BOARD.get()}).build(null);
+    public static final RegistryObject<BlockEntityType<CuttingBoardBlockEntity>> CUTTING_BOARDS =
+            BLOCK_ENTITIES.register("cutting_boards", () -> {
+                return BlockEntityType.Builder.of(CuttingBoardBlockEntity::new,
+                        CAFBlocks.OAK_CUTTING_BOARD.get(), CAFBlocks.SPRUCE_CUTTING_BOARD.get(),
+                        CAFBlocks.BIRCH_CUTTING_BOARD.get(), CAFBlocks.JUNGLE_CUTTING_BOARD.get(),
+                        CAFBlocks.ACACIA_CUTTING_BOARD.get(), CAFBlocks.DARK_OAK_CUTTING_BOARD.get(),
+                        CAFBlocks.CRIMSON_CUTTING_BOARD.get(), CAFBlocks.WARPED_CUTTING_BOARD.get(),
+                        CAFBlocks.ALMOND_CUTTING_BOARD.get()).build(null);
             });
-    public static final RegistryObject<BlockEntityType<SpruceCuttingBoardBlockEntity>> SPRUCE_CUTTING_BOARD =
-            BLOCK_ENTITIES.register("spruce_cutting_board", () -> {
-                    return BlockEntityType.Builder.of(SpruceCuttingBoardBlockEntity::new,
-                            new Block[]{(Block) CAFBlocks.SPRUCE_CUTTING_BOARD.get()}).build(null);
-            });
-    public static final RegistryObject<BlockEntityType<BirchCuttingBoardBlockEntity>> BIRCH_CUTTING_BOARD =
-            BLOCK_ENTITIES.register("birch_cutting_board", () -> {
-                    return BlockEntityType.Builder.of(BirchCuttingBoardBlockEntity::new,
-                            new Block[]{(Block) CAFBlocks.BIRCH_CUTTING_BOARD.get()}).build(null);
-            });
-    public static final RegistryObject<BlockEntityType<JungleCuttingBoardBlockEntity>> JUNGLE_CUTTING_BOARD =
-            BLOCK_ENTITIES.register("jungle_cutting_board", () -> {
-                    return BlockEntityType.Builder.of(JungleCuttingBoardBlockEntity::new,
-                            new Block[]{(Block) CAFBlocks.JUNGLE_CUTTING_BOARD.get()}).build(null);
-            });
-    public static final RegistryObject<BlockEntityType<AcaciaCuttingBoardBlockEntity>> ACACIA_CUTTING_BOARD =
-            BLOCK_ENTITIES.register("acacia_cutting_board", () -> {
-                    return BlockEntityType.Builder.of(AcaciaCuttingBoardBlockEntity::new,
-                            new Block[]{(Block) CAFBlocks.ACACIA_CUTTING_BOARD.get()}).build(null);
-            });
-    public static final RegistryObject<BlockEntityType<DarkOakCuttingBoardBlockEntity>> DARK_OAK_CUTTING_BOARD =
-            BLOCK_ENTITIES.register("dark_oak_cutting_board", () -> {
-                    return BlockEntityType.Builder.of(DarkOakCuttingBoardBlockEntity::new,
-                            new Block[]{(Block) CAFBlocks.DARK_OAK_CUTTING_BOARD.get()}).build(null);
-            });
-    public static final RegistryObject<BlockEntityType<CrimsonCuttingBoardBlockEntity>> CRIMSON_CUTTING_BOARD =
-            BLOCK_ENTITIES.register("crimson_cutting_board", () -> {
-                    return BlockEntityType.Builder.of(CrimsonCuttingBoardBlockEntity::new,
-                            new Block[]{(Block) CAFBlocks.CRIMSON_CUTTING_BOARD.get()}).build(null);
-            });
-    public static final RegistryObject<BlockEntityType<WarpedCuttingBoardBlockEntity>> WARPED_CUTTING_BOARD =
-            BLOCK_ENTITIES.register("warped_cutting_board", () -> {
-                    return BlockEntityType.Builder.of(WarpedCuttingBoardBlockEntity::new,
-                            new Block[]{(Block) CAFBlocks.WARPED_CUTTING_BOARD.get()}).build(null);
-            });
-    public static final RegistryObject<BlockEntityType<AlmondCuttingBoardBlockEntity>> ALMOND_CUTTING_BOARD =
-            BLOCK_ENTITIES.register("almond_cutting_board", () -> {
-                    return BlockEntityType.Builder.of(AlmondCuttingBoardBlockEntity::new,
-                            new Block[]{(Block) CAFBlocks.ALMOND_CUTTING_BOARD.get()}).build(null);
-            });
-
 
     public static final RegistryObject<BlockEntityType<ScalesBlockEntity>> SCALES_BLOCK_ENTITY =
             BLOCK_ENTITIES.register("scales", () ->
