@@ -10,6 +10,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -35,50 +36,22 @@ public class RaspberryBlock extends BerryBushBlock {
     }
 
     @Override
-    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-        if (pEntity instanceof LivingEntity && pEntity.getType() != EntityType.FOX && pEntity.getType() != EntityType.BEE) {
-            pEntity.makeStuckInBlock(pState, new Vec3((double)0.8F, 0.75D, (double)0.8F));
-            if (!pLevel.isClientSide && pState.getValue(AGE) > 0 && (pEntity.xOld != pEntity.getX() || pEntity.zOld != pEntity.getZ())) {
-                double d0 = Math.abs(pEntity.getX() - pEntity.xOld);
-                double d1 = Math.abs(pEntity.getZ() - pEntity.zOld);
-                if (d0 >= (double)0.003F || d1 >= (double)0.003F) {
-                    CAFDamageSource.raspberryBush(pEntity, 1.0F);
-                }
-            }
-        }
+    public ItemStack getSapling() {
+        return CAFItems.RASPBERRY_SAPLING.get().getDefaultInstance();
     }
 
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        int i = pState.getValue(AGE);
-        boolean flag = i == MAX_AGE;
-        if (!flag && pPlayer.getItemInHand(pHand).is(Items.BONE_MEAL)) {
-            return InteractionResult.PASS;
-        } else if (i > 4 && pPlayer.getItemInHand(pHand).is(CAFTags.Items.CUT_TOOLS) && pState.getValue(CUT) == Boolean.valueOf(false)) {
-            ItemStack setBranch = CAFItems.RASPBERRY_SAPLING.get().getDefaultInstance();
-            setBranch.setCount(1);
-            pLevel.playSound((Player) null, pPos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0F, 0.8F + pLevel.random.nextFloat() * 0.4F);
-            pLevel.setBlock(pPos, pState.setValue(CUT, Boolean.valueOf(true)), 2);
-            if (!pPlayer.isCreative()) {
-                pPlayer.getItemInHand(pHand).hurt(1, pLevel.random, (ServerPlayer) null);
-            }
-            ItemHandlerHelper.giveItemToPlayer(pPlayer, setBranch);
-            return InteractionResult.sidedSuccess(pLevel.isClientSide);
-        } else if (i > 4 && pPlayer.getItemInHand(pHand).is(CAFTags.Items.CUT_TOOLS) && pState.getValue(CUT) == Boolean.valueOf(true)) {
-            pPlayer.displayClientMessage(TextUtils.getBerryBushTranslation("circumcised", new Object[0]), true);
-        } else if (i < 5 && pPlayer.getItemInHand(pHand).is(CAFTags.Items.CUT_TOOLS)) {
-            pPlayer.displayClientMessage(TextUtils.getBerryBushTranslation("circumcised", new Object[0]), true);
-        } else if (i > 5) {
-            ItemStack setBerries = CAFItems.RASPBERRY.get().getDefaultInstance();
-            if (pState.getValue(AGE) == MAX_AGE) {
-                setBerries.setCount(5);
-            } else if (pState.getValue(AGE) == 6) {
-                setBerries.setCount(3);
-            }
-            ItemHandlerHelper.giveItemToPlayer(pPlayer, setBerries);
-            pLevel.playSound((Player) null, pPos, SoundEvents.SWEET_BERRY_BUSH_PICK_BERRIES, SoundSource.BLOCKS, 1.0F, 0.8F + pLevel.random.nextFloat() * 0.4F);
-            pLevel.setBlock(pPos, pState.setValue(AGE, Integer.valueOf(5)), 2);
-            return InteractionResult.sidedSuccess(pLevel.isClientSide);
-        }
-        return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+    @Override
+    public ItemStack getBerry() {
+        return CAFItems.RASPBERRY.get().getDefaultInstance();
+    }
+
+    @Override
+    public boolean getIsPrickly() {
+        return true;
+    }
+
+    @Override
+    public DamageSource getDamage() {
+        return CAFDamageSource.RASPBERRY_BUSH;
     }
 }

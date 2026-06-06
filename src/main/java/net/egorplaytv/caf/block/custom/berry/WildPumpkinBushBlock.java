@@ -29,23 +29,7 @@ public class WildPumpkinBushBlock extends WildPumpkinAndMelonBlock{
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        int i = pState.getValue(AGE);
-        boolean flag = i == MAX_AGE;
-        if (!flag && pPlayer.getItemInHand(pHand).is(Items.BONE_MEAL)) {
-            return InteractionResult.PASS;
-        } else if (i < MAX_AGE && pPlayer.getItemInHand(pHand).is(CAFTags.Items.CUT_TOOLS)) {
-            pPlayer.displayClientMessage(TextUtils.getPumpkinAndMelonBushTranslation("cut", new Object[0]), true);
-        } else if (i == MAX_AGE && pPlayer.getItemInHand(pHand).is(CAFTags.Items.CUT_TOOLS)) {
-            ItemStack setPumpkin = Blocks.PUMPKIN.asItem().getDefaultInstance();
-            setPumpkin.setCount(1);
-
-            ItemHandlerHelper.giveItemToPlayer(pPlayer, setPumpkin);
-            pLevel.playSound((Player) null, pPos, SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0F, 0.8F + pLevel.random.nextFloat() * 0.4F);
-            pLevel.setBlock(pPos, pState.setValue(AGE, Integer.valueOf(0)), 2);
-            return InteractionResult.sidedSuccess(pLevel.isClientSide);
-        }
-
-        return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+    public ItemStack getFruit() {
+        return Blocks.PUMPKIN.asItem().getDefaultInstance();
     }
 }

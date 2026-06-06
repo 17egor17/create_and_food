@@ -28,8 +28,4 @@ public class CAFDamageSource {
     public static void radiation(Entity entity, float amount){
         entity.hurt(RADIATION, amount);
     }
-
-    public static void raspberryBush(Entity entity, float amount){
-        entity.hurt(RASPBERRY_BUSH, amount);
-    }
 }
