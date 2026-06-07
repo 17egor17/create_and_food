@@ -27,9 +27,9 @@ public class CAFWildBushGeneration {
         if (types.contains(BiomeDictionary.Type.FOREST)){
             Set<ResourceKey<Biome>> forest_biomes = BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST);
             if (forest_biomes.contains(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("taiga")))
-                    && forest_biomes.contains(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("snowy_taiga"))) &&
+                    || forest_biomes.contains(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("snowy_taiga"))) ||
                     forest_biomes.contains(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("old_growth_pine_taiga")))
-                    && forest_biomes.contains(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("old_growth_spruce_taiga"))))
+                    || forest_biomes.contains(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("old_growth_spruce_taiga"))))
                 base.add(CAFPlacedFeatures.WILD_SWEET_BERRY_BUSH_PLACED);
         }
 

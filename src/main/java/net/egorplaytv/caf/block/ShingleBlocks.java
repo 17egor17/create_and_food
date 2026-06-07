@@ -5,7 +5,6 @@ import com.simibubi.create.foundation.utility.Lang;
 import com.tterrag.registrate.util.nullness.NonNullSupplier;
 import net.egorplaytv.caf.CreateAndFood;
 import net.egorplaytv.caf.block.custom.connect.PaletteStoneTypes;
-import net.egorplaytv.caf.block.custom.connect.PalettesVariantEntry;
 import net.egorplaytv.caf.data.CAFRegistrate;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -17,16 +16,16 @@ import java.util.function.Function;
 import static net.egorplaytv.caf.block.ShingleBlockPattern.*;
 
 public enum ShingleBlocks {
-    SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.BAKED_CLAY.getBaseBlock().get()),
-    BLACK_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.BLACK_BAKED_CLAY.getBaseBlock().get()),
-    BLUE_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.BLUE_BAKED_CLAY.getBaseBlock().get()),
-    CYAN_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.CYAN_BAKED_CLAY.getBaseBlock().get()),
-    GRAY_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.GRAY_BAKED_CLAY.getBaseBlock().get()),
-    GREEN_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.GREEN_BAKED_CLAY.getBaseBlock().get()),
-    ORANGE_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.ORANGE_BAKED_CLAY.getBaseBlock().get()),
-    RED_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.RED_BAKED_CLAY.getBaseBlock().get()),
-    WHITE_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.WHITE_BAKED_CLAY.getBaseBlock().get()),
-    YELLOW_SAMAN(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.YELLOW_BAKED_CLAY.getBaseBlock().get())
+    PACKED_MUD(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.PACKED_MUD.getBaseBlock().get()),
+    BLACK_PACKED_MUD(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.BLACK_PACKED_MUD.getBaseBlock().get()),
+    BLUE_PACKED_MUD(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.BLUE_PACKED_MUD.getBaseBlock().get()),
+    CYAN_PACKED_MUD(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.CYAN_PACKED_MUD.getBaseBlock().get()),
+    GRAY_PACKED_MUD(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.GRAY_PACKED_MUD.getBaseBlock().get()),
+    GREEN_PACKED_MUD(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.GREEN_PACKED_MUD.getBaseBlock().get()),
+    ORANGE_PACKED_MUD(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.ORANGE_PACKED_MUD.getBaseBlock().get()),
+    RED_PACKED_MUD(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.RED_PACKED_MUD.getBaseBlock().get()),
+    WHITE_PACKED_MUD(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.WHITE_PACKED_MUD.getBaseBlock().get()),
+    YELLOW_PACKED_MUD(SHINGLE_RANGE, r -> () -> PaletteStoneTypes.YELLOW_PACKED_MUD.getBaseBlock().get())
     ;
 
     private final Function<CAFRegistrate, NonNullSupplier<Block>> factory;

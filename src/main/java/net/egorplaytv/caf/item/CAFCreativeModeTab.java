@@ -3,12 +3,7 @@ package net.egorplaytv.caf.item;
 import net.egorplaytv.caf.block.CAFBlocks;
 //import net.minecraft.core.registries.Registries;
 import net.egorplaytv.caf.block.ShingleBlocks;
-import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
-import net.minecraft.tags.Tag;
-import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public class CAFCreativeModeTab {
@@ -57,7 +52,7 @@ public class CAFCreativeModeTab {
     public static final CreativeModeTab CREATE_AND_FOOD_ROOFS = new CreativeModeTab("caf_roofs") {
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ShingleBlocks.SAMAN.getVariants().getBlocks().get().asItem());
+            return new ItemStack(ShingleBlocks.PACKED_MUD.getVariants().getBlocks().get().asItem());
         }
     };
 
