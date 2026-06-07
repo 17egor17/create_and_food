@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "caf:stone_types/red_packed_mud"
+  },
+  "result": "caf:red_packed_mud_pillar",
+  "count": 1
+}

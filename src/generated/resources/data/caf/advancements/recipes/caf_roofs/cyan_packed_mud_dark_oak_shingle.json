@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:cyan_packed_mud_dark_oak_shingle"
+    ]
+  },
+  "criteria": {
+    "has_cyan_packed_mud": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:cyan_packed_mud"
+            ]
+          }
+        ]
+      }
+    },
+    "has_dark_oak_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:dark_oak_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:cyan_packed_mud_dark_oak_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_cyan_packed_mud",
+      "has_dark_oak_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "caf:unbaked_clay",
+    "caf:unbaked_packed_mud",
     "caf:farmland_sump_sand",
     "caf:farmland_sump_red_sand",
     "caf:farmland_sump_rich_soil",

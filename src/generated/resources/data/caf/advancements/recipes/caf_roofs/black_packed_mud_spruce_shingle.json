@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:black_packed_mud_spruce_shingle"
+    ]
+  },
+  "criteria": {
+    "has_black_packed_mud": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:black_packed_mud"
+            ]
+          }
+        ]
+      }
+    },
+    "has_spruce_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:spruce_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:black_packed_mud_spruce_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_black_packed_mud",
+      "has_spruce_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

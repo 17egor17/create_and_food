@@ -203,7 +203,7 @@ public class CAFBlockStateProvider extends BlockStateProvider {
         riceBlock(RICE_CROP.get(), RiceBlock.AGE, RiceBlock.SUPPORTING);
         ricePaniclesBlock(RICE_CROP_PANICLES.get(), RicePaniclesBlock.RICE_AGE);
 
-        simpleBlock(UNBAKED_CLAY.get(), "block/baked_clay");
+        simpleBlock(UNBAKED_PACKED_MUD.get(), "block/palettes/stone_types");
         rotatingBlock(KITCHEN_TABLE.get(), "block/kitchen");
         rotatingBlock(KITCHEN_TABLE_INNER.get(), "block/kitchen");
         rotatingBlock(KITCHEN_TABLE_OUTER.get(), "block/kitchen");

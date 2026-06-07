@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "caf:stone_types/packed_mud"
+  },
+  "result": "caf:cut_packed_mud_wall",
+  "count": 1
+}

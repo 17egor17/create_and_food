@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "caf:cut_cyan_packed_mud",
+    "caf:cut_cyan_packed_mud_stairs",
+    "caf:cut_cyan_packed_mud_wall",
+    "caf:cut_cyan_packed_mud_bricks",
+    "caf:cut_cyan_packed_mud_brick_stairs",
+    "caf:cut_cyan_packed_mud_brick_wall",
+    "caf:small_cyan_packed_mud_bricks",
+    "caf:small_cyan_packed_mud_brick_stairs",
+    "caf:small_cyan_packed_mud_brick_wall",
+    "caf:layered_cyan_packed_mud",
+    "caf:cyan_packed_mud_pillar",
+    "caf:cyan_packed_mud"
+  ]
+}

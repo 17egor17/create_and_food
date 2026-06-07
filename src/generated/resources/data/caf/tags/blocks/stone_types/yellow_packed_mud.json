@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "caf:cut_yellow_packed_mud",
+    "caf:cut_yellow_packed_mud_bricks",
+    "caf:small_yellow_packed_mud_bricks",
+    "caf:layered_yellow_packed_mud",
+    "caf:yellow_packed_mud_pillar",
+    "caf:yellow_packed_mud"
+  ]
+}

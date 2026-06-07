@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:red_packed_mud_oak_shingle"
+    ]
+  },
+  "criteria": {
+    "has_red_packed_mud": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:red_packed_mud"
+            ]
+          }
+        ]
+      }
+    },
+    "has_oak_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:oak_planks"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:red_packed_mud_oak_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_red_packed_mud",
+      "has_oak_planks",
+      "has_the_recipe"
+    ]
+  ]
+}

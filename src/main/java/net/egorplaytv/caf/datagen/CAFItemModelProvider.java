@@ -340,7 +340,7 @@ public class CAFItemModelProvider extends ItemModelProvider {
                 .texture("inside", "caf:block/vase/marble_black_galaxy_vase_inner")
                 .texture("particle", "caf:block/palettes/stone_types/natural/marble_black_galaxy_0");
         simpleItem(ALMOND_SAPLING.get().asItem(), "block", "", "");
-        blockItem(UNBAKED_CLAY.get(), "item");
+        blockItem(UNBAKED_PACKED_MUD.get(), "item");
         blockItem(KITCHEN_TABLE.get(), "kitchen");
         blockItem(KITCHEN_TABLE_INNER.get(), "kitchen");
         blockItem(KITCHEN_TABLE_OUTER.get(), "kitchen");

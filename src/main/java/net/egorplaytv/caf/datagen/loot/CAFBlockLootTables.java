@@ -334,7 +334,7 @@ public class CAFBlockLootTables extends BlockLoot {
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildMelonBushBlock.AGE, 5)))
                                 .add(LootItem.lootTableItem(Blocks.MELON.asItem())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))));
 
-        this.dropSelf(UNBAKED_CLAY.get());
+        this.dropSelf(UNBAKED_PACKED_MUD.get());
         this.dropSelf(KITCHEN_TABLE.get());
         this.dropSelf(KITCHEN_TABLE_INNER.get());
         this.dropSelf(KITCHEN_TABLE_OUTER.get());

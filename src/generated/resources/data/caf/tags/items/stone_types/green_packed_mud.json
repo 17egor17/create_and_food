@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "caf:cut_green_packed_mud",
+    "caf:cut_green_packed_mud_stairs",
+    "caf:cut_green_packed_mud_wall",
+    "caf:cut_green_packed_mud_bricks",
+    "caf:cut_green_packed_mud_brick_stairs",
+    "caf:cut_green_packed_mud_brick_wall",
+    "caf:small_green_packed_mud_bricks",
+    "caf:small_green_packed_mud_brick_stairs",
+    "caf:small_green_packed_mud_brick_wall",
+    "caf:layered_green_packed_mud",
+    "caf:green_packed_mud_pillar",
+    "caf:green_packed_mud"
+  ]
+}

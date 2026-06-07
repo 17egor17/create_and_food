@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "caf:stone_types/blue_packed_mud"
+  },
+  "result": "caf:small_blue_packed_mud_brick_stairs",
+  "count": 1
+}

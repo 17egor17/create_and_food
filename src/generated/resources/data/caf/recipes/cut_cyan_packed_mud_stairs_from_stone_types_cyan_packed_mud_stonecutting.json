@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "tag": "caf:stone_types/cyan_packed_mud"
+  },
+  "result": "caf:cut_cyan_packed_mud_stairs",
+  "count": 1
+}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "side": "caf:block/palettes/stone_types/small_brick/green_baked_clay_cut_small_brick",
-    "bottom": "caf:block/palettes/stone_types/small_brick/green_baked_clay_cut_small_brick",
-    "top": "caf:block/palettes/stone_types/small_brick/green_baked_clay_cut_small_brick"
-  }
-}

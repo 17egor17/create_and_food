@@ -7,15 +7,15 @@
     "caf:kitchen_table",
     "caf:kitchen_table_inner",
     "caf:kitchen_table_outer",
-    "#caf:shingles/black_saman",
-    "#caf:shingles/blue_saman",
-    "#caf:shingles/cyan_saman",
-    "#caf:shingles/gray_saman",
-    "#caf:shingles/green_saman",
-    "#caf:shingles/orange_saman",
-    "#caf:shingles/red_saman",
-    "#caf:shingles/saman",
-    "#caf:shingles/white_saman",
-    "#caf:shingles/yellow_saman"
+    "#caf:shingles/black_packed_mud",
+    "#caf:shingles/blue_packed_mud",
+    "#caf:shingles/cyan_packed_mud",
+    "#caf:shingles/gray_packed_mud",
+    "#caf:shingles/green_packed_mud",
+    "#caf:shingles/orange_packed_mud",
+    "#caf:shingles/red_packed_mud",
+    "#caf:shingles/packed_mud",
+    "#caf:shingles/white_packed_mud",
+    "#caf:shingles/yellow_packed_mud"
   ]
 }

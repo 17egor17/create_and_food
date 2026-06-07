@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "textures": {
-    "side": "caf:block/palettes/stone_types/brick/black_baked_clay_cut_brick",
-    "bottom": "caf:block/palettes/stone_types/brick/black_baked_clay_cut_brick",
-    "top": "caf:block/palettes/stone_types/brick/black_baked_clay_cut_brick"
-  }
-}

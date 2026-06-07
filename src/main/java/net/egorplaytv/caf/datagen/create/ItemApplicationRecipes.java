@@ -80,10 +80,10 @@ public class ItemApplicationRecipes {
                 .addIngredient(CAFTags.Items.forgeTag("ingots/steel"))
                 .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.STEEL_CASING.get())));
 
-        ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.UNBAKED_CLAY.get())
+        ItemApplicationRecipeBuilder.itemApplicationRecipe(CAFBlocks.UNBAKED_PACKED_MUD.get())
                 .addIngredient(Items.CLAY)
                 .addIngredient(Items.WHEAT)
-                .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.UNBAKED_CLAY.get())));
+                .save(pConsumer, getItemApplication(getRecipeId(CAFBlocks.UNBAKED_PACKED_MUD.get())));
 
 //        ItemApplicationRecipeBuilder.itemApplicationRecipe()
 //                .addIngredient()

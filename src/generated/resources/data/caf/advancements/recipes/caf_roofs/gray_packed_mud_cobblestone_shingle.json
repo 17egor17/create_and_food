@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:gray_packed_mud_cobblestone_shingle"
+    ]
+  },
+  "criteria": {
+    "has_gray_packed_mud": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:gray_packed_mud"
+            ]
+          }
+        ]
+      }
+    },
+    "has_cobblestone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:cobblestone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:gray_packed_mud_cobblestone_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_gray_packed_mud",
+      "has_cobblestone",
+      "has_the_recipe"
+    ]
+  ]
+}

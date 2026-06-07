@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:white_packed_mud_stone_shingle"
+    ]
+  },
+  "criteria": {
+    "has_white_packed_mud": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:white_packed_mud"
+            ]
+          }
+        ]
+      }
+    },
+    "has_stone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:stone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:white_packed_mud_stone_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_white_packed_mud",
+      "has_stone",
+      "has_the_recipe"
+    ]
+  ]
+}

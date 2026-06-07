@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "caf:packed_mud_ridge_shingle"
+    ]
+  },
+  "criteria": {
+    "has_packed_mud": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "caf:packed_mud"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "caf:packed_mud_ridge_shingle"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_packed_mud",
+      "has_the_recipe"
+    ]
+  ]
+}

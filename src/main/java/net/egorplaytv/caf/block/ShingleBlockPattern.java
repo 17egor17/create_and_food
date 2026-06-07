@@ -600,16 +600,8 @@ public class ShingleBlockPattern {
     }
 
     protected static ResourceLocation toLocation(String variant) {
-        String[] split = variant.split("_");
-        String material;
-        if (split[0].equals("saman")) {
-            material = "baked_clay";
-        } else {
-            material = split[0] + "_baked_clay";
-        }
-
         return CreateAndFood.asResource(
-                String.format(LOCATION, material));
+                String.format(LOCATION, variant));
     }
 
     @FunctionalInterface

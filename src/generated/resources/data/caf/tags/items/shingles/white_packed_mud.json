@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "caf:white_packed_mud_oak_shingle",
+    "caf:white_packed_mud_spruce_shingle",
+    "caf:white_packed_mud_birch_shingle",
+    "caf:white_packed_mud_jungle_shingle",
+    "caf:white_packed_mud_acacia_shingle",
+    "caf:white_packed_mud_dark_oak_shingle",
+    "caf:white_packed_mud_crimson_shingle",
+    "caf:white_packed_mud_warped_shingle",
+    "caf:white_packed_mud_almond_shingle",
+    "caf:white_packed_mud_bricks_shingle",
+    "caf:white_packed_mud_stone_shingle",
+    "caf:white_packed_mud_cobblestone_shingle",
+    "caf:white_packed_mud_ridge_shingle"
+  ]
+}

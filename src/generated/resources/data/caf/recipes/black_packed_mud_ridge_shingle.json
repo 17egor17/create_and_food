@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 0 ",
+    "0 0"
+  ],
+  "key": {
+    "0": {
+      "item": "caf:black_packed_mud"
+    }
+  },
+  "result": {
+    "item": "caf:black_packed_mud_ridge_shingle",
+    "count": 3
+  }
+}

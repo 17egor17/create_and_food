@@ -500,8 +500,8 @@ public class CAFBlocks {
     public static final RegistryObject<WildMelonBushBlock> WILD_MELON_BUSH = registryBlockWithoutBlockItem("wild_melon_bush",
             () -> new WildMelonBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
 
-    //BAKED CLAY//
-    public static final RegistryObject<Block> UNBAKED_CLAY = registryBlock("unbaked_clay",
+    //PACKED MUD//
+    public static final RegistryObject<Block> UNBAKED_PACKED_MUD = registryBlock("unbaked_packed_mud",
             () -> new Block(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.GRAVEL).strength(1.5F)),
             CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 

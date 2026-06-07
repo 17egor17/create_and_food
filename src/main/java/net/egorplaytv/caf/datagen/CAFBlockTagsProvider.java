@@ -5,17 +5,12 @@ import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.util.CAFTags;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
-import net.minecraft.server.packs.PackType;
 import net.minecraft.tags.*;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
-
-import java.util.function.Function;
 
 public class CAFBlockTagsProvider extends TagsProvider<Block> {
 
@@ -29,22 +24,22 @@ public class CAFBlockTagsProvider extends TagsProvider<Block> {
         this.tag(BlockTags.MINEABLE_WITH_AXE).addTag(CAFTags.Blocks.ALMOND)
                 .addTag(CAFTags.Blocks.CUTTING_BOARDS).add(CAFBlocks.PASTRY_TABLE.get())
                 .add(CAFBlocks.KITCHEN_TABLE.get()).add(CAFBlocks.KITCHEN_TABLE_INNER.get())
-                .add(CAFBlocks.KITCHEN_TABLE_OUTER.get()).addTag(CAFTags.Blocks.modTag("shingles/black_saman"))
-                .addTag(CAFTags.Blocks.modTag("shingles/blue_saman")).addTag(CAFTags.Blocks.modTag("shingles/cyan_saman"))
-                .addTag(CAFTags.Blocks.modTag("shingles/gray_saman")).addTag(CAFTags.Blocks.modTag("shingles/green_saman"))
-                .addTag(CAFTags.Blocks.modTag("shingles/orange_saman")).addTag(CAFTags.Blocks.modTag("shingles/red_saman"))
-                .addTag(CAFTags.Blocks.modTag("shingles/saman")).addTag(CAFTags.Blocks.modTag("shingles/white_saman"))
-                .addTag(CAFTags.Blocks.modTag("shingles/yellow_saman"));
+                .add(CAFBlocks.KITCHEN_TABLE_OUTER.get()).addTag(CAFTags.Blocks.modTag("shingles/black_packed_mud"))
+                .addTag(CAFTags.Blocks.modTag("shingles/blue_packed_mud")).addTag(CAFTags.Blocks.modTag("shingles/cyan_packed_mud"))
+                .addTag(CAFTags.Blocks.modTag("shingles/gray_packed_mud")).addTag(CAFTags.Blocks.modTag("shingles/green_packed_mud"))
+                .addTag(CAFTags.Blocks.modTag("shingles/orange_packed_mud")).addTag(CAFTags.Blocks.modTag("shingles/red_packed_mud"))
+                .addTag(CAFTags.Blocks.modTag("shingles/packed_mud")).addTag(CAFTags.Blocks.modTag("shingles/white_packed_mud"))
+                .addTag(CAFTags.Blocks.modTag("shingles/yellow_packed_mud"));
         this.tag(BlockTags.MINEABLE_WITH_HOE)
                 .add(CAFBlocks.ALMOND_LEAVES.get());
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .addTag(CAFTags.Blocks.modTag("stone_types/baked_clay")).addTag(CAFTags.Blocks.modTag("stone_types/black_baked_clay"))
-                .addTag(CAFTags.Blocks.modTag("stone_types/blue_baked_clay")).addTag(CAFTags.Blocks.modTag("stone_types/cyan_baked_clay"))
-                .addTag(CAFTags.Blocks.modTag("stone_types/gray_baked_clay")).addTag(CAFTags.Blocks.modTag("stone_types/green_baked_clay"))
+                .addTag(CAFTags.Blocks.modTag("stone_types/packed_mud")).addTag(CAFTags.Blocks.modTag("stone_types/black_packed_mud"))
+                .addTag(CAFTags.Blocks.modTag("stone_types/blue_packed_mud")).addTag(CAFTags.Blocks.modTag("stone_types/cyan_packed_mud"))
+                .addTag(CAFTags.Blocks.modTag("stone_types/gray_packed_mud")).addTag(CAFTags.Blocks.modTag("stone_types/green_packed_mud"))
                 .addTag(CAFTags.Blocks.modTag("stone_types/marble")).addTag(CAFTags.Blocks.modTag("stone_types/marble_black_galaxy"))
-                .addTag(CAFTags.Blocks.modTag("stone_types/marble_perlin_pink")).addTag(CAFTags.Blocks.modTag("stone_types/orange_baked_clay"))
-                .addTag(CAFTags.Blocks.modTag("stone_types/red_baked_clay")).addTag(CAFTags.Blocks.modTag("stone_types/white_baked_clay"))
-                .addTag(CAFTags.Blocks.modTag("stone_types/yellow_baked_clay")).addTag(CAFTags.Blocks.FRAMED_WALLS)
+                .addTag(CAFTags.Blocks.modTag("stone_types/marble_perlin_pink")).addTag(CAFTags.Blocks.modTag("stone_types/orange_packed_mud"))
+                .addTag(CAFTags.Blocks.modTag("stone_types/red_packed_mud")).addTag(CAFTags.Blocks.modTag("stone_types/white_packed_mud"))
+                .addTag(CAFTags.Blocks.modTag("stone_types/yellow_packed_mud")).addTag(CAFTags.Blocks.FRAMED_WALLS)
                 .add(CAFBlocks.TORN_SOUL_CHAIN.get()).add(CAFBlocks.STEEL_CHAIN.get())
                 .add(CAFBlocks.TORN_SOUL_LANTERN.get()).add(CAFBlocks.GLOWING_BRASS_COPPER_LANTERN.get())
                 .add(CAFBlocks.GLOWING_BRASS_EXPOSED_COPPER_LANTERN.get()).add(CAFBlocks.GLOWING_BRASS_WEATHERED_COPPER_LANTERN.get())
@@ -74,14 +69,14 @@ public class CAFBlockTagsProvider extends TagsProvider<Block> {
                 .add(CAFBlocks.RAW_TUNGSTEN_BLOCK.get()).add(CAFBlocks.NIXIE_VASE.get())
                 .add(CAFBlocks.NIXIE_VASE_PERLIN_PINK.get()).add(CAFBlocks.NIXIE_VASE_BLACK_GALAXY.get())
                 .add(CAFBlocks.FERMENTATION_BARREL.get()).add(CAFBlocks.SCALES.get())
-                .add(CAFBlocks.MECHANICAL_BLENDER.get()).addTag(CAFTags.Blocks.modTag("shingles/black_saman"))
-                .addTag(CAFTags.Blocks.modTag("shingles/blue_saman")).addTag(CAFTags.Blocks.modTag("shingles/cyan_saman"))
-                .addTag(CAFTags.Blocks.modTag("shingles/gray_saman")).addTag(CAFTags.Blocks.modTag("shingles/green_saman"))
-                .addTag(CAFTags.Blocks.modTag("shingles/orange_saman")).addTag(CAFTags.Blocks.modTag("shingles/red_saman"))
-                .addTag(CAFTags.Blocks.modTag("shingles/saman")).addTag(CAFTags.Blocks.modTag("shingles/white_saman"))
-                .addTag(CAFTags.Blocks.modTag("shingles/yellow_saman"));
+                .add(CAFBlocks.MECHANICAL_BLENDER.get()).addTag(CAFTags.Blocks.modTag("shingles/black_packed_mud"))
+                .addTag(CAFTags.Blocks.modTag("shingles/blue_packed_mud")).addTag(CAFTags.Blocks.modTag("shingles/cyan_packed_mud"))
+                .addTag(CAFTags.Blocks.modTag("shingles/gray_packed_mud")).addTag(CAFTags.Blocks.modTag("shingles/green_packed_mud"))
+                .addTag(CAFTags.Blocks.modTag("shingles/orange_packed_mud")).addTag(CAFTags.Blocks.modTag("shingles/red_packed_mud"))
+                .addTag(CAFTags.Blocks.modTag("shingles/packed_mud")).addTag(CAFTags.Blocks.modTag("shingles/white_packed_mud"))
+                .addTag(CAFTags.Blocks.modTag("shingles/yellow_packed_mud"));
         this.tag(BlockTags.MINEABLE_WITH_SHOVEL)
-                .add(CAFBlocks.UNBAKED_CLAY.get()).add(CAFBlocks.FARMLAND_SUMP_SAND.get())
+                .add(CAFBlocks.UNBAKED_PACKED_MUD.get()).add(CAFBlocks.FARMLAND_SUMP_SAND.get())
                 .add(CAFBlocks.FARMLAND_SUMP_RED_SAND.get()).add(CAFBlocks.FARMLAND_SUMP_RICH_SOIL.get())
                 .add(CAFBlocks.FARMLAND_SUMP_DIRT.get()).add(CAFBlocks.FERTILIZED_SAND.get())
                 .add(CAFBlocks.FERTILIZED_RED_SAND.get()).add(CAFBlocks.SAND_FARMLAND.get())

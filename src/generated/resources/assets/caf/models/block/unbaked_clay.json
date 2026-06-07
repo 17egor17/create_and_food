@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "caf:block/baked_clay/unbaked_clay"
-  }
-}
