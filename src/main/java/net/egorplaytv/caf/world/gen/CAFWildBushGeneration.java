@@ -19,8 +19,6 @@ public class CAFWildBushGeneration {
     public static void generateWildBush(final BiomeLoadingEvent event){
         ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, event.getName());
         Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
-        Set<ResourceKey<Biome>> forest_biomes = BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST);
-        Set<ResourceKey<Biome>> nether_biomes = BiomeDictionary.getBiomes(BiomeDictionary.Type.NETHER);
         List<Holder<PlacedFeature>> base =
                 event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
 
@@ -28,8 +26,8 @@ public class CAFWildBushGeneration {
         if (!types.contains(BiomeDictionary.Type.JUNGLE)) {
             base.add(CAFPlacedFeatures.WILD_PUMPKIN_PLACED);
         }
-        if (forest_biomes.equals(Biomes.TAIGA) || forest_biomes.equals(Biomes.SNOWY_TAIGA) ||
-                forest_biomes.equals(Biomes.OLD_GROWTH_PINE_TAIGA) || forest_biomes.equals(Biomes.OLD_GROWTH_SPRUCE_TAIGA)) {
+        if (event.getName().equals(Biomes.TAIGA.location()) || event.getName().equals(Biomes.SNOWY_TAIGA.location()) ||
+                event.getName().equals(Biomes.OLD_GROWTH_PINE_TAIGA.location()) || event.getName().equals(Biomes.OLD_GROWTH_SPRUCE_TAIGA.location())) {
                 base.add(CAFPlacedFeatures.WILD_SWEET_BERRY_BUSH_PLACED);
         }
         if (types.contains(BiomeDictionary.Type.JUNGLE)){
@@ -53,10 +51,10 @@ public class CAFWildBushGeneration {
             base.add(CAFPlacedFeatures.WILD_PURPLE_GRAPE_BUSH_PLACED);
             base.add(CAFPlacedFeatures.WILD_RED_GRAPE_BUSH_PLACED);
         }
-        if (nether_biomes.equals(Biomes.WARPED_FOREST)) {
+        if (event.getName().equals(Biomes.WARPED_FOREST.location())) {
             base.add(CAFPlacedFeatures.WILD_WARPED_FRUITLIGH_BUSH_PLACED);
         }
-        if (nether_biomes.equals(Biomes.CRIMSON_FOREST)) {
+        if (event.getName().equals(Biomes.CRIMSON_FOREST.location())) {
             base.add(CAFPlacedFeatures.WILD_CRIMSON_FRUITLIGH_BUSH_PLACED);
         }
     }

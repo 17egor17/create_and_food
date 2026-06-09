@@ -1,5 +1,5 @@
 {
-  "parent": "caf:custom/block/netherbush/netherbush_sapling_5",
+  "parent": "caf:custom/block/netherbush/netherbush",
   "textures": {
     "leaves": "caf:block/berrybush/warped_leaves",
     "wart": "minecraft:block/warped_wart_block",

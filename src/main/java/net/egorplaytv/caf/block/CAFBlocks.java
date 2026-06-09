@@ -491,14 +491,58 @@ public class CAFBlocks {
             () -> new WildSweetBerryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
 
     public static final RegistryObject<NetherBushBlock> WARPED_FRUITLIGHT_BUSH = registryBlockWithoutBlockItem("warped_fruitlight_bush",
-            () -> new NetherBushBlock(NetherBushBlock.Type.WARPED, BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
+            () -> new NetherBushBlock(NetherBushBlock.Type.WARPED, BlockBehaviour.Properties.of(Material.GRASS)
+                    .lightLevel((p) -> {
+                        int age = p.getValue(NetherBushBlock.AGE);
+                        int maxAge = NetherBushBlock.MAX_AGE;
+
+                        if (age == maxAge - 1) {
+                            return 5;
+                        } else if (age == maxAge) {
+                            return 10;
+                        } else {
+                            return 0;
+                        }}).sound(SoundType.CROP).strength(1.0F)));
     public static final RegistryObject<WildNetherBushBlock> WILD_WARPED_FRUITLIGHT_BUSH = registryBlockWithoutBlockItem("wild_warped_fruitlight_bush",
-            () -> new WildNetherBushBlock(NetherBushBlock.Type.WARPED, BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
+            () -> new WildNetherBushBlock(NetherBushBlock.Type.WARPED, BlockBehaviour.Properties.of(Material.GRASS)
+                    .lightLevel((p) -> {
+                        int age = p.getValue(WildNetherBushBlock.AGE);
+                        int maxAge = WildNetherBushBlock.MAX_AGE;
+
+                        if (age == maxAge - 1) {
+                            return 5;
+                        } else if (age == maxAge) {
+                            return 10;
+                        } else {
+                            return 0;
+                        }}).sound(SoundType.CROP).strength(1.0F)));
 
     public static final RegistryObject<NetherBushBlock> CRIMSON_FRUITLIGHT_BUSH = registryBlockWithoutBlockItem("crimson_fruitlight_bush",
-            () -> new NetherBushBlock(NetherBushBlock.Type.CRIMSON, BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
+            () -> new NetherBushBlock(NetherBushBlock.Type.CRIMSON, BlockBehaviour.Properties.of(Material.GRASS)
+                    .lightLevel((p) -> {
+                        int age = p.getValue(NetherBushBlock.AGE);
+                        int maxAge = NetherBushBlock.MAX_AGE;
+
+                        if (age == maxAge - 1) {
+                            return 5;
+                        } else if (age == maxAge) {
+                            return 10;
+                        } else {
+                            return 0;
+                        }}).sound(SoundType.CROP).strength(1.0F)));
     public static final RegistryObject<WildNetherBushBlock> WILD_CRIMSON_FRUITLIGHT_BUSH = registryBlockWithoutBlockItem("wild_crimson_fruitlight_bush",
-            () -> new WildNetherBushBlock(NetherBushBlock.Type.CRIMSON, BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
+            () -> new WildNetherBushBlock(NetherBushBlock.Type.CRIMSON, BlockBehaviour.Properties.of(Material.GRASS)
+                    .lightLevel((p) -> {
+                        int age = p.getValue(WildNetherBushBlock.AGE);
+                        int maxAge = WildNetherBushBlock.MAX_AGE;
+
+                        if (age == maxAge - 1) {
+                            return 5;
+                        } else if (age == maxAge) {
+                            return 10;
+                        } else {
+                            return 0;
+                        }}).sound(SoundType.CROP).strength(1.0F)));
 
     public static final RegistryObject<PumpkinBushBlock> PUMPKIN_BUSH = registryBlockWithoutBlockItem("pumpkin_bush",
             () -> new PumpkinBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));

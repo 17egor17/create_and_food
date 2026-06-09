@@ -49,15 +49,15 @@ public class CAFPlacedFeatures {
 
     public static final Holder<PlacedFeature> WILD_SWEET_BERRY_BUSH_PLACED = register("wild_sweet_berry_bush_placed",
             CAFConfiguredFeatures.WILD_SWEET_BERRY_BUSH, RarityFilter.onAverageOnceEvery(CAFConfigs.common().worldGen.wildSweetBerryChance.get()),
-            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome());
 
     public static final Holder<PlacedFeature> WILD_WARPED_FRUITLIGH_BUSH_PLACED = register("wild_warped_fruitlight_bush_placed",
-            CAFConfiguredFeatures.WILD_WARPED_FRUITLIGTH_BUSH, RarityFilter.onAverageOnceEvery(CAFConfigs.common().worldGen.wildNetherFruitlightChance.get()),
-            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+            CAFConfiguredFeatures.WILD_WARPED_FRUITLIGTH_BUSH, CountOnEveryLayerPlacement.of(CAFConfigs.common().worldGen.wildNetherFruitlightChance.get()),
+            InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
 
     public static final Holder<PlacedFeature> WILD_CRIMSON_FRUITLIGH_BUSH_PLACED = register("wild_crimson_fruitlight_bush_placed",
-            CAFConfiguredFeatures.WILD_CRIMSON_FRUITLIGTH_BUSH, RarityFilter.onAverageOnceEvery(CAFConfigs.common().worldGen.wildNetherFruitlightChance.get()),
-            InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome());
+            CAFConfiguredFeatures.WILD_CRIMSON_FRUITLIGTH_BUSH, CountOnEveryLayerPlacement.of(CAFConfigs.common().worldGen.wildNetherFruitlightChance.get()),
+            InSquarePlacement.spread(), PlacementUtils.FULL_RANGE, BiomeFilter.biome());
 
     public static final Holder<PlacedFeature> WILD_PUMPKIN_PLACED = register("wild_pumpkin_placed",
             CAFConfiguredFeatures.WILD_PUMPKIN_BUSH, RarityFilter.onAverageOnceEvery(CAFConfigs.common().worldGen.wildPumpkinBushChance.get()),
