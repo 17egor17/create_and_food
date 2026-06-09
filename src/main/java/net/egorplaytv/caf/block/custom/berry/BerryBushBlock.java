@@ -19,6 +19,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -34,6 +35,8 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.items.ItemHandlerHelper;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public abstract class BerryBushBlock extends BushBlock implements BonemealableBlock {
@@ -89,8 +92,31 @@ public abstract class BerryBushBlock extends BushBlock implements BonemealableBl
         return false;
     }
 
+    /**
+     * This method sets DamageSource if your bush is prickly
+     * Also, this method will not work if getIsPrickly() is set to false.
+     */
     public DamageSource getDamage() {
         return null;
+    }
+
+    public boolean isNether() {
+        return false;
+    }
+
+    public boolean isOtherSoils() {
+        return false;
+    }
+
+    /**
+     * This method accepts a maximum of 3 soil types.
+     * Also, this method will not work if isOtherSoils() is set to false.
+     */
+    public List<Block> getOtherSoils() {
+        List<Block> souls = new ArrayList<>();
+        souls.add(Blocks.DIRT);
+        souls.add(Blocks.FARMLAND);
+        return souls;
     }
 
     public IntegerProperty getAgeProperty() {
@@ -111,6 +137,17 @@ public abstract class BerryBushBlock extends BushBlock implements BonemealableBl
 
     public boolean isRandomlyTicking(BlockState pState) {
         return !this.isMaxAge(pState);
+    }
+
+    @Override
+    protected boolean mayPlaceOn(BlockState pState, BlockGetter pLevel, BlockPos pPos) {
+        if (isNether())
+            return pState.is(Blocks.NETHERRACK) || pState.is(Blocks.WARPED_NYLIUM) || pState.is(Blocks.CRIMSON_NYLIUM);
+        else if (isOtherSoils())
+            return pState.is(getOtherSoils().get(0)) || getOtherSoils().get(1) != null ? pState.is(getOtherSoils().get(1)) : pState.is(getOtherSoils().get(0))
+                || getOtherSoils().get(2) != null ? pState.is(getOtherSoils().get(2)) : pState.is(getOtherSoils().get(1));
+        else
+            return super.mayPlaceOn(pState, pLevel, pPos);
     }
 
     public void randomTick(BlockState pState, ServerLevel pLevel, BlockPos pPos, Random pRandom) {

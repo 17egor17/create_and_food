@@ -2,10 +2,7 @@
 	"format_version": "1.21.11",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"leaves": "caf:block/berrybush/crimson_leaves",
-		"stems": "caf:block/berrybush/crimson_stems",
-		"particle": "block/nether_wart_block",
-		"wart": "block/nether_wart_block"
+		"particle": "#wart"
 	},
 	"elements": [
 		{

@@ -1,0 +1,8 @@
+{
+  "parent": "caf:custom/block/netherbush/netherbush_uncut",
+  "textures": {
+    "leaves": "caf:block/berrybush/crimson_leaves_7",
+    "wart": "minecraft:block/nether_wart_block",
+    "stems": "caf:block/berrybush/crimson_stems"
+  }
+}

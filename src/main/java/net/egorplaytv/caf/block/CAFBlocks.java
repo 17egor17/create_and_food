@@ -490,6 +490,16 @@ public class CAFBlocks {
     public static final RegistryObject<WildSweetBerryBlock> WILD_SWEET_BERRY_BUSH = registryBlockWithoutBlockItem("wild_sweet_berry_bush",
             () -> new WildSweetBerryBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
 
+    public static final RegistryObject<NetherBushBlock> WARPED_FRUITLIGHT_BUSH = registryBlockWithoutBlockItem("warped_fruitlight_bush",
+            () -> new NetherBushBlock(NetherBushBlock.Type.WARPED, BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
+    public static final RegistryObject<WildNetherBushBlock> WILD_WARPED_FRUITLIGHT_BUSH = registryBlockWithoutBlockItem("wild_warped_fruitlight_bush",
+            () -> new WildNetherBushBlock(NetherBushBlock.Type.WARPED, BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
+
+    public static final RegistryObject<NetherBushBlock> CRIMSON_FRUITLIGHT_BUSH = registryBlockWithoutBlockItem("crimson_fruitlight_bush",
+            () -> new NetherBushBlock(NetherBushBlock.Type.CRIMSON, BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
+    public static final RegistryObject<WildNetherBushBlock> WILD_CRIMSON_FRUITLIGHT_BUSH = registryBlockWithoutBlockItem("wild_crimson_fruitlight_bush",
+            () -> new WildNetherBushBlock(NetherBushBlock.Type.CRIMSON, BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
+
     public static final RegistryObject<PumpkinBushBlock> PUMPKIN_BUSH = registryBlockWithoutBlockItem("pumpkin_bush",
             () -> new PumpkinBushBlock(BlockBehaviour.Properties.of(Material.GRASS).sound(SoundType.CROP).strength(1.0F)));
     public static final RegistryObject<WildPumpkinBushBlock> WILD_PUMPKIN_BUSH = registryBlockWithoutBlockItem("wild_pumpkin_bush",

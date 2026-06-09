@@ -30,7 +30,10 @@ public class CAFWorldGeneration extends ConfigBase {
     public final ConfigInt wildRedGrapeChance = i(16, 0, Integer.MAX_VALUE, "chance", Comments.chance);
 
     public final ConfigGroup wildSweetBerryBushGeneration = group(1, "wildSweetBerryBush", Comments.wildSweetBerryBush);
-    public final ConfigInt wildSweetBerryChance = i(16, 0, Integer.MAX_VALUE, "chance", Comments.chance);
+    public final ConfigInt wildSweetBerryChance = i(32, 0, Integer.MAX_VALUE, "chance", Comments.chance);
+
+    public final ConfigGroup wildNetherFruitlightBushGeneration = group(1, "wildNetherFruitlightBush", Comments.wildNetherFruitlightBush);
+    public final ConfigInt wildNetherFruitlightChance = i(16, 0, Integer.MAX_VALUE, "chance", Comments.chance);
 
     public final ConfigGroup oreGen = group(1, "oreGen", Comments.oreGen);
     public final ConfigInt rubyOreVeinsPerChunk = i(7, "rubyOreVeinsPerChunk", Comments.rubyOreVeinsPerChunk);
@@ -69,6 +72,7 @@ public class CAFWorldGeneration extends ConfigBase {
         static String wildPurpleGrapeBush = "Wild Purple Grape Bush Generation";
         static String wildRedGrapeBush = "Wild Red Grape Bush Generation";
         static String wildSweetBerryBush = "Wild Sweet Berry Bush Generation";
+        static String wildNetherFruitlightBush = "Wild Nether Fruitlight Bush Generation";
         static String genCAFWildBushes = "Generating in the World Wild Bushes from Create And Food";
         static String oreGen = "Ore Generation Configs";
         static String wildPumpkinBush = "Wild Pumpkin Bush Generation Configs";
