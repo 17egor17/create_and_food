@@ -45,6 +45,10 @@ public class render {
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.WILD_MELON_BUSH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.SWEET_BERRY_BUSH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.WILD_SWEET_BERRY_BUSH.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.WARPED_FRUITLIGHT_BUSH.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.WILD_WARPED_FRUITLIGHT_BUSH.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.CRIMSON_FRUITLIGHT_BUSH.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.WILD_CRIMSON_FRUITLIGHT_BUSH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.ALMOND_DOOR.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.ALMOND_TRAPDOOR.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(CAFFluids.APPLE_VINEGAR.get(), RenderType.translucent());

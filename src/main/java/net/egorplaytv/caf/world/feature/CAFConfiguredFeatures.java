@@ -90,7 +90,17 @@ public class CAFConfiguredFeatures {
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_SWEET_BERRY_BUSH =
             register("wild_sweet_berry_bush", Feature.RANDOM_PATCH,
-                    getWildCropConfiguration(CAFBlocks.WILD_SWEET_BERRY_BUSH.get().defaultBlockState().setValue(WildBerryBushBlock.AGE, Integer.valueOf(2)).getBlock(), 96, 7,
+                    getWildCropConfiguration(CAFBlocks.WILD_SWEET_BERRY_BUSH.get().defaultBlockState().setValue(WildBerryBushBlock.AGE, Integer.valueOf(2)).getBlock(), 96, 6,
+                            BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
+
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_WARPED_FRUITLIGTH_BUSH =
+            register("wild_warped_fruitlight_bush", Feature.RANDOM_PATCH,
+                    getWildCropConfiguration(CAFBlocks.WILD_WARPED_FRUITLIGHT_BUSH.get().defaultBlockState().setValue(WildBerryBushBlock.AGE, Integer.valueOf(2)).getBlock(), 96, 6,
+                            BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
+
+    public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_CRIMSON_FRUITLIGTH_BUSH =
+            register("wild_crimson_fruitlight_bush", Feature.RANDOM_PATCH,
+                    getWildCropConfiguration(CAFBlocks.WILD_CRIMSON_FRUITLIGHT_BUSH.get().defaultBlockState().setValue(WildBerryBushBlock.AGE, Integer.valueOf(2)).getBlock(), 96, 6,
                             BlockPredicate.matchesBlocks(List.of(Blocks.DIRT, Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT), BLOCK_BELOW)));
 
     public static final Holder<ConfiguredFeature<RandomPatchConfiguration, ?>> WILD_PUMPKIN_BUSH =

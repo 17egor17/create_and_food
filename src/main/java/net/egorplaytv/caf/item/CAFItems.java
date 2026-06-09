@@ -163,6 +163,15 @@ public class CAFItems {
             () -> new ItemNameBlockItem(CAFBlocks.SWEET_BERRY_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
+    public static final RegistryObject<Item> NETHER_FRUITLIGHT = registerItem("nether_fruitlight",
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
+    public static final RegistryObject<Item> WARPED_FRUITLIGHT_SAPLING = registerItem("warped_fruitlight_sapling",
+            () -> new ItemNameBlockItem(CAFBlocks.WARPED_FRUITLIGHT_BUSH.get(),
+                    new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
+    public static final RegistryObject<Item> CRIMSON_FRUITLIGHT_SAPLING = registerItem("crimson_fruitlight_sapling",
+            () -> new ItemNameBlockItem(CAFBlocks.CRIMSON_FRUITLIGHT_BUSH.get(),
+                    new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
+
     public static final RegistryObject<Item> PUMPKIN_SEEDS = registerItem("pumpkin_seeds",
             () -> new ItemNameBlockItem(CAFBlocks.PUMPKIN_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));

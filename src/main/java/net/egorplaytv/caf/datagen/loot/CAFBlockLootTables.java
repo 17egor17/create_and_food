@@ -305,6 +305,44 @@ public class CAFBlockLootTables extends BlockLoot {
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildSweetBerryBlock.AGE, 2)))
                                 .add(LootItem.lootTableItem(CAFItems.SWEET_BERRIES.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
 
+        this.add(WARPED_FRUITLIGHT_BUSH.get(), (block) ->
+                applyExplosionDecay(block, LootTable.lootTable()
+                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(CAFItems.WARPED_FRUITLIGHT_SAPLING.get()))
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
+                        .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WARPED_FRUITLIGHT_BUSH.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(NetherBushBlock.AGE, 6)))
+                                .add(LootItem.lootTableItem(CAFItems.NETHER_FRUITLIGHT.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                        .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WARPED_FRUITLIGHT_BUSH.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(NetherBushBlock.AGE, 7)))
+                                .add(LootItem.lootTableItem(CAFItems.NETHER_FRUITLIGHT.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+        this.add(WILD_WARPED_FRUITLIGHT_BUSH.get(), (block) ->
+                applyExplosionDecay(block, LootTable.lootTable()
+                        .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_WARPED_FRUITLIGHT_BUSH.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildNetherBushBlock.AGE, 1)))
+                                .add(LootItem.lootTableItem(CAFItems.NETHER_FRUITLIGHT.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                        .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_WARPED_FRUITLIGHT_BUSH.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildNetherBushBlock.AGE, 2)))
+                                .add(LootItem.lootTableItem(CAFItems.NETHER_FRUITLIGHT.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+
+        this.add(CRIMSON_FRUITLIGHT_BUSH.get(), (block) ->
+                applyExplosionDecay(block, LootTable.lootTable()
+                        .withPool(LootPool.lootPool().add(LootItem.lootTableItem(CAFItems.CRIMSON_FRUITLIGHT_SAPLING.get()))
+                                .apply(SetItemCountFunction.setCount(ConstantValue.exactly(1))))
+                        .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(CRIMSON_FRUITLIGHT_BUSH.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(NetherBushBlock.AGE, 6)))
+                                .add(LootItem.lootTableItem(CAFItems.NETHER_FRUITLIGHT.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                        .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(CRIMSON_FRUITLIGHT_BUSH.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(NetherBushBlock.AGE, 7)))
+                                .add(LootItem.lootTableItem(CAFItems.NETHER_FRUITLIGHT.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+        this.add(WILD_CRIMSON_FRUITLIGHT_BUSH.get(), (block) ->
+                applyExplosionDecay(block, LootTable.lootTable()
+                        .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_CRIMSON_FRUITLIGHT_BUSH.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildNetherBushBlock.AGE, 1)))
+                                .add(LootItem.lootTableItem(CAFItems.NETHER_FRUITLIGHT.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(3))))
+                        .withPool(LootPool.lootPool().when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(WILD_CRIMSON_FRUITLIGHT_BUSH.get())
+                                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(WildNetherBushBlock.AGE, 2)))
+                                .add(LootItem.lootTableItem(CAFItems.NETHER_FRUITLIGHT.get())).apply(SetItemCountFunction.setCount(ConstantValue.exactly(5))))));
+
         this.add(PUMPKIN_BUSH.get(), (block) ->
                 applyExplosionDecay(block, LootTable.lootTable()
                         .withPool(LootPool.lootPool()

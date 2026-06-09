@@ -6,6 +6,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.BiomeDictionary;
@@ -18,26 +19,23 @@ public class CAFWildBushGeneration {
     public static void generateWildBush(final BiomeLoadingEvent event){
         ResourceKey<Biome> key = ResourceKey.create(Registry.BIOME_REGISTRY, event.getName());
         Set<BiomeDictionary.Type> types = BiomeDictionary.getTypes(key);
+        Set<ResourceKey<Biome>> forest_biomes = BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST);
+        Set<ResourceKey<Biome>> nether_biomes = BiomeDictionary.getBiomes(BiomeDictionary.Type.NETHER);
         List<Holder<PlacedFeature>> base =
                 event.getGeneration().getFeatures(GenerationStep.Decoration.VEGETAL_DECORATION);
+
+
         if (!types.contains(BiomeDictionary.Type.JUNGLE)) {
             base.add(CAFPlacedFeatures.WILD_PUMPKIN_PLACED);
         }
-
-        if (types.contains(BiomeDictionary.Type.FOREST)){
-            Set<ResourceKey<Biome>> forest_biomes = BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST);
-            if (forest_biomes.contains(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("taiga")))
-                    || forest_biomes.contains(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("snowy_taiga"))) ||
-                    forest_biomes.contains(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("old_growth_pine_taiga")))
-                    || forest_biomes.contains(ResourceKey.create(Registry.BIOME_REGISTRY, new ResourceLocation("old_growth_spruce_taiga"))))
+        if (forest_biomes.equals(Biomes.TAIGA) || forest_biomes.equals(Biomes.SNOWY_TAIGA) ||
+                forest_biomes.equals(Biomes.OLD_GROWTH_PINE_TAIGA) || forest_biomes.equals(Biomes.OLD_GROWTH_SPRUCE_TAIGA)) {
                 base.add(CAFPlacedFeatures.WILD_SWEET_BERRY_BUSH_PLACED);
         }
-
         if (types.contains(BiomeDictionary.Type.JUNGLE)){
             base.add(CAFPlacedFeatures.WILD_MELON_PLACED);
             base.add(CAFPlacedFeatures.WILD_PUMPKIN_IN_JUNGLE_PLACED);
         }
-
         if (types.contains(BiomeDictionary.Type.SWAMP) || types.contains(BiomeDictionary.Type.FOREST)
         || types.contains(BiomeDictionary.Type.SAVANNA) || types.contains(BiomeDictionary.Type.SNOWY)) {
             base.add(CAFPlacedFeatures.WILD_BLUEBERRY_BUSH_PLACED);
@@ -54,6 +52,12 @@ public class CAFWildBushGeneration {
             base.add(CAFPlacedFeatures.WILD_GREEN_GRAPE_BUSH_PLACED);
             base.add(CAFPlacedFeatures.WILD_PURPLE_GRAPE_BUSH_PLACED);
             base.add(CAFPlacedFeatures.WILD_RED_GRAPE_BUSH_PLACED);
+        }
+        if (nether_biomes.equals(Biomes.WARPED_FOREST)) {
+            base.add(CAFPlacedFeatures.WILD_WARPED_FRUITLIGH_BUSH_PLACED);
+        }
+        if (nether_biomes.equals(Biomes.CRIMSON_FOREST)) {
+            base.add(CAFPlacedFeatures.WILD_CRIMSON_FRUITLIGH_BUSH_PLACED);
         }
     }
 }
