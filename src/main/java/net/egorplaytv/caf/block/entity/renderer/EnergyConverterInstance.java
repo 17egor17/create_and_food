@@ -1,11 +1,11 @@
-package net.egorplaytv.caf.energy.block.entity.renderer;
+package net.egorplaytv.caf.block.entity.renderer;
 
 import com.jozufozu.flywheel.api.Instancer;
 import com.jozufozu.flywheel.api.MaterialManager;
 import com.simibubi.create.content.kinetics.base.SingleRotatingInstance;
 import com.simibubi.create.content.kinetics.base.flwdata.RotatingData;
 import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
-import net.egorplaytv.caf.energy.block.entity.EnergyConvertorBlockEntity;
+import net.egorplaytv.caf.block.entity.custom.EnergyConvertorBlockEntity;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 

@@ -12,7 +12,7 @@ import net.egorplaytv.caf.item.custom.MetalItem;
 import net.egorplaytv.caf.recipe.MarbleFurnaceRecipe;
 import net.egorplaytv.caf.screen.MarbleBlastFurnaceMenu;
 import net.egorplaytv.caf.util.CAFTags;
-import net.egorplaytv.caf.util.degree.DegreeValue;
+import net.egorplaytv.caf.units.degree.CAFDegreeUnits;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.core.*;
@@ -99,7 +99,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     private int progress_tick = 0;
     private int progress = 0;
     private int i = 0;
-    private DegreeValue deg = new DegreeValue();
+    private CAFDegreeUnits deg = CAFDegreeUnits.EMPTY;
     private int time;
     private boolean isCreativeDeg = false;
     private final Object2IntOpenHashMap<ResourceLocation> recipesUsed;
@@ -221,7 +221,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                     case 2:
                         return MarbleBlastFurnaceBlockEntity.this.progress_deg;
                     case 3:
-                        return new DegreeValue.DegreeValueInteger(MarbleBlastFurnaceBlockEntity.this.deg).getDegree();
+                        return new CAFDegreeUnits.CAFDegreeUnitsInteger(MarbleBlastFurnaceBlockEntity.this.deg).getDegree();
                     default:
                         return 0;
                 }
@@ -239,7 +239,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
                         MarbleBlastFurnaceBlockEntity.this.progress_deg = value;
                         break;
                     case 3:
-                        MarbleBlastFurnaceBlockEntity.this.deg = new DegreeValue(value);
+                        MarbleBlastFurnaceBlockEntity.this.deg = new CAFDegreeUnits(value);
                 }
             }
 
@@ -317,7 +317,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         progress = tag.getInt("marble_furnace.progress");
         time = tag.getInt("marble_furnace.time");
         progress_deg = tag.getInt("marble_furnace.progress_deg");
-        deg = new DegreeValue(tag.getFloat("marble_furnace.deg"));
+        deg = new CAFDegreeUnits(tag.getFloat("marble_furnace.deg"));
         itemHandler.deserializeNBT(tag.getCompound("inventory"));
 
         CompoundTag compoundRecipes = tag.getCompound("RecipesUsed");
@@ -349,7 +349,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         }
 
         if (hasRecipe(pBlockEntity, pLevel)) {
-            pBlockEntity.deg = recipe.map(MarbleFurnaceRecipe::getDeg).orElse(new DegreeValue(100F));
+            pBlockEntity.deg = recipe.map(MarbleFurnaceRecipe::getDeg).orElse(new CAFDegreeUnits(100F));
             pBlockEntity.time = recipe.map(MarbleFurnaceRecipe::getTime).orElse(300);
         } else {
             pBlockEntity.resetDeg();
@@ -971,12 +971,12 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
         this.progress_deg = 0;
     }
 
-    public DegreeValue getDeg() {
+    public CAFDegreeUnits getDeg() {
         return this.deg;
     }
 
     private void resetDeg() {
-        this.deg = new DegreeValue();
+        this.deg = CAFDegreeUnits.EMPTY;
     }
     private void resetProgressTick () {
         this.progress_tick = 0;
@@ -987,7 +987,7 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
     private static boolean hasTemperatureZero(MarbleBlastFurnaceBlockEntity pBlockEntity) {
         return pBlockEntity.progress_deg <= 0;
     }
-    private static boolean hasDegree(MarbleBlastFurnaceBlockEntity pBlockEntity, DegreeValue deg) {
+    private static boolean hasDegree(MarbleBlastFurnaceBlockEntity pBlockEntity, CAFDegreeUnits deg) {
         return pBlockEntity.progress_deg >= deg.getDegree();
     }
     private static boolean hasFuel(MarbleBlastFurnaceBlockEntity pBlockEntity) {

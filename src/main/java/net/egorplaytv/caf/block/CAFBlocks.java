@@ -31,9 +31,9 @@ import net.egorplaytv.caf.block.custom.lanterns.LanternBlock;
 import net.egorplaytv.caf.block.custom.worktable.WorktableBlock;
 import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.CAFWoodTypes;
+import net.egorplaytv.caf.block.pattern.WireBlock;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderGenerator;
-import net.egorplaytv.caf.energy.block.EnergyConvertorBlock;
-import net.egorplaytv.caf.energy.block.WireBlock;
+import net.egorplaytv.caf.block.custom.EnergyConvertorBlock;
 import net.egorplaytv.caf.item.CAFCreativeModeTab;
 import net.egorplaytv.caf.item.CAFItems;
 import net.egorplaytv.caf.item.custom.CAFCogwheelBlockItem;
@@ -80,7 +80,7 @@ import static net.egorplaytv.caf.block.custom.connect.EncasedCogwheelBlock.steel
 
 public class CAFBlocks {
     public static final DeferredRegister<Block> BLOCKS =
-            DeferredRegister.create(ForgeRegistries.BLOCKS, CreateAndFood.MOD_ID);
+            DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
 
     //________________________Create and Food: Decorative________________________\\
     public static final RegistryObject<ChainBlock> TORN_SOUL_CHAIN = registryBlockWithoutBlockItem("torn_soul_chain",
@@ -212,7 +212,7 @@ public class CAFBlocks {
 
 
     public static BlockEntry<EnergyConvertorBlock> ENERGY_CONVERTOR;
-    public static BlockEntry<WireBlock> WIRE_BLOCK;
+    public static BlockEntry<CopperWireBlock> WIRE_BLOCK;
 
 
     public static BlockEntry<CasingBlock> ALLOY_SOULS_CASING;
@@ -660,24 +660,24 @@ public class CAFBlocks {
                             if (facing == Direction.EAST) {
                                 return ConfiguredModel.builder()
                                         .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath(),
-                                                new ResourceLocation(CreateAndFood.MOD_ID, "block/energy_convertor/block")))
+                                                new ResourceLocation(MOD_ID, "block/energy_convertor/block")))
                                         .rotationY(270)
                                         .build();
                             } else if (facing == Direction.SOUTH) {
                                 return ConfiguredModel.builder()
                                         .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath(),
-                                                new ResourceLocation(CreateAndFood.MOD_ID, "block/energy_convertor/block")))
+                                                new ResourceLocation(MOD_ID, "block/energy_convertor/block")))
                                         .build();
                             } else if (facing == Direction.WEST) {
                                 return ConfiguredModel.builder()
                                         .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath(),
-                                                new ResourceLocation(CreateAndFood.MOD_ID, "block/energy_convertor/block")))
+                                                new ResourceLocation(MOD_ID, "block/energy_convertor/block")))
                                         .rotationY(90)
                                         .build();
                             } else {
                                 return ConfiguredModel.builder()
                                         .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath(),
-                                                new ResourceLocation(CreateAndFood.MOD_ID, "block/energy_convertor/block")))
+                                                new ResourceLocation(MOD_ID, "block/energy_convertor/block")))
                                         .rotationY(180)
                                         .build();
                             }
@@ -686,7 +686,7 @@ public class CAFBlocks {
                 .transform(customItemModel())
                 .register();
 
-        WIRE_BLOCK = REGISTRATE.block("wire", WireBlock::new)
+        WIRE_BLOCK = REGISTRATE.block("wire", CopperWireBlock::new)
                 .initialProperties(Material.WOOL)
                 .properties(p -> p.strength(2.0F, 6.0F).noOcclusion())
                 .transform(axeOrPickaxe())

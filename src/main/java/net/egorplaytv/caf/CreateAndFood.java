@@ -8,7 +8,7 @@ import com.tterrag.registrate.providers.ProviderType;
 import net.egorplaytv.caf.block.entity.CAFWoodTypes;
 import net.egorplaytv.caf.config.CAFConfigs;
 import net.egorplaytv.caf.data.CAFRegistrate;
-import net.egorplaytv.caf.energy.energy_interface.EnergyCapability;
+import net.egorplaytv.caf.units.energy.energy_interface.EnergyCapability;
 import net.egorplaytv.caf.item.ItemEntities;
 import net.egorplaytv.caf.networking.CAFMessages;
 import net.egorplaytv.caf.ponder.CAFPonders;

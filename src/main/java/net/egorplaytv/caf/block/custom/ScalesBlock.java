@@ -3,6 +3,7 @@ package net.egorplaytv.caf.block.custom;
 import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.custom.ScalesBlockEntity;
 import net.egorplaytv.caf.config.CAFConfigs;
+import net.egorplaytv.caf.units.weight.CAFWeightUnits;
 import net.egorplaytv.caf.util.TextUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -33,8 +34,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
-
-import static net.egorplaytv.caf.block.entity.custom.ScalesBlockEntity.getWeight;
 
 public class ScalesBlock extends BaseEntityBlock implements SimpleWaterloggedBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
@@ -86,30 +85,30 @@ public class ScalesBlock extends BaseEntityBlock implements SimpleWaterloggedBlo
                     return InteractionResult.SUCCESS;
                 }
                 if (handIn.equals(InteractionHand.MAIN_HAND) && player.getItemInHand(InteractionHand.MAIN_HAND).isEmpty()) {
-                    if (getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) != null) {
+                    if (CAFWeightUnits.getWeightItems().get(entity.getInventory().getStackInSlot(0).getItem()) != null) {
                         if (CAFConfigs.common().gameSettings.enableKilograms.get() && CAFConfigs.common().gameSettings.enableGrams.get()
                                 && CAFConfigs.common().gameSettings.enableTones.get()) {
-                            if (getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) >= 1000000) {
-                                float tn = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000000;
+                            if (CAFWeightUnits.getWeightItems().get(entity.getInventory().getStackInSlot(0).getItem()).getWeight() >= 1000000) {
+                                float tn = (float) CAFWeightUnits.getWeightItems().get(entity.getInventory().getStackInSlot(0).getItem()).getWeight() / 1000000;
                                 player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_tn", tn)), true);
-                            } else if (getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) >= 1000) {
-                                float kg = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000;
+                            } else if (CAFWeightUnits.getWeightItems().get(entity.getInventory().getStackInSlot(0).getItem()).getWeight() >= 1000) {
+                                float kg = (float) CAFWeightUnits.getWeightItems().get(entity.getInventory().getStackInSlot(0).getItem()).getWeight() / 1000;
                                 player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_kg", kg)), true);
                             } else {
-                                float g = getWeight().get(entity.getInventory().getStackInSlot(0).getItem());
+                                float g = CAFWeightUnits.getWeightItems().get(entity.getInventory().getStackInSlot(0).getItem()).getWeight();
                                 player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_g", g)), true);
                             }
                         } else if (CAFConfigs.common().gameSettings.enableKilograms.get()){
-                            float kg = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000;
+                            float kg = (float) CAFWeightUnits.getWeightItems().get(entity.getInventory().getStackInSlot(0).getItem()).getWeight() / 1000;
                             player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_kg", kg)), true);
                         } else if (CAFConfigs.common().gameSettings.enableGrams.get()){
-                            float g = getWeight().get(entity.getInventory().getStackInSlot(0).getItem());
+                            float g = CAFWeightUnits.getWeightItems().get(entity.getInventory().getStackInSlot(0).getItem()).getWeight();
                             player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_g", g)), true);
                         } else if (CAFConfigs.common().gameSettings.enableTones.get()){
-                            float tn = (float) getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) / 1000000;
+                            float tn = (float) CAFWeightUnits.getWeightItems().get(entity.getInventory().getStackInSlot(0).getItem()).getWeight() / 1000000;
                             player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_tn", tn)), true);
                         } else {
-                            float caf = (float)(getWeight().get(entity.getInventory().getStackInSlot(0).getItem()) * 3.14) / 10;
+                            float caf = (float)(CAFWeightUnits.getWeightItems().get(entity.getInventory().getStackInSlot(0).getItem()).getWeight() * 3.14) / 10;
                             if (caf >= 1000) {
                                 float kCaf = caf / 1000;
                                 player.displayClientMessage(new TranslatableComponent("caf.scales_weight", TextUtils.getModTranslation("scales_weight_kcaf", kCaf)), true);

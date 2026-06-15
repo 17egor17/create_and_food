@@ -2,9 +2,10 @@ package net.egorplaytv.caf.block.entity.custom.combi_steamer;
 
 import net.egorplaytv.caf.block.custom.combi_steamer.CombiSteamerEnergyBlock;
 import net.egorplaytv.caf.block.entity.CAFBlockEntities;
-import net.egorplaytv.caf.energy.EnergyStorage;
-import net.egorplaytv.caf.energy.energy_interface.EnergyCapability;
-import net.egorplaytv.caf.energy.energy_interface.IEnergyStorage;
+import net.egorplaytv.caf.units.energy.CAFEnergyUnits;
+import net.egorplaytv.caf.units.energy.EnergyStorage;
+import net.egorplaytv.caf.units.energy.energy_interface.EnergyCapability;
+import net.egorplaytv.caf.units.energy.energy_interface.IEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -12,8 +13,6 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.fluids.capability.IFluidHandler;
-import net.minecraftforge.fluids.capability.templates.FluidTank;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -45,14 +44,14 @@ public class CombiSteamerEnergyCommunicationBlockEntity extends BlockEntity {
     }
 
     @Override
-    protected void saveAdditional(CompoundTag pTag) {
-        pTag.putInt("energy", energyStorage.getEnergyStored());
-        super.saveAdditional(pTag);
+    protected void saveAdditional(CompoundTag tag) {
+        tag.putFloat("CAFEnergyUnits", energyStorage.getEnergyStored().getEnergy());
+        super.saveAdditional(tag);
     }
 
     @Override
-    public void load(CompoundTag pTag) {
-        super.load(pTag);
-        energyStorage.setEnergyStored(pTag.getInt("energy"));
+    public void load(CompoundTag tag) {
+        super.load(tag);
+        energyStorage.setEnergyStored(new CAFEnergyUnits(tag.getFloat("CAFEnergyUnits")));
     }
 }
