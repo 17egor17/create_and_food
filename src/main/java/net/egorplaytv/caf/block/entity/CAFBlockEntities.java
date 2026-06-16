@@ -12,11 +12,9 @@ import net.egorplaytv.caf.block.entity.custom.combi_steamer.CombiSteamerFluidCom
 import net.egorplaytv.caf.block.entity.custom.worktable.WorktableBlockEntity;
 import net.egorplaytv.caf.block.entity.renderer.*;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderInstance;
-import net.egorplaytv.caf.energy.block.entity.EnergyConvertorBlockEntity;
-import net.egorplaytv.caf.energy.block.entity.WireBlockEntity;
-import net.egorplaytv.caf.energy.block.entity.renderer.EnergyConverterInstance;
-import net.egorplaytv.caf.energy.block.entity.renderer.EnergyConverterRenderer;
-import net.minecraft.world.level.block.Block;
+import net.egorplaytv.caf.block.entity.custom.EnergyConvertorBlockEntity;
+import net.egorplaytv.caf.block.entity.renderer.EnergyConverterInstance;
+import net.egorplaytv.caf.block.entity.renderer.EnergyConverterRenderer;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

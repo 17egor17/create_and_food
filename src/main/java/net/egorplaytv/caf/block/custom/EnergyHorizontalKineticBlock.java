@@ -1,7 +1,8 @@
-package net.egorplaytv.caf.energy.block;
+package net.egorplaytv.caf.block.custom;
 
 import com.simibubi.create.content.kinetics.base.IRotate;
 import com.simibubi.create.foundation.utility.Iterate;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
@@ -27,9 +28,13 @@ public abstract class EnergyHorizontalKineticBlock extends EnergyKineticBlock {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        return this.defaultBlockState()
+        if (Screen.hasShiftDown())
+            return this.defaultBlockState()
                 .setValue(HORIZONTAL_FACING, context.getHorizontalDirection()
                         .getOpposite());
+        else
+            return this.defaultBlockState()
+                    .setValue(HORIZONTAL_FACING, context.getHorizontalDirection());
     }
 
     public Direction getPreferredHorizontalFacing(BlockPlaceContext context) {

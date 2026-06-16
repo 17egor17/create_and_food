@@ -1,10 +1,10 @@
-package net.egorplaytv.caf.energy.block.entity.renderer;
+package net.egorplaytv.caf.block.entity.renderer;
 
 import com.simibubi.create.content.kinetics.base.KineticBlockEntityRenderer;
 import com.simibubi.create.foundation.render.CachedBufferer;
 import com.simibubi.create.foundation.render.SuperByteBuffer;
 import net.egorplaytv.caf.block.custom.connect.CAFPartialModels;
-import net.egorplaytv.caf.energy.block.entity.EnergyConvertorBlockEntity;
+import net.egorplaytv.caf.block.entity.custom.EnergyConvertorBlockEntity;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.BlockState;

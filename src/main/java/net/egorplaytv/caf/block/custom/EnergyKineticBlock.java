@@ -1,4 +1,4 @@
-package net.egorplaytv.caf.energy.block;
+package net.egorplaytv.caf.block.custom;
 
 import com.simibubi.create.content.kinetics.base.KineticBlock;
 import net.minecraft.core.Direction;

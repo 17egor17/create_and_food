@@ -4,7 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import net.egorplaytv.caf.CreateAndFood;
-import net.egorplaytv.caf.util.degree.DegreeValue;
+import net.egorplaytv.caf.units.degree.CAFDegreeUnits;
 import net.minecraft.core.NonNullList;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -25,11 +25,11 @@ public class MarbleFurnaceRecipe implements Recipe<SimpleContainer> {
     protected final NonNullList<Ingredient> inputItems;
     protected final ItemStack output;
     protected int time;
-    protected DegreeValue deg;
+    protected CAFDegreeUnits deg;
     protected float experience;
 
     public MarbleFurnaceRecipe(ResourceLocation id, ItemStack output,
-                                    NonNullList<Ingredient> recipeItems, int time, DegreeValue deg, float experience) {
+                               NonNullList<Ingredient> recipeItems, int time, CAFDegreeUnits deg, float experience) {
         this.id = id;
         this.inputItems = recipeItems;
         this.output = output;
@@ -41,7 +41,7 @@ public class MarbleFurnaceRecipe implements Recipe<SimpleContainer> {
     public NonNullList<Ingredient> getIngredients() {
         return inputItems;
     }
-    public DegreeValue getDeg() {
+    public CAFDegreeUnits getDeg() {
         return this.deg;
     }
     public int getTime() {
@@ -122,7 +122,7 @@ public class MarbleFurnaceRecipe implements Recipe<SimpleContainer> {
             } else {
                 ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result"));
                 int time = GsonHelper.getAsInt(json, "time", 300);
-                DegreeValue deg = DegreeValue.fromJson(json);
+                CAFDegreeUnits deg = CAFDegreeUnits.fromJson(json);
                 float experience = GsonHelper.getAsFloat(json, "experience", 0.0F);
 
                 return new MarbleFurnaceRecipe(id, output, inputs, time, deg, experience);
@@ -154,7 +154,7 @@ public class MarbleFurnaceRecipe implements Recipe<SimpleContainer> {
 
             ItemStack output = buf.readItem();
             int time = buf.readVarInt();
-            DegreeValue deg = DegreeValue.fromNetwork(buf);
+            CAFDegreeUnits deg = CAFDegreeUnits.fromNetwork(buf);
             float experience = buf.readFloat();
             return new MarbleFurnaceRecipe(id, output, inputs, time, deg, experience);
         }
@@ -168,7 +168,7 @@ public class MarbleFurnaceRecipe implements Recipe<SimpleContainer> {
 
             buf.writeItemStack(recipe.getResultItem(), false);
             buf.writeVarInt(recipe.time);
-            DegreeValue.toNetwork(buf, recipe.deg);
+            CAFDegreeUnits.toNetwork(buf, recipe.deg);
             buf.writeFloat(recipe.experience);
         }
 

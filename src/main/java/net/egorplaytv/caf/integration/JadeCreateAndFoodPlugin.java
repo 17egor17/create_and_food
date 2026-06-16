@@ -5,8 +5,8 @@ import mcp.mobius.waila.api.config.IPluginConfig;
 import mcp.mobius.waila.api.ui.IElementHelper;
 import mcp.mobius.waila.api.ui.IProgressStyle;
 import net.egorplaytv.caf.block.custom.berry.*;
-import net.egorplaytv.caf.energy.energy_interface.EnergyCapability;
-import net.egorplaytv.caf.energy.energy_interface.IEnergyStorage;
+import net.egorplaytv.caf.units.energy.energy_interface.EnergyCapability;
+import net.egorplaytv.caf.units.energy.energy_interface.IEnergyStorage;
 import net.egorplaytv.caf.item.CAFItems;
 import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
@@ -33,7 +33,6 @@ import vectorwing.farmersdelight.common.tag.ModTags;
 
 import static net.egorplaytv.caf.CreateAndFood.MOD_ID;
 import static net.egorplaytv.caf.util.CAFTags.Blocks.MINEABLE_WITH_HAMMER;
-import static snownee.jade.addon.harvest.HarvestToolProvider.registerHandler;
 import static vectorwing.farmersdelight.common.registry.ModItems.IRON_KNIFE;
 
 @WailaPlugin
@@ -96,14 +95,14 @@ public class JadeCreateAndFoodPlugin implements IWailaPlugin {
                     IEnergyStorage storage = entity.getCapability(EnergyCapability.ENERGY).orElse(null);
                     if (storage != null && (!accessor.isServerConnected() || accessor.getServerData().contains("cafEnergy"))) {
                         IElementHelper helper = tooltip.getElementHelper();
-                        int cur;
-                        int max;
+                        float cur;
+                        float max;
                         if (accessor.isServerConnected()) {
-                            cur = accessor.getServerData().getInt("cafEnergy");
-                            max = accessor.getServerData().getInt("cafMaxEnergy");
+                            cur = accessor.getServerData().getFloat("cafEnergy");
+                            max = accessor.getServerData().getFloat("cafMaxEnergy");
                         } else {
-                            cur = storage.getEnergyStored();
-                            max = storage.getMaxEnergyStored();
+                            cur = storage.getEnergyStored().getEnergy();
+                            max = storage.getMaxEnergyStored().getEnergy();
                         }
 
                         ChatFormatting var10000 = ChatFormatting.WHITE;
@@ -121,8 +120,8 @@ public class JadeCreateAndFoodPlugin implements IWailaPlugin {
         public void appendServerData(CompoundTag data, ServerPlayer player, Level world, BlockEntity tile, boolean showDetails) {
             IEnergyStorage storage = tile.getCapability(EnergyCapability.ENERGY).orElse(null);
             if (storage != null) {
-                data.putInt("cafEnergy", storage.getEnergyStored());
-                data.putInt("cafMaxEnergy", storage.getMaxEnergyStored());
+                data.putFloat("cafEnergy", storage.getEnergyStored().getEnergy());
+                data.putFloat("cafMaxEnergy", storage.getMaxEnergyStored().getEnergy());
             }
         }
     }

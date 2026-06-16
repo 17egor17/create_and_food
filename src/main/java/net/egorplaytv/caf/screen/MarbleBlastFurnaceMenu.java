@@ -4,14 +4,9 @@ import net.egorplaytv.caf.block.CAFBlocks;
 import net.egorplaytv.caf.block.entity.custom.MarbleBlastFurnaceBlockEntity;
 import net.egorplaytv.caf.config.CAFConfigs;
 import net.egorplaytv.caf.config.DegreeUnits;
-import net.egorplaytv.caf.recipe.MarbleFurnaceRecipe;
 import net.egorplaytv.caf.screen.slot.CAFFurnaceResultSlot;
-import net.egorplaytv.caf.util.degree.DegreeValue;
-import net.egorplaytv.caf.util.degree.DegreeValueData;
-import net.egorplaytv.caf.util.degree.SimpleDegreeValueData;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.TranslatableComponent;
-import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
@@ -22,7 +17,6 @@ import net.minecraftforge.items.ItemStackHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 import java.util.Objects;
-import java.util.Optional;
 
 public class MarbleBlastFurnaceMenu extends AbstractContainerMenu {
     public MarbleBlastFurnaceBlockEntity blockEntity;

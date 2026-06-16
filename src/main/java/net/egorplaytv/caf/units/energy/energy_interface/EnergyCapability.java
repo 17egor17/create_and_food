@@ -1,4 +1,4 @@
-package net.egorplaytv.caf.energy.energy_interface;
+package net.egorplaytv.caf.units.energy.energy_interface;
 
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.CapabilityManager;

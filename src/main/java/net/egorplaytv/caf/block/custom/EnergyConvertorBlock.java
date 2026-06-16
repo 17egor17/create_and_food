@@ -1,8 +1,8 @@
-package net.egorplaytv.caf.energy.block;
+package net.egorplaytv.caf.block.custom;
 
 import com.simibubi.create.foundation.block.IBE;
 import net.egorplaytv.caf.block.entity.CAFBlockEntities;
-import net.egorplaytv.caf.energy.block.entity.EnergyConvertorBlockEntity;
+import net.egorplaytv.caf.block.entity.custom.EnergyConvertorBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.BlockGetter;

@@ -1,8 +1,6 @@
-package net.egorplaytv.caf.energy.block.entity;
+package net.egorplaytv.caf.block.entity.custom;
 
-import net.egorplaytv.caf.energy.EnergyPacket;
-import net.egorplaytv.caf.energy.energy_interface.EnergyCapability;
-import net.egorplaytv.caf.energy.energy_interface.IEnergyBlock;
+import net.egorplaytv.caf.units.energy.energy_interface.EnergyCapability;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -13,7 +11,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import java.util.List;
 
-public class EnergyConvertorBlockEntity extends EnergyBaseBlockEntity implements IEnergyBlock {
+public class EnergyConvertorBlockEntity extends EnergyBaseBlockEntity {
     public EnergyConvertorBlockEntity(BlockEntityType<?> typeIn, BlockPos pos, BlockState state) {
         super(10000, typeIn, pos, state);
     }
@@ -21,11 +19,11 @@ public class EnergyConvertorBlockEntity extends EnergyBaseBlockEntity implements
     @Override
     public void transferEnergy() {
         if (getSpeed() != 0) {
-            if (this.energyStorage.getEnergyStored() < this.energyStorage.getMaxEnergyStored()) {
+            if (this.energyStorage.getEnergyStored().getEnergy() < this.energyStorage.getMaxEnergyStored().getEnergy()) {
                 this.energyStorage.receiveEnergy(Math.round(Mth.clamp(Math.abs(getSpeed() / 16f), 1, 512)), false);
             }
 
-            if (this.energyStorage.getEnergyStored() > this.energyStorage.getMaxEnergyStored()) {
+            if (this.energyStorage.getEnergyStored().getEnergy() > this.energyStorage.getMaxEnergyStored().getEnergy()) {
                 this.energyStorage.setEnergyStored(this.energyStorage.getMaxEnergyStored());
             }
         }
@@ -33,26 +31,7 @@ public class EnergyConvertorBlockEntity extends EnergyBaseBlockEntity implements
         for (Direction direction : Direction.values()) {
             BlockPos neighborPos = worldPosition.relative(direction);
             BlockEntity neighbor = level.getBlockEntity(neighborPos);
-
-            if (neighbor instanceof EnergyBaseBlockEntity target) {
-                EnergyPacket packet = extractEnergyPacket(100, true, 2);
-                if (packet == null) {
-                    continue;
-                }
-
-                int received = target.receiveEnergyPacket(packet, true);
-                if (received > 0) {
-                    extractEnergyPacket(received, false, 2);
-                    target.receiveEnergyPacket(new EnergyPacket(received, this.worldPosition, packet.ttl - 1), false);
-                    break;
-                }
-            }
         }
-    }
-
-    @Override
-    public int receiveEnergyPacket(EnergyPacket packet, boolean simulate) {
-        return 0;
     }
 
     @Override
