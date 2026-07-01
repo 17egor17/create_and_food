@@ -1,0 +1,24 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"particle": "caf:block/kitchen/acacia_table_bottom_door",
+		"tbd": "caf:block/kitchen/acacia_table_bottom_door"
+	},
+	"elements": [
+		{
+			"from": [0, 1, 2],
+			"to": [8, 14, 4],
+			"rotation": {"angle": 0, "axis": "y", "origin": [1, 1, 3]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 6.5], "texture": "#tbd"},
+				"east": {"uv": [0, 6.5, 6.5, 7.5], "rotation": 90, "texture": "#tbd"},
+				"south": {"uv": [12, 0, 8, 6.5], "texture": "#tbd"},
+				"west": {"uv": [0, 8.5, 6.5, 7.5], "rotation": 90, "texture": "#tbd"},
+				"up": {"uv": [7, 6.5, 11, 7.5], "texture": "#tbd"},
+				"down": {"uv": [11, 7.5, 7, 8.5], "texture": "#tbd"}
+			}
+		}
+	]
+}
