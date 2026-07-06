@@ -5,7 +5,8 @@
 	"textures": {
 		"tb": "caf:block/kitchen/acacia_table_bottom",
 		"cut_polished_top": "create:block/palettes/stone_types/polished/andesite_cut_polished",
-		"tte": "caf:block/kitchen/table_top_edge",
+		"tte": "caf:block/kitchen/table_top/table_top_edge",
+		"ttb": "caf:block/kitchen/table_top/table_top_bottom",
 		"tbd": "caf:block/kitchen/acacia_table_bottom_door",
 		"particle": "block/acacia_planks"
 	},
@@ -32,7 +33,7 @@
 				"south": {"uv": [0, 4, 16, 6], "texture": "#tte"},
 				"west": {"uv": [0, 2, 16, 4], "texture": "#tte"},
 				"up": {"uv": [0, 0, 16, 16], "texture": "#cut_polished_top"},
-				"down": {"uv": [0, 0, 16, 16], "texture": "#tte"}
+				"down": {"uv": [0, 0, 16, 16], "texture": "#ttb"}
 			}
 		},
 		{
