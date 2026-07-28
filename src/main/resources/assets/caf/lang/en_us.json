@@ -559,7 +559,7 @@
   "caf.generic.unit.kcaf": "kCAF",
   "caf.generic.unit.kilogram": "kg",
   "caf.generic.unit.ton": "tn",
-  "caf.gui.goggles.current_speed": "Speed:",
+  "caf.gui.goggles.current_speed": "Speed: ",
   "caf.gui.goggles.energy_container": "Energy Container: ",
   "caf.gui.goggles.energy_container.capacity": "Energy Capacity: ",
   "caf.gui.goggles.high": "High",
