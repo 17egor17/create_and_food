@@ -6,6 +6,17 @@
     "#forge:nuggets/iron",
     "#forge:nuggets/steel",
     "#forge:nuggets/tantalum",
-    "#forge:nuggets/tungsten"
+    "#forge:nuggets/tungsten",
+    "#forge:nuggets/aluminum",
+    "#forge:nuggets/lead",
+    "#forge:nuggets/nickel",
+    "#forge:nuggets/osmium",
+    "#forge:nuggets/silver",
+    "#forge:nuggets/tin",
+    "#forge:nuggets/uranium",
+    "#forge:nuggets/bronze",
+    "#forge:nuggets/constantan",
+    "#forge:nuggets/electrum",
+    "#forge:nuggets/invar"
   ]
 }

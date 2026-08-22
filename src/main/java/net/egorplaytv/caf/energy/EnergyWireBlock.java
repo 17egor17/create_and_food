@@ -7,6 +7,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -51,12 +52,8 @@ public class EnergyWireBlock extends Block {
                 isConnected = true;
             } else if (neighborBlock instanceof EnergyConvertorBlock) {
                 isConnected = true;
-            } else if (neighborBlock instanceof net.minecraft.world.level.block.entity.BlockEntityTicker ||
-                    (level instanceof Level && level.getBlockEntity(neighborPos) != null)) {
-
-                if (isEnergyCapableBlock(neighborBlock)) {
-                    isConnected = true;
-                }
+            } else if (isEnergyBlock(neighborBlock)) {
+                isConnected = true;
             }
 
             if (isConnected) {
@@ -79,7 +76,7 @@ public class EnergyWireBlock extends Block {
         }
     }
 
-    private boolean isEnergyCapableBlock(Block block) {
+    private boolean isEnergyBlock(Block block) {
         return block instanceof EnergyWireBlock ||
                 block instanceof EnergyConvertorBlock;
     }

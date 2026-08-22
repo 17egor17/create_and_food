@@ -62,10 +62,18 @@ public class CAFItemTagsProvider extends TagsProvider<Item> {
                 .addTag(CAFTags.Items.INGOTS_TIN).addTag(CAFTags.Items.INGOTS_URANIUM)
                 .addTag(CAFTags.Items.INGOTS_BRONZE).addTag(CAFTags.Items.INGOTS_CONSTANTAN)
                 .addTag(CAFTags.Items.INGOTS_ELECTRUM).addTag(CAFTags.Items.INGOTS_INVAR);
+//                .addTag(CAFTags.Items.INGOTS_BRASS).addTag(CAFTags.Items.INGOTS_ZINC);
         this.tag(CAFTags.Items.NUGGETS)
                 .addTag(CAFTags.Items.NUGGETS_COPPER).addTag(CAFTags.Items.NUGGETS_GOLD)
                 .addTag(CAFTags.Items.NUGGETS_IRON).addTag(CAFTags.Items.NUGGETS_STEEL)
-                .addTag(CAFTags.Items.NUGGETS_TANTALUM).addTag(CAFTags.Items.NUGGETS_TUNGSTEN);
+                .addTag(CAFTags.Items.NUGGETS_TANTALUM).addTag(CAFTags.Items.NUGGETS_TUNGSTEN)
+                .addTag(CAFTags.Items.NUGGETS_ALUMINUM).addTag(CAFTags.Items.NUGGETS_LEAD)
+                .addTag(CAFTags.Items.NUGGETS_NICKEL).addTag(CAFTags.Items.NUGGETS_OSMIUM)
+                .addTag(CAFTags.Items.NUGGETS_SILVER).addTag(CAFTags.Items.NUGGETS_TIN)
+                .addTag(CAFTags.Items.NUGGETS_URANIUM).addTag(CAFTags.Items.NUGGETS_BRONZE)
+                .addTag(CAFTags.Items.NUGGETS_CONSTANTAN).addTag(CAFTags.Items.NUGGETS_ELECTRUM)
+                .addTag(CAFTags.Items.NUGGETS_INVAR);
+//                .addTag(CAFTags.Items.NUGGETS_BRASS).addTag(CAFTags.Items.NUGGETS_ZINC);
         this.tag(CAFTags.Items.PLATES).addTag(CAFTags.Items.PLATES_BRASS).addTag(CAFTags.Items.PLATES_STEEL);
         this.tag(CAFTags.Items.SMALL_BASE).addTag(CAFTags.Items.SMALL_BASE_CHOCOLATE).addTag(CAFTags.Items.SMALL_BASE_HONEY);
         this.tag(CAFTags.Items.STRIPPED_LOGS).add(CAFBlocks.STRIPPED_ALMOND_LOG.get().asItem());
@@ -203,8 +211,19 @@ public class CAFItemTagsProvider extends TagsProvider<Item> {
         this.tag(CAFTags.Items.MACARONI)
                 .add(CAFItems.MACARONI.get()).add(CAFItems.RED_MACARONI.get())
                 .add(CAFItems.WHITE_MACARONI.get()).add(CAFItems.PINK_MACARONI.get());
+        this.tag(CAFTags.Items.NUGGETS_ALUMINUM).add(CAFItems.ALUMINUM_NUGGET.get());
         this.tag(CAFTags.Items.NUGGETS_COPPER).add(CAFItems.COPPER_NUGGET.get());
         this.tag(CAFTags.Items.NUGGETS_GOLD).add(CAFItems.GOLD_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_LEAD).add(CAFItems.LEAD_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_NICKEL).add(CAFItems.NICKEL_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_OSMIUM).add(CAFItems.OSMIUM_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_SILVER).add(CAFItems.SILVER_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_TIN).add(CAFItems.TIN_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_URANIUM).add(CAFItems.URANIUM_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_BRONZE).add(CAFItems.BRONZE_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_CONSTANTAN).add(CAFItems.CONSTANTAN_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_ELECTRUM).add(CAFItems.ELECTRUM_NUGGET.get());
+        this.tag(CAFTags.Items.NUGGETS_INVAR).add(CAFItems.INVAR_NUGGET.get());
         this.tag(CAFTags.Items.NUGGETS_IRON).add(CAFItems.IRON_NUGGET.get());
         this.tag(CAFTags.Items.NUGGETS_STEEL).add(CAFItems.STEEL_NUGGET.get());
         this.tag(CAFTags.Items.NUGGETS_TANTALUM).add(CAFItems.TANTALUM_NUGGET.get());
