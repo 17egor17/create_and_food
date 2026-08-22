@@ -39,8 +39,10 @@ public class EnergyConvertorBlock extends EnergyHorizontalKineticBlock implement
     @Override
     public void stepOn(Level pLevel, BlockPos pPos, BlockState pState, Entity pEntity) {
         EnergyConvertorBlockEntity entity = getBlockEntity(pLevel, pPos);
-        CAFDamageSource.energy(pEntity, entity.getEnergyStorage().getEnergyStored().getValueDamage());
-        entity.getEnergyStorage().getEnergyStored().setEnergy(entity.getEnergyStorage().getEnergyStored().getRawEnergy() - 500);
+        if (entity.getEnergyStorage().getEnergyStored().getRawEnergy() >= 500) {
+            CAFDamageSource.energy(pEntity, entity.getEnergyStorage().getEnergyStored().getValueDamage());
+            entity.getEnergyStorage().getEnergyStored().setEnergy(entity.getEnergyStorage().getEnergyStored().getRawEnergy() - 500);
+        }
     }
 
     @Override
