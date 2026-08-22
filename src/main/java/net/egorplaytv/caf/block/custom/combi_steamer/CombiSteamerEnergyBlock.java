@@ -137,6 +137,6 @@ public class CombiSteamerEnergyBlock extends CombiSteamerBaseBlock implements IC
     public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         if (getComplete(pState))
             return new CombiSteamerEnergyCommunicationBlockEntity(pPos, pState);
-        return null;
+        else return null;
     }
 }

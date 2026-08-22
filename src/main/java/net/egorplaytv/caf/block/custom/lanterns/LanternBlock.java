@@ -1,5 +1,7 @@
 package net.egorplaytv.caf.block.custom.lanterns;
 
+import com.simibubi.create.content.contraptions.ITransformableBlock;
+import com.simibubi.create.content.contraptions.StructureTransform;
 import net.egorplaytv.caf.block.praperties.CAFBlockStateProperties;
 import net.egorplaytv.caf.block.praperties.LanternAttachType;
 import net.minecraft.core.BlockPos;
@@ -12,6 +14,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.material.FluidState;
@@ -24,9 +27,9 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
-public class LanternBlock extends Block implements SimpleWaterloggedBlock {
+public class LanternBlock extends Block implements SimpleWaterloggedBlock, ITransformableBlock {
     public static final BooleanProperty WATERLOGGED =
-            net.minecraft.world.level.block.state.properties.BlockStateProperties.WATERLOGGED;
+            BlockStateProperties.WATERLOGGED;
     public static final EnumProperty<LanternAttachType> ATTACHMENT = CAFBlockStateProperties.LANTERN_ATTACHMENT;
 
     private static final VoxelShape FLOOR =
@@ -194,7 +197,7 @@ public class LanternBlock extends Block implements SimpleWaterloggedBlock {
             case NORTH -> Direction.SOUTH;
             case EAST -> Direction.WEST;
             case WEST -> Direction.EAST;
-            default -> Direction.NORTH;
+            case SOUTH -> Direction.NORTH;
         };
     }
 
@@ -215,5 +218,65 @@ public class LanternBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public boolean isPathfindable(BlockState pState, BlockGetter pLevel, BlockPos pPos, PathComputationType pType) {
         return false;
+    }
+
+    @Override
+    public BlockState mirror(BlockState pState, Mirror pMirror) {
+        LanternAttachType type = pState.getValue(ATTACHMENT);
+        if (type == LanternAttachType.EAST && pMirror == Mirror.FRONT_BACK) {
+            return pState.setValue(ATTACHMENT, LanternAttachType.WEST);
+        } else if (type == LanternAttachType.WEST && pMirror == Mirror.FRONT_BACK) {
+            return pState.setValue(ATTACHMENT, LanternAttachType.EAST);
+        } else if (type == LanternAttachType.NORTH && pMirror == Mirror.LEFT_RIGHT) {
+            return pState.setValue(ATTACHMENT, LanternAttachType.SOUTH);
+        } else if (type == LanternAttachType.SOUTH && pMirror == Mirror.LEFT_RIGHT) {
+           return pState.setValue(ATTACHMENT, LanternAttachType.NORTH);
+        }
+
+        return pState;
+    }
+
+    @Override
+    public BlockState rotate(BlockState pState, Rotation pRotation) {
+        return pState.setValue(ATTACHMENT, getTypeFromDirection(pRotation.rotate(getTargetDirection(pState))));
+    }
+
+    @Override
+    public BlockState transform(BlockState state, StructureTransform transform) {
+        if (transform.mirror != null)
+            state = mirror(state, transform.mirror);
+
+        if (transform.rotationAxis == Direction.Axis.Y) {
+            return rotate(state, transform.rotation);
+        }
+
+        Direction targetDir = getTargetDirection(state);
+        Direction newFacing = transform.rotateFacing(targetDir);
+
+        if (newFacing.getAxis() == Direction.Axis.Y)
+            return state.setValue(ATTACHMENT, newFacing == Direction.UP ? LanternAttachType.FLOOR : LanternAttachType.HANGING);
+        return state.setValue(ATTACHMENT, getTypeFromDirection(newFacing));
+    }
+
+    private Direction getTargetDirection(BlockState state) {
+        return switch (state.getValue(ATTACHMENT)) {
+            case FLOOR -> Direction.UP;
+            case HANGING -> Direction.DOWN;
+            case WEST -> Direction.EAST;
+            case EAST -> Direction.WEST;
+            case SOUTH -> Direction.NORTH;
+            case NORTH -> Direction.SOUTH;
+        };
+    }
+
+    private LanternAttachType getTypeFromDirection(Direction direction) {
+        return switch (direction) {
+            case UP -> LanternAttachType.FLOOR;
+            case DOWN -> LanternAttachType.HANGING;
+            case EAST -> LanternAttachType.WEST;
+            case WEST -> LanternAttachType.EAST;
+            case SOUTH -> LanternAttachType.NORTH;
+            case NORTH -> LanternAttachType.SOUTH;
+        };
     }
 }

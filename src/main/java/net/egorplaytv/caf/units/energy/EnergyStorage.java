@@ -1,60 +1,53 @@
 package net.egorplaytv.caf.units.energy;
 
 import net.egorplaytv.caf.units.energy.energy_interface.IEnergyStorage;
-import net.minecraft.nbt.FloatTag;
-import net.minecraft.nbt.Tag;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraftforge.common.util.INBTSerializable;
 
-public class EnergyStorage implements IEnergyStorage, INBTSerializable<Tag> {
+public class EnergyStorage implements IEnergyStorage, INBTSerializable<CompoundTag> {
     protected CAFEnergyUnits energy;
-    protected CAFEnergyUnits capacity;
+    protected float capacity;
     protected float maxReceive;
     protected float maxExtract;
 
-    public EnergyStorage(int capacity) {
-        this(new CAFEnergyUnits(capacity), capacity, capacity, new CAFEnergyUnits());
+    public EnergyStorage(float capacity, float amperage) {
+        this(capacity, amperage, capacity, capacity, 0F);
     }
 
-    public EnergyStorage(CAFEnergyUnits capacity) {
-        this(capacity, capacity.getEnergy(), capacity.getEnergy(), new CAFEnergyUnits());
+    public EnergyStorage(float capacity, float amperage, float maxTransfer) {
+        this(capacity, amperage, maxTransfer, maxTransfer, 0F);
     }
 
-    public EnergyStorage(CAFEnergyUnits capacity, float maxTransfer)
-    {
-        this(capacity, maxTransfer, maxTransfer, new CAFEnergyUnits());
+    public EnergyStorage(float capacity, float amperage, float maxReceive, float maxExtract) {
+        this(capacity, amperage, maxReceive, maxExtract, 0F);
     }
 
-    public EnergyStorage(CAFEnergyUnits capacity, float maxReceive, float maxExtract)
-    {
-        this(capacity, maxReceive, maxExtract, new CAFEnergyUnits());
-    }
-
-    public EnergyStorage(CAFEnergyUnits capacity, float maxReceive, float maxExtract, CAFEnergyUnits energy) {
+    public EnergyStorage(float capacity, float amperage, float maxReceive, float maxExtract, float energy) {
         this.capacity = capacity;
         this.maxReceive = maxReceive;
         this.maxExtract = maxExtract;
-        this.energy = new CAFEnergyUnits(Math.max(0 , Math.min(new CAFEnergyUnits.CAFEnergyUnitsInteger(capacity).getEnergy(), new CAFEnergyUnits.CAFEnergyUnitsInteger(energy).getEnergy())));
+        this.energy = new CAFEnergyUnits(Math.max(0, Math.min(capacity, energy)), amperage);
     }
 
     @Override
     public CAFEnergyUnits receiveEnergy(float maxReceive, boolean simulate) {
         if (!canReceive())
-            return new CAFEnergyUnits();
+            return CAFEnergyUnits.EMPTY;
 
-        CAFEnergyUnits energyReceived = new CAFEnergyUnits(Math.min(capacity.getEnergy() - energy.getEnergy(), Math.min(this.maxReceive, maxReceive)));
+        CAFEnergyUnits energyReceived = new CAFEnergyUnits(Math.min(capacity - energy.getRawEnergy(), Math.min(this.maxReceive, maxReceive)), energy.getRawAmperage());
         if (!simulate)
-            energy = new CAFEnergyUnits(energy.getEnergy() + energyReceived.getEnergy());
+            energy = new CAFEnergyUnits(energy.getRawEnergy() + energyReceived.getRawEnergy(), energy.getRawAmperage());
         return energyReceived;
     }
 
     @Override
     public CAFEnergyUnits extractEnergy(float maxExtract, boolean simulate) {
         if (!canExtract())
-            return new CAFEnergyUnits();
+            return CAFEnergyUnits.EMPTY;
 
-        CAFEnergyUnits energyExtracted = new CAFEnergyUnits(Math.min(energy.getEnergy(), Math.min(this.maxExtract, maxExtract)));
+        CAFEnergyUnits energyExtracted = new CAFEnergyUnits(Math.min(energy.getRawEnergy(), Math.min(this.maxExtract, maxExtract)), energy.getRawAmperage());
         if (!simulate)
-            energy = new CAFEnergyUnits(energy.getEnergy() - energyExtracted.getEnergy());
+            energy = new CAFEnergyUnits(energy.getRawEnergy() - energyExtracted.getEnergy(), energy.getRawAmperage());
         return energyExtracted;
     }
 
@@ -68,7 +61,7 @@ public class EnergyStorage implements IEnergyStorage, INBTSerializable<Tag> {
     }
 
     @Override
-    public CAFEnergyUnits getMaxEnergyStored() {
+    public float getMaxEnergyStored() {
         return capacity;
     }
 
@@ -83,15 +76,16 @@ public class EnergyStorage implements IEnergyStorage, INBTSerializable<Tag> {
     }
 
     @Override
-    public Tag serializeNBT()
-    {
-        return FloatTag.valueOf(this.getEnergyStored().getEnergy());
+    public CompoundTag serializeNBT() {
+        CompoundTag tag = new CompoundTag();
+        tag.putFloat("CAFEnergy", this.getEnergyStored().getRawEnergy());
+        tag.putFloat("CAFEnergyAmperage", this.getEnergyStored().getRawAmperage());
+
+        return tag;
     }
 
     @Override
-    public void deserializeNBT(Tag nbt) {
-        if (!(nbt instanceof FloatTag intNbt))
-            throw new IllegalArgumentException("Can not deserialize to an instance that isn't the default implementation");
-        this.energy = new CAFEnergyUnits(intNbt.getAsFloat());
+    public void deserializeNBT(CompoundTag nbt) {
+        this.energy = new CAFEnergyUnits(nbt.getFloat("CAFEnergy"), nbt.getFloat("CAFEnergyAmperage"));
     }
 }

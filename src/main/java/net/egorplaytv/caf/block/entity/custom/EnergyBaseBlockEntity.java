@@ -17,14 +17,12 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class EnergyBaseBlockEntity extends KineticBlockEntity implements IHaveGoggleInformation {
-
     protected final EnergyStorage energyStorage;
-
     protected final LazyOptional<IEnergyStorage> lazyEnergyHandler;
 
-    public EnergyBaseBlockEntity(float capacity, BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
+    public EnergyBaseBlockEntity(float capacity, float amperage, BlockEntityType<?> pType, BlockPos pPos, BlockState pBlockState) {
         super(pType, pPos, pBlockState);
-        this.energyStorage = new EnergyStorage(new CAFEnergyUnits(capacity));
+        this.energyStorage = new EnergyStorage(capacity, amperage);
         this.lazyEnergyHandler = LazyOptional.of(() -> energyStorage);
     }
 
@@ -45,22 +43,26 @@ public abstract class EnergyBaseBlockEntity extends KineticBlockEntity implement
     @Override
     protected void write(CompoundTag tag, boolean clientPacket) {
         super.write(tag, clientPacket);
-        tag.putFloat("CAFEnergyUnits", energyStorage.getEnergyStored().getEnergy());
+        tag.putFloat("CAFEnergy", energyStorage.getEnergyStored().getRawEnergy());
+        tag.putFloat("CAFEnergyAmperage", energyStorage.getEnergyStored().getRawAmperage());
     }
 
     @Override
     protected void read(CompoundTag tag, boolean clientPacket) {
         super.read(tag, clientPacket);
-        energyStorage.setEnergyStored(new CAFEnergyUnits(tag.getFloat("CAFEnergyUnits")));
+        energyStorage.setEnergyStored(new CAFEnergyUnits(tag.getFloat("CAFEnergy"), tag.getFloat("CAFEnergyAmperage")));
+    }
+
+    public EnergyStorage getEnergyStorage() {
+        return this.energyStorage;
     }
 
     @Override
     public void tick() {
         super.tick();
 
-        if (!level.isClientSide){
+        if (!level.isClientSide)
             transferEnergy();
-        }
     }
 
     public abstract void transferEnergy();

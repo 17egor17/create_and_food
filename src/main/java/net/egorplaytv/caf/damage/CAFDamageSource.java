@@ -11,10 +11,15 @@ public class CAFDamageSource {
     public static final DamageSource HOT_METAL = new DamageSource(MOD_ID + ".hot_metal").bypassArmor();
     public static final DamageSource RADIATION = new DamageSource(MOD_ID + ".radiation").bypassArmor();
     public static final DamageSource RASPBERRY_BUSH = new DamageSource(MOD_ID + ".raspberry_bush");
+    public static final DamageSource ENERGY = new DamageSource(MOD_ID + ".energy");
 
 
     public static void drank(Entity entity, float amount){
         entity.hurt(DRANK, amount);
+    }
+
+    public static void energy(Entity entity, float amount) {
+        entity.hurt(ENERGY, amount);
     }
 
     public static void polishing(Entity entity, float amount){

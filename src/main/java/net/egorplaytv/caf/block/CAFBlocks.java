@@ -31,7 +31,6 @@ import net.egorplaytv.caf.block.custom.lanterns.LanternBlock;
 import net.egorplaytv.caf.block.custom.worktable.WorktableBlock;
 import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.CAFWoodTypes;
-import net.egorplaytv.caf.block.pattern.WireBlock;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderGenerator;
 import net.egorplaytv.caf.block.custom.EnergyConvertorBlock;
 import net.egorplaytv.caf.item.CAFCreativeModeTab;
@@ -59,7 +58,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -212,7 +210,7 @@ public class CAFBlocks {
 
 
     public static BlockEntry<EnergyConvertorBlock> ENERGY_CONVERTOR;
-    public static BlockEntry<CopperWireBlock> WIRE_BLOCK;
+//    public static BlockEntry<CopperWireBlock> WIRE_BLOCK;
 
 
     public static BlockEntry<CasingBlock> ALLOY_SOULS_CASING;
@@ -686,65 +684,65 @@ public class CAFBlocks {
                 .transform(customItemModel())
                 .register();
 
-        WIRE_BLOCK = REGISTRATE.block("wire", CopperWireBlock::new)
-                .initialProperties(Material.WOOL)
-                .properties(p -> p.strength(2.0F, 6.0F).noOcclusion())
-                .transform(axeOrPickaxe())
-                .blockstate((c, p) -> {
-                        ModelFile.ExistingModelFile wireConnect = p.models()
-                                .getExistingFile(new ResourceLocation(MOD_ID, "block/wire/wire_connect"));
-                        ModelFile.ExistingModelFile wireSingle = p.models()
-                                .getExistingFile(new ResourceLocation(MOD_ID, "block/wire/wire_single"));
-
-                        p.getMultipartBuilder(c.get())
-                                .part()
-                                .modelFile(wireSingle)
-                                .addModel()
-                                .end()
-
-                                .part()
-                                .modelFile(wireConnect)
-                                .addModel()
-                                .condition(WireBlock.NORTH, true)
-                                .end()
-
-                                .part()
-                                .modelFile(wireConnect)
-                                .rotationY(90)
-                                .addModel()
-                                .condition(WireBlock.EAST, true)
-                                .end()
-
-                                .part()
-                                .modelFile(wireConnect)
-                                .rotationY(180)
-                                .addModel()
-                                .condition(WireBlock.SOUTH, true)
-                                .end()
-
-                                .part()
-                                .modelFile(wireConnect)
-                                .rotationY(270)
-                                .addModel()
-                                .condition(WireBlock.WEST, true)
-                                .end()
-
-                                .part()
-                                .modelFile(wireConnect)
-                                .rotationX(270)
-                                .addModel()
-                                .condition(WireBlock.UP, true)
-                                .end()
-
-                                .part()
-                                .modelFile(wireConnect)
-                                .rotationX(90)
-                                .addModel()
-                                .condition(WireBlock.DOWN, true)
-                                .end();
-                }).item()
-                .transform(customItemModel())
-                .register();
+//        WIRE_BLOCK = REGISTRATE.block("wire", CopperWireBlock::new)
+//                .initialProperties(Material.WOOL)
+//                .properties(p -> p.strength(2.0F, 6.0F).noOcclusion())
+//                .transform(axeOrPickaxe())
+//                .blockstate((c, p) -> {
+//                        ModelFile.ExistingModelFile wireConnect = p.models()
+//                                .getExistingFile(new ResourceLocation(MOD_ID, "block/wire/wire_connect"));
+//                        ModelFile.ExistingModelFile wireSingle = p.models()
+//                                .getExistingFile(new ResourceLocation(MOD_ID, "block/wire/wire_single"));
+//
+//                        p.getMultipartBuilder(c.get())
+//                                .part()
+//                                .modelFile(wireSingle)
+//                                .addModel()
+//                                .end()
+//
+//                                .part()
+//                                .modelFile(wireConnect)
+//                                .addModel()
+//                                .condition(EnergyWireBlock.NORTH, true)
+//                                .end()
+//
+//                                .part()
+//                                .modelFile(wireConnect)
+//                                .rotationY(90)
+//                                .addModel()
+//                                .condition(EnergyWireBlock.EAST, true)
+//                                .end()
+//
+//                                .part()
+//                                .modelFile(wireConnect)
+//                                .rotationY(180)
+//                                .addModel()
+//                                .condition(EnergyWireBlock.SOUTH, true)
+//                                .end()
+//
+//                                .part()
+//                                .modelFile(wireConnect)
+//                                .rotationY(270)
+//                                .addModel()
+//                                .condition(EnergyWireBlock.WEST, true)
+//                                .end()
+//
+//                                .part()
+//                                .modelFile(wireConnect)
+//                                .rotationX(270)
+//                                .addModel()
+//                                .condition(EnergyWireBlock.UP, true)
+//                                .end()
+//
+//                                .part()
+//                                .modelFile(wireConnect)
+//                                .rotationX(90)
+//                                .addModel()
+//                                .condition(EnergyWireBlock.DOWN, true)
+//                                .end();
+//                }).item()
+//                .transform(customItemModel())
+//                .register();
 
         STEEL_SHAFT = REGISTRATE.block("steel_shaft", CAFShaftBlock::new)
                 .initialProperties(SharedProperties::stone)

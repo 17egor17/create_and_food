@@ -12,7 +12,6 @@ import net.egorplaytv.caf.block.entity.custom.combi_steamer.CombiSteamerFluidCom
 import net.egorplaytv.caf.block.entity.custom.worktable.WorktableBlockEntity;
 import net.egorplaytv.caf.block.entity.renderer.*;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderInstance;
-import net.egorplaytv.caf.block.entity.custom.EnergyConvertorBlockEntity;
 import net.egorplaytv.caf.block.entity.renderer.EnergyConverterInstance;
 import net.egorplaytv.caf.block.entity.renderer.EnergyConverterRenderer;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -135,11 +134,6 @@ public class CAFBlockEntities {
             .register();
 
     // Energy
-
-    public static final BlockEntityEntry<WireBlockEntity> WIRE_BLOCK = CreateAndFood.REGISTRATE
-            .blockEntity("wire_block", WireBlockEntity::new)
-            .validBlocks(CAFBlocks.WIRE_BLOCK)
-            .register();
 
     public static final BlockEntityEntry<EnergyConvertorBlockEntity> ENERGY_CONVERTER = CreateAndFood.REGISTRATE
             .blockEntity("energy_converter", EnergyConvertorBlockEntity::new)

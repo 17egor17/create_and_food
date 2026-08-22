@@ -90,6 +90,7 @@ public class CreateAndFood {
         new register(eventBus);
 
         forgeBus.addListener(CAFWorldEvents::onBiomeLoad);
+
         eventBus.addListener(this::commonSetup);
         eventBus.addListener(this::clientSetup);
         eventBus.addListener(this::gatherData);

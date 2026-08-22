@@ -83,40 +83,38 @@ public class CombiSteamerControllerBlockEntity extends BlockEntity implements IH
         BlockPos fluidCommunicationPos2 = new BlockPos(pos.getX() - 1, pos.getY() + 1, pos.getZ() - 1);
         BlockPos fluidCommunicationPos3 = new BlockPos(pos.getX() + 1, pos.getY() + 1, pos.getZ() - 1);
         BlockPos fluidCommunicationPos4 = new BlockPos(pos.getX() - 1, pos.getY() + 1, pos.getZ() + 1);
-        BlockState fluidCommunicationState1 = level.getBlockState(fluidCommunicationPos1);
-        BlockState fluidCommunicationState2 = level.getBlockState(fluidCommunicationPos2);
-        BlockState fluidCommunicationState3 = level.getBlockState(fluidCommunicationPos3);
-        BlockState fluidCommunicationState4 = level.getBlockState(fluidCommunicationPos4);
-        if (fluidCommunicationState1.getBlock() instanceof CombiSteamerFluidBlock) {
-            entity.fluidCommunication = (CombiSteamerFluidCommunicationBlockEntity) level.getBlockEntity(fluidCommunicationPos1);
-        } else if (fluidCommunicationState2.getBlock() instanceof CombiSteamerFluidBlock) {
-            entity.fluidCommunication = (CombiSteamerFluidCommunicationBlockEntity) level.getBlockEntity(fluidCommunicationPos2);
-        } else if (fluidCommunicationState3.getBlock() instanceof CombiSteamerFluidBlock) {
-            entity.fluidCommunication = (CombiSteamerFluidCommunicationBlockEntity) level.getBlockEntity(fluidCommunicationPos3);
-        } else if (fluidCommunicationState4.getBlock() instanceof CombiSteamerFluidBlock){
-            entity.fluidCommunication = (CombiSteamerFluidCommunicationBlockEntity) level.getBlockEntity(fluidCommunicationPos4);
+        BlockEntity fluidEntity1 = level.getBlockEntity(fluidCommunicationPos1);
+        BlockEntity fluidEntity2 = level.getBlockEntity(fluidCommunicationPos2);
+        BlockEntity fluidEntity3 = level.getBlockEntity(fluidCommunicationPos3);
+        BlockEntity fluidEntity4 = level.getBlockEntity(fluidCommunicationPos4);
+
+        if (fluidEntity1 instanceof CombiSteamerFluidCommunicationBlockEntity) {
+            entity.fluidCommunication = (CombiSteamerFluidCommunicationBlockEntity) fluidEntity1;
+        } else if (fluidEntity2 instanceof CombiSteamerFluidCommunicationBlockEntity) {
+            entity.fluidCommunication = (CombiSteamerFluidCommunicationBlockEntity) fluidEntity2;
+        } else if (fluidEntity3 instanceof CombiSteamerFluidCommunicationBlockEntity) {
+            entity.fluidCommunication = (CombiSteamerFluidCommunicationBlockEntity) fluidEntity3;
+        } else if (fluidEntity4 instanceof CombiSteamerFluidCommunicationBlockEntity){
+            entity.fluidCommunication = (CombiSteamerFluidCommunicationBlockEntity) fluidEntity4;
         }
 
         BlockPos energyCommunicationPos1 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() + 1);
         BlockPos energyCommunicationPos2 = new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() - 1);
         BlockPos energyCommunicationPos3 = new BlockPos(pos.getX() + 1, pos.getY(), pos.getZ() - 1);
         BlockPos energyCommunicationPos4 = new BlockPos(pos.getX() - 1, pos.getY(), pos.getZ() + 1);
-        BlockState energyCommunicationState1 = level.getBlockState(energyCommunicationPos1);
-        BlockState energyCommunicationState2 = level.getBlockState(energyCommunicationPos2);
-        BlockState energyCommunicationState3 = level.getBlockState(energyCommunicationPos3);
-        BlockState energyCommunicationState4 = level.getBlockState(energyCommunicationPos4);
-        if (energyCommunicationState1.getBlock() instanceof CombiSteamerFluidBlock) {
-            entity.energyCommunication = (CombiSteamerEnergyCommunicationBlockEntity) level.getBlockEntity(energyCommunicationPos1);
-        } else if (energyCommunicationState2.getBlock() instanceof CombiSteamerFluidBlock) {
-            entity.energyCommunication = (CombiSteamerEnergyCommunicationBlockEntity) level.getBlockEntity(energyCommunicationPos2);
-        } else if (energyCommunicationState3.getBlock() instanceof CombiSteamerFluidBlock) {
-            entity.energyCommunication = (CombiSteamerEnergyCommunicationBlockEntity) level.getBlockEntity(energyCommunicationPos3);
-        } else if (energyCommunicationState4.getBlock() instanceof CombiSteamerEnergyBlock) {
-            entity.energyCommunication = (CombiSteamerEnergyCommunicationBlockEntity) level.getBlockEntity(energyCommunicationPos4);
+        BlockEntity energyEntity1 = level.getBlockEntity(energyCommunicationPos1);
+        BlockEntity energyEntity2 = level.getBlockEntity(energyCommunicationPos2);
+        BlockEntity energyEntity3 = level.getBlockEntity(energyCommunicationPos3);
+        BlockEntity energyEntity4 = level.getBlockEntity(energyCommunicationPos4);
+        if (energyEntity1 instanceof CombiSteamerEnergyCommunicationBlockEntity) {
+            entity.energyCommunication = (CombiSteamerEnergyCommunicationBlockEntity) energyEntity1;
+        } else if (energyEntity2 instanceof CombiSteamerEnergyCommunicationBlockEntity) {
+            entity.energyCommunication = (CombiSteamerEnergyCommunicationBlockEntity) energyEntity2;
+        } else if (energyEntity3 instanceof CombiSteamerEnergyCommunicationBlockEntity) {
+            entity.energyCommunication = (CombiSteamerEnergyCommunicationBlockEntity) energyEntity3;
+        } else if (energyEntity4 instanceof CombiSteamerEnergyCommunicationBlockEntity) {
+            entity.energyCommunication = (CombiSteamerEnergyCommunicationBlockEntity) energyEntity4;
         }
-
-
-
     }
 
     @Override

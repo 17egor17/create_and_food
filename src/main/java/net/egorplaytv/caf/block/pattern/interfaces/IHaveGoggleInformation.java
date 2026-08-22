@@ -163,23 +163,23 @@ public interface IHaveGoggleInformation extends com.simibubi.create.content.equi
                 .forGoggles(tooltip);
 
 
-        if (storage.getEnergyStored().getEnergy() >= 1000 && storage.getMaxEnergyStored().getEnergy() > 1000) {
+        if (storage.getEnergyStored().getEnergy() >= 1000 && storage.getMaxEnergyStored() > 1000) {
             Lang.builder()
                     .add(Lang.number(storage.getEnergyStored().getEnergy() / 1000F)
                             .add(kcaf)
                             .style(ChatFormatting.GOLD))
                     .text(ChatFormatting.GRAY, " / ")
-                    .add(Lang.number(storage.getMaxEnergyStored().getEnergy() / 1000F)
+                    .add(Lang.number(storage.getMaxEnergyStored() / 1000F)
                             .add(kcaf)
                             .style(ChatFormatting.GRAY))
                     .forGoggles(tooltip, 1);
-        } else if (storage.getEnergyStored().getEnergy() < 1000 && storage.getMaxEnergyStored().getEnergy() > 1000) {
+        } else if (storage.getEnergyStored().getEnergy() < 1000 && storage.getMaxEnergyStored() > 1000) {
             Lang.builder()
                     .add(Lang.number(storage.getEnergyStored().getEnergy())
                             .add(caf)
                             .style(ChatFormatting.GOLD))
                     .text(ChatFormatting.GRAY, " / ")
-                    .add(Lang.number(storage.getMaxEnergyStored().getEnergy() / 1000F)
+                    .add(Lang.number(storage.getMaxEnergyStored() / 1000F)
                             .add(kcaf)
                             .style(ChatFormatting.GRAY))
                     .forGoggles(tooltip, 1);
@@ -189,7 +189,7 @@ public interface IHaveGoggleInformation extends com.simibubi.create.content.equi
                             .add(caf)
                             .style(ChatFormatting.GOLD))
                     .text(ChatFormatting.GRAY, " / ")
-                    .add(Lang.number(storage.getMaxEnergyStored().getEnergy())
+                    .add(Lang.number(storage.getMaxEnergyStored())
                             .add(caf)
                             .style(ChatFormatting.GRAY))
                     .forGoggles(tooltip, 1);

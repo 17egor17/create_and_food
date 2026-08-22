@@ -7,13 +7,21 @@ import net.minecraft.util.GsonHelper;
 
 public class CAFEnergyUnits {
     private float energy;
+    private float amperage;
 
-    public CAFEnergyUnits() {
-        this.energy = 0F;
-    }
+    public static CAFEnergyUnits EMPTY = new CAFEnergyUnits(0F, 0F);
 
     public CAFEnergyUnits(float energy) {
+        this(energy, 0F);
+    }
+
+    public CAFEnergyUnits(float energy, float amperage) {
         this.energy = energy;
+        this.amperage = amperage;
+    }
+
+    public float getRawEnergy() {
+        return this.energy;
     }
 
     public float getEnergy() {
@@ -24,29 +32,20 @@ public class CAFEnergyUnits {
         this.energy = energy;
     }
 
-    public static CAFEnergyUnits fromJson(JsonObject json) {
-        return new CAFEnergyUnits(GsonHelper.getAsFloat(json, "CAFEnergyUnits", 100));
+    public float getRawAmperage() {
+        return this.amperage;
     }
 
-    public static CAFEnergyUnits fromNetwork(FriendlyByteBuf buf) {
-        return new CAFEnergyUnits(buf.readFloat());
+    public float getAmperage() {
+        return ((Math.round(this.amperage * 100)) / 100F);
     }
 
-    public static void toNetwork(FriendlyByteBuf buf, CAFEnergyUnits value) {
-        buf.writeFloat(value.getEnergy());
+    public void setAmperage(float amperage) {
+        this.amperage = amperage;
     }
 
-    public CompoundTag writeToNBT(CompoundTag nbt) {
-        nbt.putFloat("CAFEnergyUnits", getEnergy());
-        return nbt;
-    }
-
-    public static CAFEnergyUnits loadCAFEnergyUnitsFromNBT(CompoundTag nbt) {
-        if (nbt == null)
-            return new CAFEnergyUnits();
-        CAFEnergyUnits energyUnits = new CAFEnergyUnits(nbt.getFloat("CAFEnergyUnits"));
-
-        return energyUnits;
+    public float getValueDamage() {
+        return ((amperage * getRawEnergy()) / ((getRawEnergy() / 2) * 1000));
     }
 
     public boolean isEmpty() {
@@ -54,69 +53,39 @@ public class CAFEnergyUnits {
     }
 
     public CAFEnergyUnits copy() {
-        return new CAFEnergyUnits(energy);
+        return new CAFEnergyUnits(getRawEnergy(), getRawAmperage());
+    }
+
+    public boolean is(CAFEnergyUnits energy) {
+        return this.energy == energy.energy && this.amperage == energy.amperage;
     }
 
 
 
-    public static class CAFEnergyUnitsInteger {
-        private int energy;
+    public static CAFEnergyUnits fromJson(JsonObject json) {
+        return new CAFEnergyUnits(GsonHelper.getAsFloat(json, "CAFEnergy", 100),
+                GsonHelper.getAsFloat(json, "CAFEnergyAmperage", 100));
+    }
 
-        public CAFEnergyUnitsInteger() {
-            this.energy = 0;
-        }
+    public static CAFEnergyUnits fromNetwork(FriendlyByteBuf buf) {
+        return new CAFEnergyUnits(buf.readFloat(), buf.readFloat());
+    }
 
-        public CAFEnergyUnitsInteger(int energy) {
-            this.energy = energy;
-        }
+    public static void toNetwork(FriendlyByteBuf buf, CAFEnergyUnits value) {
+        buf.writeFloat(value.getRawEnergy());
+        buf.writeFloat(value.getRawAmperage());
+    }
 
-        public CAFEnergyUnitsInteger(float energy) {
-            this.energy = Math.round(energy);
-        }
+    public CompoundTag writeToNBT(CompoundTag nbt) {
+        nbt.putFloat("CAFEnergy", getRawEnergy());
+        nbt.putFloat("CAFEnergyAmperage", getRawAmperage());
+        return nbt;
+    }
 
-        public CAFEnergyUnitsInteger(CAFEnergyUnits energy) {
-            this.energy = Math.round(energy.getEnergy());
-        }
+    public static CAFEnergyUnits loadFromNBT(CompoundTag nbt) {
+        if (nbt == null)
+            return CAFEnergyUnits.EMPTY;
 
-        public int getEnergy() {
-            return this.energy;
-        }
-
-        public void setEnergy(int energy) {
-            this.energy = energy;
-        }
-
-        public static CAFEnergyUnitsInteger fromJson(JsonObject json) {
-            return new CAFEnergyUnitsInteger(GsonHelper.getAsInt(json, "CAFEnergyUnits", 100));
-        }
-
-        public static CAFEnergyUnitsInteger fromNetwork(FriendlyByteBuf buf) {
-            return new CAFEnergyUnitsInteger(buf.readInt());
-        }
-
-        public static void toNetwork(FriendlyByteBuf buf, CAFEnergyUnitsInteger value) {
-            buf.writeInt(value.getEnergy());
-        }
-
-        public CompoundTag writeToNBT(CompoundTag nbt) {
-            nbt.putInt("CAFEnergyUnits", getEnergy());
-            return nbt;
-        }
-
-        public static CAFEnergyUnitsInteger loadCAFEnergyUnitsFromNBT(CompoundTag nbt) {
-            if (nbt == null)
-                return new CAFEnergyUnitsInteger();
-            CAFEnergyUnitsInteger energyUnits = new CAFEnergyUnitsInteger(nbt.getInt("CAFEnergyUnits"));
-
-            return energyUnits;
-        }
-
-        public boolean isEmpty() {
-            return energy <= 0;
-        }
-
-        public CAFEnergyUnitsInteger copy() {
-            return new CAFEnergyUnitsInteger(energy);
-        }
+        return new CAFEnergyUnits(nbt.getFloat("CAFEnergy"), nbt.getFloat("CAFEnergyAmperage"));
     }
 }

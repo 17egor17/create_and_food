@@ -2,6 +2,8 @@ package net.egorplaytv.caf.block.custom.combi_steamer;
 
 import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.custom.combi_steamer.CombiSteamerControllerBlockEntity;
+import net.egorplaytv.caf.block.entity.custom.combi_steamer.CombiSteamerEnergyCommunicationBlockEntity;
+import net.egorplaytv.caf.block.entity.custom.combi_steamer.CombiSteamerFluidCommunicationBlockEntity;
 import net.egorplaytv.caf.block.pattern.CombiSteamerBaseBlock;
 import net.egorplaytv.caf.block.praperties.CombiSteamerBaseBlockType;
 import net.minecraft.core.BlockPos;
@@ -415,7 +417,7 @@ public class CombiSteamerController extends CombiSteamerBaseBlock {
     public @Nullable BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         if (getComplete(pState))
             return new CombiSteamerControllerBlockEntity(pPos, pState);
-        return null;
+        else return null;
     }
 
     @Override

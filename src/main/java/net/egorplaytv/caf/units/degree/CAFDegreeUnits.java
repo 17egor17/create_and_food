@@ -14,6 +14,11 @@ public class CAFDegreeUnits {
         this.degree = degree;
     }
 
+
+    public float getRawDegree() {
+        return this.degree;
+    }
+
     public float getDegree() {
         return ((Math.round(this.degree * 100)) / 100F);
     }
@@ -32,11 +37,11 @@ public class CAFDegreeUnits {
     }
 
     public static void toNetwork(FriendlyByteBuf buf, CAFDegreeUnits value) {
-        buf.writeFloat(value.getDegree());
+        buf.writeFloat(value.getRawDegree());
     }
 
     public CompoundTag writeToNBT(CompoundTag nbt) {
-        nbt.putFloat("CAFDegreeUnits", getDegree());
+        nbt.putFloat("CAFDegreeUnits", getRawDegree());
         return nbt;
     }
 
@@ -74,7 +79,7 @@ public class CAFDegreeUnits {
         }
 
         public CAFDegreeUnitsInteger(CAFDegreeUnits degree) {
-            this.degree = Math.round(degree.getDegree());
+            this.degree = Math.round(degree.getRawDegree());
         }
 
         public int getDegree() {

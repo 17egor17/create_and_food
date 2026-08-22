@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class CombiSteamerEnergyCommunicationBlockEntity extends BlockEntity {
-    protected EnergyStorage energyStorage = new EnergyStorage(10000);
+    protected EnergyStorage energyStorage = new EnergyStorage(10000F, 10F);
     protected LazyOptional<IEnergyStorage> energyCapability = LazyOptional.of(() -> energyStorage);
 
     public CombiSteamerEnergyCommunicationBlockEntity(BlockPos pPos, BlockState pBlockState) {
@@ -37,6 +37,10 @@ public class CombiSteamerEnergyCommunicationBlockEntity extends BlockEntity {
         return super.getCapability(cap, side);
     }
 
+    public EnergyStorage getEnergyStorage() {
+        return energyStorage;
+    }
+
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
@@ -45,13 +49,14 @@ public class CombiSteamerEnergyCommunicationBlockEntity extends BlockEntity {
 
     @Override
     protected void saveAdditional(CompoundTag tag) {
-        tag.putFloat("CAFEnergyUnits", energyStorage.getEnergyStored().getEnergy());
+        tag.putFloat("CAFEnergy", energyStorage.getEnergyStored().getRawEnergy());
+        tag.putFloat("CAFEnergyAmperage", energyStorage.getEnergyStored().getRawAmperage());
         super.saveAdditional(tag);
     }
 
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
-        energyStorage.setEnergyStored(new CAFEnergyUnits(tag.getFloat("CAFEnergyUnits")));
+        energyStorage.setEnergyStored(new CAFEnergyUnits(tag.getFloat("CAFEnergy"), tag.getFloat("CAFEnergyAmperage")));
     }
 }

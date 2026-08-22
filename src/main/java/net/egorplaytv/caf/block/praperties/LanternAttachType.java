@@ -1,5 +1,6 @@
 package net.egorplaytv.caf.block.praperties;
 
+import net.minecraft.core.Direction;
 import net.minecraft.util.StringRepresentable;
 
 public enum LanternAttachType implements StringRepresentable {
@@ -9,6 +10,7 @@ public enum LanternAttachType implements StringRepresentable {
     EAST("east"),
     SOUTH("south"),
     NORTH("north");
+
 
     private final String name;
 

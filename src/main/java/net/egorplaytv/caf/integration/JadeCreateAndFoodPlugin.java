@@ -102,7 +102,7 @@ public class JadeCreateAndFoodPlugin implements IWailaPlugin {
                             max = accessor.getServerData().getFloat("cafMaxEnergy");
                         } else {
                             cur = storage.getEnergyStored().getEnergy();
-                            max = storage.getMaxEnergyStored().getEnergy();
+                            max = storage.getMaxEnergyStored();
                         }
 
                         ChatFormatting var10000 = ChatFormatting.WHITE;
@@ -121,7 +121,7 @@ public class JadeCreateAndFoodPlugin implements IWailaPlugin {
             IEnergyStorage storage = tile.getCapability(EnergyCapability.ENERGY).orElse(null);
             if (storage != null) {
                 data.putFloat("cafEnergy", storage.getEnergyStored().getEnergy());
-                data.putFloat("cafMaxEnergy", storage.getMaxEnergyStored().getEnergy());
+                data.putFloat("cafMaxEnergy", storage.getMaxEnergyStored());
             }
         }
     }
