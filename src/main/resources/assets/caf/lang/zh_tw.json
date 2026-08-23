@@ -1,11 +1,10 @@
 {
-  "_comment": "_______________________________Advancement_______________________________",
   "advancement.caf.root": "Create 與美食",
   "advancement.caf.root.desc": "歡迎來到 Create 與美食",
   "advancement.example": "例子",
   "advancement.example.desc": "示例说明",
 
-  "_comment": "_______________________________Blocks_______________________________",
+
   "block.caf.acacia_barrel": "相思木桶",
   "block.caf.acacia_cutting_board": "相思木切菜板",
   "block.caf.acacia_terrace": "相思木露台",
@@ -540,7 +539,7 @@
   "block.caf.yellow_packed_mud": "黃色压实泥",
   "block.caf.yellow_packed_mud_pillar": "黃色压实泥柱",
 
-  "_comment": "_______________________________Config_______________________________",
+
   "config.caf.chance_wild_berry_bush": "集群形成的機率。數值越低=頻率越高。",
   "config.caf.enable_kilograms": "包括公斤",
   "config.caf.furnace_speed": "爐度減少率",
@@ -551,7 +550,7 @@
   "config.caf.tuntal_ore_veins_per_chunk": "每塊會產生多少個鉭礦脈！",
   "config.caf.tuntal_ore_veins_size": "一根礦脈中會生成多少個鉭礦石塊！",
 
-  "_comment": "_______________________________CreateAndFood_______________________________",
+
   "caf.berry_bush.circumcised": "§c您無法修剪灌木幼苗，因為它已經被修剪過或尚未發芽",
   "caf.energy.caf": "%s / %s",
   "caf.generic.unit.caf": "CAF",
@@ -581,7 +580,7 @@
   "caf.wild_berry_bush.circumcised": "§c灌木已修剪過",
   "caf.pumpkin_and_melon_bush.cut": "§c您無法切開水果，因為它已經被切開或尚未長大",
 
-  "_comment": "_______________________________DeathAttack_______________________________",
+
   "death.attack.caf.drank": "%1$s 喝酒喝死了",
   "death.attack.caf.drank.player": "%1$s 醉酒而死 因 %2$s",
   "death.attack.caf.grinder_polishing_damage": "%1$s 被拋光至死",
@@ -589,7 +588,7 @@
   "death.attack.caf.hot_metal": "%1$s 死於高溫金屬",
   "death.attack.caf.raspberry_bush": "%1$s 被覆盆子叢戳死了",
 
-  "_comment": "_______________________________DynamicTrees_______________________________",
+
   "block.dynamictrees.almond_branch": "杏仁木樹",
   "block.dynamictrees.azalea_branch": "杜鹃花樹",
 
@@ -623,10 +622,10 @@
   "species.dynamictrees.azalea": "杜鹃种",
   "species.dynamictrees.cocoa": "可可",
 
-  "_comment": "_______________________________Entities_______________________________",
+
   "entity.minecraft.villager.caf.confectioner": "糖果師",
 
-  "_comment": "_______________________________Fluids_______________________________",
+
   "block.caf.apple_vinegar": "蘋果醋",
   "block.caf.cocoa_oil": "可可油",
   "block.caf.nixie_fluid": "氣體放電液體",
@@ -664,17 +663,17 @@
   "fluid.minecraft.milk": "牛奶",
   "fluid.minecraft.flowing_milk": "牛奶",
 
-  "_comment": "_______________________________GameRule_______________________________",
+
   "gamerule.doSeasonCycle": "季節週期",
 
-  "_comment": "_______________________________ItemGroup_______________________________",
+
   "itemGroup.caf": "Create and Food",
   "itemGroup.caf_decorative": "Create & Food: 裝飾塊",
   "itemGroup.caf_food": "Create & Food: 食物",
   "itemGroup.caf_kitchen": "Create & Food: 廚房",
   "itemGroup.caf_tool_and_tip": "Create & Food: 工具與尖端",
 
-  "_comment": "_______________________________Items_______________________________",
+
   "item.caf.alloy_souls": "合金魂",
   "item.caf.alloy_souls_ingot": "合金魂錠",
   "item.caf.alloy_souls_nugget": "合金魂粒",
@@ -851,7 +850,7 @@
   "item.caf.wood_chips": "木屑",
   "item.caf.wood_sawdust": "木鋸末",
 
-  "_comment": "_______________________________JEI_______________________________",
+
   "create.recipe.fan_freezing.fan": "在雪中後放置鼓風機",
   "caf.recipe.beating": "鞭打",
   "caf.recipe.chopping": "切削",
@@ -882,7 +881,7 @@
   "jei.caf.tooltip.liquid.amount.empty": "空",
   "jei.caf.tooltip.liquid.amount.with.capacity": "%s / %s mB",
 
-  "_comment": "_______________________________Other_______________________________",
+
   "color.caf.black": "§8顏色: §0黑色§r",
   "color.caf.blue": "§8顏色: §1藍色§r",
   "color.caf.cyan": "§8顏色: §3青色§r",
@@ -903,7 +902,7 @@
   "ui.marble_furnace.degK": "%s K",
   "ui.worktableDouble": "Large Worktable",
 
-  "_comment": "_______________________________Ponder_______________________________",
+
   "caf.ponder.blast_furnace.header": "黑色大理石高爐",
   "caf.ponder.blast_furnace.text_1": "由於此熔煉爐的運作方式與 Minecraft 不同，因此其運作原理如下：",
   "caf.ponder.blast_furnace.text_2": "將燃料放入燃料電池中，您將熱量溫度提高到一定水平。例如，烈焰蛋糕會將熱量水平提高 1000°C",
@@ -973,7 +972,7 @@
   "caf.ponder.terminal.text_1": "通過將錠放入金属样品分析终端中，您可以找到有關錠的更多信息",
   "caf.ponder.terminal.text_2": "任何已識別的金屬都可以放入金属样品分析终端中",
 
-  "_comment": "_______________________________Sample_______________________________",
+
   "caf.sample.alloy.line.1": "合金：",
   "caf.sample.alloy.line.2": "成分： %s",
   "caf.sample.alloy.line.3": "麥芽： %s",
@@ -1118,16 +1117,20 @@
   "caf.sample.zinc.desc.line.4": "§2主世界",
   "caf.sample.zinc.desc.line.5": "§9不是難治性",
 
-  "_comment": "_______________________________Tooltip_______________________________",
+
   "tooltip.caf.block.next_time.desc": "此模組組件將在下次更新中提供",
   "tooltip.caf.control": "§8按 [§eCONTROL§8] 了解更多資訊！",
   "tooltip.caf.control_down": "§8按[§7控制§8]了解更多資訊！",
-  "tooltip.caf.degrees": "§8融化於§e %s§r°C",
+  "tooltip.caf.degreesC": "§8Плавится при температуре§e %s§r°C",
+  "tooltip.caf.degreesF": "§8Плавится при температуре§e %s§r°F",
+  "tooltip.caf.degreesK": "§8Плавится при температуре§e %s§r K",
   "tooltip.caf.doesnt_despawn": "这个项目不会消失",
   "tooltip.caf.fermentation_barrel.days": "該區塊使用 §4minecraft§r 天",
   "tooltip.caf.fermentation_barrel.minutes": "該區塊使用 §4real§r 分鐘",
   "tooltip.caf.fermentation_barrel.seconds": "該區塊使用 §4real§r 秒",
-  "tooltip.caf.ingot.degrees": "§8温度：%s°C",
+  "tooltip.caf.ingot.degreesC": "§8Тепло: %s°C",
+  "tooltip.caf.ingot.degreesF": "§8Тепло: %s°F",
+  "tooltip.caf.ingot.degreesK": "§8Тепло: %s K",
   "tooltip.caf.item.scroll.down": "",
   "tooltip.caf.item.scroll.recipe": "",
   "tooltip.caf.item.scroll.shift": "",
