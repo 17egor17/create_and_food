@@ -1,11 +1,10 @@
 {
-  "_comment": "_______________________________Advancement_______________________________",
   "advancement.caf.root": "Create и Еда",
   "advancement.caf.root.desc": "Добро пожаловать в мод Create и Еда",
   "advancement.example": "Пример",
   "advancement.example.desc": "Пример описания",
 
-  "_comment": "_______________________________Blocks_______________________________",
+
   "block.caf.acacia_barrel": "Бочка из акации",
   "block.caf.acacia_cutting_board": "Разделочная доска из акации",
   "block.caf.acacia_terrace": "Терраса из акации",
@@ -540,7 +539,7 @@
   "block.caf.yellow_packed_mud": "Желтый саман",
   "block.caf.yellow_packed_mud_pillar": "Колонна из жёлтого самана",
 
-  "_comment": "_______________________________Config_______________________________",
+
   "config.caf.chance_wild_berry_bush": "Вероятность образования кластеров. Меньшее значение = более частое.",
   "config.caf.enable_kilograms": "Включить килограммы",
   "config.caf.furnace_speed": "Скорость затухания печи",
@@ -551,7 +550,7 @@
   "config.caf.tuntal_ore_veins_per_chunk": "Сколько жил танталовой руды появляется на одном чанке!",
   "config.caf.tuntal_ore_veins_size": "Сколько блоков танталовой руды появляется в одной жиле!",
 
-  "_comment": "_______________________________CreateAndFood_______________________________",
+
   "caf.berry_bush.circumcised": "§cВы не можете обрезать черенок, потому что он уже обрезан или еще не пророс",
   "caf.energy.caf": "%s / %s",
   "caf.generic.unit.caf": "CAF",
@@ -587,7 +586,7 @@
   "caf.wild_berry_bush.circumcised": "§cКуст уже обрезан",
   "caf.pumpkin_and_melon_bush.cut": "§cВы не можете срезать плод, потому что он уже срезан или еще не вырос",
 
-  "_comment": "_______________________________DeathAttack_______________________________",
+
   "death.attack.caf.drank": "%1$s спился(ась) до смерти",
   "death.attack.caf.drank.player": "%1$s спился(ась) до смерти из-за %2$s",
   "death.attack.caf.grinder_polishing_damage": "%1$s был(а) отполирован(а) до смерти",
@@ -596,7 +595,7 @@
   "death.attack.caf.radiation": "%1$s погиб(ла) от радиации",
   "death.attack.caf.raspberry_bush": "%1$s искололся(ась) до смерти в кустах малины",
 
-  "_comment": "_______________________________DynamicTrees_______________________________",
+
   "block.dynamictrees.almond_branch": "Миндальное дерево",
   "block.dynamictrees.azalea_branch": "Дерево азалии",
 
@@ -630,10 +629,10 @@
   "species.dynamictrees.azalea": "Азалия",
   "species.dynamictrees.cocoa": "Какао",
 
-  "_comment": "_______________________________Entities_______________________________",
+
   "entity.minecraft.villager.caf.confectioner": "Кондитер",
 
-  "_comment": "_______________________________Fluids_______________________________",
+
   "block.caf.apple_vinegar": "Яблочный уксус",
   "block.caf.cocoa_oil": "Какао-масло",
   "block.caf.nixie_fluid": "Газоразрядная жидкость",
@@ -671,10 +670,10 @@
   "fluid.minecraft.milk": "Молоко",
   "fluid.minecraft.flowing_milk": "Молоко",
 
-  "_comment": "_______________________________Gamerule_______________________________",
+
   "gamerule.doSeasonCycle": "Смена сезонов",
 
-  "_comment": "_______________________________ItemGroup_______________________________",
+
   "itemGroup.caf": "Create и еда",
   "itemGroup.caf_decorative": "CAF: Декоративные блоки",
   "itemGroup.caf_food": "CAF: Еда",
@@ -682,13 +681,15 @@
   "itemGroup.caf_roofs": "CAF: Крыши",
   "itemGroup.caf_tool_and_tip": "CAF: Инструменты и наконечники",
 
-  "_comment": "_______________________________Items_______________________________",
+
   "item.caf.alloy_souls": "Сплав душ",
   "item.caf.alloy_souls_ingot": "Слиток душ",
   "item.caf.alloy_souls_nugget": "Кусочек сплава душ",
   "item.caf.alloy_souls_sheet": "Лист из сплава душ",
   "item.caf.almond_nut": "Миндальный орех",
   "item.caf.aluminum_coil": "Алюминиевая катушка",
+  "item.caf.aluminum_ingot": "Алюминиевый слиток",
+  "item.caf.aluminum_nugget": "Кусочек алюминия",
   "item.caf.apple_vinegar_bucket": "Ведро яблочного уксуса",
   "item.caf.base_of_dough": "Основа из теста",
   "item.caf.berry_cake": "Ягодный кекс",
@@ -701,10 +702,14 @@
   "item.caf.broken_copper_coin": "Сломанная медная монета",
   "item.caf.broken_golden_coin": "Сломанная золотая монета",
   "item.caf.broken_iron_coin": "Сломанная железная монета",
+  "item.caf.bronze_ingot": "Бронзовый слиток",
+  "item.caf.bronze_nugget": "Кусочек бронзы",
   "item.caf.coal_dust": "Угольная пыль",
   "item.caf.cocoa_butter_briquette": "Брикет какао-масла",
   "item.caf.cocoa_oil_bucket": "Ведро какао-масла",
   "item.caf.cocoa_powder": "Какао порошок",
+  "item.caf.constantan_ingot": "Константановый слиток",
+  "item.caf.constantan_nugget": "Кусочек константана",
   "item.caf.copper_axe": "Медный топор",
   "item.caf.copper_coil": "Медная катушка",
   "item.caf.copper_coin": "Медная монета",
@@ -726,6 +731,8 @@
   "item.caf.dough_base_with_chocolate": "Основа из теста с шоколадом",
   "item.caf.egg_shell": "Яичная скорлупа",
   "item.caf.electrum_coil": "Электрумовая катушка",
+  "item.caf.electrum_ingot": "Электрумовый слиток",
+  "item.caf.electrum_nugget": "Кусочек электрума",
   "item.caf.fireclay_brick": "Шамотный кирпич",
   "item.caf.fireclay_clay_ball": "Комок шамотной глины",
   "item.caf.glow_berry_cake": "Светящийся ягодный кекс",
@@ -756,6 +763,8 @@
   "item.caf.incomplete_mozzarella_cheese": "Незавершенный сыр моцарелла",
   "item.caf.incomplete_netherite_ingot": "Незавершенный незеритовый слиток",
   "item.caf.incomplete_tool_handle": "Незавершенная рукоять инструмента",
+  "item.caf.invar_ingot": "Инваровый слиток",
+  "item.caf.invar_nugget": "Кусочек инвара",
   "item.caf.iron_coin": "Железная монета",
   "item.caf.iron_dust": "Железная пыль",
   "item.caf.iron_ingot": "Железный слиток",
@@ -763,6 +772,8 @@
   "item.caf.iron_nugget": "Кусочек железа",
   "item.caf.kitchen_hammer": "Кухонный молоток",
   "item.caf.lantern": "Фонарь",
+  "item.caf.lead_ingot": "Свинцовый слиток",
+  "item.caf.lead_nugget": "Кусочек свинца",
   "item.caf.marble_brick": "Мраморный кирпич",
   "item.caf.marble_black_galaxy_brick": "Кирпич из черного мрамора",
   "item.caf.marble_perlin_pink_brick": "Кирпич из жемчужно-розового мрамора",
@@ -773,6 +784,10 @@
   "item.caf.netherite_knife": "Незеритовый нож",
   "item.caf.nether_alloy": "Адский сплав",
   "item.caf.nether_fruitlight": "Адский фрукт света",
+  "item.caf.nickel_ingot": "Никелевый слиток",
+  "item.caf.nickel_nugget": "Кусочек никеля",
+  "item.caf.osmium_ingot": "Осмиевый слиток",
+  "item.caf.osmium_nugget": "Кусочек осмия",
   "item.caf.piece_of_gold": "Кусок золота",
   "item.caf.pink_macaroni": "Розовый макарон",
   "item.caf.pizza": "Пицца",
@@ -809,6 +824,8 @@
   "item.caf.rye_dough": "Ржаное тесто",
   "item.caf.rye_flour": "Ржаная мука",
   "item.caf.rye_seeds": "Семена ржи",
+  "item.caf.silver_ingot": "Серебренный слиток",
+  "item.caf.silver_nugget": "Кусочек серебра",
   "item.caf.small_dough": "Кусочек теста",
   "item.caf.small_dough_base": "Маленькая основа из теста",
   "item.caf.small_dough_base_with_chocolate": "Маленькая основа из теста с шоколадом",
@@ -839,6 +856,8 @@
   "item.caf.tantalum_shovel": "Танталовая лопата",
   "item.caf.tantalum_sword": "Танталовая меч",
   "item.caf.thin_cardboard": "Тонкий картон",
+  "item.caf.tin_ingot": "Оловянный слиток",
+  "item.caf.tin_nugget": "Кусочек олова",
   "item.caf.tool_handle": "Рукоять инструмента",
   "item.caf.torn_soul_chain": "Цепь разгневанных душ",
   "item.caf.torn_soul_lantern": "Фонарь разгневанных душ",
@@ -851,6 +870,8 @@
   "item.caf.tungsten_pickaxe": "Вольфрамовая кирка",
   "item.caf.tungsten_shovel": "Вольфрамовая лопата",
   "item.caf.tungsten_sword": "Вольфрамовый меч",
+  "item.caf.uranium_ingot": "Урановый слиток",
+  "item.caf.uranium_nugget": "Кусочек урана",
   "item.caf.warped_chips": "Искажённая щепа",
   "item.caf.warped_fruitlight_sapling": "Искажённый черенок адского фрукта света",
   "item.caf.warped_sawdust": "Искажённые опилки",
@@ -860,7 +881,7 @@
   "item.caf.wood_chips": "Деревесная щепа",
   "item.caf.wood_sawdust": "Древесные опилки",
 
-  "_comment": "_______________________________JEI_______________________________",
+
   "create.recipe.fan_freezing.fan": "Вентилятор за снегом",
   "caf.recipe.beating": "Взбивание",
   "caf.recipe.chopping": "Рубление",
@@ -891,7 +912,7 @@
   "jei.caf.tooltip.liquid.amount.empty": "Пусто",
   "jei.caf.tooltip.liquid.amount.with.capacity": "%s / %s мВ",
 
-  "_comment": "_______________________________Other_______________________________",
+
   "color.caf.black": "§8Цвет: §0Черный§r",
   "color.caf.blue": "§8Цвет: §1Синий§r",
   "color.caf.cyan": "§8Цвет: §3Бирюзовый§r",
@@ -912,7 +933,7 @@
   "ui.marble_furnace.degK": "%s K",
   "ui.worktableDouble": "Большой производственный стол",
 
-  "_comment": "_______________________________Ponder_______________________________",
+
   "caf.ponder.blast_furnace.header": "Плавильней из черного мрамора",
   "caf.ponder.blast_furnace.text_1": "Так как эта плавильная печь работает по другой схеме, отличной от Minecraft, то принцип ее работы следующий:",
   "caf.ponder.blast_furnace.text_2": "Положив топливо в ячейку для топлива вы поднимете градус тепла на определённый уровень. Например, торт всполоха поднимет уровень тепла на 1000°C",
@@ -982,7 +1003,7 @@
   "caf.ponder.terminal.text_1": "Поместив слиток в терминал для металлических проб, вы можете узнать больше информации о слитке",
   "caf.ponder.terminal.text_2": "В терминал для металлических проб можно поместить любой идентифицированный металл",
 
-  "_comment": "_______________________________Sample_______________________________",
+
   "caf.sample.alloy.line.1": "Сплав:",
   "caf.sample.alloy.line.2": "Состоит из: %s",
   "caf.sample.alloy.line.3": "Плавится при: %s",
@@ -1127,7 +1148,7 @@
   "caf.sample.zinc.desc.line.4": "§2Верхний мир",
   "caf.sample.zinc.desc.line.5": "§9Не тугоплавкий",
 
-  "_comment": "_______________________________Tooltip_______________________________",
+
   "tooltip.caf.block.next_time.desc": "Этот компонент мода будет доступен в следующих обновлениях",
   "tooltip.caf.control": "§8Нажмите [§eCONTROL§8] для получения дополнительной информации!",
   "tooltip.caf.control_down": "§8Нажмите [§7CONTROL§8] для получения дополнительной информации!",

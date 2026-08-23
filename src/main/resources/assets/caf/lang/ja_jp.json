@@ -1,11 +1,10 @@
 {
-  "_comment": "_______________________________Advancement_______________________________",
   "advancement.caf.root": "Create そして食べ物",
   "advancement.caf.root.desc": "Modへようこそ Create そして食べ物",
   "advancement.example": "例",
   "advancement.example.desc": "例の説明",
 
-  "_comment": "_______________________________Blocks_______________________________",
+
   "block.caf.acacia_barrel": "アカシアの樽",
   "block.caf.acacia_cutting_board": "アカシアのまな板",
   "block.caf.acacia_terrace": "アカシアテラス",
@@ -540,7 +539,7 @@
   "block.caf.yellow_packed_mud": "黄色詰められた泥",
   "block.caf.yellow_packed_mud_pillar": "黄色詰められた泥の柱",
 
-  "_comment": "_______________________________Config_______________________________",
+
   "config.caf.chance_wild_berry_bush": "クラスターを生成する可能性。値が小さいほど、頻度が高くなります。",
   "config.caf.enable_kilograms": "キログラムを有効にする",
   "config.caf.furnace_speed": "減衰時の炉速度",
@@ -551,7 +550,7 @@
   "config.caf.tuntal_ore_veins_per_chunk": "つの塊の中にタンタル鉱石の鉱脈が何本現れるでしょう! ",
   "config.caf.tuntal_ore_veins_size": "つの鉱脈の中にタンタル鉱石のブロックが何個現れることでしょう! ",
 
-  "_comment": "_______________________________CreateAndFood_______________________________",
+
   "caf.berry_bush.circumcised": "§cすでに切り取られているか、まだ発芽していないため、低木苗を切り取ることはできません",
   "caf.energy.caf": "%s / %s",
   "caf.generic.unit.caf": "CAF",
@@ -587,7 +586,7 @@
   "caf.wild_berry_bush.circumcised": "§c茂みはすでに刈り込まれています",
   "caf.pumpkin_and_melon_bush.cut": "§c果物はすでに切られているか、まだ成長していないため、切ることはできません",
 
-  "_comment": "_______________________________DeathAttack_______________________________",
+
   "death.attack.caf.drank": "%1$sは死に自分自身を飲みました",
   "death.attack.caf.drank.player": "%1$sは%2$sに死に自分自身を飲みました",
   "death.attack.caf.grinder_polishing_damage": "%1$sは死に磨かれました",
@@ -596,7 +595,7 @@
   "death.attack.caf.radiation": "は放射線で亡くなりました",
   "death.attack.caf.raspberry_bush": "%1$sはラズベリーの棘が刺さって死んだ",
 
-  "_comment": "_______________________________DynamicTrees_______________________________",
+
   "block.dynamictrees.almond_branch": "アーモンドの木",
   "block.dynamictrees.azalea_branch": "木ツツジ",
 
@@ -630,10 +629,10 @@
   "species.dynamictrees.azalea": "ツツジ",
   "species.dynamictrees.cocoa": "カカオ",
 
-  "_comment": "_______________________________Entities_______________________________",
+
   "entity.minecraft.villager.caf.confectioner": "菓子職人",
 
-  "_comment": "_______________________________Fluids_______________________________",
+
   "block.caf.apple_vinegar": "りんご酢",
   "block.caf.cocoa_oil": "ココアバター",
   "block.caf.nixie_fluid": "ニキシー流体",
@@ -671,10 +670,10 @@
   "fluid.minecraft.milk": "牛乳",
   "fluid.minecraft.flowing_milk": "牛乳",
 
-  "_comment": "_______________________________Gamerule_______________________________",
+
   "gamerule.doSeasonCycle": "季節の変わり目",
 
-  "_comment": "_______________________________ItemGroup_______________________________",
+
   "itemGroup.caf": "Create and Food",
   "itemGroup.caf_decorative": "Create & Food: 飾りブロック",
   "itemGroup.caf_food": "Create & Food: 食べ物",
@@ -682,13 +681,15 @@
   "itemGroup.caf_roofs": "Create & Food: 屋根瓦",
   "itemGroup.caf_tool_and_tip": "Create & Food: ツールとヒント",
 
-  "_comment": "_______________________________Items_______________________________",
+
   "item.caf.alloy_souls": "魂の融合",
   "item.caf.alloy_souls_ingot": "魂の融合インゴット",
   "item.caf.alloy_souls_nugget": "魂の融合塊",
   "item.caf.alloy_souls_sheet": "魂の融合マージの葉っぱ",
   "item.caf.almond_nut": "アーモンド",
   "item.caf.aluminum_coil": "アルミコイル",
+  "item.caf.aluminum_ingot": "Алюминиевый слиток",
+  "item.caf.aluminum_nugget": "Кусочек алюминия",
   "item.caf.apple_vinegar_bucket": "リンゴ酢の入りバケツ",
   "item.caf.base_of_dough": "生地ベース",
   "item.caf.berry_cake": "スイートベリーカップケーキ",
@@ -701,10 +702,14 @@
   "item.caf.broken_copper_coin": "壊れた銅貨",
   "item.caf.broken_golden_coin": "壊れた金貨",
   "item.caf.broken_iron_coin": "壊れた鉄貨",
+  "item.caf.bronze_ingot": "Бронзовый слиток",
+  "item.caf.bronze_nugget": "Кусочек бронзы",
   "item.caf.coal_dust": "炭塵",
   "item.caf.cocoa_butter_briquette": "ココアバター練炭",
   "item.caf.cocoa_oil_bucket": "カカオバターの入りバケツ",
   "item.caf.cocoa_powder": "ココアパウダー",
+  "item.caf.constantan_ingot": "Константановый слиток",
+  "item.caf.constantan_nugget": "Кусочек константана",
   "item.caf.copper_axe": "銅の斧",
   "item.caf.copper_coil": "銅コイル",
   "item.caf.copper_coin": "銅貨",
@@ -726,6 +731,8 @@
   "item.caf.dough_base_with_chocolate": "チョコレート入りの生地ベース",
   "item.caf.egg_shell": "卵殻",
   "item.caf.electrum_coil": "エレクトラムコイル",
+  "item.caf.electrum_ingot": "Электрумовый слиток",
+  "item.caf.electrum_nugget": "Кусочек электрума",
   "item.caf.fireclay_brick": "耐火粘土レンガ",
   "item.caf.fireclay_clay_ball": "耐火粘土の粘土の塊",
   "item.caf.glow_berry_cake": "グローベリーカップケーキ",
@@ -756,6 +763,8 @@
   "item.caf.incomplete_mozzarella_cheese": "未完成のモッツァレラチーズ",
   "item.caf.incomplete_netherite_ingot": "未完成のネザライトインゴット",
   "item.caf.incomplete_tool_handle": "未完成のツールハンドル",
+  "item.caf.invar_ingot": "Инваровый слиток",
+  "item.caf.invar_nugget": "Кусочек инвара",
   "item.caf.iron_coin": "鉄貨",
   "item.caf.iron_dust": "鉄粉",
   "item.caf.iron_ingot": "鉄インゴット",
@@ -763,6 +772,8 @@
   "item.caf.iron_nugget": "鉄塊",
   "item.caf.kitchen_hammer": "台所ハンマー",
   "item.caf.lantern": "ランタン",
+  "item.caf.lead_ingot": "Свинцовый слиток",
+  "item.caf.lead_nugget": "Кусочек свинца",
   "item.caf.marble_brick": "大理石のレンガ",
   "item.caf.marble_black_galaxy_brick": "大理石の黒い銀河のレンガ",
   "item.caf.marble_perlin_pink_brick": "大理石のパールピンクのレンガ",
@@ -773,6 +784,10 @@
   "item.caf.netherite_knife": "ネザライトのナイフ",
   "item.caf.nether_alloy": "地獄の合金",
   "item.caf.nether_fruitlight": "地獄の光の果実",
+  "item.caf.nickel_ingot": "Никелевый слиток",
+  "item.caf.nickel_nugget": "Кусочек никеля",
+  "item.caf.osmium_ingot": "Осмиевый слиток",
+  "item.caf.osmium_nugget": "Кусочек осмия",
   "item.caf.piece_of_gold": "金のかけら",
   "item.caf.pink_macaroni": "ピンクマカロン",
   "item.caf.pizza": "ピザ",
@@ -809,6 +824,8 @@
   "item.caf.rye_dough": "ライ麦生地",
   "item.caf.rye_flour": "ライ麦粉",
   "item.caf.rye_seeds": "ライ麦の種",
+  "item.caf.silver_ingot": "Серебренный слиток",
+  "item.caf.silver_nugget": "Кусочек серебра",
   "item.caf.small_dough": "生地ひとかけら",
   "item.caf.small_dough_base": "小さな生地ベース",
   "item.caf.small_dough_base_with_chocolate": "チョコレート入りの小さな生地ベース",
@@ -839,6 +856,8 @@
   "item.caf.tantalum_shovel": "タンタルのシャベル",
   "item.caf.tantalum_sword": "タンタルの剣",
   "item.caf.thin_cardboard": "薄い 厚紙",
+  "item.caf.tin_ingot": "Оловянный слиток",
+  "item.caf.tin_nugget": "Кусочек олова",
   "item.caf.tool_handle": "ツールハンドル",
   "item.caf.torn_soul_chain": "薄めの厚紙",
   "item.caf.torn_soul_lantern": "怒りの魂のランタン",
@@ -851,6 +870,8 @@
   "item.caf.tungsten_pickaxe": "タングステンのツルハシ",
   "item.caf.tungsten_shovel": "タングステンのシャベル",
   "item.caf.tungsten_sword": "タングステンの剣",
+  "item.caf.uranium_ingot": "Урановый слиток",
+  "item.caf.uranium_nugget": "Кусочек урана",
   "item.caf.warped_chips": "歪んだ木チップ",
   "item.caf.warped_fruitlight_sapling": "地獄の光の果実の歪んだ低木苗",
   "item.caf.warped_sawdust": "歪んだ木おがくず",
@@ -860,7 +881,7 @@
   "item.caf.wood_chips": "木材チップ",
   "item.caf.wood_sawdust": "木のおがくず",
 
-  "_comment": "_______________________________JEI_______________________________",
+
   "create.recipe.fan_freezing.fan": "雪の奥のケース入りファン",
   "caf.recipe.beating": "鞭打ち",
   "caf.recipe.chopping": "チョッピング",
@@ -891,7 +912,7 @@
   "jei.caf.tooltip.liquid.amount.empty": "空の",
   "jei.caf.tooltip.liquid.amount.with.capacity": "%s / %s mB",
 
-  "_comment": "_______________________________Other_______________________________",
+
   "color.caf.black": "§8カラー: §0黒§r",
   "color.caf.blue": "§8カラー: §1青§r",
   "color.caf.cyan": "§8カラー: §3ターコイズ§r",
@@ -912,7 +933,7 @@
   "ui.marble_furnace.degK": "%s K",
   "ui.worktableDouble": "大きな生産用テーブル",
 
-  "_comment": "_______________________________Ponder_______________________________",
+
   "caf.ponder.blast_furnace.header": "溶鉱炉黒い大理石",
   "caf.ponder.blast_furnace.text_1": "この溶解炉は、Minecraft とは異なる仕組みで動作するため、その動作原理は以下の通りです：",
   "caf.ponder.blast_furnace.text_2": "置いた燃料をセルにのために燃料、あなたは温度を特定のレベルまで上昇させます。例えば、ブレイズケーキは温度を1000°C上昇させます",
@@ -982,7 +1003,7 @@
   "caf.ponder.terminal.text_1": "インゴットを端末は金属試料分析に置くと、インゴットに関する詳細情報を確認できます",
   "caf.ponder.terminal.text_2": "識別された金属は端末は金属試料分析に配置できます",
 
-  "_comment": "_______________________________Sample_______________________________",
+
   "caf.sample.alloy.line.1": "合金：",
   "caf.sample.alloy.line.2": "構成要素: %s",
   "caf.sample.alloy.line.3": "溶ける温度： %s",
@@ -1127,7 +1148,7 @@
   "caf.sample.zinc.desc.line.4": "§2世界中で",
   "caf.sample.zinc.desc.line.5": "§9高融点ではない",
 
-  "_comment": "_______________________________Tooltip_______________________________",
+
   "tooltip.caf.block.next_time.desc": "この MOD コンポーネントは将来のアップデートで利用可能になります",
   "tooltip.caf.control": "§8詳細については、[§eCONTROL§8]を押してください。",
   "tooltip.caf.control_down": "§8詳細については、[§7CONTROL§8]を押してください。",
