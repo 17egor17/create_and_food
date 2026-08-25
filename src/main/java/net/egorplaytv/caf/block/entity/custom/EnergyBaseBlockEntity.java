@@ -9,6 +9,7 @@ import net.egorplaytv.caf.units.energy.energy_interface.IEnergyStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
@@ -24,14 +25,6 @@ public abstract class EnergyBaseBlockEntity extends KineticBlockEntity implement
         super(pType, pPos, pBlockState);
         this.energyStorage = new EnergyStorage(capacity, amperage);
         this.lazyEnergyHandler = LazyOptional.of(() -> energyStorage);
-    }
-
-    @Override
-    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-        if (cap == EnergyCapability.ENERGY)
-            return lazyEnergyHandler.cast();
-
-        return super.getCapability(cap, side);
     }
 
     @Override
@@ -53,6 +46,15 @@ public abstract class EnergyBaseBlockEntity extends KineticBlockEntity implement
         energyStorage.setEnergyStored(new CAFEnergyUnits(tag.getFloat("CAFEnergy"), tag.getFloat("CAFEnergyAmperage")));
     }
 
+    @Override
+    public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+        if (cap == EnergyCapability.ENERGY) {
+            return lazyEnergyHandler.cast();
+        }
+
+        return super.getCapability(cap, side);
+    }
+
     public EnergyStorage getEnergyStorage() {
         return this.energyStorage;
     }
@@ -62,8 +64,8 @@ public abstract class EnergyBaseBlockEntity extends KineticBlockEntity implement
         super.tick();
 
         if (!level.isClientSide)
-            transferEnergy();
+            transferEnergy(level);
     }
 
-    public abstract void transferEnergy();
+    public abstract void transferEnergy(Level level);
 }

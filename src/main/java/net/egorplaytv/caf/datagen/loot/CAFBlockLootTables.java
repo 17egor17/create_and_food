@@ -70,6 +70,7 @@ public class CAFBlockLootTables extends BlockLoot {
         this.dropSelf(SPRUCE_BARREL.get());
         this.dropSelf(WARPED_BARREL.get());
         this.dropSelf(TERMINAL.get());
+        this.dropSelf(ENERGY_CABLE.get());
         this.dropSelf(COBBLED_MARBLE.get());
         this.dropSelf(COBBLED_MARBLE_BLACK_GALAXY.get());
         this.dropSelf(COBBLED_MARBLE_PERLIN_PINK.get());

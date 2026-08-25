@@ -128,17 +128,15 @@ public class MetalItem extends Item implements IMetalItem {
             float deg = metal.getDeg(pStack);
 
             ++tick;
-            if (tick >= 200) {
-                if (deg > 30) {
-                    deg -= 1.11F;
-                    tick = 0;
-                } else if (deg > 25) {
-                    deg -= 0.1F;
-                    tick = 0;
-                } else if (deg > 24) {
-                    deg -= 0.01F;
-                    tick = 0;
-                }
+            if (tick >= 200 && deg > 30) {
+                deg -= 1.11F;
+                tick = 0;
+            } else if (tick >= 150 && deg > 25) {
+                deg -= 0.1F;
+                tick = 0;
+            } else if (tick >= 100 && deg > 24) {
+                deg -= 0.01F;
+                tick = 0;
             }
             metal.setDeg(pStack, deg);
         }

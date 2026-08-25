@@ -2,6 +2,7 @@ package net.egorplaytv.caf.units.energy.energy_interface;
 
 
 import net.egorplaytv.caf.units.energy.CAFEnergyUnits;
+import net.egorplaytv.caf.units.energy.EnergyStorage;
 
 /**
  * An energy storage is the unit of interaction with Energy inventories.
@@ -57,5 +58,7 @@ public interface IEnergyStorage
      * If this is false, then any calls to receiveEnergy will return 0.
      */
     boolean canReceive();
+
+    float getMaxTransfer();
 
 }

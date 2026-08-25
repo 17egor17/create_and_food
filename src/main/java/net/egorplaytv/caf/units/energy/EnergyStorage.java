@@ -47,7 +47,7 @@ public class EnergyStorage implements IEnergyStorage, INBTSerializable<CompoundT
 
         CAFEnergyUnits energyExtracted = new CAFEnergyUnits(Math.min(energy.getRawEnergy(), Math.min(this.maxExtract, maxExtract)), energy.getRawAmperage());
         if (!simulate)
-            energy = new CAFEnergyUnits(energy.getRawEnergy() - energyExtracted.getEnergy(), energy.getRawAmperage());
+            energy = new CAFEnergyUnits(energy.getRawEnergy() - energyExtracted.getRawEnergy(), energy.getRawAmperage());
         return energyExtracted;
     }
 
@@ -73,6 +73,11 @@ public class EnergyStorage implements IEnergyStorage, INBTSerializable<CompoundT
     @Override
     public boolean canReceive() {
         return this.maxReceive > 0;
+    }
+
+    @Override
+    public float getMaxTransfer() {
+        return maxReceive;
     }
 
     @Override

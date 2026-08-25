@@ -33,6 +33,7 @@ import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.CAFWoodTypes;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderGenerator;
 import net.egorplaytv.caf.block.custom.EnergyConvertorBlock;
+import net.egorplaytv.caf.energy.EnergyCableBlock;
 import net.egorplaytv.caf.item.CAFCreativeModeTab;
 import net.egorplaytv.caf.item.CAFItems;
 import net.egorplaytv.caf.item.custom.CAFCogwheelBlockItem;
@@ -212,6 +213,8 @@ public class CAFBlocks {
     public static BlockEntry<EnergyConvertorBlock> ENERGY_CONVERTOR;
 //    public static BlockEntry<CopperWireBlock> WIRE_BLOCK;
 
+    public static final RegistryObject<EnergyCableBlock> ENERGY_CABLE = registryBlock("energy_cable",
+            () -> new EnergyCableBlock(BlockBehaviour.Properties.of(Material.WOOL)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
     public static BlockEntry<CasingBlock> ALLOY_SOULS_CASING;
     public static BlockEntry<ConnectedGlassBlock> ALLOY_SOULS_GLASS;

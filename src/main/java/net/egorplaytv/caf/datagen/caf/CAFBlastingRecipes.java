@@ -1,7 +1,6 @@
 package net.egorplaytv.caf.datagen.caf;
 
 import com.simibubi.create.AllItems;
-import mekanism.common.registries.MekanismItems;
 import net.egorplaytv.caf.CreateAndFood;
 import net.egorplaytv.caf.datagen.custom.BlastingRecipeBuilder;
 import net.egorplaytv.caf.item.CAFItems;
@@ -430,7 +429,7 @@ public class CAFBlastingRecipes {
                             getCAFBlastingCompat(getRIDCompat(CAFItems.BRONZE_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM));
 
             BlastingRecipeBuilder.blastingRecipe(CAFItems.BRONZE_INGOT.get(), 400, 1000, 0.5F)
-                    .addIngredient(MekanismItems.BRONZE_DUST.get())
+                    .addIngredient(getDusts(Metals.BRONZE, ModID.MEKANISM))
                     .save(pConsumer,
                             getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.BRONZE_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM));
 
@@ -570,7 +569,7 @@ public class CAFBlastingRecipes {
 
         if (CreateAndFood.MEKIsPresent){
             BlastingRecipeBuilder.blastingRecipe(CAFItems.BRONZE_INGOT.get(), 2, 800, 1000F, 1.0F)
-                    .addIngredient(MekanismItems.BRONZE_DUST.get()).addIngredient(MekanismItems.BRONZE_DUST.get())
+                    .addIngredient(getDusts(Metals.BRONZE, ModID.MEKANISM)).addIngredient(getDusts(Metals.BRONZE, ModID.MEKANISM))
                     .save(pConsumer,
                             getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.BRONZE_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.DOUBLE));
 
@@ -695,8 +694,8 @@ public class CAFBlastingRecipes {
 
         if (CreateAndFood.MEKIsPresent){
             BlastingRecipeBuilder.blastingRecipe(CAFItems.BRONZE_INGOT.get(), 3, 800, 1000F, 1.5F)
-                    .addIngredient(MekanismItems.BRONZE_DUST.get()).addIngredient(MekanismItems.BRONZE_DUST.get())
-                    .addIngredient(MekanismItems.BRONZE_DUST.get())
+                    .addIngredient(getDusts(Metals.BRONZE, ModID.MEKANISM)).addIngredient(getDusts(Metals.BRONZE, ModID.MEKANISM))
+                    .addIngredient(getDusts(Metals.BRONZE, ModID.MEKANISM))
                     .save(pConsumer,
                             getCAFBlastingCompat(getRIDFromDustCompat(CAFItems.BRONZE_INGOT.get(), ModID.MEKANISM), ModID.MEKANISM, RecipeType.TRIPLE));
 

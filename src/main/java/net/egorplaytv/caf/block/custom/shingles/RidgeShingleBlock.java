@@ -62,7 +62,7 @@ public class RidgeShingleBlock extends Block implements SimpleWaterloggedBlock {
 
     @Override
     public BlockState updateShape(BlockState pState, Direction direction, BlockState neighbor, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pFacingPos) {
-        return  direction.getAxis().isHorizontal() ? pState.setValue(PROPERTY_BY_DIRECTION.get(direction),
+        return direction.getAxis().isHorizontal() ? pState.setValue(PROPERTY_BY_DIRECTION.get(direction),
                 Boolean.valueOf(isRidgeShingles(neighbor, neighbor.isFaceSturdy(pLevel, pFacingPos, direction.getOpposite()))))
                 : super.updateShape(pState, direction, neighbor, pLevel, pCurrentPos, pFacingPos);
     }
