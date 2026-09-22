@@ -1,7 +1,5 @@
 package net.egorplaytv.caf.block.entity.custom;
 
-import net.egorplaytv.caf.block.custom.EnergyConvertorBlock;
-import net.egorplaytv.caf.entity.WrappedEnergyHandler;
 import net.egorplaytv.caf.units.energy.CAFEnergyUnits;
 import net.egorplaytv.caf.units.energy.energy_interface.EnergyCapability;
 import net.egorplaytv.caf.units.energy.energy_interface.IEnergyStorage;
@@ -14,13 +12,9 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.Map;
 
 public class EnergyConvertorBlockEntity extends EnergyBaseBlockEntity {
     public EnergyConvertorBlockEntity(BlockEntityType<?> typeIn, BlockPos pos, BlockState state) {

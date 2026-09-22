@@ -93,10 +93,10 @@ public class CAFBlockEntities {
 
     public static final BlockEntityEntry<MechanicalBlenderBlockEntity> MECHANICAL_BLENDER =
             CreateAndFood.REGISTRATE.blockEntity("mechanical_blender", MechanicalBlenderBlockEntity::new)
-            .instance(() -> BlenderInstance::new)
-            .validBlocks(CAFBlocks.MECHANICAL_BLENDER)
-            .renderer(() -> MechanicalBlenderRenderer::new)
-            .register();
+                    .instance(() -> BlenderInstance::new)
+                    .validBlocks(CAFBlocks.MECHANICAL_BLENDER)
+                    .renderer(() -> MechanicalBlenderRenderer::new)
+                    .register();
 
 
     public static final BlockEntityEntry<GrinderBlockEntity> GRINDER = CreateAndFood.REGISTRATE

@@ -19,6 +19,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.common.util.NonNullSupplier;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -78,11 +79,11 @@ public class EnergyCableBlockEntity extends BlockEntity implements IHaveGoggleIn
     private void updateConnections(ServerLevel level, BlockPos pos) {
         BlockState state = level.getBlockState(pos);
         boolean north = hasConnection(level, pos, Direction.NORTH);
-        boolean east  = hasConnection(level, pos, Direction.EAST);
+        boolean east = hasConnection(level, pos, Direction.EAST);
         boolean south = hasConnection(level, pos, Direction.SOUTH);
-        boolean west  = hasConnection(level, pos, Direction.WEST);
-        boolean up    = hasConnection(level, pos, Direction.UP);
-        boolean down  = hasConnection(level, pos, Direction.DOWN);
+        boolean west = hasConnection(level, pos, Direction.WEST);
+        boolean up = hasConnection(level, pos, Direction.UP);
+        boolean down = hasConnection(level, pos, Direction.DOWN);
 
         BlockState newState = state
                 .setValue(EnergyCableBlock.NORTH, north)
@@ -118,87 +119,111 @@ public class EnergyCableBlockEntity extends BlockEntity implements IHaveGoggleIn
         }
     }
 
-    public static void tick(Level level, BlockPos pos, BlockState state, EnergyCableBlockEntity energyCableBlockEntity) {
+//    public static void tick(Level level, BlockPos pos, BlockState state, EnergyCableBlockEntity energyCableBlockEntity) {
+//        for (Direction dir : Direction.values()) {
+//            BlockPos neighborPos = pos.relative(dir);
+//            if (level instanceof ServerLevel serverLevel) {
+//                energyCableBlockEntity.transferEnergyToNeighbor(serverLevel, neighborPos, dir);
+//            }
+//        }
+//    }
+//
+//    private void transferEnergyToNeighbor(ServerLevel level, BlockPos neighborPos, Direction dir) {
+//        if (!energyStorage.canExtract()) {
+//            return;
+//        }
+//
+//        BlockEntity neighborBe = level.getBlockEntity(neighborPos);
+//        if (neighborBe == null) {
+//            return;
+//        }
+//
+//        LazyOptional<IEnergyStorage> opt = neighborBe.getCapability(EnergyCapability.ENERGY, dir.getOpposite());
+//
+//        LazyOptional<IEnergyStorage> storage = this.getCapability(EnergyCapability.ENERGY, dir);
+//
+//        if (!opt.isPresent()) {
+//            return;
+//        }
+//
+//        var supplier = opt.resolve();
+//        if (supplier == null)
+//            return;
+//
+//        var thisStorage = storage.resolve();
+//        if (thisStorage == null)
+//            return;
+//
+//        IEnergyStorage neighborStorage = supplier.get();
+//        if (neighborStorage == null) {
+//            return;
+//        }
+//
+//        IEnergyStorage tStorage = thisStorage.get();
+//        if (tStorage == null) {
+//            return;
+//        }
+//
+//        float maxTransfer = Math.min(tStorage.getMaxTransfer(), neighborStorage.getMaxTransfer());
+//
+//        CAFEnergyUnits simulated = neighborStorage.receiveEnergy(maxTransfer, true);
+//        if (simulated == null || simulated.isEmpty())
+//            return;
+//        float toAccept = simulated.getRawEnergy();
+//        if (toAccept <= 0F) {
+//            return;
+//        }
+//
+//        CAFEnergyUnits actual = tStorage.extractEnergy(toAccept, false);
+//        if (actual == null || actual.isEmpty()) {
+//            return;
+//        }
+//
+//        neighborStorage.receiveEnergy(actual.getRawEnergy(), false);
+//    }
+
+    public static void tick(Level level, BlockPos pos, BlockState state, EnergyCableBlockEntity entity) {
+        if (level.isClientSide)
+            return;
+
+        LazyOptional<IEnergyStorage> selfCap = entity.getCapability(EnergyCapability.ENERGY);
+        IEnergyStorage selfStorage = selfCap.orElse(null);
+        if (selfStorage == null || !selfStorage.canExtract())
+            return;
+
+        float availableEnergy = selfStorage.getEnergyStored().getRawEnergy();
+        float bufferToKeep = 1.0f;
+        float canDistribute = availableEnergy - bufferToKeep;
+        if (canDistribute <= 0)
+            return;
+
+        int distributedCount = 0;
         for (Direction dir : Direction.values()) {
-            BlockPos neighborPos = pos.relative(dir);
-            if (level instanceof ServerLevel serverLevel) {
-                energyCableBlockEntity.transferEnergyToNeighbor(serverLevel, neighborPos, dir);
+            BlockEntity targetBE = level.getBlockEntity(pos.relative(dir));
+            if (targetBE != null) {
+                var capOpt = targetBE.getCapability(EnergyCapability.ENERGY, dir.getOpposite()).resolve();
+                if (capOpt.isEmpty())
+                    continue;
+
+                IEnergyStorage targetStorage = capOpt.get();
+                if (targetStorage.canReceive() && targetStorage.getEnergyStored().getRawEnergy() < targetStorage.getMaxEnergyStored()) {
+                    float neighborSpace = targetStorage.getMaxEnergyStored() - targetStorage.getEnergyStored().getRawEnergy();
+                    float toSend = Math.min(canDistribute, Math.min(MAX_TRANSFER_PER_TICK, neighborSpace));
+                    if (toSend > 0) {
+                        CAFEnergyUnits extracted = selfStorage.extractEnergy(toSend, false);
+                        if (!extracted.isEmpty()) {
+                            targetStorage.receiveEnergy(extracted.getRawEnergy(), false);
+                            availableEnergy = selfStorage.getEnergyStored().getRawEnergy();
+                            canDistribute = availableEnergy - bufferToKeep;
+                            if (canDistribute <= 0)
+                                break;
+
+                            distributedCount++;
+                        }
+                    }
+                }
             }
         }
-    }
-
-    private void transferEnergyToNeighbor(ServerLevel level, BlockPos neighborPos, Direction dir) {
-        if (!energyStorage.canExtract()) {
-            return;
-        }
-
-        BlockEntity neighborBe = level.getBlockEntity(neighborPos);
-        if (neighborBe == null) {
-            return;
-        }
-
-        LazyOptional<IEnergyStorage> opt = neighborBe.getCapability(EnergyCapability.ENERGY, dir.getOpposite());
-
-        LazyOptional<IEnergyStorage> storage = this.getCapability(EnergyCapability.ENERGY, dir);
-
-        if (!opt.isPresent()) {
-            return;
-        }
-
-        var supplier = opt.resolve();
-        if (supplier == null)
-            return;
-
-        var thisStorage = storage.resolve();
-        if (thisStorage == null)
-            return;
-
-        IEnergyStorage neighborStorage = supplier.get();
-        if (neighborStorage == null) {
-            return;
-        }
-
-        IEnergyStorage tStorage = thisStorage.get();
-        if (tStorage == null) {
-            return;
-        }
-
-//        if (!neighborStorage.canReceive()) {
-//            float maxTransfer = Math.min(tStorage.getMaxTransfer(), neighborStorage.getMaxTransfer());
-//
-//            CAFEnergyUnits simulated = neighborStorage.extractEnergy(maxTransfer, true);
-//            if (simulated.isEmpty()) {
-//                return;
-//            }
-//            float toAccept = simulated.getRawEnergy();
-//            if (toAccept <= 0F) {
-//                return;
-//            }
-//
-//            CAFEnergyUnits actual = tStorage.receiveEnergy(toAccept, false);
-//            if (actual.isEmpty()) {
-//                return;
-//            }
-//
-//            neighborStorage.extractEnergy(actual.getRawEnergy(), false);
-//        }
-
-        float maxTransfer = Math.min(tStorage.getMaxTransfer(), neighborStorage.getMaxTransfer());
-
-        CAFEnergyUnits simulated = neighborStorage.receiveEnergy(maxTransfer, true);
-        if (simulated == null || simulated.isEmpty())
-            return;
-        float toAccept = simulated.getRawEnergy();
-        if (toAccept <= 0F) {
-            return;
-        }
-
-        CAFEnergyUnits actual = tStorage.extractEnergy(toAccept, false);
-        if (actual == null || actual.isEmpty()) {
-            return;
-        }
-
-        neighborStorage.receiveEnergy(actual.getRawEnergy(), false);
     }
 
     @Override

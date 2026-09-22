@@ -30,8 +30,11 @@ public class FermentationBarrelRecipe implements Recipe<SimpleContainer> {
     protected final NonNullList<ItemStack> output;
     protected final ItemStack inputTool;
     protected int time;
+
+
     public FermentationBarrelRecipe(ResourceLocation id, NonNullList<ItemStack> output, FluidStack outputFluid,
-                                    NonNullList<ItemIngredient> recipeItems, NonNullList<FluidIngredient> inputFluid, ItemStack inputTool, int time) {
+                                    NonNullList<ItemIngredient> recipeItems, NonNullList<FluidIngredient> inputFluid,
+                                    ItemStack inputTool, int time) {
         this.id = id;
         this.output = output;
         this.outputFluid = outputFluid;
@@ -164,8 +167,10 @@ public class FermentationBarrelRecipe implements Recipe<SimpleContainer> {
 
             int time = GsonHelper.getAsInt(json, "time", 1000);
             ItemStack Tool = GsonHelper.isValidNode(json, "tool") ? CraftingHelper.getItemStack(GsonHelper.getAsJsonObject(json, "tool"), true) : ItemStack.EMPTY;
-            return new FermentationBarrelRecipe(id, output, fluidResult, inputs, inputFluid, Tool, time);
 
+
+
+            return new FermentationBarrelRecipe(id, output, fluidResult, inputs, inputFluid, Tool, time);
         }
 
         @Nullable

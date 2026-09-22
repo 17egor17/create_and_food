@@ -55,6 +55,12 @@ public class EnergyCableBlock extends BaseEntityBlock implements SimpleWaterlogg
     }));
 
     private static final VoxelShape SHAPE = Shapes.or(box(5,5,5,11,11,11));
+    private static final VoxelShape SHAPE_DOWN = Block.box(5, 0, 5, 11, 5, 11);
+    private static final VoxelShape SHAPE_UP = Block.box(5, 11, 5, 11, 16, 11);
+    private static final VoxelShape SHAPE_NORTH = Block.box(5, 5, 0, 11, 11, 5);
+    private static final VoxelShape SHAPE_SOUTH = Block.box(5, 5, 11, 11, 11, 16);
+    private static final VoxelShape SHAPE_WEST = Block.box(0, 5, 5, 5, 11, 11);
+    private static final VoxelShape SHAPE_EAST = Block.box(11, 5, 5, 16, 11, 11);
 
     public EnergyCableBlock(Properties properties) {
         super(properties);
@@ -77,8 +83,17 @@ public class EnergyCableBlock extends BaseEntityBlock implements SimpleWaterlogg
     }
 
     @Override
-    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE;
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        VoxelShape shape = SHAPE;
+
+        if (state.getValue(NORTH)) shape = Shapes.or(shape, SHAPE_NORTH);
+        if (state.getValue(SOUTH)) shape = Shapes.or(shape, SHAPE_SOUTH);
+        if (state.getValue(EAST)) shape = Shapes.or(shape, SHAPE_EAST);
+        if (state.getValue(WEST)) shape = Shapes.or(shape, SHAPE_WEST);
+        if (state.getValue(UP)) shape = Shapes.or(shape, SHAPE_UP);
+        if (state.getValue(DOWN)) shape = Shapes.or(shape, SHAPE_DOWN);
+
+        return shape;
     }
 
     @Override

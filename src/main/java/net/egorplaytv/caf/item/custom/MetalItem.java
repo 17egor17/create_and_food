@@ -31,7 +31,6 @@ import java.util.List;
 
 public class MetalItem extends Item implements IMetalItem {
     private final CAFDegreeUnits meltingPoint;
-    private int tick;
     protected int heatingSpeed;
     protected Metals metalType;
     private int radiationTick;
@@ -127,17 +126,9 @@ public class MetalItem extends Item implements IMetalItem {
         if (pStack.getItem() instanceof MetalItem metal) {
             float deg = metal.getDeg(pStack);
 
-            ++tick;
-            if (tick >= 200 && deg > 30) {
-                deg -= 1.11F;
-                tick = 0;
-            } else if (tick >= 150 && deg > 25) {
-                deg -= 0.1F;
-                tick = 0;
-            } else if (tick >= 100 && deg > 24) {
+            if (deg > 24)
                 deg -= 0.01F;
-                tick = 0;
-            }
+
             metal.setDeg(pStack, deg);
         }
     }

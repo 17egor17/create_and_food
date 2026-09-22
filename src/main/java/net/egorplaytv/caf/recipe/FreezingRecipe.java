@@ -17,6 +17,7 @@ public class FreezingRecipe extends ProcessingRecipe<FreezingRecipe.FreezingWrap
     public boolean matches(FreezingWrapper inv, Level pLevel) {
         if (inv.isEmpty())
             return false;
+
         return ingredients.get(0)
                 .test(inv.getItem(0));
     }

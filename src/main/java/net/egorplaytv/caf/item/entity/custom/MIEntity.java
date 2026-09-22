@@ -13,7 +13,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class MIEntity extends CAFItemEntity {
-    private int tick;
     public static final String TAG_DEGREE = "deg";
     public MIEntity(EntityType<? extends MIEntity> type, Level level) {
         super(type, level);
@@ -62,23 +61,13 @@ public class MIEntity extends CAFItemEntity {
                 deg -= 5.11F;
             } else if (deg > 30) {
                 deg -= 1.11F;
-            } else if (deg > 25) {
-                deg -= 0.1F;
             } else if (deg > 24) {
-                deg -= 0.01F;
+                deg -= 0.11F;
             }
             is.getOrCreateTag().putFloat(TAG_DEGREE, deg);
         } else {
-            if (tick >= 200 && deg > 30) {
-                deg -= 1;
-                tick = 0;
-            } else if (tick >= 150 && deg > 25) {
-                deg -= 0.1F;
-                tick = 0;
-            } else if (tick >= 100 && deg > 24) {
+            if (deg > 24)
                 deg -= 0.01F;
-                tick = 0;
-            }
             is.getOrCreateTag().putFloat(TAG_DEGREE, deg);
         }
 

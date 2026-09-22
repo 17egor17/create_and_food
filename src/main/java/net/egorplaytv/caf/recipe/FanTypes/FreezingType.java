@@ -7,8 +7,11 @@ import com.simibubi.create.foundation.utility.Color;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+
+import net.egorplaytv.caf.item.custom.MetalItem;
 import net.egorplaytv.caf.recipe.AllRecipeTypes;
 import net.egorplaytv.caf.recipe.FreezingRecipe;
+import net.egorplaytv.caf.units.degree.CAFDegreeUnits;
 import net.egorplaytv.caf.util.CAFTags.Blocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
@@ -49,6 +52,30 @@ public class FreezingType implements FanProcessingType {
         FREEZING_WRAPPER.setItem(0, stack);
         Optional<FreezingRecipe> recipe = AllRecipeTypes.FREEZING.find(FREEZING_WRAPPER, level);
         if (recipe.isPresent()){
+
+            float deg;
+            for (ItemStack itemStack : recipe.get().getIngredients().get(0).getItems())
+                if (itemStack.getItem() instanceof MetalItem metalItem) {
+                    deg = metalItem.getDeg(itemStack);
+                    if (deg >= 5000) {
+                        deg -= 25.11F;
+                    } else if (deg >= 1000) {
+                        deg -= 20.11F;
+                    } else if (deg >= 500) {
+                        deg -= 15.11F;
+                    } else if (deg >= 100) {
+                        deg -= 10.11F;
+                    } else if (deg >= 60) {
+                        deg -= 5.11F;
+                    } else if (deg > 30) {
+                        deg -= 1.11F;
+                    } else if (deg > 24) {
+                        deg -= 0.11F;
+                    }
+
+                    metalItem.setDeg(itemStack, deg);
+                }
+
             return RecipeApplier.applyRecipeOn(stack, recipe.get());
         }
         return null;
