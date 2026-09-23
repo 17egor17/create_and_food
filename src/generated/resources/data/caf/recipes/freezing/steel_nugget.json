@@ -1,0 +1,13 @@
+{
+  "type": "caf:freezing",
+  "ingredients": [
+    {
+      "item": "caf:steel_nugget"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:steel_nugget"
+    }
+  ]
+}

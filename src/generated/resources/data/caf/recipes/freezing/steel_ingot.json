@@ -7,7 +7,10 @@
   ],
   "results": [
     {
-      "item": "caf:steel_ingot"
+      "item": "caf:steel_ingot",
+      "nbt": {
+        "deg": 24.0
+      }
     }
   ]
 }

@@ -13,7 +13,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class MIEntity extends CAFItemEntity {
-    public static final String TAG_DEGREE = "deg";
+    public static final String TAG_DEGREE = MetalItem.TAG_DEGREE;
     public MIEntity(EntityType<? extends MIEntity> type, Level level) {
         super(type, level);
     }

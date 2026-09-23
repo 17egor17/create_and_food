@@ -205,7 +205,7 @@
       "model": "caf:block/energy_cable_down_x"
     },
     "down=false,east=false,north=true,south=false,up=false,waterlogged=false,west=true": {
-      "model": "caf:block/energy_cable_east_north"
+      "model": "caf:block/energy_cable_west_north"
     },
     "down=true,east=false,north=true,south=false,up=false,waterlogged=false,west=true": {
       "model": "caf:block/energy_cable_down_west_north"
@@ -301,7 +301,7 @@
       "model": "caf:block/energy_cable_down_x"
     },
     "down=false,east=false,north=true,south=false,up=false,waterlogged=true,west=true": {
-      "model": "caf:block/energy_cable_east_north"
+      "model": "caf:block/energy_cable_west_north"
     },
     "down=true,east=false,north=true,south=false,up=false,waterlogged=true,west=true": {
       "model": "caf:block/energy_cable_down_west_north"
