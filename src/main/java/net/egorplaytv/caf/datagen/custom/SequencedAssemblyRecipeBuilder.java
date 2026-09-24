@@ -16,8 +16,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.UnaryOperator;
@@ -29,6 +34,7 @@ public class SequencedAssemblyRecipeBuilder implements RecipeBuilder {
     private final ItemStack transitionalItem;
     private final List<SequencedRecipe<?>> sequence = Lists.newArrayList();
     private final int loops;
+    private final List<ICondition> recipeConditions = new ArrayList<>();
 
     public SequencedAssemblyRecipeBuilder(ItemLike result, int count, float chance,
                                           ItemLike ingredient, ItemLike transitionalItem, int loops) {
@@ -91,6 +97,21 @@ public class SequencedAssemblyRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
+    public SequencedAssemblyRecipeBuilder whenModLoaded(String modid) {
+        withCondition(new ModLoadedCondition(modid));
+        return this;
+    }
+
+    public SequencedAssemblyRecipeBuilder whenModMissing(String modid) {
+        withCondition(new NotCondition(new ModLoadedCondition(modid)));
+        return this;
+    }
+
+    public SequencedAssemblyRecipeBuilder withCondition(ICondition condition) {
+        this.recipeConditions.add(condition);
+        return this;
+    }
+
     public SequencedAssemblyRecipeBuilder addResult(ItemLike result) {
         return this.addResult(result, 1, 0.0f, 1);
     }
@@ -134,7 +155,7 @@ public class SequencedAssemblyRecipeBuilder implements RecipeBuilder {
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
         pFinishedRecipeConsumer.accept(new SequencedAssemblyRecipeBuilder.Result(pRecipeId, this.results, this.chance,
-                this.ingredient, this.transitionalItem, this.sequence, this.loops));
+                this.ingredient, this.transitionalItem, this.sequence, this.loops, this.recipeConditions));
     }
 
     public static class Result implements FinishedRecipe {
@@ -145,9 +166,10 @@ public class SequencedAssemblyRecipeBuilder implements RecipeBuilder {
         private final ItemStack transitionalItem;
         private final List<SequencedRecipe<?>> sequence;
         private final int loops;
+        private final List<ICondition> recipeConditions;
 
         public Result(ResourceLocation pRecipeId, List<ItemStack> results,
-                      List<Float> chance, Ingredient ingredient, ItemStack transitionalItem, List<SequencedRecipe<?>> sequence, int loops) {
+                      List<Float> chance, Ingredient ingredient, ItemStack transitionalItem, List<SequencedRecipe<?>> sequence, int loops, List<ICondition> recipeConditions) {
             this.id = pRecipeId;
             this.results = results;
             this.chance = chance;
@@ -155,6 +177,7 @@ public class SequencedAssemblyRecipeBuilder implements RecipeBuilder {
             this.transitionalItem = transitionalItem;
             this.sequence = sequence;
             this.loops = loops;
+            this.recipeConditions = recipeConditions;
         }
 
 
@@ -196,6 +219,12 @@ public class SequencedAssemblyRecipeBuilder implements RecipeBuilder {
             }
             json.add("results", resultArray);
             json.addProperty("loops", loops);
+
+            if (!this.recipeConditions.isEmpty()) {
+                JsonArray conds = new JsonArray();
+                this.recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
+                json.add("conditions", conds);
+            }
         }
 
         @Override

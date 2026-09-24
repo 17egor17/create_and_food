@@ -3,10 +3,8 @@ package net.egorplaytv.caf.config;
 import com.simibubi.create.foundation.config.ConfigBase;
 
 public class CAFRecipes extends ConfigBase {
-    public final ConfigGroup recipes = group(0, "recipes",
-            Comments.recipes);
-    public final ConfigGroup grinder = group(1, "grinder",
-            Comments.grinder);
+    public final ConfigGroup recipes = group(0, "recipes", Comments.recipes);
+    public final ConfigGroup grinder = group(1, "grinder", Comments.grinder);
     public final ConfigBool destroyOnWrongGrinderSpeed =
             b(false, "destroyOnWrongGrinderSpeed", Comments.destroyOnWrongGrinderSpeed);
     public final ConfigInt lowSpeedValue =

@@ -14,8 +14,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -24,6 +29,7 @@ public class MillingRecipeBuilder implements RecipeBuilder {
     private final List<Float> chance = Lists.newArrayList();
     private final List<Ingredient> ingredients = Lists.newArrayList();
     private final int processingTime;
+    private final List<ICondition> recipeConditions = new ArrayList<>();
 
     public MillingRecipeBuilder(ItemLike result, int count, float chance, int processingTime) {
         this.results.add(new ItemStack(result, count));
@@ -76,6 +82,21 @@ public class MillingRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
+    public MillingRecipeBuilder whenModLoaded(String modid) {
+        withCondition(new ModLoadedCondition(modid));
+        return this;
+    }
+
+    public MillingRecipeBuilder whenModMissing(String modid) {
+        withCondition(new NotCondition(new ModLoadedCondition(modid)));
+        return this;
+    }
+
+    public MillingRecipeBuilder withCondition(ICondition condition) {
+        this.recipeConditions.add(condition);
+        return this;
+    }
+
     public MillingRecipeBuilder addResult(ItemLike result) {
         return this.addResult(result, 1, 0.0f, 1);
     }
@@ -119,7 +140,7 @@ public class MillingRecipeBuilder implements RecipeBuilder {
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
         pFinishedRecipeConsumer.accept(new MillingRecipeBuilder.Result(pRecipeId, this.results, this.chance, this.ingredients,
-                this.processingTime));
+                this.processingTime, this.recipeConditions));
     }
 
     public static class Result implements FinishedRecipe {
@@ -128,14 +149,16 @@ public class MillingRecipeBuilder implements RecipeBuilder {
         private final List<Float> chance;
         private final List<Ingredient> ingredients;
         private final int processingTime;
+        private final List<ICondition> recipeConditions;
 
         public Result(ResourceLocation id, List<ItemStack> results, List<Float> chance,
-                      List<Ingredient> ingredients, int processingTime) {
+                      List<Ingredient> ingredients, int processingTime, List<ICondition> recipeConditions) {
             this.id = id;
             this.results = results;
             this.chance = chance;
             this.ingredients = ingredients;
             this.processingTime = processingTime;
+            this.recipeConditions = recipeConditions;
         }
 
         @Override
@@ -172,6 +195,12 @@ public class MillingRecipeBuilder implements RecipeBuilder {
             json.add("results", resultArray);
 
             json.addProperty("processingTime", this.processingTime);
+
+            if (!this.recipeConditions.isEmpty()) {
+                JsonArray conds = new JsonArray();
+                this.recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
+                json.add("conditions", conds);
+            }
         }
 
         @Override

@@ -16,5 +16,11 @@
   "time": 800,
   "comment": "min 100 deg, max 5000 deg",
   "degree": 1455.0,
-  "experience": 0.9
+  "experience": 0.9,
+  "conditions": [
+    {
+      "modid": "thermal",
+      "type": "forge:mod_loaded"
+    }
+  ]
 }

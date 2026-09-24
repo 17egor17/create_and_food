@@ -12,6 +12,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.crafting.ingredient.ChanceResult;
@@ -26,6 +30,7 @@ public class CuttingBoardRecipeBuilder implements RecipeBuilder {
     private final Ingredient ingredient;
     private final Ingredient tool;
     private String soundEventID;
+    private final List<ICondition> recipeConditions = new ArrayList<>();
 
     private CuttingBoardRecipeBuilder(Ingredient ingredient, Ingredient tool, ItemLike mainResult, int count, float chance) {
         this.results.add(new ChanceResult(new ItemStack(mainResult.asItem(), count), chance));
@@ -104,6 +109,21 @@ public class CuttingBoardRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
+    public CuttingBoardRecipeBuilder whenModLoaded(String modid) {
+        withCondition(new ModLoadedCondition(modid));
+        return this;
+    }
+
+    public CuttingBoardRecipeBuilder whenModMissing(String modid) {
+        withCondition(new NotCondition(new ModLoadedCondition(modid)));
+        return this;
+    }
+
+    public CuttingBoardRecipeBuilder withCondition(ICondition condition) {
+        this.recipeConditions.add(condition);
+        return this;
+    }
+
     @Override
     public RecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
         return null;
@@ -122,7 +142,7 @@ public class CuttingBoardRecipeBuilder implements RecipeBuilder {
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
         pFinishedRecipeConsumer.accept(new CuttingBoardRecipeBuilder.Result(pRecipeId, this.results, this.ingredient,
-                this.tool, this.soundEventID == null ? "" : this.soundEventID));
+                this.tool, this.soundEventID == null ? "" : this.soundEventID, this.recipeConditions));
     }
 
     public static class Result implements FinishedRecipe {
@@ -131,13 +151,15 @@ public class CuttingBoardRecipeBuilder implements RecipeBuilder {
         private final Ingredient ingredient;
         private final Ingredient tool;
         private final String soundEventID;
+        private final List<ICondition> recipeConditions;
 
-        public Result(ResourceLocation id, List<ChanceResult> results, Ingredient ingredient, Ingredient tool, String soundEventIDIn){
+        public Result(ResourceLocation id, List<ChanceResult> results, Ingredient ingredient, Ingredient tool, String soundEventIDIn, List<ICondition> recipeConditions){
             this.id = id;
             this.results = results;
             this.ingredient = ingredient;
             this.tool = tool;
             this.soundEventID = soundEventIDIn;
+            this.recipeConditions = recipeConditions;
         }
 
         @Override
@@ -165,6 +187,12 @@ public class CuttingBoardRecipeBuilder implements RecipeBuilder {
             json.add("result", arrayResults);
             if (!this.soundEventID.isEmpty()) {
                 json.addProperty("sound", this.soundEventID);
+            }
+
+            if (!this.recipeConditions.isEmpty()) {
+                JsonArray conds = new JsonArray();
+                this.recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
+                json.add("conditions", conds);
             }
         }
 

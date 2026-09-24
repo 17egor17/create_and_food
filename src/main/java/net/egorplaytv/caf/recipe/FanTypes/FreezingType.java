@@ -7,8 +7,12 @@ import com.simibubi.create.foundation.utility.Color;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
+
+import net.egorplaytv.caf.item.custom.MetalItem;
+import net.egorplaytv.caf.item.entity.custom.MIEntity;
 import net.egorplaytv.caf.recipe.AllRecipeTypes;
 import net.egorplaytv.caf.recipe.FreezingRecipe;
+import net.egorplaytv.caf.units.degree.CAFDegreeUnits;
 import net.egorplaytv.caf.util.CAFTags.Blocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.DustParticleOptions;
@@ -17,6 +21,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -29,7 +34,7 @@ public class FreezingType implements FanProcessingType {
 
     public boolean isValidAt(Level level, BlockPos pos) {
         BlockState blockState = level.getBlockState(pos);
-        if (blockState.is(Blocks.FAN_PROCESSING_CATALYSTS_FREEZING)){
+        if (blockState.is(Blocks.FAN_PROCESSING_CATALYSTS_FREEZING)) {
             return true;
         }
         return false;
@@ -48,7 +53,8 @@ public class FreezingType implements FanProcessingType {
     public @Nullable List<ItemStack> process(ItemStack stack, Level level) {
         FREEZING_WRAPPER.setItem(0, stack);
         Optional<FreezingRecipe> recipe = AllRecipeTypes.FREEZING.find(FREEZING_WRAPPER, level);
-        if (recipe.isPresent()){
+
+        if (recipe.isPresent()) {
             return RecipeApplier.applyRecipeOn(stack, recipe.get());
         }
         return null;
@@ -64,7 +70,7 @@ public class FreezingType implements FanProcessingType {
                 pos.z + (level.random.nextFloat() - .5f) * .5f, 0, 1 / 8f, 0);
     }
 
-    public void morphAirFlow(FanProcessingType.AirFlowParticleAccess particleAccess, Random random) {
+    public void morphAirFlow(AirFlowParticleAccess particleAccess, Random random) {
         particleAccess.setColor(Color.mixColors(0xffffff, 0xd8e9e9, random.nextFloat()));
         particleAccess.setAlpha(1.0F);
         if (random.nextFloat() < 1 / 32f) {

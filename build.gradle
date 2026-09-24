@@ -246,8 +246,15 @@ dependencies {
     implementation fg.deobf("curse.maven:farmers-delight-398521:${farmersdelight_version}")
 
     implementation fg.deobf("curse.maven:immersive-engineering-231951:${immersiveengineering_version}")
-    implementation fg.deobf("curse.maven:mekanism-268560:${mekanism_version}")
     implementation fg.deobf("curse.maven:thermal.expansion-69163:${thermal_version}")
+
+    compileOnly "mekanism:Mekanism:${mekanism_version}:api"
+
+    // If you want to test/use Mekanism & its modules during `runClient` invocation, use the following
+    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}")// Mekanism
+    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}:additions")// Mekanism: Additions
+    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}:generators")// Mekanism: Generators
+    runtimeOnly fg.deobf("mekanism:Mekanism:${mekanism_version}:tools")// Mekanism: Tools
 
     implementation fg.deobf("curse.maven:cofh_core-69162:4801048")
     implementation fg.deobf("curse.maven:thermal.foundation-222880:4788649")

@@ -16,5 +16,11 @@
   "time": 800,
   "comment": "min 100 deg, max 5000 deg",
   "degree": 1538.0,
-  "experience": 1.4
+  "experience": 1.4,
+  "conditions": [
+    {
+      "modid": "immersiveengineering",
+      "type": "forge:mod_loaded"
+    }
+  ]
 }

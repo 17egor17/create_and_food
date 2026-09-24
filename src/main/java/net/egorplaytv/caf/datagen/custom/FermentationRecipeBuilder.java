@@ -16,8 +16,13 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -30,6 +35,7 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
     private final int amountOut;
     private final Item tool;
     private int time;
+    private final List<ICondition> recipeConditions = new ArrayList<>();
 
     private FermentationRecipeBuilder(FluidIngredient inputFluid, Item result, int count, Fluid outputFluid, int amountOut, Item tool) {
         this.inputFluid = inputFluid;
@@ -118,6 +124,21 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
+    public FermentationRecipeBuilder whenModLoaded(String modid) {
+        withCondition(new ModLoadedCondition(modid));
+        return this;
+    }
+
+    public FermentationRecipeBuilder whenModMissing(String modid) {
+        withCondition(new NotCondition(new ModLoadedCondition(modid)));
+        return this;
+    }
+
+    public FermentationRecipeBuilder withCondition(ICondition condition) {
+        this.recipeConditions.add(condition);
+        return this;
+    }
+
     public FermentationRecipeBuilder addTimeInSeconds(int seconds){
         this.time = seconds * 20;
 
@@ -160,21 +181,22 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
             pFinishedRecipeConsumer.accept(new FermentationRecipeBuilder.Result(pRecipeId, null, this.count, this.inputFluid,
-                    this.outputFluid, this.amountOut, this.time, this.ingredients, this.tool));
+                    this.outputFluid, this.amountOut, this.time, this.ingredients, this.tool, this.recipeConditions));
     }
 
     private class Result implements FinishedRecipe {
         private final ResourceLocation id;
         private final List<Ingredient> ingredients;
-        private FluidIngredient inputFluid;
+        private final FluidIngredient inputFluid;
         private final Item result;
         private final int count;
         private final FluidStack outputFluid;
         private final Item tool;
         private int time;
+        private final List<ICondition> recipeConditions;
 
         public Result(ResourceLocation id, Item result, int count, FluidIngredient inputFluid, Fluid outputFluid,
-                      int amountOut, int time, List<Ingredient> ingredients, Item tool) {
+                      int amountOut, int time, List<Ingredient> ingredients, Item tool, List<ICondition> recipeConditions) {
             this.id = id;
             this.ingredients = ingredients;
             this.result = result != null ? result : null;
@@ -183,6 +205,7 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
             this.outputFluid = outputFluid != null ? new FluidStack(outputFluid, amountOut) : null;
             this.time = time != 0 ? time : 1000;
             this.tool = tool != null ? tool : null;
+            this.recipeConditions = recipeConditions;
         }
 
         @Override
@@ -243,6 +266,12 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
             } else {
                 this.time = 20;
                 json.addProperty("time", this.time);
+            }
+
+            if (!this.recipeConditions.isEmpty()) {
+                JsonArray conds = new JsonArray();
+                this.recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
+                json.add("conditions", conds);
             }
 
         }

@@ -1,0 +1,16 @@
+{
+  "type": "caf:freezing",
+  "ingredients": [
+    {
+      "item": "caf:iron_ingot"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:iron_ingot",
+      "nbt": {
+        "deg": 24.0
+      }
+    }
+  ]
+}

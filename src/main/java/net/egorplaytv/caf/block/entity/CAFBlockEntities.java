@@ -14,6 +14,7 @@ import net.egorplaytv.caf.block.entity.renderer.*;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderInstance;
 import net.egorplaytv.caf.block.entity.renderer.EnergyConverterInstance;
 import net.egorplaytv.caf.block.entity.renderer.EnergyConverterRenderer;
+import net.egorplaytv.caf.energy.EnergyCableBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -92,10 +93,10 @@ public class CAFBlockEntities {
 
     public static final BlockEntityEntry<MechanicalBlenderBlockEntity> MECHANICAL_BLENDER =
             CreateAndFood.REGISTRATE.blockEntity("mechanical_blender", MechanicalBlenderBlockEntity::new)
-            .instance(() -> BlenderInstance::new)
-            .validBlocks(CAFBlocks.MECHANICAL_BLENDER)
-            .renderer(() -> MechanicalBlenderRenderer::new)
-            .register();
+                    .instance(() -> BlenderInstance::new)
+                    .validBlocks(CAFBlocks.MECHANICAL_BLENDER)
+                    .renderer(() -> MechanicalBlenderRenderer::new)
+                    .register();
 
 
     public static final BlockEntityEntry<GrinderBlockEntity> GRINDER = CreateAndFood.REGISTRATE
@@ -134,6 +135,11 @@ public class CAFBlockEntities {
             .register();
 
     // Energy
+
+    public static final RegistryObject<BlockEntityType<EnergyCableBlockEntity>> ENERGY_CABLE =
+            BLOCK_ENTITIES.register("energy_cable", () ->
+                    BlockEntityType.Builder.of(EnergyCableBlockEntity::new,
+                            CAFBlocks.ENERGY_CABLE.get()).build(null));
 
     public static final BlockEntityEntry<EnergyConvertorBlockEntity> ENERGY_CONVERTER = CreateAndFood.REGISTRATE
             .blockEntity("energy_converter", EnergyConvertorBlockEntity::new)

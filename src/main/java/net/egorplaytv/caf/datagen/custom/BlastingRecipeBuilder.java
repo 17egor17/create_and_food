@@ -4,11 +4,7 @@ import com.google.common.collect.Lists;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.egorplaytv.caf.recipe.MarbleFurnaceRecipe;
-import net.minecraft.advancements.Advancement;
-import net.minecraft.advancements.AdvancementRewards;
 import net.minecraft.advancements.CriterionTriggerInstance;
-import net.minecraft.advancements.RequirementsStrategy;
-import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
@@ -17,8 +13,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -29,6 +30,7 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
     private final int blastingTime;
     private final float blastingDeg;
     private final float experience;
+    private final List<ICondition> recipeConditions = new ArrayList<>();
 
     public BlastingRecipeBuilder(Item result, int count, int time, float degree, float experience) {
         this.result = result;
@@ -91,6 +93,21 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
+    public BlastingRecipeBuilder whenModLoaded(String modid) {
+        withCondition(new ModLoadedCondition(modid));
+        return this;
+    }
+
+    public BlastingRecipeBuilder whenModMissing(String modid) {
+        withCondition(new NotCondition(new ModLoadedCondition(modid)));
+        return this;
+    }
+
+    public BlastingRecipeBuilder withCondition(ICondition condition) {
+        this.recipeConditions.add(condition);
+        return this;
+    }
+
 
     @Override
     public RecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
@@ -110,7 +127,7 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
         pFinishedRecipeConsumer.accept(new BlastingRecipeBuilder.Result(pRecipeId, this.result, this.count, this.blastingTime,
-                this.blastingDeg, this.experience, this.ingredients));
+                this.blastingDeg, this.experience, this.ingredients, this.recipeConditions));
     }
 
     public static class Result implements FinishedRecipe {
@@ -121,9 +138,10 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
         private int blastingTime;
         private float blastingDeg;
         private final float experience;
+        private final List<ICondition> recipeConditions;
 
         public Result(ResourceLocation pId, Item pResult, int pCount, int pTime, float pDeg, float pExperience,
-                      List<Ingredient> ingredients) {
+                      List<Ingredient> ingredients, List<ICondition> recipeConditions) {
             this.id = pId;
             this.result = pResult;
             this.count = pCount;
@@ -131,6 +149,7 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
             this.blastingDeg = pDeg;
             this.experience = pExperience;
             this.ingredients = ingredients;
+            this.recipeConditions = recipeConditions;
         }
 
         @Override
@@ -172,6 +191,12 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
             }
             if (this.experience > 0.0F) {
                 pJson.addProperty("experience", this.experience);
+            }
+
+            if (!this.recipeConditions.isEmpty()) {
+                JsonArray conds = new JsonArray();
+                this.recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
+                pJson.add("conditions", conds);
             }
 
         }

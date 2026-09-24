@@ -15,7 +15,7 @@ public class CAFGameSettings extends ConfigBase {
 
     @Override
     public String getName() {
-        return "gamesettings";
+        return "Game Settings";
     }
 
     private static class Comments {

@@ -14,14 +14,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
 public class ItemApplicationRecipeBuilder implements RecipeBuilder {
     private final List<ItemStack> results = Lists.newArrayList();
     private final List<Ingredient> ingredients = Lists.newArrayList();
+    private final List<ICondition> recipeConditions = new ArrayList<>();
 
     public ItemApplicationRecipeBuilder(ItemLike result, int count) {
         this.results.add(new ItemStack(result, count));
@@ -63,6 +69,20 @@ public class ItemApplicationRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
+    public ItemApplicationRecipeBuilder whenModLoaded(String modid) {
+        withCondition(new ModLoadedCondition(modid));
+        return this;
+    }
+
+    public ItemApplicationRecipeBuilder whenModMissing(String modid) {
+        withCondition(new NotCondition(new ModLoadedCondition(modid)));
+        return this;
+    }
+
+    public ItemApplicationRecipeBuilder withCondition(ICondition condition) {
+        this.recipeConditions.add(condition);
+        return this;
+    }
 
     @Override
     public RecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
@@ -81,18 +101,20 @@ public class ItemApplicationRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
-        pFinishedRecipeConsumer.accept(new ItemApplicationRecipeBuilder.Result(pRecipeId, this.results, this.ingredients));
+        pFinishedRecipeConsumer.accept(new ItemApplicationRecipeBuilder.Result(pRecipeId, this.results, this.ingredients, this.recipeConditions));
     }
 
     public static class Result implements FinishedRecipe {
         private final ResourceLocation id;
         private final List<ItemStack> results;
         private final List<Ingredient> ingredients;
+        private final List<ICondition> recipeConditions;
 
-        public Result(ResourceLocation id, List<ItemStack> results, List<Ingredient> ingredients) {
+        public Result(ResourceLocation id, List<ItemStack> results, List<Ingredient> ingredients, List<ICondition> recipeConditions) {
             this.id = id;
             this.results = results;
             this.ingredients = ingredients;
+            this.recipeConditions = recipeConditions;
         }
 
         @Override
@@ -124,6 +146,12 @@ public class ItemApplicationRecipeBuilder implements RecipeBuilder {
                 }
             }
             json.add("results", resultArray);
+
+            if (!this.recipeConditions.isEmpty()) {
+                JsonArray conds = new JsonArray();
+                this.recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
+                json.add("conditions", conds);
+            }
         }
 
         @Override

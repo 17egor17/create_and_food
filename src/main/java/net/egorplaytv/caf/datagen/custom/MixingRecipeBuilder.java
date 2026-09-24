@@ -19,8 +19,13 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -31,6 +36,7 @@ public class MixingRecipeBuilder implements RecipeBuilder {
     private final List<Ingredient> itemIngredients = Lists.newArrayList();
     private final List<FluidIngredient> fluidIngredients = Lists.newArrayList();
     private final HeatCondition heat;
+    private final List<ICondition> recipeConditions = new ArrayList<>();
 
     public MixingRecipeBuilder(ItemLike itemResult, int count, float itemChance, Fluid fluidResult,
                                    int amount, HeatCondition heat){
@@ -209,6 +215,21 @@ public class MixingRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
+    public MixingRecipeBuilder whenModLoaded(String modid) {
+        withCondition(new ModLoadedCondition(modid));
+        return this;
+    }
+
+    public MixingRecipeBuilder whenModMissing(String modid) {
+        withCondition(new NotCondition(new ModLoadedCondition(modid)));
+        return this;
+    }
+
+    public MixingRecipeBuilder withCondition(ICondition condition) {
+        this.recipeConditions.add(condition);
+        return this;
+    }
+
     @Override
     public RecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
         return null;
@@ -227,7 +248,7 @@ public class MixingRecipeBuilder implements RecipeBuilder {
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
         pFinishedRecipeConsumer.accept(new MixingRecipeBuilder.Result(pRecipeId, this.itemResults, this.chance,
-                this.fluidResults, this.itemIngredients, this.fluidIngredients, this.heat));
+                this.fluidResults, this.itemIngredients, this.fluidIngredients, this.heat, this.recipeConditions));
     }
 
     public static class Result implements FinishedRecipe {
@@ -238,9 +259,10 @@ public class MixingRecipeBuilder implements RecipeBuilder {
         private final List<Ingredient> itemIngredients;
         private final List<FluidIngredient> fluidIngredients;
         private final HeatCondition heat;
+        private final List<ICondition> recipeConditions;
 
         public Result(ResourceLocation id, List<ItemStack> itemResults, List<Float> chance, List<FluidStack> fluidResults,
-                      List<Ingredient> itemIngredients, List<FluidIngredient> fluidIngredients, HeatCondition heatCondition) {
+                      List<Ingredient> itemIngredients, List<FluidIngredient> fluidIngredients, HeatCondition heatCondition, List<ICondition> recipeConditions) {
             this.id = id;
             this.itemResults = itemResults;
             this.chance = chance;
@@ -248,6 +270,7 @@ public class MixingRecipeBuilder implements RecipeBuilder {
             this.itemIngredients = itemIngredients;
             this.fluidIngredients = fluidIngredients;
             this.heat = heatCondition;
+            this.recipeConditions = recipeConditions;
         }
 
         @Override
@@ -303,6 +326,12 @@ public class MixingRecipeBuilder implements RecipeBuilder {
                 json.addProperty("heatRequirement", "heated");
             } else if (this.heat == HeatCondition.SUPERHEATED) {
                 json.addProperty("heatRequirement", "superheated");
+            }
+
+            if (!this.recipeConditions.isEmpty()) {
+                JsonArray conds = new JsonArray();
+                this.recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
+                json.add("conditions", conds);
             }
         }
 

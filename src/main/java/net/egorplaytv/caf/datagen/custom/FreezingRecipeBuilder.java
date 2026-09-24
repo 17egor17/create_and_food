@@ -14,14 +14,24 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 public class FreezingRecipeBuilder implements RecipeBuilder {
     private final List<ItemStack> results = Lists.newArrayList();
+    private final List<Map.Entry<String, String>> stringValueNBT = Lists.newArrayList();
+    private final List<Map.Entry<String, Float>> floatValueNBT = Lists.newArrayList();
     private final List<Ingredient> ingredients = Lists.newArrayList();
+    private final List<ICondition> recipeConditions = new ArrayList<>();
 
     public FreezingRecipeBuilder(ItemLike result, int count) {
         this.results.add(new ItemStack(result, count));
@@ -33,6 +43,26 @@ public class FreezingRecipeBuilder implements RecipeBuilder {
 
     public static FreezingRecipeBuilder freezingRecipe(ItemLike result) {
         return new FreezingRecipeBuilder(result, 1);
+    }
+
+    public FreezingRecipeBuilder addResultFValueNBT(Map.Entry<String, Float> nbt) {
+        this.floatValueNBT.add(nbt);
+        return this;
+    }
+
+    public FreezingRecipeBuilder addResultFValueNBT(Map.Entry<String, Float>... nbt) {
+        this.floatValueNBT.addAll(Arrays.asList(nbt));
+        return this;
+    }
+
+    public FreezingRecipeBuilder addResultSValueNBT(Map.Entry<String, String> nbt) {
+        this.stringValueNBT.add(nbt);
+        return this;
+    }
+
+    public FreezingRecipeBuilder addResultSValueNBT(Map.Entry<String, String>... nbt) {
+        this.stringValueNBT.addAll(Arrays.asList(nbt));
+        return this;
     }
 
     public FreezingRecipeBuilder addIngredient(TagKey<Item> tagIn) {
@@ -63,6 +93,21 @@ public class FreezingRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
+    public FreezingRecipeBuilder whenModLoaded(String modid) {
+        withCondition(new ModLoadedCondition(modid));
+        return this;
+    }
+
+    public FreezingRecipeBuilder whenModMissing(String modid) {
+        withCondition(new NotCondition(new ModLoadedCondition(modid)));
+        return this;
+    }
+
+    public FreezingRecipeBuilder withCondition(ICondition condition) {
+        this.recipeConditions.add(condition);
+        return this;
+    }
+
     @Override
     public RecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
         return null;
@@ -80,19 +125,25 @@ public class FreezingRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
-        pFinishedRecipeConsumer.accept(new FreezingRecipeBuilder.Result(pRecipeId, this.results, this.ingredients));
+        pFinishedRecipeConsumer.accept(new FreezingRecipeBuilder.Result(pRecipeId, this.results, this.floatValueNBT, this.stringValueNBT, this.ingredients, this.recipeConditions));
     }
 
 
     public static class Result implements FinishedRecipe {
         private final ResourceLocation id;
         private final List<ItemStack> results;
+        private final List<Map.Entry<String, String>> stringValueNBT;
+        private final List<Map.Entry<String, Float>> floatValueNBT;
         private final List<Ingredient> ingredients;
+        private final List<ICondition> recipeConditions;
 
-        public Result(ResourceLocation id, List<ItemStack> results, List<Ingredient> ingredients) {
+        public Result(ResourceLocation id, List<ItemStack> results, List<Map.Entry<String, Float>> floatNBT, List<Map.Entry<String, String>> stringNBT, List<Ingredient> ingredients, List<ICondition> recipeConditions) {
             this.id = id;
             this.results = results;
+            this.floatValueNBT = floatNBT;
+            this.stringValueNBT = stringNBT;
             this.ingredients = ingredients;
+            this.recipeConditions = recipeConditions;
         }
 
         @Override
@@ -115,11 +166,29 @@ public class FreezingRecipeBuilder implements RecipeBuilder {
                     if (!this.results.isEmpty()) {
                         JsonObject resultSlot = new JsonObject();
                         resultSlot.addProperty("item", result.getItem().getRegistryName().toString());
+                        if (!this.stringValueNBT.isEmpty())
+                            for (int j = 0; j <= (this.stringValueNBT.size() - 1); j++) {
+                                JsonObject nbt = new JsonObject();
+                                nbt.addProperty(this.stringValueNBT.get(j).getKey(), this.stringValueNBT.get(j).getValue());
+                                resultSlot.add("nbt", nbt);
+                            }
+                        if (!this.floatValueNBT.isEmpty())
+                            for (int j = 0; j <= (this.floatValueNBT.size() - 1); j++) {
+                                JsonObject nbt = new JsonObject();
+                                nbt.addProperty(this.floatValueNBT.get(j).getKey(), this.floatValueNBT.get(j).getValue());
+                                resultSlot.add("nbt", nbt);
+                            }
                         resultArray.add(resultSlot);
                     }
                 }
             }
             json.add("results", resultArray);
+
+            if (!this.recipeConditions.isEmpty()) {
+                JsonArray conds = new JsonArray();
+                this.recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
+                json.add("conditions", conds);
+            }
         }
 
         @Override

@@ -1,6 +1,7 @@
 package net.egorplaytv.caf.datagen.custom;
 
 import net.egorplaytv.caf.item.CAFItems;
+import net.egorplaytv.caf.item.custom.MetalItem;
 import net.egorplaytv.caf.item.custom.SequencedAssemblyItem;
 import net.egorplaytv.caf.util.Metals;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -29,7 +30,7 @@ public final class ModItemModelsProperties {
         registerSequencedAssemblyProgress(CAFItems.INCOMPLETE_TUNGSTEN_KNIFE.get());
     }
 
-    public static void registerMetalItem(Item item, Metals type) {
+    public static void registerMetalItem(MetalItem item, Metals type) {
         if (!type.equals(Metals.OSMIUM)) {
             ItemProperties.register(item.asItem(), DEGREE_PREDICATE_ID,
                     (is, level, p, s) -> is.getTag() != null ? is.getTag().getInt(TAG_DEGREE) : 0);

@@ -14,14 +14,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
 public class HauntingRecipeBuilder implements RecipeBuilder {
     private final List<ItemStack> results = Lists.newArrayList();
     private final List<Ingredient> ingredients = Lists.newArrayList();
+    private final List<ICondition> recipeConditions = new ArrayList<>();
 
     public HauntingRecipeBuilder(ItemLike result, int count) {
         this.results.add(new ItemStack(result, count));
@@ -63,6 +69,21 @@ public class HauntingRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
+    public HauntingRecipeBuilder whenModLoaded(String modid) {
+        withCondition(new ModLoadedCondition(modid));
+        return this;
+    }
+
+    public HauntingRecipeBuilder whenModMissing(String modid) {
+        withCondition(new NotCondition(new ModLoadedCondition(modid)));
+        return this;
+    }
+
+    public HauntingRecipeBuilder withCondition(ICondition condition) {
+        this.recipeConditions.add(condition);
+        return this;
+    }
+
     public HauntingRecipeBuilder addResult(ItemLike result) {
         return this.addResult(result, 1, 1);
     }
@@ -96,7 +117,7 @@ public class HauntingRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
-        pFinishedRecipeConsumer.accept(new HauntingRecipeBuilder.Result(pRecipeId, this.results, this.ingredients));
+        pFinishedRecipeConsumer.accept(new HauntingRecipeBuilder.Result(pRecipeId, this.results, this.ingredients, this.recipeConditions));
     }
 
 
@@ -104,11 +125,13 @@ public class HauntingRecipeBuilder implements RecipeBuilder {
         private final ResourceLocation id;
         private final List<ItemStack> results;
         private final List<Ingredient> ingredients;
+        private final List<ICondition> recipeConditions;
 
-        public Result(ResourceLocation id, List<ItemStack> results, List<Ingredient> ingredients) {
+        public Result(ResourceLocation id, List<ItemStack> results, List<Ingredient> ingredients, List<ICondition> recipeConditions) {
             this.id = id;
             this.results = results;
             this.ingredients = ingredients;
+            this.recipeConditions = recipeConditions;
         }
 
         @Override
@@ -140,6 +163,12 @@ public class HauntingRecipeBuilder implements RecipeBuilder {
                 }
             }
             json.add("results", resultArray);
+
+            if (!this.recipeConditions.isEmpty()) {
+                JsonArray conds = new JsonArray();
+                this.recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
+                json.add("conditions", conds);
+            }
         }
 
         @Override

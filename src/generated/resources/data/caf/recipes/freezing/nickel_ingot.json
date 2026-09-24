@@ -1,0 +1,16 @@
+{
+  "type": "caf:freezing",
+  "ingredients": [
+    {
+      "item": "caf:nickel_ingot"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:nickel_ingot",
+      "nbt": {
+        "deg": 24.0
+      }
+    }
+  ]
+}
