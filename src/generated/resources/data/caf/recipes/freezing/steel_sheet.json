@@ -1,0 +1,16 @@
+{
+  "type": "caf:freezing",
+  "ingredients": [
+    {
+      "item": "caf:steel_sheet"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:steel_sheet",
+      "nbt": {
+        "deg": 24.0
+      }
+    }
+  ]
+}

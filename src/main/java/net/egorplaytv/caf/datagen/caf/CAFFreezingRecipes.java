@@ -74,6 +74,7 @@ public class CAFFreezingRecipes {
                 .addIngredient(CAFItems.COPPER_COIN.get())
                 .save(pConsumer, getFrizzing(getRecipeId(CAFItems.COPPER_COIN.get())));
 
+        //Other Recipes with Metals
 
         FreezingRecipeBuilder.freezingRecipe(CAFItems.NICKEL_INGOT.get())
                 .addResultFValueNBT(setResultNBT("deg", 24))

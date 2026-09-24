@@ -14,8 +14,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -25,6 +30,7 @@ public class PolishingRecipeBuilder implements net.minecraft.data.recipes.Recipe
     private final int speedLimits;
     private final int processingTime;
     private final boolean fragile;
+    private final List<ICondition> recipeConditions = new ArrayList<>();
 
     public PolishingRecipeBuilder(ItemLike result, int count, int speedLimits, int processingTime, boolean fragile) {
         this.results.add(new ItemStack(result, count));
@@ -77,6 +83,21 @@ public class PolishingRecipeBuilder implements net.minecraft.data.recipes.Recipe
         return this;
     }
 
+    public PolishingRecipeBuilder whenModLoaded(String modid) {
+        withCondition(new ModLoadedCondition(modid));
+        return this;
+    }
+
+    public PolishingRecipeBuilder whenModMissing(String modid) {
+        withCondition(new NotCondition(new ModLoadedCondition(modid)));
+        return this;
+    }
+
+    public PolishingRecipeBuilder withCondition(ICondition condition) {
+        this.recipeConditions.add(condition);
+        return this;
+    }
+
     @Override
     public net.minecraft.data.recipes.RecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
         return null;
@@ -95,7 +116,7 @@ public class PolishingRecipeBuilder implements net.minecraft.data.recipes.Recipe
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
         pFinishedRecipeConsumer.accept(new PolishingRecipeBuilder.Result(pRecipeId, this.results, this.ingredients,
-                this.speedLimits, this.processingTime, this.fragile));
+                this.speedLimits, this.processingTime, this.fragile, this.recipeConditions));
     }
 
 
@@ -106,15 +127,17 @@ public class PolishingRecipeBuilder implements net.minecraft.data.recipes.Recipe
         private final int speedLimits;
         private final int processingTime;
         private final boolean fragile;
+        private final List<ICondition> recipeConditions;
 
         public Result(ResourceLocation id, List<ItemStack> results,
-                      List<Ingredient> ingredients, int speedLimits, int processingTime, boolean fragile) {
+                      List<Ingredient> ingredients, int speedLimits, int processingTime, boolean fragile, List<ICondition> recipeConditions) {
             this.id = id;
             this.results = results;
             this.ingredients = ingredients;
             this.speedLimits = speedLimits;
             this.processingTime = processingTime;
             this.fragile = fragile;
+            this.recipeConditions = recipeConditions;
         }
 
         @Override
@@ -149,6 +172,12 @@ public class PolishingRecipeBuilder implements net.minecraft.data.recipes.Recipe
             json.addProperty("speedLimits", speedLimits);
             json.addProperty("processingTime", processingTime);
             json.addProperty("fragile", fragile);
+
+            if (!this.recipeConditions.isEmpty()) {
+                JsonArray conds = new JsonArray();
+                this.recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
+                json.add("conditions", conds);
+            }
         }
 
         @Override

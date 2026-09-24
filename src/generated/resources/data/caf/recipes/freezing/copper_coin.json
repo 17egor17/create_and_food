@@ -1,0 +1,16 @@
+{
+  "type": "caf:freezing",
+  "ingredients": [
+    {
+      "item": "caf:copper_coin"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:copper_coin",
+      "nbt": {
+        "deg": 24.0
+      }
+    }
+  ]
+}

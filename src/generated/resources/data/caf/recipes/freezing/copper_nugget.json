@@ -1,0 +1,16 @@
+{
+  "type": "caf:freezing",
+  "ingredients": [
+    {
+      "item": "caf:copper_nugget"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:copper_nugget",
+      "nbt": {
+        "deg": 24.0
+      }
+    }
+  ]
+}

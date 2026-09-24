@@ -1,0 +1,16 @@
+{
+  "type": "caf:freezing",
+  "ingredients": [
+    {
+      "item": "caf:iron_dust"
+    }
+  ],
+  "results": [
+    {
+      "item": "caf:iron_dust",
+      "nbt": {
+        "deg": 24.0
+      }
+    }
+  ]
+}

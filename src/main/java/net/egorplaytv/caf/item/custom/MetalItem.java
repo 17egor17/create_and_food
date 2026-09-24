@@ -123,13 +123,18 @@ public class MetalItem extends Item implements IMetalItem {
             }
         }
 
-        if (pStack.getItem() instanceof MetalItem metal) {
-            float deg = metal.getDeg(pStack);
+        tickInInventory(pStack, pLevel);
+    }
+
+    @Override
+    public void tickInInventory(ItemStack stack, Level level) {
+        if (stack.getItem() instanceof MetalItem metal) {
+            float deg = metal.getDeg(stack);
 
             if (deg > 24)
                 deg -= 0.01F;
 
-            metal.setDeg(pStack, deg);
+            metal.setDeg(stack, deg);
         }
     }
 
@@ -152,9 +157,11 @@ public class MetalItem extends Item implements IMetalItem {
         return entity;
     }
 
+    @Override
     public CAFDegreeUnits getMeltingPoint() {
         return meltingPoint;
     }
+
 
     public int getHeatingSpeed() {
         return heatingSpeed;

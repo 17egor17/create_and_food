@@ -7,7 +7,10 @@
   ],
   "results": [
     {
-      "item": "caf:steel_nugget"
+      "item": "caf:steel_nugget",
+      "nbt": {
+        "deg": 24.0
+      }
     }
   ]
 }

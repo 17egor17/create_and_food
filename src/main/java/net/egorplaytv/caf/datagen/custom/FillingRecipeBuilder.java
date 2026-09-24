@@ -16,8 +16,13 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluid;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -25,6 +30,7 @@ public class FillingRecipeBuilder implements RecipeBuilder {
     private final List<ItemStack> results = Lists.newArrayList();
     private final List<Ingredient> itemIngredients = Lists.newArrayList();
     private final List<FluidIngredient> fluidIngredients = Lists.newArrayList();
+    private final List<ICondition> recipeConditions = new ArrayList<>();
 
     public FillingRecipeBuilder(ItemLike result) {
         this.results.add(new ItemStack(result));
@@ -90,6 +96,21 @@ public class FillingRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
+    public FillingRecipeBuilder whenModLoaded(String modid) {
+        withCondition(new ModLoadedCondition(modid));
+        return this;
+    }
+
+    public FillingRecipeBuilder whenModMissing(String modid) {
+        withCondition(new NotCondition(new ModLoadedCondition(modid)));
+        return this;
+    }
+
+    public FillingRecipeBuilder withCondition(ICondition condition) {
+        this.recipeConditions.add(condition);
+        return this;
+    }
+
 
     @Override
     public RecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
@@ -109,7 +130,7 @@ public class FillingRecipeBuilder implements RecipeBuilder {
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
         pFinishedRecipeConsumer.accept(new FillingRecipeBuilder.Result(pRecipeId, this.results, this.itemIngredients,
-                this.fluidIngredients));
+                this.fluidIngredients, this.recipeConditions));
     }
 
     public static class Result implements FinishedRecipe {
@@ -117,13 +138,15 @@ public class FillingRecipeBuilder implements RecipeBuilder {
         private final List<ItemStack> results;
         private final List<Ingredient> itemIngredients;
         private final List<FluidIngredient> fluidIngredients;
+        private final List<ICondition> recipeConditions;
 
         public Result(ResourceLocation id, List<ItemStack> results, List<Ingredient> itemIngredients,
-                      List<FluidIngredient> fluidIngredients) {
+                      List<FluidIngredient> fluidIngredients, List<ICondition> recipeConditions) {
             this.id = id;
             this.results = results;
             this.itemIngredients = itemIngredients;
             this.fluidIngredients = fluidIngredients;
+            this.recipeConditions = recipeConditions;
         }
 
         @Override
@@ -157,6 +180,12 @@ public class FillingRecipeBuilder implements RecipeBuilder {
                 }
             }
             json.add("results", resultArray);
+
+            if (!this.recipeConditions.isEmpty()) {
+                JsonArray conds = new JsonArray();
+                this.recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
+                json.add("conditions", conds);
+            }
         }
 
         @Override

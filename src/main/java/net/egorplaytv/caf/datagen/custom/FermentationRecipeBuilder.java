@@ -35,7 +35,7 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
     private final int amountOut;
     private final Item tool;
     private int time;
-    private List<ICondition> recipeConditions = new ArrayList<>();
+    private final List<ICondition> recipeConditions = new ArrayList<>();
 
     private FermentationRecipeBuilder(FluidIngredient inputFluid, Item result, int count, Fluid outputFluid, int amountOut, Item tool) {
         this.inputFluid = inputFluid;
@@ -187,13 +187,13 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
     private class Result implements FinishedRecipe {
         private final ResourceLocation id;
         private final List<Ingredient> ingredients;
-        private FluidIngredient inputFluid;
+        private final FluidIngredient inputFluid;
         private final Item result;
         private final int count;
         private final FluidStack outputFluid;
         private final Item tool;
         private int time;
-        private List<ICondition> recipeConditions;
+        private final List<ICondition> recipeConditions;
 
         public Result(ResourceLocation id, Item result, int count, FluidIngredient inputFluid, Fluid outputFluid,
                       int amountOut, int time, List<Ingredient> ingredients, Item tool, List<ICondition> recipeConditions) {
@@ -268,9 +268,9 @@ public class FermentationRecipeBuilder implements RecipeBuilder {
                 json.addProperty("time", this.time);
             }
 
-            if (!recipeConditions.isEmpty()) {
+            if (!this.recipeConditions.isEmpty()) {
                 JsonArray conds = new JsonArray();
-                recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
+                this.recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
                 json.add("conditions", conds);
             }
 

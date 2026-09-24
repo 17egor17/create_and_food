@@ -30,7 +30,7 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
     private final int blastingTime;
     private final float blastingDeg;
     private final float experience;
-    private List<ICondition> recipeConditions = new ArrayList<>();
+    private final List<ICondition> recipeConditions = new ArrayList<>();
 
     public BlastingRecipeBuilder(Item result, int count, int time, float degree, float experience) {
         this.result = result;
@@ -138,7 +138,7 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
         private int blastingTime;
         private float blastingDeg;
         private final float experience;
-        private List<ICondition> recipeConditions;
+        private final List<ICondition> recipeConditions;
 
         public Result(ResourceLocation pId, Item pResult, int pCount, int pTime, float pDeg, float pExperience,
                       List<Ingredient> ingredients, List<ICondition> recipeConditions) {
@@ -193,9 +193,9 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
                 pJson.addProperty("experience", this.experience);
             }
 
-            if (!recipeConditions.isEmpty()) {
+            if (!this.recipeConditions.isEmpty()) {
                 JsonArray conds = new JsonArray();
-                recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
+                this.recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
                 pJson.add("conditions", conds);
             }
 

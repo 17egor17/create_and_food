@@ -8,6 +8,7 @@ import com.tterrag.registrate.providers.ProviderType;
 import net.egorplaytv.caf.block.entity.CAFWoodTypes;
 import net.egorplaytv.caf.config.CAFConfigs;
 import net.egorplaytv.caf.data.CAFRegistrate;
+import net.egorplaytv.caf.item.custom.MetalItem;
 import net.egorplaytv.caf.units.energy.energy_interface.EnergyCapability;
 import net.egorplaytv.caf.item.ItemEntities;
 import net.egorplaytv.caf.networking.CAFMessages;
@@ -22,7 +23,9 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
+import net.minecraftforge.common.world.ForgeChunkManager;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModContainer;
@@ -69,21 +72,14 @@ public class CreateAndFood {
         REGISTRATE.registerEventListeners(eventBus);
 
         Optional<? extends ModContainer> thModContainer = ModList.get().getModContainerById("thermal");
-        if (thModContainer.isPresent()){
-            THIsPresent = true;
-        }
+        THIsPresent = thModContainer.isPresent();
         Optional<? extends ModContainer> mekModContainer = ModList.get().getModContainerById("mekanism");
-        if (mekModContainer.isPresent()){
-            MEKIsPresent = true;
-        }
+        MEKIsPresent = mekModContainer.isPresent();
         Optional<? extends ModContainer> ieModContainer = ModList.get().getModContainerById("immersiveengineering");
-        if (ieModContainer.isPresent()){
-            IEIsPresent = true;
-        }
+        IEIsPresent = ieModContainer.isPresent();
+
         Optional<? extends ModContainer> viModContainer = ModList.get().getModContainerById("vintageimprovements");
-        if (viModContainer.isPresent()){
-            VIIsPresent = true;
-        }
+        VIIsPresent = viModContainer.isPresent();
 
         setModId(MOD_ID);
 

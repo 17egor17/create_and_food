@@ -14,14 +14,20 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.conditions.ICondition;
+import net.minecraftforge.common.crafting.conditions.ModLoadedCondition;
+import net.minecraftforge.common.crafting.conditions.NotCondition;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
 public class PressingRecipeBuilder implements RecipeBuilder {
     private final List<ItemStack> results = Lists.newArrayList();
     private final List<Ingredient> ingredients = Lists.newArrayList();
+    private final List<ICondition> recipeConditions = new ArrayList<>();
 
 
     public PressingRecipeBuilder(ItemLike result, int count){
@@ -64,6 +70,21 @@ public class PressingRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
+    public PressingRecipeBuilder whenModLoaded(String modid) {
+        withCondition(new ModLoadedCondition(modid));
+        return this;
+    }
+
+    public PressingRecipeBuilder whenModMissing(String modid) {
+        withCondition(new NotCondition(new ModLoadedCondition(modid)));
+        return this;
+    }
+
+    public PressingRecipeBuilder withCondition(ICondition condition) {
+        this.recipeConditions.add(condition);
+        return this;
+    }
+
     public PressingRecipeBuilder addResult(ItemLike result) {
         return this.addResult(result, 1, 1);
     }
@@ -98,7 +119,7 @@ public class PressingRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
-        pFinishedRecipeConsumer.accept(new PressingRecipeBuilder.Result(pRecipeId, this.results, this.ingredients));
+        pFinishedRecipeConsumer.accept(new PressingRecipeBuilder.Result(pRecipeId, this.results, this.ingredients, this.recipeConditions));
     }
 
 
@@ -106,11 +127,13 @@ public class PressingRecipeBuilder implements RecipeBuilder {
         private final ResourceLocation id;
         private final List<ItemStack> results;
         private final List<Ingredient> ingredients;
+        private final List<ICondition> recipeConditions;
 
-        public Result(ResourceLocation id, List<ItemStack> results, List<Ingredient> ingredient) {
+        public Result(ResourceLocation id, List<ItemStack> results, List<Ingredient> ingredient, List<ICondition> recipeConditions) {
             this.id = id;
             this.results = results;
             this.ingredients = ingredient;
+            this.recipeConditions = recipeConditions;
         }
 
 
@@ -138,6 +161,12 @@ public class PressingRecipeBuilder implements RecipeBuilder {
                 }
             }
             json.add("results", resultArray);
+
+            if (!this.recipeConditions.isEmpty()) {
+                JsonArray conds = new JsonArray();
+                this.recipeConditions.forEach(c -> conds.add(CraftingHelper.serialize(c)));
+                json.add("conditions", conds);
+            }
         }
 
         @Override

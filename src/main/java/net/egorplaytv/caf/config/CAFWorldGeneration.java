@@ -59,7 +59,7 @@ public class CAFWorldGeneration extends ConfigBase {
 
     @Override
     public String getName() {
-        return "worldgen";
+        return "World Gen";
     }
 
     private static class Comments {
