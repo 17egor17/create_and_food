@@ -4,6 +4,7 @@ import com.simibubi.create.content.kinetics.base.KineticBlockEntity;
 import com.simibubi.create.foundation.blockEntity.behaviour.BlockEntityBehaviour;
 import com.simibubi.create.foundation.blockEntity.behaviour.ValueBoxTransform;
 import com.simibubi.create.foundation.utility.VecHelper;
+import com.simibubi.create.infrastructure.config.AllConfigs;
 import net.egorplaytv.caf.block.pattern.interfaces.IHaveGoggleInformation;
 import net.egorplaytv.caf.units.energy.CAFEnergyUnits;
 import net.egorplaytv.caf.units.energy.EnergyStorage;
@@ -98,21 +99,22 @@ public class KineticGeneratorBlockEntity extends KineticBlockEntity implements I
 
         float speed = Math.abs(getSpeed());
 
-        float generated = BASE_OUTPUT * speed * EFFICIENCY;
-        System.out.println(speed);
-        if (speed != 0)
-            System.out.println(generated);
-        lastGenerated = generated;
+        if (speed >= AllConfigs.server().kinetics.mediumSpeed.get().floatValue()) {
+            float generated = BASE_OUTPUT * speed * EFFICIENCY;
+            System.out.println(speed);
+            if (speed != 0)
+                System.out.println(generated);
+            lastGenerated = generated;
 
+            float newEnergy = Math.min(energyStorage.getEnergyStored().getRawEnergy() + generated, BUFFER_CAPACITY);
 
-        float newEnergy = Math.min(energyStorage.getEnergyStored().getRawEnergy() + generated, BUFFER_CAPACITY);
-
-        energyStorage.setEnergyStored(new CAFEnergyUnits(newEnergy, getDimperage()));
+            energyStorage.setEnergyStored(new CAFEnergyUnits(newEnergy, getDimperage()));
+        }
 
         Direction facing = getBlockState().getValue(KineticGeneratorBlock.FACING);
-
         for (Direction dir : Direction.values()) {
-            if (dir == facing || dir == Direction.DOWN) continue;
+            if (dir == facing || dir == Direction.DOWN)
+                continue;
 
             IEnergyStorage neighbor = getNeighborCapability(dir);
             if (neighbor == null || !neighbor.canReceive()) continue;

@@ -36,7 +36,7 @@ public class MetalItem extends Item implements IMetalItem {
     private int radiationTick;
     public static final String TAG_DEGREE = "deg";
     public static final String TAG_PREVENT_MAGNET = "PreventRemoteMovement";
-    private boolean defaultDegSet = false;
+    private boolean defaultDegSet = true;
 
     public MetalItem(float meltingPoint, MetalItem.Type type, Metals metalType, Properties pProperties) {
         super(pProperties);
@@ -56,25 +56,20 @@ public class MetalItem extends Item implements IMetalItem {
             pTooltip.add(TextUtils.getToolTipTranslation("doesnt_despawn"));
             if (metal.metalType == Metals.URANIUM)
                 pTooltip.add(TextUtils.getToolTipTranslation("ingot.radiation"));
-            if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS){
+            if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS) {
                 pTooltip.add(TextUtils.getToolTipTranslation("degreesC", meltingPoint.getDegreeInC()));
-            } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_FAHRENHEIT){
+            } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_FAHRENHEIT) {
                 pTooltip.add(TextUtils.getToolTipTranslation("degreesF", meltingPoint.getDegreeInF()));
             } else {
                 pTooltip.add(TextUtils.getToolTipTranslation("degreesK", meltingPoint.getDegreeInK()));
             }
 
-            if (!defaultDegSet && (metal.getDeg(pStack) == 0)){
-                metal.setDeg(pStack, 24);
-                defaultDegSet = true;
-            } else if (metal.getDeg(pStack) >= 24 || metal.getDeg(pStack) <= 24) {
-                if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS){
-                    pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesC", metal.getDegUnits(pStack).getDegreeInC()));
-                } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_FAHRENHEIT){
-                    pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesF", metal.getDegUnits(pStack).getDegreeInF()));
-                } else {
-                    pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesK", metal.getDegUnits(pStack).getDegreeInK()));
-                }
+            if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS) {
+                pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesC", metal.getDegUnits(pStack).getDegreeInC()));
+            } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_FAHRENHEIT) {
+                pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesF", metal.getDegUnits(pStack).getDegreeInF()));
+            } else {
+                pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesK", metal.getDegUnits(pStack).getDegreeInK()));
             }
         }
     }
@@ -127,6 +122,11 @@ public class MetalItem extends Item implements IMetalItem {
     public void tickInInventory(ItemStack stack, Level level) {
         if (stack.getItem() instanceof MetalItem metal) {
             float deg = metal.getDeg(stack);
+
+            if (defaultDegSet && (metal.getDeg(stack) == 0)){
+                metal.setDeg(stack, 24);
+                defaultDegSet = false;
+            }
 
             if (deg > 24)
                 deg -= 0.01F;

@@ -41,7 +41,7 @@ public class CAFItems {
     public static final RegistryObject<Item> RAW_GLOW_BERRY_CAKE = registerItem("raw_glow_berry_cake",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
-    public static final RegistryObject<Item> INCOMPLETE_RAW_GLOW_BERRY_CAKE = registerItem("incomplete_raw_glow_berry_cake",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_RAW_GLOW_BERRY_CAKE = registerItem("incomplete_raw_glow_berry_cake",
             () -> new SequencedAssemblyItem(new Item.Properties()));
 
     public static final RegistryObject<Item> GLOW_BERRY_CAKE = registerItem("glow_berry_cake",
@@ -50,7 +50,7 @@ public class CAFItems {
     public static final RegistryObject<Item> RAW_BERRY_CAKE = registerItem("raw_berry_cake",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
-    public static final RegistryObject<Item> INCOMPLETE_RAW_BERRY_CAKE = registerItem("incomplete_raw_berry_cake",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_RAW_BERRY_CAKE = registerItem("incomplete_raw_berry_cake",
             () -> new SequencedAssemblyItem(new Item.Properties()));
 
     public static final RegistryObject<Item> BERRY_CAKE = registerItem("berry_cake",
@@ -59,7 +59,7 @@ public class CAFItems {
     public static final RegistryObject<Item> RAW_CAKE = registerItem("raw_cake",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
-    public static final RegistryObject<Item> INCOMPLETE_RAW_CAKE = registerItem("incomplete_raw_cake",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_RAW_CAKE = registerItem("incomplete_raw_cake",
             () -> new SequencedAssemblyItem(new Item.Properties()));
 
     public static final RegistryObject<Item> RAW_SWEET_ROLL = registerItem("raw_sweet_roll",
@@ -117,83 +117,83 @@ public class CAFItems {
     //Berries//
     public static final RegistryObject<Item> BLUEBERRY = registerItem("blueberry",
             () -> new Item(new Item.Properties().food(CAFFoods.BERRIES).tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
-    public static final RegistryObject<Item> BLUEBERRY_SAPLING = registerItem("blueberry_sapling",
+    public static final RegistryObject<ItemNameBlockItem> BLUEBERRY_SAPLING = registerItem("blueberry_sapling",
             () -> new ItemNameBlockItem(CAFBlocks.BLUEBERRY_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
     public static final RegistryObject<Item> CRANBERRY = registerItem("cranberry",
             () -> new Item(new Item.Properties().food(CAFFoods.BERRIES).tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
-    public static final RegistryObject<Item> CRANBERRY_SAPLING = registerItem("cranberry_sapling",
+    public static final RegistryObject<ItemNameBlockItem> CRANBERRY_SAPLING = registerItem("cranberry_sapling",
             () -> new ItemNameBlockItem(CAFBlocks.CRANBERRY_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
     public static final RegistryObject<Item> RASPBERRY = registerItem("raspberry",
             () -> new Item(new Item.Properties().food(CAFFoods.BERRIES).tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
-    public static final RegistryObject<Item> RASPBERRY_SAPLING = registerItem("raspberry_sapling",
+    public static final RegistryObject<ItemNameBlockItem> RASPBERRY_SAPLING = registerItem("raspberry_sapling",
             () -> new ItemNameBlockItem(CAFBlocks.RASPBERRY_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
     public static final RegistryObject<Item> BLUE_GRAPE = registerItem("blue_grape",
             () -> new Item(new Item.Properties().food(CAFFoods.BERRIES).tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
-    public static final RegistryObject<Item> BLUE_GRAPE_SAPLING = registerItem("blue_grape_sapling",
+    public static final RegistryObject<ItemNameBlockItem> BLUE_GRAPE_SAPLING = registerItem("blue_grape_sapling",
             () -> new ItemNameBlockItem(CAFBlocks.BLUE_GRAPE_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
     public static final RegistryObject<Item> GREEN_GRAPE = registerItem("green_grape",
             () -> new Item(new Item.Properties().food(CAFFoods.BERRIES).tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
-    public static final RegistryObject<Item> GREEN_GRAPE_SAPLING = registerItem("green_grape_sapling",
+    public static final RegistryObject<ItemNameBlockItem> GREEN_GRAPE_SAPLING = registerItem("green_grape_sapling",
             () -> new ItemNameBlockItem(CAFBlocks.GREEN_GRAPE_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
     public static final RegistryObject<Item> PURPLE_GRAPE = registerItem("purple_grape",
             () -> new Item(new Item.Properties().food(CAFFoods.BERRIES).tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
-    public static final RegistryObject<Item> PURPLE_GRAPE_SAPLING = registerItem("purple_grape_sapling",
+    public static final RegistryObject<ItemNameBlockItem> PURPLE_GRAPE_SAPLING = registerItem("purple_grape_sapling",
             () -> new ItemNameBlockItem(CAFBlocks.PURPLE_GRAPE_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
     public static final RegistryObject<Item> RED_GRAPE = registerItem("red_grape",
             () -> new Item(new Item.Properties().food(CAFFoods.BERRIES).tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
-    public static final RegistryObject<Item> RED_GRAPE_SAPLING = registerItem("red_grape_sapling",
+    public static final RegistryObject<ItemNameBlockItem> RED_GRAPE_SAPLING = registerItem("red_grape_sapling",
             () -> new ItemNameBlockItem(CAFBlocks.RED_GRAPE_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
     public static final RegistryObject<Item> SWEET_BERRIES = registerItem("sweet_berries",
             () -> new Item(new Item.Properties().food(Foods.SWEET_BERRIES).tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
-    public static final RegistryObject<Item> SWEET_BERRIES_SAPLING = registerItem("sweet_berries_sapling",
+    public static final RegistryObject<ItemNameBlockItem> SWEET_BERRIES_SAPLING = registerItem("sweet_berries_sapling",
             () -> new ItemNameBlockItem(CAFBlocks.SWEET_BERRY_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
     public static final RegistryObject<Item> NETHER_FRUITLIGHT = registerItem("nether_fruitlight",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
-    public static final RegistryObject<Item> WARPED_FRUITLIGHT_SAPLING = registerItem("warped_fruitlight_sapling",
+    public static final RegistryObject<ItemNameBlockItem> WARPED_FRUITLIGHT_SAPLING = registerItem("warped_fruitlight_sapling",
             () -> new ItemNameBlockItem(CAFBlocks.WARPED_FRUITLIGHT_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
-    public static final RegistryObject<Item> CRIMSON_FRUITLIGHT_SAPLING = registerItem("crimson_fruitlight_sapling",
+    public static final RegistryObject<ItemNameBlockItem> CRIMSON_FRUITLIGHT_SAPLING = registerItem("crimson_fruitlight_sapling",
             () -> new ItemNameBlockItem(CAFBlocks.CRIMSON_FRUITLIGHT_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
-    public static final RegistryObject<Item> PUMPKIN_SEEDS = registerItem("pumpkin_seeds",
+    public static final RegistryObject<ItemNameBlockItem> PUMPKIN_SEEDS = registerItem("pumpkin_seeds",
             () -> new ItemNameBlockItem(CAFBlocks.PUMPKIN_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
-    public static final RegistryObject<Item> MELON_SEEDS = registerItem("melon_seeds",
+    public static final RegistryObject<ItemNameBlockItem> MELON_SEEDS = registerItem("melon_seeds",
             () -> new ItemNameBlockItem(CAFBlocks.MELON_BUSH.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
     //Berries//
 
-    public static final RegistryObject<Item> APPLE_VINEGAR_BUCKET = registerItem("apple_vinegar_bucket",
+    public static final RegistryObject<BucketItem> APPLE_VINEGAR_BUCKET = registerItem("apple_vinegar_bucket",
             () -> new BucketItem(CAFFluids.APPLE_VINEGAR, new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
 
-    public static final RegistryObject<Item> COCOA_OIL_BUCKET = registerItem("cocoa_oil_bucket",
+    public static final RegistryObject<BucketItem> COCOA_OIL_BUCKET = registerItem("cocoa_oil_bucket",
             () -> new BucketItem(CAFFluids.COCOA_OIL, new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
 
-    public static final RegistryObject<Item> WHITE_CHOCOLATE_BUCKET = registerItem("white_chocolate_bucket",
+    public static final RegistryObject<BucketItem> WHITE_CHOCOLATE_BUCKET = registerItem("white_chocolate_bucket",
             () -> new BucketItem(CAFFluids.WHITE_CHOCOLATE, new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
 
-    public static final RegistryObject<Item> RED_GRAPE_JUICE_BUCKET = registerItem("red_grape_juice_bucket",
+    public static final RegistryObject<BucketItem> RED_GRAPE_JUICE_BUCKET = registerItem("red_grape_juice_bucket",
             () -> new BucketItem(CAFFluids.RED_GRAPE_JUICE, new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD).stacksTo(1)));
 
-    public static final RegistryObject<Item> HONEY_MILK = registerItem("honey_milk",
+    public static final RegistryObject<DrinkableItem> HONEY_MILK = registerItem("honey_milk",
             () -> new DrinkableItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD).food(CAFFoods.HONEY_MILK).craftRemainder(Items.GLASS_BOTTLE), true,false));
 
     public static final RegistryObject<Item> ALMOND_NUT = registerItem("almond_nut",
@@ -214,13 +214,13 @@ public class CAFItems {
 
     public static final RegistryObject<Item> EGG_SHELL = registerItem("egg_shell",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD).durability(1)));
-    public static final RegistryObject<Item> RYE_SEEDS = registerItem("rye_seeds",
+    public static final RegistryObject<ItemNameBlockItem> RYE_SEEDS = registerItem("rye_seeds",
             () -> new ItemNameBlockItem(CAFBlocks.RYE_PLANT.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
     public static final RegistryObject<Item> RYE = registerItem("rye",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
-    public static final RegistryObject<Item> RICE = registerItem("rice",
+    public static final RegistryObject<RiceItem> RICE = registerItem("rice",
             () -> new RiceItem(CAFBlocks.RICE_CROP.get(), new Item.Properties().tab(CAFCreativeModeTab.CREATE_FOOD_FOOD)));
 
     public static final RegistryObject<Item> ROASTED_COCOA_BEANS = registerItem("roasted_cocoa_beans",
@@ -364,7 +364,7 @@ public class CAFItems {
     public static final RegistryObject<MetalItem> ALLOY_SOULS_SHEET = registerItem("alloy_souls_sheet",
             () -> new MetalItem(1400F, Type.SHEET, Metals.ALLOY_SOULS, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
-    public static final RegistryObject<Item> INCOMPLETE_NETHERITE_INGOT = registerItem("incomplete_netherite_ingot",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_NETHERITE_INGOT = registerItem("incomplete_netherite_ingot",
             () -> new SequencedAssemblyItem(new Item.Properties()));
 
     public static final RegistryObject<Item> NETHER_ALLOY = registerItem("nether_alloy",
@@ -391,16 +391,16 @@ public class CAFItems {
     public static final RegistryObject<Item> STEEL_COIL = registerItem("steel_coil",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
-    public static final RegistryObject<Item> ELECTRUM_COIL = registerItem("electrum_coil",
+    public static final RegistryObject<IEDependentIngredientItem> ELECTRUM_COIL = registerItem("electrum_coil",
             () -> new IEDependentIngredientItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
-    public static final RegistryObject<Item> ALUMINUM_COIL = registerItem("aluminum_coil",
+    public static final RegistryObject<IEDependentIngredientItem> ALUMINUM_COIL = registerItem("aluminum_coil",
             () -> new IEDependentIngredientItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> COPPER_COIL = registerItem("copper_coil",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
-    public static final RegistryObject<Item> INCOMPLETE_COIN = registerItem("incomplete_coin",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_COIN = registerItem("incomplete_coin",
             () -> new SequencedAssemblyItem(new Item.Properties()));
     public static final RegistryObject<MetalItem> COPPER_COIN = registerItem("copper_coin",
             () -> new MetalItem(1083.4F, Type.COIN, Metals.COPPER, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
@@ -416,7 +416,7 @@ public class CAFItems {
     public static final RegistryObject<MetalItem> BROKEN_GOLDEN_COIN = registerItem("broken_golden_coin",
             () -> new MetalItem(1064.18F, Type.COIN, Metals.GOLD, new Item.Properties().tab(CreativeModeTab.TAB_SEARCH)));
 
-    public static final RegistryObject<Item> COAL_DUST = registerItem("coal_dust",
+    public static final RegistryObject<FuelItem> COAL_DUST = registerItem("coal_dust",
             () -> new FuelItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD), 1600));
 
     public static final RegistryObject<MetalItem> IRON_DUST = registerItem("iron_dust",
@@ -467,17 +467,17 @@ public class CAFItems {
     public static final RegistryObject<Item> FIRECLAY_CLAY_BALL = registerItem("fireclay_clay_ball",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
-    public static final RegistryObject<Item> INCOMPLETE_MARBLE_BRICK = registerItem("incomplete_marble_brick",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_MARBLE_BRICK = registerItem("incomplete_marble_brick",
             () -> new SequencedAssemblyItem(new Item.Properties()));
     public static final RegistryObject<Item> MARBLE_BRICK = registerItem("marble_brick",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
-    public static final RegistryObject<Item> INCOMPLETE_MARBLE_BLACK_GALAXY_BRICK = registerItem("incomplete_marble_black_galaxy_brick",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_MARBLE_BLACK_GALAXY_BRICK = registerItem("incomplete_marble_black_galaxy_brick",
             () -> new SequencedAssemblyItem(new Item.Properties()));
     public static final RegistryObject<Item> MARBLE_BLACK_GALAXY_BRICK = registerItem("marble_black_galaxy_brick",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
-    public static final RegistryObject<Item> INCOMPLETE_MARBLE_PERLIN_PINK_BRICK = registerItem("incomplete_marble_perlin_pink_brick",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_MARBLE_PERLIN_PINK_BRICK = registerItem("incomplete_marble_perlin_pink_brick",
             () -> new SequencedAssemblyItem(new Item.Properties()));
     public static final RegistryObject<Item> MARBLE_PERLIN_PINK_BRICK = registerItem("marble_perlin_pink_brick",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
@@ -489,210 +489,210 @@ public class CAFItems {
 
 
 //________________________Create and Food: Tools and Tips________________________\\
-    public static final RegistryObject<Item> INCOMPLETE_TOOL_HANDLE = registerItem("incomplete_tool_handle",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_TOOL_HANDLE = registerItem("incomplete_tool_handle",
             () -> new SequencedAssemblyItem(new Item.Properties()));
 
     public static final RegistryObject<Item> TOOL_HANDLE = registerItem("tool_handle",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> INCOMPLETE_DIAMOND_KNIFE = registerItem("incomplete_diamond_knife",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_DIAMOND_KNIFE = registerItem("incomplete_diamond_knife",
             () -> new SequencedAssemblyItem(new Item.Properties()));
 
-    public static final RegistryObject<Item> DIAMOND_KNIFE = registerItem("diamond_knife",
+    public static final RegistryObject<KnifeItem> DIAMOND_KNIFE = registerItem("diamond_knife",
             () -> new KnifeItem(CAFTiers.diamond(CAFTiers.HandelType.WOOD), 0.5F, -2.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> IRON_SHOVEL = registerItem("iron_shovel",
+    public static final RegistryObject<ShovelItem> IRON_SHOVEL = registerItem("iron_shovel",
             () -> new ShovelItem(CAFTiers.iron(CAFTiers.HandelType.WOOD), 1.5F, -3.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> IRON_PICKAXE = registerItem("iron_pickaxe",
+    public static final RegistryObject<PickaxeItem> IRON_PICKAXE = registerItem("iron_pickaxe",
             () -> new PickaxeItem(CAFTiers.iron(CAFTiers.HandelType.WOOD), 1, -2.8F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> IRON_HOE = registerItem("iron_hoe",
+    public static final RegistryObject<HoeItem> IRON_HOE = registerItem("iron_hoe",
             () -> new HoeItem(CAFTiers.iron(CAFTiers.HandelType.WOOD), -2, -1.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> IRON_AXE = registerItem("iron_axe",
+    public static final RegistryObject<AxeItem> IRON_AXE = registerItem("iron_axe",
             () -> new AxeItem(CAFTiers.iron(CAFTiers.HandelType.WOOD), 6.0F, -3.1F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> IRON_SWORD = registerItem("iron_sword",
+    public static final RegistryObject<SwordItem> IRON_SWORD = registerItem("iron_sword",
             () -> new SwordItem(CAFTiers.iron(CAFTiers.HandelType.WOOD), 3, -2.4F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> INCOMPLETE_IRON_KNIFE = registerItem("incomplete_iron_knife",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_IRON_KNIFE = registerItem("incomplete_iron_knife",
             () -> new SequencedAssemblyItem(new Item.Properties()));
 
-    public static final RegistryObject<Item> IRON_KNIFE = registerItem("iron_knife",
+    public static final RegistryObject<KnifeItem> IRON_KNIFE = registerItem("iron_knife",
             () -> new KnifeItem(CAFTiers.iron(CAFTiers.HandelType.WOOD), 0.5F, -2.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> COPPER_SHOVEL = registerItem("copper_shovel",
+    public static final RegistryObject<ShovelItem> COPPER_SHOVEL = registerItem("copper_shovel",
             () -> new ShovelItem(CAFTiers.copper(CAFTiers.HandelType.WOOD), 1.5F, -3.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> COPPER_PICKAXE = registerItem("copper_pickaxe",
+    public static final RegistryObject<PickaxeItem> COPPER_PICKAXE = registerItem("copper_pickaxe",
             () -> new PickaxeItem(CAFTiers.copper(CAFTiers.HandelType.WOOD), 1, -2.8F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> COPPER_HOE = registerItem("copper_hoe",
+    public static final RegistryObject<HoeItem> COPPER_HOE = registerItem("copper_hoe",
             () -> new HoeItem(CAFTiers.copper(CAFTiers.HandelType.WOOD), 4, -1F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> COPPER_AXE = registerItem("copper_axe",
+    public static final RegistryObject<AxeItem> COPPER_AXE = registerItem("copper_axe",
             () -> new AxeItem(CAFTiers.copper(CAFTiers.HandelType.WOOD), 6.0F, -3.1F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> COPPER_SWORD = registerItem("copper_sword",
+    public static final RegistryObject<SwordItem> COPPER_SWORD = registerItem("copper_sword",
             () -> new SwordItem(CAFTiers.copper(CAFTiers.HandelType.WOOD), 3, -2.4F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> GOLDEN_SHOVEL = registerItem("golden_shovel",
+    public static final RegistryObject<ShovelItem> GOLDEN_SHOVEL = registerItem("golden_shovel",
             () -> new ShovelItem(CAFTiers.gold(CAFTiers.HandelType.WOOD), 1.5F, -3.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> GOLDEN_PICKAXE = registerItem("golden_pickaxe",
+    public static final RegistryObject<PickaxeItem> GOLDEN_PICKAXE = registerItem("golden_pickaxe",
             () -> new PickaxeItem(CAFTiers.gold(CAFTiers.HandelType.WOOD), 1, -2.8F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> GOLDEN_HOE = registerItem("golden_hoe",
+    public static final RegistryObject<HoeItem> GOLDEN_HOE = registerItem("golden_hoe",
             () -> new HoeItem(CAFTiers.gold(CAFTiers.HandelType.WOOD), 0, -3.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> GOLDEN_AXE = registerItem("golden_axe",
+    public static final RegistryObject<AxeItem> GOLDEN_AXE = registerItem("golden_axe",
             () -> new AxeItem(CAFTiers.gold(CAFTiers.HandelType.WOOD), 6.0F, -3.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> GOLDEN_SWORD = registerItem("golden_sword",
+    public static final RegistryObject<SwordItem> GOLDEN_SWORD = registerItem("golden_sword",
             () -> new SwordItem(CAFTiers.gold(CAFTiers.HandelType.WOOD), 3, -2.4F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> INCOMPLETE_GOLDEN_KNIFE = registerItem("incomplete_golden_knife",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_GOLDEN_KNIFE = registerItem("incomplete_golden_knife",
             () -> new SequencedAssemblyItem(new Item.Properties()));
 
-    public static final RegistryObject<Item> GOLDEN_KNIFE = registerItem("golden_knife",
+    public static final RegistryObject<KnifeItem> GOLDEN_KNIFE = registerItem("golden_knife",
             () -> new KnifeItem(CAFTiers.gold(CAFTiers.HandelType.WOOD), 0.5F, -2.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> NETHERITE_SHOVEL = registerItem("netherite_shovel",
+    public static final RegistryObject<ShovelItem> NETHERITE_SHOVEL = registerItem("netherite_shovel",
             () -> new ShovelItem(CAFTiers.netherite(CAFTiers.HandelType.WOOD), 1.5F, -3.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> NETHERITE_PICKAXE = registerItem("netherite_pickaxe",
+    public static final RegistryObject<PickaxeItem> NETHERITE_PICKAXE = registerItem("netherite_pickaxe",
             () -> new PickaxeItem(CAFTiers.netherite(CAFTiers.HandelType.WOOD), 1, -2.8F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> NETHERITE_HOE = registerItem("netherite_hoe",
+    public static final RegistryObject<HoeItem> NETHERITE_HOE = registerItem("netherite_hoe",
             () -> new HoeItem(CAFTiers.netherite(CAFTiers.HandelType.WOOD), -4, 0.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> NETHERITE_AXE = registerItem("netherite_axe",
+    public static final RegistryObject<AxeItem> NETHERITE_AXE = registerItem("netherite_axe",
             () -> new AxeItem(CAFTiers.netherite(CAFTiers.HandelType.WOOD), 5.0F, -3.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> NETHERITE_SWORD = registerItem("netherite_sword",
+    public static final RegistryObject<SwordItem> NETHERITE_SWORD = registerItem("netherite_sword",
             () -> new SwordItem(CAFTiers.netherite(CAFTiers.HandelType.WOOD), 3, -2.4F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> INCOMPLETE_NETHERITE_KNIFE = registerItem("incomplete_netherite_knife",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_NETHERITE_KNIFE = registerItem("incomplete_netherite_knife",
             () -> new SequencedAssemblyItem(new Item.Properties()));
 
-    public static final RegistryObject<Item> NETHERITE_KNIFE = registerItem("netherite_knife",
+    public static final RegistryObject<KnifeItem> NETHERITE_KNIFE = registerItem("netherite_knife",
             () -> new KnifeItem(CAFTiers.netherite(CAFTiers.HandelType.WOOD), 0.5F, -2.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP).fireResistant()));
 
-    public static final RegistryObject<Item> STEEL_SHOVEL = registerItem("steel_shovel",
+    public static final RegistryObject<ShovelItem> STEEL_SHOVEL = registerItem("steel_shovel",
             () -> new ShovelItem(CAFTiers.steel(CAFTiers.HandelType.IRON), 1, -3F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> STEEL_PICKAXE = registerItem("steel_pickaxe",
+    public static final RegistryObject<PickaxeItem> STEEL_PICKAXE = registerItem("steel_pickaxe",
             () -> new PickaxeItem(CAFTiers.steel(CAFTiers.HandelType.IRON), 2, -2.8F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> STEEL_HOE = registerItem("steel_hoe",
+    public static final RegistryObject<HoeItem> STEEL_HOE = registerItem("steel_hoe",
             () -> new HoeItem(CAFTiers.steel(CAFTiers.HandelType.IRON), 4, -1F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> STEEL_AXE = registerItem("steel_axe",
+    public static final RegistryObject<AxeItem> STEEL_AXE = registerItem("steel_axe",
             () -> new AxeItem(CAFTiers.steel(CAFTiers.HandelType.IRON), 6, -3.1F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> STEEL_SWORD = registerItem("steel_sword",
+    public static final RegistryObject<SwordItem> STEEL_SWORD = registerItem("steel_sword",
             () -> new SwordItem(CAFTiers.steel(CAFTiers.HandelType.IRON), 4, -2.4F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> STEEL_HAMMER = registerItem("steel_hammer",
+    public static final RegistryObject<HammerItem> STEEL_HAMMER = registerItem("steel_hammer",
             () -> new HammerItem(CAFTiers.steel(CAFTiers.HandelType.IRON), 6, -3.1F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> INCOMPLETE_STEEL_KNIFE = registerItem("incomplete_steel_knife",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_STEEL_KNIFE = registerItem("incomplete_steel_knife",
             () -> new SequencedAssemblyItem(new Item.Properties()));
 
-    public static final RegistryObject<Item> STEEL_KNIFE = registerItem("steel_knife",
+    public static final RegistryObject<KnifeItem> STEEL_KNIFE = registerItem("steel_knife",
             () -> new KnifeItem(CAFTiers.steel(CAFTiers.HandelType.IRON), 0.5F, -2.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> TANTALUM_SHOVEL = registerItem("tantalum_shovel",
+    public static final RegistryObject<ShovelItem> TANTALUM_SHOVEL = registerItem("tantalum_shovel",
             () -> new ShovelItem(CAFTiers.tantalum(CAFTiers.HandelType.IRON), 5, -2.4F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> TANTALUM_PICKAXE = registerItem("tantalum_pickaxe",
+    public static final RegistryObject<PickaxeItem> TANTALUM_PICKAXE = registerItem("tantalum_pickaxe",
             () -> new PickaxeItem(CAFTiers.tantalum(CAFTiers.HandelType.IRON), 5, -2.2F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> TANTALUM_HOE = registerItem("tantalum_hoe",
+    public static final RegistryObject<HoeItem> TANTALUM_HOE = registerItem("tantalum_hoe",
             () -> new HoeItem(CAFTiers.tantalum(CAFTiers.HandelType.IRON), 5, -0.6F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> TANTALUM_AXE = registerItem("tantalum_axe",
+    public static final RegistryObject<AxeItem> TANTALUM_AXE = registerItem("tantalum_axe",
             () -> new AxeItem(CAFTiers.tantalum(CAFTiers.HandelType.IRON), 5, -2.5F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> TANTALUM_SWORD = registerItem("tantalum_sword",
+    public static final RegistryObject<SwordItem> TANTALUM_SWORD = registerItem("tantalum_sword",
             () -> new SwordItem(CAFTiers.tantalum(CAFTiers.HandelType.IRON), 5, -2.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> TANTALUM_HAMMER = registerItem("tantalum_hammer",
+    public static final RegistryObject<HammerItem> TANTALUM_HAMMER = registerItem("tantalum_hammer",
             () -> new HammerItem(CAFTiers.tantalum(CAFTiers.HandelType.IRON), 5, -2.5F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> INCOMPLETE_TANTALUM_KNIFE = registerItem("incomplete_tantalum_knife",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_TANTALUM_KNIFE = registerItem("incomplete_tantalum_knife",
             () -> new SequencedAssemblyItem(new Item.Properties()));
 
-    public static final RegistryObject<Item> TANTALUM_KNIFE = registerItem("tantalum_knife",
+    public static final RegistryObject<KnifeItem> TANTALUM_KNIFE = registerItem("tantalum_knife",
             () -> new KnifeItem(CAFTiers.tantalum(CAFTiers.HandelType.IRON), 0.5F, -2.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> TUNGSTEN_SHOVEL = registerItem("tungsten_shovel",
+    public static final RegistryObject<ShovelItem> TUNGSTEN_SHOVEL = registerItem("tungsten_shovel",
             () -> new ShovelItem(CAFTiers.tungsten(CAFTiers.HandelType.IRON), (int)5.5, -2.4F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> TUNGSTEN_PICKAXE = registerItem("tungsten_pickaxe",
+    public static final RegistryObject<PickaxeItem> TUNGSTEN_PICKAXE = registerItem("tungsten_pickaxe",
             () -> new PickaxeItem(CAFTiers.tungsten(CAFTiers.HandelType.IRON), (int)5.5, -2.2F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> TUNGSTEN_HOE = registerItem("tungsten_hoe",
+    public static final RegistryObject<HoeItem> TUNGSTEN_HOE = registerItem("tungsten_hoe",
             () -> new HoeItem(CAFTiers.tungsten(CAFTiers.HandelType.IRON), (int)5.5, -0.6F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> TUNGSTEN_AXE = registerItem("tungsten_axe",
+    public static final RegistryObject<AxeItem> TUNGSTEN_AXE = registerItem("tungsten_axe",
             () -> new AxeItem(CAFTiers.tungsten(CAFTiers.HandelType.IRON), (int)5.5, -2.5F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> TUNGSTEN_SWORD = registerItem("tungsten_sword",
+    public static final RegistryObject<SwordItem> TUNGSTEN_SWORD = registerItem("tungsten_sword",
             () -> new SwordItem(CAFTiers.tungsten(CAFTiers.HandelType.IRON), (int)5.5, -2.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> TUNGSTEN_HAMMER = registerItem("tungsten_hammer",
+    public static final RegistryObject<HammerItem> TUNGSTEN_HAMMER = registerItem("tungsten_hammer",
             () -> new HammerItem(CAFTiers.tungsten(CAFTiers.HandelType.IRON), (int)5.5, -2.5F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
-    public static final RegistryObject<Item> INCOMPLETE_TUNGSTEN_KNIFE = registerItem("incomplete_tungsten_knife",
+    public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_TUNGSTEN_KNIFE = registerItem("incomplete_tungsten_knife",
             () -> new SequencedAssemblyItem(new Item.Properties()));
 
-    public static final RegistryObject<Item> TUNGSTEN_KNIFE = registerItem("tungsten_knife",
+    public static final RegistryObject<KnifeItem> TUNGSTEN_KNIFE = registerItem("tungsten_knife",
             () -> new KnifeItem(CAFTiers.tungsten(CAFTiers.HandelType.IRON), 0.5F, -2.0F,
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_TOOL_AND_TIP)));
 
@@ -705,61 +705,61 @@ public class CAFItems {
 
 //________________________Create and Food: Decorative________________________\\
 
-    public static final RegistryObject<Item> TORN_SOUL_CHAIN = registerItem("torn_soul_chain",
+    public static final RegistryObject<ItemNameBlockItem> TORN_SOUL_CHAIN = registerItem("torn_soul_chain",
             () -> new ItemNameBlockItem(CAFBlocks.TORN_SOUL_CHAIN.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
-    public static final RegistryObject<Item> STEEL_CHAIN = registerItem("steel_chain",
+    public static final RegistryObject<ItemNameBlockItem> STEEL_CHAIN = registerItem("steel_chain",
             () -> new ItemNameBlockItem(CAFBlocks.STEEL_CHAIN.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
-    public static final RegistryObject<Item> TORN_SOUL_LANTERN = registerItem("torn_soul_lantern",
+    public static final RegistryObject<ItemNameBlockItem> TORN_SOUL_LANTERN = registerItem("torn_soul_lantern",
             () -> new ItemNameBlockItem(CAFBlocks.TORN_SOUL_LANTERN.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
-    public static final RegistryObject<Item> GLOWING_BRASS_COPPER_LANTERN = registerItem("glowing_brass_copper_lantern",
+    public static final RegistryObject<ItemNameBlockItem> GLOWING_BRASS_COPPER_LANTERN = registerItem("glowing_brass_copper_lantern",
             () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_COPPER_LANTERN.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
-    public static final RegistryObject<Item> GLOWING_BRASS_EXPOSED_COPPER_LANTERN = registerItem("glowing_brass_exposed_copper_lantern",
+    public static final RegistryObject<ItemNameBlockItem> GLOWING_BRASS_EXPOSED_COPPER_LANTERN = registerItem("glowing_brass_exposed_copper_lantern",
             () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_EXPOSED_COPPER_LANTERN.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
-    public static final RegistryObject<Item> GLOWING_BRASS_WEATHERED_COPPER_LANTERN = registerItem("glowing_brass_weathered_copper_lantern",
+    public static final RegistryObject<ItemNameBlockItem> GLOWING_BRASS_WEATHERED_COPPER_LANTERN = registerItem("glowing_brass_weathered_copper_lantern",
             () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_WEATHERED_COPPER_LANTERN.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
-    public static final RegistryObject<Item> GLOWING_BRASS_OXIDIZED_COPPER_LANTERN = registerItem("glowing_brass_oxidized_copper_lantern",
+    public static final RegistryObject<ItemNameBlockItem> GLOWING_BRASS_OXIDIZED_COPPER_LANTERN = registerItem("glowing_brass_oxidized_copper_lantern",
             () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_OXIDIZED_COPPER_LANTERN.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
-    public static final RegistryObject<Item> GLOWING_BRASS_WAXED_COPPER_LANTERN = registerItem("glowing_brass_waxed_copper_lantern",
+    public static final RegistryObject<ItemNameBlockItem> GLOWING_BRASS_WAXED_COPPER_LANTERN = registerItem("glowing_brass_waxed_copper_lantern",
             () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_WAXED_COPPER_LANTERN.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
-    public static final RegistryObject<Item> GLOWING_BRASS_WAXED_EXPOSED_COPPER_LANTERN = registerItem("glowing_brass_waxed_exposed_copper_lantern",
+    public static final RegistryObject<ItemNameBlockItem> GLOWING_BRASS_WAXED_EXPOSED_COPPER_LANTERN = registerItem("glowing_brass_waxed_exposed_copper_lantern",
             () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_WAXED_EXPOSED_COPPER_LANTERN.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
-    public static final RegistryObject<Item> GLOWING_BRASS_WAXED_WEATHERED_COPPER_LANTERN = registerItem("glowing_brass_waxed_weathered_copper_lantern",
+    public static final RegistryObject<ItemNameBlockItem> GLOWING_BRASS_WAXED_WEATHERED_COPPER_LANTERN = registerItem("glowing_brass_waxed_weathered_copper_lantern",
             () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_WAXED_WEATHERED_COPPER_LANTERN.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
-    public static final RegistryObject<Item> GLOWING_BRASS_WAXED_OXIDIZED_COPPER_LANTERN = registerItem("glowing_brass_waxed_oxidized_copper_lantern",
+    public static final RegistryObject<ItemNameBlockItem> GLOWING_BRASS_WAXED_OXIDIZED_COPPER_LANTERN = registerItem("glowing_brass_waxed_oxidized_copper_lantern",
             () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_WAXED_OXIDIZED_COPPER_LANTERN.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
-    public static final RegistryObject<Item> GLOWING_BRASS_STEEL_LANTERN = registerItem("glowing_brass_steel_lantern",
+    public static final RegistryObject<ItemNameBlockItem> GLOWING_BRASS_STEEL_LANTERN = registerItem("glowing_brass_steel_lantern",
             () -> new ItemNameBlockItem(CAFBlocks.GLOWING_BRASS_STEEL_LANTERN.get(),
                     new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
-    public static final RegistryObject<Item> LANTERN = registerItem("lantern",
+    public static final RegistryObject<ItemNameBlockItem> LANTERN = registerItem("lantern",
             () -> new ItemNameBlockItem(CAFBlocks.LANTERN.get(), new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
-    public static final RegistryObject<Item> SOUL_LANTERN = registerItem("soul_lantern",
+    public static final RegistryObject<ItemNameBlockItem> SOUL_LANTERN = registerItem("soul_lantern",
             () -> new ItemNameBlockItem(CAFBlocks.SOUL_LANTERN.get(), new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE)));
 
-    public static final RegistryObject<Item> ALMOND_SIGN = registerItem("almond_sign",
+    public static final RegistryObject<SignItem> ALMOND_SIGN = registerItem("almond_sign",
             () -> new SignItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE).stacksTo(16),
                     CAFBlocks.ALMOND_SIGN.get(), CAFBlocks.ALMOND_WALL_SIGN.get()));
 
