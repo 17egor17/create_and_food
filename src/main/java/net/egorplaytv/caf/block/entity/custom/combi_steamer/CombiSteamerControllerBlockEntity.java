@@ -23,7 +23,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class CombiSteamerControllerBlockEntity extends BlockEntity implements IHaveGoggleInformation {
+public class CombiSteamerControllerBlockEntity extends BlockEntity {
     protected ItemStackHandler inventory = new ItemStackHandler(10) {
         @Override
         protected void onContentsChanged(int slot) {
@@ -115,11 +115,5 @@ public class CombiSteamerControllerBlockEntity extends BlockEntity implements IH
         } else if (energyEntity4 instanceof CombiSteamerEnergyCommunicationBlockEntity) {
             entity.energyCommunication = (CombiSteamerEnergyCommunicationBlockEntity) energyEntity4;
         }
-    }
-
-    @Override
-    public boolean addToGoggleTooltip(List<Component> tooltip, boolean isPlayerSneaking) {
-        return containedFluidTooltip(tooltip, isPlayerSneaking, fluidCommunication.fluidCapability)
-                && containedEnergyTooltip(tooltip, isPlayerSneaking, energyCommunication.energyCapability);
     }
 }

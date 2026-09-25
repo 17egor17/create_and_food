@@ -12,9 +12,9 @@ import net.egorplaytv.caf.block.entity.custom.combi_steamer.CombiSteamerFluidCom
 import net.egorplaytv.caf.block.entity.custom.worktable.WorktableBlockEntity;
 import net.egorplaytv.caf.block.entity.renderer.*;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderInstance;
-import net.egorplaytv.caf.block.entity.renderer.EnergyConverterInstance;
-import net.egorplaytv.caf.block.entity.renderer.EnergyConverterRenderer;
-import net.egorplaytv.caf.energy.EnergyCableBlockEntity;
+import net.egorplaytv.caf.energy.CableBlockEntity;
+import net.egorplaytv.caf.energy.CreativeGeneratorBlockEntity;
+import net.egorplaytv.caf.energy.KineticGeneratorBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -136,16 +136,21 @@ public class CAFBlockEntities {
 
     // Energy
 
-    public static final RegistryObject<BlockEntityType<EnergyCableBlockEntity>> ENERGY_CABLE =
-            BLOCK_ENTITIES.register("energy_cable", () ->
-                    BlockEntityType.Builder.of(EnergyCableBlockEntity::new,
-                            CAFBlocks.ENERGY_CABLE.get()).build(null));
+    public static final RegistryObject<BlockEntityType<CableBlockEntity>> CABLE_BLOCK =
+            BLOCK_ENTITIES.register("cable_block", () ->
+                    BlockEntityType.Builder.of(CableBlockEntity::new,
+                            CAFBlocks.CABLE_BLOCK.get()).build(null));
 
-    public static final BlockEntityEntry<EnergyConvertorBlockEntity> ENERGY_CONVERTER = CreateAndFood.REGISTRATE
-            .blockEntity("energy_converter", EnergyConvertorBlockEntity::new)
-            .instance(() -> EnergyConverterInstance::new, false)
-            .validBlocks(CAFBlocks.ENERGY_CONVERTOR)
-            .renderer(() -> EnergyConverterRenderer::new)
+    public static final RegistryObject<BlockEntityType<CreativeGeneratorBlockEntity>> CREATIVE_GENERATOR =
+            BLOCK_ENTITIES.register("creative_generator", () ->
+                    BlockEntityType.Builder.of(CreativeGeneratorBlockEntity::new,
+                            CAFBlocks.CREATIVE_GENERATOR.get()).build(null));
+
+    public static final BlockEntityEntry<KineticGeneratorBlockEntity> KINETIC_GENERATOR = CreateAndFood.REGISTRATE
+            .blockEntity("kinetic_generator", KineticGeneratorBlockEntity::new)
+            .instance(() -> KineticGeneratorInstance::new, false)
+            .validBlocks()
+            .renderer(() -> KineticGeneratorRenderer::new)
             .register();
 
 

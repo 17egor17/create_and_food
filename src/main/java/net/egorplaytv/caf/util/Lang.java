@@ -1,10 +1,8 @@
 package net.egorplaytv.caf.util;
 
-import com.simibubi.create.foundation.utility.Components;
 import com.simibubi.create.foundation.utility.LangBuilder;
 import com.simibubi.create.foundation.utility.LangNumberFormat;
 import net.egorplaytv.caf.CreateAndFood;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
 public class Lang {

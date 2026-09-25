@@ -19,8 +19,16 @@ public class CAFDegreeUnits {
         return this.degree;
     }
 
-    public float getDegree() {
+    public float getDegreeInC() {
         return ((Math.round(this.degree * 100)) / 100F);
+    }
+
+    public float getDegreeInF() {
+        return ((Math.round((this.degree * 1.8F + 32) * 100)) / 100F);
+    }
+
+    public float getDegreeInK() {
+        return ((Math.round((this.degree + 273.15F) * 100)) / 100F);
     }
 
     public void setDegree(float degree) {

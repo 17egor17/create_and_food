@@ -36,6 +36,7 @@ public class MetalItem extends Item implements IMetalItem {
     private int radiationTick;
     public static final String TAG_DEGREE = "deg";
     public static final String TAG_PREVENT_MAGNET = "PreventRemoteMovement";
+    private boolean defaultDegSet = false;
 
     public MetalItem(float meltingPoint, MetalItem.Type type, Metals metalType, Properties pProperties) {
         super(pProperties);
@@ -56,28 +57,24 @@ public class MetalItem extends Item implements IMetalItem {
             if (metal.metalType == Metals.URANIUM)
                 pTooltip.add(TextUtils.getToolTipTranslation("ingot.radiation"));
             if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS){
-                pTooltip.add(TextUtils.getToolTipTranslation("degreesC", meltingPoint.getDegree()));
+                pTooltip.add(TextUtils.getToolTipTranslation("degreesC", meltingPoint.getDegreeInC()));
             } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_FAHRENHEIT){
-                float degF = meltingPoint.getDegree() * 1.8F + 32;
-                pTooltip.add(TextUtils.getToolTipTranslation("degreesF", degF));
+                pTooltip.add(TextUtils.getToolTipTranslation("degreesF", meltingPoint.getDegreeInF()));
             } else {
-                float degK = meltingPoint.getDegree() + 273.15F;
-                pTooltip.add(TextUtils.getToolTipTranslation("degreesK", degK));
+                pTooltip.add(TextUtils.getToolTipTranslation("degreesK", meltingPoint.getDegreeInK()));
             }
-            if (metal.getDeg(pStack) >= 24) {
-                float degC = (Math.round(metal.getDeg(pStack) * 100) / 100F);
 
-                if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS){
-                    pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesC", degC));
-                } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_FAHRENHEIT){
-                    float degF = ((Math.round(degC * 1.8F + 32) * 100) / 100F);
-                    pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesF", degF));
-                } else {
-                    float degK = ((Math.round(degC + 273.15F) * 100) / 100F);
-                    pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesK", degK));
-                }
-            } else {
+            if (!defaultDegSet && (metal.getDeg(pStack) == 0)){
                 metal.setDeg(pStack, 24);
+                defaultDegSet = true;
+            } else if (metal.getDeg(pStack) >= 24 || metal.getDeg(pStack) <= 24) {
+                if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_CELSIUS){
+                    pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesC", metal.getDegUnits(pStack).getDegreeInC()));
+                } else if (CAFConfigs.common().gameSettings.unitsOfMeasurement.get() == DegreeUnits.DEGREES_FAHRENHEIT){
+                    pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesF", metal.getDegUnits(pStack).getDegreeInF()));
+                } else {
+                    pTooltip.add(TextUtils.getToolTipTranslation("ingot.degreesK", metal.getDegUnits(pStack).getDegreeInK()));
+                }
             }
         }
     }
@@ -133,6 +130,9 @@ public class MetalItem extends Item implements IMetalItem {
 
             if (deg > 24)
                 deg -= 0.01F;
+            else if (deg < 24) {
+                deg += 0.01F;
+            }
 
             metal.setDeg(stack, deg);
         }
@@ -168,12 +168,12 @@ public class MetalItem extends Item implements IMetalItem {
     }
 
 
-    public CAFDegreeUnits getDegree(ItemStack is) {
+    public CAFDegreeUnits getDegUnits(ItemStack is) {
         return new CAFDegreeUnits(getDeg(is));
     }
 
     public void setDeg(ItemStack is, CAFDegreeUnits degree) {
-        this.setDeg(is, degree.getDegree());
+        this.setDeg(is, degree.getDegreeInC());
     }
 
     public float getDeg(ItemStack is) {
@@ -196,18 +196,18 @@ public class MetalItem extends Item implements IMetalItem {
         MetalItem ingot = (MetalItem) pStack.getItem();
         CAFDegreeUnits meltingPoint = ingot.getMeltingPoint();
         float deg = ingot.getDeg(pStack);
-        if (deg > meltingPoint.getDegree()) {
-            return Math.round(meltingPoint.getDegree() * 13.0F / meltingPoint.getDegree());
+        if (deg > meltingPoint.getDegreeInC()) {
+            return Math.round(meltingPoint.getDegreeInC() * 13.0F / meltingPoint.getDegreeInC());
         } else {
-            return Math.round(deg * 13.0F / meltingPoint.getDegree());
+            return Math.round(deg * 13.0F / meltingPoint.getDegreeInC());
         }
     }
 
     @Override
     public int getBarColor(ItemStack pStack) {
-        MetalItem ingot = (MetalItem) pStack.getItem();
-        CAFDegreeUnits meltingPoint = ingot.getMeltingPoint();
-        float f = Math.max(0.0F, (meltingPoint.getDegree() - ingot.getDeg(pStack)) / meltingPoint.getDegree());
+        MetalItem metal = (MetalItem) pStack.getItem();
+        CAFDegreeUnits meltingPoint = metal.getMeltingPoint();
+        float f = Math.max(0.0F, (meltingPoint.getDegreeInC() - metal.getDeg(pStack)) / meltingPoint.getDegreeInC());
         return Mth.hsvToRgb(f / 3.0F, 1.0F, 1.0F);
     }
 

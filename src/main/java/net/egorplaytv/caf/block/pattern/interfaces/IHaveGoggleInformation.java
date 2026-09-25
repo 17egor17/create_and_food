@@ -148,51 +148,32 @@ public interface IHaveGoggleInformation extends com.simibubi.create.content.equi
         return true;
     }
 
-    default boolean containedEnergyTooltip(List<Component> tooltip, boolean isPlayerSneaking,
-                                           LazyOptional<IEnergyStorage> handler) {
-        Optional<IEnergyStorage> resolve = handler.resolve();
-        if (!resolve.isPresent())
-            return false;
+    default boolean containedEnergyTooltip(List<Component> tooltip, boolean isPlayerSneaking, float dimperage){
+        LangBuilder dim = Lang.translate("generic.unit.dimperage");
+        LangBuilder kdim = Lang.translate("generic.unit.kdimperage");
 
-        IEnergyStorage storage = resolve.get();
-
-        LangBuilder caf = Lang.translate("generic.unit.caf");
-        LangBuilder kcaf = Lang.translate("generic.unit.kcaf");
-
-        Lang.translate("gui.goggles.energy_container")
+        Lang.translate("gui.goggles.generator_stats")
                 .forGoggles(tooltip);
 
 
-        if (storage.getEnergyStored().getEnergy() >= 1000 && storage.getMaxEnergyStored() > 1000) {
-            Lang.builder()
-                    .add(Lang.number(storage.getEnergyStored().getEnergy() / 1000F)
-                            .add(kcaf)
+        Lang.translate("gui.goggles.energy_container")
+                .style(ChatFormatting.GRAY)
+                .forGoggles(tooltip);
+
+        if (dimperage >= 1000) {
+            Lang.translate("gui.goggles.energy_container.dimperage")
+                    .style(ChatFormatting.DARK_GRAY)
+                    .add(Lang.number(dimperage / 1000)
+                            .add(kdim)
                             .style(ChatFormatting.GOLD))
-                    .text(ChatFormatting.GRAY, " / ")
-                    .add(Lang.number(storage.getMaxEnergyStored() / 1000F)
-                            .add(kcaf)
-                            .style(ChatFormatting.GRAY))
-                    .forGoggles(tooltip, 1);
-        } else if (storage.getEnergyStored().getEnergy() < 1000 && storage.getMaxEnergyStored() > 1000) {
-            Lang.builder()
-                    .add(Lang.number(storage.getEnergyStored().getEnergy())
-                            .add(caf)
-                            .style(ChatFormatting.GOLD))
-                    .text(ChatFormatting.GRAY, " / ")
-                    .add(Lang.number(storage.getMaxEnergyStored() / 1000F)
-                            .add(kcaf)
-                            .style(ChatFormatting.GRAY))
-                    .forGoggles(tooltip, 1);
+                    .forGoggles(tooltip);
         } else {
-            Lang.builder()
-                    .add(Lang.number(storage.getEnergyStored().getEnergy())
-                            .add(caf)
+            Lang.translate("gui.goggles.energy_container.dimperage")
+                    .style(ChatFormatting.DARK_GRAY)
+                    .add(Lang.number(dimperage)
+                            .add(dim)
                             .style(ChatFormatting.GOLD))
-                    .text(ChatFormatting.GRAY, " / ")
-                    .add(Lang.number(storage.getMaxEnergyStored())
-                            .add(caf)
-                            .style(ChatFormatting.GRAY))
-                    .forGoggles(tooltip, 1);
+                    .forGoggles(tooltip);
         }
 
         return true;
