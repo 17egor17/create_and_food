@@ -149,7 +149,7 @@ public class CAFBlockEntities {
     public static final BlockEntityEntry<KineticGeneratorBlockEntity> KINETIC_GENERATOR = CreateAndFood.REGISTRATE
             .blockEntity("kinetic_generator", KineticGeneratorBlockEntity::new)
             .instance(() -> KineticGeneratorInstance::new, false)
-            .validBlocks()
+            .validBlocks(CAFBlocks.KINETIC_GENERATOR)
             .renderer(() -> KineticGeneratorRenderer::new)
             .register();
 
