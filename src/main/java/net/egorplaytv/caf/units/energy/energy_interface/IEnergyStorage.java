@@ -20,22 +20,24 @@ public interface IEnergyStorage
      *
      * @param maxReceive
      *            Maximum amount of energy to be inserted.
+     * @param dimperage At what current was the energy received.
      * @param simulate
      *            If TRUE, the insertion will only be simulated.
      * @return Amount of energy that was (or would have been, if simulated) accepted by the storage.
      */
-    CAFEnergyUnits receiveEnergy(float maxReceive, boolean simulate);
+    CAFEnergyUnits receiveEnergy(float maxReceive, float dimperage, boolean simulate);
 
     /**
      * Removes energy from the storage. Returns quantity of energy that was removed.
      *
      * @param maxExtract
      *            Maximum amount of energy to be extracted.
+     * @param dimperage At what current was the energy extracted.
      * @param simulate
      *            If TRUE, the extraction will only be simulated.
      * @return Amount of energy that was (or would have been, if simulated) extracted from the storage.
      */
-    CAFEnergyUnits extractEnergy(float maxExtract, boolean simulate);
+    CAFEnergyUnits extractEnergy(float maxExtract, float dimperage, boolean simulate);
 
     /**
      * Returns the amount of energy currently stored.

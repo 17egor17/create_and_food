@@ -10,44 +10,44 @@ public class EnergyStorage implements IEnergyStorage, INBTSerializable<CompoundT
     protected float maxReceive;
     protected float maxExtract;
 
-    public EnergyStorage(float capacity, float amperage) {
-        this(capacity, amperage, capacity, capacity, 0F);
+    public EnergyStorage(float capacity, float dimperage) {
+        this(capacity, dimperage, capacity, capacity, 0F);
     }
 
-    public EnergyStorage(float capacity, float amperage, float maxTransfer) {
-        this(capacity, amperage, maxTransfer, maxTransfer, 0F);
+    public EnergyStorage(float capacity, float dimperage, float maxTransfer) {
+        this(capacity, dimperage, maxTransfer, maxTransfer, 0F);
     }
 
-    public EnergyStorage(float capacity, float amperage, float maxReceive, float maxExtract) {
-        this(capacity, amperage, maxReceive, maxExtract, 0F);
+    public EnergyStorage(float capacity, float dimperage, float maxReceive, float maxExtract) {
+        this(capacity, dimperage, maxReceive, maxExtract, 0F);
     }
 
-    public EnergyStorage(float capacity, float amperage, float maxReceive, float maxExtract, float energy) {
+    public EnergyStorage(float capacity, float dimperage, float maxReceive, float maxExtract, float energy) {
         this.capacity = capacity;
         this.maxReceive = maxReceive;
         this.maxExtract = maxExtract;
-        this.energy = new CAFEnergyUnits(Math.max(0, Math.min(capacity, energy)), amperage);
+        this.energy = new CAFEnergyUnits(Math.max(0, Math.min(capacity, energy)), dimperage);
     }
 
     @Override
-    public CAFEnergyUnits receiveEnergy(float maxReceive, boolean simulate) {
+    public CAFEnergyUnits receiveEnergy(float maxReceive, float dimperage, boolean simulate) {
         if (!canReceive())
             return CAFEnergyUnits.EMPTY;
 
-        CAFEnergyUnits energyReceived = new CAFEnergyUnits(Math.min(capacity - energy.getRawEnergy(), Math.min(this.maxReceive, maxReceive)), energy.getRawAmperage());
+        CAFEnergyUnits energyReceived = new CAFEnergyUnits(Math.min(capacity - energy.getRawEnergy(), Math.min(this.maxReceive, maxReceive)), dimperage);
         if (!simulate)
-            energy = new CAFEnergyUnits(energy.getRawEnergy() + energyReceived.getRawEnergy(), energy.getRawAmperage());
+            energy = new CAFEnergyUnits(energy.getRawEnergy() + energyReceived.getRawEnergy(), dimperage);
         return energyReceived;
     }
 
     @Override
-    public CAFEnergyUnits extractEnergy(float maxExtract, boolean simulate) {
+    public CAFEnergyUnits extractEnergy(float maxExtract, float dimperage, boolean simulate) {
         if (!canExtract())
             return CAFEnergyUnits.EMPTY;
 
-        CAFEnergyUnits energyExtracted = new CAFEnergyUnits(Math.min(energy.getRawEnergy(), Math.min(this.maxExtract, maxExtract)), energy.getRawAmperage());
+        CAFEnergyUnits energyExtracted = new CAFEnergyUnits(Math.min(energy.getRawEnergy(), Math.min(this.maxExtract, maxExtract)), dimperage);
         if (!simulate)
-            energy = new CAFEnergyUnits(energy.getRawEnergy() - energyExtracted.getRawEnergy(), energy.getRawAmperage());
+            energy = new CAFEnergyUnits(energy.getRawEnergy() - energyExtracted.getRawEnergy(), dimperage);
         return energyExtracted;
     }
 
@@ -84,13 +84,13 @@ public class EnergyStorage implements IEnergyStorage, INBTSerializable<CompoundT
     public CompoundTag serializeNBT() {
         CompoundTag tag = new CompoundTag();
         tag.putFloat("CAFEnergy", this.getEnergyStored().getRawEnergy());
-        tag.putFloat("CAFEnergyAmperage", this.getEnergyStored().getRawAmperage());
+        tag.putFloat("CAFEnergyDimperage", this.getEnergyStored().getRawDimperage());
 
         return tag;
     }
 
     @Override
     public void deserializeNBT(CompoundTag nbt) {
-        this.energy = new CAFEnergyUnits(nbt.getFloat("CAFEnergy"), nbt.getFloat("CAFEnergyAmperage"));
+        this.energy = new CAFEnergyUnits(nbt.getFloat("CAFEnergy"), nbt.getFloat("CAFEnergyDimperage"));
     }
 }

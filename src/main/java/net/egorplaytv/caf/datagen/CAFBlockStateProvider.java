@@ -7,8 +7,7 @@ import net.egorplaytv.caf.block.praperties.CAFBlockStateProperties;
 import net.egorplaytv.caf.block.praperties.LanternAttachType;
 import net.egorplaytv.caf.block.praperties.TerraceAttachType;
 import net.egorplaytv.caf.block.praperties.WorktableType;
-import net.egorplaytv.caf.energy.EnergyCableBlock;
-import net.minecraft.client.resources.model.MultiPartBakedModel;
+import net.egorplaytv.caf.energy.CreativeGeneratorBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
@@ -17,7 +16,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import java.util.function.Function;
@@ -124,285 +122,313 @@ public class CAFBlockStateProvider extends BlockStateProvider {
                         .build();
             }
         });
-        getVariantBuilder(ENERGY_CABLE.get()).forAllStates(state -> {
-            String id = ENERGY_CABLE.get().getRegistryName().getPath();
-            boolean down = state.getValue(EnergyCableBlock.DOWN);
-            boolean up = state.getValue(EnergyCableBlock.UP);
-            boolean west = state.getValue(EnergyCableBlock.WEST);
-            boolean east = state.getValue(EnergyCableBlock.EAST);
-            boolean north = state.getValue(EnergyCableBlock.NORTH);
-            boolean south = state.getValue(EnergyCableBlock.SOUTH);
-            boolean x = west && east;
-            boolean y = down && up;
-            boolean z = north && south;
-
-            if (west && east && down && up && north && south) {
+        getVariantBuilder(CREATIVE_GENERATOR.get()).forAllStates(state -> {
+            Direction direction = state.getValue(CreativeGeneratorBlock.FACING);
+            if (direction.equals(Direction.NORTH)){
                 return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_xyz",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_xyz")))
+                        .modelFile(models().withExistingParent(CREATIVE_GENERATOR.get().getRegistryName().getPath(),
+                                new ResourceLocation(MOD_ID, "block/creative_generator/" + CREATIVE_GENERATOR.get().getRegistryName().getPath())))
                         .build();
-            } else if (west && down && up && north && south) {
+            } else if (direction.equals(Direction.EAST)){
                 return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_west_yz",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_wzy")))
+                        .modelFile(models().withExistingParent(CREATIVE_GENERATOR.get().getRegistryName().getPath(),
+                                new ResourceLocation(MOD_ID, "block/creative_generator/" + CREATIVE_GENERATOR.get().getRegistryName().getPath())))
+                        .rotationY(90)
                         .build();
-            } else if (east && down && up && north && south) {
+            } else if (direction.equals(Direction.SOUTH)){
                 return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_east_yz",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_ezy")))
-                        .build();
-            } else if (north && west && east && down && up) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_north_xy",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_nxy")))
-                        .build();
-            } else if (south && west && east && down && up) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_south_xy",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_sxy")))
-                        .build();
-            } else if (down && west && east && north && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_xz",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_dxz")))
-                        .build();
-            } else if (up && west && east && north && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_xz",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_uxz")))
-                        .build();
-            } else if (down && south && west && east) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_south_x",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_desw")))
-                        .build();
-            } else if (down && north && west && east) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_north_x",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_dwne")))
-                        .build();
-            } else if (down && west && north && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_west_y",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_dswn")))
-                        .build();
-            } else if (down && east && north && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_east_y",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_dnes")))
-                        .build();
-            } else if (up && south && west && east) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_south_x",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_uesw")))
-                        .build();
-            } else if (up && north && west && east) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_north_x",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_uwne")))
-                        .build();
-            } else if (up && west && north && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_west_y",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_uswn")))
-                        .build();
-            } else if (up && east && north && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_east_y",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_unes")))
-                        .build();
-            } else if (north && west && east) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_north_x",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_wne")))
-                        .build();
-            } else if (south && west && east) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_south_x",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_esw")))
-                        .build();
-            } else if (west && north && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_west_y",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_swn")))
-                        .build();
-            } else if (east && north && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_east_y",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_nes")))
-                        .build();
-            } else if (up && west && east) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_x",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_xu")))
-                        .build();
-            } else if (down && west && east) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_x",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_xd")))
-                        .build();
-            } else if (up && north && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_z",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_zu")))
-                        .build();
-            } else if (down && north && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_z",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_zd")))
-                        .build();
-            } else if (down && west && north) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_west_north",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_dwn")))
-                        .build();
-            } else if (down && west && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_west_south",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_dsw")))
-                        .build();
-            } else if (down && east && north) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_east_north",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_dne")))
-                        .build();
-            } else if (down && east && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_east_south",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_des")))
-                        .build();
-            } else if (up && west && north) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_west_north",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_uwn")))
-                        .build();
-            } else if (up && west && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_west_south",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_usw")))
-                        .build();
-            } else if (up && east && north) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_east_north",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_une")))
-                        .build();
-            } else if (up && east && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_east_south",
-                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_ues")))
-                        .build();
-            } else if (west && east) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_x",
-                                new ResourceLocation(MOD_ID, "block/wire/axis/wire_x")))
-                        .build();
-            } else if (down && up) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_y",
-                                new ResourceLocation(MOD_ID, "block/wire/axis/wire_y")))
-                        .build();
-            } else if (north && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_z",
-                                new ResourceLocation(MOD_ID, "block/wire/axis/wire_z")))
-                        .build();
-            } else if (down && north) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_north",
-                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_dn")))
-                        .build();
-            } else if (down && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_south",
-                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_ds")))
-                        .build();
-            } else if (down && west) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_west",
-                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_dw")))
-                        .build();
-            } else if (down && east) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down_east",
-                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_de")))
-                        .build();
-            } else if (up && north) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_north",
-                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_un")))
-                        .build();
-            } else if (up && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_south",
-                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_us")))
-                        .build();
-            } else if (up && west) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_west",
-                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_uw")))
-                        .build();
-            } else if (up && east) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up_east",
-                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_ue")))
-                        .build();
-            } else if (east && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_east_south",
-                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_es")))
-                        .build();
-            } else if (east && north) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_east_north",
-                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_ne")))
-                        .build();
-            } else if (west && south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_west_south",
-                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_sw")))
-                        .build();
-            } else if (west && north) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_west_north",
-                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_wn")))
-                        .build();
-            } else if (down) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_down",
-                                new ResourceLocation(MOD_ID, "block/wire/wire_d")))
-                        .build();
-            } else if (up) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_up",
-                                new ResourceLocation(MOD_ID, "block/wire/wire_u")))
-                        .build();
-            } else if (west) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_west",
-                                new ResourceLocation(MOD_ID, "block/wire/wire_w")))
-                        .build();
-            } else if (east) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_east",
-                                new ResourceLocation(MOD_ID, "block/wire/wire_e")))
-                        .build();
-            } else if (north) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_north",
-                                new ResourceLocation(MOD_ID, "block/wire/wire_n")))
-                        .build();
-            } else if (south) {
-                return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_south",
-                                new ResourceLocation(MOD_ID, "block/wire/wire_s")))
+                        .modelFile(models().withExistingParent(CREATIVE_GENERATOR.get().getRegistryName().getPath(),
+                                new ResourceLocation(MOD_ID, "block/creative_generator/" + CREATIVE_GENERATOR.get().getRegistryName().getPath())))
+                        .rotationY(180)
                         .build();
             } else {
                 return ConfiguredModel.builder()
-                        .modelFile(models().withExistingParent(id + "_single",
-                                new ResourceLocation(MOD_ID, "block/wire/wire_single")))
+                        .modelFile(models().withExistingParent(CREATIVE_GENERATOR.get().getRegistryName().getPath(),
+                                new ResourceLocation(MOD_ID, "block/creative_generator/" + CREATIVE_GENERATOR.get().getRegistryName().getPath())))
+                        .rotationY(270)
                         .build();
             }
         });
+
+//        getVariantBuilder(ENERGY_CABLE.get()).forAllStates(state -> {
+//            String id = ENERGY_CABLE.get().getRegistryName().getPath();
+//            boolean down = state.getValue(EnergyCableBlock.DOWN);
+//            boolean up = state.getValue(EnergyCableBlock.UP);
+//            boolean west = state.getValue(EnergyCableBlock.WEST);
+//            boolean east = state.getValue(EnergyCableBlock.EAST);
+//            boolean north = state.getValue(EnergyCableBlock.NORTH);
+//            boolean south = state.getValue(EnergyCableBlock.SOUTH);
+//            boolean x = west && east;
+//            boolean y = down && up;
+//            boolean z = north && south;
+//
+//            if (west && east && down && up && north && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_xyz",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_xyz")))
+//                        .build();
+//            } else if (west && down && up && north && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_west_yz",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_wzy")))
+//                        .build();
+//            } else if (east && down && up && north && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_east_yz",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_ezy")))
+//                        .build();
+//            } else if (north && west && east && down && up) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_north_xy",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_nxy")))
+//                        .build();
+//            } else if (south && west && east && down && up) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_south_xy",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_sxy")))
+//                        .build();
+//            } else if (down && west && east && north && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_xz",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_dxz")))
+//                        .build();
+//            } else if (up && west && east && north && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_xz",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_uxz")))
+//                        .build();
+//            } else if (down && south && west && east) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_south_x",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_desw")))
+//                        .build();
+//            } else if (down && north && west && east) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_north_x",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_dwne")))
+//                        .build();
+//            } else if (down && west && north && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_west_y",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_dswn")))
+//                        .build();
+//            } else if (down && east && north && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_east_y",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_dnes")))
+//                        .build();
+//            } else if (up && south && west && east) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_south_x",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_uesw")))
+//                        .build();
+//            } else if (up && north && west && east) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_north_x",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_uwne")))
+//                        .build();
+//            } else if (up && west && north && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_west_y",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_uswn")))
+//                        .build();
+//            } else if (up && east && north && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_east_y",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/wire_unes")))
+//                        .build();
+//            } else if (north && west && east) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_north_x",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_wne")))
+//                        .build();
+//            } else if (south && west && east) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_south_x",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_esw")))
+//                        .build();
+//            } else if (west && north && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_west_y",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_swn")))
+//                        .build();
+//            } else if (east && north && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_east_y",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_nes")))
+//                        .build();
+//            } else if (up && west && east) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_x",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_xu")))
+//                        .build();
+//            } else if (down && west && east) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_x",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_xd")))
+//                        .build();
+//            } else if (up && north && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_z",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_zu")))
+//                        .build();
+//            } else if (down && north && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_z",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/tee_xyz/wire_zd")))
+//                        .build();
+//            } else if (down && west && north) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_west_north",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_dwn")))
+//                        .build();
+//            } else if (down && west && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_west_south",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_dsw")))
+//                        .build();
+//            } else if (down && east && north) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_east_north",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_dne")))
+//                        .build();
+//            } else if (down && east && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_east_south",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_des")))
+//                        .build();
+//            } else if (up && west && north) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_west_north",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_uwn")))
+//                        .build();
+//            } else if (up && west && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_west_south",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_usw")))
+//                        .build();
+//            } else if (up && east && north) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_east_north",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_une")))
+//                        .build();
+//            } else if (up && east && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_east_south",
+//                                new ResourceLocation(MOD_ID, "block/wire/corner/xyz/wire_ues")))
+//                        .build();
+//            } else if (west && east) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_x",
+//                                new ResourceLocation(MOD_ID, "block/wire/axis/wire_x")))
+//                        .build();
+//            } else if (down && up) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_y",
+//                                new ResourceLocation(MOD_ID, "block/wire/axis/wire_y")))
+//                        .build();
+//            } else if (north && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_z",
+//                                new ResourceLocation(MOD_ID, "block/wire/axis/wire_z")))
+//                        .build();
+//            } else if (down && north) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_north",
+//                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_dn")))
+//                        .build();
+//            } else if (down && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_south",
+//                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_ds")))
+//                        .build();
+//            } else if (down && west) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_west",
+//                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_dw")))
+//                        .build();
+//            } else if (down && east) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down_east",
+//                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_de")))
+//                        .build();
+//            } else if (up && north) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_north",
+//                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_un")))
+//                        .build();
+//            } else if (up && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_south",
+//                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_us")))
+//                        .build();
+//            } else if (up && west) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_west",
+//                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_uw")))
+//                        .build();
+//            } else if (up && east) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up_east",
+//                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_ue")))
+//                        .build();
+//            } else if (east && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_east_south",
+//                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_es")))
+//                        .build();
+//            } else if (east && north) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_east_north",
+//                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_ne")))
+//                        .build();
+//            } else if (west && south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_west_south",
+//                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_sw")))
+//                        .build();
+//            } else if (west && north) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_west_north",
+//                                new ResourceLocation(MOD_ID, "block/wire/turn/wire_wn")))
+//                        .build();
+//            } else if (down) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_down",
+//                                new ResourceLocation(MOD_ID, "block/wire/wire_d")))
+//                        .build();
+//            } else if (up) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_up",
+//                                new ResourceLocation(MOD_ID, "block/wire/wire_u")))
+//                        .build();
+//            } else if (west) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_west",
+//                                new ResourceLocation(MOD_ID, "block/wire/wire_w")))
+//                        .build();
+//            } else if (east) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_east",
+//                                new ResourceLocation(MOD_ID, "block/wire/wire_e")))
+//                        .build();
+//            } else if (north) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_north",
+//                                new ResourceLocation(MOD_ID, "block/wire/wire_n")))
+//                        .build();
+//            } else if (south) {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_south",
+//                                new ResourceLocation(MOD_ID, "block/wire/wire_s")))
+//                        .build();
+//            } else {
+//                return ConfiguredModel.builder()
+//                        .modelFile(models().withExistingParent(id + "_single",
+//                                new ResourceLocation(MOD_ID, "block/wire/wire_single")))
+//                        .build();
+//            }
+//        });
         customBlock(COBBLED_MARBLE.get(), "block/marbles");
         customBlock(COBBLED_MARBLE_BLACK_GALAXY.get(), "block/marbles");
         customBlock(COBBLED_MARBLE_PERLIN_PINK.get(), "block/marbles");

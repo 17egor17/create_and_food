@@ -50,7 +50,7 @@ public class CombiSteamerEnergyCommunicationBlockEntity extends BlockEntity {
     @Override
     protected void saveAdditional(CompoundTag tag) {
         tag.putFloat("CAFEnergy", energyStorage.getEnergyStored().getRawEnergy());
-        tag.putFloat("CAFEnergyAmperage", energyStorage.getEnergyStored().getRawAmperage());
+        tag.putFloat("CAFEnergyAmperage", energyStorage.getEnergyStored().getRawDimperage());
         super.saveAdditional(tag);
     }
 

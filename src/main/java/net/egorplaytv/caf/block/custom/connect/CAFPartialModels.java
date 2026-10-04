@@ -23,7 +23,7 @@ public class CAFPartialModels {
             GRINDER_BELT_ACTIVE = block("mechanical_grinder/belt_active"),
             GRINDER_BELT_INACTIVE = block("mechanical_grinder/belt_inactive"),
             GRINDER_BELT_REVERSED = block("mechanical_grinder/belt_reversed"),
-            ENERGY_CONVERTOR_SHAFT = block("energy_convertor/shaft")
+            KINETIC_GENERATOR_SHAFT = block("kinetic_generator/shaft")
             ;
 
     static {

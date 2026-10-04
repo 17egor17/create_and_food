@@ -37,9 +37,8 @@ public final class ModItemModelsProperties {
         }
     }
 
-    public static void registerSequencedAssemblyProgress(Item item) {
-        SequencedAssemblyItem assemblyItem = (SequencedAssemblyItem) item;
+    public static void registerSequencedAssemblyProgress(SequencedAssemblyItem item) {
         ItemProperties.register(item.asItem(), SEQUENCED_ASSEMBLY_PROGRESS_PREDICATE_ID,
-                (is, level, p, s) -> assemblyItem.getStep(is));
+                (is, level, p, s) -> item.getStep(is));
     }
 }

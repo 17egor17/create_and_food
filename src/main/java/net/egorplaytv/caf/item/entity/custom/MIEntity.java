@@ -68,6 +68,8 @@ public class MIEntity extends CAFItemEntity {
         } else {
             if (deg > 24)
                 deg -= 0.01F;
+            else if (deg < 24)
+                deg += 0.01F;
             is.getOrCreateTag().putFloat(TAG_DEGREE, deg);
         }
 

@@ -69,7 +69,7 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
         }
     }
     private void degrees(MarbleFurnaceRecipe recipe, PoseStack stack, int x, int y) {
-        float degC = recipe.getDeg().getDegree();
+        float degC = recipe.getDeg().getDegreeInC();
         float degF = degC*1.8F+32;
         float degK = degC+273.15F;
         TranslatableComponent timeStringC = new TranslatableComponent("jei.caf.blasting.degC", degC);
@@ -126,7 +126,7 @@ public class MarbleBlastFurnaceRecipeCategory implements IRecipeCategory<MarbleF
             builder.addSlot(RecipeIngredientRole.INPUT, 21, 31).addIngredients(recipe.getIngredients().get(2));
         }
         if (recipe.getResultItem().getItem() instanceof MetalItem item) {
-            item.setDeg(recipe.getResultItem(), recipe.getDeg().getDegree() - 50);
+            item.setDeg(recipe.getResultItem(), recipe.getDeg().getDegreeInC() - 50);
         }
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 91, 37).addItemStack(recipe.getResultItem());

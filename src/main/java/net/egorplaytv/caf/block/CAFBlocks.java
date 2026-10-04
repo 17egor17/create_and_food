@@ -32,8 +32,9 @@ import net.egorplaytv.caf.block.custom.worktable.WorktableBlock;
 import net.egorplaytv.caf.block.entity.CAFBlockEntities;
 import net.egorplaytv.caf.block.entity.CAFWoodTypes;
 import net.egorplaytv.caf.content.kinetics.grinder.GrinderGenerator;
-import net.egorplaytv.caf.block.custom.EnergyConvertorBlock;
-import net.egorplaytv.caf.energy.EnergyCableBlock;
+import net.egorplaytv.caf.energy.CableBlock;
+import net.egorplaytv.caf.energy.CreativeGeneratorBlock;
+import net.egorplaytv.caf.energy.KineticGeneratorBlock;
 import net.egorplaytv.caf.item.CAFCreativeModeTab;
 import net.egorplaytv.caf.item.CAFItems;
 import net.egorplaytv.caf.item.custom.CAFCogwheelBlockItem;
@@ -210,11 +211,14 @@ public class CAFBlocks {
     public static BlockEntry<GrinderBlock> MECHANICAL_GRINDER;
 
 
-    public static BlockEntry<EnergyConvertorBlock> ENERGY_CONVERTOR;
-//    public static BlockEntry<CopperWireBlock> WIRE_BLOCK;
+    public static BlockEntry<KineticGeneratorBlock> KINETIC_GENERATOR;
 
-    public static final RegistryObject<EnergyCableBlock> ENERGY_CABLE = registryBlock("energy_cable",
-            () -> new EnergyCableBlock(BlockBehaviour.Properties.of(Material.WOOL)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+    public static final RegistryObject<CreativeGeneratorBlock> CREATIVE_GENERATOR = registryBlock("creative_generator",
+            () -> new CreativeGeneratorBlock(BlockBehaviour.Properties.of(Material.METAL)), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+
+    public static final RegistryObject<CableBlock> CABLE_BLOCK = registryBlock("cable",
+            () -> new CableBlock(1000F, BlockBehaviour.Properties.of(Material.WOOL)),
+            CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
     public static BlockEntry<CasingBlock> ALLOY_SOULS_CASING;
     public static BlockEntry<ConnectedGlassBlock> ALLOY_SOULS_GLASS;
@@ -650,35 +654,35 @@ public class CAFBlocks {
     static {
         REGISTRATE.creativeModeTab(() -> CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
-        ENERGY_CONVERTOR = REGISTRATE.block("energy_convertor", EnergyConvertorBlock::new)
+        KINETIC_GENERATOR = REGISTRATE.block("kinetic_generator", KineticGeneratorBlock::new)
                 .initialProperties(Material.STONE)
                 .properties(p -> p.strength(2.0F, 6.0F).noOcclusion())
-                .transform(BlockStressDefaults.setImpact(2.0))
+                .transform(BlockStressDefaults.setImpact(4.0))
                 .transform(axeOrPickaxe())
                 .blockstate((c, p) ->
                         p.getVariantBuilder(c.get()).forAllStates(state -> {
-                            Direction facing = state.getValue(EnergyConvertorBlock.HORIZONTAL_FACING);
+                            Direction facing = state.getValue(KineticGeneratorBlock.FACING);
                             if (facing == Direction.EAST) {
                                 return ConfiguredModel.builder()
                                         .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath(),
-                                                new ResourceLocation(MOD_ID, "block/energy_convertor/block")))
+                                                new ResourceLocation(MOD_ID, "block/kinetic_generator/block")))
                                         .rotationY(270)
                                         .build();
                             } else if (facing == Direction.SOUTH) {
                                 return ConfiguredModel.builder()
                                         .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath(),
-                                                new ResourceLocation(MOD_ID, "block/energy_convertor/block")))
+                                                new ResourceLocation(MOD_ID, "block/kinetic_generator/block")))
                                         .build();
                             } else if (facing == Direction.WEST) {
                                 return ConfiguredModel.builder()
                                         .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath(),
-                                                new ResourceLocation(MOD_ID, "block/energy_convertor/block")))
+                                                new ResourceLocation(MOD_ID, "block/kinetic_generator/block")))
                                         .rotationY(90)
                                         .build();
                             } else {
                                 return ConfiguredModel.builder()
                                         .modelFile(p.models().withExistingParent(c.get().getRegistryName().getPath(),
-                                                new ResourceLocation(MOD_ID, "block/energy_convertor/block")))
+                                                new ResourceLocation(MOD_ID, "block/kinetic_generator/block")))
                                         .rotationY(180)
                                         .build();
                             }
@@ -687,65 +691,6 @@ public class CAFBlocks {
                 .transform(customItemModel())
                 .register();
 
-//        WIRE_BLOCK = REGISTRATE.block("wire", CopperWireBlock::new)
-//                .initialProperties(Material.WOOL)
-//                .properties(p -> p.strength(2.0F, 6.0F).noOcclusion())
-//                .transform(axeOrPickaxe())
-//                .blockstate((c, p) -> {
-//                        ModelFile.ExistingModelFile wireConnect = p.models()
-//                                .getExistingFile(new ResourceLocation(MOD_ID, "block/wire/wire_connect"));
-//                        ModelFile.ExistingModelFile wireSingle = p.models()
-//                                .getExistingFile(new ResourceLocation(MOD_ID, "block/wire/wire_single"));
-//
-//                        p.getMultipartBuilder(c.get())
-//                                .part()
-//                                .modelFile(wireSingle)
-//                                .addModel()
-//                                .end()
-//
-//                                .part()
-//                                .modelFile(wireConnect)
-//                                .addModel()
-//                                .condition(EnergyWireBlock.NORTH, true)
-//                                .end()
-//
-//                                .part()
-//                                .modelFile(wireConnect)
-//                                .rotationY(90)
-//                                .addModel()
-//                                .condition(EnergyWireBlock.EAST, true)
-//                                .end()
-//
-//                                .part()
-//                                .modelFile(wireConnect)
-//                                .rotationY(180)
-//                                .addModel()
-//                                .condition(EnergyWireBlock.SOUTH, true)
-//                                .end()
-//
-//                                .part()
-//                                .modelFile(wireConnect)
-//                                .rotationY(270)
-//                                .addModel()
-//                                .condition(EnergyWireBlock.WEST, true)
-//                                .end()
-//
-//                                .part()
-//                                .modelFile(wireConnect)
-//                                .rotationX(270)
-//                                .addModel()
-//                                .condition(EnergyWireBlock.UP, true)
-//                                .end()
-//
-//                                .part()
-//                                .modelFile(wireConnect)
-//                                .rotationX(90)
-//                                .addModel()
-//                                .condition(EnergyWireBlock.DOWN, true)
-//                                .end();
-//                }).item()
-//                .transform(customItemModel())
-//                .register();
 
         STEEL_SHAFT = REGISTRATE.block("steel_shaft", CAFShaftBlock::new)
                 .initialProperties(SharedProperties::stone)

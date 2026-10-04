@@ -7,7 +7,7 @@ import net.minecraft.util.GsonHelper;
 
 public class CAFEnergyUnits {
     private float energy;
-    private float amperage;
+    private float dimperage;
 
     public static CAFEnergyUnits EMPTY = new CAFEnergyUnits(0F, 0F);
 
@@ -15,9 +15,9 @@ public class CAFEnergyUnits {
         this(energy, 0F);
     }
 
-    public CAFEnergyUnits(float energy, float amperage) {
+    public CAFEnergyUnits(float energy, float dimperage) {
         this.energy = energy;
-        this.amperage = amperage;
+        this.dimperage = dimperage;
     }
 
     public float getRawEnergy() {
@@ -32,20 +32,20 @@ public class CAFEnergyUnits {
         this.energy = energy;
     }
 
-    public float getRawAmperage() {
-        return this.amperage;
+    public float getRawDimperage() {
+        return this.dimperage;
     }
 
-    public float getAmperage() {
-        return ((Math.round(this.amperage * 100)) / 100F);
+    public float getDimperage() {
+        return ((Math.round(this.dimperage * 100)) / 100F);
     }
 
-    public void setAmperage(float amperage) {
-        this.amperage = amperage;
+    public void setDimperage(float dimperage) {
+        this.dimperage = dimperage;
     }
 
     public float getValueDamage() {
-        return ((amperage * getRawEnergy()) / ((getRawEnergy() / 2) * 1000));
+        return ((dimperage * getRawEnergy()) / ((getRawEnergy() / 2) * 1000));
     }
 
     public boolean isEmpty() {
@@ -53,18 +53,18 @@ public class CAFEnergyUnits {
     }
 
     public CAFEnergyUnits copy() {
-        return new CAFEnergyUnits(getRawEnergy(), getRawAmperage());
+        return new CAFEnergyUnits(getRawEnergy(), getRawDimperage());
     }
 
     public boolean is(CAFEnergyUnits energy) {
-        return this.energy == energy.energy && this.amperage == energy.amperage;
+        return this.energy == energy.energy && this.dimperage == energy.dimperage;
     }
 
 
 
     public static CAFEnergyUnits fromJson(JsonObject json) {
         return new CAFEnergyUnits(GsonHelper.getAsFloat(json, "CAFEnergy", 100),
-                GsonHelper.getAsFloat(json, "CAFEnergyAmperage", 100));
+                GsonHelper.getAsFloat(json, "CAFEnergyDimperage", 100));
     }
 
     public static CAFEnergyUnits fromNetwork(FriendlyByteBuf buf) {
@@ -73,12 +73,12 @@ public class CAFEnergyUnits {
 
     public static void toNetwork(FriendlyByteBuf buf, CAFEnergyUnits value) {
         buf.writeFloat(value.getRawEnergy());
-        buf.writeFloat(value.getRawAmperage());
+        buf.writeFloat(value.getRawDimperage());
     }
 
     public CompoundTag writeToNBT(CompoundTag nbt) {
         nbt.putFloat("CAFEnergy", getRawEnergy());
-        nbt.putFloat("CAFEnergyAmperage", getRawAmperage());
+        nbt.putFloat("CAFEnergyDimperage", getRawDimperage());
         return nbt;
     }
 
@@ -86,6 +86,6 @@ public class CAFEnergyUnits {
         if (nbt == null)
             return CAFEnergyUnits.EMPTY;
 
-        return new CAFEnergyUnits(nbt.getFloat("CAFEnergy"), nbt.getFloat("CAFEnergyAmperage"));
+        return new CAFEnergyUnits(nbt.getFloat("CAFEnergy"), nbt.getFloat("CAFEnergyDimperage"));
     }
 }

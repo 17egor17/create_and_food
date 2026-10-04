@@ -49,6 +49,9 @@ public class TextUtils {
     public static MutableComponent getModTranslation(String key, Object... args) {
         return new TranslatableComponent(MOD_ID + "." + key, args);
     }
+    public static MutableComponent getUnitsTranslation(String key, Object... args) {
+        return new TranslatableComponent(MOD_ID + ".generic.unit." + key, args);
+    }
     public static MutableComponent getBerryBushTranslation(String key, Object... args) {
         return new TranslatableComponent(MOD_ID + ".berry_bush." + key, args);
     }

@@ -282,7 +282,7 @@ public class CAFItemModelProvider extends ItemModelProvider {
         blockItem(SPRUCE_BARREL.get(), "barrels");
         blockItem(WARPED_BARREL.get(), "barrels");
         blockItem(TERMINAL.get(), "terminal", "terminal_item");
-        blockItem(ENERGY_CABLE.get(), "wire", "item");
+        blockItem(CREATIVE_GENERATOR.get(), "creative_generator");
         blockItem(COBBLED_MARBLE.get(), "marbles");
         blockItem(COBBLED_MARBLE_BLACK_GALAXY.get(), "marbles");
         blockItem(COBBLED_MARBLE_PERLIN_PINK.get(), "marbles");
