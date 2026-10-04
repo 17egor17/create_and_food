@@ -21,7 +21,7 @@ public class DependentItem extends Item {
             depend = d;
         }
         if (depend) {
-            super.fillItemCategory(category, pItems);
+            super.fillItemCategory(pCategory, pItems);
         }
     }
 }

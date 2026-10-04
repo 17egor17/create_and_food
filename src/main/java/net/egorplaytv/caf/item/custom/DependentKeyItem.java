@@ -20,7 +20,7 @@ public class DependentKeyItem extends KeyItem {
             depend = d;
         }
         if (depend) {
-            super.fillItemCategory(category, pItems);
+            super.fillItemCategory(pCategory, pItems);
         }
     }
 }
