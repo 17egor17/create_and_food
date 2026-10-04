@@ -3,6 +3,7 @@ package net.egorplaytv.caf.item;
 import net.egorplaytv.caf.block.CAFBlocks;
 //import net.minecraft.core.registries.Registries;
 import net.egorplaytv.caf.block.ShingleBlocks;
+import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 

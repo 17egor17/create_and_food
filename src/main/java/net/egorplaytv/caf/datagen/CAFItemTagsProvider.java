@@ -161,11 +161,11 @@ public class CAFItemTagsProvider extends TagsProvider<Item> {
                 .add(Items.COAL_BLOCK).add(CAFItems.ALLOY_SOULS_NUGGET.get())
                 .add(CAFItems.ALLOY_SOULS.get()).add(CAFItems.ALLOY_SOULS_INGOT.get())
                 .add(CAFItems.ALLOY_SOULS_SHEET.get()).add(AllItems.BLAZE_CAKE.get());
-        this.tag(CAFTags.Items.RED_JUICE)
+        this.tag(CAFTags.Items.GRAPES_RED_JUICE)
                 .add(CAFItems.BLUE_GRAPE.get()).add(CAFItems.PURPLE_GRAPE.get())
                 .add(CAFItems.RED_GRAPE.get());
-        this.tag(CAFTags.Items.WHITE_JUICE).add(CAFItems.GREEN_GRAPE.get());
-        this.tag(CAFTags.Items.GRAPES).addTag(CAFTags.Items.RED_JUICE).addTag(CAFTags.Items.WHITE_JUICE);
+        this.tag(CAFTags.Items.GRAPES_WHITE_JUICE).add(CAFItems.GREEN_GRAPE.get());
+        this.tag(CAFTags.Items.GRAPES).addTag(CAFTags.Items.GRAPES_RED_JUICE).addTag(CAFTags.Items.GRAPES_WHITE_JUICE);
         this.tag(CAFTags.Items.TERRACES)
                 .add(CAFBlocks.ACACIA_TERRACE.get().asItem()).add(CAFBlocks.ACACIA_TERRACE_STAIRS.get().asItem())
                 .add(CAFBlocks.ALMOND_TERRACE.get().asItem()).add(CAFBlocks.ALMOND_TERRACE_STAIRS.get().asItem())
@@ -236,6 +236,34 @@ public class CAFItemTagsProvider extends TagsProvider<Item> {
         this.tag(CAFTags.Items.TOOLS_KNIVES).addTag(ModTags.KNIVES);
         this.tag(CAFTags.Items.TORCHES_SOUL).add(Items.SOUL_TORCH);
         this.tag(CAFTags.Items.TORCHES_TORCH).add(Items.TORCH);
+        this.tag(CAFTags.Items.KEYS).addTag(CAFTags.Items.KEYS_ALUMINUM)
+                .addTag(CAFTags.Items.KEYS_ANDESITE).addTag(CAFTags.Items.KEYS_BRASS)
+                .addTag(CAFTags.Items.KEYS_BRONZE).addTag(CAFTags.Items.KEYS_COPPER)
+                .addTag(CAFTags.Items.KEYS_GOLDEN).addTag(CAFTags.Items.KEYS_IRON)
+                .addTag(CAFTags.Items.KEYS_SILVER).addTag(CAFTags.Items.KEYS_STEEL);
+        this.tag(CAFTags.Items.KEYS_ALUMINUM).add(CAFItems.ALUMINUM_KEY.get());
+        this.tag(CAFTags.Items.KEYS_ANDESITE).add(CAFItems.ANDESITE_KEY.get());
+        this.tag(CAFTags.Items.KEYS_BRASS).add(CAFItems.BRASS_KEY.get());
+        this.tag(CAFTags.Items.KEYS_BRONZE).add(CAFItems.BRONZE_KEY.get());
+        this.tag(CAFTags.Items.KEYS_COPPER).add(CAFItems.COPPER_KEY.get());
+        this.tag(CAFTags.Items.KEYS_GOLDEN).add(CAFItems.GOLDEN_KEY.get());
+        this.tag(CAFTags.Items.KEYS_IRON).add(CAFItems.IRON_KEY.get());
+        this.tag(CAFTags.Items.KEYS_SILVER).add(CAFItems.SILVER_KEY.get());
+        this.tag(CAFTags.Items.KEYS_STEEL).add(CAFItems.STEEL_KEY.get());
+        this.tag(CAFTags.Items.KEY_BLANKS).addTag(CAFTags.Items.KEY_BLANKS_ALUMINUM)
+                .addTag(CAFTags.Items.KEY_BLANKS_ANDESITE).addTag(CAFTags.Items.KEY_BLANKS_BRASS)
+                .addTag(CAFTags.Items.KEY_BLANKS_BRONZE).addTag(CAFTags.Items.KEY_BLANKS_COPPER)
+                .addTag(CAFTags.Items.KEY_BLANKS_GOLDEN).addTag(CAFTags.Items.KEY_BLANKS_IRON)
+                .addTag(CAFTags.Items.KEY_BLANKS_SILVER).addTag(CAFTags.Items.KEY_BLANKS_STEEL);
+        this.tag(CAFTags.Items.KEY_BLANKS_ALUMINUM).add(CAFItems.ALUMINUM_KEY_BLANK.get());
+        this.tag(CAFTags.Items.KEY_BLANKS_ANDESITE).add(CAFItems.ANDESITE_KEY_BLANK.get());
+        this.tag(CAFTags.Items.KEY_BLANKS_BRASS).add(CAFItems.BRASS_KEY_BLANK.get());
+        this.tag(CAFTags.Items.KEY_BLANKS_BRONZE).add(CAFItems.BRONZE_KEY_BLANK.get());
+        this.tag(CAFTags.Items.KEY_BLANKS_COPPER).add(CAFItems.COPPER_KEY_BLANK.get());
+        this.tag(CAFTags.Items.KEY_BLANKS_GOLDEN).add(CAFItems.GOLDEN_KEY_BLANK.get());
+        this.tag(CAFTags.Items.KEY_BLANKS_IRON).add(CAFItems.IRON_KEY_BLANK.get());
+        this.tag(CAFTags.Items.KEY_BLANKS_SILVER).add(CAFItems.SILVER_KEY_BLANK.get());
+        this.tag(CAFTags.Items.KEY_BLANKS_STEEL).add(CAFItems.STEEL_KEY_BLANK.get());
 
     }
 

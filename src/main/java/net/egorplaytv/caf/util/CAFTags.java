@@ -143,23 +143,43 @@ public class CAFTags {
         public static final TagKey<Item> TORCHES_TORCH = forgeTag("torches/torch");
 
         // Create And Food Tags
-        public static final TagKey<Item> RED_JUICE = modTag("grapes/red_juice");
-        public static final TagKey<Item> WHITE_JUICE = modTag("grapes/white_juice");
-        public static final TagKey<Item> GRAPES = modTag("grapes");
-        public static final TagKey<Item> EGG = modTag("eggs/egg");
-        public static final TagKey<Item> SPAWN_EGGS = modTag("eggs/spawn_eggs");
-        public static final TagKey<Item> TURTLE_EGG = modTag("eggs/turtle_egg");
-        public static final TagKey<Item> EGGS = modTag("eggs");
         public static final TagKey<Item> ALMOND_LOGS = modTag("almond_logs");
-        public static final TagKey<Item> MOD_BERRIES = modTag("berries");
+        public static final TagKey<Item> BARRELS = modTag("barrels");
+        public static final TagKey<Item> CREATIVE_FUEL = modTag("creative_fuel");
+        public static final TagKey<Item> CUTTING_BOARDS = modTag("cutting_boards");
+        public static final TagKey<Item> EGG = modTag("eggs/egg");
+        public static final TagKey<Item> EGGS = modTag("eggs");
+        public static final TagKey<Item> FUEL = modTag("fuel");
+        public static final TagKey<Item> GRAPES = modTag("grapes");
+        public static final TagKey<Item> GRAPES_RED_JUICE = modTag("grapes/red_juice");
+        public static final TagKey<Item> GRAPES_WHITE_JUICE = modTag("grapes/white_juice");
+        public static final TagKey<Item> KEYS = modTag("keys");
+        public static final TagKey<Item> KEYS_ALUMINUM = modTag("keys/aluminum");
+        public static final TagKey<Item> KEYS_ANDESITE = modTag("keys/andesite");
+        public static final TagKey<Item> KEYS_BRASS = modTag("keys/brass");
+        public static final TagKey<Item> KEYS_BRONZE = modTag("keys/bronze");
+        public static final TagKey<Item> KEYS_COPPER = modTag("keys/copper");
+        public static final TagKey<Item> KEYS_GOLDEN = modTag("keys/golden");
+        public static final TagKey<Item> KEYS_IRON = modTag("keys/iron");
+        public static final TagKey<Item> KEYS_SILVER = modTag("keys/silver");
+        public static final TagKey<Item> KEYS_STEEL = modTag("keys/steel");
+        public static final TagKey<Item> KEY_BLANKS = modTag("key_blanks");
+        public static final TagKey<Item> KEY_BLANKS_ALUMINUM = modTag("key_blanks/aluminum");
+        public static final TagKey<Item> KEY_BLANKS_ANDESITE = modTag("key_blanks/andesite");
+        public static final TagKey<Item> KEY_BLANKS_BRASS = modTag("key_blanks/brass");
+        public static final TagKey<Item> KEY_BLANKS_BRONZE = modTag("key_blanks/bronze");
+        public static final TagKey<Item> KEY_BLANKS_COPPER = modTag("key_blanks/copper");
+        public static final TagKey<Item> KEY_BLANKS_GOLDEN = modTag("key_blanks/golden");
+        public static final TagKey<Item> KEY_BLANKS_IRON = modTag("key_blanks/iron");
+        public static final TagKey<Item> KEY_BLANKS_SILVER = modTag("key_blanks/silver");
+        public static final TagKey<Item> KEY_BLANKS_STEEL = modTag("key_blanks/steel");
         public static final TagKey<Item> MARBLE = modTag("stone_types/marble");
         public static final TagKey<Item> MARBLE_BLACK_GALAXY = modTag("stone_types/marble_black_galaxy");
         public static final TagKey<Item> MARBLE_PERLIN_PINK = modTag("stone_types/marble_perlin_pink");
-        public static final TagKey<Item> BARRELS = modTag("barrels");
-        public static final TagKey<Item> CUTTING_BOARDS = modTag("cutting_boards");
+        public static final TagKey<Item> MOD_BERRIES = modTag("berries");
+        public static final TagKey<Item> SPAWN_EGGS = modTag("eggs/spawn_eggs");
+        public static final TagKey<Item> TURTLE_EGG = modTag("eggs/turtle_egg");
         public static final TagKey<Item> TERRACES = modTag("terraces");
-        public static final TagKey<Item> FUEL = modTag("fuel");
-        public static final TagKey<Item> CREATIVE_FUEL = modTag("creative_fuel");
 
         // Minecraft Tags
         public static final TagKey<Item> FENCE_GATES = tag("fence_gates");

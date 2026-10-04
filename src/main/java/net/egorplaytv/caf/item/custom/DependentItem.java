@@ -1,0 +1,27 @@
+package net.egorplaytv.caf.item.custom;
+
+import net.minecraft.core.NonNullList;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+
+public class DependentItem extends Item {
+    private final Boolean[] dependent;
+
+    public DependentItem(Properties pProperties, Boolean... dependent) {
+        super(pProperties);
+        this.dependent = dependent;
+    }
+
+    @Override
+    public void fillItemCategory(CreativeModeTab pCategory, NonNullList<ItemStack> pItems) {
+        boolean depend = false;
+
+        for (boolean d : dependent) {
+            depend = d;
+        }
+        if (depend) {
+            super.fillItemCategory(category, pItems);
+        }
+    }
+}

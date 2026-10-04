@@ -1,6 +1,6 @@
 package net.egorplaytv.caf.event;
 
-import net.egorplaytv.caf.item.custom.interfaces.IMetalItem;
+import net.egorplaytv.caf.item.custom.interfaces.ITickableItem;
 import net.minecraft.server.level.ChunkHolder;
 import net.minecraft.server.level.ChunkMap;
 import net.minecraft.server.level.ServerLevel;
@@ -54,7 +54,7 @@ public class TickableItemHandler {
                         for (int i = 0; i < container.getContainerSize(); i++) {
                             ItemStack stack = container.getItem(i);
                             if (!stack.isEmpty()
-                                    && stack.getItem() instanceof IMetalItem ticking) {
+                                    && stack.getItem() instanceof ITickableItem ticking) {
                                 ticking.tickInInventory(stack, serverLevel);
                                 changed = true;
                             }

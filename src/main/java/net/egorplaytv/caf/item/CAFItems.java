@@ -334,6 +334,7 @@ public class CAFItems {
                     CreateAndFood.THIsPresent));
 
 
+
     public static final RegistryObject<MetalItem> STEEL_INGOT = registerItem("steel_ingot",
             () -> new MetalItem(1520F, Type.INGOT, Metals.STEEL, new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
@@ -391,14 +392,79 @@ public class CAFItems {
     public static final RegistryObject<Item> STEEL_COIL = registerItem("steel_coil",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
-    public static final RegistryObject<IEDependentIngredientItem> ELECTRUM_COIL = registerItem("electrum_coil",
-            () -> new IEDependentIngredientItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+    public static final RegistryObject<Item> ELECTRUM_COIL = registerItem("electrum_coil",
+            () -> new DependentItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.IEIsPresent));
 
-    public static final RegistryObject<IEDependentIngredientItem> ALUMINUM_COIL = registerItem("aluminum_coil",
-            () -> new IEDependentIngredientItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+    public static final RegistryObject<Item> ALUMINUM_COIL = registerItem("aluminum_coil",
+            () -> new DependentItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.IEIsPresent));
 
     public static final RegistryObject<Item> COPPER_COIL = registerItem("copper_coil",
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+
+    public static final RegistryObject<KeyItem> ALUMINUM_KEY = registerItem("aluminum_key",
+            () -> new DependentKeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.IEIsPresent));
+
+    public static final RegistryObject<KeyItem> ANDESITE_KEY = registerItem("andesite_key",
+            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<KeyItem> BRASS_KEY = registerItem("brass_key",
+            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<KeyItem> BRONZE_KEY = registerItem("bronze_key",
+            () -> new DependentKeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.MEKIsPresent, CreateAndFood.THIsPresent));
+
+    public static final RegistryObject<KeyItem> COPPER_KEY = registerItem("copper_key",
+            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<KeyItem> GOLDEN_KEY = registerItem("golden_key",
+            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<KeyItem> IRON_KEY = registerItem("iron_key",
+            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<KeyItem> SILVER_KEY = registerItem("silver_key",
+            () -> new DependentKeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.THIsPresent, CreateAndFood.IEIsPresent));
+
+    public static final RegistryObject<KeyItem> STEEL_KEY = registerItem("steel_key",
+            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> ALUMINUM_KEY_BLANK = registerItem("aluminum_key_blank",
+            () -> new DependentItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.IEIsPresent));
+
+    public static final RegistryObject<Item> ANDESITE_KEY_BLANK = registerItem("andesite_key_blank",
+            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> BRASS_KEY_BLANK = registerItem("brass_key_blank",
+            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> BRONZE_KEY_BLANK = registerItem("bronze_key_blank",
+            () -> new DependentItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.MEKIsPresent, CreateAndFood.THIsPresent));
+
+    public static final RegistryObject<Item> COPPER_KEY_BLANK = registerItem("copper_key_blank",
+            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> GOLDEN_KEY_BLANK = registerItem("golden_key_blank",
+            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> IRON_KEY_BLANK = registerItem("iron_key_blank",
+            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+    public static final RegistryObject<Item> SILVER_KEY_BLANK = registerItem("silver_key_blank",
+            () -> new DependentItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
+                    CreateAndFood.THIsPresent, CreateAndFood.IEIsPresent));
+
+    public static final RegistryObject<Item> STEEL_KEY_BLANK = registerItem("steel_key_blank",
+            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+
+
 
     public static final RegistryObject<SequencedAssemblyItem> INCOMPLETE_COIN = registerItem("incomplete_coin",
             () -> new SequencedAssemblyItem(new Item.Properties()));

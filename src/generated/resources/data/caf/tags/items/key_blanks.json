@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "#caf:key_blanks/aluminum",
+    "#caf:key_blanks/andesite",
+    "#caf:key_blanks/brass",
+    "#caf:key_blanks/bronze",
+    "#caf:key_blanks/copper",
+    "#caf:key_blanks/golden",
+    "#caf:key_blanks/iron",
+    "#caf:key_blanks/silver",
+    "#caf:key_blanks/steel"
+  ]
+}

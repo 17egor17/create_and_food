@@ -101,9 +101,6 @@ public class KineticGeneratorBlockEntity extends KineticBlockEntity implements I
 
         if (speed >= AllConfigs.server().kinetics.mediumSpeed.get().floatValue()) {
             float generated = BASE_OUTPUT * speed * EFFICIENCY;
-            System.out.println(speed);
-            if (speed != 0)
-                System.out.println(generated);
             lastGenerated = generated;
 
             float newEnergy = Math.min(energyStorage.getEnergyStored().getRawEnergy() + generated, BUFFER_CAPACITY);

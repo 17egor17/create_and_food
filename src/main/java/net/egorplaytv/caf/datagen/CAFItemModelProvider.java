@@ -17,6 +17,7 @@ import java.util.List;
 import static net.egorplaytv.caf.CreateAndFood.MOD_ID;
 import static net.egorplaytv.caf.block.CAFBlocks.*;
 import static net.egorplaytv.caf.item.CAFItems.*;
+import static net.egorplaytv.caf.item.CAFItems.ANDESITE_KEY_BLANK;
 
 public class CAFItemModelProvider extends ItemModelProvider {
     public CAFItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -126,6 +127,24 @@ public class CAFItemModelProvider extends ItemModelProvider {
         ingotItem(INVAR_INGOT.get(), 100, 1200);
         nuggetItem(INVAR_NUGGET.get(), 100, 1200);
 
+        simpleItem(ALUMINUM_KEY.get(), "keys");
+        simpleItem(ANDESITE_KEY.get(), "keys");
+        simpleItem(BRASS_KEY.get(), "keys");
+        simpleItem(BRONZE_KEY.get(), "keys");
+        simpleItem(COPPER_KEY.get(), "keys");
+        simpleItem(GOLDEN_KEY.get(), "keys");
+        simpleItem(IRON_KEY.get(), "keys");
+        simpleItem(SILVER_KEY.get(), "keys");
+        simpleItem(STEEL_KEY.get(), "keys");
+        simpleItem(ALUMINUM_KEY_BLANK.get(), "keys");
+        simpleItem(ANDESITE_KEY_BLANK.get(), "keys");
+        simpleItem(BRASS_KEY_BLANK.get(), "keys");
+        simpleItem(BRONZE_KEY_BLANK.get(), "keys");
+        simpleItem(COPPER_KEY_BLANK.get(), "keys");
+        simpleItem(GOLDEN_KEY_BLANK.get(), "keys");
+        simpleItem(IRON_KEY_BLANK.get(), "keys");
+        simpleItem(SILVER_KEY_BLANK.get(), "keys");
+        simpleItem(STEEL_KEY_BLANK.get(), "keys");
 
         ingotItem(STEEL_INGOT.get(), 800, 1300);
         nuggetItem(STEEL_NUGGET.get(), 800, 1300);

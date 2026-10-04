@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "#caf:keys/aluminum",
+    "#caf:keys/andesite",
+    "#caf:keys/brass",
+    "#caf:keys/bronze",
+    "#caf:keys/copper",
+    "#caf:keys/golden",
+    "#caf:keys/iron",
+    "#caf:keys/silver",
+    "#caf:keys/steel"
+  ]
+}
