@@ -439,30 +439,30 @@ public class CAFItems {
                     CreateAndFood.IEIsPresent));
 
     public static final RegistryObject<Item> ANDESITE_KEY_BLANK = registerItem("andesite_key_blank",
-            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> BRASS_KEY_BLANK = registerItem("brass_key_blank",
-            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> BRONZE_KEY_BLANK = registerItem("bronze_key_blank",
             () -> new DependentItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.MEKIsPresent, CreateAndFood.THIsPresent));
 
     public static final RegistryObject<Item> COPPER_KEY_BLANK = registerItem("copper_key_blank",
-            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> GOLDEN_KEY_BLANK = registerItem("golden_key_blank",
-            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> IRON_KEY_BLANK = registerItem("iron_key_blank",
-            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
     public static final RegistryObject<Item> SILVER_KEY_BLANK = registerItem("silver_key_blank",
             () -> new DependentItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.THIsPresent, CreateAndFood.IEIsPresent));
 
     public static final RegistryObject<Item> STEEL_KEY_BLANK = registerItem("steel_key_blank",
-            () -> new KeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
+            () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
 
 
