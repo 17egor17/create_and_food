@@ -1,0 +1,24 @@
+{
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"particle": "caf:block/wire_connected",
+		"wire": "caf:block/wire_connected"
+	},
+	"elements": [
+		{
+			"from": [4, 4, 4],
+			"to": [12, 12, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 5, 6]},
+			"faces": {
+				"north": {"uv": [12, 0, 16, 4], "texture": "#wire"},
+				"east": {"uv": [12, 0, 16, 4], "texture": "#wire"},
+				"south": {"uv": [12, 0, 16, 4], "texture": "#wire"},
+				"west": {"uv": [12, 0, 16, 4], "texture": "#wire"},
+				"up": {"uv": [12, 0, 16, 4], "texture": "#wire"},
+				"down": {"uv": [12, 0, 16, 4], "texture": "#wire"}
+			}
+		}
+	]
+}
