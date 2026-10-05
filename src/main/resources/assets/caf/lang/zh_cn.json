@@ -952,7 +952,7 @@
   "caf.ponder.scales.header": "Using scales",
   "caf.ponder.scales.text_1": "To start weighing, you need to put the item on the scales",
   "caf.ponder.scales.text_2": "Then right-click on the scales with an empty hand",
-  "caf.ponder.scales.text_3": "This ingot weighs 1 kg",
+  "caf.ponder.scales.text_3": "This ingot weighs 9 kg",
   "caf.ponder.scales.text_4": "To remove the item from the scales, you need to click",
   "caf.ponder.steel_cogwheel.header": "Relaying rotational force using Steel Cogwheels",
   "caf.ponder.steel_cogwheel.text_1": "Steel Cogwheels will relay rotation to other adjacent cogwheels",
