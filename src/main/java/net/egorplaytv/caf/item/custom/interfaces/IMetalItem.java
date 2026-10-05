@@ -25,11 +25,4 @@ public interface IMetalItem {
      * @return The melting point of the metal in {@link CAFDegreeUnits}
      */
     CAFDegreeUnits getMeltingPoint();
-
-    /**
-     * This method is called when the item is in the inventory of a block entity.
-     * @param stack An item located in the inventory of an entity block.
-     */
-
-    void tickInInventory(ItemStack stack, Level level);
 }

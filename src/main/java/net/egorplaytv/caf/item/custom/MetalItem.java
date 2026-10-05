@@ -5,6 +5,7 @@ import net.egorplaytv.caf.config.DegreeUnits;
 import net.egorplaytv.caf.damage.CAFDamageSource;
 import net.egorplaytv.caf.datagen.custom.ModItemModelsProperties;
 import net.egorplaytv.caf.item.custom.interfaces.IMetalItem;
+import net.egorplaytv.caf.item.custom.interfaces.ITickableItem;
 import net.egorplaytv.caf.item.entity.custom.MIEntity;
 import net.egorplaytv.caf.util.CAFTags;
 import net.egorplaytv.caf.units.degree.CAFDegreeUnits;
@@ -29,7 +30,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class MetalItem extends Item implements IMetalItem {
+public class MetalItem extends Item implements IMetalItem, ITickableItem {
     private final CAFDegreeUnits meltingPoint;
     protected int heatingSpeed;
     protected Metals metalType;
