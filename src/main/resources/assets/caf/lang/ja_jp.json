@@ -999,7 +999,7 @@
   "caf.ponder.scales.header": "秤の使用",
   "caf.ponder.scales.text_1": "計量を開始するには、物を秤の上に置く必要があります",
   "caf.ponder.scales.text_2": "次に、空の手で秤に右クリックします",
-  "caf.ponder.scales.text_3": "このインゴットの重量は1kgです",
+  "caf.ponder.scales.text_3": "このインゴットの重量は9kgです",
   "caf.ponder.scales.text_4": "天秤から物を取るには、ボタンを押してください",
   "caf.ponder.steel_cogwheel.header": "鋼鉄の歯車による回転力の伝達",
   "caf.ponder.steel_cogwheel.text_1": "鋼鉄の歯車は隣接する歯車へ回転力を伝達します",
