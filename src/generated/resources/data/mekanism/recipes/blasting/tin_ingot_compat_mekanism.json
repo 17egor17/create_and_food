@@ -6,7 +6,10 @@
     }
   ],
   "result": {
-    "item": "caf:tin_ingot"
+    "item": "caf:tin_ingot",
+    "nbt": {
+      "deg": 181.0
+    }
   },
   "comment_time": "min 200 time",
   "time": 400,

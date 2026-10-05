@@ -12,7 +12,10 @@
     }
   ],
   "result": {
-    "item": "caf:gold_ingot"
+    "item": "caf:gold_ingot",
+    "nbt": {
+      "deg": 1014.18
+    }
   },
   "comment_time": "min 200 time",
   "time": 400,

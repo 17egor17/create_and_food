@@ -554,6 +554,10 @@
 
 
   "caf.berry_bush.circumcised": "§cВы не можете обрезать черенок, потому что он уже обрезан или еще не пророс",
+  "caf.door.key_bound": "Этот ключ был привязан",
+  "caf.door.locked": "Эта дверь заперта",
+  "caf.door.unlocked": "Дверь открыта",
+  "caf.door.wrong_key": "Этот ключ не подошёл",
   "caf.energy.caf": "%s / %s",
   "caf.generic.unit.dimperage": "Д",
   "caf.generic.unit.kdimperage": "кД",
@@ -1181,6 +1185,8 @@
   "tooltip.caf.degreesF": "§8Плавится при температуре§e %s§r°F",
   "tooltip.caf.degreesK": "§8Плавится при температуре§e %s§r K",
   "tooltip.caf.doesnt_despawn": "§7Этот предмет не будет исчезать",
+  "tooltip.caf.door.id": "ID привязанного ключа: %s",
+  "tooltip.caf.door.unbound": "Эта дверь не имеет привязанного ключа",
   "tooltip.caf.fermentation_barrel.days": "В этом блоке используются §4minecraft§r дни",
   "tooltip.caf.fermentation_barrel.minutes": "В этом блоке используются §4реальные§r минуты",
   "tooltip.caf.fermentation_barrel.seconds": "В этом блоке используются §4реальные§r секунды",

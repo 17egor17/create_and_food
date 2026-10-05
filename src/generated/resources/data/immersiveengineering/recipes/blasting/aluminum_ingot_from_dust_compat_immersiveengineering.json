@@ -6,7 +6,10 @@
     }
   ],
   "result": {
-    "item": "caf:aluminum_ingot"
+    "item": "caf:aluminum_ingot",
+    "nbt": {
+      "deg": 610.0
+    }
   },
   "comment_time": "min 200 time",
   "time": 400,

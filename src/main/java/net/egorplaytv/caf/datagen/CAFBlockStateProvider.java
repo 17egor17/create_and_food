@@ -122,6 +122,10 @@ public class CAFBlockStateProvider extends BlockStateProvider {
                         .build();
             }
         });
+        doorBlock(LOCKABLE_OAK_DOOR.get(),
+                new ResourceLocation("minecraft", "block/oak_door_bottom"),
+                new ResourceLocation("minecraft", "block/oak_door_top"));
+
         getVariantBuilder(CREATIVE_GENERATOR.get()).forAllStates(state -> {
             Direction direction = state.getValue(CreativeGeneratorBlock.FACING);
             if (direction.equals(Direction.NORTH)){

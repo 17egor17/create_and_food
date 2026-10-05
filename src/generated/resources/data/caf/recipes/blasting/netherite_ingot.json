@@ -6,7 +6,10 @@
     }
   ],
   "result": {
-    "item": "caf:netherite_ingot"
+    "item": "caf:netherite_ingot",
+    "nbt": {
+      "deg": 3083.0
+    }
   },
   "comment_time": "min 200 time",
   "time": 400,

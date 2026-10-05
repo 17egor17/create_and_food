@@ -6,7 +6,10 @@
     }
   ],
   "result": {
-    "item": "caf:tungsten_ingot"
+    "item": "caf:tungsten_ingot",
+    "nbt": {
+      "deg": 3371.0
+    }
   },
   "comment_time": "min 200 time",
   "time": 400,

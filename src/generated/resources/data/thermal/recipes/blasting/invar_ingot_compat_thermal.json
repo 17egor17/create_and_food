@@ -13,7 +13,10 @@
   ],
   "result": {
     "item": "caf:invar_ingot",
-    "count": 3
+    "count": 3,
+    "nbt": {
+      "deg": 1488.0
+    }
   },
   "comment_time": "min 200 time",
   "time": 1200,

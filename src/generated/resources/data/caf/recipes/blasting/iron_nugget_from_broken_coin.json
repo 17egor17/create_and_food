@@ -6,7 +6,10 @@
     }
   ],
   "result": {
-    "item": "caf:iron_nugget"
+    "item": "caf:iron_nugget",
+    "nbt": {
+      "deg": 1488.0
+    }
   },
   "comment_time": "min 200 time",
   "time": 200,

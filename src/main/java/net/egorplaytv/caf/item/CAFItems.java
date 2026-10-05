@@ -404,6 +404,7 @@ public class CAFItems {
             () -> new Item(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD)));
 
 
+
     public static final RegistryObject<KeyItem> ALUMINUM_KEY = registerItem("aluminum_key",
             () -> new DependentKeyItem(new Item.Properties().tab(CAFCreativeModeTab.CREATE_AND_FOOD),
                     CreateAndFood.IEIsPresent));

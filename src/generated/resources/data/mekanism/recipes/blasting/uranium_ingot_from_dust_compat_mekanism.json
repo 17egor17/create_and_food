@@ -6,7 +6,10 @@
     }
   ],
   "result": {
-    "item": "caf:uranium_ingot"
+    "item": "caf:uranium_ingot",
+    "nbt": {
+      "deg": 1082.0
+    }
   },
   "comment_time": "min 200 time",
   "time": 400,

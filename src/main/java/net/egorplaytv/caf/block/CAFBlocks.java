@@ -37,6 +37,7 @@ import net.egorplaytv.caf.energy.CreativeGeneratorBlock;
 import net.egorplaytv.caf.energy.KineticGeneratorBlock;
 import net.egorplaytv.caf.item.CAFCreativeModeTab;
 import net.egorplaytv.caf.item.CAFItems;
+import net.egorplaytv.caf.item.custom.LockableDoorItem;
 import net.egorplaytv.caf.item.custom.CAFCogwheelBlockItem;
 import net.egorplaytv.caf.sound.CAFSounds;
 import net.egorplaytv.caf.world.feature.tree.AlmondTreeGrower;
@@ -206,6 +207,10 @@ public class CAFBlocks {
     public static final RegistryObject<TerminalBlock> TERMINAL = registryBlock("terminal",
             () -> new TerminalBlock(BlockBehaviour.Properties.of(Material.METAL).strength(2.0F)
                     .sound(SoundType.METAL).requiresCorrectToolForDrops()), CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
+
+    public static final RegistryObject<LockableDoorBlock> LOCKABLE_OAK_DOOR = registryLockableDoorBlock("lockable_oak_door",
+            () -> new LockableDoorBlock(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD)),
+            CAFCreativeModeTab.CREATE_AND_FOOD_DECORATIVE);
 
 
     public static BlockEntry<GrinderBlock> MECHANICAL_GRINDER;
@@ -957,6 +962,18 @@ public class CAFBlocks {
                 pTooltip.add(new TranslatableComponent("tooltip.caf." + name + ".days"));
             }
         });
+    }
+
+    private static <T extends Block> RegistryObject<T> registryLockableDoorBlock(String name, Supplier<T> block, CreativeModeTab tab) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerLockableDoorBlockItem(name, toReturn, tab);
+        return toReturn;
+    }
+
+    private static <T extends Block> RegistryObject<Item> registerLockableDoorBlockItem(String name, RegistryObject<T> block,
+                                                                            CreativeModeTab tab) {
+        return CAFItems.ITEMS.register(name, () -> new LockableDoorItem(block.get(),
+                new Item.Properties().tab(tab)));
     }
 
     private static <T extends Block> RegistryObject<T> registryBlock(String name, Supplier<T> block, CreativeModeTab tab) {

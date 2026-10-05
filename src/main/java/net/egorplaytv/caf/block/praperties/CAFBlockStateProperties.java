@@ -27,4 +27,6 @@ public class CAFBlockStateProperties {
     public static final IntegerProperty AGE_14 = IntegerProperty.create("age",0,14);
 
     public static final IntegerProperty COUNT = IntegerProperty.create("count", 0, 5);
+
+    public static final BooleanProperty LOCKED = BooleanProperty.create("locked");
 }

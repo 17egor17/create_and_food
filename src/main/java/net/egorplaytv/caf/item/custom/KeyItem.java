@@ -3,6 +3,7 @@ package net.egorplaytv.caf.item.custom;
 import net.egorplaytv.caf.data.KeyData;
 import net.egorplaytv.caf.event.KeyRegistry;
 import net.egorplaytv.caf.item.custom.interfaces.ITickableItem;
+import net.egorplaytv.caf.util.CAFTags;
 import net.egorplaytv.caf.util.TextUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
@@ -65,7 +66,7 @@ public class KeyItem extends Item implements ITickableItem {
             }
         }
 
-        if (mainHand.getItem() instanceof KeyItem && offHand.getItem() instanceof ShearsItem) {
+        if (mainHand.getItem() instanceof KeyItem && offHand.is(CAFTags.Items.CUT_TOOLS)) {
             if (mainHand.getTag() != null && mainHand.getTag().contains("keyName")
                     && !mainHand.getTag().getString("keyName").isEmpty()) {
                 ItemStack nameTag = new ItemStack(Items.NAME_TAG);
@@ -76,7 +77,7 @@ public class KeyItem extends Item implements ITickableItem {
                 mainHand.getTag().putString("keyName", "");
                 return InteractionResultHolder.consume(mainHand);
             }
-        } else if (mainHand.getItem() instanceof ShearsItem && offHand.getItem() instanceof KeyItem) {
+        } else if (mainHand.is(CAFTags.Items.CUT_TOOLS) && offHand.getItem() instanceof KeyItem) {
             if (offHand.getTag() != null && offHand.getTag().contains("keyName")
                     && !offHand.getTag().getString("keyName").isEmpty()) {
                 ItemStack nameTag = new ItemStack(Items.NAME_TAG);

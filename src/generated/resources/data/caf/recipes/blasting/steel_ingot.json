@@ -12,7 +12,10 @@
     }
   ],
   "result": {
-    "item": "caf:steel_ingot"
+    "item": "caf:steel_ingot",
+    "nbt": {
+      "deg": 1488.0
+    }
   },
   "comment_time": "min 200 time",
   "time": 400,

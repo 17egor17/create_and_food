@@ -13,7 +13,10 @@
   ],
   "result": {
     "item": "caf:copper_ingot",
-    "count": 3
+    "count": 3,
+    "nbt": {
+      "deg": 1033.4
+    }
   },
   "comment_time": "min 200 time",
   "time": 1200,

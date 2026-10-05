@@ -6,7 +6,10 @@
     }
   ],
   "result": {
-    "item": "caf:gold_nugget"
+    "item": "caf:gold_nugget",
+    "nbt": {
+      "deg": 1014.18
+    }
   },
   "comment_time": "min 200 time",
   "time": 200,

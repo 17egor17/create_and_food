@@ -171,9 +171,9 @@ public abstract class WildBerryBushBlock extends BushBlock implements Bonemealab
             ItemHandlerHelper.giveItemToPlayer(pPlayer, setBranch);
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
         } else if (pPlayer.getItemInHand(pHand).is(CAFTags.Items.CUT_TOOLS) && pState.getValue(CUT) == Boolean.valueOf(true)) {
-            pPlayer.displayClientMessage(TextUtils.getWildBerryBushTranslation("circumcised", new Object[0]), true);
+            pPlayer.displayClientMessage(TextUtils.getWildBerryBushTranslation("circumcised"), true);
         } else if (pPlayer.getItemInHand(pHand).is(CAFTags.Items.CUT_TOOLS)) {
-            pPlayer.displayClientMessage(TextUtils.getWildBerryBushTranslation("circumcised", new Object[0]), true);
+            pPlayer.displayClientMessage(TextUtils.getWildBerryBushTranslation("circumcised"), true);
         } else if (i > 0) {
             ItemStack setBerries = getBerry();
             if (pState.getValue(AGE) == MAX_AGE) {

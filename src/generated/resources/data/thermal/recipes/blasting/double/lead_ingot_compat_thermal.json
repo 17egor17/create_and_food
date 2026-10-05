@@ -10,7 +10,10 @@
   ],
   "result": {
     "item": "caf:lead_ingot",
-    "count": 2
+    "count": 2,
+    "nbt": {
+      "deg": 277.0
+    }
   },
   "comment_time": "min 200 time",
   "time": 800,

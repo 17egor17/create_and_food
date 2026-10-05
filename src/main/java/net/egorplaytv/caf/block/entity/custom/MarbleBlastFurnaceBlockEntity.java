@@ -958,9 +958,9 @@ public class MarbleBlastFurnaceBlockEntity extends BlockEntity implements MenuPr
             entity.itemHandler.setStackInSlot(4, new ItemStack(match.get().getResultItem().getItem(),
                     entity.itemHandler.getStackInSlot(4).getCount() + match.get().getResultItem().getCount()));
 
-            if (entity.itemHandler.getStackInSlot(4).getItem() instanceof MetalItem item) {
-                item.setDeg(entity.itemHandler.getStackInSlot(4), match.get().getDeg().getDegreeInC() - 50);
-            }
+//            if (entity.itemHandler.getStackInSlot(4).getItem() instanceof MetalItem item) {
+//                item.setDeg(entity.itemHandler.getStackInSlot(4), match.get().getDeg().getDegreeInC() - 50);
+//            }
             entity.resetProgress();
         }
     }

@@ -70,6 +70,7 @@ public class CAFBlockLootTables extends BlockLoot {
         this.dropSelf(SPRUCE_BARREL.get());
         this.dropSelf(WARPED_BARREL.get());
         this.dropSelf(TERMINAL.get());
+        this.add(LOCKABLE_OAK_DOOR.get(), BlockLoot::createDoorTable);
         this.dropSelf(CREATIVE_GENERATOR.get());
         this.dropSelf(CABLE_BLOCK.get());
         this.dropSelf(COBBLED_MARBLE.get());

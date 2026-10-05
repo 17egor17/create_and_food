@@ -198,9 +198,9 @@ public abstract class BerryBushBlock extends BushBlock implements BonemealableBl
             ItemHandlerHelper.giveItemToPlayer(pPlayer, setBranch);
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
         } else if (i > 4 && pPlayer.getItemInHand(pHand).is(CAFTags.Items.CUT_TOOLS) && pState.getValue(CUT) == Boolean.valueOf(true)) {
-            pPlayer.displayClientMessage(TextUtils.getBerryBushTranslation("circumcised", new Object[0]), true);
+            pPlayer.displayClientMessage(TextUtils.getBerryBushTranslation("circumcised"), true);
         } else if (i < 5 && pPlayer.getItemInHand(pHand).is(CAFTags.Items.CUT_TOOLS)) {
-            pPlayer.displayClientMessage(TextUtils.getBerryBushTranslation("circumcised", new Object[0]), true);
+            pPlayer.displayClientMessage(TextUtils.getBerryBushTranslation("circumcised"), true);
         } else if (i > 5) {
             ItemStack setBerries = getBerry();
             if (pState.getValue(AGE) == MAX_AGE) {

@@ -301,6 +301,7 @@ public class CAFItemModelProvider extends ItemModelProvider {
         blockItem(SPRUCE_BARREL.get(), "barrels");
         blockItem(WARPED_BARREL.get(), "barrels");
         blockItem(TERMINAL.get(), "terminal", "terminal_item");
+        minecraftItem(LOCKABLE_OAK_DOOR.get().asItem(), "oak_door");
         blockItem(CREATIVE_GENERATOR.get(), "creative_generator");
         blockItem(COBBLED_MARBLE.get(), "marbles");
         blockItem(COBBLED_MARBLE_BLACK_GALAXY.get(), "marbles");
@@ -862,9 +863,13 @@ public class CAFItemModelProvider extends ItemModelProvider {
     }
 
     private ItemModelBuilder minecraftItem(Item item){
+        return minecraftItem(item, item.getRegistryName().getPath());
+    }
+
+    private ItemModelBuilder minecraftItem(Item item, String textureName){
         return withExistingParent(item.getRegistryName().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation("item/" + item.getRegistryName().getPath()));
+                new ResourceLocation("item/" + textureName));
     }
 
     private ItemModelBuilder simpleItem(Item item, String path, String textureName){

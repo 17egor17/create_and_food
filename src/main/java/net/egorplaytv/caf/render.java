@@ -50,6 +50,7 @@ public class render {
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.CRIMSON_FRUITLIGHT_BUSH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.WILD_CRIMSON_FRUITLIGHT_BUSH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.ALMOND_DOOR.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(CAFBlocks.LOCKABLE_OAK_DOOR.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(CAFBlocks.ALMOND_TRAPDOOR.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(CAFFluids.APPLE_VINEGAR.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(CAFFluids.APPLE_VINEGAR_FLOWING.get(), RenderType.translucent());

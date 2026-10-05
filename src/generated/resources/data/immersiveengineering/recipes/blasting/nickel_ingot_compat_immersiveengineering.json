@@ -6,7 +6,10 @@
     }
   ],
   "result": {
-    "item": "caf:nickel_ingot"
+    "item": "caf:nickel_ingot",
+    "nbt": {
+      "deg": 1405.0
+    }
   },
   "comment_time": "min 200 time",
   "time": 400,

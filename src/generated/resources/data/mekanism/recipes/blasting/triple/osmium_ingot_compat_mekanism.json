@@ -13,7 +13,10 @@
   ],
   "result": {
     "item": "caf:osmium_ingot",
-    "count": 3
+    "count": 3,
+    "nbt": {
+      "deg": 2983.0
+    }
   },
   "comment_time": "min 200 time",
   "time": 800,

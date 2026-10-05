@@ -10,7 +10,10 @@
   ],
   "result": {
     "item": "caf:silver_ingot",
-    "count": 2
+    "count": 2,
+    "nbt": {
+      "deg": 911.0
+    }
   },
   "comment_time": "min 200 time",
   "time": 800,

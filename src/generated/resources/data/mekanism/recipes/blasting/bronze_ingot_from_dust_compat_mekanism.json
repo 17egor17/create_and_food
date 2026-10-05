@@ -6,7 +6,10 @@
     }
   ],
   "result": {
-    "item": "caf:bronze_ingot"
+    "item": "caf:bronze_ingot",
+    "nbt": {
+      "deg": 950.0
+    }
   },
   "comment_time": "min 200 time",
   "time": 400,

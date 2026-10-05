@@ -6,7 +6,10 @@
     }
   ],
   "result": {
-    "item": "caf:tantalum_ingot"
+    "item": "caf:tantalum_ingot",
+    "nbt": {
+      "deg": 2966.0
+    }
   },
   "comment_time": "min 200 time",
   "time": 400,

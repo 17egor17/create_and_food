@@ -42,6 +42,11 @@ public class CAFBlockEntities {
                     BlockEntityType.Builder.of(WorktableBlockEntity::new,
                             CAFBlocks.WORKTABLE.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<LockableDoorBlockEntity>> LOCKABLE_DOOR_ENTITY =
+            BLOCK_ENTITIES.register("lockable_door_entity", () ->
+                    BlockEntityType.Builder.of(LockableDoorBlockEntity::new,
+                            CAFBlocks.LOCKABLE_OAK_DOOR.get()).build(null));
+
     public static final RegistryObject<BlockEntityType<CombiSteamerControllerBlockEntity>> COMBI_STEAMER_CONTROLLER_ENTITY =
             BLOCK_ENTITIES.register("combi_steamer_controller_entity", () ->
                     BlockEntityType.Builder.of(CombiSteamerControllerBlockEntity::new,

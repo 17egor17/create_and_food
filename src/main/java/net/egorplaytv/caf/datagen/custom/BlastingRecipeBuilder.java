@@ -20,12 +20,16 @@ import net.minecraftforge.common.crafting.conditions.NotCondition;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 public class BlastingRecipeBuilder implements RecipeBuilder {
     private final List<Ingredient> ingredients = Lists.newArrayList();
     private final Item result;
+    private final List<Map.Entry<String, String>> stringValueNBT = Lists.newArrayList();
+    private final List<Map.Entry<String, Float>> floatValueNBT = Lists.newArrayList();
     private final int count;
     private final int blastingTime;
     private final float blastingDeg;
@@ -62,6 +66,26 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
 
     public static BlastingRecipeBuilder blastingRecipe(Item result) {
         return new BlastingRecipeBuilder(result, 1, 200, 100, 0.0F);
+    }
+
+    public BlastingRecipeBuilder addResultFValueNBT(Map.Entry<String, Float> nbt) {
+        this.floatValueNBT.add(nbt);
+        return this;
+    }
+
+    public BlastingRecipeBuilder addResultFValueNBT(Map.Entry<String, Float>... nbt) {
+        this.floatValueNBT.addAll(Arrays.asList(nbt));
+        return this;
+    }
+
+    public BlastingRecipeBuilder addResultSValueNBT(Map.Entry<String, String> nbt) {
+        this.stringValueNBT.add(nbt);
+        return this;
+    }
+
+    public BlastingRecipeBuilder addResultSValueNBT(Map.Entry<String, String>... nbt) {
+        this.stringValueNBT.addAll(Arrays.asList(nbt));
+        return this;
     }
 
 
@@ -126,7 +150,7 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void save(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ResourceLocation pRecipeId) {
-        pFinishedRecipeConsumer.accept(new BlastingRecipeBuilder.Result(pRecipeId, this.result, this.count, this.blastingTime,
+        pFinishedRecipeConsumer.accept(new BlastingRecipeBuilder.Result(pRecipeId, this.result, this.floatValueNBT, this.stringValueNBT, this.count, this.blastingTime,
                 this.blastingDeg, this.experience, this.ingredients, this.recipeConditions));
     }
 
@@ -134,16 +158,20 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
         private final ResourceLocation id;
         private final List<Ingredient> ingredients;
         private final Item result;
+        private final List<Map.Entry<String, String>> stringValueNBT;
+        private final List<Map.Entry<String, Float>> floatValueNBT;
         private final int count;
         private int blastingTime;
         private float blastingDeg;
         private final float experience;
         private final List<ICondition> recipeConditions;
 
-        public Result(ResourceLocation pId, Item pResult, int pCount, int pTime, float pDeg, float pExperience,
+        public Result(ResourceLocation pId, Item pResult, List<Map.Entry<String, Float>> floatNBT, List<Map.Entry<String, String>> stringNBT, int pCount, int pTime, float pDeg, float pExperience,
                       List<Ingredient> ingredients, List<ICondition> recipeConditions) {
             this.id = pId;
             this.result = pResult;
+            this.stringValueNBT = stringNBT;
+            this.floatValueNBT = floatNBT;
             this.count = pCount;
             this.blastingTime = pTime;
             this.blastingDeg = pDeg;
@@ -168,6 +196,18 @@ public class BlastingRecipeBuilder implements RecipeBuilder {
             if (this.count > 1) {
                 jsonobject.addProperty("count", this.count);
             }
+            if (!this.stringValueNBT.isEmpty())
+                for (int j = 0; j <= (this.stringValueNBT.size() - 1); j++) {
+                    JsonObject nbt = new JsonObject();
+                    nbt.addProperty(this.stringValueNBT.get(j).getKey(), this.stringValueNBT.get(j).getValue());
+                    jsonobject.add("nbt", nbt);
+                }
+            if (!this.floatValueNBT.isEmpty())
+                for (int j = 0; j <= (this.floatValueNBT.size() - 1); j++) {
+                    JsonObject nbt = new JsonObject();
+                    nbt.addProperty(this.floatValueNBT.get(j).getKey(), this.floatValueNBT.get(j).getValue());
+                    jsonobject.add("nbt", nbt);
+                }
             pJson.add("result", jsonobject);
             if (this.blastingTime >= 200) {
                 pJson.addProperty("comment_time", "min 200 time");
