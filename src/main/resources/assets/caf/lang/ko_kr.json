@@ -952,7 +952,7 @@
   "caf.ponder.scales.header": "저울 사용",
   "caf.ponder.scales.text_1": "계량을 시작하려면 물건을 저울에 올려놓아야 합니다.",
   "caf.ponder.scales.text_2": "다음으로 빈 손으로 저울에 마우스 오른쪽 버튼을 클릭합니다.",
-  "caf.ponder.scales.text_3": "이 주괴 무게는 1킬로입니다.",
+  "caf.ponder.scales.text_3": "This ingot weighs 9 kg",
   "caf.ponder.scales.text_4": "저울에서 물건을 제거하려면 버튼을 눌러야 합니다.",
   "caf.ponder.steel_cogwheel.header": "강철 톱니바퀴를 이용해 동력 전달하기",
   "caf.ponder.steel_cogwheel.text_1": "강철 톱니바퀴는 인접한 톱니바퀴에 동력을 전달합니다.",
