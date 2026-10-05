@@ -6,7 +6,8 @@
 		"particle": "create:block/andesite_block",
 		"andesite_block": "create:block/andesite_block",
 		"side": "caf:block/generator_side",
-		"brass_block": "create:block/brass_block"
+		"brass_block": "create:block/brass_block",
+		"cbs": "create:block/clockwork_bearing_side"
 	},
 	"elements": [
 		{
@@ -129,11 +130,11 @@
 			"to": [11, 11, 2],
 			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
 			"faces": {
-				"north": {"uv": [5, 9, 11, 15], "texture": "#side"},
-				"east": {"uv": [6, 9, 5, 15], "texture": "#side"},
-				"west": {"uv": [10, 9, 11, 15], "texture": "#side"},
-				"up": {"uv": [11, 9, 5, 10], "texture": "#side"},
-				"down": {"uv": [11, 14, 5, 15], "texture": "#side"}
+				"north": {"uv": [5, 7, 11, 13], "texture": "#cbs"},
+				"east": {"uv": [6, 7, 5, 13], "texture": "#cbs"},
+				"west": {"uv": [10, 7, 11, 13], "texture": "#cbs"},
+				"up": {"uv": [11, 7, 5, 8], "texture": "#cbs"},
+				"down": {"uv": [11, 12, 5, 13], "texture": "#cbs"}
 			}
 		},
 		{
